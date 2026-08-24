@@ -17,6 +17,7 @@ Local-first платформа для проведения офлайн-турн
 
 ```bash
 make bootstrap
+make generate
 make run-web
 make run-flutter
 ```

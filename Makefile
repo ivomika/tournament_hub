@@ -5,7 +5,7 @@ WEB_DIR := apps/spectator_web
 FLUTTER_DEVICE ?= macos
 FLUTTER_BUILD_TARGET ?= apk
 
-.PHONY: help bootstrap install flutter-get web-install run run-flutter run-web \
+.PHONY: help bootstrap install flutter-get web-install generate run run-flutter run-web \
 	format format-check lint test test-flutter test-web check build \
 	build-flutter build-web bundle-spectator clean
 
@@ -21,6 +21,9 @@ flutter-get:
 
 web-install:
 	cd $(WEB_DIR) && npm install
+
+generate: ## Сгенерировать код Drift и Freezed
+	cd $(FLUTTER_DIR) && dart run build_runner build
 
 run: ## Запустить spectator web в фоне и Flutter на переднем плане
 	@(cd $(WEB_DIR) && npm run dev) & web_pid=$$!; \

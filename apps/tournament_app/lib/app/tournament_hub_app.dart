@@ -1,7 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:tournament_app/features/profile/application/local_profile_controller.dart';
+import 'package:tournament_app/features/profile/domain/repositories/local_profile_repository.dart';
+import 'package:tournament_app/features/profile/presentation/profile_gate.dart';
 
-class TournamentHubApp extends StatelessWidget {
-  const TournamentHubApp({super.key});
+class TournamentHubApp extends StatefulWidget {
+  const TournamentHubApp({required this.profileRepository, super.key});
+
+  final LocalProfileRepository profileRepository;
+
+  @override
+  State<TournamentHubApp> createState() => _TournamentHubAppState();
+}
+
+class _TournamentHubAppState extends State<TournamentHubApp> {
+  late final LocalProfileController _profileController;
+
+  @override
+  void initState() {
+    super.initState();
+    _profileController = LocalProfileController(widget.profileRepository)
+      ..initialize();
+  }
+
+  @override
+  void dispose() {
+    _profileController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -15,27 +40,7 @@ class TournamentHubApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      home: const _BootstrapScreen(),
-    );
-  }
-}
-
-class _BootstrapScreen extends StatelessWidget {
-  const _BootstrapScreen();
-
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text('TOURNAMENT HUB'),
-            SizedBox(height: 8),
-            Text('Локальная турнирная сессия'),
-          ],
-        ),
-      ),
+      home: ProfileGate(controller: _profileController),
     );
   }
 }
