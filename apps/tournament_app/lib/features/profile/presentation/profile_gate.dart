@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:tournament_app/features/profile/application/local_profile_controller.dart';
+import 'package:tournament_app/features/profile/domain/entities/local_profile.dart';
 import 'package:tournament_app/features/profile/presentation/profile_screen.dart';
 import 'package:tournament_app/features/profile/presentation/profile_onboarding_screen.dart';
+import 'package:tournament_app/features/tournament/application/tournament_creation_controller.dart';
+import 'package:tournament_app/features/tournament/presentation/tournament_creation_screen.dart';
 
 class ProfileGate extends StatelessWidget {
-  const ProfileGate({required this.controller, super.key});
+  const ProfileGate({
+    required this.controller,
+    required this.createTournamentController,
+    super.key,
+  });
 
   final LocalProfileController controller;
+  final TournamentCreationController Function(LocalProfile)
+  createTournamentController;
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +29,7 @@ class ProfileGate extends StatelessWidget {
           ),
           LocalProfileStatus.authenticated => _HomeScreen(
             controller: controller,
+            createTournamentController: createTournamentController,
           ),
           LocalProfileStatus.failure => _LoadingFailureScreen(
             message: controller.errorMessage!,
@@ -67,9 +77,14 @@ class _LoadingFailureScreen extends StatelessWidget {
 }
 
 class _HomeScreen extends StatelessWidget {
-  const _HomeScreen({required this.controller});
+  const _HomeScreen({
+    required this.controller,
+    required this.createTournamentController,
+  });
 
   final LocalProfileController controller;
+  final TournamentCreationController Function(LocalProfile)
+  createTournamentController;
 
   @override
   Widget build(BuildContext context) {
@@ -91,9 +106,35 @@ class _HomeScreen extends StatelessWidget {
         ],
       ),
       body: Center(
-        child: Text(
-          'Добро пожаловать, ${controller.profile!.nickname.value}!',
-          style: Theme.of(context).textTheme.headlineSmall,
+        child: Padding(
+          padding: const EdgeInsets.all(24),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                'Добро пожаловать, ${controller.profile!.nickname.value}!',
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.headlineSmall,
+              ),
+              const SizedBox(height: 24),
+              FilledButton.icon(
+                key: const Key('open-tournament-creation'),
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute<void>(
+                      builder: (_) => TournamentCreationScreen(
+                        controller: createTournamentController(
+                          controller.profile!,
+                        ),
+                      ),
+                    ),
+                  );
+                },
+                icon: const Icon(Icons.emoji_events_outlined),
+                label: const Text('Создать турнир'),
+              ),
+            ],
+          ),
         ),
       ),
     );

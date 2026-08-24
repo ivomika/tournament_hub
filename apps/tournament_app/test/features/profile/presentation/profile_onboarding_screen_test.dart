@@ -7,12 +7,14 @@ import 'package:tournament_app/features/profile/domain/entities/local_profile.da
 import 'package:tournament_app/features/profile/domain/exceptions/local_profile_storage_exception.dart';
 
 import '../../../support/fake_local_profile_repository.dart';
+import '../../../support/fake_id_generator.dart';
+import '../../../support/fake_tournament_repository.dart';
 
 void main() {
   testWidgets('показывает создание профиля при первом запуске', (tester) async {
     final repository = FakeLocalProfileRepository();
 
-    await tester.pumpWidget(TournamentHubApp(profileRepository: repository));
+    await tester.pumpWidget(_app(repository));
     await tester.pumpAndSettle();
 
     expect(find.text('Создайте профиль'), findsOneWidget);
@@ -30,7 +32,7 @@ void main() {
       profile: LocalProfile.create(id: 'profile-id', nickname: 'Игрок'),
     );
 
-    await tester.pumpWidget(TournamentHubApp(profileRepository: repository));
+    await tester.pumpWidget(_app(repository));
     await tester.pumpAndSettle();
 
     expect(find.text('Создайте профиль'), findsNothing);
@@ -44,7 +46,7 @@ void main() {
       saveError: const LocalProfileStorageException('Хранилище недоступно.'),
     );
 
-    await tester.pumpWidget(TournamentHubApp(profileRepository: repository));
+    await tester.pumpWidget(_app(repository));
     await tester.pumpAndSettle();
     await tester.enterText(find.byType(TextFormField), 'Игрок');
     await tester.tap(find.text('Продолжить'));
@@ -61,7 +63,7 @@ void main() {
     final completer = Completer<void>();
     final repository = FakeLocalProfileRepository(saveCompleter: completer);
 
-    await tester.pumpWidget(TournamentHubApp(profileRepository: repository));
+    await tester.pumpWidget(_app(repository));
     await tester.pumpAndSettle();
     await tester.enterText(find.byType(TextFormField), 'Игрок');
     await tester.tap(find.text('Продолжить'));
@@ -81,12 +83,18 @@ void main() {
     await tester.binding.setSurfaceSize(const Size(1200, 800));
     addTearDown(() => tester.binding.setSurfaceSize(null));
 
-    await tester.pumpWidget(
-      TournamentHubApp(profileRepository: FakeLocalProfileRepository()),
-    );
+    await tester.pumpWidget(_app(FakeLocalProfileRepository()));
     await tester.pumpAndSettle();
 
     expect(tester.getSize(find.byType(Form)).width, lessThanOrEqualTo(440));
     expect(tester.takeException(), isNull);
   });
+}
+
+TournamentHubApp _app(FakeLocalProfileRepository repository) {
+  return TournamentHubApp(
+    profileRepository: repository,
+    tournamentRepository: FakeTournamentRepository(),
+    idGenerator: FakeIdGenerator(),
+  );
 }

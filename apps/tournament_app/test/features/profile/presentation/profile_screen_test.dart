@@ -5,6 +5,8 @@ import 'package:tournament_app/features/profile/domain/entities/local_profile.da
 import 'package:tournament_app/features/profile/domain/exceptions/local_profile_storage_exception.dart';
 
 import '../../../support/fake_local_profile_repository.dart';
+import '../../../support/fake_id_generator.dart';
+import '../../../support/fake_tournament_repository.dart';
 
 void main() {
   testWidgets('показывает текущий nickname', (tester) async {
@@ -107,7 +109,13 @@ Future<void> _openProfile(
   WidgetTester tester,
   FakeLocalProfileRepository repository,
 ) async {
-  await tester.pumpWidget(TournamentHubApp(profileRepository: repository));
+  await tester.pumpWidget(
+    TournamentHubApp(
+      profileRepository: repository,
+      tournamentRepository: FakeTournamentRepository(),
+      idGenerator: FakeIdGenerator(),
+    ),
+  );
   await tester.pumpAndSettle();
   await tester.tap(find.byTooltip('Открыть профиль'));
   await tester.pumpAndSettle();

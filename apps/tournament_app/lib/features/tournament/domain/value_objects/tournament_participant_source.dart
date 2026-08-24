@@ -1,0 +1,1 @@
+enum TournamentParticipantSource { localProfile, guestProfile }

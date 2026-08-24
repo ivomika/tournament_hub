@@ -24,6 +24,12 @@ Host владеет активным состоянием `LocalGroup` и `Tourn
 
 Для MVP устройство хранит один локальный профиль. Его стабильная identity не зависит от изменяемого nickname. Domain-модель и repository contract находятся в profile feature и не зависят от Flutter или технологии хранения. Отсутствие профиля является нормальным состоянием первого запуска, а ошибки чтения и записи представлены отдельно.
 
+## Локальный tournament draft
+
+Первый Tournament Core создаёт draft из ровно одного обязательного `LocalProfile` и одного или нескольких `GuestProfile`. Гостевой профиль является временной отдельной сущностью и не превращается в постоянный профиль устройства.
+
+`TournamentParticipant` хранит snapshot identity, nickname и source на момент создания. Последующее переименование исходного профиля не меняет уже созданный состав. Domain проверяет минимум двух участников, единственность local profile и отсутствие duplicate identity. Application use case получает ID и persistence через ports; Flutter, Drift, assets и сеть остаются за границей Core.
+
 ## Основной поток данных
 
 ```text
