@@ -1,0 +1,41 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Flutter: установить зависимости",
+      "type": "shell",
+      "command": "flutter",
+      "args": ["pub", "get"],
+      "options": {
+        "cwd": "${workspaceFolder}/apps/tournament_app"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Flutter: анализ",
+      "type": "shell",
+      "command": "flutter",
+      "args": ["analyze"],
+      "options": {
+        "cwd": "${workspaceFolder}/apps/tournament_app"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Flutter: тесты",
+      "type": "shell",
+      "command": "flutter",
+      "args": ["test"],
+      "options": {
+        "cwd": "${workspaceFolder}/apps/tournament_app"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Flutter: проверить проект",
+      "dependsOrder": "sequence",
+      "dependsOn": ["Flutter: анализ", "Flutter: тесты"],
+      "problemMatcher": []
+    }
+  ]
+}

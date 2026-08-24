@@ -1,0 +1,30 @@
+# Редакторы и операционная система
+.DS_Store
+.idea/
+*.iml
+
+# Локальное окружение
+.env
+.env.*
+!.env.example
+
+# JavaScript
+node_modules/
+dist/
+coverage/
+*.log
+*.tsbuildinfo
+
+# Flutter / Dart
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+build/
+**/doc/api/
+
+# Сгенерированный spectator bundle, встроенный во Flutter
+apps/tournament_app/assets/spectator/*
+!apps/tournament_app/assets/spectator/README.md

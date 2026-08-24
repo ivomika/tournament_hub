@@ -1,0 +1,14 @@
+{
+  "dart.projectSearchDepth": 5,
+  "dart.flutterHotReloadOnSave": "all",
+  "editor.formatOnSave": true,
+  "[dart]": {
+    "editor.defaultFormatter": "Dart-Code.dart-code",
+    "editor.formatOnSave": true,
+    "editor.rulers": [80]
+  },
+  "files.exclude": {
+    "**/.dart_tool": true,
+    "**/build": true
+  }
+}
