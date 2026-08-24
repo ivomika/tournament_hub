@@ -1,0 +1,4 @@
+interface:
+  display_name: "Task"
+  short_description: "Декомпозиция запроса в задачи проекта"
+  default_prompt: "Используй $task, чтобы разобрать мой запрос на задачи и сохранить их в ai-context."
