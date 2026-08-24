@@ -4,18 +4,21 @@ import 'package:tournament_app/features/profile/domain/entities/local_profile.da
 import 'package:tournament_app/features/profile/presentation/profile_screen.dart';
 import 'package:tournament_app/features/profile/presentation/profile_onboarding_screen.dart';
 import 'package:tournament_app/features/tournament/application/tournament_creation_controller.dart';
+import 'package:tournament_app/features/tournament/domain/entities/tournament_draft.dart';
 import 'package:tournament_app/features/tournament/presentation/tournament_creation_screen.dart';
 
 class ProfileGate extends StatelessWidget {
   const ProfileGate({
     required this.controller,
     required this.createTournamentController,
+    required this.tournamentScreenBuilder,
     super.key,
   });
 
   final LocalProfileController controller;
   final TournamentCreationController Function(LocalProfile)
   createTournamentController;
+  final Widget Function(TournamentDraft) tournamentScreenBuilder;
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +33,7 @@ class ProfileGate extends StatelessWidget {
           LocalProfileStatus.authenticated => _HomeScreen(
             controller: controller,
             createTournamentController: createTournamentController,
+            tournamentScreenBuilder: tournamentScreenBuilder,
           ),
           LocalProfileStatus.failure => _LoadingFailureScreen(
             message: controller.errorMessage!,
@@ -80,11 +84,13 @@ class _HomeScreen extends StatelessWidget {
   const _HomeScreen({
     required this.controller,
     required this.createTournamentController,
+    required this.tournamentScreenBuilder,
   });
 
   final LocalProfileController controller;
   final TournamentCreationController Function(LocalProfile)
   createTournamentController;
+  final Widget Function(TournamentDraft) tournamentScreenBuilder;
 
   @override
   Widget build(BuildContext context) {
@@ -126,6 +132,7 @@ class _HomeScreen extends StatelessWidget {
                         controller: createTournamentController(
                           controller.profile!,
                         ),
+                        tournamentScreenBuilder: tournamentScreenBuilder,
                       ),
                     ),
                   );

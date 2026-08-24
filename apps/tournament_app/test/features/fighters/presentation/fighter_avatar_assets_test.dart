@@ -45,7 +45,7 @@ void main() {
         .listSync()
         .whereType<File>()
         .where((file) => file.path.endsWith('.png'))
-        .map((file) => file.path)
+        .map((file) => file.path.replaceAll('\\', '/'))
         .toSet();
     expect(actualAssets, expectedAssets);
   });

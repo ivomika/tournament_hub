@@ -2,11 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:tournament_app/app/presentation/layout/app_breakpoints.dart';
 import 'package:tournament_app/features/guest_profile/domain/entities/guest_profile.dart';
 import 'package:tournament_app/features/tournament/application/tournament_creation_controller.dart';
+import 'package:tournament_app/features/tournament/domain/entities/tournament_draft.dart';
 
 class TournamentCreationScreen extends StatefulWidget {
-  const TournamentCreationScreen({required this.controller, super.key});
+  const TournamentCreationScreen({
+    required this.controller,
+    required this.tournamentScreenBuilder,
+    super.key,
+  });
 
   final TournamentCreationController controller;
+  final Widget Function(TournamentDraft) tournamentScreenBuilder;
 
   @override
   State<TournamentCreationScreen> createState() =>
@@ -88,10 +94,12 @@ class _TournamentCreationScreenState extends State<TournamentCreationScreen> {
   Future<void> _create() async {
     final created = await widget.controller.create(_nameController.text);
     if (!mounted || !created) return;
-    ScaffoldMessenger.of(
-      context,
-    ).showSnackBar(const SnackBar(content: Text('Черновик турнира сохранён.')));
-    Navigator.of(context).pop();
+    final draft = widget.controller.savedDraft!;
+    Navigator.of(context).pushReplacement(
+      MaterialPageRoute<void>(
+        builder: (_) => widget.tournamentScreenBuilder(draft),
+      ),
+    );
   }
 
   Future<void> _renameGuest(GuestProfile guest) async {

@@ -48,7 +48,8 @@ void main() {
     expect(repository.saveCalls, 1);
     expect(repository.draft?.name.value, 'Кубок дома');
     expect(repository.draft?.participants, hasLength(2));
-    expect(find.text('Добро пожаловать, Игрок!'), findsOneWidget);
+    expect(find.text('Кубок дома'), findsOneWidget);
+    expect(find.text('Турнир готов'), findsOneWidget);
   });
 
   testWidgets('переименовывает и удаляет гостя', (tester) async {
