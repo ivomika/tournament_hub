@@ -12,6 +12,7 @@ class ProfileGate extends StatelessWidget {
     required this.controller,
     required this.createTournamentController,
     required this.tournamentScreenBuilder,
+    required this.historyScreenBuilder,
     super.key,
   });
 
@@ -19,6 +20,7 @@ class ProfileGate extends StatelessWidget {
   final TournamentCreationController Function(LocalProfile)
   createTournamentController;
   final Widget Function(TournamentDraft) tournamentScreenBuilder;
+  final Widget Function() historyScreenBuilder;
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +36,7 @@ class ProfileGate extends StatelessWidget {
             controller: controller,
             createTournamentController: createTournamentController,
             tournamentScreenBuilder: tournamentScreenBuilder,
+            historyScreenBuilder: historyScreenBuilder,
           ),
           LocalProfileStatus.failure => _LoadingFailureScreen(
             message: controller.errorMessage!,
@@ -85,12 +88,14 @@ class _HomeScreen extends StatelessWidget {
     required this.controller,
     required this.createTournamentController,
     required this.tournamentScreenBuilder,
+    required this.historyScreenBuilder,
   });
 
   final LocalProfileController controller;
   final TournamentCreationController Function(LocalProfile)
   createTournamentController;
   final Widget Function(TournamentDraft) tournamentScreenBuilder;
+  final Widget Function() historyScreenBuilder;
 
   @override
   Widget build(BuildContext context) {
@@ -139,6 +144,19 @@ class _HomeScreen extends StatelessWidget {
                 },
                 icon: const Icon(Icons.emoji_events_outlined),
                 label: const Text('Создать турнир'),
+              ),
+              const SizedBox(height: 12),
+              OutlinedButton.icon(
+                key: const Key('open-tournament-history'),
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute<void>(
+                      builder: (_) => historyScreenBuilder(),
+                    ),
+                  );
+                },
+                icon: const Icon(Icons.history),
+                label: const Text('История турниров'),
               ),
             ],
           ),

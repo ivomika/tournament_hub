@@ -1,8 +1,10 @@
+import 'package:drift/drift.dart';
 import 'package:tournament_app/core/database/app_database.dart';
 import 'package:tournament_app/features/tournament/data/mappers/tournament_participant_mapper.dart';
 import 'package:tournament_app/features/tournament/data/models/tournament_draft_data.dart';
 import 'package:tournament_app/features/tournament/domain/entities/tournament_draft.dart';
 import 'package:tournament_app/features/tournament/domain/value_objects/tournament_id.dart';
+import 'package:tournament_app/features/tournament/domain/value_objects/tournament_format.dart';
 import 'package:tournament_app/features/tournament/domain/value_objects/tournament_name.dart';
 import 'package:tournament_app/features/tournament/domain/value_objects/tournament_status.dart';
 
@@ -16,6 +18,7 @@ final class TournamentDraftMapper {
       id: draft.id.value,
       name: draft.name.value,
       status: draft.status.name,
+      format: draft.format.name,
       participants: [
         for (final (position, participant) in draft.participants.indexed)
           _participantMapper.fromDomain(participant, position),
@@ -31,6 +34,7 @@ final class TournamentDraftMapper {
       id: draft.id,
       name: draft.name,
       status: draft.status,
+      format: draft.format,
       participants: participants.map(_participantMapper.fromRow).toList(),
     );
   }
@@ -43,6 +47,7 @@ final class TournamentDraftMapper {
       id: TournamentId(data.id),
       name: TournamentName(data.name),
       participants: data.participants.map(_participantMapper.toDomain),
+      format: TournamentFormat.values.byName(data.format),
     );
   }
 
@@ -51,6 +56,7 @@ final class TournamentDraftMapper {
       id: data.id,
       name: data.name,
       status: data.status,
+      format: Value(data.format),
     );
   }
 

@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:tournament_app/core/common/domain/id_generator.dart';
+import 'package:tournament_app/features/fighters/domain/repositories/fighter_registry.dart';
 import 'package:tournament_app/features/standings/domain/entities/tournament_outcome.dart';
 import 'package:tournament_app/features/standings/domain/entities/finished_tournament_snapshot.dart';
 import 'package:tournament_app/features/standings/domain/repositories/tournament_completion_repository.dart';
@@ -24,6 +25,7 @@ final class TournamentConductController extends ChangeNotifier {
     required this.ruleset,
     required this.draft,
     required this.setup,
+    this.fighterRegistry,
   });
 
   final StartTournament _startTournament;
@@ -33,6 +35,7 @@ final class TournamentConductController extends ChangeNotifier {
   final TournamentRuleset ruleset;
   final TournamentDraft draft;
   final TournamentSetup setup;
+  final FighterRegistry? fighterRegistry;
 
   ActiveTournament? _tournament;
   FinishedTournamentSnapshot? _finishedSnapshot;
@@ -104,6 +107,12 @@ final class TournamentConductController extends ChangeNotifier {
       final snapshot = FinishedTournamentSnapshot(
         tournament: current,
         outcome: currentOutcome,
+        fighterNamesById: {
+          for (final assignment in current.setup.fighterAssignments)
+            assignment.fighterId:
+                fighterRegistry?.findById(assignment.fighterId)?.displayName ??
+                assignment.fighterId.value,
+        },
       );
       await _completionRepository.saveFinishedTournament(snapshot);
       _finishedSnapshot = snapshot;

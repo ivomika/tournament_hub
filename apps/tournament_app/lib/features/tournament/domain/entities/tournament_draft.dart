@@ -2,6 +2,7 @@ import 'package:equatable/equatable.dart';
 import 'package:tournament_app/features/tournament/domain/entities/tournament_participant.dart';
 import 'package:tournament_app/features/tournament/domain/exceptions/tournament_validation_exception.dart';
 import 'package:tournament_app/features/tournament/domain/value_objects/tournament_id.dart';
+import 'package:tournament_app/features/tournament/domain/value_objects/tournament_format.dart';
 import 'package:tournament_app/features/tournament/domain/value_objects/tournament_name.dart';
 import 'package:tournament_app/features/tournament/domain/value_objects/tournament_participant_source.dart';
 import 'package:tournament_app/features/tournament/domain/value_objects/tournament_status.dart';
@@ -11,6 +12,7 @@ final class TournamentDraft extends Equatable {
     required this.id,
     required this.name,
     required Iterable<TournamentParticipant> participants,
+    this.format = TournamentFormat.roundRobin,
   }) : status = TournamentStatus.draft,
        participants = List.unmodifiable(participants) {
     _validate();
@@ -20,6 +22,7 @@ final class TournamentDraft extends Equatable {
   final TournamentName name;
   final TournamentStatus status;
   final List<TournamentParticipant> participants;
+  final TournamentFormat format;
 
   void _validate() {
     if (participants.length < 2) {
@@ -51,5 +54,5 @@ final class TournamentDraft extends Equatable {
   }
 
   @override
-  List<Object> get props => [id, name, status, participants];
+  List<Object> get props => [id, name, status, participants, format];
 }

@@ -5,6 +5,7 @@ import 'package:tournament_app/features/tournament/domain/entities/tournament_dr
 import 'package:tournament_app/features/tournament/domain/entities/tournament_participant.dart';
 import 'package:tournament_app/features/tournament/domain/repositories/tournament_repository.dart';
 import 'package:tournament_app/features/tournament/domain/value_objects/tournament_id.dart';
+import 'package:tournament_app/features/tournament/domain/value_objects/tournament_format.dart';
 import 'package:tournament_app/features/tournament/domain/value_objects/tournament_name.dart';
 
 final class CreateTournamentDraft {
@@ -17,6 +18,7 @@ final class CreateTournamentDraft {
     required String name,
     required LocalProfile owner,
     required Iterable<GuestProfile> guests,
+    TournamentFormat format = TournamentFormat.roundRobin,
   }) async {
     final participants = <TournamentParticipant>[
       TournamentParticipant.fromLocalProfile(owner),
@@ -26,6 +28,7 @@ final class CreateTournamentDraft {
       id: TournamentId(_idGenerator.nextId()),
       name: TournamentName(name),
       participants: participants,
+      format: format,
     );
     await _repository.saveActiveDraft(draft);
     return draft;

@@ -1,5 +1,9 @@
 import 'package:drift/drift.dart';
 import 'package:tournament_app/core/database/app_database.dart';
+import 'package:tournament_app/features/history/data/mappers/finished_tournament_snapshot_mapper.dart';
+import 'package:tournament_app/features/tournament/data/mappers/finished_double_elimination_snapshot_mapper.dart';
+import 'package:tournament_app/features/history/domain/entities/tournament_history_summary.dart';
+import 'package:tournament_app/features/history/domain/repositories/tournament_history_repository.dart';
 import 'package:tournament_app/features/standings/domain/entities/finished_tournament_snapshot.dart';
 import 'package:tournament_app/features/standings/domain/entities/standings_row.dart';
 import 'package:tournament_app/features/standings/domain/entities/tournament_outcome.dart';
@@ -12,58 +16,40 @@ import 'package:tournament_app/features/tournament/domain/entities/technical_mat
 import 'package:tournament_app/features/tournament/domain/entities/tournament_draft.dart';
 import 'package:tournament_app/features/tournament/domain/exceptions/tournament_storage_exception.dart';
 import 'package:tournament_app/features/tournament/domain/repositories/tournament_repository.dart';
+import 'package:tournament_app/features/tournament/domain/value_objects/tournament_id.dart';
+import 'package:tournament_app/features/tournament/domain/value_objects/tournament_format.dart';
 import 'package:tournament_app/features/tournament/domain/value_objects/tournament_participant_id.dart';
 
 final class DriftTournamentRepository
-    implements TournamentRepository, TournamentCompletionRepository {
+    implements
+        TournamentRepository,
+        TournamentCompletionRepository,
+        TournamentHistoryRepository {
   const DriftTournamentRepository(this._database);
 
   final AppDatabase _database;
   static const _mapper = TournamentDraftMapper();
   static const _activeMapper = ActiveTournamentMapper();
+  static const _snapshotMapper = FinishedTournamentSnapshotMapper();
+  static const _doubleEliminationSnapshotMapper =
+      FinishedDoubleEliminationSnapshotMapper();
 
   @override
   Future<FinishedTournamentSnapshot?> getFinishedTournament() async {
     try {
-      final marker = await (_database.select(
-        _database.finishedTournaments,
-      )..limit(1)).getSingleOrNull();
-      if (marker == null) return null;
-      final draft = await getActiveDraft();
-      if (draft == null || draft.id.value != marker.tournamentId) return null;
-      final tournament = await _loadTournament(
-        draft,
-        rulesetId: marker.rulesetId,
-        rulesetVersion: marker.rulesetVersion,
-      );
-      final standingRows = await (_database.select(
-        _database.finishedStandings,
-      )..orderBy([(table) => OrderingTerm.asc(table.position)])).get();
-      final standings = TournamentStandings(
-        rows: standingRows.map(
-          (row) => StandingsRow(
-            participantId: TournamentParticipantId(row.participantId),
-            position: row.position,
-            matchesPlayed: row.matchesPlayed,
-            wins: row.wins,
-            losses: row.losses,
-            gamesWon: row.gamesWon,
-            gamesLost: row.gamesLost,
-            points: row.points,
-          ),
-        ),
-        completedMatchCount: tournament.matches.length,
-        requiredMatchCount: tournament.matches.length,
-      );
-      return FinishedTournamentSnapshot(
-        tournament: tournament,
-        outcome: TournamentOutcome(
-          rulesetId: marker.rulesetId,
-          rulesetVersion: marker.rulesetVersion,
-          standings: standings,
-          championId: TournamentParticipantId(marker.championId),
-        ),
-      );
+      await _ensureLegacyHistoryMigrated();
+      final record =
+          await (_database.select(_database.tournamentHistoryRecords)
+                ..where(
+                  (table) =>
+                      table.format.equals(TournamentFormat.roundRobin.name),
+                )
+                ..orderBy([(table) => OrderingTerm.desc(table.completionOrder)])
+                ..limit(1))
+              .getSingleOrNull();
+      return record == null
+          ? null
+          : _snapshotMapper.decode(record.snapshotPayload);
     } on TournamentStorageException {
       rethrow;
     } on Object catch (error) {
@@ -75,12 +61,134 @@ final class DriftTournamentRepository
   }
 
   @override
+  Future<List<TournamentHistorySummary>> getHistory() async {
+    try {
+      await _ensureLegacyHistoryMigrated();
+      final rows = await (_database.select(
+        _database.tournamentHistoryRecords,
+      )..orderBy([(table) => OrderingTerm.desc(table.completionOrder)])).get();
+      return rows
+          .map((row) {
+            final format = TournamentFormat.values.byName(row.format);
+            late final String championFighterName;
+            if (format == TournamentFormat.doubleElimination) {
+              final snapshot = _doubleEliminationSnapshotMapper.decode(
+                row.snapshotPayload,
+              );
+              final assignment = snapshot.tournament.fighterAssignments
+                  .firstWhere(
+                    (item) => item.participantId == snapshot.championId,
+                  );
+              championFighterName =
+                  snapshot.fighterNamesById[assignment.fighterId] ??
+                  assignment.fighterId.value;
+            } else {
+              final snapshot = _snapshotMapper.decode(row.snapshotPayload);
+              final assignment = snapshot.tournament.setup.fighterAssignments
+                  .firstWhere(
+                    (item) => item.participantId == snapshot.outcome.championId,
+                  );
+              championFighterName =
+                  snapshot.fighterNamesById[assignment.fighterId] ??
+                  assignment.fighterId.value;
+            }
+            return TournamentHistorySummary(
+              tournamentId: TournamentId(row.tournamentId),
+              name: row.name,
+              championNickname: row.championNickname,
+              championFighterName: championFighterName,
+              participantCount: row.participantCount,
+              rulesetId: row.rulesetId,
+              rulesetVersion: row.rulesetVersion,
+              completionOrder: row.completionOrder,
+              format: format,
+            );
+          })
+          .toList(growable: false);
+    } on TournamentStorageException {
+      rethrow;
+    } on Object catch (error) {
+      throw TournamentStorageException(
+        'Не удалось загрузить историю турниров.',
+        error,
+      );
+    }
+  }
+
+  @override
+  Future<FinishedTournamentSnapshot?> getTournamentById(TournamentId id) async {
+    try {
+      await _ensureLegacyHistoryMigrated();
+      final record =
+          await (_database.select(_database.tournamentHistoryRecords)..where(
+                (table) =>
+                    table.tournamentId.equals(id.value) &
+                    table.format.equals(TournamentFormat.roundRobin.name),
+              ))
+              .getSingleOrNull();
+      return record == null
+          ? null
+          : _snapshotMapper.decode(record.snapshotPayload);
+    } on TournamentStorageException {
+      rethrow;
+    } on Object catch (error) {
+      throw TournamentStorageException(
+        'Не удалось загрузить турнир из истории.',
+        error,
+      );
+    }
+  }
+
+  Future<FinishedTournamentSnapshot?> _loadLegacyFinishedTournament() async {
+    final marker = await (_database.select(
+      _database.finishedTournaments,
+    )..limit(1)).getSingleOrNull();
+    if (marker == null) return null;
+    final draft = await getActiveDraft();
+    if (draft == null || draft.id.value != marker.tournamentId) return null;
+    final tournament = await _loadTournament(
+      draft,
+      rulesetId: marker.rulesetId,
+      rulesetVersion: marker.rulesetVersion,
+    );
+    final standingRows = await (_database.select(
+      _database.finishedStandings,
+    )..orderBy([(table) => OrderingTerm.asc(table.position)])).get();
+    final standings = TournamentStandings(
+      rows: standingRows.map(
+        (row) => StandingsRow(
+          participantId: TournamentParticipantId(row.participantId),
+          position: row.position,
+          matchesPlayed: row.matchesPlayed,
+          wins: row.wins,
+          losses: row.losses,
+          gamesWon: row.gamesWon,
+          gamesLost: row.gamesLost,
+          points: row.points,
+        ),
+      ),
+      completedMatchCount: tournament.matches.length,
+      requiredMatchCount: tournament.matches.length,
+    );
+    return FinishedTournamentSnapshot(
+      tournament: tournament,
+      outcome: TournamentOutcome(
+        rulesetId: marker.rulesetId,
+        rulesetVersion: marker.rulesetVersion,
+        standings: standings,
+        championId: TournamentParticipantId(marker.championId),
+      ),
+    );
+  }
+
+  @override
   Future<void> saveFinishedTournament(
     FinishedTournamentSnapshot snapshot,
   ) async {
     try {
+      await _ensureLegacyHistoryMigrated();
       final existing =
-          await (_database.select(_database.finishedTournaments)..where(
+          await (_database.select(_database.tournamentHistoryRecords)..where(
                 (table) => table.tournamentId.equals(
                   snapshot.tournament.draft.id.value,
                 ),
@@ -88,36 +196,7 @@ final class DriftTournamentRepository
               .getSingleOrNull();
       if (existing != null) return;
       await _database.transaction(() async {
-        await _database
-            .into(_database.finishedTournaments)
-            .insert(
-              FinishedTournamentsCompanion.insert(
-                tournamentId: snapshot.tournament.draft.id.value,
-                rulesetId: snapshot.outcome.rulesetId,
-                rulesetVersion: snapshot.outcome.rulesetVersion,
-                championId: snapshot.outcome.championId!.value,
-              ),
-            );
-        await _database.batch((batch) {
-          batch.insertAll(
-            _database.finishedStandings,
-            snapshot.outcome.standings.rows
-                .map(
-                  (row) => FinishedStandingsCompanion.insert(
-                    tournamentId: snapshot.tournament.draft.id.value,
-                    participantId: row.participantId.value,
-                    position: row.position,
-                    matchesPlayed: row.matchesPlayed,
-                    wins: row.wins,
-                    losses: row.losses,
-                    gamesWon: row.gamesWon,
-                    gamesLost: row.gamesLost,
-                    points: row.points,
-                  ),
-                )
-                .toList(),
-          );
-        });
+        await _insertHistoryRecord(snapshot);
         await (_database.delete(_database.activeTournaments)..where(
               (table) =>
                   table.tournamentId.equals(snapshot.tournament.draft.id.value),
@@ -198,6 +277,7 @@ final class DriftTournamentRepository
   Future<void> saveActiveDraft(TournamentDraft draft) async {
     final data = _mapper.fromDomain(draft);
     try {
+      await _ensureLegacyHistoryMigrated();
       await _database.transaction(() async {
         await _clearCurrentTournamentState();
         await _database
@@ -222,6 +302,7 @@ final class DriftTournamentRepository
   Future<void> saveActiveTournament(ActiveTournament tournament) async {
     final tournamentId = tournament.draft.id.value;
     try {
+      await _ensureLegacyHistoryMigrated();
       await _database.transaction(() async {
         await _clearCurrentTournamentState();
         await _replaceDraft(tournament.draft);
@@ -332,8 +413,7 @@ final class DriftTournamentRepository
   }
 
   Future<void> _clearCurrentTournamentState() async {
-    await _database.delete(_database.finishedStandings).go();
-    await _database.delete(_database.finishedTournaments).go();
+    await _database.delete(_database.activeDoubleEliminationTournaments).go();
     await _database.delete(_database.matchUpdates).go();
     await _database.delete(_database.matchBouts).go();
     await _database.delete(_database.tournamentMatches).go();
@@ -342,6 +422,47 @@ final class DriftTournamentRepository
     await _database.delete(_database.activeTournaments).go();
     await _database.delete(_database.tournamentParticipants).go();
     await _database.delete(_database.tournamentDrafts).go();
+  }
+
+  Future<void> _ensureLegacyHistoryMigrated() async {
+    final hasHistory =
+        await (_database.selectOnly(_database.tournamentHistoryRecords)
+              ..addColumns([
+                _database.tournamentHistoryRecords.completionOrder.count(),
+              ]))
+            .map(
+              (row) =>
+                  row.read(
+                    _database.tournamentHistoryRecords.completionOrder.count(),
+                  ) ??
+                  0,
+            )
+            .getSingle();
+    if (hasHistory > 0) return;
+    final legacy = await _loadLegacyFinishedTournament();
+    if (legacy != null) await _insertHistoryRecord(legacy);
+  }
+
+  Future<void> _insertHistoryRecord(FinishedTournamentSnapshot snapshot) async {
+    final championId = snapshot.outcome.championId!;
+    final champion = snapshot.tournament.draft.participants.firstWhere(
+      (participant) => participant.id == championId,
+    );
+    await _database
+        .into(_database.tournamentHistoryRecords)
+        .insert(
+          TournamentHistoryRecordsCompanion.insert(
+            tournamentId: snapshot.tournament.draft.id.value,
+            name: snapshot.tournament.draft.name.value,
+            championNickname: champion.nickname.value,
+            participantCount: snapshot.tournament.draft.participants.length,
+            rulesetId: snapshot.outcome.rulesetId,
+            rulesetVersion: snapshot.outcome.rulesetVersion,
+            snapshotPayload: _snapshotMapper.encode(snapshot),
+            format: Value(TournamentFormat.roundRobin.name),
+          ),
+          mode: InsertMode.insertOrIgnore,
+        );
   }
 
   Future<ActiveTournament> _loadTournament(

@@ -202,7 +202,7 @@ void main() {
 
     expect(await firstRepository.getActiveTournament(), isNull);
     expect(
-      await firstDatabase.select(firstDatabase.finishedTournaments).get(),
+      await firstDatabase.select(firstDatabase.tournamentHistoryRecords).get(),
       hasLength(1),
     );
     await firstDatabase.close();
@@ -215,7 +215,50 @@ void main() {
     expect(restored, snapshot);
   });
 
-  test('откатывает завершение целиком при ошибке standings', () async {
+  test('хранит несколько завершённых турниров от новых к старым', () async {
+    final database = AppDatabase(executor: NativeDatabase.memory());
+    addTearDown(database.close);
+    final repository = DriftTournamentRepository(database);
+    final firstTournament = _completedTournament();
+    final firstSnapshot = FinishedTournamentSnapshot(
+      tournament: firstTournament,
+      outcome: MvpTournamentRuleset.instance.calculate(firstTournament),
+    );
+    final secondTournament = _completedTournament(
+      id: 'tournament-2',
+      name: 'Второй турнир',
+    );
+    final secondSnapshot = FinishedTournamentSnapshot(
+      tournament: secondTournament,
+      outcome: MvpTournamentRuleset.instance.calculate(secondTournament),
+    );
+
+    await repository.saveActiveTournament(firstTournament);
+    await repository.saveFinishedTournament(firstSnapshot);
+    await repository.saveActiveTournament(secondTournament);
+    await repository.saveFinishedTournament(secondSnapshot);
+    await repository.saveFinishedTournament(secondSnapshot);
+
+    final history = await repository.getHistory();
+    expect(history.map((item) => item.tournamentId.value), [
+      'tournament-2',
+      'tournament-1',
+    ]);
+    expect(history.first.name, 'Второй турнир');
+    expect(history.first.participantCount, 3);
+    expect(history.first.championFighterName, isNotEmpty);
+    expect(
+      await repository.getTournamentById(TournamentId('tournament-1')),
+      firstSnapshot,
+    );
+    expect(await repository.getTournamentById(TournamentId('missing')), isNull);
+    expect(
+      await database.select(database.tournamentHistoryRecords).get(),
+      hasLength(2),
+    );
+  });
+
+  test('откатывает завершение целиком при ошибке history snapshot', () async {
     final database = AppDatabase(executor: NativeDatabase.memory());
     addTearDown(database.close);
     final repository = DriftTournamentRepository(database);
@@ -226,8 +269,8 @@ void main() {
     );
     await repository.saveActiveTournament(tournament);
     await database.customStatement('''
-      CREATE TRIGGER reject_finished_standing
-      BEFORE INSERT ON finished_standings
+      CREATE TRIGGER reject_history_snapshot
+      BEFORE INSERT ON tournament_history_records
       BEGIN
         SELECT RAISE(ABORT, 'тестовая ошибка');
       END;
@@ -239,8 +282,10 @@ void main() {
     );
 
     expect(await repository.getActiveTournament(), tournament);
-    expect(await database.select(database.finishedTournaments).get(), isEmpty);
-    expect(await database.select(database.finishedStandings).get(), isEmpty);
+    expect(
+      await database.select(database.tournamentHistoryRecords).get(),
+      isEmpty,
+    );
   });
 
   test('откатывает всю транзакцию при ошибке записи', () async {
@@ -298,7 +343,7 @@ void main() {
 
     expect(profile?.id.value, 'local-1');
     expect(profile?.nickname.value, 'Игрок');
-    expect(database.schemaVersion, 4);
+    expect(database.schemaVersion, 6);
     expect(await database.select(database.tournamentDrafts).get(), isEmpty);
   });
 
@@ -384,8 +429,11 @@ void main() {
   );
 }
 
-ActiveTournament _activeTournament() {
-  final draft = _draft('Активный', ['Первый', 'Второй']);
+ActiveTournament _activeTournament({
+  String id = 'tournament-1',
+  String name = 'Активный',
+}) {
+  final draft = _draft(name, ['Первый', 'Второй'], id: id);
   final participantIds = draft.participants.map(
     (participant) => participant.id,
   );
@@ -403,8 +451,11 @@ ActiveTournament _activeTournament() {
   return ActiveTournament.fromSetup(draft: draft, setup: setup);
 }
 
-ActiveTournament _completedTournament() {
-  var tournament = _activeTournament();
+ActiveTournament _completedTournament({
+  String id = 'tournament-1',
+  String name = 'Активный',
+}) {
+  var tournament = _activeTournament(id: id, name: name);
   final participantOrder = {
     for (final (index, participant) in tournament.draft.participants.indexed)
       participant.id: index,

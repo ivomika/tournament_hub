@@ -8,6 +8,7 @@ import 'package:tournament_app/features/tournament/application/create_tournament
 import 'package:tournament_app/features/tournament/domain/entities/tournament_draft.dart';
 import 'package:tournament_app/features/tournament/domain/exceptions/tournament_storage_exception.dart';
 import 'package:tournament_app/features/tournament/domain/exceptions/tournament_validation_exception.dart';
+import 'package:tournament_app/features/tournament/domain/value_objects/tournament_format.dart';
 
 enum TournamentCreationStatus { editing, saving, saved }
 
@@ -25,10 +26,12 @@ final class TournamentCreationController extends ChangeNotifier {
   TournamentCreationStatus _status = TournamentCreationStatus.editing;
   String? _errorMessage;
   TournamentDraft? _savedDraft;
+  TournamentFormat _format = TournamentFormat.roundRobin;
 
   TournamentCreationStatus get status => _status;
   String? get errorMessage => _errorMessage;
   TournamentDraft? get savedDraft => _savedDraft;
+  TournamentFormat get format => _format;
   List<GuestProfile> get guests => _guestManager.profiles;
   bool get canSubmit =>
       guests.isNotEmpty && _status == TournamentCreationStatus.editing;
@@ -44,6 +47,15 @@ final class TournamentCreationController extends ChangeNotifier {
       notifyListeners();
       return false;
     }
+  }
+
+  void selectFormat(TournamentFormat format) {
+    if (_status != TournamentCreationStatus.editing || _format == format) {
+      return;
+    }
+    _format = format;
+    _errorMessage = null;
+    notifyListeners();
   }
 
   bool renameGuest(GuestProfileId id, String nickname) {
@@ -76,6 +88,7 @@ final class TournamentCreationController extends ChangeNotifier {
         name: name,
         owner: owner,
         guests: guests,
+        format: _format,
       );
       _status = TournamentCreationStatus.saved;
       return true;

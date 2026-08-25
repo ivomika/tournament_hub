@@ -9,6 +9,7 @@ abstract class TournamentDraftData with _$TournamentDraftData {
     required String id,
     required String name,
     required String status,
+    required String format,
     required List<TournamentParticipantData> participants,
   }) = _TournamentDraftData;
 }

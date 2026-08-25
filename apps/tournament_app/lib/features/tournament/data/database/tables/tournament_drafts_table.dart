@@ -8,6 +8,8 @@ class TournamentDrafts extends Table {
 
   TextColumn get status => text()();
 
+  TextColumn get format => text().withDefault(const Constant('roundRobin'))();
+
   @override
   Set<Column<Object>> get primaryKey => {id};
 }

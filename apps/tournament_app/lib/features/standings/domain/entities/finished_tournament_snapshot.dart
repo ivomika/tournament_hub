@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:tournament_app/features/fighters/domain/value_objects/fighter_id.dart';
 import 'package:tournament_app/features/standings/domain/entities/tournament_outcome.dart';
 import 'package:tournament_app/features/tournament/domain/entities/active_tournament.dart';
 import 'package:tournament_app/features/tournament/domain/exceptions/tournament_validation_exception.dart';
@@ -7,7 +8,14 @@ final class FinishedTournamentSnapshot extends Equatable {
   FinishedTournamentSnapshot({
     required this.tournament,
     required this.outcome,
-  }) {
+    Map<FighterId, String>? fighterNamesById,
+  }) : fighterNamesById = Map.unmodifiable(
+         fighterNamesById ??
+             {
+               for (final assignment in tournament.setup.fighterAssignments)
+                 assignment.fighterId: assignment.fighterId.value,
+             },
+       ) {
     final participantIds = tournament.draft.participants
         .map((participant) => participant.id)
         .toSet();
@@ -34,7 +42,8 @@ final class FinishedTournamentSnapshot extends Equatable {
 
   final ActiveTournament tournament;
   final TournamentOutcome outcome;
+  final Map<FighterId, String> fighterNamesById;
 
   @override
-  List<Object> get props => [tournament, outcome];
+  List<Object> get props => [tournament, outcome, fighterNamesById];
 }

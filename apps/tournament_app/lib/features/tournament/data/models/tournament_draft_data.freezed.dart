@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$TournamentDraftData {
 
- String get id; String get name; String get status; List<TournamentParticipantData> get participants;
+ String get id; String get name; String get status; String get format; List<TournamentParticipantData> get participants;
 /// Create a copy of TournamentDraftData
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -26,16 +26,16 @@ $TournamentDraftDataCopyWith<TournamentDraftData> get copyWith => _$TournamentDr
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is TournamentDraftData&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.status, status) || other.status == status)&&const DeepCollectionEquality().equals(other.participants, participants));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is TournamentDraftData&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.status, status) || other.status == status)&&(identical(other.format, format) || other.format == format)&&const DeepCollectionEquality().equals(other.participants, participants));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,id,name,status,const DeepCollectionEquality().hash(participants));
+int get hashCode => Object.hash(runtimeType,id,name,status,format,const DeepCollectionEquality().hash(participants));
 
 @override
 String toString() {
-  return 'TournamentDraftData(id: $id, name: $name, status: $status, participants: $participants)';
+  return 'TournamentDraftData(id: $id, name: $name, status: $status, format: $format, participants: $participants)';
 }
 
 
@@ -46,7 +46,7 @@ abstract mixin class $TournamentDraftDataCopyWith<$Res>  {
   factory $TournamentDraftDataCopyWith(TournamentDraftData value, $Res Function(TournamentDraftData) _then) = _$TournamentDraftDataCopyWithImpl;
 @useResult
 $Res call({
- String id, String name, String status, List<TournamentParticipantData> participants
+ String id, String name, String status, String format, List<TournamentParticipantData> participants
 });
 
 
@@ -63,11 +63,12 @@ class _$TournamentDraftDataCopyWithImpl<$Res>
 
 /// Create a copy of TournamentDraftData
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? status = null,Object? participants = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? status = null,Object? format = null,Object? participants = null,}) {
   return _then(TournamentDraftData(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
+as String,format: null == format ? _self.format : format // ignore: cast_nullable_to_non_nullable
 as String,participants: null == participants ? _self.participants : participants // ignore: cast_nullable_to_non_nullable
 as List<TournamentParticipantData>,
   ));
@@ -154,10 +155,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String name,  String status,  List<TournamentParticipantData> participants)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String name,  String status,  String format,  List<TournamentParticipantData> participants)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _TournamentDraftData() when $default != null:
-return $default(_that.id,_that.name,_that.status,_that.participants);case _:
+return $default(_that.id,_that.name,_that.status,_that.format,_that.participants);case _:
   return orElse();
 
 }
@@ -175,10 +176,10 @@ return $default(_that.id,_that.name,_that.status,_that.participants);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String name,  String status,  List<TournamentParticipantData> participants)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String name,  String status,  String format,  List<TournamentParticipantData> participants)  $default,) {final _that = this;
 switch (_that) {
 case _TournamentDraftData():
-return $default(_that.id,_that.name,_that.status,_that.participants);case _:
+return $default(_that.id,_that.name,_that.status,_that.format,_that.participants);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -195,10 +196,10 @@ return $default(_that.id,_that.name,_that.status,_that.participants);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String name,  String status,  List<TournamentParticipantData> participants)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String name,  String status,  String format,  List<TournamentParticipantData> participants)?  $default,) {final _that = this;
 switch (_that) {
 case _TournamentDraftData() when $default != null:
-return $default(_that.id,_that.name,_that.status,_that.participants);case _:
+return $default(_that.id,_that.name,_that.status,_that.format,_that.participants);case _:
   return null;
 
 }
@@ -210,12 +211,13 @@ return $default(_that.id,_that.name,_that.status,_that.participants);case _:
 
 
 class _TournamentDraftData implements TournamentDraftData {
-  const _TournamentDraftData({required this.id, required this.name, required this.status, required  List<TournamentParticipantData> participants}): _participants = participants;
+  const _TournamentDraftData({required this.id, required this.name, required this.status, required this.format, required  List<TournamentParticipantData> participants}): _participants = participants;
 
 
 @override final  String id;
 @override final  String name;
 @override final  String status;
+@override final  String format;
  final  List<TournamentParticipantData> _participants;
 @override List<TournamentParticipantData> get participants {
   if (_participants is EqualUnmodifiableListView) return _participants;
@@ -234,16 +236,16 @@ _$TournamentDraftDataCopyWith<_TournamentDraftData> get copyWith => __$Tournamen
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _TournamentDraftData&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.status, status) || other.status == status)&&const DeepCollectionEquality().equals(other._participants, _participants));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _TournamentDraftData&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.status, status) || other.status == status)&&(identical(other.format, format) || other.format == format)&&const DeepCollectionEquality().equals(other._participants, _participants));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,id,name,status,const DeepCollectionEquality().hash(_participants));
+int get hashCode => Object.hash(runtimeType,id,name,status,format,const DeepCollectionEquality().hash(_participants));
 
 @override
 String toString() {
-  return 'TournamentDraftData(id: $id, name: $name, status: $status, participants: $participants)';
+  return 'TournamentDraftData(id: $id, name: $name, status: $status, format: $format, participants: $participants)';
 }
 
 
@@ -254,7 +256,7 @@ abstract mixin class _$TournamentDraftDataCopyWith<$Res> implements $TournamentD
   factory _$TournamentDraftDataCopyWith(_TournamentDraftData value, $Res Function(_TournamentDraftData) _then) = __$TournamentDraftDataCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String name, String status, List<TournamentParticipantData> participants
+ String id, String name, String status, String format, List<TournamentParticipantData> participants
 });
 
 
@@ -271,11 +273,12 @@ class __$TournamentDraftDataCopyWithImpl<$Res>
 
 /// Create a copy of TournamentDraftData
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,Object? status = null,Object? participants = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,Object? status = null,Object? format = null,Object? participants = null,}) {
   return _then(_TournamentDraftData(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
+as String,format: null == format ? _self.format : format // ignore: cast_nullable_to_non_nullable
 as String,participants: null == participants ? _self._participants : participants // ignore: cast_nullable_to_non_nullable
 as List<TournamentParticipantData>,
   ));

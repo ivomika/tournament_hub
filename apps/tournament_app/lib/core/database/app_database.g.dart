@@ -243,8 +243,18 @@ class $TournamentDraftsTable extends TournamentDrafts
     type: DriftSqlType.string,
     requiredDuringInsert: true,
   );
+  static const VerificationMeta _formatMeta = const VerificationMeta('format');
   @override
-  List<GeneratedColumn> get $columns => [id, name, status];
+  late final GeneratedColumn<String> format = GeneratedColumn<String>(
+    'format',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    defaultValue: const Constant('roundRobin'),
+  );
+  @override
+  List<GeneratedColumn> get $columns => [id, name, status, format];
   @override
   String get aliasedName => _alias ?? actualTableName;
   @override
@@ -278,6 +288,12 @@ class $TournamentDraftsTable extends TournamentDrafts
     } else if (isInserting) {
       context.missing(_statusMeta);
     }
+    if (data.containsKey('format')) {
+      context.handle(
+        _formatMeta,
+        format.isAcceptableOrUnknown(data['format']!, _formatMeta),
+      );
+    }
     return context;
   }
 
@@ -299,6 +315,10 @@ class $TournamentDraftsTable extends TournamentDrafts
         DriftSqlType.string,
         data['${effectivePrefix}status'],
       )!,
+      format: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}format'],
+      )!,
     );
   }
 
@@ -313,10 +333,12 @@ class TournamentDraftRow extends DataClass
   final String id;
   final String name;
   final String status;
+  final String format;
   const TournamentDraftRow({
     required this.id,
     required this.name,
     required this.status,
+    required this.format,
   });
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
@@ -324,6 +346,7 @@ class TournamentDraftRow extends DataClass
     map['id'] = Variable<String>(id);
     map['name'] = Variable<String>(name);
     map['status'] = Variable<String>(status);
+    map['format'] = Variable<String>(format);
     return map;
   }
 
@@ -332,6 +355,7 @@ class TournamentDraftRow extends DataClass
       id: Value(id),
       name: Value(name),
       status: Value(status),
+      format: Value(format),
     );
   }
 
@@ -344,6 +368,7 @@ class TournamentDraftRow extends DataClass
       id: serializer.fromJson<String>(json['id']),
       name: serializer.fromJson<String>(json['name']),
       status: serializer.fromJson<String>(json['status']),
+      format: serializer.fromJson<String>(json['format']),
     );
   }
   @override
@@ -353,20 +378,27 @@ class TournamentDraftRow extends DataClass
       'id': serializer.toJson<String>(id),
       'name': serializer.toJson<String>(name),
       'status': serializer.toJson<String>(status),
+      'format': serializer.toJson<String>(format),
     };
   }
 
-  TournamentDraftRow copyWith({String? id, String? name, String? status}) =>
-      TournamentDraftRow(
-        id: id ?? this.id,
-        name: name ?? this.name,
-        status: status ?? this.status,
-      );
+  TournamentDraftRow copyWith({
+    String? id,
+    String? name,
+    String? status,
+    String? format,
+  }) => TournamentDraftRow(
+    id: id ?? this.id,
+    name: name ?? this.name,
+    status: status ?? this.status,
+    format: format ?? this.format,
+  );
   TournamentDraftRow copyWithCompanion(TournamentDraftsCompanion data) {
     return TournamentDraftRow(
       id: data.id.present ? data.id.value : this.id,
       name: data.name.present ? data.name.value : this.name,
       status: data.status.present ? data.status.value : this.status,
+      format: data.format.present ? data.format.value : this.format,
     );
   }
 
@@ -375,37 +407,42 @@ class TournamentDraftRow extends DataClass
     return (StringBuffer('TournamentDraftRow(')
           ..write('id: $id, ')
           ..write('name: $name, ')
-          ..write('status: $status')
+          ..write('status: $status, ')
+          ..write('format: $format')
           ..write(')'))
         .toString();
   }
 
   @override
-  int get hashCode => Object.hash(id, name, status);
+  int get hashCode => Object.hash(id, name, status, format);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       (other is TournamentDraftRow &&
           other.id == this.id &&
           other.name == this.name &&
-          other.status == this.status);
+          other.status == this.status &&
+          other.format == this.format);
 }
 
 class TournamentDraftsCompanion extends UpdateCompanion<TournamentDraftRow> {
   final Value<String> id;
   final Value<String> name;
   final Value<String> status;
+  final Value<String> format;
   final Value<int> rowid;
   const TournamentDraftsCompanion({
     this.id = const Value.absent(),
     this.name = const Value.absent(),
     this.status = const Value.absent(),
+    this.format = const Value.absent(),
     this.rowid = const Value.absent(),
   });
   TournamentDraftsCompanion.insert({
     required String id,
     required String name,
     required String status,
+    this.format = const Value.absent(),
     this.rowid = const Value.absent(),
   }) : id = Value(id),
        name = Value(name),
@@ -414,12 +451,14 @@ class TournamentDraftsCompanion extends UpdateCompanion<TournamentDraftRow> {
     Expression<String>? id,
     Expression<String>? name,
     Expression<String>? status,
+    Expression<String>? format,
     Expression<int>? rowid,
   }) {
     return RawValuesInsertable({
       if (id != null) 'id': id,
       if (name != null) 'name': name,
       if (status != null) 'status': status,
+      if (format != null) 'format': format,
       if (rowid != null) 'rowid': rowid,
     });
   }
@@ -428,12 +467,14 @@ class TournamentDraftsCompanion extends UpdateCompanion<TournamentDraftRow> {
     Value<String>? id,
     Value<String>? name,
     Value<String>? status,
+    Value<String>? format,
     Value<int>? rowid,
   }) {
     return TournamentDraftsCompanion(
       id: id ?? this.id,
       name: name ?? this.name,
       status: status ?? this.status,
+      format: format ?? this.format,
       rowid: rowid ?? this.rowid,
     );
   }
@@ -450,6 +491,9 @@ class TournamentDraftsCompanion extends UpdateCompanion<TournamentDraftRow> {
     if (status.present) {
       map['status'] = Variable<String>(status.value);
     }
+    if (format.present) {
+      map['format'] = Variable<String>(format.value);
+    }
     if (rowid.present) {
       map['rowid'] = Variable<int>(rowid.value);
     }
@@ -462,6 +506,7 @@ class TournamentDraftsCompanion extends UpdateCompanion<TournamentDraftRow> {
           ..write('id: $id, ')
           ..write('name: $name, ')
           ..write('status: $status, ')
+          ..write('format: $format, ')
           ..write('rowid: $rowid')
           ..write(')'))
         .toString();
@@ -3764,6 +3809,836 @@ class FinishedStandingsCompanion extends UpdateCompanion<FinishedStandingRow> {
   }
 }
 
+class $TournamentHistoryRecordsTable extends TournamentHistoryRecords
+    with TableInfo<$TournamentHistoryRecordsTable, TournamentHistoryRecordRow> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $TournamentHistoryRecordsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _completionOrderMeta = const VerificationMeta(
+    'completionOrder',
+  );
+  @override
+  late final GeneratedColumn<int> completionOrder = GeneratedColumn<int>(
+    'completion_order',
+    aliasedName,
+    false,
+    hasAutoIncrement: true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'PRIMARY KEY AUTOINCREMENT',
+    ),
+  );
+  static const VerificationMeta _tournamentIdMeta = const VerificationMeta(
+    'tournamentId',
+  );
+  @override
+  late final GeneratedColumn<String> tournamentId = GeneratedColumn<String>(
+    'tournament_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    defaultConstraints: GeneratedColumn.constraintIsAlways('UNIQUE'),
+  );
+  static const VerificationMeta _nameMeta = const VerificationMeta('name');
+  @override
+  late final GeneratedColumn<String> name = GeneratedColumn<String>(
+    'name',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _championNicknameMeta = const VerificationMeta(
+    'championNickname',
+  );
+  @override
+  late final GeneratedColumn<String> championNickname = GeneratedColumn<String>(
+    'champion_nickname',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _participantCountMeta = const VerificationMeta(
+    'participantCount',
+  );
+  @override
+  late final GeneratedColumn<int> participantCount = GeneratedColumn<int>(
+    'participant_count',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _rulesetIdMeta = const VerificationMeta(
+    'rulesetId',
+  );
+  @override
+  late final GeneratedColumn<String> rulesetId = GeneratedColumn<String>(
+    'ruleset_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _formatMeta = const VerificationMeta('format');
+  @override
+  late final GeneratedColumn<String> format = GeneratedColumn<String>(
+    'format',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    defaultValue: const Constant('roundRobin'),
+  );
+  static const VerificationMeta _rulesetVersionMeta = const VerificationMeta(
+    'rulesetVersion',
+  );
+  @override
+  late final GeneratedColumn<int> rulesetVersion = GeneratedColumn<int>(
+    'ruleset_version',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _snapshotPayloadMeta = const VerificationMeta(
+    'snapshotPayload',
+  );
+  @override
+  late final GeneratedColumn<String> snapshotPayload = GeneratedColumn<String>(
+    'snapshot_payload',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    completionOrder,
+    tournamentId,
+    name,
+    championNickname,
+    participantCount,
+    rulesetId,
+    format,
+    rulesetVersion,
+    snapshotPayload,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'tournament_history_records';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<TournamentHistoryRecordRow> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('completion_order')) {
+      context.handle(
+        _completionOrderMeta,
+        completionOrder.isAcceptableOrUnknown(
+          data['completion_order']!,
+          _completionOrderMeta,
+        ),
+      );
+    }
+    if (data.containsKey('tournament_id')) {
+      context.handle(
+        _tournamentIdMeta,
+        tournamentId.isAcceptableOrUnknown(
+          data['tournament_id']!,
+          _tournamentIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_tournamentIdMeta);
+    }
+    if (data.containsKey('name')) {
+      context.handle(
+        _nameMeta,
+        name.isAcceptableOrUnknown(data['name']!, _nameMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_nameMeta);
+    }
+    if (data.containsKey('champion_nickname')) {
+      context.handle(
+        _championNicknameMeta,
+        championNickname.isAcceptableOrUnknown(
+          data['champion_nickname']!,
+          _championNicknameMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_championNicknameMeta);
+    }
+    if (data.containsKey('participant_count')) {
+      context.handle(
+        _participantCountMeta,
+        participantCount.isAcceptableOrUnknown(
+          data['participant_count']!,
+          _participantCountMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_participantCountMeta);
+    }
+    if (data.containsKey('ruleset_id')) {
+      context.handle(
+        _rulesetIdMeta,
+        rulesetId.isAcceptableOrUnknown(data['ruleset_id']!, _rulesetIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_rulesetIdMeta);
+    }
+    if (data.containsKey('format')) {
+      context.handle(
+        _formatMeta,
+        format.isAcceptableOrUnknown(data['format']!, _formatMeta),
+      );
+    }
+    if (data.containsKey('ruleset_version')) {
+      context.handle(
+        _rulesetVersionMeta,
+        rulesetVersion.isAcceptableOrUnknown(
+          data['ruleset_version']!,
+          _rulesetVersionMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_rulesetVersionMeta);
+    }
+    if (data.containsKey('snapshot_payload')) {
+      context.handle(
+        _snapshotPayloadMeta,
+        snapshotPayload.isAcceptableOrUnknown(
+          data['snapshot_payload']!,
+          _snapshotPayloadMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_snapshotPayloadMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {completionOrder};
+  @override
+  TournamentHistoryRecordRow map(
+    Map<String, dynamic> data, {
+    String? tablePrefix,
+  }) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return TournamentHistoryRecordRow(
+      completionOrder: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}completion_order'],
+      )!,
+      tournamentId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}tournament_id'],
+      )!,
+      name: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}name'],
+      )!,
+      championNickname: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}champion_nickname'],
+      )!,
+      participantCount: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}participant_count'],
+      )!,
+      rulesetId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}ruleset_id'],
+      )!,
+      format: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}format'],
+      )!,
+      rulesetVersion: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}ruleset_version'],
+      )!,
+      snapshotPayload: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}snapshot_payload'],
+      )!,
+    );
+  }
+
+  @override
+  $TournamentHistoryRecordsTable createAlias(String alias) {
+    return $TournamentHistoryRecordsTable(attachedDatabase, alias);
+  }
+}
+
+class TournamentHistoryRecordRow extends DataClass
+    implements Insertable<TournamentHistoryRecordRow> {
+  final int completionOrder;
+  final String tournamentId;
+  final String name;
+  final String championNickname;
+  final int participantCount;
+  final String rulesetId;
+  final String format;
+  final int rulesetVersion;
+  final String snapshotPayload;
+  const TournamentHistoryRecordRow({
+    required this.completionOrder,
+    required this.tournamentId,
+    required this.name,
+    required this.championNickname,
+    required this.participantCount,
+    required this.rulesetId,
+    required this.format,
+    required this.rulesetVersion,
+    required this.snapshotPayload,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['completion_order'] = Variable<int>(completionOrder);
+    map['tournament_id'] = Variable<String>(tournamentId);
+    map['name'] = Variable<String>(name);
+    map['champion_nickname'] = Variable<String>(championNickname);
+    map['participant_count'] = Variable<int>(participantCount);
+    map['ruleset_id'] = Variable<String>(rulesetId);
+    map['format'] = Variable<String>(format);
+    map['ruleset_version'] = Variable<int>(rulesetVersion);
+    map['snapshot_payload'] = Variable<String>(snapshotPayload);
+    return map;
+  }
+
+  TournamentHistoryRecordsCompanion toCompanion(bool nullToAbsent) {
+    return TournamentHistoryRecordsCompanion(
+      completionOrder: Value(completionOrder),
+      tournamentId: Value(tournamentId),
+      name: Value(name),
+      championNickname: Value(championNickname),
+      participantCount: Value(participantCount),
+      rulesetId: Value(rulesetId),
+      format: Value(format),
+      rulesetVersion: Value(rulesetVersion),
+      snapshotPayload: Value(snapshotPayload),
+    );
+  }
+
+  factory TournamentHistoryRecordRow.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return TournamentHistoryRecordRow(
+      completionOrder: serializer.fromJson<int>(json['completionOrder']),
+      tournamentId: serializer.fromJson<String>(json['tournamentId']),
+      name: serializer.fromJson<String>(json['name']),
+      championNickname: serializer.fromJson<String>(json['championNickname']),
+      participantCount: serializer.fromJson<int>(json['participantCount']),
+      rulesetId: serializer.fromJson<String>(json['rulesetId']),
+      format: serializer.fromJson<String>(json['format']),
+      rulesetVersion: serializer.fromJson<int>(json['rulesetVersion']),
+      snapshotPayload: serializer.fromJson<String>(json['snapshotPayload']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'completionOrder': serializer.toJson<int>(completionOrder),
+      'tournamentId': serializer.toJson<String>(tournamentId),
+      'name': serializer.toJson<String>(name),
+      'championNickname': serializer.toJson<String>(championNickname),
+      'participantCount': serializer.toJson<int>(participantCount),
+      'rulesetId': serializer.toJson<String>(rulesetId),
+      'format': serializer.toJson<String>(format),
+      'rulesetVersion': serializer.toJson<int>(rulesetVersion),
+      'snapshotPayload': serializer.toJson<String>(snapshotPayload),
+    };
+  }
+
+  TournamentHistoryRecordRow copyWith({
+    int? completionOrder,
+    String? tournamentId,
+    String? name,
+    String? championNickname,
+    int? participantCount,
+    String? rulesetId,
+    String? format,
+    int? rulesetVersion,
+    String? snapshotPayload,
+  }) => TournamentHistoryRecordRow(
+    completionOrder: completionOrder ?? this.completionOrder,
+    tournamentId: tournamentId ?? this.tournamentId,
+    name: name ?? this.name,
+    championNickname: championNickname ?? this.championNickname,
+    participantCount: participantCount ?? this.participantCount,
+    rulesetId: rulesetId ?? this.rulesetId,
+    format: format ?? this.format,
+    rulesetVersion: rulesetVersion ?? this.rulesetVersion,
+    snapshotPayload: snapshotPayload ?? this.snapshotPayload,
+  );
+  TournamentHistoryRecordRow copyWithCompanion(
+    TournamentHistoryRecordsCompanion data,
+  ) {
+    return TournamentHistoryRecordRow(
+      completionOrder: data.completionOrder.present
+          ? data.completionOrder.value
+          : this.completionOrder,
+      tournamentId: data.tournamentId.present
+          ? data.tournamentId.value
+          : this.tournamentId,
+      name: data.name.present ? data.name.value : this.name,
+      championNickname: data.championNickname.present
+          ? data.championNickname.value
+          : this.championNickname,
+      participantCount: data.participantCount.present
+          ? data.participantCount.value
+          : this.participantCount,
+      rulesetId: data.rulesetId.present ? data.rulesetId.value : this.rulesetId,
+      format: data.format.present ? data.format.value : this.format,
+      rulesetVersion: data.rulesetVersion.present
+          ? data.rulesetVersion.value
+          : this.rulesetVersion,
+      snapshotPayload: data.snapshotPayload.present
+          ? data.snapshotPayload.value
+          : this.snapshotPayload,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('TournamentHistoryRecordRow(')
+          ..write('completionOrder: $completionOrder, ')
+          ..write('tournamentId: $tournamentId, ')
+          ..write('name: $name, ')
+          ..write('championNickname: $championNickname, ')
+          ..write('participantCount: $participantCount, ')
+          ..write('rulesetId: $rulesetId, ')
+          ..write('format: $format, ')
+          ..write('rulesetVersion: $rulesetVersion, ')
+          ..write('snapshotPayload: $snapshotPayload')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    completionOrder,
+    tournamentId,
+    name,
+    championNickname,
+    participantCount,
+    rulesetId,
+    format,
+    rulesetVersion,
+    snapshotPayload,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is TournamentHistoryRecordRow &&
+          other.completionOrder == this.completionOrder &&
+          other.tournamentId == this.tournamentId &&
+          other.name == this.name &&
+          other.championNickname == this.championNickname &&
+          other.participantCount == this.participantCount &&
+          other.rulesetId == this.rulesetId &&
+          other.format == this.format &&
+          other.rulesetVersion == this.rulesetVersion &&
+          other.snapshotPayload == this.snapshotPayload);
+}
+
+class TournamentHistoryRecordsCompanion
+    extends UpdateCompanion<TournamentHistoryRecordRow> {
+  final Value<int> completionOrder;
+  final Value<String> tournamentId;
+  final Value<String> name;
+  final Value<String> championNickname;
+  final Value<int> participantCount;
+  final Value<String> rulesetId;
+  final Value<String> format;
+  final Value<int> rulesetVersion;
+  final Value<String> snapshotPayload;
+  const TournamentHistoryRecordsCompanion({
+    this.completionOrder = const Value.absent(),
+    this.tournamentId = const Value.absent(),
+    this.name = const Value.absent(),
+    this.championNickname = const Value.absent(),
+    this.participantCount = const Value.absent(),
+    this.rulesetId = const Value.absent(),
+    this.format = const Value.absent(),
+    this.rulesetVersion = const Value.absent(),
+    this.snapshotPayload = const Value.absent(),
+  });
+  TournamentHistoryRecordsCompanion.insert({
+    this.completionOrder = const Value.absent(),
+    required String tournamentId,
+    required String name,
+    required String championNickname,
+    required int participantCount,
+    required String rulesetId,
+    this.format = const Value.absent(),
+    required int rulesetVersion,
+    required String snapshotPayload,
+  }) : tournamentId = Value(tournamentId),
+       name = Value(name),
+       championNickname = Value(championNickname),
+       participantCount = Value(participantCount),
+       rulesetId = Value(rulesetId),
+       rulesetVersion = Value(rulesetVersion),
+       snapshotPayload = Value(snapshotPayload);
+  static Insertable<TournamentHistoryRecordRow> custom({
+    Expression<int>? completionOrder,
+    Expression<String>? tournamentId,
+    Expression<String>? name,
+    Expression<String>? championNickname,
+    Expression<int>? participantCount,
+    Expression<String>? rulesetId,
+    Expression<String>? format,
+    Expression<int>? rulesetVersion,
+    Expression<String>? snapshotPayload,
+  }) {
+    return RawValuesInsertable({
+      if (completionOrder != null) 'completion_order': completionOrder,
+      if (tournamentId != null) 'tournament_id': tournamentId,
+      if (name != null) 'name': name,
+      if (championNickname != null) 'champion_nickname': championNickname,
+      if (participantCount != null) 'participant_count': participantCount,
+      if (rulesetId != null) 'ruleset_id': rulesetId,
+      if (format != null) 'format': format,
+      if (rulesetVersion != null) 'ruleset_version': rulesetVersion,
+      if (snapshotPayload != null) 'snapshot_payload': snapshotPayload,
+    });
+  }
+
+  TournamentHistoryRecordsCompanion copyWith({
+    Value<int>? completionOrder,
+    Value<String>? tournamentId,
+    Value<String>? name,
+    Value<String>? championNickname,
+    Value<int>? participantCount,
+    Value<String>? rulesetId,
+    Value<String>? format,
+    Value<int>? rulesetVersion,
+    Value<String>? snapshotPayload,
+  }) {
+    return TournamentHistoryRecordsCompanion(
+      completionOrder: completionOrder ?? this.completionOrder,
+      tournamentId: tournamentId ?? this.tournamentId,
+      name: name ?? this.name,
+      championNickname: championNickname ?? this.championNickname,
+      participantCount: participantCount ?? this.participantCount,
+      rulesetId: rulesetId ?? this.rulesetId,
+      format: format ?? this.format,
+      rulesetVersion: rulesetVersion ?? this.rulesetVersion,
+      snapshotPayload: snapshotPayload ?? this.snapshotPayload,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (completionOrder.present) {
+      map['completion_order'] = Variable<int>(completionOrder.value);
+    }
+    if (tournamentId.present) {
+      map['tournament_id'] = Variable<String>(tournamentId.value);
+    }
+    if (name.present) {
+      map['name'] = Variable<String>(name.value);
+    }
+    if (championNickname.present) {
+      map['champion_nickname'] = Variable<String>(championNickname.value);
+    }
+    if (participantCount.present) {
+      map['participant_count'] = Variable<int>(participantCount.value);
+    }
+    if (rulesetId.present) {
+      map['ruleset_id'] = Variable<String>(rulesetId.value);
+    }
+    if (format.present) {
+      map['format'] = Variable<String>(format.value);
+    }
+    if (rulesetVersion.present) {
+      map['ruleset_version'] = Variable<int>(rulesetVersion.value);
+    }
+    if (snapshotPayload.present) {
+      map['snapshot_payload'] = Variable<String>(snapshotPayload.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('TournamentHistoryRecordsCompanion(')
+          ..write('completionOrder: $completionOrder, ')
+          ..write('tournamentId: $tournamentId, ')
+          ..write('name: $name, ')
+          ..write('championNickname: $championNickname, ')
+          ..write('participantCount: $participantCount, ')
+          ..write('rulesetId: $rulesetId, ')
+          ..write('format: $format, ')
+          ..write('rulesetVersion: $rulesetVersion, ')
+          ..write('snapshotPayload: $snapshotPayload')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $ActiveDoubleEliminationTournamentsTable
+    extends ActiveDoubleEliminationTournaments
+    with
+        TableInfo<
+          $ActiveDoubleEliminationTournamentsTable,
+          ActiveDoubleEliminationTournamentRow
+        > {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $ActiveDoubleEliminationTournamentsTable(
+    this.attachedDatabase, [
+    this._alias,
+  ]);
+  static const VerificationMeta _tournamentIdMeta = const VerificationMeta(
+    'tournamentId',
+  );
+  @override
+  late final GeneratedColumn<String> tournamentId = GeneratedColumn<String>(
+    'tournament_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _payloadMeta = const VerificationMeta(
+    'payload',
+  );
+  @override
+  late final GeneratedColumn<String> payload = GeneratedColumn<String>(
+    'payload',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [tournamentId, payload];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'active_double_elimination_tournaments';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<ActiveDoubleEliminationTournamentRow> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('tournament_id')) {
+      context.handle(
+        _tournamentIdMeta,
+        tournamentId.isAcceptableOrUnknown(
+          data['tournament_id']!,
+          _tournamentIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_tournamentIdMeta);
+    }
+    if (data.containsKey('payload')) {
+      context.handle(
+        _payloadMeta,
+        payload.isAcceptableOrUnknown(data['payload']!, _payloadMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_payloadMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {tournamentId};
+  @override
+  ActiveDoubleEliminationTournamentRow map(
+    Map<String, dynamic> data, {
+    String? tablePrefix,
+  }) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return ActiveDoubleEliminationTournamentRow(
+      tournamentId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}tournament_id'],
+      )!,
+      payload: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}payload'],
+      )!,
+    );
+  }
+
+  @override
+  $ActiveDoubleEliminationTournamentsTable createAlias(String alias) {
+    return $ActiveDoubleEliminationTournamentsTable(attachedDatabase, alias);
+  }
+}
+
+class ActiveDoubleEliminationTournamentRow extends DataClass
+    implements Insertable<ActiveDoubleEliminationTournamentRow> {
+  final String tournamentId;
+  final String payload;
+  const ActiveDoubleEliminationTournamentRow({
+    required this.tournamentId,
+    required this.payload,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['tournament_id'] = Variable<String>(tournamentId);
+    map['payload'] = Variable<String>(payload);
+    return map;
+  }
+
+  ActiveDoubleEliminationTournamentsCompanion toCompanion(bool nullToAbsent) {
+    return ActiveDoubleEliminationTournamentsCompanion(
+      tournamentId: Value(tournamentId),
+      payload: Value(payload),
+    );
+  }
+
+  factory ActiveDoubleEliminationTournamentRow.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return ActiveDoubleEliminationTournamentRow(
+      tournamentId: serializer.fromJson<String>(json['tournamentId']),
+      payload: serializer.fromJson<String>(json['payload']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'tournamentId': serializer.toJson<String>(tournamentId),
+      'payload': serializer.toJson<String>(payload),
+    };
+  }
+
+  ActiveDoubleEliminationTournamentRow copyWith({
+    String? tournamentId,
+    String? payload,
+  }) => ActiveDoubleEliminationTournamentRow(
+    tournamentId: tournamentId ?? this.tournamentId,
+    payload: payload ?? this.payload,
+  );
+  ActiveDoubleEliminationTournamentRow copyWithCompanion(
+    ActiveDoubleEliminationTournamentsCompanion data,
+  ) {
+    return ActiveDoubleEliminationTournamentRow(
+      tournamentId: data.tournamentId.present
+          ? data.tournamentId.value
+          : this.tournamentId,
+      payload: data.payload.present ? data.payload.value : this.payload,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('ActiveDoubleEliminationTournamentRow(')
+          ..write('tournamentId: $tournamentId, ')
+          ..write('payload: $payload')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(tournamentId, payload);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is ActiveDoubleEliminationTournamentRow &&
+          other.tournamentId == this.tournamentId &&
+          other.payload == this.payload);
+}
+
+class ActiveDoubleEliminationTournamentsCompanion
+    extends UpdateCompanion<ActiveDoubleEliminationTournamentRow> {
+  final Value<String> tournamentId;
+  final Value<String> payload;
+  final Value<int> rowid;
+  const ActiveDoubleEliminationTournamentsCompanion({
+    this.tournamentId = const Value.absent(),
+    this.payload = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  ActiveDoubleEliminationTournamentsCompanion.insert({
+    required String tournamentId,
+    required String payload,
+    this.rowid = const Value.absent(),
+  }) : tournamentId = Value(tournamentId),
+       payload = Value(payload);
+  static Insertable<ActiveDoubleEliminationTournamentRow> custom({
+    Expression<String>? tournamentId,
+    Expression<String>? payload,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (tournamentId != null) 'tournament_id': tournamentId,
+      if (payload != null) 'payload': payload,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  ActiveDoubleEliminationTournamentsCompanion copyWith({
+    Value<String>? tournamentId,
+    Value<String>? payload,
+    Value<int>? rowid,
+  }) {
+    return ActiveDoubleEliminationTournamentsCompanion(
+      tournamentId: tournamentId ?? this.tournamentId,
+      payload: payload ?? this.payload,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (tournamentId.present) {
+      map['tournament_id'] = Variable<String>(tournamentId.value);
+    }
+    if (payload.present) {
+      map['payload'] = Variable<String>(payload.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('ActiveDoubleEliminationTournamentsCompanion(')
+          ..write('tournamentId: $tournamentId, ')
+          ..write('payload: $payload, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
   $AppDatabaseManager get managers => $AppDatabaseManager(this);
@@ -3788,6 +4663,12 @@ abstract class _$AppDatabase extends GeneratedDatabase {
       $FinishedTournamentsTable(this);
   late final $FinishedStandingsTable finishedStandings =
       $FinishedStandingsTable(this);
+  late final $TournamentHistoryRecordsTable tournamentHistoryRecords =
+      $TournamentHistoryRecordsTable(this);
+  late final $ActiveDoubleEliminationTournamentsTable
+  activeDoubleEliminationTournaments = $ActiveDoubleEliminationTournamentsTable(
+    this,
+  );
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -3804,6 +4685,8 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     matchUpdates,
     finishedTournaments,
     finishedStandings,
+    tournamentHistoryRecords,
+    activeDoubleEliminationTournaments,
   ];
   @override
   StreamQueryUpdateRules get streamUpdateRules => const StreamQueryUpdateRules([
@@ -4023,6 +4906,7 @@ typedef $$TournamentDraftsTableCreateCompanionBuilder =
       required String id,
       required String name,
       required String status,
+      Value<String> format,
       Value<int> rowid,
     });
 typedef $$TournamentDraftsTableUpdateCompanionBuilder =
@@ -4030,6 +4914,7 @@ typedef $$TournamentDraftsTableUpdateCompanionBuilder =
       Value<String> id,
       Value<String> name,
       Value<String> status,
+      Value<String> format,
       Value<int> rowid,
     });
 
@@ -4264,6 +5149,11 @@ class $$TournamentDraftsTableFilterComposer
 
   ColumnFilters<String> get status => $composableBuilder(
     column: $table.status,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get format => $composableBuilder(
+    column: $table.format,
     builder: (column) => ColumnFilters(column),
   );
 
@@ -4521,6 +5411,11 @@ class $$TournamentDraftsTableOrderingComposer
     column: $table.status,
     builder: (column) => ColumnOrderings(column),
   );
+
+  ColumnOrderings<String> get format => $composableBuilder(
+    column: $table.format,
+    builder: (column) => ColumnOrderings(column),
+  );
 }
 
 class $$TournamentDraftsTableAnnotationComposer
@@ -4540,6 +5435,9 @@ class $$TournamentDraftsTableAnnotationComposer
 
   GeneratedColumn<String> get status =>
       $composableBuilder(column: $table.status, builder: (column) => column);
+
+  GeneratedColumn<String> get format =>
+      $composableBuilder(column: $table.format, builder: (column) => column);
 
   Expression<T> tournamentParticipantsRefs<T extends Object>(
     Expression<T> Function($$TournamentParticipantsTableAnnotationComposer a) f,
@@ -4819,11 +5717,13 @@ class $$TournamentDraftsTableTableManager
                 Value<String> id = const Value.absent(),
                 Value<String> name = const Value.absent(),
                 Value<String> status = const Value.absent(),
+                Value<String> format = const Value.absent(),
                 Value<int> rowid = const Value.absent(),
               }) => TournamentDraftsCompanion(
                 id: id,
                 name: name,
                 status: status,
+                format: format,
                 rowid: rowid,
               ),
           createCompanionCallback:
@@ -4831,11 +5731,13 @@ class $$TournamentDraftsTableTableManager
                 required String id,
                 required String name,
                 required String status,
+                Value<String> format = const Value.absent(),
                 Value<int> rowid = const Value.absent(),
               }) => TournamentDraftsCompanion.insert(
                 id: id,
                 name: name,
                 status: status,
+                format: format,
                 rowid: rowid,
               ),
           withReferenceMapper: (p0) => p0
@@ -8012,6 +8914,471 @@ typedef $$FinishedStandingsTableProcessedTableManager =
       FinishedStandingRow,
       PrefetchHooks Function({bool tournamentId})
     >;
+typedef $$TournamentHistoryRecordsTableCreateCompanionBuilder =
+    TournamentHistoryRecordsCompanion Function({
+      Value<int> completionOrder,
+      required String tournamentId,
+      required String name,
+      required String championNickname,
+      required int participantCount,
+      required String rulesetId,
+      Value<String> format,
+      required int rulesetVersion,
+      required String snapshotPayload,
+    });
+typedef $$TournamentHistoryRecordsTableUpdateCompanionBuilder =
+    TournamentHistoryRecordsCompanion Function({
+      Value<int> completionOrder,
+      Value<String> tournamentId,
+      Value<String> name,
+      Value<String> championNickname,
+      Value<int> participantCount,
+      Value<String> rulesetId,
+      Value<String> format,
+      Value<int> rulesetVersion,
+      Value<String> snapshotPayload,
+    });
+
+class $$TournamentHistoryRecordsTableFilterComposer
+    extends Composer<_$AppDatabase, $TournamentHistoryRecordsTable> {
+  $$TournamentHistoryRecordsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get completionOrder => $composableBuilder(
+    column: $table.completionOrder,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get tournamentId => $composableBuilder(
+    column: $table.tournamentId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get name => $composableBuilder(
+    column: $table.name,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get championNickname => $composableBuilder(
+    column: $table.championNickname,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get participantCount => $composableBuilder(
+    column: $table.participantCount,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get rulesetId => $composableBuilder(
+    column: $table.rulesetId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get format => $composableBuilder(
+    column: $table.format,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get rulesetVersion => $composableBuilder(
+    column: $table.rulesetVersion,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get snapshotPayload => $composableBuilder(
+    column: $table.snapshotPayload,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$TournamentHistoryRecordsTableOrderingComposer
+    extends Composer<_$AppDatabase, $TournamentHistoryRecordsTable> {
+  $$TournamentHistoryRecordsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get completionOrder => $composableBuilder(
+    column: $table.completionOrder,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get tournamentId => $composableBuilder(
+    column: $table.tournamentId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get name => $composableBuilder(
+    column: $table.name,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get championNickname => $composableBuilder(
+    column: $table.championNickname,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get participantCount => $composableBuilder(
+    column: $table.participantCount,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get rulesetId => $composableBuilder(
+    column: $table.rulesetId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get format => $composableBuilder(
+    column: $table.format,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get rulesetVersion => $composableBuilder(
+    column: $table.rulesetVersion,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get snapshotPayload => $composableBuilder(
+    column: $table.snapshotPayload,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$TournamentHistoryRecordsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $TournamentHistoryRecordsTable> {
+  $$TournamentHistoryRecordsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get completionOrder => $composableBuilder(
+    column: $table.completionOrder,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get tournamentId => $composableBuilder(
+    column: $table.tournamentId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get name =>
+      $composableBuilder(column: $table.name, builder: (column) => column);
+
+  GeneratedColumn<String> get championNickname => $composableBuilder(
+    column: $table.championNickname,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get participantCount => $composableBuilder(
+    column: $table.participantCount,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get rulesetId =>
+      $composableBuilder(column: $table.rulesetId, builder: (column) => column);
+
+  GeneratedColumn<String> get format =>
+      $composableBuilder(column: $table.format, builder: (column) => column);
+
+  GeneratedColumn<int> get rulesetVersion => $composableBuilder(
+    column: $table.rulesetVersion,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get snapshotPayload => $composableBuilder(
+    column: $table.snapshotPayload,
+    builder: (column) => column,
+  );
+}
+
+class $$TournamentHistoryRecordsTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $TournamentHistoryRecordsTable,
+          TournamentHistoryRecordRow,
+          $$TournamentHistoryRecordsTableFilterComposer,
+          $$TournamentHistoryRecordsTableOrderingComposer,
+          $$TournamentHistoryRecordsTableAnnotationComposer,
+          $$TournamentHistoryRecordsTableCreateCompanionBuilder,
+          $$TournamentHistoryRecordsTableUpdateCompanionBuilder,
+          (
+            TournamentHistoryRecordRow,
+            BaseReferences<
+              _$AppDatabase,
+              $TournamentHistoryRecordsTable,
+              TournamentHistoryRecordRow
+            >,
+          ),
+          TournamentHistoryRecordRow,
+          PrefetchHooks Function()
+        > {
+  $$TournamentHistoryRecordsTableTableManager(
+    _$AppDatabase db,
+    $TournamentHistoryRecordsTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$TournamentHistoryRecordsTableFilterComposer(
+                $db: db,
+                $table: table,
+              ),
+          createOrderingComposer: () =>
+              $$TournamentHistoryRecordsTableOrderingComposer(
+                $db: db,
+                $table: table,
+              ),
+          createComputedFieldComposer: () =>
+              $$TournamentHistoryRecordsTableAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<int> completionOrder = const Value.absent(),
+                Value<String> tournamentId = const Value.absent(),
+                Value<String> name = const Value.absent(),
+                Value<String> championNickname = const Value.absent(),
+                Value<int> participantCount = const Value.absent(),
+                Value<String> rulesetId = const Value.absent(),
+                Value<String> format = const Value.absent(),
+                Value<int> rulesetVersion = const Value.absent(),
+                Value<String> snapshotPayload = const Value.absent(),
+              }) => TournamentHistoryRecordsCompanion(
+                completionOrder: completionOrder,
+                tournamentId: tournamentId,
+                name: name,
+                championNickname: championNickname,
+                participantCount: participantCount,
+                rulesetId: rulesetId,
+                format: format,
+                rulesetVersion: rulesetVersion,
+                snapshotPayload: snapshotPayload,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> completionOrder = const Value.absent(),
+                required String tournamentId,
+                required String name,
+                required String championNickname,
+                required int participantCount,
+                required String rulesetId,
+                Value<String> format = const Value.absent(),
+                required int rulesetVersion,
+                required String snapshotPayload,
+              }) => TournamentHistoryRecordsCompanion.insert(
+                completionOrder: completionOrder,
+                tournamentId: tournamentId,
+                name: name,
+                championNickname: championNickname,
+                participantCount: participantCount,
+                rulesetId: rulesetId,
+                format: format,
+                rulesetVersion: rulesetVersion,
+                snapshotPayload: snapshotPayload,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$TournamentHistoryRecordsTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $TournamentHistoryRecordsTable,
+      TournamentHistoryRecordRow,
+      $$TournamentHistoryRecordsTableFilterComposer,
+      $$TournamentHistoryRecordsTableOrderingComposer,
+      $$TournamentHistoryRecordsTableAnnotationComposer,
+      $$TournamentHistoryRecordsTableCreateCompanionBuilder,
+      $$TournamentHistoryRecordsTableUpdateCompanionBuilder,
+      (
+        TournamentHistoryRecordRow,
+        BaseReferences<
+          _$AppDatabase,
+          $TournamentHistoryRecordsTable,
+          TournamentHistoryRecordRow
+        >,
+      ),
+      TournamentHistoryRecordRow,
+      PrefetchHooks Function()
+    >;
+typedef $$ActiveDoubleEliminationTournamentsTableCreateCompanionBuilder =
+    ActiveDoubleEliminationTournamentsCompanion Function({
+      required String tournamentId,
+      required String payload,
+      Value<int> rowid,
+    });
+typedef $$ActiveDoubleEliminationTournamentsTableUpdateCompanionBuilder =
+    ActiveDoubleEliminationTournamentsCompanion Function({
+      Value<String> tournamentId,
+      Value<String> payload,
+      Value<int> rowid,
+    });
+
+class $$ActiveDoubleEliminationTournamentsTableFilterComposer
+    extends Composer<_$AppDatabase, $ActiveDoubleEliminationTournamentsTable> {
+  $$ActiveDoubleEliminationTournamentsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get tournamentId => $composableBuilder(
+    column: $table.tournamentId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get payload => $composableBuilder(
+    column: $table.payload,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$ActiveDoubleEliminationTournamentsTableOrderingComposer
+    extends Composer<_$AppDatabase, $ActiveDoubleEliminationTournamentsTable> {
+  $$ActiveDoubleEliminationTournamentsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get tournamentId => $composableBuilder(
+    column: $table.tournamentId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get payload => $composableBuilder(
+    column: $table.payload,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$ActiveDoubleEliminationTournamentsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $ActiveDoubleEliminationTournamentsTable> {
+  $$ActiveDoubleEliminationTournamentsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get tournamentId => $composableBuilder(
+    column: $table.tournamentId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get payload =>
+      $composableBuilder(column: $table.payload, builder: (column) => column);
+}
+
+class $$ActiveDoubleEliminationTournamentsTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $ActiveDoubleEliminationTournamentsTable,
+          ActiveDoubleEliminationTournamentRow,
+          $$ActiveDoubleEliminationTournamentsTableFilterComposer,
+          $$ActiveDoubleEliminationTournamentsTableOrderingComposer,
+          $$ActiveDoubleEliminationTournamentsTableAnnotationComposer,
+          $$ActiveDoubleEliminationTournamentsTableCreateCompanionBuilder,
+          $$ActiveDoubleEliminationTournamentsTableUpdateCompanionBuilder,
+          (
+            ActiveDoubleEliminationTournamentRow,
+            BaseReferences<
+              _$AppDatabase,
+              $ActiveDoubleEliminationTournamentsTable,
+              ActiveDoubleEliminationTournamentRow
+            >,
+          ),
+          ActiveDoubleEliminationTournamentRow,
+          PrefetchHooks Function()
+        > {
+  $$ActiveDoubleEliminationTournamentsTableTableManager(
+    _$AppDatabase db,
+    $ActiveDoubleEliminationTournamentsTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$ActiveDoubleEliminationTournamentsTableFilterComposer(
+                $db: db,
+                $table: table,
+              ),
+          createOrderingComposer: () =>
+              $$ActiveDoubleEliminationTournamentsTableOrderingComposer(
+                $db: db,
+                $table: table,
+              ),
+          createComputedFieldComposer: () =>
+              $$ActiveDoubleEliminationTournamentsTableAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<String> tournamentId = const Value.absent(),
+                Value<String> payload = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => ActiveDoubleEliminationTournamentsCompanion(
+                tournamentId: tournamentId,
+                payload: payload,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String tournamentId,
+                required String payload,
+                Value<int> rowid = const Value.absent(),
+              }) => ActiveDoubleEliminationTournamentsCompanion.insert(
+                tournamentId: tournamentId,
+                payload: payload,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$ActiveDoubleEliminationTournamentsTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $ActiveDoubleEliminationTournamentsTable,
+      ActiveDoubleEliminationTournamentRow,
+      $$ActiveDoubleEliminationTournamentsTableFilterComposer,
+      $$ActiveDoubleEliminationTournamentsTableOrderingComposer,
+      $$ActiveDoubleEliminationTournamentsTableAnnotationComposer,
+      $$ActiveDoubleEliminationTournamentsTableCreateCompanionBuilder,
+      $$ActiveDoubleEliminationTournamentsTableUpdateCompanionBuilder,
+      (
+        ActiveDoubleEliminationTournamentRow,
+        BaseReferences<
+          _$AppDatabase,
+          $ActiveDoubleEliminationTournamentsTable,
+          ActiveDoubleEliminationTournamentRow
+        >,
+      ),
+      ActiveDoubleEliminationTournamentRow,
+      PrefetchHooks Function()
+    >;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
@@ -8045,4 +9412,15 @@ class $AppDatabaseManager {
       $$FinishedTournamentsTableTableManager(_db, _db.finishedTournaments);
   $$FinishedStandingsTableTableManager get finishedStandings =>
       $$FinishedStandingsTableTableManager(_db, _db.finishedStandings);
+  $$TournamentHistoryRecordsTableTableManager get tournamentHistoryRecords =>
+      $$TournamentHistoryRecordsTableTableManager(
+        _db,
+        _db.tournamentHistoryRecords,
+      );
+  $$ActiveDoubleEliminationTournamentsTableTableManager
+  get activeDoubleEliminationTournaments =>
+      $$ActiveDoubleEliminationTournamentsTableTableManager(
+        _db,
+        _db.activeDoubleEliminationTournaments,
+      );
 }

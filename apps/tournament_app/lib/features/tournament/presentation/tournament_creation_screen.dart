@@ -3,6 +3,7 @@ import 'package:tournament_app/app/presentation/layout/app_breakpoints.dart';
 import 'package:tournament_app/features/guest_profile/domain/entities/guest_profile.dart';
 import 'package:tournament_app/features/tournament/application/tournament_creation_controller.dart';
 import 'package:tournament_app/features/tournament/domain/entities/tournament_draft.dart';
+import 'package:tournament_app/features/tournament/domain/value_objects/tournament_format.dart';
 
 class TournamentCreationScreen extends StatefulWidget {
   const TournamentCreationScreen({
@@ -193,6 +194,24 @@ class _DetailsSection extends StatelessWidget {
             labelText: 'Название турнира',
             border: OutlineInputBorder(),
           ),
+        ),
+        const SizedBox(height: 16),
+        DropdownButtonFormField<TournamentFormat>(
+          key: const Key('tournament-format-input'),
+          initialValue: controller.format,
+          decoration: const InputDecoration(
+            labelText: 'Формат',
+            border: OutlineInputBorder(),
+          ),
+          items: [
+            for (final format in TournamentFormat.values)
+              DropdownMenuItem(value: format, child: Text(format.displayName)),
+          ],
+          onChanged: isSaving
+              ? null
+              : (format) {
+                  if (format != null) controller.selectFormat(format);
+                },
         ),
         const SizedBox(height: 16),
         TextField(

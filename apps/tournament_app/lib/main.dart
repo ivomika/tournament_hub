@@ -4,6 +4,7 @@ import 'package:tournament_app/core/common/data/uuid_id_generator.dart';
 import 'package:tournament_app/core/database/app_database.dart';
 import 'package:tournament_app/features/profile/data/repositories/drift_local_profile_repository.dart';
 import 'package:tournament_app/features/tournament/data/repositories/drift_tournament_repository.dart';
+import 'package:tournament_app/features/tournament/data/repositories/drift_double_elimination_tournament_repository.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -14,6 +15,9 @@ void main() {
       profileRepository: DriftLocalProfileRepository(database),
       tournamentRepository: tournamentRepository,
       tournamentCompletionRepository: tournamentRepository,
+      tournamentHistoryRepository: tournamentRepository,
+      doubleEliminationTournamentRepository:
+          DriftDoubleEliminationTournamentRepository(database),
       idGenerator: const UuidIdGenerator(),
     ),
   );
