@@ -1,0 +1,76 @@
+{
+  "protocolVersion": 1,
+  "messageType": "snapshot",
+  "tournamentId": "fixture-round-robin",
+  "revision": 3,
+  "payload": {
+    "state": "active",
+    "format": "roundRobin",
+    "name": "Тестовый Round Robin",
+    "participants": [
+      {
+        "id": "player-1",
+        "nickname": "Игрок 1",
+        "fighter": {
+          "id": "scorpion",
+          "displayName": "Scorpion",
+          "avatarUrl": "/fighters/scorpion.png"
+        }
+      },
+      {
+        "id": "player-2",
+        "nickname": "Игрок 2",
+        "fighter": {
+          "id": "sub-zero",
+          "displayName": "Sub-Zero",
+          "avatarUrl": "/fighters/sub-zero.png"
+        }
+      }
+    ],
+    "roundRobin": {
+      "rounds": [
+        {
+          "number": 1,
+          "byeParticipantId": null,
+          "matchIds": ["match-1"]
+        }
+      ],
+      "matches": [
+        {
+          "id": "match-1",
+          "round": 1,
+          "firstParticipantId": "player-1",
+          "secondParticipantId": "player-2",
+          "status": "inProgress",
+          "firstScore": 1,
+          "secondScore": 0,
+          "winnerId": null
+        }
+      ],
+      "standings": [
+        {
+          "participantId": "player-1",
+          "position": 1,
+          "matchesPlayed": 0,
+          "wins": 0,
+          "losses": 0,
+          "gamesWon": 0,
+          "gamesLost": 0,
+          "points": 0
+        },
+        {
+          "participantId": "player-2",
+          "position": 1,
+          "matchesPlayed": 0,
+          "wins": 0,
+          "losses": 0,
+          "gamesWon": 0,
+          "gamesLost": 0,
+          "points": 0
+        }
+      ]
+    },
+    "championId": null,
+    "placements": []
+  }
+}

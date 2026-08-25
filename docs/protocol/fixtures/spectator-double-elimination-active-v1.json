@@ -1,0 +1,51 @@
+{
+  "protocolVersion": 1,
+  "messageType": "snapshot",
+  "tournamentId": "fixture-double-elimination",
+  "revision": 4,
+  "payload": {
+    "state": "active",
+    "format": "doubleElimination",
+    "name": "Тестовый Double Elimination",
+    "participants": [
+      {
+        "id": "player-1",
+        "nickname": "Игрок 1",
+        "fighter": {
+          "id": "scorpion",
+          "displayName": "Scorpion",
+          "avatarUrl": "/fighters/scorpion.png"
+        }
+      },
+      {
+        "id": "player-2",
+        "nickname": "Игрок 2",
+        "fighter": {
+          "id": "sub-zero",
+          "displayName": "Sub-Zero",
+          "avatarUrl": "/fighters/sub-zero.png"
+        }
+      }
+    ],
+    "doubleElimination": {
+      "seededSlots": ["player-1", "player-2"],
+      "matches": [
+        {
+          "id": "de-w-1-0",
+          "stage": "winners",
+          "round": 1,
+          "position": 0,
+          "firstSource": {"type": "seed", "seedIndex": 0, "matchId": null},
+          "secondSource": {"type": "seed", "seedIndex": 1, "matchId": null},
+          "firstParticipantId": "player-1",
+          "secondParticipantId": "player-2",
+          "status": "ready",
+          "winnerId": null
+        }
+      ],
+      "placementReplays": []
+    },
+    "championId": null,
+    "placements": []
+  }
+}

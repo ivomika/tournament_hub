@@ -49,6 +49,14 @@ Double Elimination подключается через обобщённую `Tou
 
 Production bundle React собирается отдельно и встраивается во Flutter-приложение. Локальный сервер Host раздаёт его браузерам в той же сети.
 
+## Spectator Host
+
+Flutter запускает `dart:io` HTTP/WebSocket-сервер на всех IPv4-интерфейсах устройства. HTTP раздаёт встроенный production bundle React и fighter assets, а endpoint `/ws` передаёт versioned full snapshot. Host показывает фактический LAN URL, QR-код, действие копирования и число подключённых клиентов. Если стандартный порт занят, transport выбирает свободный порт без изменения application/domain слоёв.
+
+`SpectatorPublisher` является application port. Контроллеры обоих форматов публикуют snapshot только после успешного локального сохранения, включая authoritative `finished` snapshot. `SpectatorSnapshotMapper` формирует display projection; React не рассчитывает турнирное продвижение и не изменяет состояние Host.
+
+Клиент подключается к `/ws` того же origin, принимает только совместимую версию протокола, применяет монотонно возрастающие revisions и запрашивает полный snapshot при reconnect. Последний snapshot хранится на сервере и немедленно отправляется новому клиенту, поэтому подключение к уже завершённому турниру сразу открывает финальный экран. Контракт и примеры сообщений описаны в `docs/protocol/README.md`.
+
 ## Presentation и размеры экрана
 
 Архитектура presentation следует принципу mobile-first, но не связывает пользовательский сценарий с фиксированным размером телефона. Domain и application слои одинаковы для всех платформ, а Flutter presentation выбирает композицию по доступной ширине и возможностям ввода.

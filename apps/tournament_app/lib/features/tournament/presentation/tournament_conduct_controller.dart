@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:tournament_app/core/common/domain/id_generator.dart';
 import 'package:tournament_app/features/fighters/domain/repositories/fighter_registry.dart';
+import 'package:tournament_app/features/spectator/application/spectator_publisher.dart';
 import 'package:tournament_app/features/standings/domain/entities/tournament_outcome.dart';
 import 'package:tournament_app/features/standings/domain/entities/finished_tournament_snapshot.dart';
 import 'package:tournament_app/features/standings/domain/repositories/tournament_completion_repository.dart';
@@ -26,6 +27,7 @@ final class TournamentConductController extends ChangeNotifier {
     required this.draft,
     required this.setup,
     this.fighterRegistry,
+    this.spectatorPublisher,
   });
 
   final StartTournament _startTournament;
@@ -36,6 +38,7 @@ final class TournamentConductController extends ChangeNotifier {
   final TournamentDraft draft;
   final TournamentSetup setup;
   final FighterRegistry? fighterRegistry;
+  final SpectatorPublisher? spectatorPublisher;
 
   ActiveTournament? _tournament;
   FinishedTournamentSnapshot? _finishedSnapshot;
@@ -64,6 +67,7 @@ final class TournamentConductController extends ChangeNotifier {
       if (finished != null && finished.tournament.draft.id == draft.id) {
         _finishedSnapshot = finished;
         _tournament = finished.tournament;
+        await spectatorPublisher?.publishFinishedRoundRobin(finished);
         return;
       }
       _tournament = await _startTournament.execute(
@@ -72,6 +76,7 @@ final class TournamentConductController extends ChangeNotifier {
         rulesetId: ruleset.id,
         rulesetVersion: ruleset.version,
       );
+      await spectatorPublisher?.publishRoundRobin(_tournament!, outcome!);
     } on TournamentStorageException catch (error) {
       debugPrint(
         'Не удалось открыть состояние турнира: ${error.message}; '
@@ -116,6 +121,7 @@ final class TournamentConductController extends ChangeNotifier {
       );
       await _completionRepository.saveFinishedTournament(snapshot);
       _finishedSnapshot = snapshot;
+      await spectatorPublisher?.publishFinishedRoundRobin(snapshot);
       return true;
     } on Object {
       _errorMessage = 'Не удалось завершить турнир. Повторите попытку.';
@@ -163,7 +169,12 @@ final class TournamentConductController extends ChangeNotifier {
     _errorMessage = null;
     notifyListeners();
     try {
-      _tournament = await operation(current);
+      final updated = await operation(current);
+      _tournament = updated;
+      await spectatorPublisher?.publishRoundRobin(
+        updated,
+        ruleset.calculate(updated),
+      );
       return true;
     } on Object {
       _errorMessage = 'Не удалось сохранить результат. Повторите выбор.';

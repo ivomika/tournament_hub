@@ -6,6 +6,7 @@ import 'package:tournament_app/features/fighters/presentation/resolvers/bundled_
 import 'package:tournament_app/features/fighters/presentation/resolvers/fighter_avatar_resolver.dart';
 import 'package:tournament_app/features/guest_profile/application/guest_profile_manager.dart';
 import 'package:tournament_app/features/guest_profile/data/repositories/in_memory_guest_profile_collection.dart';
+import 'package:tournament_app/features/spectator/application/spectator_host_controller.dart';
 import 'package:tournament_app/features/history/application/tournament_history_controller.dart';
 import 'package:tournament_app/features/history/domain/repositories/tournament_history_repository.dart';
 import 'package:tournament_app/features/history/presentation/tournament_history_screen.dart';
@@ -48,6 +49,7 @@ class TournamentHubApp extends StatefulWidget {
     this.fighterRegistry,
     this.fighterAvatarResolver,
     this.randomIndexGenerator,
+    this.spectatorHostController,
     super.key,
   });
 
@@ -61,6 +63,7 @@ class TournamentHubApp extends StatefulWidget {
   final FighterRegistry? fighterRegistry;
   final FighterAvatarResolver? fighterAvatarResolver;
   final RandomIndexGenerator? randomIndexGenerator;
+  final SpectatorHostController? spectatorHostController;
 
   @override
   State<TournamentHubApp> createState() => _TournamentHubAppState();
@@ -92,11 +95,13 @@ class _TournamentHubAppState extends State<TournamentHubApp> {
     );
     _profileController = LocalProfileController(widget.profileRepository)
       ..initialize();
+    widget.spectatorHostController?.start();
   }
 
   @override
   void dispose() {
     _profileController.dispose();
+    widget.spectatorHostController?.dispose();
     super.dispose();
   }
 
@@ -117,6 +122,7 @@ class _TournamentHubAppState extends State<TournamentHubApp> {
         createTournamentController: _createTournamentController,
         tournamentScreenBuilder: _buildTournamentScreen,
         historyScreenBuilder: _buildHistoryScreen,
+        spectatorHostController: widget.spectatorHostController,
       ),
     );
   }
@@ -148,6 +154,7 @@ class _TournamentHubAppState extends State<TournamentHubApp> {
         draft: draft,
         setup: setup,
         fighterRegistry: _fighterRegistry,
+        spectatorPublisher: widget.spectatorHostController,
       ),
     );
   }
@@ -178,6 +185,7 @@ class _TournamentHubAppState extends State<TournamentHubApp> {
         repository,
         widget.idGenerator,
         _fighterRegistry,
+        spectatorPublisher: widget.spectatorHostController,
       ),
       fighterRegistry: _fighterRegistry,
       avatarResolver: _fighterAvatarResolver,

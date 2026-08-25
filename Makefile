@@ -25,15 +25,13 @@ web-install:
 generate: ## Сгенерировать код Drift и Freezed
 	cd $(FLUTTER_DIR) && dart run build_runner build
 
-run: ## Запустить spectator web в фоне и Flutter на переднем плане
-	@(cd $(WEB_DIR) && npm run dev) & web_pid=$$!; \
-	trap 'kill $$web_pid 2>/dev/null || true' INT TERM EXIT; \
+run: bundle-spectator ## Встроить Spectator Web и запустить Flutter Host
 	cd $(FLUTTER_DIR) && flutter run -d $(FLUTTER_DEVICE)
 
 run-flutter: ## Запустить Flutter-приложение (устройство задаётся через FLUTTER_DEVICE)
 	cd $(FLUTTER_DIR) && flutter run -d $(FLUTTER_DEVICE)
 
-run-web: ## Запустить dev-сервер React Spectator
+run-web: ## Запустить только dev-сервер React Spectator для UI-разработки
 	cd $(WEB_DIR) && npm run dev
 
 format: ## Отформатировать исходный код Dart и web

@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:tournament_app/core/common/domain/id_generator.dart';
 import 'package:tournament_app/features/fighters/domain/repositories/fighter_registry.dart';
+import 'package:tournament_app/features/spectator/application/spectator_publisher.dart';
 import 'package:tournament_app/features/tournament/domain/entities/double_elimination_tournament.dart';
 import 'package:tournament_app/features/tournament/domain/entities/finished_double_elimination_snapshot.dart';
 import 'package:tournament_app/features/tournament/domain/exceptions/tournament_storage_exception.dart';
@@ -14,13 +15,15 @@ final class DoubleEliminationConductController extends ChangeNotifier {
     this._initialTournament,
     this._repository,
     this._idGenerator,
-    this._fighterRegistry,
-  );
+    this._fighterRegistry, {
+    this.spectatorPublisher,
+  });
 
   final DoubleEliminationTournament _initialTournament;
   final DoubleEliminationTournamentRepository _repository;
   final IdGenerator _idGenerator;
   final FighterRegistry _fighterRegistry;
+  final SpectatorPublisher? spectatorPublisher;
 
   DoubleEliminationTournament? _tournament;
   bool _isLoading = true;
@@ -49,6 +52,7 @@ final class DoubleEliminationConductController extends ChangeNotifier {
         );
         _tournament = _initialTournament;
       }
+      await spectatorPublisher?.publishDoubleElimination(_tournament!);
     } on TournamentStorageException catch (error) {
       _errorMessage = error.message;
     } on Object {
@@ -107,20 +111,18 @@ final class DoubleEliminationConductController extends ChangeNotifier {
     _errorMessage = null;
     notifyListeners();
     try {
-      await _repository.saveFinishedDoubleEliminationTournament(
-        FinishedDoubleEliminationSnapshot(
-          tournament: current,
-          fighterNamesById: {
-            for (final assignment in current.fighterAssignments)
-              assignment.fighterId:
-                  _fighterRegistry
-                      .findById(assignment.fighterId)
-                      ?.displayName ??
-                  assignment.fighterId.value,
-          },
-        ),
+      final snapshot = FinishedDoubleEliminationSnapshot(
+        tournament: current,
+        fighterNamesById: {
+          for (final assignment in current.fighterAssignments)
+            assignment.fighterId:
+                _fighterRegistry.findById(assignment.fighterId)?.displayName ??
+                assignment.fighterId.value,
+        },
       );
+      await _repository.saveFinishedDoubleEliminationTournament(snapshot);
       _isFinished = true;
+      await spectatorPublisher?.publishFinishedDoubleElimination(snapshot);
       return true;
     } on Object {
       _errorMessage = 'Не удалось завершить турнир. Повторите попытку.';
@@ -143,6 +145,7 @@ final class DoubleEliminationConductController extends ChangeNotifier {
       final updated = update(current);
       await _repository.saveActiveDoubleEliminationTournament(updated);
       _tournament = updated;
+      await spectatorPublisher?.publishDoubleElimination(updated);
       return true;
     } on Object {
       _errorMessage = 'Не удалось сохранить результат. Повторите попытку.';

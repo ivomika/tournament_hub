@@ -3,6 +3,8 @@ import 'package:tournament_app/features/profile/application/local_profile_contro
 import 'package:tournament_app/features/profile/domain/entities/local_profile.dart';
 import 'package:tournament_app/features/profile/presentation/profile_screen.dart';
 import 'package:tournament_app/features/profile/presentation/profile_onboarding_screen.dart';
+import 'package:tournament_app/features/spectator/application/spectator_host_controller.dart';
+import 'package:tournament_app/features/spectator/presentation/spectator_host_card.dart';
 import 'package:tournament_app/features/tournament/application/tournament_creation_controller.dart';
 import 'package:tournament_app/features/tournament/domain/entities/tournament_draft.dart';
 import 'package:tournament_app/features/tournament/presentation/tournament_creation_screen.dart';
@@ -13,6 +15,7 @@ class ProfileGate extends StatelessWidget {
     required this.createTournamentController,
     required this.tournamentScreenBuilder,
     required this.historyScreenBuilder,
+    this.spectatorHostController,
     super.key,
   });
 
@@ -21,6 +24,7 @@ class ProfileGate extends StatelessWidget {
   createTournamentController;
   final Widget Function(TournamentDraft) tournamentScreenBuilder;
   final Widget Function() historyScreenBuilder;
+  final SpectatorHostController? spectatorHostController;
 
   @override
   Widget build(BuildContext context) {
@@ -37,6 +41,7 @@ class ProfileGate extends StatelessWidget {
             createTournamentController: createTournamentController,
             tournamentScreenBuilder: tournamentScreenBuilder,
             historyScreenBuilder: historyScreenBuilder,
+            spectatorHostController: spectatorHostController,
           ),
           LocalProfileStatus.failure => _LoadingFailureScreen(
             message: controller.errorMessage!,
@@ -89,6 +94,7 @@ class _HomeScreen extends StatelessWidget {
     required this.createTournamentController,
     required this.tournamentScreenBuilder,
     required this.historyScreenBuilder,
+    this.spectatorHostController,
   });
 
   final LocalProfileController controller;
@@ -96,6 +102,7 @@ class _HomeScreen extends StatelessWidget {
   createTournamentController;
   final Widget Function(TournamentDraft) tournamentScreenBuilder;
   final Widget Function() historyScreenBuilder;
+  final SpectatorHostController? spectatorHostController;
 
   @override
   Widget build(BuildContext context) {
@@ -117,11 +124,12 @@ class _HomeScreen extends StatelessWidget {
         ],
       ),
       body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(24),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 560),
+          child: ListView(
+            padding: const EdgeInsets.all(24),
             children: [
+              const SizedBox(height: 24),
               Text(
                 'Добро пожаловать, ${controller.profile!.nickname.value}!',
                 textAlign: TextAlign.center,
@@ -158,6 +166,10 @@ class _HomeScreen extends StatelessWidget {
                 icon: const Icon(Icons.history),
                 label: const Text('История турниров'),
               ),
+              if (spectatorHostController case final host?) ...[
+                const SizedBox(height: 24),
+                SpectatorHostCard(controller: host),
+              ],
             ],
           ),
         ),
