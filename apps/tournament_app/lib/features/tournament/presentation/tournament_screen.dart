@@ -7,14 +7,17 @@ import 'package:tournament_app/features/tournament/domain/entities/fighter_assig
 import 'package:tournament_app/features/tournament/domain/entities/tournament_draft.dart';
 import 'package:tournament_app/features/tournament/domain/entities/tournament_setup.dart';
 import 'package:tournament_app/features/tournament/domain/value_objects/tournament_participant_id.dart';
+import 'package:tournament_app/features/tournament/presentation/tournament_conduct_controller.dart';
 import 'package:tournament_app/features/tournament/presentation/tournament_rounds_screen.dart';
+import 'package:tournament_app/features/tournament/presentation/tournament_results_screen.dart';
 
-class TournamentScreen extends StatelessWidget {
+class TournamentScreen extends StatefulWidget {
   const TournamentScreen({
     required this.draft,
     required this.setup,
     required this.fighterRegistry,
     required this.avatarResolver,
+    required this.controller,
     super.key,
   });
 
@@ -22,70 +25,116 @@ class TournamentScreen extends StatelessWidget {
   final TournamentSetup setup;
   final FighterRegistry fighterRegistry;
   final FighterAvatarResolver avatarResolver;
+  final TournamentConductController controller;
+
+  @override
+  State<TournamentScreen> createState() => _TournamentScreenState();
+}
+
+class _TournamentScreenState extends State<TournamentScreen> {
+  @override
+  void initState() {
+    super.initState();
+    widget.controller.initialize();
+  }
+
+  @override
+  void dispose() {
+    widget.controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
+    final activeSetup = widget.controller.tournament?.setup ?? widget.setup;
     final assignments = <TournamentParticipantId, FighterAssignment>{
-      for (final assignment in setup.fighterAssignments)
+      for (final assignment in activeSetup.fighterAssignments)
         assignment.participantId: assignment,
     };
 
     return Scaffold(
-      appBar: AppBar(title: Text(draft.name.value)),
+      appBar: AppBar(title: Text(widget.draft.name.value)),
       body: SafeArea(
-        child: LayoutBuilder(
-          builder: (context, constraints) {
-            final isWide = constraints.maxWidth >= AppBreakpoints.wide;
-            final summary = _TournamentSummary(
-              participantCount: draft.participants.length,
-              roundCount: setup.schedule.rounds.length,
-              onOpenRounds: () => _openRounds(context),
-            );
-            final participants = _ParticipantsList(
-              draft: draft,
-              assignments: assignments,
-              fighterRegistry: fighterRegistry,
-              avatarResolver: avatarResolver,
-            );
+        child: AnimatedBuilder(
+          animation: widget.controller,
+          builder: (context, _) => LayoutBuilder(
+            builder: (context, constraints) {
+              final isWide = constraints.maxWidth >= AppBreakpoints.wide;
+              final summary = _TournamentSummary(
+                participantCount: widget.draft.participants.length,
+                roundCount: activeSetup.schedule.rounds.length,
+                isLoading: widget.controller.isInitializing,
+                errorMessage: widget.controller.errorMessage,
+                isFinished: widget.controller.isFinished,
+                onRetry: widget.controller.initialize,
+                onOpenRounds: widget.controller.tournament == null
+                    ? null
+                    : () => _openRounds(context),
+              );
+              final participants = _ParticipantsList(
+                draft: widget.draft,
+                assignments: assignments,
+                fighterRegistry: widget.fighterRegistry,
+                avatarResolver: widget.avatarResolver,
+              );
 
-            return Center(
-              child: ConstrainedBox(
-                key: const Key('tournament-overview-content'),
-                constraints: const BoxConstraints(
-                  maxWidth: AppBreakpoints.maxContentWidth,
+              return Center(
+                child: ConstrainedBox(
+                  key: const Key('tournament-overview-content'),
+                  constraints: const BoxConstraints(
+                    maxWidth: AppBreakpoints.maxContentWidth,
+                  ),
+                  child: SingleChildScrollView(
+                    padding: const EdgeInsets.all(24),
+                    child: isWide
+                        ? Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(width: 280, child: summary),
+                              const SizedBox(width: 32),
+                              Expanded(child: participants),
+                            ],
+                          )
+                        : Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              summary,
+                              const SizedBox(height: 32),
+                              participants,
+                            ],
+                          ),
+                  ),
                 ),
-                child: SingleChildScrollView(
-                  padding: const EdgeInsets.all(24),
-                  child: isWide
-                      ? Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            SizedBox(width: 280, child: summary),
-                            const SizedBox(width: 32),
-                            Expanded(child: participants),
-                          ],
-                        )
-                      : Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: [
-                            summary,
-                            const SizedBox(height: 32),
-                            participants,
-                          ],
-                        ),
-                ),
-              ),
-            );
-          },
+              );
+            },
+          ),
         ),
       ),
     );
   }
 
   void _openRounds(BuildContext context) {
+    final tournament = widget.controller.tournament;
+    if (tournament == null) return;
+    if (widget.controller.isFinished) {
+      Navigator.of(context).push(
+        MaterialPageRoute<void>(
+          builder: (_) => TournamentResultsScreen(
+            controller: widget.controller,
+            fighterRegistry: widget.fighterRegistry,
+            avatarResolver: widget.avatarResolver,
+          ),
+        ),
+      );
+      return;
+    }
     Navigator.of(context).push(
       MaterialPageRoute<void>(
-        builder: (_) => TournamentRoundsScreen(draft: draft, setup: setup),
+        builder: (_) => TournamentRoundsScreen(
+          controller: widget.controller,
+          fighterRegistry: widget.fighterRegistry,
+          avatarResolver: widget.avatarResolver,
+        ),
       ),
     );
   }
@@ -96,11 +145,19 @@ class _TournamentSummary extends StatelessWidget {
     required this.participantCount,
     required this.roundCount,
     required this.onOpenRounds,
+    required this.isLoading,
+    required this.errorMessage,
+    required this.isFinished,
+    required this.onRetry,
   });
 
   final int participantCount;
   final int roundCount;
-  final VoidCallback onOpenRounds;
+  final VoidCallback? onOpenRounds;
+  final bool isLoading;
+  final String? errorMessage;
+  final bool isFinished;
+  final VoidCallback onRetry;
 
   @override
   Widget build(BuildContext context) {
@@ -117,7 +174,7 @@ class _TournamentSummary extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             Text(
-              'Турнир готов',
+              isFinished ? 'Турнир завершён' : 'Турнир готов',
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.headlineSmall,
             ),
@@ -126,11 +183,36 @@ class _TournamentSummary extends StatelessWidget {
             const SizedBox(height: 8),
             _SummaryRow(label: 'Раундов', value: '$roundCount'),
             const SizedBox(height: 20),
+            if (errorMessage case final message?) ...[
+              Text(
+                message,
+                key: const Key('tournament-start-error'),
+                style: TextStyle(color: Theme.of(context).colorScheme.error),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 12),
+              OutlinedButton(
+                onPressed: isLoading ? null : onRetry,
+                child: const Text('Повторить'),
+              ),
+              const SizedBox(height: 12),
+            ],
             FilledButton.icon(
               key: const Key('open-tournament-rounds'),
               onPressed: onOpenRounds,
-              icon: const Icon(Icons.view_agenda_outlined),
-              label: const Text('Открыть раунды'),
+              icon: isLoading
+                  ? const SizedBox.square(
+                      dimension: 18,
+                      child: CircularProgressIndicator(strokeWidth: 2),
+                    )
+                  : const Icon(Icons.view_agenda_outlined),
+              label: Text(
+                isLoading
+                    ? 'Запускаем…'
+                    : isFinished
+                    ? 'Показать итоги'
+                    : 'Открыть раунды',
+              ),
             ),
           ],
         ),

@@ -10,9 +10,13 @@ import 'package:tournament_app/features/profile/application/local_profile_contro
 import 'package:tournament_app/features/profile/domain/entities/local_profile.dart';
 import 'package:tournament_app/features/profile/domain/repositories/local_profile_repository.dart';
 import 'package:tournament_app/features/profile/presentation/profile_gate.dart';
+import 'package:tournament_app/features/standings/domain/services/mvp_tournament_ruleset.dart';
+import 'package:tournament_app/features/standings/domain/repositories/tournament_completion_repository.dart';
 import 'package:tournament_app/features/tournament/application/create_tournament_draft.dart';
 import 'package:tournament_app/features/tournament/application/prepare_tournament.dart';
+import 'package:tournament_app/features/tournament/application/start_tournament.dart';
 import 'package:tournament_app/features/tournament/application/tournament_creation_controller.dart';
+import 'package:tournament_app/features/tournament/application/update_active_tournament_match.dart';
 import 'package:tournament_app/features/tournament/data/random/dart_random_index_generator.dart';
 import 'package:tournament_app/features/tournament/domain/entities/tournament_draft.dart';
 import 'package:tournament_app/features/tournament/domain/repositories/tournament_repository.dart';
@@ -20,11 +24,13 @@ import 'package:tournament_app/features/tournament/domain/services/random_index_
 import 'package:tournament_app/features/tournament/domain/services/random_unique_fighter_assignment_strategy.dart';
 import 'package:tournament_app/features/tournament/domain/services/round_robin_tournament_rules.dart';
 import 'package:tournament_app/features/tournament/presentation/tournament_screen.dart';
+import 'package:tournament_app/features/tournament/presentation/tournament_conduct_controller.dart';
 
 class TournamentHubApp extends StatefulWidget {
   const TournamentHubApp({
     required this.profileRepository,
     required this.tournamentRepository,
+    required this.tournamentCompletionRepository,
     required this.idGenerator,
     this.fighterRegistry,
     this.fighterAvatarResolver,
@@ -34,6 +40,7 @@ class TournamentHubApp extends StatefulWidget {
 
   final LocalProfileRepository profileRepository;
   final TournamentRepository tournamentRepository;
+  final TournamentCompletionRepository tournamentCompletionRepository;
   final IdGenerator idGenerator;
   final FighterRegistry? fighterRegistry;
   final FighterAvatarResolver? fighterAvatarResolver;
@@ -101,11 +108,21 @@ class _TournamentHubAppState extends State<TournamentHubApp> {
   }
 
   Widget _buildTournamentScreen(TournamentDraft draft) {
+    final setup = _prepareTournament.execute(draft);
     return TournamentScreen(
       draft: draft,
-      setup: _prepareTournament.execute(draft),
+      setup: setup,
       fighterRegistry: _fighterRegistry,
       avatarResolver: _fighterAvatarResolver,
+      controller: TournamentConductController(
+        StartTournament(widget.tournamentRepository),
+        UpdateActiveTournamentMatch(widget.tournamentRepository),
+        widget.tournamentCompletionRepository,
+        widget.idGenerator,
+        ruleset: MvpTournamentRuleset.instance,
+        draft: draft,
+        setup: setup,
+      ),
     );
   }
 }

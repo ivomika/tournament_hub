@@ -109,10 +109,12 @@ Future<void> _openProfile(
   WidgetTester tester,
   FakeLocalProfileRepository repository,
 ) async {
+  final tournamentRepository = FakeTournamentRepository();
   await tester.pumpWidget(
     TournamentHubApp(
       profileRepository: repository,
-      tournamentRepository: FakeTournamentRepository(),
+      tournamentRepository: tournamentRepository,
+      tournamentCompletionRepository: tournamentRepository,
       idGenerator: FakeIdGenerator(),
     ),
   );

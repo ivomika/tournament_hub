@@ -45,7 +45,7 @@ void main() {
     await tester.tap(find.byKey(const Key('create-tournament-button')));
     await tester.pumpAndSettle();
 
-    expect(repository.saveCalls, 1);
+    expect(repository.draftSaveCalls, 1);
     expect(repository.draft?.name.value, 'Кубок дома');
     expect(repository.draft?.participants, hasLength(2));
     expect(find.text('Кубок дома'), findsOneWidget);
@@ -100,7 +100,7 @@ void main() {
     repository.saveError = null;
     await tester.tap(find.byKey(const Key('create-tournament-button')));
     await tester.pumpAndSettle();
-    expect(repository.saveCalls, 2);
+    expect(repository.draftSaveCalls, 2);
     expect(repository.draft, isNotNull);
   });
 
@@ -158,6 +158,7 @@ Future<void> _openCreation(
         profile: LocalProfile.create(id: 'local-1', nickname: 'Игрок'),
       ),
       tournamentRepository: tournamentRepository,
+      tournamentCompletionRepository: tournamentRepository,
       idGenerator: FakeIdGenerator([
         'guest-1',
         'guest-2',

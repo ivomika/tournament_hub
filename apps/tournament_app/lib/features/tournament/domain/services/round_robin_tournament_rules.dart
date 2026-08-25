@@ -2,6 +2,7 @@ import 'package:tournament_app/features/tournament/domain/entities/scheduled_tou
 import 'package:tournament_app/features/tournament/domain/entities/tournament_round.dart';
 import 'package:tournament_app/features/tournament/domain/entities/tournament_schedule.dart';
 import 'package:tournament_app/features/tournament/domain/services/tournament_rules.dart';
+import 'package:tournament_app/features/tournament/domain/value_objects/tournament_match_id.dart';
 import 'package:tournament_app/features/tournament/domain/value_objects/tournament_participant_id.dart';
 
 final class RoundRobinTournamentRules implements TournamentRules {
@@ -31,6 +32,9 @@ final class RoundRobinTournamentRules implements TournamentRules {
         } else {
           matches.add(
             ScheduledTournamentMatch(
+              id: TournamentMatchId(
+                'round-${roundIndex + 1}-match-${matches.length + 1}',
+              ),
               firstParticipantId: first,
               secondParticipantId: second,
             ),

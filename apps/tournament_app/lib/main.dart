@@ -8,10 +8,12 @@ import 'package:tournament_app/features/tournament/data/repositories/drift_tourn
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   final database = AppDatabase();
+  final tournamentRepository = DriftTournamentRepository(database);
   runApp(
     TournamentHubApp(
       profileRepository: DriftLocalProfileRepository(database),
-      tournamentRepository: DriftTournamentRepository(database),
+      tournamentRepository: tournamentRepository,
+      tournamentCompletionRepository: tournamentRepository,
       idGenerator: const UuidIdGenerator(),
     ),
   );

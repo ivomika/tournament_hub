@@ -92,9 +92,11 @@ void main() {
 }
 
 TournamentHubApp _app(FakeLocalProfileRepository repository) {
+  final tournamentRepository = FakeTournamentRepository();
   return TournamentHubApp(
     profileRepository: repository,
-    tournamentRepository: FakeTournamentRepository(),
+    tournamentRepository: tournamentRepository,
+    tournamentCompletionRepository: tournamentRepository,
     idGenerator: FakeIdGenerator(),
   );
 }
