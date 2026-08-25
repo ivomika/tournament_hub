@@ -13,7 +13,7 @@ Local-first платформа для проведения офлайн-турн
 
 ## Быстрый старт
 
-Требования: Flutter, npm и Node.js 20.19+ LTS. Нечётная версия Node.js 19 не поддерживается web-инструментами проекта.
+Требования: Flutter, GNU Make, npm и Node.js 20.19+ LTS. Нечётная версия Node.js 19 не поддерживается web-инструментами проекта. На Windows команда `make` должна быть доступна в `PATH`, а для desktop-запуска должна быть включена поддержка Windows в Flutter.
 
 ```bash
 make bootstrap
@@ -21,7 +21,19 @@ make generate
 make run
 ```
 
-`make run` собирает Spectator Web, встраивает bundle во Flutter и запускает Host. Устройство запуска можно выбрать через `FLUTTER_DEVICE`, например `make run FLUTTER_DEVICE=macos`. Для изолированной UI-разработки без встроенного WebSocket Host доступна команда `make run-web`.
+`make run` собирает Spectator Web, кроссплатформенно встраивает bundle во Flutter и запускает Host. По умолчанию выбирается desktop-device текущей ОС: `windows`, `macos` или `linux`.
+
+Устройство можно переопределить явно:
+
+```powershell
+make run FLUTTER_DEVICE=windows
+```
+
+```bash
+make run FLUTTER_DEVICE=macos
+```
+
+Для изолированной UI-разработки без встроенного WebSocket Host доступна команда `make run-web`.
 
 ## Spectator в локальной сети
 

@@ -1,9 +1,19 @@
-SHELL := /bin/sh
-
 FLUTTER_DIR := apps/tournament_app
 WEB_DIR := apps/spectator_web
-FLUTTER_DEVICE ?= macos
 FLUTTER_BUILD_TARGET ?= apk
+
+ifeq ($(OS),Windows_NT)
+DEFAULT_FLUTTER_DEVICE := windows
+else
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S),Darwin)
+DEFAULT_FLUTTER_DEVICE := macos
+else
+DEFAULT_FLUTTER_DEVICE := linux
+endif
+endif
+
+FLUTTER_DEVICE ?= $(DEFAULT_FLUTTER_DEVICE)
 
 .PHONY: help bootstrap install flutter-get web-install generate run run-flutter run-web \
 	format format-check lint test test-flutter test-web check build \
@@ -62,8 +72,7 @@ build-web: ## Собрать production bundle Spectator
 	cd $(WEB_DIR) && npm run build
 
 bundle-spectator: build-web ## Скопировать spectator bundle в ресурсы Flutter
-	mkdir -p $(FLUTTER_DIR)/assets/spectator
-	cp -R $(WEB_DIR)/dist/. $(FLUTTER_DIR)/assets/spectator/
+	dart run tools/scripts/bundle_spectator.dart
 
 build-flutter: ## Собрать Flutter (по умолчанию APK; цель задаётся через FLUTTER_BUILD_TARGET)
 	cd $(FLUTTER_DIR) && flutter build $(FLUTTER_BUILD_TARGET)

@@ -2,3 +2,5 @@
 
 В этом каталоге размещается повторяемая автоматизация сборки, генерации кода и проверок. Регулярные сценарии должны быть доступны через корневой `Makefile`.
 
+- `bundle_spectator.dart` кроссплатформенно копирует production bundle Spectator Web в assets Flutter-приложения. Обычно вызывается через `make bundle-spectator` или `make run`.
+
