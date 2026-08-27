@@ -1,8 +1,28 @@
-# Источники и решения
+# Authority and decisions
 
-- Приоритет: текущий запрос пользователя → product/domain docs → ADR/contracts → architecture/design docs → rules → task card → `docs/source`.
-- `docs/source` — reference и не редактируется в обычной задаче.
-- Проверь `docs/product/open-decisions.md` до реализации.
-- Не закрывай продуктовую неизвестность hardcoded default.
-- Устойчивое архитектурное решение фиксируй в каноне/ADR, не только в коде или карточке.
-- При конфликте останови затронутую часть, зафиксируй варианты и запроси решение.
+## Trigger
+
+Всегда; особенно при неоднозначности, конфликте требований или серьёзном решении.
+
+## Обязательно
+
+- Определить канонического владельца требования через `docs/README.md`.
+- Проверить open decisions до выбора поведения.
+- Документировать каждое серьёзное решение по decision policy.
+- Architecture change фиксировать ADR; rule change — отдельной записью rule-change journal.
+
+## Запрещено
+
+- Хранить серьёзное решение только в code, chat, commit message или task card.
+- Превращать неизвестность в hardcoded default.
+- Использовать `docs/source` вместо нормализованного канона.
+
+## Канон
+
+- [Иерархия документации](../../docs/README.md)
+- [Decision policy](../../docs/governance/decision-policy.md)
+- [Open decisions](../../docs/product/open-decisions.md)
+
+## Evidence
+
+Ссылка на owning document, ADR/decision record либо явно неприменимый decision impact.

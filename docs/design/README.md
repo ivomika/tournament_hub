@@ -1,119 +1,79 @@
 # Design system
 
-## Direction
+## Направление
 
-`Competitive / Cinematic / Clean`: информация и следующее действие важнее декора; dark-first; fighter artwork является частью identity. Flutter mobile-first с перестройкой desktop composition. Spectator web desktop-first и читается с расстояния.
+`Competitive / Cinematic / Clean`: информация и следующее действие важнее декора; интерфейс dark-first; artwork бойца является частью identity. Flutter строится mobile-first с адаптивной desktop-композицией, Spectator Web — desktop-first и должен читаться с расстояния.
 
-## Token source
+Числовые и цветовые значения не определяются в этом документе. Единственный machine-readable источник значений — [`tokens.json`](tokens.json), правила его изменения и потребления — [`tokens.md`](tokens.md). Логические экраны, роли и переходы заданы в [карте экранов](../product/screen-map.md).
 
-Visual values задаются semantic tokens в одном versioned source и экспортируются во Flutter/Web. Literal values в component запрещены, кроме документированного artwork/platform/math exception.
+## Принципы применения tokens
 
-### Spacing
-
-Base 4 px: `0=0`, `1=4`, `2=8`, `3=12`, `4=16`, `5=20`, `6=24`, `8=32`, `10=40`, `12=48`, `16=64`, `20=80`, `24=96`.
-
-### Breakpoints
-
-| Class | Width | Composition |
-|---|---:|---|
-| compact | <600 | single column, bottom navigation, 16 px page padding |
-| medium | 600–959 | 24–32 px padding, selective two-column |
-| expanded | 960–1279 | navigation rail, master/detail where useful |
-| large | 1280–1599 | dense operational panels, 32–48 px padding |
-| xlarge | ≥1600 | centered max width, no uncontrolled stretch |
-
-Host content max 1200–1440; Spectator 1440–1600. Layout branches by available width, not OS name. Text scale and split-screen can force a narrower composition.
-
-### Typography
-
-| Token | Size/line | Weight | Use |
-|---|---|---:|---|
-| display.xl/lg/md | 56/64, 48/56, 40/48 | 700 | Spectator/champion only |
-| heading.xl/lg/md/sm | 32/40, 28/36, 24/32, 20/28 | 600–700 | page/section/card hierarchy |
-| body.lg/md/sm | 18/28, 16/24, 14/20 | 400–500 | content |
-| label.lg/md/sm | 16/20, 14/20, 12/16 | 600 | control/badge |
-
-Score/table uses tabular figures. Font family/fallback remains OD-011; до решения platform fonts не должны создавать layout assumptions.
-
-### Colors
-
-| Token | Value |
-|---|---|
-| bg.canvas/subtle/elevated | `#0B0D10` / `#111419` / `#171B21` |
-| surface.primary/secondary/tertiary/hover | `#15191F` / `#1B2027` / `#232A33` / `#29313B` |
-| text.primary/secondary/tertiary/disabled | `#F5F7FA` / `#B9C0CA` / `#7F8996` / `#58616D` |
-| accent.primary | `#F0B429` |
-| status.success/danger/warning/info | `#36C98F` / `#F05D5E` / `#F5A623` / `#4DA3FF` |
-
-Нужно добавить semantic `border.*`, `focus.ring`, `overlay.scrim`, `surface/status container` пары до component implementation. `text.disabled` не несёт значимой информации. Цвет всегда дополнен text/icon/shape.
-
-### Shape/elevation
-
-Radius: 6/10/14/20/full. Base border 1 px semantic. Разделение: surface tone → border → spacing → shadow. Heavy glow/blur не baseline.
-
-### Motion
-
-120/200/320/450 ms (`fast/normal/slow/presentation`). Motion объясняет state change. Infinite blinking/glow/autoplay запрещены. Reduced Motion заменяет movement на fade/instant change без потери информации.
+- Компоненты используют semantic tokens, а не raw literals.
+- Layout выбирается по доступной ширине, text scale и split-screen, а не по имени ОС.
+- Исключение для artwork, платформенной особенности или вычисляемого значения документируется по [политике решений](../governance/decision-policy.md).
+- Новый raw value сначала добавляется или сопоставляется в manifest; параллельный источник во Flutter/Web запрещён.
+- Изменение manifest требует проверки обеих платформенных тем и затронутых visual regressions.
 
 ## Interaction
 
-- Mobile target минимум 44×44, предпочтительно 48×48.
-- Standard control height 44–48; compact 36–40 только при сохранении target; large 52–56.
+- Интерактивная область использует token минимального target; видимый control может быть компактнее только при сохранении target.
 - В visual region одна dominant Primary action.
 - Destructive action отделена, описывает последствие и требует confirmation.
 - Disabled action по возможности сопровождается причиной.
 - Keyboard order совпадает с visual/logical order; visible focus обязателен.
-- Hover не раскрывает единственный путь к информации/action.
+- Hover не является единственным способом открыть информацию или действие.
 
 ## Core components
 
-Каждый component имеет default, hover/focus/pressed, disabled, loading и error semantics по необходимости.
+Каждый component имеет необходимые default, hover/focus/pressed, disabled, loading и error states.
 
-- `ParticipantIdentity`: до assignment nickname/status; после — artwork + fighter name + nickname + Guest badge.
+- `ParticipantIdentity`: до assignment — nickname/status; после — artwork, fighter name, nickname и Guest badge.
 - `FighterAvatar`: stable crop variants, semantic label, fallback/placeholder.
-- `MatchCard/CurrentMatch`: stage, identities, score/result type, Current emphasis, permitted actions.
-- `StandingsTable`: place, identity, points/tie context; table desktop, compact rows/scroll mobile.
-- `Bracket`: relationships первичны, затем identity/result/metadata; pan/zoom/keyboard альтернативы.
-- `StatusBadge`: text + icon/shape, не color-only.
+- `MatchCard/CurrentMatch`: stage, identities, score/result type, Current emphasis и разрешённые actions.
+- `StandingsTable`: place, identity, points/tie context; table на desktop, compact rows/scroll на mobile.
+- `Bracket`: связи первичны, затем identity/result/metadata; предусмотрены pan/zoom/keyboard alternatives.
+- `StatusBadge`: text плюс icon/shape; значение не передаётся только цветом.
 - `ConnectionBanner`: live/reconnecting/stale/incompatible и recovery.
 - `Empty/ErrorState`: конкретная причина и одно recovery action.
-- `ConfirmationDialog`: объект, необратимое последствие, safe default focus.
-- `ChampionHero`: fighter identity, champion participant, tournament context; не скрывает ranking.
+- `ConfirmationDialog`: объект, необратимое последствие и safe default focus.
+- `ChampionHero`: fighter identity, champion participant и tournament context; complete ranking остаётся доступным.
 
-## Screen compositions
+## Screen composition contract
 
-- Main: active state и next action above fold; create/join только когда разрешены.
-- Draft: form + persistent summary; validation рядом с field.
-- Open: roster primary, connection card secondary на compact; requests/actions отделены.
-- Distribution: full identity grid/list; `Reroll All`; start confirmation.
-- Running: Current match strongest; tournament structure and progress below/alongside by width.
-- Result entry: two unambiguous identities; technical action отделено; correction condition visible.
-- Finished: champion hero + complete ranking + Main/History.
-- History: scannable list + adaptive detail; snapshot read-only obvious.
-- Spectator: large typography, previous/current/next, connection state, no controls resembling mutation.
+Канонический список экранов и переходов находится в [screen map](../product/screen-map.md). Визуальные обязательства:
 
-## Participant identity rule
+- Main показывает active state и next action до вторичных действий.
+- Draft сохраняет видимый summary и показывает validation рядом с field.
+- Open отделяет roster, connection и management actions.
+- Distribution показывает полную identity каждого участника и confirmation перед стартом.
+- Running делает Current match визуально сильнейшим элементом.
+- Result entry показывает две однозначные identities, outcome и отдельно correction path.
+- Finished показывает champion и полную ranking с выходом в Main/History.
+- History явно read-only и адаптивно раскрывает snapshot detail.
+- Spectator показывает previous/current/next, connection state и не имитирует mutation controls.
 
-После Distribution любое упоминание participant в tournament context обязано включать fighter asset, fighter name и participant nickname. Это касается cards, current/next, standings, bracket slots, results, dialogs, notifications where image possible, history и spectator. Compact variant может уменьшать artwork, но не удалять fighter name.
+## Participant identity
 
-## Loading, error and stale
+После Distribution любое упоминание participant в tournament context включает fighter asset, fighter name и participant nickname. Правило действует для cards, standings, bracket, results, dialogs, notifications с изображениями, history и spectator. Compact variant может уменьшать artwork, но не удалять fighter name.
 
-- Loading локален; existing content не исчезает без необходимости.
-- Optimistic mutation допускается только если rollback и authoritative reconciliation формализованы; по умолчанию success показывается после commit.
-- Error не показывает exception/stack; сохраняет введённые данные и предлагает retry/correction.
-- Offline/stale сохраняет last-known data, блокирует mutation и явно показывает время/состояние sync.
+## Loading, error и stale
+
+- Loading локален; существующий content не исчезает без необходимости.
+- Optimistic mutation разрешена только при формализованных rollback и authoritative reconciliation; иначе success показывается после commit.
+- Error скрывает exception/stack, сохраняет введённые данные и предлагает retry/correction.
+- Offline/stale сохраняет last-known data, блокирует mutation и явно сообщает sync state.
 - Empty отличается от loading и permission denied.
 
 ## Accessibility gates
 
-- Normal text ≥4.5:1, large ≥3:1; interactive/non-text boundaries ≥3:1 где применимо.
-- Semantic labels содержат fighter, nickname, status и score.
-- Text scale 200% не обрезает critical actions/data.
+- Contrast проверяется по WCAG для текста и interactive boundaries; token pairs проходят автоматическую или документированную ручную проверку.
+- Semantic labels содержат fighter, nickname, status и score, когда они представлены визуально.
+- Максимальный поддерживаемый text scale не обрезает critical actions/data.
 - Keyboard и screen reader проходят основной Host/Participant flow.
-- Focus не теряется после async update; dialogs возвращают focus trigger.
+- Focus сохраняется после async update; dialog возвращает focus инициатору.
 - Touch, color, motion, sound и hover не являются единственным carrier.
-- Locale strings не собираются конкатенацией, допускают длинный русский текст.
+- Locale strings не собираются конкатенацией и выдерживают длинный русский текст.
 
-## Visual QA checklist
+## Visual QA
 
-Проверяются все width classes, 100/200% text scale, long nickname/title, missing artwork, empty/error/loading/stale, keyboard focus, reduced motion, high contrast и screenshot/golden ключевых components. Изменение token требует Flutter+Web regression review.
+Проверяются все classes из manifest, поддерживаемые text scales, длинные nickname/title, missing artwork, empty/error/loading/stale, keyboard focus, reduced motion, contrast и screenshot/golden ключевых компонентов. Конкретный набор checks фиксируется в карточке задачи.

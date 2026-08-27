@@ -68,7 +68,7 @@ Design Doc задаёт сильный baseline: local-first, Host authoritative
 
 ## Проверка design tokens
 
-Расчёт WCAG contrast для основных сочетаний с `surface.primary #15191F`:
+Историческая проверка WCAG contrast выполнена для основных сочетаний с `surface.primary`; актуальные значения пар берутся только из [design token manifest](../design/tokens.json):
 
 | Token | Ratio | Вывод |
 |---|---:|---|

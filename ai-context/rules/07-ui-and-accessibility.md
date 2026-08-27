@@ -1,10 +1,26 @@
-# UI и accessibility
+# UI and accessibility enforcement
 
-- Проектируй initial/loading/content/empty/error и offline/stale для network screen.
-- Normal text contrast ≥4.5:1, large ≥3:1; state не кодируется только цветом.
-- Touch target минимум 44×44; keyboard focus видим и логичен.
-- Поддерживай 200% text scale, длинный русский текст и screen-reader semantics.
-- Hover, motion и artwork не могут быть единственным носителем информации/action.
-- Reduced Motion обязателен; infinite blinking/glow запрещены.
-- Async error локален, понятен и имеет recovery; stack trace пользователю запрещён.
-- Domain decisions не вычисляются во widget/component/provider.
+## Trigger
+
+Изменение пользовательского screen/navigation, interaction, async/network state, text/artwork, focus/keyboard, animation или adaptive composition.
+
+## Обязательно
+
+- Сверить переходы и guards с screen map.
+- Покрыть применимые presentation states и accessibility constraints из design canon.
+- Проверить затронутые width classes и способы ввода.
+
+## Запрещено
+
+- Использовать navigation как скрытый Domain transition.
+- Делать color/hover/motion/artwork единственным носителем информации.
+- Показывать internal exception/stack trace пользователю.
+
+## Канон
+
+- [Screen map](../../docs/product/screen-map.md)
+- [Design system](../../docs/design/README.md)
+
+## Evidence
+
+Widget/component/golden/manual checks для states, routes/guards, widths, semantics, keyboard/focus и reduced motion.

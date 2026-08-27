@@ -8,6 +8,10 @@
 4. Прочитать канонические документы затронутой области.
 5. Зафиксировать scope/non-scope, risks, migration и проверки; только затем менять проект.
 
+### Rule routing gate
+
+Для каждой задачи читаются rule router и пять core rules. Затем scope сопоставляется с conditional triggers; читаются и связываются только сработавшие rules. Карточка хранит core evidence, результат trigger scan и evidence conditional rules. Пустой или формальный routing блокирует `В работе`; изменение scope требует повторного routing, итоговый diff — повторной сверки перед `Выполнена`.
+
 ## Current repository state
 
 На дату документации ветка содержит design source и AI-context, но application skeleton отсутствует. Команды сборки нельзя придумывать в документации как уже работающие. При bootstrap должны появиться root `README.md`, `Makefile`, Flutter/React apps, tool scripts и CI; команды ниже становятся обязательным interface после реализации.
@@ -31,6 +35,7 @@ Windows/macOS/Linux orchestration реализуется scripts, а Makefile о
 - Цель проверяема.
 - Scope/non-scope и actor/state определены.
 - Правила и канонические документы связаны.
+- Core evidence и conditional trigger scan заполнены без декоративных ссылок.
 - Open decisions либо закрыты, либо область исключена.
 - Data/protocol/design impact перечислен.
 - Acceptance criteria наблюдаемы.
@@ -98,6 +103,7 @@ Windows/macOS/Linux orchestration реализуется scripts, а Makefile о
 - Migration/rollback/release impact записан.
 - Нет secrets, temporary/generated garbage и несвязанных изменений.
 - Task card содержит result и переведена в Finished/✅.
+- Rule routing сверён с итоговым diff; фактический evidence записан для core и сработавших conditional rules.
 - Commit создаётся только по прямому запросу и содержит одну логическую задачу.
 
 ## Git safety

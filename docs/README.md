@@ -12,8 +12,10 @@
 4. [Tournament domain](domain/tournament-rules.md) — правила форматов и инварианты.
 5. [Data and protocol](data/README.md) — snapshots, транзакции, versioning и realtime.
 6. [Design system](design/README.md) — tokens, компоненты, адаптивность и accessibility.
-7. [Development](development/README.md) и [testing](testing/README.md) — как менять и проверять проект.
-8. [Operations](operations/README.md) — LAN, безопасность, диагностика и релиз.
+7. [Screen map](product/screen-map.md) — роли, экраны, guards и переходы.
+8. [Decision policy](governance/decision-policy.md) — где фиксировать серьёзные решения.
+9. [Development](development/README.md) и [testing](testing/README.md) — как менять и проверять проект.
+10. [Operations](operations/README.md) — LAN, безопасность, диагностика и релиз.
 
 Краткие обязательные правила перед каждой задачей находятся в [`ai-context/rules`](../ai-context/rules/README.md).
 
@@ -24,12 +26,16 @@
 | Аудит | [Design Doc audit](audit/design-doc-audit.md) | Покрытие, противоречия, риски и пробелы исходника |
 | Продукт | [Product guide](product/README.md) | Scope, роли, lifecycle, permissions, экраны |
 | Решения | [Open decisions](product/open-decisions.md) | Вопросы, блокирующие безопасную реализацию |
+| Governance | [Decision policy](governance/decision-policy.md) | Обязательные артефакты серьёзных решений |
+| Governance | [Rule change log](governance/rule-change-log.md) | Причины, влияние и migration изменений rules |
+| Экраны | [Screen map](product/screen-map.md) | Role flows, logical routes, guards и presentation states |
 | Архитектура | [Architecture](architecture/README.md) | System context, слои, contracts, ownership |
 | Трассировка | [Traceability](architecture/traceability.md) | Requirement → owner → contract → UI → tests |
 | ADR | [ADR index](adr/README.md) | Устойчивые архитектурные решения |
 | Домен | [Tournament rules](domain/tournament-rules.md) | DE, SE, RR, результаты, correction, withdrawal |
 | Данные | [Data and protocol](data/README.md) | Persistence, migrations, transactions, realtime |
 | Дизайн | [Design system](design/README.md) | Visual language, tokens, layouts, states, a11y |
+| Design contract | [Tokens manifest](design/tokens.json) · [usage](design/tokens.md) | Единственные значения design tokens и правила потребления |
 | Assets | [Fighter assets](assets/fighters.md) | Manifest contract, identity и pipeline |
 | Разработка | [Development guide](development/README.md) | Структура, workflow, DoR/DoD, зависимости |
 | Тестирование | [Testing strategy](testing/README.md) | Пирамида, обязательные suites, release gates |
@@ -49,7 +55,7 @@
 6. Карточка активной задачи.
 7. Материалы `docs/source`.
 
-Новый устойчивый выбор сначала фиксируется в документации или ADR. Неразрешённый вопрос добавляется в open decisions и не закрывается догадкой.
+Новый устойчивый выбор фиксируется по [политике серьёзных решений](governance/decision-policy.md). Неразрешённый вопрос добавляется в open decisions и не закрывается догадкой.
 
 ## Definition of documented
 

@@ -1,10 +1,27 @@
-# Дизайн-система
+# Design-system enforcement
 
-- Visual direction: Competitive / Cinematic / Clean; information before decoration.
-- Используй semantic tokens, base spacing 4 px и documented typography/radius/motion scales.
-- Breakpoints: compact <600, medium 600–959, expanded 960–1279, large 1280–1599, xlarge ≥1600.
-- Desktop структурно перестраивает composition; нельзя просто растянуть mobile cards.
-- Один dominant Primary action в visual region; destructive action отделена и подтверждается.
-- После assignment identity всегда: fighter asset + fighter name + participant nickname (+ Guest badge).
-- Current Match — самый сильный operational state; tournament relationships важнее декора.
-- Random magic values и новые tokens без обновления design docs запрещены.
+## Trigger
+
+Изменение screen/component/theme/token, layout, typography, color, shape, motion, artwork composition или Flutter/Web visual parity.
+
+## Обязательно
+
+- Использовать design tokens по stable path из manifest, а не копировать raw values.
+- Следовать component/layout semantics из design canon.
+- Изменение token semantics/value/version документировать как серьёзное design decision.
+
+## Запрещено
+
+- Дублировать token values или breakpoint numbers в rule/code comments.
+- Добавлять magic visual values без documented exception.
+- Создавать новый token только в одной платформе.
+
+## Канон
+
+- [Design system](../../docs/design/README.md)
+- [Design tokens contract](../../docs/design/tokens.md)
+- [Design tokens manifest](../../docs/design/tokens.json)
+
+## Evidence
+
+Использованные token paths, manifest validation и visual/adaptive evidence затронутых компонентов.

@@ -1,10 +1,25 @@
-# Тестирование и качество
+# Testing and quality
 
-- Тест размещай на самом нижнем слое, владеющем поведением.
-- Domain rules покрывай unit/property/invariant tests с воспроизводимым seed.
-- Data changes требуют migration, round-trip, failure/rollback fixtures.
-- Protocol changes требуют duplicate/reorder/gap/reconnect/version/redaction tests.
-- UI changes требуют adaptive, state и accessibility/widget/component coverage.
-- Перед сдачей выполняй `make check`, когда command существует и не запрещён.
-- Не скрывай failure через удаление assertion, ignore или беспричинный timeout.
-- Непроведённую проверку и риск запиши явно; build запускай только когда нужен и разрешён.
+## Trigger
+
+Всегда для любого проверяемого изменения.
+
+## Обязательно
+
+- До реализации назвать checks на нижнем ответственном слое.
+- Выполнить доступный project quality gate и записать точные результаты.
+- Записать каждый skip вместе с причиной и риском.
+
+## Запрещено
+
+- Скрывать failure удалением assertion, ignore или беспричинным timeout.
+- Заменять низкоуровневый contract test одним E2E/UI test.
+- Называть непроведённую проверку успешной.
+
+## Канон
+
+- [Testing strategy](../../docs/testing/README.md)
+
+## Evidence
+
+Команды, exit/result counts, manual environment и список skips/рисков.

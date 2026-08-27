@@ -1,10 +1,26 @@
-# Сеть и безопасность
+# Network and security enforcement
 
-- Любой external payload проходит size/schema/version/role/lifecycle validation до Domain.
-- Participant отправляет intent, никогда authoritative fact; Spectator read-only.
-- Commands имеют commandId и expectedRevision; duplicates не применяются повторно.
-- Reconnect начинается с Host snapshot либо contiguous replay; gap → full snapshot.
-- Role projections содержат минимум данных; local history/settings/profile IDs не уходят Spectator.
-- QR/code/session secrets не попадают в logs, tasks, screenshots и git.
-- Disconnect не создаёт loss, withdrawal или Host Cancelled.
-- Не реализуй незакрытый protocol/security choice из open decisions.
+## Trigger
+
+Изменение external payload, LAN/HTTP/WebSocket, QR/code/session, protocol, projections, permissions, reconnect, logs или diagnostics.
+
+## Обязательно
+
+- Описать threat, permission и data-exposure impact.
+- Валидировать external input до Domain и сохранять Host authority.
+- Проверить versioning, idempotency, reconnect и redaction по применимому contract.
+
+## Запрещено
+
+- Давать client authoritative mutation или публиковать лишние profile/local fields.
+- Логировать/фиксировать secrets и raw sensitive payload.
+- Реализовывать незакрытый security/protocol open decision.
+
+## Канон
+
+- [Data and protocol](../../docs/data/README.md)
+- [Operations and security](../../docs/operations/README.md)
+
+## Evidence
+
+Contract/security tests для validation, duplicate/gap/reconnect, authorization и projection redaction.

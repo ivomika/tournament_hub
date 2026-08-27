@@ -142,7 +142,7 @@ Router guard читает application state. Route не вызывает lifecyc
 
 ## ADR policy
 
-ADR обязателен для изменения authority model, layer direction, persistence truth, transport, versioning strategy, supported platforms или design-token source. ADR включает context, decision, alternatives, consequences, migration и rollback. Task card не заменяет ADR.
+ADR обязателен для изменения authority model, layer direction, persistence truth, transport, versioning strategy, supported platforms или design-token source. Требуемые поля и порядок определяет [политика серьёзных решений](../governance/decision-policy.md), реестр ведётся в [ADR index](../adr/README.md). Архитектурный выбор фиксируется до реализации; task card и code comment не заменяют ADR.
 
 ## Architecture fitness checks
 

@@ -1,10 +1,26 @@
-# Архитектура
+# Architecture enforcement
 
-- Host Flutter — единственный authority активного турнира; clients не вычисляют business truth.
-- Зависимости: presentation/app → application/services → pure Dart domain; infrastructure реализует ports.
-- Domain не импортирует Flutter, Riverpod, Drift, JSON, sockets или platform API.
-- Один application service координирует один use case и не содержит format rules.
-- DE/SE/RR — отдельные versioned engines за registry; switches вне boundary запрещены.
-- MK11 roster/assignment отделены Game Definition от Tournament core.
-- Dependencies, clock, RNG и IDs передаются явно; global service locator запрещён.
-- React — только read-only projection без tournament engine.
+## Trigger
+
+Изменение структуры, layers, dependency direction, ports/adapters, DI, authority, engines, Host/Participant/Spectator boundaries.
+
+## Обязательно
+
+- Назвать затронутые architectural boundaries в карточке.
+- Следовать текущему architecture canon и зафиксировать проверку зависимостей.
+- При изменении архитектуры создать/обновить ADR до реализации зависимого кода.
+
+## Запрещено
+
+- Дублировать architecture facts в этом rule.
+- Менять authority/layer/technology boundary без ADR и migration consequences.
+- Обходить boundary ради удобства UI или infrastructure.
+
+## Канон
+
+- [Architecture guide](../../docs/architecture/README.md)
+- [ADR policy](../../docs/adr/README.md)
+
+## Evidence
+
+ADR или ссылка на неизменённый канон, dependency/fitness test и review затронутых imports/ports.

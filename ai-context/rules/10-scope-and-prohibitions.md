@@ -1,9 +1,26 @@
-# Scope и запреты MVP
+# Scope control
 
-- Не добавляй cloud/backend accounts, несколько profiles или несколько active tournaments.
-- Не добавляй multi-station/current matches, pause lifecycle или manual match ordering.
-- Не добавляй individual reroll, fighter exclusions, draws или match Cancelled.
-- Не добавляй presence feature, notification center, manual spectator sync или permanent hosting.
-- Не добавляй guest conversion, profile avatars или individual history delete.
-- Scope extension требует отдельной задачи и изменения product docs/open decisions.
-- Не называй будущую возможность готовой и не создавай пустую архитектуру «на всякий случай».
+## Trigger
+
+Всегда; особенно для нового feature, будущей abstraction или попутного улучшения.
+
+## Обязательно
+
+- Сверить requested scope с product scope/exclusions и open decisions.
+- Явно записать non-scope и condition для отдельной будущей задачи.
+- Остановиться, если расширение требует нового решения/авторизации.
+
+## Запрещено
+
+- Копировать полный список product exclusions в rule.
+- Добавлять незапрошенный feature или speculative architecture.
+- Называть будущую возможность реализованной.
+
+## Канон
+
+- [Product guide](../../docs/product/README.md)
+- [Open decisions](../../docs/product/open-decisions.md)
+
+## Evidence
+
+Scope/non-scope карточки и итоговый diff без незапрошенных областей.

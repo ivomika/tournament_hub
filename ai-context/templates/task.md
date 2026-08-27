@@ -31,8 +31,26 @@
 ## Обязательные правила
 
 - Индекс: [`ai-context/rules/README.md`](../rules/README.md).
-- Применимые правила: добавить прямые ссылки минимум на каждую затронутую область.
-- Подтверждение: правила прочитаны перед переводом задачи в `В работе`.
+- Дата routing: `ГГГГ-ММ-ДД`.
+- Conditional trigger scan: перечислить затронутые области и итог сопоставления.
+
+### Core evidence
+
+| Core rule | Ожидаемый evidence; перед завершением — фактический |
+|---|---|
+| [00 Task workflow](../rules/00-task-workflow.md) |  |
+| [01 Authority](../rules/01-authority-and-decisions.md) |  |
+| [08 Testing/quality](../rules/08-testing-and-quality.md) |  |
+| [10 Scope control](../rules/10-scope-and-prohibitions.md) |  |
+| [11 Git/safety](../rules/11-git-and-safety.md) |  |
+
+### Conditional rules
+
+Добавить строку только для каждого rule со сработавшим trigger. Если ни один trigger не совпал, явно записать результат scan.
+
+| Rule | Trigger в scope | Ожидаемый evidence; перед завершением — фактический |
+|---|---|---|
+| `NN Rule` (заменить на прямую ссылку) |  |  |
 
 ## Зависимости и документация
 
@@ -52,6 +70,7 @@
 - [ ] Необходимые проверки проходят.
 - [ ] Связанная документация обновлена.
 - [ ] Ссылки на обязательные правила и документацию актуальны.
+- [ ] Rule routing повторно сверён с итоговым diff; фактический evidence заполнен.
 
 ## Проверка
 

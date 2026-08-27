@@ -1,10 +1,25 @@
-# Данные и persistence
+# Data and persistence enforcement
 
-- Active snapshot — source of truth; event log только bounded reconnect buffer.
-- Domain model отделён mapper от persisted/network DTO.
-- Mutation: validate → Domain → одна DB transaction snapshot+events+idempotency → commit → broadcast/UI success.
-- Terminal: history insert + active/log delete в одной transaction; publish только после commit.
-- Revision/sequence монотонны; ordering не зависит от wall clock.
-- Schema/ruleset/protocol versions не переиспользуются; migrations последовательны и tested.
-- History self-contained immutable; projections/statistics воспроизводимы.
-- `shared_preferences` запрещён для profile, tournament, history, cache и event log.
+## Trigger
+
+Изменение persisted state, DTO/mapper, transaction, history, cache, event log, version, time/ordering, schema или migration.
+
+## Обязательно
+
+- Зафиксировать consistency, compatibility, migration и recovery impact.
+- Сохранять authoritative mutation в определённой каноном atomic boundary.
+- Проверить round-trip, upgrade и failure/rollback paths.
+
+## Запрещено
+
+- Сериализовать Domain model напрямую.
+- Переиспользовать опубликованную version или молча удалять пользовательские данные.
+- Показывать success/broadcast до требуемого commit.
+
+## Канон
+
+- [Data and protocol](../../docs/data/README.md)
+
+## Evidence
+
+Versioned contract, migration/round-trip/fault tests и documented rollback/recovery.
