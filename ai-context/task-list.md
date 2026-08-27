@@ -10,6 +10,7 @@
 
 ## Завершённые задачи
 
+- ✅ **044** — Добавить минимальные application skeletons и cross-platform Makefile — [детали](tasks/TH-20260827-044.md)
 - ✅ **043** — Разделить rules и project facts, добавить design tokens и screen map — [детали](tasks/TH-20260827-043.md)
 - ✅ **042** — Добавить triggers и enforcement обязательных правил — [детали](tasks/TH-20260827-042.md)
 - ✅ **041** — Аудит Design Doc и полная документация проекта — [детали](tasks/TH-20260826-041.md)

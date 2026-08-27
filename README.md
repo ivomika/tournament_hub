@@ -4,13 +4,43 @@ Local-first система проведения турниров Mortal Kombat 1
 
 ## Состояние репозитория
 
-Текущая ветка содержит нормативную документацию, обязательный task workflow и source assets. Application skeleton ещё не восстановлен/создан, поэтому команды `make setup/check/run/build` пока являются запланированным interface, а не готовыми командами.
+Репозиторий содержит нормативную документацию, обязательный task workflow, source assets, минимальный Flutter application skeleton в `apps/tournament_app` и read-only React/Vite skeleton в `apps/spectator_web`. Внутренние architecture/feature folders добавляются только вместе с соответствующей реализацией.
+
+## Требования
+
+- Flutter SDK с Dart SDK в `PATH`.
+- Node.js и npm для Spectator Web.
+- GNU Make. На Windows подходит GNU Make из Chocolatey/MSYS2; команды внутри Makefile не зависят от Unix shell.
+- Platform toolchain для выбранного Flutter target.
+
+Переменные окружения `FLUTTER`, `DART` и `NPM` позволяют переопределить имена/пути executables.
+
+## Команды
+
+```text
+make help
+make setup
+make run
+make run DEVICE=windows
+make run-spectator
+make build
+make build TARGET=web
+make build-flutter TARGET=windows
+make build-spectator
+make format
+make lint
+make test
+make check
+make clean
+```
+
+`make run` запускает Flutter, `make run-spectator` — Vite development server. `make run` без `DEVICE` передаёт выбор доступного device Flutter. Общий `make build` последовательно собирает Flutter и Spectator Web; без `TARGET` Flutter выбирает desktop target текущего host. Для изолированной сборки есть `build-flutter` и `build-spectator`. Явно поддерживаемые Flutter build targets: `apk`, `appbundle`, `ios`, `linux`, `macos`, `web`, `windows`. Наличие runner не является обещанием production support: release matrix остаётся отдельным решением OD-009.
 
 ## Начало работы
 
 1. Прочитайте [`AGENTS.md`](AGENTS.md).
 2. Откройте [`ai-context/task-list.md`](ai-context/task-list.md) и заведите/выберите задачу.
-3. Прочитайте все [`ai-context/rules`](ai-context/rules/README.md).
+3. Прочитайте router, core и сработавшие conditional [`ai-context/rules`](ai-context/rules/README.md).
 4. Изучите карту [`docs/README.md`](docs/README.md) и open decisions.
 5. Реализуйте только scope активной карточки и зафиксируйте проверки.
 

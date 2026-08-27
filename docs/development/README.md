@@ -14,9 +14,9 @@
 
 ## Current repository state
 
-На дату документации ветка содержит design source и AI-context, но application skeleton отсутствует. Команды сборки нельзя придумывать в документации как уже работающие. При bootstrap должны появиться root `README.md`, `Makefile`, Flutter/React apps, tool scripts и CI; команды ниже становятся обязательным interface после реализации.
+Репозиторий содержит минимальные Flutter `apps/tournament_app` и React/Vite `apps/spectator_web` skeletons, root `Makefile` и cross-platform Dart orchestration. Realtime Spectator implementation, CI и production platform matrix ещё не реализованы. Platform runners обеспечивают development bootstrap и сами по себе не закрывают OD-009.
 
-## Planned tool interface
+## Tool interface
 
 | Command | Contract |
 |---|---|
@@ -26,9 +26,9 @@
 | `make test` | Unit/widget/component tests |
 | `make check` | Assets + format check + lint + tests + docs links |
 | `make run DEVICE=...` | Запускает Flutter на явно/безопасно выбранном device |
-| `make build` | Production artifacts; только когда задача требует/разрешает |
+| `make build` | Последовательно собирает выбранный Flutter target и Spectator Web |
 
-Windows/macOS/Linux orchestration реализуется scripts, а Makefile остаётся thin interface. Команда не зависит от bash-only builtins, если заявлена Windows support.
+Windows/macOS/Linux branching реализован в `tool/project.dart`, а Makefile остаётся thin interface без bash/cmd/PowerShell-specific логики. `DEVICE` задаёт Flutter run target; `TARGET` задаёт Flutter build target, а без него выбирается desktop target текущего host. `run-spectator`, `build-flutter` и `build-spectator` доступны для изолированной работы.
 
 ## Definition of Ready
 
