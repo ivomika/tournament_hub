@@ -1,0 +1,34 @@
+# Fighter assets contract
+
+## Source
+
+Reference manifest и originals находятся в [`docs/source/fighters`](../source/fighters/). Они read-only для обычных задач. Runtime assets копируются/генерируются отдельным детерминированным pipeline.
+
+## Текущее состояние
+
+- 37 roster entries и 37 PNG.
+- Stable IDs уникальны и совпадают с basename.
+- Все изображения 512×512.
+- Manifest `schemaVersion = 1`, format PNG, ожидаемый transparent background.
+- Missing/unlisted assets не обнаружены аудитом 26.08.2026.
+
+## Import requirements
+
+Importer обязан валидировать JSON schema, unique IDs, safe relative paths, file existence, PNG signature, exact dimensions и отсутствие лишних runtime files. Output path map должен быть явным: source manifest использует `assets/fighters/...`, хотя originals лежат в `docs/source/fighters`.
+
+## Visual requirements
+
+- Один стабильный crop per component variant.
+- Transparent background проверяется, не предполагается по manifest.
+- Fighter name берётся из локализованного roster, не выводится из filename.
+- Missing asset показывает безопасный placeholder + fighter name.
+- Artwork не используется без text alternative.
+- После assignment artwork всегда сопровождается fighter name и nickname.
+
+## Snapshot policy
+
+History хранит stable fighter ID и display snapshot, достаточный для воспроизведения после обновления roster. Нельзя связывать старую историю только с изменяемой текущей записью.
+
+## Legal gate
+
+До release требуется provenance/license record для каждого набора artwork, права на распространение и branding review Mortal Kombat 11. Техническая корректность manifest не означает разрешение на публикацию.
