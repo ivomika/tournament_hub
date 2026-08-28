@@ -21,14 +21,19 @@
 | Command | Contract |
 |---|---|
 | `make setup` | Устанавливает workspace dependencies без secret mutation |
+| `make sync-fighter-assets` | Валидирует source manifest и синхронизирует Flutter runtime artwork |
 | `make format` | Форматирует Dart/TS/Markdown поддерживаемыми tools |
 | `make lint` | Static analysis/lint/typecheck |
 | `make test` | Unit/widget/component tests |
+| `make architecture` | Design-system boundaries, tokenization и negative fixtures |
 | `make check` | Assets + format check + lint + tests + docs links |
 | `make run DEVICE=...` | Запускает Flutter на явно/безопасно выбранном device |
+| `make run-widgetbook DEVICE=...` | Запускает Flutter Widgetbook через отдельный entry point |
 | `make build` | Последовательно собирает выбранный Flutter target и Spectator Web |
 
 Windows/macOS/Linux branching реализован в `tool/project.dart`, а Makefile остаётся thin interface без bash/cmd/PowerShell-specific логики. `DEVICE` задаёт Flutter run target; `TARGET` задаёт Flutter build target, а без него выбирается desktop target текущего host. `run-spectator`, `build-flutter` и `build-spectator` доступны для изолированной работы.
+
+Flutter presentation catalog находится в `lib/main_widgetbook.dart`. Он использует generated bindings из `docs/design/tokens.json` и не является production router. Запуск также доступен через `.vscode/launch.json`; VS Code выбирает конкретный Flutter device, а Widgetbook `ViewportAddon` переключает project compositions Mobile/Desktop внутри catalog. `make test` и `make check` перед Flutter tests запускают обязательный architecture check из `tool/check_flutter_design_system.dart`.
 
 ## Definition of Ready
 

@@ -14,6 +14,15 @@
 - Новый raw value сначала добавляется или сопоставляется в manifest; параллельный источник во Flutter/Web запрещён.
 - Изменение manifest требует проверки обеих платформенных тем и затронутых visual regressions.
 
+## Flutter component architecture
+
+- `presentation/design_system/tokens` содержит generated primitives и не является публичным runtime API.
+- `presentation/design_system/theme` — единственное место, где primitive tokens преобразуются в общую `ThemeData` и typed component themes.
+- Каждый component находится в `components/<name>/`, имеет widget и собственный `ThemeExtension`; component читает только этот extension.
+- `design_system.dart` экспортирует widgets/models, но не generated tokens и не internal theme mappings.
+- Каждый screen находится в отдельном файле и только компонует публичные DS components. Material visual controls, raw values и private themes в screens запрещены.
+- Соблюдение структуры проверяется автоматически согласно [ADR-0003](../adr/0003-flutter-design-system-boundaries.md).
+
 ## Interaction
 
 - Интерактивная область использует token минимального target; видимый control может быть компактнее только при сохранении target.
@@ -37,6 +46,17 @@
 - `Empty/ErrorState`: конкретная причина и одно recovery action.
 - `ConfirmationDialog`: объект, необратимое последствие и safe default focus.
 - `ChampionHero`: fighter identity, champion participant и tournament context; complete ranking остаётся доступным.
+
+### Fighter artwork hierarchy
+
+Character artwork — главный визуальный якорь post-assignment identity, а не маленькая декоративная иконка. Semantic variants из `artwork.size.*` применяются по роли representation:
+
+- `compact` — вторичная tournament structure: standings и bracket;
+- `standard` — roster/distribution и обычная participant identity;
+- `matchup` — Current Match и ввод результата;
+- `hero` — champion и экран собственного назначенного персонажа.
+
+Более крупный variant нельзя заменять nickname-only или уменьшать до generic control icon. Character name и participant nickname всегда остаются рядом как text/accessibility carriers. На compact width `matchup`/`hero` меняют композицию, а не уменьшают artwork до вторичного уровня.
 
 ## Screen composition contract
 
@@ -77,3 +97,7 @@
 ## Visual QA
 
 Проверяются все classes из manifest, поддерживаемые text scales, длинные nickname/title, missing artwork, empty/error/loading/stale, keyboard focus, reduced motion, contrast и screenshot/golden ключевых компонентов. Конкретный набор checks фиксируется в карточке задачи.
+
+## Flutter presentation catalog
+
+Widgetbook запускается отдельным entry point `apps/tournament_app/lib/main_widgetbook.dart`. Каталог показывает generated tokens, reusable components, presentation states и все Flutter screen previews в project viewports Mobile/Desktop. Он является visual development tool и не заменяет production router, Domain behavior или канонические требования этого документа и [screen map](../product/screen-map.md). Решение зафиксировано в [ADR-0002](../adr/0002-widgetbook-presentation-catalog.md).

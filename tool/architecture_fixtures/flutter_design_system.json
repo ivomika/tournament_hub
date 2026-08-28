@@ -1,0 +1,50 @@
+[
+  {
+    "name": "raw color in component",
+    "path": "presentation/design_system/components/sample/sample.dart",
+    "source": "final color = Color(0xFF112233);",
+    "expectedRule": "raw-color"
+  },
+  {
+    "name": "material color in component",
+    "path": "presentation/design_system/components/sample/sample.dart",
+    "source": "final color = Colors.red;",
+    "expectedRule": "raw-color"
+  },
+  {
+    "name": "hex string in presentation",
+    "path": "presentation/widgetbook/catalog.dart",
+    "source": "const value = '#112233';",
+    "expectedRule": "raw-color"
+  },
+  {
+    "name": "raw spacing in component",
+    "path": "presentation/design_system/components/sample/sample.dart",
+    "source": "const Padding(padding: EdgeInsets.all(16));",
+    "expectedRule": "raw-visual-value"
+  },
+  {
+    "name": "token import in component",
+    "path": "presentation/design_system/components/sample/sample.dart",
+    "source": "import '../../tokens/tokens.g.dart';",
+    "expectedRule": "component-token-import"
+  },
+  {
+    "name": "material import in screen",
+    "path": "presentation/screens/sample/sample_screen.dart",
+    "source": "import 'package:flutter/material.dart';",
+    "expectedRule": "screen-import-boundary"
+  },
+  {
+    "name": "private component import in screen",
+    "path": "presentation/screens/sample/sample_screen.dart",
+    "source": "import '../../design_system/components/ds_text/ds_text.dart';",
+    "expectedRule": "screen-import-boundary"
+  },
+  {
+    "name": "material primitive in screen",
+    "path": "presentation/screens/sample/sample_screen.dart",
+    "source": "Widget build(context) => const Text('bypass');",
+    "expectedRule": "screen-visual-primitive"
+  }
+]

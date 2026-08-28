@@ -20,8 +20,11 @@ Local-first система проведения турниров Mortal Kombat 1
 ```text
 make help
 make setup
+make sync-fighter-assets
 make run
 make run DEVICE=windows
+make run-widgetbook
+make run-widgetbook DEVICE=windows
 make run-spectator
 make build
 make build TARGET=web
@@ -35,6 +38,10 @@ make clean
 ```
 
 `make run` запускает Flutter, `make run-spectator` — Vite development server. `make run` без `DEVICE` передаёт выбор доступного device Flutter. Общий `make build` последовательно собирает Flutter и Spectator Web; без `TARGET` Flutter выбирает desktop target текущего host. Для изолированной сборки есть `build-flutter` и `build-spectator`. Явно поддерживаемые Flutter build targets: `apk`, `appbundle`, `ios`, `linux`, `macos`, `web`, `windows`. Наличие runner не является обещанием production support: release matrix остаётся отдельным решением OD-009.
+
+Widgetbook запускается отдельным entry point через `make run-widgetbook`. Внутри каталога доступны project viewports `Mobile` и `Desktop`, design tokens, reusable components и screen previews. VS Code configurations `Flutter: Tournament Hub` и `Flutter: Widgetbook` запускают entry points независимо и позволяют выбрать Flutter device стандартным способом.
+
+`make sync-fighter-assets` валидирует read-only source manifest и создаёт проверяемую Flutter runtime copy всех fighter PNG. `make setup` выполняет синхронизацию, а `make check` обнаруживает stale, missing или лишние runtime assets.
 
 ## Начало работы
 

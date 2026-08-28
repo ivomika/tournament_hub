@@ -15,11 +15,25 @@ Future<void> main(List<String> arguments) async {
     case 'setup':
       await runner.flutter(const ['pub', 'get']);
       await runner.npm(const ['ci']);
+      await runner.generateTokens();
+      await runner.syncFighterAssets();
+      return;
+    case 'sync-fighter-assets':
+      await runner.syncFighterAssets();
       return;
     case 'run':
       final device = options['device'];
       await runner.flutter([
         'run',
+        if (device != null && device.isNotEmpty) ...['-d', device],
+      ]);
+      return;
+    case 'run-widgetbook':
+      final device = options['device'];
+      await runner.flutter([
+        'run',
+        '--target',
+        'lib/main_widgetbook.dart',
         if (device != null && device.isNotEmpty) ...['-d', device],
       ]);
       return;
@@ -49,9 +63,16 @@ Future<void> main(List<String> arguments) async {
       await runner.npm(const ['run', 'check']);
       return;
     case 'test':
+      await runner.checkArchitecture();
       await runner.flutter(const ['test']);
       return;
+    case 'architecture':
+      await runner.checkArchitecture();
+      return;
     case 'check':
+      await runner.checkTokens();
+      await runner.checkFighterAssets();
+      await runner.checkArchitecture();
       await runner.dart([
         'format',
         '--output=none',
@@ -157,6 +178,21 @@ final class ProjectRunner {
 
   Future<void> buildSpectator() => npm(const ['run', 'build']);
 
+  Future<void> generateTokens() =>
+      dart(const ['tool/generate_flutter_tokens.dart']);
+
+  Future<void> checkTokens() =>
+      dart(const ['tool/generate_flutter_tokens.dart', '--check']);
+
+  Future<void> checkArchitecture() =>
+      dart(const ['tool/check_flutter_design_system.dart']);
+
+  Future<void> syncFighterAssets() =>
+      dart(const ['tool/sync_fighter_assets.dart']);
+
+  Future<void> checkFighterAssets() =>
+      dart(const ['tool/sync_fighter_assets.dart', '--check']);
+
   String _defaultBuildTarget() {
     if (Platform.isWindows) return 'windows';
     if (Platform.isMacOS) return 'macos';
@@ -186,8 +222,13 @@ final class ProjectRunner {
 Tournament Hub project commands
 
   make setup                 Install Flutter and Spectator dependencies
+  make generate-tokens       Generate Flutter bindings from design manifest
+  make sync-fighter-assets   Sync validated Flutter fighter artwork
   make run                   Run on Flutter's selected device
   make run DEVICE=windows    Run Flutter on an explicit device
+  make run-widgetbook        Run Widgetbook on Flutter's selected device
+  make run-widgetbook DEVICE=windows
+                             Run Widgetbook on an explicit device
   make run-spectator         Run the Spectator Vite dev server
   make build                 Build Flutter and Spectator Web
   make build TARGET=web      Build selected Flutter target and Spectator Web
@@ -196,6 +237,7 @@ Tournament Hub project commands
   make format                Format Dart and TypeScript sources
   make lint                  Analyze/typecheck both applications
   make test                  Run Flutter tests
+  make architecture          Check Flutter design-system boundaries
   make check                 Check format, analyze, typecheck and test
   make clean                 Remove Flutter build outputs
 

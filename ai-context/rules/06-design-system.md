@@ -6,14 +6,17 @@
 
 ## Обязательно
 
-- Использовать design tokens по stable path из manifest, а не копировать raw values.
-- Следовать component/layout semantics из design canon.
+- Размещать Flutter tokens, theme composition и UI components только в `presentation/design_system` по установленным boundaries.
+- Каждый visual component держать в отдельной папке с собственным typed theme contract; runtime widget читает значения из theme, а не из generated tokens.
+- Screens строить только из публичного design-system API; direct visual Material primitives, private tokens и component themes в screens запрещены architecture check.
+- Использовать generated tokens по stable path manifest только при сборке общей темы.
 - Изменение token semantics/value/version документировать как серьёзное design decision.
 
 ## Запрещено
 
-- Дублировать token values или breakpoint numbers в rule/code comments.
-- Добавлять magic visual values без documented exception.
+- Использовать raw colors, hex, magic dimensions/durations/typography или `Colors.*` вне generated token output.
+- Импортировать generated tokens из component/screen/widgetbook use-case.
+- Создавать catch-all component files или component без собственной папки/theme.
 - Создавать новый token только в одной платформе.
 
 ## Канон
@@ -24,4 +27,4 @@
 
 ## Evidence
 
-Использованные token paths, manifest validation и visual/adaptive evidence затронутых компонентов.
+Успешный design-system architecture check, manifest/generator check, component theme tests и visual/adaptive evidence.

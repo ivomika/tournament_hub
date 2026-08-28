@@ -6,10 +6,14 @@
 
 ## Активные задачи
 
-Активных задач нет.
+Нет активных задач.
 
 ## Завершённые задачи
 
+- ✅ **048** — Сделать fighter artwork главным идентификатором участника — [детали](tasks/TH-20260827-048.md)
+- ✅ **047** — Устранить overflow token showcase в Widgetbook — [детали](tasks/TH-20260827-047.md)
+- ✅ **046** — Исправить архитектуру Flutter design system и screens — [детали](tasks/TH-20260827-046.md)
+- ✅ **045** — Добавить Flutter Widgetbook с дизайн-системой и экранами — [детали](tasks/TH-20260827-045.md)
 - ✅ **044** — Добавить минимальные application skeletons и cross-platform Makefile — [детали](tasks/TH-20260827-044.md)
 - ✅ **043** — Разделить rules и project facts, добавить design tokens и screen map — [детали](tasks/TH-20260827-043.md)
 - ✅ **042** — Добавить triggers и enforcement обязательных правил — [детали](tasks/TH-20260827-042.md)

@@ -1,0 +1,19 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Flutter: Tournament Hub",
+      "request": "launch",
+      "type": "dart",
+      "cwd": "${workspaceFolder}/apps/tournament_app",
+      "program": "${workspaceFolder}/apps/tournament_app/lib/main.dart"
+    },
+    {
+      "name": "Flutter: Widgetbook",
+      "request": "launch",
+      "type": "dart",
+      "cwd": "${workspaceFolder}/apps/tournament_app",
+      "program": "${workspaceFolder}/apps/tournament_app/lib/main_widgetbook.dart"
+    }
+  ]
+}

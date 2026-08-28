@@ -13,6 +13,7 @@
 - `font.size.*`, `font.lineHeight.*`, `font.weight.*` — typography primitives.
 - `radius.*`, `border.*` — shape primitives.
 - `control.*` — targets и control heights.
+- `artwork.size.*` — semantic fighter-artwork hierarchy для compact, standard, matchup и hero representations.
 - `motion.*` — duration primitives.
 
 Путь является public design contract. Consumers используют путь, а не raw value.
@@ -29,7 +30,7 @@
 
 ## Platform consumption
 
-Будущие generators создают Dart/TypeScript bindings из одного JSON. Generated bindings не редактируются вручную. До generators consumer вручную ссылается на exact paths и проверяется против manifest fixture; отдельные platform values запрещены.
+Generator создаёт Flutter primitives в `presentation/design_system/tokens/tokens.g.dart`; generated bindings не редактируются вручную. Только общая theme composition читает primitives и преобразует их в typed component themes. Отдельные platform values и direct token access из widgets/screens запрещены.
 
 ## Exceptions
 

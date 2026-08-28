@@ -16,6 +16,8 @@ Reference manifest и originals находятся в [`docs/source/fighters`](.
 
 Importer обязан валидировать JSON schema, unique IDs, safe relative paths, file existence, PNG signature, exact dimensions и отсутствие лишних runtime files. Output path map должен быть явным: source manifest использует `assets/fighters/...`, хотя originals лежат в `docs/source/fighters`.
 
+Flutter runtime copy создаётся командой `make sync-fighter-assets` в `apps/tournament_app/assets/fighters`. `make setup` синхронизирует copy, а `make check` сравнивает manifest и каждый PNG с read-only source. Runtime-файлы не редактируются вручную и не становятся новым источником истины.
+
 ## Visual requirements
 
 - Один стабильный crop per component variant.

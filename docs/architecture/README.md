@@ -54,7 +54,10 @@ apps/
       notifications/
       serialization/
       platform/
-    presentation/        # screens/controllers/components
+    presentation/
+      design_system/     # generated tokens, common theme, per-component themes/widgets
+      screens/           # one screen per file; composition via design-system public API
+      controllers/       # presentation state/adapters when introduced
     shared/              # truly generic primitives only
   spectator_web/src/
     app/
@@ -152,3 +155,4 @@ ADR обязателен для изменения authority model, layer direct
 - Protocol schemas проходят fixtures/compatibility tests.
 - Persistence mutation проверяется fault injection до/после commit.
 - React bundle не содержит tournament progression functions.
+- Flutter design-system check запрещает raw visual values, direct token imports в components/screens, component без собственной theme и Material visual primitives в screen compositions.

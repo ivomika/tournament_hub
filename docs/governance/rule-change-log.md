@@ -23,6 +23,17 @@
 - Rollback: вернуть старый router/template/skill одной связанной задачей и новой записью журнала; копирование facts обратно в rules не допускается.
 - Verification: duplicate-fact scan, links, task-template routing и skill validation.
 
+## RC-003 — Обязательная tokenization и Flutter design-system boundaries
+
+- Дата: 2026-08-27.
+- Задача: `TH-20260827-046`.
+- Решение: rule 06 требует `presentation/design_system`, per-component folders/themes, screen composition только через DS API и обязательный source architecture check.
+- Причина: прямое использование tokens и Material widgets не обеспечивало component ownership и допускало bypass дизайн-системы.
+- Последствия: новый component обязан иметь typed theme; raw visual values и direct token imports ломают `make check`.
+- Migration: presentation задачи `045` переносятся на ADR-0003 без изменения product behavior; новые UI-задачи сразу используют новый contract.
+- Rollback: только новым ADR и rule-change entry с эквивалентной автоматической fitness function.
+- Verification: positive scan, negative fixtures, analyzer и adaptive widget tests.
+
 ## Шаблон следующей записи
 
 ```markdown

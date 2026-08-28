@@ -13,3 +13,5 @@ ADR фиксирует устойчивое решение, меняющее sys
 ## Реестр
 
 - [ADR-0001: JSON manifest как источник значений design tokens](0001-design-token-manifest.md) — Accepted.
+- [ADR-0002: Widgetbook как Flutter presentation catalog](0002-widgetbook-presentation-catalog.md) — Accepted.
+- [ADR-0003: Theme-driven границы Flutter design system](0003-flutter-design-system-boundaries.md) — Accepted.
