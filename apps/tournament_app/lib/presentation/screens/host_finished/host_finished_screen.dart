@@ -8,17 +8,21 @@ class HostFinishedScreenPreview extends StatelessWidget {
   @override
   Widget build(BuildContext context) => AppShell(
     title: 'Турнир завершён',
+    subtitle: 'Friday Fight Night · Double Elimination',
+    sectionLabel: 'ФИНАЛ',
     child: Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        ChampionHero(champion: previewParticipants.first),
-        const DsGap(DsSpace.lg),
-        TournamentStandings(participants: previewParticipants),
+        AdaptiveSplit(
+          primary: ChampionHero(champion: previewParticipants.first),
+          secondary: TournamentStandings(participants: previewParticipants),
+        ),
         const DsGap(DsSpace.lg),
         DsFlow(
           children: [
             DsAction(label: 'На главную', onPressed: () {}),
             DsAction(
-              label: 'Новый турнир',
+              label: 'Открыть историю',
               kind: DsActionKind.secondary,
               onPressed: () {},
             ),

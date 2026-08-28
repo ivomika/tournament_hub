@@ -33,8 +33,39 @@ class TournamentMatchCard extends StatelessWidget {
         (isCurrent
             ? FighterArtworkVariant.matchup
             : FighterArtworkVariant.standard);
+    final prominent =
+        resolvedIdentityVariant == FighterArtworkVariant.matchup ||
+        resolvedIdentityVariant == FighterArtworkVariant.hero;
+    final firstIdentity = ParticipantIdentity(
+      participant: first,
+      artworkVariant: resolvedIdentityVariant,
+    );
+    final secondIdentity = ParticipantIdentity(
+      participant: second,
+      artworkVariant: resolvedIdentityVariant,
+    );
+    final versus = Semantics(
+      label: 'против',
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          color: theme.versusBackground,
+          shape: BoxShape.circle,
+          border: Border.all(color: theme.accent),
+        ),
+        child: SizedBox.square(
+          dimension: theme.versusSize,
+          child: const Center(
+            child: DsText('VS', variant: DsTextVariant.label),
+          ),
+        ),
+      ),
+    );
     return DsSurface(
+      tone: isCurrent || prominent
+          ? DsSurfaceTone.accent
+          : DsSurfaceTone.elevated,
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Wrap(
@@ -47,17 +78,35 @@ class TournamentMatchCard extends StatelessWidget {
             ],
           ),
           SizedBox(height: theme.gap),
-          ParticipantIdentity(
-            participant: first,
-            artworkVariant: resolvedIdentityVariant,
-          ),
-          Padding(
-            padding: EdgeInsets.symmetric(vertical: theme.gap),
-            child: Divider(color: theme.divider),
-          ),
-          ParticipantIdentity(
-            participant: second,
-            artworkVariant: resolvedIdentityVariant,
+          LayoutBuilder(
+            builder: (context, constraints) {
+              final horizontal =
+                  prominent && constraints.maxWidth >= theme.compactBreakpoint;
+              if (horizontal) {
+                return Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Expanded(child: Center(child: firstIdentity)),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: theme.gap),
+                      child: versus,
+                    ),
+                    Expanded(child: Center(child: secondIdentity)),
+                  ],
+                );
+              }
+              return Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  firstIdentity,
+                  Padding(
+                    padding: EdgeInsets.symmetric(vertical: theme.gap),
+                    child: isCurrent ? versus : Divider(color: theme.divider),
+                  ),
+                  secondIdentity,
+                ],
+              );
+            },
           ),
           if (score != null) ...[
             SizedBox(height: theme.gap),

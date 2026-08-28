@@ -15,25 +15,33 @@ class TournamentBracketPreview extends StatelessWidget {
     final theme = Theme.of(context).extension<BracketTheme>()!;
     return DsSurface(
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           const DsText('Структура турнира', variant: DsTextVariant.title),
           SizedBox(height: theme.gap),
-          Wrap(
-            spacing: theme.gap,
-            runSpacing: theme.gap,
-            children: [
-              for (final title in const ['Раунд 1', 'Раунд 2', 'Финал'])
-                SizedBox(
-                  width: theme.itemWidth,
-                  child: TournamentMatchCard(
-                    title: title,
-                    first: previewParticipants.first,
-                    second: previewParticipants[1],
-                    identityVariant: FighterArtworkVariant.compact,
-                  ),
-                ),
-            ],
+          LayoutBuilder(
+            builder: (context, constraints) {
+              final itemWidth = constraints.maxWidth < theme.itemWidth
+                  ? constraints.maxWidth
+                  : theme.itemWidth;
+              return Wrap(
+                spacing: theme.gap,
+                runSpacing: theme.gap,
+                children: [
+                  for (final title in const ['Раунд 1', 'Раунд 2', 'Финал'])
+                    SizedBox(
+                      width: itemWidth,
+                      child: TournamentMatchCard(
+                        title: title,
+                        first: previewParticipants.first,
+                        second: previewParticipants[1],
+                        identityVariant: FighterArtworkVariant.compact,
+                      ),
+                    ),
+                ],
+              );
+            },
           ),
         ],
       ),

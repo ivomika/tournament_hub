@@ -34,12 +34,18 @@ class FighterAvatar extends StatelessWidget {
       ),
       FighterArtworkVariant.hero => (theme.heroSize, theme.heroPlaceholderSize),
     };
+    final prominent =
+        variant == FighterArtworkVariant.matchup ||
+        variant == FighterArtworkVariant.hero;
     return Semantics(
       image: true,
       label: 'Изображение персонажа $fighterName',
       child: DecoratedBox(
         decoration: BoxDecoration(
-          color: theme.background,
+          color: prominent ? theme.prominentBackground : theme.background,
+          border: Border.all(
+            color: prominent ? theme.prominentBorder : theme.border,
+          ),
           borderRadius: BorderRadius.circular(theme.radius),
         ),
         child: ClipRRect(

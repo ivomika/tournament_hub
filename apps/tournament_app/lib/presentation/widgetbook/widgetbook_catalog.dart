@@ -105,12 +105,46 @@ List<WidgetbookNode> buildTournamentCatalog() => [
             ),
           ),
           _useCase(
-            'Match card',
+            'Match card / Current',
             TournamentMatchCard(
-              title: 'Round 1',
+              title: 'Матч 07 · Верхняя сетка',
               first: previewParticipants.first,
               second: previewParticipants[1],
-              score: '2:1',
+              isCurrent: true,
+            ),
+          ),
+          _useCase(
+            'Tournament summary / Active',
+            TournamentSummary(
+              tournamentName: 'Friday Fight Night',
+              stage: 'Double Elimination · Верхняя сетка · Раунд 2',
+              first: previewParticipants.first,
+              second: previewParticipants[1],
+              onContinue: () {},
+            ),
+          ),
+          _useCase(
+            'Outcome picker',
+            OutcomePicker(
+              first: previewParticipants.first,
+              second: previewParticipants[1],
+              onFirstSelected: () {},
+              onSecondSelected: () {},
+            ),
+          ),
+          _useCase(
+            'Champion hero',
+            ChampionHero(champion: previewParticipants.first),
+          ),
+          _useCase(
+            'Identity / Missing artwork',
+            const ParticipantIdentity(
+              participant: PreviewParticipant(
+                nickname: 'Очень длинный никнейм участника',
+                fighterId: 'missing-fighter',
+                fighterName: 'Неизвестный боец',
+              ),
+              artworkVariant: FighterArtworkVariant.standard,
             ),
           ),
           _useCase(
@@ -142,5 +176,5 @@ List<WidgetbookNode> buildTournamentCatalog() => [
 
 WidgetbookUseCase _useCase(String name, Widget child) => WidgetbookUseCase(
   name: name,
-  builder: (_) => DsPagePadding(child: child),
+  builder: (_) => SingleChildScrollView(child: DsPagePadding(child: child)),
 );

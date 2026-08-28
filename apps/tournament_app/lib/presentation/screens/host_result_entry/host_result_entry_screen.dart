@@ -7,28 +7,24 @@ class HostResultEntryScreenPreview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => AppShell(
-    title: 'Результат схватки',
+    title: 'Кто победил?',
+    subtitle: 'Выбери победителя матча. Счёт для этого режима не требуется.',
+    sectionLabel: 'МАТЧ 07 · ВЕРХНЯЯ СЕТКА',
     child: Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         TournamentMatchCard(
-          title: 'Раун 2',
+          title: 'Scorpion против Sub-Zero',
           first: previewParticipants.first,
           second: previewParticipants[1],
           identityVariant: FighterArtworkVariant.matchup,
         ),
         const DsGap(DsSpace.lg),
-        DsSection(
-          title: 'Выберите победителя',
-          child: DsFlow(
-            children: [
-              DsAction(label: 'Выбрать первого', onPressed: () {}),
-              DsAction(
-                label: 'Выбрать второго',
-                kind: DsActionKind.secondary,
-                onPressed: () {},
-              ),
-            ],
-          ),
+        OutcomePicker(
+          first: previewParticipants.first,
+          second: previewParticipants[1],
+          onFirstSelected: () {},
+          onSecondSelected: () {},
         ),
       ],
     ),

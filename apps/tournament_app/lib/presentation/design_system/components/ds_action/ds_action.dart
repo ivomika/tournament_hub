@@ -30,7 +30,11 @@ class DsAction extends StatelessWidget {
         ? Text(label)
         : Row(
             mainAxisSize: MainAxisSize.min,
-            children: [Icon(icon), Text(label)],
+            children: [
+              Icon(icon),
+              SizedBox(width: theme.contentGap),
+              Flexible(child: Text(label)),
+            ],
           );
     return switch (kind) {
       DsActionKind.primary => ElevatedButton(

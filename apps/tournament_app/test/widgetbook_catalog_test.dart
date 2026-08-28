@@ -202,4 +202,97 @@ void main() {
 
     expect(tester.takeException(), isNull);
   });
+
+  testWidgets('prominent matchup меняет композицию между mobile и desktop', (
+    tester,
+  ) async {
+    addTearDown(() {
+      tester.view.resetPhysicalSize();
+      tester.view.resetDevicePixelRatio();
+    });
+    tester.view.devicePixelRatio = 1;
+
+    Future<List<Offset>> artworkOffsets(Size size) async {
+      tester.view.physicalSize = size;
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: TournamentTheme.dark,
+          home: Scaffold(
+            body: SingleChildScrollView(
+              child: TournamentMatchCard(
+                title: 'Текущая схватка',
+                first: previewParticipants.first,
+                second: previewParticipants[1],
+                isCurrent: true,
+              ),
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      return find
+          .byType(FighterAvatar)
+          .evaluate()
+          .map((element) => tester.getTopLeft(find.byWidget(element.widget)))
+          .toList();
+    }
+
+    final mobile = await artworkOffsets(const Size(390, 844));
+    final desktop = await artworkOffsets(const Size(1280, 960));
+
+    expect(mobile[1].dy, greaterThan(mobile[0].dy));
+    expect(desktop[1].dx, greaterThan(desktop[0].dx));
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('ключевые экраны выдерживают 200% text scale', (tester) async {
+    addTearDown(() {
+      tester.view.resetPhysicalSize();
+      tester.view.resetDevicePixelRatio();
+      tester.platformDispatcher.clearTextScaleFactorTestValue();
+    });
+    tester.view.devicePixelRatio = 1;
+    tester.view.physicalSize = const Size(390, 844);
+    tester.platformDispatcher.textScaleFactorTestValue = 2;
+
+    for (final kind in const [
+      ScreenPreviewKind.main,
+      ScreenPreviewKind.hostRunning,
+      ScreenPreviewKind.hostResultEntry,
+      ScreenPreviewKind.hostFinished,
+    ]) {
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: TournamentTheme.dark,
+          home: TournamentScreenPreview(kind: kind),
+        ),
+      );
+      await tester.pumpAndSettle();
+      expect(tester.takeException(), isNull, reason: kind.name);
+    }
+  });
+
+  testWidgets('result picker называет fighter и не использует счёт', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: TournamentTheme.dark,
+        home: Scaffold(
+          body: SingleChildScrollView(
+            child: OutcomePicker(
+              first: previewParticipants.first,
+              second: previewParticipants[1],
+              onFirstSelected: () {},
+              onSecondSelected: () {},
+            ),
+          ),
+        ),
+      ),
+    );
+
+    expect(find.text('Победил Scorpion'), findsOneWidget);
+    expect(find.text('Победил Sub-Zero'), findsOneWidget);
+    expect(find.textContaining('2:'), findsNothing);
+  });
 }

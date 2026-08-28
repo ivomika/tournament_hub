@@ -5,7 +5,10 @@ import 'package:flutter/material.dart';
 class FighterAvatarTheme extends ThemeExtension<FighterAvatarTheme> {
   const FighterAvatarTheme({
     required this.background,
+    required this.prominentBackground,
     required this.foreground,
+    required this.border,
+    required this.prominentBorder,
     required this.compactSize,
     required this.standardSize,
     required this.matchupSize,
@@ -18,7 +21,10 @@ class FighterAvatarTheme extends ThemeExtension<FighterAvatarTheme> {
   });
 
   final Color background;
+  final Color prominentBackground;
   final Color foreground;
+  final Color border;
+  final Color prominentBorder;
   final double compactSize;
   final double standardSize;
   final double matchupSize;
@@ -32,7 +38,10 @@ class FighterAvatarTheme extends ThemeExtension<FighterAvatarTheme> {
   @override
   FighterAvatarTheme copyWith({
     Color? background,
+    Color? prominentBackground,
     Color? foreground,
+    Color? border,
+    Color? prominentBorder,
     double? compactSize,
     double? standardSize,
     double? matchupSize,
@@ -44,7 +53,10 @@ class FighterAvatarTheme extends ThemeExtension<FighterAvatarTheme> {
     double? radius,
   }) => FighterAvatarTheme(
     background: background ?? this.background,
+    prominentBackground: prominentBackground ?? this.prominentBackground,
     foreground: foreground ?? this.foreground,
+    border: border ?? this.border,
+    prominentBorder: prominentBorder ?? this.prominentBorder,
     compactSize: compactSize ?? this.compactSize,
     standardSize: standardSize ?? this.standardSize,
     matchupSize: matchupSize ?? this.matchupSize,
@@ -64,7 +76,14 @@ class FighterAvatarTheme extends ThemeExtension<FighterAvatarTheme> {
     if (other == null) return this;
     return FighterAvatarTheme(
       background: Color.lerp(background, other.background, t)!,
+      prominentBackground: Color.lerp(
+        prominentBackground,
+        other.prominentBackground,
+        t,
+      )!,
       foreground: Color.lerp(foreground, other.foreground, t)!,
+      border: Color.lerp(border, other.border, t)!,
+      prominentBorder: Color.lerp(prominentBorder, other.prominentBorder, t)!,
       compactSize: lerpDouble(compactSize, other.compactSize, t)!,
       standardSize: lerpDouble(standardSize, other.standardSize, t)!,
       matchupSize: lerpDouble(matchupSize, other.matchupSize, t)!,

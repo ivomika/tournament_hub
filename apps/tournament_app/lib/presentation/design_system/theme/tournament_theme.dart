@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../components/adaptive_split/adaptive_split_theme.dart';
 import '../components/app_shell/app_shell_theme.dart';
 import '../components/bracket/bracket_theme.dart';
 import '../components/champion_hero/champion_hero_theme.dart';
@@ -17,10 +18,12 @@ import '../components/ds_text/ds_text_theme.dart';
 import '../components/empty_state/empty_state_theme.dart';
 import '../components/fighter_avatar/fighter_avatar_theme.dart';
 import '../components/match_card/match_card_theme.dart';
+import '../components/outcome_picker/outcome_picker_theme.dart';
 import '../components/participant_identity/participant_identity_theme.dart';
 import '../components/standings/standings_theme.dart';
 import '../components/status_badge/status_badge_theme.dart';
 import '../components/token_showcase/token_showcase_theme.dart';
+import '../components/tournament_summary/tournament_summary_theme.dart';
 import '../tokens/tokens.g.dart';
 
 abstract final class TournamentTheme {
@@ -89,6 +92,12 @@ abstract final class TournamentTheme {
       inputDecorationTheme: fieldTheme,
       extensions: [
         text,
+        const AdaptiveSplitTheme(
+          breakpoint: TournamentTokens.breakpointExpandedMin,
+          gap: TournamentTokens.spaceV6,
+          primaryFlex: 3,
+          secondaryFlex: 2,
+        ),
         const DsSpacingTheme(
           xs: TournamentTokens.spaceV1,
           sm: TournamentTokens.spaceV2,
@@ -99,7 +108,10 @@ abstract final class TournamentTheme {
         ),
         const DsSurfaceTheme(
           background: TournamentTokens.colorSurfacePrimary,
+          elevatedBackground: TournamentTokens.colorSurfaceSecondary,
+          accentBackground: TournamentTokens.colorBackgroundElevated,
           border: TournamentTokens.colorSurfaceTertiary,
+          accentBorder: TournamentTokens.colorAccentPrimary,
           radius: TournamentTokens.radiusLg,
           padding: TournamentTokens.spaceV6,
         ),
@@ -107,12 +119,16 @@ abstract final class TournamentTheme {
           primary: primaryButton,
           secondary: secondaryButton,
           text: textButton,
+          contentGap: TournamentTokens.spaceV2,
         ),
         DsFieldTheme(decoration: fieldDecoration),
         const DsFlowTheme(gap: TournamentTokens.spaceV3),
         const FighterAvatarTheme(
           background: TournamentTokens.colorSurfaceTertiary,
+          prominentBackground: TournamentTokens.colorBackgroundElevated,
           foreground: TournamentTokens.colorTextPrimary,
+          border: TournamentTokens.colorSurfaceHover,
+          prominentBorder: TournamentTokens.colorAccentPrimary,
           compactSize: TournamentTokens.artworkSizeCompact,
           standardSize: TournamentTokens.artworkSizeStandard,
           matchupSize: TournamentTokens.artworkSizeMatchup,
@@ -148,6 +164,14 @@ abstract final class TournamentTheme {
         const MatchCardTheme(
           gap: TournamentTokens.spaceV6,
           divider: TournamentTokens.colorSurfaceTertiary,
+          accent: TournamentTokens.colorAccentPrimary,
+          versusBackground: TournamentTokens.colorSurfaceTertiary,
+          compactBreakpoint: TournamentTokens.breakpointMediumMin,
+          versusSize: TournamentTokens.spaceV12,
+        ),
+        const OutcomePickerTheme(
+          gap: TournamentTokens.spaceV4,
+          compactBreakpoint: TournamentTokens.breakpointMediumMin,
         ),
         const StandingsTheme(
           gap: TournamentTokens.spaceV4,
@@ -174,6 +198,8 @@ abstract final class TournamentTheme {
           iconColor: TournamentTokens.colorAccentPrimary,
           iconSize: TournamentTokens.spaceV16,
           gap: TournamentTokens.spaceV4,
+          desktopBreakpoint: TournamentTokens.breakpointExpandedMin,
+          contentMaxWidth: TournamentTokens.breakpointMediumMax,
         ),
         const DsSectionTheme(gap: TournamentTokens.spaceV6),
         const DsProgressTheme(
@@ -186,12 +212,23 @@ abstract final class TournamentTheme {
         ),
         const AppShellTheme(
           background: TournamentTokens.colorBackgroundCanvas,
+          elevatedBackground: TournamentTokens.colorBackgroundElevated,
           navigationBackground: TournamentTokens.colorBackgroundSubtle,
           divider: TournamentTokens.colorSurfaceTertiary,
+          accent: TournamentTokens.colorAccentPrimary,
           desktopBreakpoint: TournamentTokens.breakpointExpandedMin,
-          contentMaxWidth: TournamentTokens.layoutHostContentMaxMin,
-          pagePadding: TournamentTokens.layoutPagePaddingCompact,
+          contentMaxWidth: TournamentTokens.layoutHostContentMaxMax,
+          pagePaddingCompact: TournamentTokens.layoutPagePaddingCompact,
+          pagePaddingDesktop: TournamentTokens.layoutPagePaddingDesktopMax,
           headingGap: TournamentTokens.spaceV6,
+          labelGap: TournamentTokens.spaceV2,
+          brandMarkWidth: TournamentTokens.spaceV1,
+        ),
+        const TournamentSummaryTheme(
+          gap: TournamentTokens.spaceV6,
+          compactBreakpoint: TournamentTokens.breakpointExpandedMin,
+          accent: TournamentTokens.colorAccentPrimary,
+          divider: TournamentTokens.colorSurfaceTertiary,
         ),
         const TokenShowcaseTheme(
           colors: [

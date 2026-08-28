@@ -7,27 +7,35 @@ class MainScreenPreview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => AppShell(
-    title: 'Main',
+    title: 'Твой турнирный центр',
+    subtitle: 'Продолжи активную сетку или начни новую игровую ночь.',
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        const DsSection(
-          title: 'Активный турнир',
-          child: DsInfoRow(
-            title: 'Friday Fight Night',
-            subtitle: 'Running · следующий шаг доступен',
-          ),
+        TournamentSummary(
+          tournamentName: 'Friday Fight Night',
+          stage: 'Double Elimination · Верхняя сетка · Раунд 2',
+          first: previewParticipants.first,
+          second: previewParticipants[1],
+          onContinue: () {},
         ),
-        const DsGap(DsSpace.md),
-        DsFlow(
-          children: [
-            DsAction(label: 'Продолжить', onPressed: () {}),
-            DsAction(
-              label: 'Присоединиться',
-              kind: DsActionKind.secondary,
-              onPressed: () {},
-            ),
-          ],
+        const DsGap(DsSpace.lg),
+        DsSection(
+          title: 'Новая игровая ночь',
+          child: DsFlow(
+            children: [
+              DsAction(
+                label: 'Создать турнир',
+                kind: DsActionKind.secondary,
+                onPressed: () {},
+              ),
+              DsAction(
+                label: 'Присоединиться',
+                kind: DsActionKind.text,
+                onPressed: () {},
+              ),
+            ],
+          ),
         ),
       ],
     ),

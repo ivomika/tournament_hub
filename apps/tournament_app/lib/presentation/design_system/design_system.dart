@@ -1,3 +1,4 @@
+export 'components/adaptive_split/adaptive_split.dart';
 export 'components/app_shell/app_shell.dart';
 export 'components/bracket/bracket.dart';
 export 'components/champion_hero/champion_hero.dart';
@@ -15,8 +16,10 @@ export 'components/ds_text/ds_text.dart';
 export 'components/empty_state/empty_state.dart';
 export 'components/fighter_avatar/fighter_avatar.dart';
 export 'components/match_card/match_card.dart';
+export 'components/outcome_picker/outcome_picker.dart';
 export 'components/participant_identity/participant_identity.dart';
 export 'components/standings/standings.dart';
 export 'components/status_badge/status_badge.dart';
 export 'components/token_showcase/token_showcase.dart';
+export 'components/tournament_summary/tournament_summary.dart';
 export 'theme/tournament_theme.dart';

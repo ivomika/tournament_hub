@@ -32,6 +32,16 @@
 - Keyboard order совпадает с visual/logical order; visible focus обязателен.
 - Hover не является единственным способом открыть информацию или действие.
 
+## Visual hierarchy patterns
+
+- Canvas остаётся глубоким и спокойным; elevated surfaces создают глубину, но не превращают каждый блок в одинаковую карточку.
+- Gold accent используется как дефицитный сигнал: dominant action, live/current state, active boundary и champion culmination. Вторичные данные не конкурируют с ним.
+- Каждый экран имеет один dominant object. На Main это active tournament summary, в Running — current matchup, в Result Entry — выбор победителя, в Finished — champion identity.
+- Tournament-specific compositions предпочтительнее generic card stacking: matchup строится вокруг двух fighter identities и `VS`, result — вокруг однозначных outcome actions, champion — вокруг hero artwork и tournament context.
+- Compact layout меняет порядок и группировку элементов. Expanded layout использует независимые панели и split composition; растягивание одной мобильной колонки на desktop не считается адаптацией.
+- Typography разделяет stage label, screen heading, object title и supporting copy. Uppercase допустим для коротких tournament/stage labels, но не для длинного body-текста.
+- Cinematic treatment создаётся semantic surface hierarchy, artwork scale и композицией. Декоративный шум, градиент или motion не могут ухудшать читаемость и не являются носителем состояния.
+
 ## Core components
 
 Каждый component имеет необходимые default, hover/focus/pressed, disabled, loading и error states.
