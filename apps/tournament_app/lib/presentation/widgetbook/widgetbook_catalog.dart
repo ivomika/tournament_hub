@@ -183,7 +183,22 @@ List<WidgetbookNode> buildTournamentCatalog() => [
             'Standings',
             TournamentStandings(participants: previewParticipants),
           ),
-          _useCase('Bracket', const TournamentBracketPreview()),
+          _useCase(
+            'Structure / Double Elimination',
+            const TournamentBracketPreview(),
+          ),
+          _useCase(
+            'Structure / Single Elimination',
+            const TournamentBracketPreview(
+              format: TournamentStructureFormat.singleElimination,
+            ),
+          ),
+          _useCase(
+            'Structure / Round Robin',
+            const TournamentBracketPreview(
+              format: TournamentStructureFormat.roundRobin,
+            ),
+          ),
           _useCase('Confirmation', const TournamentConfirmationPreview()),
         ],
       ),

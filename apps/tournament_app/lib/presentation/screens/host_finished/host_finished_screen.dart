@@ -13,10 +13,19 @@ class HostFinishedScreenPreview extends StatelessWidget {
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
+        const TournamentStageHeader(
+          stage: 'Результат зафиксирован',
+          progress: 'ЗАВЕРШЁН',
+          detail: 'Турнир доступен только для чтения и сохранён в истории.',
+          kind: StatusKind.success,
+        ),
+        const DsGap(DsSpace.lg),
         AdaptiveSplit(
           primary: ChampionHero(champion: previewParticipants.first),
           secondary: TournamentStandings(participants: previewParticipants),
         ),
+        const DsGap(DsSpace.lg),
+        const TournamentBracketPreview(),
         const DsGap(DsSpace.lg),
         DsFlow(
           children: [

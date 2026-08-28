@@ -10,21 +10,33 @@ class HostRunningScreenPreview extends StatelessWidget {
     title: 'Турнир идёт',
     subtitle: 'Double Elimination · Верхняя сетка · Раунд 2',
     sectionLabel: 'FRIDAY FIGHT NIGHT',
-    child: AdaptiveSplit(
-      primary: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          TournamentMatchCard(
-            title: 'Матч 07 · Верхняя сетка',
-            first: previewParticipants.first,
-            second: previewParticipants[1],
-            isCurrent: true,
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        const TournamentStageHeader(
+          stage: 'Турнир идёт',
+          progress: 'МАТЧ 7 ИЗ 15',
+          detail: 'Текущий матч — единственное доступное спортивное действие.',
+          kind: StatusKind.warning,
+        ),
+        const DsGap(DsSpace.lg),
+        AdaptiveSplit(
+          primary: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              TournamentMatchCard(
+                title: 'Матч 07 · Верхняя сетка',
+                first: previewParticipants.first,
+                second: previewParticipants[1],
+                isCurrent: true,
+              ),
+              const DsGap(DsSpace.md),
+              DsAction(label: 'Определить победителя', onPressed: () {}),
+            ],
           ),
-          const DsGap(DsSpace.md),
-          DsAction(label: 'Определить победителя', onPressed: () {}),
-        ],
-      ),
-      secondary: const TournamentBracketPreview(),
+          secondary: const TournamentBracketPreview(),
+        ),
+      ],
     ),
   );
 }

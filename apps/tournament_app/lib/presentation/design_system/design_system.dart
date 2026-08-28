@@ -23,5 +23,6 @@ export 'components/standings/standings.dart';
 export 'components/status_badge/status_badge.dart';
 export 'components/token_showcase/token_showcase.dart';
 export 'components/tournament_summary/tournament_summary.dart';
+export 'components/tournament_stage/tournament_stage.dart';
 export 'theme/tournament_theme.dart';
 export 'components/danger_zone/danger_zone.dart';

@@ -8,11 +8,25 @@ class HostCancelledScreenPreview extends StatelessWidget {
   @override
   Widget build(BuildContext context) => AppShell(
     title: 'Турнир отменён',
-    child: TournamentEmptyState(
-      title: 'Турнир не состоялся',
-      message: 'Результаты не были сохранены.',
-      actionLabel: 'На главную',
-      onAction: () {},
+    subtitle: 'Friday Fight Night · отменён организатором',
+    sectionLabel: 'TERMINAL · READ ONLY',
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        const TournamentStageHeader(
+          stage: 'Отменён',
+          progress: 'БЕЗ ЧЕМПИОНА',
+          detail: 'Состояние неизменяемо. Спортивный результат не определён.',
+          kind: StatusKind.danger,
+        ),
+        const DsGap(DsSpace.lg),
+        TournamentEmptyState(
+          title: 'Турнир не состоялся',
+          message: 'Факт отмены сохранён в истории без ranking и чемпиона.',
+          actionLabel: 'На главную',
+          onAction: () {},
+        ),
+      ],
     ),
   );
 }

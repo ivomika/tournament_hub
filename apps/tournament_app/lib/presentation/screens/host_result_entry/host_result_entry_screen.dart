@@ -13,6 +13,13 @@ class HostResultEntryScreenPreview extends StatelessWidget {
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
+        const TournamentStageHeader(
+          stage: 'Фиксация результата',
+          progress: 'МАТЧ 07',
+          detail: 'Изменение применится только после выбора победителя.',
+          kind: StatusKind.warning,
+        ),
+        const DsGap(DsSpace.lg),
         TournamentMatchCard(
           title: 'Scorpion против Sub-Zero',
           first: previewParticipants.first,
@@ -25,6 +32,12 @@ class HostResultEntryScreenPreview extends StatelessWidget {
           second: previewParticipants[1],
           onFirstSelected: () {},
           onSecondSelected: () {},
+        ),
+        const DsGap(DsSpace.md),
+        DsAction(
+          label: 'Назад без изменений',
+          kind: DsActionKind.text,
+          onPressed: () {},
         ),
       ],
     ),

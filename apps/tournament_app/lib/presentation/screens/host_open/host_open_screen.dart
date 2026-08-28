@@ -8,26 +8,52 @@ class HostOpenScreenPreview extends StatelessWidget {
   @override
   Widget build(BuildContext context) => AppShell(
     title: 'Лобби открыто',
+    subtitle: 'Добавь минимум двух игроков и переходи к раздаче персонажей.',
+    sectionLabel: 'OPEN · ЭТАП 2 ИЗ 5',
     child: Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        ConnectionBanner(
-          message: 'Код: FIGHT-24',
+        const TournamentStageHeader(
+          stage: 'Сбор участников',
+          progress: '4 ИГРОКА',
+          detail: 'Настройки турнира зафиксированы. Состав ещё можно менять.',
           kind: StatusKind.success,
-          actionLabel: 'Копировать',
-          onAction: () {},
         ),
         const DsGap(DsSpace.lg),
-        DsSection(
-          title: 'Участники',
-          child: DsFlow(
-            children: [
-              for (final participant in previewParticipants)
-                ParticipantIdentity(participant: participant),
-            ],
+        AdaptiveSplit(
+          primary: DsSection(
+            title: 'Подключение',
+            child: ConnectionBanner(
+              message: 'Код локальной игры: FIGHT-24',
+              kind: StatusKind.success,
+              actionLabel: 'Копировать',
+              onAction: () {},
+            ),
+          ),
+          secondary: DsSection(
+            title: 'Участники',
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                for (final participant in previewParticipants) ...[
+                  ParticipantIdentity(participant: participant),
+                  const DsGap(DsSpace.sm),
+                ],
+              ],
+            ),
           ),
         ),
         const DsGap(DsSpace.lg),
-        DsAction(label: 'Начать раздачу', onPressed: () {}),
+        DsFlow(
+          children: [
+            DsAction(label: 'Начать раздачу', onPressed: () {}),
+            DsAction(
+              label: 'Добавить гостя',
+              kind: DsActionKind.secondary,
+              onPressed: () {},
+            ),
+          ],
+        ),
       ],
     ),
   );

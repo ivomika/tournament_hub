@@ -26,6 +26,7 @@ import '../components/standings/standings_theme.dart';
 import '../components/status_badge/status_badge_theme.dart';
 import '../components/token_showcase/token_showcase_theme.dart';
 import '../components/tournament_summary/tournament_summary_theme.dart';
+import '../components/tournament_stage/tournament_stage_theme.dart';
 import '../tokens/tokens.g.dart';
 
 abstract final class TournamentTheme {
@@ -253,6 +254,11 @@ abstract final class TournamentTheme {
         const TournamentSummaryTheme(
           gap: TournamentTokens.spaceV6,
           compactBreakpoint: TournamentTokens.breakpointExpandedMin,
+          accent: TournamentTokens.colorAccentPrimary,
+          divider: TournamentTokens.colorSurfaceTertiary,
+        ),
+        const TournamentStageTheme(
+          gap: TournamentTokens.spaceV4,
           accent: TournamentTokens.colorAccentPrimary,
           divider: TournamentTokens.colorSurfaceTertiary,
         ),

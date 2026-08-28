@@ -8,19 +8,41 @@ class HostDistributionScreenPreview extends StatelessWidget {
   @override
   Widget build(BuildContext context) => AppShell(
     title: 'Раздача персонажей',
+    subtitle: 'Проверь каждую пару игрок—боец перед запуском сетки.',
+    sectionLabel: 'DISTRIBUTION · ЭТАП 3 ИЗ 5',
     child: Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
+        const TournamentStageHeader(
+          stage: 'Случайное назначение',
+          progress: '4 ИЗ 4',
+          detail: 'Все участники получили уникальных бойцов.',
+          kind: StatusKind.success,
+        ),
+        const DsGap(DsSpace.lg),
         DsSection(
           title: 'Назначения',
           child: DsFlow(
             children: [
               for (final participant in previewParticipants)
-                ParticipantIdentity(participant: participant),
+                DsSurface(
+                  tone: DsSurfaceTone.elevated,
+                  child: ParticipantIdentity(participant: participant),
+                ),
             ],
           ),
         ),
         const DsGap(DsSpace.lg),
-        DsAction(label: 'Создать раунды', onPressed: () {}),
+        DsFlow(
+          children: [
+            DsAction(label: 'Создать сетку и начать', onPressed: () {}),
+            DsAction(
+              label: 'Перераздать всех',
+              kind: DsActionKind.secondary,
+              onPressed: () {},
+            ),
+          ],
+        ),
       ],
     ),
   );

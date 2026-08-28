@@ -260,9 +260,13 @@ void main() {
       ScreenPreviewKind.main,
       ScreenPreviewKind.profile,
       ScreenPreviewKind.settings,
+      ScreenPreviewKind.hostDraft,
+      ScreenPreviewKind.hostOpen,
+      ScreenPreviewKind.hostDistribution,
       ScreenPreviewKind.hostRunning,
       ScreenPreviewKind.hostResultEntry,
       ScreenPreviewKind.hostFinished,
+      ScreenPreviewKind.hostCancelled,
     ]) {
       await tester.pumpWidget(
         MaterialApp(
@@ -332,5 +336,48 @@ void main() {
     expect(find.text('Победил Scorpion'), findsOneWidget);
     expect(find.text('Победил Sub-Zero'), findsOneWidget);
     expect(find.textContaining('2:'), findsNothing);
+  });
+
+  testWidgets('DE structure содержит обе сетки, Grand Final и Reset', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: TournamentTheme.dark,
+        home: const Scaffold(
+          body: SingleChildScrollView(child: TournamentBracketPreview()),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.text('Верхняя сетка'), findsOneWidget);
+    expect(find.text('Нижняя сетка'), findsOneWidget);
+    expect(find.text('Grand Final'), findsNWidgets(2));
+    expect(find.textContaining('Bracket Reset'), findsOneWidget);
+    expect(find.textContaining('Результат:'), findsNothing);
+  });
+
+  testWidgets('SE и RR structure имеют собственную семантику', (tester) async {
+    for (final format in const [
+      TournamentStructureFormat.singleElimination,
+      TournamentStructureFormat.roundRobin,
+    ]) {
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: TournamentTheme.dark,
+          home: Scaffold(
+            body: SingleChildScrollView(
+              child: TournamentBracketPreview(format: format),
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      expect(tester.takeException(), isNull, reason: format.name);
+    }
+
+    expect(find.text('Общий этап'), findsOneWidget);
+    expect(find.text('Каждая пара встречается один раз'), findsOneWidget);
   });
 }

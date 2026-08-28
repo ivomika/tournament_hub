@@ -8,18 +8,42 @@ class HostDraftScreenPreview extends StatelessWidget {
   @override
   Widget build(BuildContext context) => AppShell(
     title: 'Новый турнир',
-    child: DsSection(
-      title: 'Параметры',
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          const DsTextField(label: 'Название'),
-          const DsGap(DsSpace.md),
-          const DsInfoRow(title: 'Формат', subtitle: 'Каждый с каждым'),
-          const DsGap(DsSpace.md),
-          DsAction(label: 'Открыть лобби', onPressed: () {}),
-        ],
-      ),
+    subtitle: 'Настрой правила до открытия лобби — после этого они неизменны.',
+    sectionLabel: 'DRAFT · ЭТАП 1 ИЗ 5',
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        const TournamentStageHeader(
+          stage: 'Черновик',
+          progress: 'НАСТРОЙКА',
+          detail: 'Название, формат и правила ещё можно изменить.',
+        ),
+        const DsGap(DsSpace.lg),
+        AdaptiveSplit(
+          primary: DsSection(
+            title: 'Параметры',
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                const DsTextField(label: 'Название'),
+                const DsGap(DsSpace.md),
+                const DsInfoRow(
+                  title: 'Формат',
+                  subtitle: 'Double Elimination',
+                ),
+                const DsGap(DsSpace.md),
+                DsAction(label: 'Открыть лобби', onPressed: () {}),
+              ],
+            ),
+          ),
+          secondary: DangerZone(
+            title: 'Отменить создание',
+            message: 'Черновик будет удалён после подтверждения.',
+            actionLabel: 'Удалить черновик',
+            onAction: () {},
+          ),
+        ),
+      ],
     ),
   );
 }
