@@ -7,16 +7,39 @@ class RegistrationScreenPreview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => AppShell(
-    title: 'Registration',
-    child: DsSection(
-      title: 'Создание профиля',
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          const DsTextField(label: 'Никнейм'),
-          const DsGap(DsSpace.md),
-          DsAction(label: 'Продолжить', onPressed: () {}),
-        ],
+    title: 'Как тебя представить?',
+    subtitle: 'Никнейм будет виден участникам турнира на этом устройстве.',
+    sectionLabel: 'ПЕРВЫЙ ВХОД',
+    child: AdaptiveSplit(
+      primary: const DsSurface(
+        tone: DsSurfaceTone.accent,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            DsText('ТВОЯ ЛОКАЛЬНАЯ АРЕНА', variant: DsTextVariant.label),
+            DsGap(DsSpace.md),
+            DsText(
+              'Создавай турниры. Добавляй гостей. Играй офлайн.',
+              variant: DsTextVariant.heading,
+            ),
+            DsGap(DsSpace.md),
+            DsText(
+              'Профиль хранится локально и не требует регистрации в интернете.',
+              variant: DsTextVariant.secondary,
+            ),
+          ],
+        ),
+      ),
+      secondary: DsSection(
+        title: 'Создание профиля',
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            const DsTextField(label: 'Никнейм'),
+            const DsGap(DsSpace.md),
+            DsAction(label: 'Войти в арену', onPressed: () {}),
+          ],
+        ),
       ),
     ),
   );

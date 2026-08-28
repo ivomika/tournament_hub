@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'ds_action_theme.dart';
 
-enum DsActionKind { primary, secondary, text }
+enum DsActionKind { primary, secondary, text, danger }
 
 class DsAction extends StatelessWidget {
   const DsAction({
@@ -25,6 +25,7 @@ class DsAction extends StatelessWidget {
       DsActionKind.primary => theme.primary,
       DsActionKind.secondary => theme.secondary,
       DsActionKind.text => theme.text,
+      DsActionKind.danger => theme.danger,
     };
     final child = icon == null
         ? Text(label)
@@ -48,6 +49,11 @@ class DsAction extends StatelessWidget {
         child: child,
       ),
       DsActionKind.text => TextButton(
+        onPressed: onPressed,
+        style: style,
+        child: child,
+      ),
+      DsActionKind.danger => OutlinedButton(
         onPressed: onPressed,
         style: style,
         child: child,

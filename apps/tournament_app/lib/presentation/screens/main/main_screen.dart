@@ -37,6 +37,15 @@ class MainScreenPreview extends StatelessWidget {
             ],
           ),
         ),
+        const DsGap(DsSpace.lg),
+        const DsSection(
+          title: 'Последние турниры',
+          child: DsInfoRow(
+            title: 'Summer Kombat · 1 место',
+            subtitle: 'Завершён · Scorpion · Иван',
+            kind: DsInfoKind.history,
+          ),
+        ),
       ],
     ),
   );

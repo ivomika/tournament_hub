@@ -6,6 +6,7 @@ import '../components/bracket/bracket_theme.dart';
 import '../components/champion_hero/champion_hero_theme.dart';
 import '../components/confirmation/confirmation_theme.dart';
 import '../components/connection_banner/connection_banner_theme.dart';
+import '../components/danger_zone/danger_zone_theme.dart';
 import '../components/ds_action/ds_action_theme.dart';
 import '../components/ds_field/ds_field_theme.dart';
 import '../components/ds_flow/ds_flow_theme.dart';
@@ -20,6 +21,7 @@ import '../components/fighter_avatar/fighter_avatar_theme.dart';
 import '../components/match_card/match_card_theme.dart';
 import '../components/outcome_picker/outcome_picker_theme.dart';
 import '../components/participant_identity/participant_identity_theme.dart';
+import '../components/profile_summary/profile_summary_theme.dart';
 import '../components/standings/standings_theme.dart';
 import '../components/status_badge/status_badge_theme.dart';
 import '../components/token_showcase/token_showcase_theme.dart';
@@ -55,6 +57,18 @@ abstract final class TournamentTheme {
     final textButton = TextButton.styleFrom(
       foregroundColor: TournamentTokens.colorAccentPrimary,
       textStyle: text.label,
+    );
+    final dangerButton = OutlinedButton.styleFrom(
+      minimumSize: const Size(
+        TournamentTokens.controlTouchTargetPreferred,
+        TournamentTokens.controlHeightStandardMin,
+      ),
+      foregroundColor: TournamentTokens.colorStatusDanger,
+      side: const BorderSide(color: TournamentTokens.colorStatusDanger),
+      textStyle: text.label,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(TournamentTokens.radiusMd),
+      ),
     );
     final fieldDecoration = InputDecoration(
       filled: true,
@@ -119,7 +133,12 @@ abstract final class TournamentTheme {
           primary: primaryButton,
           secondary: secondaryButton,
           text: textButton,
+          danger: dangerButton,
           contentGap: TournamentTokens.spaceV2,
+        ),
+        const DangerZoneTheme(
+          gap: TournamentTokens.spaceV4,
+          iconColor: TournamentTokens.colorStatusDanger,
         ),
         DsFieldTheme(decoration: fieldDecoration),
         const DsFlowTheme(gap: TournamentTokens.spaceV3),
@@ -143,6 +162,13 @@ abstract final class TournamentTheme {
           compactGap: TournamentTokens.spaceV3,
           standardGap: TournamentTokens.spaceV4,
           prominentGap: TournamentTokens.spaceV6,
+        ),
+        const ProfileSummaryTheme(
+          gap: TournamentTokens.spaceV4,
+          iconSize: TournamentTokens.artworkSizeStandard,
+          iconColor: TournamentTokens.colorBackgroundCanvas,
+          iconBackground: TournamentTokens.colorAccentPrimary,
+          compactBreakpoint: TournamentTokens.breakpointMediumMin,
         ),
         const StatusBadgeTheme(
           background: TournamentTokens.colorSurfaceSecondary,

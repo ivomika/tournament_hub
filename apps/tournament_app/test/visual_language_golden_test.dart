@@ -1,14 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tournament_hub_app/presentation/design_system/design_system.dart';
+import 'package:tournament_hub_app/presentation/screens/bootstrap/bootstrap_screen.dart';
 import 'package:tournament_hub_app/presentation/screens/host_finished/host_finished_screen.dart';
 import 'package:tournament_hub_app/presentation/screens/host_result_entry/host_result_entry_screen.dart';
 import 'package:tournament_hub_app/presentation/screens/host_running/host_running_screen.dart';
 import 'package:tournament_hub_app/presentation/screens/main/main_screen.dart';
+import 'package:tournament_hub_app/presentation/screens/profile/profile_screen.dart';
+import 'package:tournament_hub_app/presentation/screens/registration/registration_screen.dart';
+import 'package:tournament_hub_app/presentation/screens/settings/settings_screen.dart';
 
 void main() {
   final screens = <String, Widget>{
+    'bootstrap': const BootstrapScreenPreview(),
+    'registration': const RegistrationScreenPreview(),
     'main': const MainScreenPreview(),
+    'profile': const ProfileScreenPreview(),
+    'settings': const SettingsScreenPreview(),
     'host_running': const HostRunningScreenPreview(),
     'host_result_entry': const HostResultEntryScreenPreview(),
     'host_finished': const HostFinishedScreenPreview(),
@@ -36,7 +44,11 @@ void main() {
             home: entry.value,
           ),
         );
-        await tester.pumpAndSettle();
+        if (entry.key == 'bootstrap') {
+          await tester.pump();
+        } else {
+          await tester.pumpAndSettle();
+        }
 
         expect(tester.takeException(), isNull);
         await expectLater(

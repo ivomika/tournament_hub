@@ -8,22 +8,33 @@ class SettingsScreenPreview extends StatelessWidget {
   @override
   Widget build(BuildContext context) => AppShell(
     title: 'Настройки',
-    child: DsSection(
-      title: 'Приложение',
-      child: Column(
-        children: [
-          const DsInfoRow(
-            title: 'Тема',
-            subtitle: 'Тёмная',
-            kind: DsInfoKind.settings,
-          ),
-          const DsGap(DsSpace.md),
-          DsAction(
-            label: 'Открыть лицензии',
-            kind: DsActionKind.secondary,
-            onPressed: () {},
-          ),
-        ],
+    subtitle: 'Внешний вид, данные и информация о приложении.',
+    sectionLabel: 'СИСТЕМА',
+    child: AdaptiveSplit(
+      primary: DsSection(
+        title: 'Приложение',
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            const DsInfoRow(
+              title: 'Тема',
+              subtitle: 'Tournament dark',
+              kind: DsInfoKind.settings,
+            ),
+            const DsGap(DsSpace.md),
+            DsAction(
+              label: 'Открыть лицензии',
+              kind: DsActionKind.secondary,
+              onPressed: () {},
+            ),
+          ],
+        ),
+      ),
+      secondary: DangerZone(
+        title: 'Сброс локальных данных',
+        message: 'Профиль, активный турнир и история будут удалены с этого устройства. Перед удалением потребуется подтверждение.',
+        actionLabel: 'Сбросить данные',
+        onAction: () {},
       ),
     ),
   );

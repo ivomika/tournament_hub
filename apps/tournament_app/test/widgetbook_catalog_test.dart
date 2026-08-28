@@ -256,7 +256,10 @@ void main() {
     tester.platformDispatcher.textScaleFactorTestValue = 2;
 
     for (final kind in const [
+      ScreenPreviewKind.registration,
       ScreenPreviewKind.main,
+      ScreenPreviewKind.profile,
+      ScreenPreviewKind.settings,
       ScreenPreviewKind.hostRunning,
       ScreenPreviewKind.hostResultEntry,
       ScreenPreviewKind.hostFinished,
@@ -270,6 +273,41 @@ void main() {
       await tester.pumpAndSettle();
       expect(tester.takeException(), isNull, reason: kind.name);
     }
+  });
+
+  testWidgets('profile summary выдерживает длинный nickname при 200%', (
+    tester,
+  ) async {
+    addTearDown(() {
+      tester.view.resetPhysicalSize();
+      tester.view.resetDevicePixelRatio();
+      tester.platformDispatcher.clearTextScaleFactorTestValue();
+    });
+    tester.view.devicePixelRatio = 1;
+    tester.view.physicalSize = const Size(390, 844);
+    tester.platformDispatcher.textScaleFactorTestValue = 2;
+
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: TournamentTheme.dark,
+        home: const Scaffold(
+          body: SingleChildScrollView(
+            child: ProfileSummary(
+              nickname: 'Очень длинный никнейм локального игрока',
+              tournaments: 128,
+              victories: 42,
+            ),
+          ),
+        ),
+      ),
+    );
+    await tester.pump();
+
+    expect(tester.takeException(), isNull);
+    expect(
+      find.text('Очень длинный никнейм локального игрока'),
+      findsOneWidget,
+    );
   });
 
   testWidgets('result picker называет fighter и не использует счёт', (

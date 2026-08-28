@@ -68,6 +68,11 @@ List<WidgetbookNode> buildTournamentCatalog() => [
                     kind: DsActionKind.secondary,
                     onPressed: () {},
                   ),
+                  DsAction(
+                    label: 'Destructive',
+                    kind: DsActionKind.danger,
+                    onPressed: () {},
+                  ),
                   const DsAction(label: 'Disabled'),
                   const DsTextField(label: 'Tournament name'),
                 ],
@@ -135,6 +140,33 @@ List<WidgetbookNode> buildTournamentCatalog() => [
           _useCase(
             'Champion hero',
             ChampionHero(champion: previewParticipants.first),
+          ),
+          _useCase(
+            'Profile summary',
+            const ProfileSummary(
+              nickname: 'Очень длинный никнейм локального игрока',
+              tournaments: 12,
+              victories: 4,
+            ),
+          ),
+          _useCase(
+            'Danger zone',
+            DangerZone(
+              title: 'Сброс локальных данных',
+              message: 'Профиль, активный турнир и история будут удалены с устройства.',
+              actionLabel: 'Сбросить данные',
+              onAction: () {},
+            ),
+          ),
+          _useCase(
+            'Empty tournament state',
+            TournamentEmptyState(
+              title: 'Арена пока пуста',
+              message:
+                  'Создай первый турнир или присоединись к локальной игре.',
+              actionLabel: 'Создать турнир',
+              onAction: () {},
+            ),
           ),
           _useCase(
             'Identity / Missing artwork',
