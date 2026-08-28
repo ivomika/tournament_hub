@@ -259,6 +259,8 @@ void main() {
       ScreenPreviewKind.registration,
       ScreenPreviewKind.main,
       ScreenPreviewKind.profile,
+      ScreenPreviewKind.history,
+      ScreenPreviewKind.historyDetail,
       ScreenPreviewKind.settings,
       ScreenPreviewKind.hostDraft,
       ScreenPreviewKind.hostOpen,
@@ -267,6 +269,12 @@ void main() {
       ScreenPreviewKind.hostResultEntry,
       ScreenPreviewKind.hostFinished,
       ScreenPreviewKind.hostCancelled,
+      ScreenPreviewKind.join,
+      ScreenPreviewKind.participantLobby,
+      ScreenPreviewKind.participantDistribution,
+      ScreenPreviewKind.participantRunning,
+      ScreenPreviewKind.participantFinished,
+      ScreenPreviewKind.recoverableError,
     ]) {
       await tester.pumpWidget(
         MaterialApp(
@@ -379,5 +387,71 @@ void main() {
 
     expect(find.text('Общий этап'), findsOneWidget);
     expect(find.text('Каждая пара встречается один раз'), findsOneWidget);
+  });
+
+  testWidgets(
+    'history snapshot показывает fighter identity и read-only state',
+    (tester) async {
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: TournamentTheme.dark,
+          home: const TournamentScreenPreview(kind: ScreenPreviewKind.history),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      expect(find.text('ТОЛЬКО ЧТЕНИЕ'), findsOneWidget);
+      expect(find.text('Scorpion'), findsOneWidget);
+      expect(find.text('Иван'), findsOneWidget);
+      expect(find.text('Sub-Zero'), findsOneWidget);
+      expect(find.text('Мира'), findsOneWidget);
+    },
+  );
+
+  testWidgets('participant projection не содержит Host mutation controls', (
+    tester,
+  ) async {
+    for (final kind in const [
+      ScreenPreviewKind.participantLobby,
+      ScreenPreviewKind.participantDistribution,
+      ScreenPreviewKind.participantRunning,
+      ScreenPreviewKind.participantFinished,
+    ]) {
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: TournamentTheme.dark,
+          home: TournamentScreenPreview(kind: kind),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      for (final forbidden in const [
+        'Добавить гостя',
+        'Перераздать всех',
+        'Начать турнир',
+        'Записать результат',
+        'Отменить турнир',
+      ]) {
+        expect(find.text(forbidden), findsNothing, reason: kind.name);
+      }
+    }
+  });
+
+  testWidgets('stale projection явно показывает возраст данных и recovery', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: TournamentTheme.dark,
+        home: const TournamentScreenPreview(
+          kind: ScreenPreviewKind.participantRunning,
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.text('ДАННЫЕ УСТАРЕЛИ'), findsOneWidget);
+    expect(find.textContaining('обновлено 2 минуты назад'), findsOneWidget);
+    expect(find.text('Переподключиться'), findsOneWidget);
   });
 }

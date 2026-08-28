@@ -18,6 +18,7 @@ import '../components/ds_surface/ds_surface_theme.dart';
 import '../components/ds_text/ds_text_theme.dart';
 import '../components/empty_state/empty_state_theme.dart';
 import '../components/fighter_avatar/fighter_avatar_theme.dart';
+import '../components/history_snapshot_card/history_snapshot_card_theme.dart';
 import '../components/match_card/match_card_theme.dart';
 import '../components/outcome_picker/outcome_picker_theme.dart';
 import '../components/participant_identity/participant_identity_theme.dart';
@@ -163,6 +164,13 @@ abstract final class TournamentTheme {
           compactGap: TournamentTokens.spaceV3,
           standardGap: TournamentTokens.spaceV4,
           prominentGap: TournamentTokens.spaceV6,
+        ),
+        const HistorySnapshotCardTheme(
+          gap: TournamentTokens.spaceV4,
+          contentPadding: TournamentTokens.spaceV1,
+          compactBreakpoint: TournamentTokens.breakpointMediumMin,
+          radius: TournamentTokens.radiusLg,
+          iconColor: TournamentTokens.colorTextSecondary,
         ),
         const ProfileSummaryTheme(
           gap: TournamentTokens.spaceV4,

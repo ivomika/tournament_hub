@@ -42,7 +42,12 @@ class ConnectionBanner extends StatelessWidget {
               ],
             );
           }
-          return Row(children: [status, const Spacer(), ?action]);
+          return Row(
+            children: [
+              Expanded(child: status),
+              if (action != null) ...[SizedBox(width: theme.gap), action],
+            ],
+          );
         },
       ),
     );

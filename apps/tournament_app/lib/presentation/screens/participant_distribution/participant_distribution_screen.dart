@@ -7,15 +7,30 @@ class ParticipantDistributionScreenPreview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => AppShell(
-    title: 'Ваш персонаж',
+    title: 'Персонаж определён',
+    subtitle: 'Friday Fight Night · случайная раздача завершена',
+    sectionLabel: 'PARTICIPANT · РАЗДАЧА',
     child: Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        ParticipantIdentity(
-          participant: previewParticipants.first,
-          artworkVariant: FighterArtworkVariant.hero,
+        const ConnectionBanner(
+          message: 'Подключено · данные актуальны',
+          kind: StatusKind.success,
         ),
         const DsGap(DsSpace.lg),
-        const StatusBadge(label: 'Ожидаем сетку', kind: StatusKind.info),
+        const TournamentStageHeader(
+          stage: 'Распределение',
+          progress: 'ОЖИДАЕМ СЕТКУ',
+          detail: 'Хост формирует случайный seeding и запускает турнир.',
+        ),
+        const DsGap(DsSpace.lg),
+        DsSurface(
+          tone: DsSurfaceTone.accent,
+          child: ParticipantIdentity(
+            participant: previewParticipants.first,
+            artworkVariant: FighterArtworkVariant.hero,
+          ),
+        ),
       ],
     ),
   );

@@ -7,14 +7,38 @@ class ParticipantFinishedScreenPreview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => AppShell(
-    title: 'Итоги',
+    title: 'Турнир завершён',
+    subtitle: 'Friday Fight Night · итоговая проекция',
+    sectionLabel: 'PARTICIPANT · ФИНАЛ',
     child: Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        ChampionHero(champion: previewParticipants.first),
+        const ConnectionBanner(
+          message: 'Финальный снимок получен',
+          kind: StatusKind.success,
+        ),
         const DsGap(DsSpace.lg),
-        TournamentStandings(participants: previewParticipants),
+        const TournamentStageHeader(
+          stage: 'Double Elimination',
+          progress: 'ЗАВЕРШЁН',
+          detail: 'Все результаты подтверждены хостом.',
+          kind: StatusKind.neutral,
+        ),
         const DsGap(DsSpace.lg),
-        DsAction(label: 'На главную', onPressed: () {}),
+        AdaptiveSplit(
+          primary: ChampionHero(champion: previewParticipants.first),
+          secondary: TournamentStandings(participants: previewParticipants),
+        ),
+        const DsGap(DsSpace.lg),
+        DsFlow(
+          children: [
+            DsAction(
+              label: 'На главную',
+              kind: DsActionKind.secondary,
+              onPressed: () {},
+            ),
+          ],
+        ),
       ],
     ),
   );

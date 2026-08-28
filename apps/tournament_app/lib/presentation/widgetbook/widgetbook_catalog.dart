@@ -129,6 +129,49 @@ List<WidgetbookNode> buildTournamentCatalog() => [
             ),
           ),
           _useCase(
+            'History snapshot / Finished',
+            HistorySnapshotCard(
+              tournamentName: 'Friday Fight Night',
+              summary: 'Double Elimination · 8 участников · сегодня, 22:14',
+              champion: previewParticipants.first,
+              onOpen: () {},
+            ),
+          ),
+          _useCase(
+            'Connection / Connected',
+            const ConnectionBanner(
+              message: 'Подключено · данные актуальны',
+              kind: StatusKind.success,
+            ),
+          ),
+          _useCase(
+            'Connection / Reconnecting',
+            ConnectionBanner(
+              message: 'Переподключение к хосту',
+              kind: StatusKind.info,
+              actionLabel: 'Отменить',
+              onAction: () {},
+            ),
+          ),
+          _useCase(
+            'Connection / Stale',
+            ConnectionBanner(
+              message: 'Связь потеряна · показаны последние данные',
+              kind: StatusKind.warning,
+              actionLabel: 'Переподключиться',
+              onAction: () {},
+            ),
+          ),
+          _useCase(
+            'Connection / Incompatible',
+            ConnectionBanner(
+              message: 'Несовместимая версия протокола',
+              kind: StatusKind.danger,
+              actionLabel: 'Проверить снова',
+              onAction: () {},
+            ),
+          ),
+          _useCase(
             'Outcome picker',
             OutcomePicker(
               first: previewParticipants.first,

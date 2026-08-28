@@ -8,16 +8,37 @@ class JoinScreenPreview extends StatelessWidget {
   @override
   Widget build(BuildContext context) => AppShell(
     title: 'Войти в турнир',
-    child: DsSection(
-      title: 'Код лобби',
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          const DsTextField(label: 'Код'),
-          const DsGap(DsSpace.md),
-          DsAction(label: 'Присоединиться', onPressed: () {}),
-        ],
-      ),
+    subtitle: 'Подключение к хосту в локальной сети',
+    sectionLabel: 'PARTICIPANT',
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        const ConnectionBanner(
+          message: 'Подключение не начато',
+          kind: StatusKind.neutral,
+        ),
+        const DsGap(DsSpace.lg),
+        AdaptiveSplit(
+          primary: DsSection(
+            title: 'Код лобби',
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                const DsTextField(label: 'Код с экрана хоста'),
+                const DsGap(DsSpace.md),
+                DsAction(label: 'Присоединиться', onPressed: () {}),
+              ],
+            ),
+          ),
+          secondary: const DsSection(
+            title: 'Перед подключением',
+            child: DsText(
+              'Устройство должно быть в той же локальной сети. Хост остаётся единственным источником состояния турнира.',
+              variant: DsTextVariant.secondary,
+            ),
+          ),
+        ),
+      ],
     ),
   );
 }

@@ -6,11 +6,11 @@
 
 ## Активные задачи
 
-- 📝 **052** — Выравнять history, participant и recoverable screens по visual language — [детали](tasks/TH-20260828-052.md)
 - 📝 **053** — Привести Spectator Web к утверждённому visual language — [детали](tasks/TH-20260828-053.md)
 
 ## Завершённые задачи
 
+- ✅ **052** — Выравнять history, participant и recoverable screens по visual language — [детали](tasks/TH-20260828-052.md)
 - ✅ **051** — Выравнять Host tournament flow по новому visual language — [детали](tasks/TH-20260828-051.md)
 - ✅ **050** — Выравнять shell, Main и profile screens по новому visual language — [детали](tasks/TH-20260828-050.md)
 - ✅ **049** — Пересобрать визуальный язык и ключевые экраны Flutter UI — [детали](tasks/TH-20260828-049.md)

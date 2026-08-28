@@ -6,25 +6,34 @@ class HistoryScreenPreview extends StatelessWidget {
   const HistoryScreenPreview({super.key});
 
   @override
-  Widget build(BuildContext context) => const AppShell(
+  Widget build(BuildContext context) => AppShell(
     title: 'История',
-    child: DsSection(
-      title: 'Завершённые турниры',
-      child: Column(
-        children: [
-          DsInfoRow(
-            title: 'Friday Fight Night',
-            subtitle: '8 участников · завершён',
-            kind: DsInfoKind.history,
-          ),
-          DsGap(DsSpace.md),
-          DsInfoRow(
-            title: 'Weekend Cup',
-            subtitle: '6 участников · завершён',
-            kind: DsInfoKind.history,
-          ),
-        ],
-      ),
+    subtitle: 'Локальные снимки завершённых турниров · только чтение',
+    sectionLabel: 'АРХИВ',
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        const TournamentStageHeader(
+          stage: 'История турниров',
+          progress: 'ТОЛЬКО ЧТЕНИЕ',
+          detail: 'Результаты сохранены на этом устройстве и не изменяют активный турнир.',
+          kind: StatusKind.neutral,
+        ),
+        const DsGap(DsSpace.lg),
+        HistorySnapshotCard(
+          tournamentName: 'Friday Fight Night',
+          summary: 'Double Elimination · 8 участников · сегодня, 22:14',
+          champion: previewParticipants.first,
+          onOpen: () {},
+        ),
+        const DsGap(DsSpace.md),
+        HistorySnapshotCard(
+          tournamentName: 'Weekend Cup',
+          summary: 'Single Elimination · 6 участников · 24 августа',
+          champion: previewParticipants[1],
+          onOpen: () {},
+        ),
+      ],
     ),
   );
 }
