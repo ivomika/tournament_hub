@@ -13,6 +13,8 @@ class DsAction extends StatelessWidget {
     this.kind = DsActionKind.primary,
     this.icon,
     this.status = DsActionStatus.idle,
+    this.focusNode,
+    this.autofocus = false,
     super.key,
   });
 
@@ -21,6 +23,8 @@ class DsAction extends StatelessWidget {
   final DsActionKind kind;
   final IconData? icon;
   final DsActionStatus status;
+  final FocusNode? focusNode;
+  final bool autofocus;
 
   @override
   Widget build(BuildContext context) {
@@ -57,27 +61,37 @@ class DsAction extends StatelessWidget {
     final button = switch (kind) {
       DsActionKind.primary => ElevatedButton(
         onPressed: effectiveOnPressed,
+        focusNode: focusNode,
+        autofocus: autofocus,
         style: style,
         child: child,
       ),
       DsActionKind.secondary => OutlinedButton(
         onPressed: effectiveOnPressed,
+        focusNode: focusNode,
+        autofocus: autofocus,
         style: style,
         child: child,
       ),
       DsActionKind.text => TextButton(
         onPressed: effectiveOnPressed,
+        focusNode: focusNode,
+        autofocus: autofocus,
         style: style,
         child: child,
       ),
       DsActionKind.danger => OutlinedButton(
         onPressed: effectiveOnPressed,
+        focusNode: focusNode,
+        autofocus: autofocus,
         style: style,
         child: child,
       ),
     };
     return Semantics(
       button: true,
+      enabled: effectiveOnPressed != null,
+      onTap: effectiveOnPressed,
       liveRegion: status != DsActionStatus.idle,
       label: switch (status) {
         DsActionStatus.idle => label,

@@ -40,6 +40,7 @@ class FighterAvatar extends StatelessWidget {
     return Semantics(
       image: true,
       label: 'Изображение персонажа $fighterName',
+      excludeSemantics: true,
       child: DecoratedBox(
         decoration: BoxDecoration(
           color: prominent ? theme.prominentBackground : theme.background,

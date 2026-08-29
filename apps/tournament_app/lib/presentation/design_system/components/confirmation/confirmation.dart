@@ -7,6 +7,16 @@ import 'confirmation_theme.dart';
 
 enum TournamentConfirmationStatus { idle, loading, success }
 
+Future<T?> showTournamentConfirmationDialog<T>({
+  required BuildContext context,
+  required WidgetBuilder builder,
+}) async {
+  final previousFocus = FocusManager.instance.primaryFocus;
+  final result = await showDialog<T>(context: context, builder: builder);
+  if (previousFocus?.canRequestFocus ?? false) previousFocus!.requestFocus();
+  return result;
+}
+
 class TournamentConfirmationPreview extends StatelessWidget {
   const TournamentConfirmationPreview({
     this.status = TournamentConfirmationStatus.idle,
@@ -57,6 +67,7 @@ class TournamentConfirmationPreview extends StatelessWidget {
                 DsAction(
                   label: 'Назад',
                   kind: DsActionKind.text,
+                  autofocus: true,
                   onPressed: status == TournamentConfirmationStatus.loading
                       ? null
                       : () {},

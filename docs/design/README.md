@@ -46,7 +46,7 @@
 
 Каждый component имеет необходимые default, hover/focus/pressed, disabled, loading и error states.
 
-- `ParticipantIdentity`: до assignment — nickname/status; после — artwork, fighter name, nickname и Guest badge.
+- `ParticipantIdentity`: до assignment — nickname/status; после — artwork, fighter name, nickname и badge «Гость».
 - `FighterAvatar`: stable crop variants, semantic label, fallback/placeholder.
 - `MatchCard/CurrentMatch`: stage, identities, score/result type, Current emphasis и разрешённые actions.
 - `StandingsTable`: готовые place/result/tie-break labels и fighter identity; table на desktop, compact rows на mobile. Widget не вычисляет очки, победы или места.
@@ -100,6 +100,14 @@ Character artwork — главный визуальный якорь post-assign
 - Error скрывает exception/stack, сохраняет введённые данные и предлагает retry/correction.
 - Offline/stale сохраняет last-known data, блокирует mutation и явно сообщает sync state.
 - Empty отличается от loading и permission denied.
+
+## Accessibility и UI-контент
+
+- Пользовательские labels и announcements пишутся по-русски; английские Domain identifiers допустимы только как технические термины или официальные названия формата.
+- Status badge объявляется как «Статус: …» и всегда сочетает текст с icon/shape; цвет не является единственным carrier.
+- Составная fighter identity имеет единый semantics label: fighter name, nickname и «Гость», если применимо.
+- Confirmation ставит safe action первым в keyboard focus и после закрытия возвращает focus элементу-инициатору.
+- При системном reduced motion UI не добавляет декоративную анимацию; critical state change остаётся текстовым и немедленным.
 
 ## Accessibility gates
 

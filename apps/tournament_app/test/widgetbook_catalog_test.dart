@@ -674,7 +674,7 @@ void main() {
     }
     expect(find.text('УЧАСТНИК'), findsOneWidget);
     expect(
-      find.bySemanticsLabel(RegExp('Место 3–4.*Kitana.*Guest 1.*Переигровка')),
+      find.bySemanticsLabel(RegExp('Место 3–4.*Kitana.*Гость 1.*Переигровка')),
       findsOneWidget,
     );
   });
@@ -820,5 +820,125 @@ void main() {
       expect(find.textContaining('stack'), findsNothing);
       expect(tester.takeException(), isNull, reason: entry.key.name);
     }
+  });
+
+  testWidgets('status и guest identity имеют русские semantics labels', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: TournamentTheme.dark,
+        home: const Scaffold(
+          body: Column(
+            children: [
+              StatusBadge(label: 'Данные устарели', kind: StatusKind.warning),
+              ParticipantIdentity(participant: previewGuest),
+            ],
+          ),
+        ),
+      ),
+    );
+
+    expect(find.bySemanticsLabel('Статус: Данные устарели'), findsOneWidget);
+    expect(find.bySemanticsLabel('Kitana, Гость 1, Гость'), findsOneWidget);
+    expect(find.text('Guest'), findsNothing);
+  });
+
+  testWidgets('confirmation возвращает focus инициатору', (tester) async {
+    final triggerFocus = FocusNode();
+    addTearDown(triggerFocus.dispose);
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: TournamentTheme.dark,
+        home: Scaffold(
+          body: Builder(
+            builder: (context) => DsAction(
+              label: 'Открыть подтверждение',
+              focusNode: triggerFocus,
+              autofocus: true,
+              onPressed: () {
+                showTournamentConfirmationDialog<void>(
+                  context: context,
+                  builder: (dialogContext) => Dialog(
+                    child: DsAction(
+                      label: 'Вернуться',
+                      autofocus: true,
+                      onPressed: () => Navigator.of(dialogContext).pop(),
+                    ),
+                  ),
+                );
+              },
+            ),
+          ),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(triggerFocus.hasFocus, isTrue);
+
+    await tester.tap(find.text('Открыть подтверждение'));
+    await tester.pumpAndSettle();
+    expect(find.text('Вернуться'), findsOneWidget);
+    expect(triggerFocus.hasFocus, isFalse);
+
+    await tester.tap(find.text('Вернуться'));
+    await tester.pumpAndSettle();
+    expect(triggerFocus.hasFocus, isTrue);
+  });
+
+  testWidgets('critical state читается при reduced motion и 200% scale', (
+    tester,
+  ) async {
+    tester.view.devicePixelRatio = 1;
+    tester.view.physicalSize = const Size(320, 720);
+    tester.platformDispatcher.textScaleFactorTestValue = 2;
+    addTearDown(() {
+      tester.view.resetPhysicalSize();
+      tester.view.resetDevicePixelRatio();
+      tester.platformDispatcher.clearTextScaleFactorTestValue();
+    });
+
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: TournamentTheme.dark,
+        home: Builder(
+          builder: (context) => MediaQuery(
+            data: MediaQuery.of(context).copyWith(disableAnimations: true),
+            child: const TournamentScreenPreview(
+              kind: ScreenPreviewKind.participantRunning,
+            ),
+          ),
+        ),
+      ),
+    );
+    await tester.pump();
+
+    expect(find.text('Данные устарели'), findsOneWidget);
+    expect(find.text('Переподключиться'), findsOneWidget);
+    expect(tester.takeException(), isNull);
+  });
+
+  test('основные text/background пары проходят contrast gate', () {
+    final theme = TournamentTheme.dark;
+    double contrast(Color first, Color second) {
+      final lighter = first.computeLuminance() > second.computeLuminance()
+          ? first
+          : second;
+      final darker = identical(lighter, first) ? second : first;
+      return (lighter.computeLuminance() + 0.05) /
+          (darker.computeLuminance() + 0.05);
+    }
+
+    expect(
+      contrast(
+        theme.textTheme.bodyLarge!.color!,
+        theme.scaffoldBackgroundColor,
+      ),
+      greaterThanOrEqualTo(4.5),
+    );
+    expect(
+      contrast(theme.textTheme.bodyMedium!.color!, theme.colorScheme.surface),
+      greaterThanOrEqualTo(4.5),
+    );
   });
 }

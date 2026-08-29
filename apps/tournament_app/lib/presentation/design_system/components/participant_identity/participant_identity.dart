@@ -30,7 +30,7 @@ const previewMira = PreviewParticipant(
   fighterName: 'Sub-Zero',
 );
 const previewGuest = PreviewParticipant(
-  nickname: 'Guest 1',
+  nickname: 'Гость 1',
   fighterId: 'kitana',
   fighterName: 'Kitana',
   isGuest: true,
@@ -106,7 +106,7 @@ class ParticipantIdentity extends StatelessWidget {
               maxLines: 2,
             ),
             if (participant.isGuest)
-              const StatusBadge(label: 'Guest', kind: StatusKind.info),
+              const StatusBadge(label: 'Гость', kind: StatusKind.info),
           ],
         ),
       ],
@@ -118,24 +118,30 @@ class ParticipantIdentity extends StatelessWidget {
     );
     return Semantics(
       container: true,
-      label: '${participant.fighterName}, ${participant.nickname}',
-      child: prominent
-          ? Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                artwork,
-                SizedBox(height: gap),
-                labels,
-              ],
-            )
-          : Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                artwork,
-                SizedBox(width: gap),
-                Flexible(child: labels),
-              ],
-            ),
+      label: [
+        participant.fighterName,
+        participant.nickname,
+        if (participant.isGuest) 'Гость',
+      ].join(', '),
+      child: ExcludeSemantics(
+        child: prominent
+            ? Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  artwork,
+                  SizedBox(height: gap),
+                  labels,
+                ],
+              )
+            : Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  artwork,
+                  SizedBox(width: gap),
+                  Flexible(child: labels),
+                ],
+              ),
+      ),
     );
   }
 }

@@ -21,7 +21,7 @@ class StatusBadge extends StatelessWidget {
       StatusKind.info => (theme.info, Icons.info_outline),
       StatusKind.neutral => (theme.neutral, Icons.circle_outlined),
     };
-    return DecoratedBox(
+    final badge = DecoratedBox(
       decoration: BoxDecoration(
         color: theme.background,
         border: Border.all(color: color),
@@ -41,6 +41,11 @@ class StatusBadge extends StatelessWidget {
           ],
         ),
       ),
+    );
+    return Semantics(
+      container: true,
+      label: 'Статус: $label',
+      child: ExcludeSemantics(child: badge),
     );
   }
 }
