@@ -17,3 +17,4 @@ ADR фиксирует устойчивое решение, меняющее sys
 - [ADR-0003: Theme-driven границы Flutter design system](0003-flutter-design-system-boundaries.md) — Accepted.
 - [ADR-0004: pretty_qr_code как Flutter QR renderer](0004-pretty-qr-code-adapter.md) — Superseded by ADR-0005.
 - [ADR-0005: Переиспользуемые QR primitives в Flutter design system](0005-reusable-qr-primitives.md) — Accepted.
+- [ADR-0006: Screen-level ActionDock для критичных mobile-действий](0006-screen-level-action-dock.md) — Accepted.

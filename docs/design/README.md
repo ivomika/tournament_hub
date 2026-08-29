@@ -32,6 +32,37 @@
 - Keyboard order совпадает с visual/logical order; visible focus обязателен.
 - Hover не является единственным способом открыть информацию или действие.
 
+### Action placement
+
+`ActionDock` — screen-level pattern для одного критичного mobile-действия. Он не является универсальной нижней панелью и не владеет lifecycle или navigation logic. Подробное решение зафиксировано в [ADR-0006](../adr/0006-screen-level-action-dock.md).
+
+| Экран | Primary placement | Secondary/destructive placement |
+|---|---|---|
+| Host Running | Sticky mobile `ActionDock`: «Ввести результат» | Header/overflow; destructive отдельно с confirmation |
+| Host Result Entry | Sticky mobile `ActionDock`: «Подтвердить победителя» | Header/overflow; destructive отдельно с confirmation |
+| Host Distribution | Sticky mobile `ActionDock`: «Создать сетку и начать», только при валидном составе | Reroll/back/cancel — inline, header или overflow |
+| Main, Draft, Open, Finished, Cancelled | Header или inline рядом с объектом | Overflow либо отдельная danger zone |
+| History, History Detail, Profile, Settings, Registration, Join | Header или inline | Overflow; sticky actions запрещены |
+| Participant и Spectator | Inline/read-only controls | Host mutation actions запрещены |
+| Recoverable Error | Inline recovery action рядом с причиной | Дополнительные способы восстановления — ниже основного |
+
+- Mobile dock показывает одно primary action; secondary скрываются в доступный overflow.
+- Dock учитывает SafeArea, keyboard `viewInsets` и добавляет body bottom inset по фактической высоте.
+- Action region вместе с navigation не перекрывает content; ориентир dock — 15–18% viewport, жёсткий предел — 25%, в landscape — 20%.
+- При 200% text scale label переносится или action переходит в overflow без clipping.
+- Desktop не использует bottom dock: primary выравнивается с title/context, secondary уходят в toolbar/overflow.
+- Закрытие overflow/confirmation возвращает focus инициатору; loading/error/success объявляются semantics live region.
+
+### Action verification matrix
+
+| Область | Обязательная проверка |
+|---|---|
+| Layout | 320×720, compact/medium/expanded, portrait/landscape, SafeArea и keyboard |
+| Content | body не перекрыт, primary доступно, одинаковое действие не дублируется inline |
+| Accessibility | 200% text scale, semantics label/state, keyboard order и focus restoration |
+| Motion | reduced-motion режим не использует обязательную анимацию появления/скрытия |
+| Architecture | callback-only API, отсутствие domain/application/data imports |
+
 ## Visual hierarchy patterns
 
 - Canvas остаётся глубоким и спокойным; elevated surfaces создают глубину, но не превращают каждый блок в одинаковую карточку.
