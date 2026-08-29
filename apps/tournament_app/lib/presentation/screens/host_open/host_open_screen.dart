@@ -27,6 +27,7 @@ class HostOpenScreenPreview extends StatelessWidget {
       title: 'Лобби открыто',
       subtitle: 'Добавь минимум двух игроков и переходи к раздаче персонажей.',
       sectionLabel: 'ЛОББИ ОТКРЫТО · ЭТАП 2 ИЗ 5',
+      headerVariant: PageHeaderVariant.compact,
       pageActions: ResponsiveActions(
         primary: DsAction(label: 'Начать раздачу', onPressed: () {}),
         overflow: [
@@ -55,13 +56,7 @@ class HostOpenScreenPreview extends StatelessWidget {
           ),
           const DsGap(DsSpace.lg),
           AdaptiveSplit(
-            primary: ParticipantInviteCard(
-              data: _participantInvite,
-              onCopyCode: () {},
-              onCopyAddress: () {},
-              onRetry: () {},
-            ),
-            secondary: DsSection(
+            primary: DsSection(
               title: 'Участники',
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -72,6 +67,12 @@ class HostOpenScreenPreview extends StatelessWidget {
                   ],
                 ],
               ),
+            ),
+            secondary: ParticipantInviteCard(
+              data: _participantInvite,
+              onCopyCode: () {},
+              onCopyAddress: () {},
+              onRetry: () {},
             ),
           ),
           const DsGap(DsSpace.lg),

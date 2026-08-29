@@ -10,27 +10,28 @@ class ParticipantDistributionScreenPreview extends StatelessWidget {
     title: 'Персонаж определён',
     subtitle: 'Friday Fight Night · случайная раздача завершена',
     sectionLabel: 'УЧАСТНИК · РАЗДАЧА',
+    headerVariant: PageHeaderVariant.compact,
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        const ConnectionBanner(
-          state: TournamentConnectionState.connected,
-          detail: 'Данные актуальны',
-          synchronizedAtLabel: 'только что',
-        ),
-        const DsGap(DsSpace.lg),
-        const TournamentStageHeader(
-          stage: 'Распределение',
-          progress: 'ОЖИДАЕМ СЕТКУ',
-          detail: 'Хост формирует случайный seeding и запускает турнир.',
-        ),
-        const DsGap(DsSpace.lg),
         DsSurface(
           tone: DsSurfaceTone.accent,
           child: ParticipantIdentity(
             participant: previewParticipants.first,
             artworkVariant: FighterArtworkVariant.hero,
           ),
+        ),
+        const DsGap(DsSpace.lg),
+        const ConnectionBanner(
+          state: TournamentConnectionState.connected,
+          detail: 'Данные актуальны',
+          synchronizedAtLabel: 'только что',
+        ),
+        const DsGap(DsSpace.md),
+        const TournamentStageHeader(
+          stage: 'Распределение',
+          progress: 'ОЖИДАЕМ СЕТКУ',
+          detail: 'Хост формирует случайный seeding и запускает турнир.',
         ),
       ],
     ),

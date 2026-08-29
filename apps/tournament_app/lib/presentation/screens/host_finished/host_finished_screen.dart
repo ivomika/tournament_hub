@@ -10,6 +10,7 @@ class HostFinishedScreenPreview extends StatelessWidget {
     title: 'Турнир завершён',
     subtitle: 'Friday Fight Night · Double Elimination',
     sectionLabel: 'ФИНАЛ',
+    headerVariant: PageHeaderVariant.compact,
     pageActions: ResponsiveActions(
       primary: DsAction(label: 'На главную', onPressed: () {}),
       secondary: [
@@ -23,16 +24,16 @@ class HostFinishedScreenPreview extends StatelessWidget {
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
+        AdaptiveSplit(
+          primary: ChampionHero(champion: previewParticipants.first),
+          secondary: const TournamentStandings(),
+        ),
+        const DsGap(DsSpace.lg),
         const TournamentStageHeader(
           stage: 'Результат зафиксирован',
           progress: 'ЗАВЕРШЁН',
           detail: 'Турнир доступен только для чтения и сохранён в истории.',
           kind: StatusKind.success,
-        ),
-        const DsGap(DsSpace.lg),
-        AdaptiveSplit(
-          primary: ChampionHero(champion: previewParticipants.first),
-          secondary: const TournamentStandings(),
         ),
         const DsGap(DsSpace.lg),
         const TournamentBracketPreview(),

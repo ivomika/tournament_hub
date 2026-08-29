@@ -10,6 +10,7 @@ class HostResultEntryScreenPreview extends StatelessWidget {
     title: 'Кто победил?',
     subtitle: 'Выбери победителя матча. Счёт для этого режима не требуется.',
     sectionLabel: 'МАТЧ 07 · ВЕРХНЯЯ СЕТКА',
+    headerVariant: PageHeaderVariant.compact,
     pageActions: ResponsiveActions(
       primary: DsAction(label: 'Подтвердить победителя', onPressed: () {}),
     ),
@@ -22,25 +23,18 @@ class HostResultEntryScreenPreview extends StatelessWidget {
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        const TournamentStageHeader(
-          stage: 'Фиксация результата',
-          progress: 'МАТЧ 07',
-          detail: 'Изменение применится только после выбора победителя.',
-          kind: StatusKind.warning,
-        ),
-        const DsGap(DsSpace.lg),
-        TournamentMatchCard(
-          title: 'Scorpion против Sub-Zero',
-          first: previewParticipants.first,
-          second: previewParticipants[1],
-          identityVariant: FighterArtworkVariant.matchup,
-        ),
-        const DsGap(DsSpace.lg),
         OutcomePicker(
           first: previewParticipants.first,
           second: previewParticipants[1],
           onFirstSelected: () {},
           onSecondSelected: () {},
+        ),
+        const DsGap(DsSpace.lg),
+        const TournamentStageHeader(
+          stage: 'Фиксация результата',
+          progress: 'МАТЧ 07',
+          detail: 'Изменение применится только после выбора победителя.',
+          kind: StatusKind.warning,
         ),
       ],
     ),

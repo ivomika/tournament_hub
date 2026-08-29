@@ -10,6 +10,7 @@ class HostDraftScreenPreview extends StatelessWidget {
     title: 'Новый турнир',
     subtitle: 'Настрой правила до открытия лобби — после этого они неизменны.',
     sectionLabel: 'ЧЕРНОВИК · ЭТАП 1 ИЗ 5',
+    headerVariant: PageHeaderVariant.compact,
     pageActions: ResponsiveActions(
       primary: DsAction(label: 'Открыть лобби', onPressed: () {}),
     ),

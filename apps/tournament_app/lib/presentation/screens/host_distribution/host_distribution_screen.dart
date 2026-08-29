@@ -10,6 +10,7 @@ class HostDistributionScreenPreview extends StatelessWidget {
     title: 'Раздача персонажей',
     subtitle: 'Проверь каждую пару игрок—боец перед запуском сетки.',
     sectionLabel: 'РАЗДАЧА · ЭТАП 3 ИЗ 5',
+    headerVariant: PageHeaderVariant.compact,
     pageActions: ResponsiveActions(
       primary: DsAction(label: 'Создать сетку и начать', onPressed: () {}),
       secondary: [
@@ -29,13 +30,6 @@ class HostDistributionScreenPreview extends StatelessWidget {
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        const TournamentStageHeader(
-          stage: 'Случайное назначение',
-          progress: '4 ИЗ 4',
-          detail: 'Все участники получили уникальных бойцов.',
-          kind: StatusKind.success,
-        ),
-        const DsGap(DsSpace.lg),
         DsSection(
           title: 'Назначения',
           child: DsFlow(
@@ -47,6 +41,13 @@ class HostDistributionScreenPreview extends StatelessWidget {
                 ),
             ],
           ),
+        ),
+        const DsGap(DsSpace.lg),
+        const TournamentStageHeader(
+          stage: 'Случайное назначение',
+          progress: '4 ИЗ 4',
+          detail: 'Все участники получили уникальных бойцов.',
+          kind: StatusKind.success,
         ),
       ],
     ),

@@ -10,20 +10,21 @@ class HistoryDetailScreenPreview extends StatelessWidget {
     title: 'Friday Fight Night',
     subtitle: 'Снимок завершённого турнира · сегодня, 22:14',
     sectionLabel: 'ИСТОРИЯ',
+    headerVariant: PageHeaderVariant.compact,
     currentDestination: AppDestination.history,
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
+        AdaptiveSplit(
+          primary: ChampionHero(champion: previewParticipants.first),
+          secondary: const TournamentStandings(),
+        ),
+        const DsGap(DsSpace.lg),
         const TournamentStageHeader(
           stage: 'Double Elimination',
           progress: 'ЗАВЕРШЁН',
           detail: '8 участников · 14 матчей · локальный снимок',
           kind: StatusKind.neutral,
-        ),
-        const DsGap(DsSpace.lg),
-        AdaptiveSplit(
-          primary: ChampionHero(champion: previewParticipants.first),
-          secondary: const TournamentStandings(),
         ),
         const DsGap(DsSpace.lg),
         const TournamentBracketPreview(),

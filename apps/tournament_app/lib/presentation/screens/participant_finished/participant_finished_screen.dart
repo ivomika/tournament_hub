@@ -10,6 +10,7 @@ class ParticipantFinishedScreenPreview extends StatelessWidget {
     title: 'Турнир завершён',
     subtitle: 'Friday Fight Night · итоговая проекция',
     sectionLabel: 'УЧАСТНИК · ФИНАЛ',
+    headerVariant: PageHeaderVariant.compact,
     pageActions: ResponsiveActions(
       primary: DsAction(
         label: 'На главную',
@@ -20,22 +21,22 @@ class ParticipantFinishedScreenPreview extends StatelessWidget {
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
+        AdaptiveSplit(
+          primary: ChampionHero(champion: previewParticipants.first),
+          secondary: const TournamentStandings(),
+        ),
+        const DsGap(DsSpace.lg),
         const ConnectionBanner(
           state: TournamentConnectionState.connected,
           detail: 'Финальный снимок получен',
           synchronizedAtLabel: 'только что',
         ),
-        const DsGap(DsSpace.lg),
+        const DsGap(DsSpace.md),
         const TournamentStageHeader(
           stage: 'Double Elimination',
           progress: 'ЗАВЕРШЁН',
           detail: 'Все результаты подтверждены хостом.',
           kind: StatusKind.neutral,
-        ),
-        const DsGap(DsSpace.lg),
-        AdaptiveSplit(
-          primary: ChampionHero(champion: previewParticipants.first),
-          secondary: const TournamentStandings(),
         ),
       ],
     ),

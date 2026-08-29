@@ -10,22 +10,23 @@ class HistoryScreenPreview extends StatelessWidget {
     title: 'История',
     subtitle: 'Локальные снимки завершённых турниров · только чтение',
     sectionLabel: 'АРХИВ',
+    headerVariant: PageHeaderVariant.compact,
     currentDestination: AppDestination.history,
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        const TournamentStageHeader(
-          stage: 'История турниров',
-          progress: 'ТОЛЬКО ЧТЕНИЕ',
-          detail: 'Результаты сохранены на этом устройстве и не изменяют активный турнир.',
-          kind: StatusKind.neutral,
-        ),
-        const DsGap(DsSpace.lg),
         HistorySnapshotCard(
           tournamentName: 'Friday Fight Night',
           summary: 'Double Elimination · 8 участников · сегодня, 22:14',
           champion: previewParticipants.first,
           onOpen: () {},
+        ),
+        const DsGap(DsSpace.lg),
+        const TournamentStageHeader(
+          stage: 'Локальный архив',
+          progress: 'ТОЛЬКО ЧТЕНИЕ',
+          detail: 'Снимки на этом устройстве не изменяют активный турнир.',
+          kind: StatusKind.neutral,
         ),
         const DsGap(DsSpace.md),
         HistorySnapshotCard(

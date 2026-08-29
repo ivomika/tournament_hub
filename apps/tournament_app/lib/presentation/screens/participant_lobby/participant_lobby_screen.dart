@@ -10,21 +10,10 @@ class ParticipantLobbyScreenPreview extends StatelessWidget {
     title: 'Friday Fight Night',
     subtitle: 'Вы подключены как участник',
     sectionLabel: 'УЧАСТНИК · ЛОББИ',
+    headerVariant: PageHeaderVariant.compact,
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        const ConnectionBanner(
-          state: TournamentConnectionState.connected,
-          detail: 'Данные актуальны',
-          synchronizedAtLabel: 'только что',
-        ),
-        const DsGap(DsSpace.lg),
-        const TournamentStageHeader(
-          stage: 'Лобби открыто',
-          progress: 'ОЖИДАНИЕ ХОСТА',
-          detail: '6 участников в лобби · Double Elimination',
-        ),
-        const DsGap(DsSpace.lg),
         AdaptiveSplit(
           primary: DsSection(
             title: 'Вы в турнире',
@@ -37,6 +26,18 @@ class ParticipantLobbyScreenPreview extends StatelessWidget {
               variant: DsTextVariant.secondary,
             ),
           ),
+        ),
+        const DsGap(DsSpace.lg),
+        const ConnectionBanner(
+          state: TournamentConnectionState.connected,
+          detail: 'Данные актуальны',
+          synchronizedAtLabel: 'только что',
+        ),
+        const DsGap(DsSpace.md),
+        const TournamentStageHeader(
+          stage: 'Лобби открыто',
+          progress: 'ОЖИДАНИЕ ХОСТА',
+          detail: '6 участников в лобби · Double Elimination',
         ),
       ],
     ),

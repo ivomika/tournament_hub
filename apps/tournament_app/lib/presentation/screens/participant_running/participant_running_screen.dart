@@ -10,23 +10,10 @@ class ParticipantRunningScreenPreview extends StatelessWidget {
     title: 'Friday Fight Night',
     subtitle: 'Проекция турнира · управление остаётся у хоста',
     sectionLabel: 'УЧАСТНИК · В ЭФИРЕ',
+    headerVariant: PageHeaderVariant.compact,
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        ConnectionBanner(
-          state: TournamentConnectionState.stale,
-          detail: 'Показаны последние полученные данные',
-          synchronizedAtLabel: '2 минуты назад',
-          onAction: () {},
-        ),
-        const DsGap(DsSpace.lg),
-        const TournamentStageHeader(
-          stage: 'Double Elimination · Верхняя сетка',
-          progress: 'ДАННЫЕ УСТАРЕЛИ',
-          detail: 'Раунд 2 · матч 07 · изменения недоступны до синхронизации',
-          kind: StatusKind.warning,
-        ),
-        const DsGap(DsSpace.lg),
         AdaptiveSplit(
           primary: TournamentMatchCard(
             title: 'Текущая схватка · Матч 07',
@@ -35,6 +22,20 @@ class ParticipantRunningScreenPreview extends StatelessWidget {
             isCurrent: true,
           ),
           secondary: const TournamentStandings(),
+        ),
+        const DsGap(DsSpace.lg),
+        ConnectionBanner(
+          state: TournamentConnectionState.stale,
+          detail: 'Показаны последние полученные данные',
+          synchronizedAtLabel: '2 минуты назад',
+          onAction: () {},
+        ),
+        const DsGap(DsSpace.md),
+        const TournamentStageHeader(
+          stage: 'Double Elimination · Верхняя сетка',
+          progress: 'ДАННЫЕ УСТАРЕЛИ',
+          detail: 'Раунд 2 · матч 07 · изменения недоступны до синхронизации',
+          kind: StatusKind.warning,
         ),
       ],
     ),

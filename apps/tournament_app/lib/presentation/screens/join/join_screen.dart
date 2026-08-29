@@ -10,14 +10,10 @@ class JoinScreenPreview extends StatelessWidget {
     title: 'Войти в турнир',
     subtitle: 'Подключение к хосту в локальной сети',
     sectionLabel: 'УЧАСТНИК',
+    headerVariant: PageHeaderVariant.compact,
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        const ConnectionBanner(
-          state: TournamentConnectionState.disconnected,
-          detail: 'Подключение ещё не начато',
-        ),
-        const DsGap(DsSpace.lg),
         AdaptiveSplit(
           primary: ParticipantJoinPanel(
             data: const ParticipantJoinViewData(
@@ -34,6 +30,11 @@ class JoinScreenPreview extends StatelessWidget {
               variant: DsTextVariant.secondary,
             ),
           ),
+        ),
+        const DsGap(DsSpace.lg),
+        const ConnectionBanner(
+          state: TournamentConnectionState.disconnected,
+          detail: 'Подключение ещё не начато',
         ),
       ],
     ),
