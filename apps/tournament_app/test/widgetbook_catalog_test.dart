@@ -644,6 +644,62 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
+  testWidgets('standings отображает готовые places без demo-очков', (
+    tester,
+  ) async {
+    tester.view.devicePixelRatio = 1;
+    addTearDown(() {
+      tester.view.resetPhysicalSize();
+      tester.view.resetDevicePixelRatio();
+    });
+
+    for (final size in const [Size(320, 1000), Size(1024, 768)]) {
+      tester.view.physicalSize = size;
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: TournamentTheme.dark,
+          home: const Scaffold(
+            body: SingleChildScrollView(child: TournamentStandings()),
+          ),
+        ),
+      );
+      await tester.pump();
+      expect(find.textContaining('очк.'), findsNothing);
+      expect(find.text('3–4'), findsOneWidget);
+      expect(find.text('—'), findsWidgets);
+      expect(find.text('Переигровка'), findsOneWidget);
+      expect(find.text('Scorpion'), findsOneWidget);
+      expect(find.text('Иван'), findsOneWidget);
+      expect(tester.takeException(), isNull, reason: '$size');
+    }
+    expect(find.text('УЧАСТНИК'), findsOneWidget);
+    expect(
+      find.bySemanticsLabel(RegExp('Место 3–4.*Kitana.*Guest 1.*Переигровка')),
+      findsOneWidget,
+    );
+  });
+
+  testWidgets('standings различает loading и empty', (tester) async {
+    for (final state in const [
+      TournamentStandingsState.loading,
+      TournamentStandingsState.empty,
+    ]) {
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: TournamentTheme.dark,
+          home: Scaffold(body: TournamentStandings(state: state)),
+        ),
+      );
+      await tester.pump();
+      if (state == TournamentStandingsState.loading) {
+        expect(find.byType(CircularProgressIndicator), findsOneWidget);
+      } else {
+        expect(find.text('Итоги ещё не определены'), findsOneWidget);
+      }
+      expect(tester.takeException(), isNull, reason: state.name);
+    }
+  });
+
   testWidgets('SE и RR structure имеют собственную семантику', (tester) async {
     for (final format in const [
       TournamentStructureFormat.singleElimination,

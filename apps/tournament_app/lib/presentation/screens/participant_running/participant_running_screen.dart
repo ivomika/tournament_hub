@@ -34,7 +34,7 @@ class ParticipantRunningScreenPreview extends StatelessWidget {
             second: previewParticipants[1],
             isCurrent: true,
           ),
-          secondary: TournamentStandings(participants: previewParticipants),
+          secondary: const TournamentStandings(),
         ),
       ],
     ),

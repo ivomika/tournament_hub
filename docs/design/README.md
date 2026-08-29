@@ -49,7 +49,7 @@
 - `ParticipantIdentity`: до assignment — nickname/status; после — artwork, fighter name, nickname и Guest badge.
 - `FighterAvatar`: stable crop variants, semantic label, fallback/placeholder.
 - `MatchCard/CurrentMatch`: stage, identities, score/result type, Current emphasis и разрешённые actions.
-- `StandingsTable`: place, identity, points/tie context; table на desktop, compact rows/scroll на mobile.
+- `StandingsTable`: готовые place/result/tie-break labels и fighter identity; table на desktop, compact rows на mobile. Widget не вычисляет очки, победы или места.
 - `Bracket`: связи первичны, затем identity/result/metadata; предусмотрены pan/zoom/keyboard alternatives.
 - `StatusBadge`: text плюс icon/shape; значение не передаётся только цветом.
 - `ConnectionBanner`: live/reconnecting/stale/incompatible и recovery.

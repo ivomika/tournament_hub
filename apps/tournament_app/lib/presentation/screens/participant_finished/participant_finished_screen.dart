@@ -35,7 +35,7 @@ class ParticipantFinishedScreenPreview extends StatelessWidget {
         const DsGap(DsSpace.lg),
         AdaptiveSplit(
           primary: ChampionHero(champion: previewParticipants.first),
-          secondary: TournamentStandings(participants: previewParticipants),
+          secondary: const TournamentStandings(),
         ),
       ],
     ),

@@ -19,28 +19,33 @@ class PreviewParticipant {
   final bool isGuest;
 }
 
+const previewIvan = PreviewParticipant(
+  nickname: 'Иван',
+  fighterId: 'scorpion',
+  fighterName: 'Scorpion',
+);
+const previewMira = PreviewParticipant(
+  nickname: 'Мира',
+  fighterId: 'sub-zero',
+  fighterName: 'Sub-Zero',
+);
+const previewGuest = PreviewParticipant(
+  nickname: 'Guest 1',
+  fighterId: 'kitana',
+  fighterName: 'Kitana',
+  isGuest: true,
+);
+const previewAlex = PreviewParticipant(
+  nickname: 'Алекс',
+  fighterId: 'raiden',
+  fighterName: 'Raiden',
+);
+
 const previewParticipants = [
-  PreviewParticipant(
-    nickname: 'Иван',
-    fighterId: 'scorpion',
-    fighterName: 'Scorpion',
-  ),
-  PreviewParticipant(
-    nickname: 'Мира',
-    fighterId: 'sub-zero',
-    fighterName: 'Sub-Zero',
-  ),
-  PreviewParticipant(
-    nickname: 'Guest 1',
-    fighterId: 'kitana',
-    fighterName: 'Kitana',
-    isGuest: true,
-  ),
-  PreviewParticipant(
-    nickname: 'Алекс',
-    fighterId: 'raiden',
-    fighterName: 'Raiden',
-  ),
+  previewIvan,
+  previewMira,
+  previewGuest,
+  previewAlex,
 ];
 
 class ParticipantIdentity extends StatelessWidget {

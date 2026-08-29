@@ -223,6 +223,8 @@ abstract final class TournamentTheme {
         const StandingsTheme(
           gap: TournamentTokens.spaceV4,
           rankWidth: TournamentTokens.spaceV6,
+          desktopBreakpoint: TournamentTokens.breakpointMediumMin,
+          divider: TournamentTokens.colorSurfaceTertiary,
         ),
         const BracketTheme(
           gap: TournamentTokens.spaceV4,

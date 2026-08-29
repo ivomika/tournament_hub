@@ -354,8 +354,16 @@ List<WidgetbookNode> buildTournamentCatalog() => [
             ),
           ),
           _useCase(
-            'Standings',
-            TournamentStandings(participants: previewParticipants),
+            'Standings / Ready with tied and unknown places',
+            const TournamentStandings(),
+          ),
+          _useCase(
+            'Standings / Loading',
+            const TournamentStandings(state: TournamentStandingsState.loading),
+          ),
+          _useCase(
+            'Standings / Empty',
+            const TournamentStandings(state: TournamentStandingsState.empty),
           ),
           _useCase(
             'Structure / Double Elimination',

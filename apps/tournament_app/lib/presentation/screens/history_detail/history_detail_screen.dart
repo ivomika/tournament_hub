@@ -23,7 +23,7 @@ class HistoryDetailScreenPreview extends StatelessWidget {
         const DsGap(DsSpace.lg),
         AdaptiveSplit(
           primary: ChampionHero(champion: previewParticipants.first),
-          secondary: TournamentStandings(participants: previewParticipants),
+          secondary: const TournamentStandings(),
         ),
         const DsGap(DsSpace.lg),
         const TournamentBracketPreview(),
