@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tournament_hub_app/presentation/design_system/design_system.dart';
+import 'package:tournament_hub_app/presentation/screens/host_cancelled/host_cancelled_screen.dart';
 import 'package:tournament_hub_app/presentation/screens/host_distribution/host_distribution_screen.dart';
+import 'package:tournament_hub_app/presentation/screens/host_draft/host_draft_screen.dart';
+import 'package:tournament_hub_app/presentation/screens/host_finished/host_finished_screen.dart';
+import 'package:tournament_hub_app/presentation/screens/host_open/host_open_screen.dart';
 import 'package:tournament_hub_app/presentation/screens/host_result_entry/host_result_entry_screen.dart';
 import 'package:tournament_hub_app/presentation/screens/host_running/host_running_screen.dart';
 
@@ -179,9 +183,13 @@ void main() {
   });
 
   for (final entry in <String, Widget>{
+    'draft': const HostDraftScreenPreview(),
+    'open': const HostOpenScreenPreview(),
     'running': const HostRunningScreenPreview(),
     'result': const HostResultEntryScreenPreview(),
     'distribution': const HostDistributionScreenPreview(),
+    'finished': const HostFinishedScreenPreview(),
+    'cancelled': const HostCancelledScreenPreview(),
   }.entries) {
     testWidgets('${entry.key} использует компактный mobile ActionDock', (
       tester,
@@ -201,11 +209,46 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.byType(ActionDock), findsOneWidget);
+      expect(find.byType(NavigationBar), findsOneWidget);
       expect(tester.takeException(), isNull);
       expect(
         tester.getSize(find.byType(ActionDock)).height,
         lessThanOrEqualTo(180),
       );
+      expect(
+        tester.getBottomLeft(find.byType(ActionDock)).dy,
+        lessThanOrEqualTo(tester.getTopLeft(find.byType(NavigationBar)).dy),
+      );
+      expect(
+        tester.getBottomLeft(find.byType(NavigationBar)).dy,
+        lessThanOrEqualTo(720),
+      );
     });
   }
+
+  testWidgets('desktop проецирует тот же ActionDock в toolbar заголовка', (
+    tester,
+  ) async {
+    tester.view.devicePixelRatio = 1;
+    tester.view.physicalSize = const Size(1440, 900);
+    addTearDown(() {
+      tester.view.resetPhysicalSize();
+      tester.view.resetDevicePixelRatio();
+    });
+
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: TournamentTheme.dark,
+        home: const HostOpenScreenPreview(),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    final dock = tester.widget<ActionDock>(find.byType(ActionDock));
+    expect(dock.presentation, ActionDockPresentation.toolbar);
+    expect(find.text('Начать раздачу'), findsOneWidget);
+    expect(find.byTooltip('Дополнительные действия'), findsOneWidget);
+    expect(find.byType(NavigationRail), findsOneWidget);
+    expect(find.byType(NavigationBar), findsNothing);
+  });
 }

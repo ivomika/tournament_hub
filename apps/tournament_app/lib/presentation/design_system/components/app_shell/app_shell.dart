@@ -60,10 +60,19 @@ class AppShell extends StatelessWidget {
                   subtitle: subtitle,
                   sectionLabel: sectionLabel,
                   trailing:
-                      desktop && (headerTrailing != null || pageActions != null)
+                      desktop &&
+                          (headerTrailing != null ||
+                              pageActions != null ||
+                              actionDock != null)
                       ? _DesktopTrailing(
                           contextWidget: headerTrailing,
-                          pageActions: pageActions == null
+                          actions: actionDock != null
+                              ? ActionDock.toolbar(
+                                  primary: actionDock!.primary,
+                                  secondary: actionDock!.secondary,
+                                  destructive: actionDock!.destructive,
+                                )
+                              : pageActions == null
                               ? null
                               : ResponsiveActions(
                                   primary: pageActions!.primary,
@@ -223,17 +232,17 @@ class AppShell extends StatelessWidget {
 class _DesktopTrailing extends StatelessWidget {
   const _DesktopTrailing({
     required this.contextWidget,
-    required this.pageActions,
+    required this.actions,
     required this.gap,
   });
 
   final Widget? contextWidget;
-  final ResponsiveActions? pageActions;
+  final Widget? actions;
   final double gap;
 
   @override
   Widget build(BuildContext context) {
-    if (contextWidget == null && pageActions == null) {
+    if (contextWidget == null && actions == null) {
       return const SizedBox.shrink();
     }
     return Wrap(
@@ -241,7 +250,7 @@ class _DesktopTrailing extends StatelessWidget {
       crossAxisAlignment: WrapCrossAlignment.start,
       spacing: gap,
       runSpacing: gap,
-      children: [?contextWidget, ?pageActions],
+      children: [?contextWidget, ?actions],
     );
   }
 }

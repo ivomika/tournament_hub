@@ -1,6 +1,6 @@
 # ADR-0006: Screen-level ActionDock для критичных mobile-действий
 
-- Статус: Accepted
+- Статус: Superseded by [ADR-0007](0007-unified-host-action-contract.md)
 - Дата: 2026-08-29
 - Владельцы: Tournament HUB team
 - Связанная задача/open decision: [TH-20260829-069](../../ai-context/tasks/TH-20260829-069.md)

@@ -11,14 +11,10 @@ class HostFinishedScreenPreview extends StatelessWidget {
     subtitle: 'Friday Fight Night · Double Elimination',
     sectionLabel: 'ФИНАЛ',
     headerVariant: PageHeaderVariant.compact,
-    pageActions: ResponsiveActions(
+    actionDock: ActionDock(
       primary: DsAction(label: 'На главную', onPressed: () {}),
       secondary: [
-        DsAction(
-          label: 'Открыть историю',
-          kind: DsActionKind.secondary,
-          onPressed: () {},
-        ),
+        ActionDockAction(label: 'Открыть историю', onSelected: () {}),
       ],
     ),
     child: Column(

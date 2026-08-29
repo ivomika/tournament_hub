@@ -11,16 +11,6 @@ class HostDistributionScreenPreview extends StatelessWidget {
     subtitle: 'Проверь каждую пару игрок—боец перед запуском сетки.',
     sectionLabel: 'РАЗДАЧА · ЭТАП 3 ИЗ 5',
     headerVariant: PageHeaderVariant.compact,
-    pageActions: ResponsiveActions(
-      primary: DsAction(label: 'Создать сетку и начать', onPressed: () {}),
-      secondary: [
-        DsAction(
-          label: 'Перераздать всех',
-          kind: DsActionKind.secondary,
-          onPressed: () {},
-        ),
-      ],
-    ),
     actionDock: ActionDock(
       primary: DsAction(label: 'Создать сетку и начать', onPressed: () {}),
       secondary: [

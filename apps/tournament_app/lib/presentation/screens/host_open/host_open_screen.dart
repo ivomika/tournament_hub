@@ -28,9 +28,9 @@ class HostOpenScreenPreview extends StatelessWidget {
       subtitle: 'Добавь минимум двух игроков и переходи к раздаче персонажей.',
       sectionLabel: 'ЛОББИ ОТКРЫТО · ЭТАП 2 ИЗ 5',
       headerVariant: PageHeaderVariant.compact,
-      pageActions: ResponsiveActions(
+      actionDock: ActionDock(
         primary: DsAction(label: 'Начать раздачу', onPressed: () {}),
-        overflow: [
+        secondary: [
           ActionDockAction(
             key: const Key('open-spectator-access'),
             label: 'Подключить зрителей',
@@ -44,6 +44,13 @@ class HostOpenScreenPreview extends StatelessWidget {
           ),
           ActionDockAction(label: 'Добавить гостя', onSelected: () {}),
         ],
+        destructive: ActionDockAction(
+          label: 'Отменить турнир',
+          kind: ActionDockActionKind.destructive,
+          confirmationTitle: 'Отменить турнир?',
+          confirmationMessage: 'Лобби будет закрыто, а турнир сохранится в истории как отменённый.',
+          onSelected: () {},
+        ),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,

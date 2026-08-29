@@ -11,6 +11,12 @@ class HostCancelledScreenPreview extends StatelessWidget {
     subtitle: 'Friday Fight Night · отменён организатором',
     sectionLabel: 'ЗАВЕРШЁН · ТОЛЬКО ЧТЕНИЕ',
     headerVariant: PageHeaderVariant.compact,
+    actionDock: ActionDock(
+      primary: DsAction(label: 'На главную', onPressed: () {}),
+      secondary: [
+        ActionDockAction(label: 'Открыть историю', onSelected: () {}),
+      ],
+    ),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -18,8 +24,6 @@ class HostCancelledScreenPreview extends StatelessWidget {
           title: 'Турнир не состоялся',
           message:
               'Факт отмены сохранён в истории без итоговых мест и чемпиона.',
-          actionLabel: 'На главную',
-          onAction: () {},
         ),
         const DsGap(DsSpace.lg),
         const TournamentStageHeader(

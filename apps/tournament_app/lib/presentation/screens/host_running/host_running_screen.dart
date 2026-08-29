@@ -11,9 +11,6 @@ class HostRunningScreenPreview extends StatelessWidget {
     subtitle: 'Double Elimination · Верхняя сетка · Раунд 2',
     sectionLabel: 'FRIDAY FIGHT NIGHT',
     headerVariant: PageHeaderVariant.compact,
-    pageActions: ResponsiveActions(
-      primary: DsAction(label: 'Определить победителя', onPressed: () {}),
-    ),
     actionDock: ActionDock(
       primary: DsAction(label: 'Ввести результат', onPressed: () {}),
     ),

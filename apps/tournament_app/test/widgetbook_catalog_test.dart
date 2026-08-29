@@ -236,7 +236,11 @@ void main() {
 
     final title = find.text('Лобби открыто');
     final primary = find.text('Начать раздачу');
-    expect(find.byType(ActionDock), findsNothing);
+    expect(find.byType(ActionDock), findsOneWidget);
+    expect(
+      tester.widget<ActionDock>(find.byType(ActionDock)).presentation,
+      ActionDockPresentation.toolbar,
+    );
     expect(find.byTooltip('Дополнительные действия'), findsOneWidget);
     expect(
       (tester.getTopLeft(primary).dy - tester.getTopLeft(title).dy).abs(),
@@ -682,7 +686,7 @@ void main() {
     expect(find.byType(NavigationRail), findsNothing);
   });
 
-  testWidgets('некритичные Host actions прокручиваются вместе с контентом', (
+  testWidgets('Host Open использует единый закреплённый action contract', (
     tester,
   ) async {
     tester.view.devicePixelRatio = 1;
@@ -700,7 +704,7 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    expect(find.byType(ActionDock), findsNothing);
+    expect(find.byType(ActionDock), findsOneWidget);
     expect(
       tester.getBottomLeft(find.text('Начать раздачу')).dy,
       lessThan(tester.getTopLeft(find.byType(NavigationBar)).dy),

@@ -11,9 +11,6 @@ class HostResultEntryScreenPreview extends StatelessWidget {
     subtitle: 'Выбери победителя матча. Счёт для этого режима не требуется.',
     sectionLabel: 'МАТЧ 07 · ВЕРХНЯЯ СЕТКА',
     headerVariant: PageHeaderVariant.compact,
-    pageActions: ResponsiveActions(
-      primary: DsAction(label: 'Подтвердить победителя', onPressed: () {}),
-    ),
     actionDock: ActionDock(
       primary: DsAction(label: 'Подтвердить победителя', onPressed: () {}),
       secondary: [

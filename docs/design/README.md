@@ -34,14 +34,18 @@
 
 ### Action placement
 
-`ActionDock` — screen-level pattern для одного критичного mobile-действия. Он не является универсальной нижней панелью и не владеет lifecycle или navigation logic. Подробное решение зафиксировано в [ADR-0006](../adr/0006-screen-level-action-dock.md).
+`ActionDock` — единый action contract для Host lifecycle: закреплённый region на mobile и компактный toolbar у заголовка на desktop. Он не является универсальной нижней панелью для остальных ролей и не владеет lifecycle или navigation logic. Подробное решение зафиксировано в [ADR-0007](../adr/0007-unified-host-action-contract.md).
 
 | Экран | Primary placement | Secondary/destructive placement |
 |---|---|---|
-| Host Running | Sticky mobile `ActionDock`: «Ввести результат» | Header/overflow; destructive отдельно с confirmation |
-| Host Result Entry | Sticky mobile `ActionDock`: «Подтвердить победителя» | Header/overflow; destructive отдельно с confirmation |
-| Host Distribution | Sticky mobile `ActionDock`: «Создать сетку и начать», только при валидном составе | Reroll/back/cancel — inline, header или overflow |
-| Main, Draft, Open, Finished, Cancelled | Header или inline рядом с объектом | Overflow либо отдельная danger zone |
+| Host Draft | `ActionDock`: «Открыть лобби» | Удаление черновика — destructive overflow с confirmation |
+| Host Open | `ActionDock`: «Начать раздачу» | Spectator access, guest management и cancel — overflow |
+| Host Distribution | `ActionDock`: «Создать сетку и начать», только при валидном составе | Reroll/back/cancel — overflow |
+| Host Running | `ActionDock`: «Ввести результат» | Technical/correction/withdrawal — overflow по permissions |
+| Host Result Entry | `ActionDock`: «Подтвердить победителя» | Back без изменений — overflow |
+| Host Finished | `ActionDock`: «На главную» | История — overflow; mutation actions отсутствуют |
+| Host Cancelled | `ActionDock`: «На главную» | История — overflow; mutation actions отсутствуют |
+| Main | Header или inline рядом с объектом | Overflow либо отдельная danger zone |
 | History, History Detail, Profile, Settings, Registration, Join | Header или inline | Overflow; sticky actions запрещены |
 | Participant и Spectator | Inline/read-only controls | Host mutation actions запрещены |
 | Recoverable Error | Inline recovery action рядом с причиной | Дополнительные способы восстановления — ниже основного |
@@ -50,7 +54,7 @@
 - Dock учитывает SafeArea, keyboard `viewInsets` и добавляет body bottom inset по фактической высоте.
 - Action region вместе с navigation не перекрывает content; ориентир dock — 15–18% viewport, жёсткий предел — 25%, в landscape — 20%.
 - При 200% text scale label переносится или action переходит в overflow без clipping.
-- Desktop не использует bottom dock: primary выравнивается с title/context, secondary уходят в toolbar/overflow.
+- Desktop не использует bottom dock: тот же Host action contract выравнивается с title/context как toolbar, secondary уходят в тот же overflow.
 - Закрытие overflow/confirmation возвращает focus инициатору; loading/error/success объявляются semantics live region.
 
 ### Action verification matrix

@@ -11,36 +11,33 @@ class HostDraftScreenPreview extends StatelessWidget {
     subtitle: 'Настрой правила до открытия лобби — после этого они неизменны.',
     sectionLabel: 'ЧЕРНОВИК · ЭТАП 1 ИЗ 5',
     headerVariant: PageHeaderVariant.compact,
-    pageActions: ResponsiveActions(
+    actionDock: ActionDock(
       primary: DsAction(label: 'Открыть лобби', onPressed: () {}),
+      destructive: ActionDockAction(
+        label: 'Удалить черновик',
+        kind: ActionDockActionKind.destructive,
+        confirmationTitle: 'Удалить черновик?',
+        confirmationMessage:
+            'Настройки турнира будут удалены без возможности восстановления.',
+        onSelected: () {},
+      ),
     ),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        AdaptiveSplit(
-          primary: DsSection(
-            title: 'Параметры',
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                const DsTextField(
-                  label: 'Название',
-                  helperText: 'Его увидят все участники',
-                  textInputAction: DsTextInputAction.done,
-                ),
-                const DsGap(DsSpace.md),
-                const DsInfoRow(
-                  title: 'Формат',
-                  subtitle: 'Double Elimination',
-                ),
-              ],
-            ),
-          ),
-          secondary: DangerZone(
-            title: 'Отменить создание',
-            message: 'Черновик будет удалён после подтверждения.',
-            actionLabel: 'Удалить черновик',
-            onAction: () {},
+        DsSection(
+          title: 'Параметры',
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              const DsTextField(
+                label: 'Название',
+                helperText: 'Его увидят все участники',
+                textInputAction: DsTextInputAction.done,
+              ),
+              const DsGap(DsSpace.md),
+              const DsInfoRow(title: 'Формат', subtitle: 'Double Elimination'),
+            ],
           ),
         ),
         const DsGap(DsSpace.lg),
