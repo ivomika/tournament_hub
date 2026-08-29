@@ -56,6 +56,9 @@
 - `QrCode`: готовый opaque value, semantic label, scan state и size preset; renderer, minimum module pitch и безопасный fallback скрыты внутри primitive.
 - `QrQuietZone`: скруглённая непрозрачная светлая подложка и quiet zone не менее четырёх модулей, вычисленная из фактической QR dimension; внешний радиус не пересекает матрицу.
 - `ConnectionQrCard`: scenario wrapper над `QrCode`; безопасный ручной адрес, typed connection state и copy/share/retry callbacks. Generation URI и Host lifecycle остаются вне presentation.
+- `ParticipantInviteCard`: постоянное приглашение в открытом лобби с participant-specific label, QR, кодом и тем же ручным endpoint.
+- `ParticipantJoinPanel`: scanner/code-first поверхность входа с отдельными idle/scanning/connecting/accepted/denied/notFound/error состояниями.
+- `SpectatorAccessDialog`: полноэкранная on-demand поверхность для телевизора; композирует `ConnectionQrCard`, сохраняет read-only role label и не блокирует Host flow.
 - `Empty/ErrorState`: конкретная причина и одно recovery action.
 - `ConfirmationDialog`: объект, необратимое последствие и safe default focus.
 - `ChampionHero`: fighter identity, champion participant и tournament context; complete ranking остаётся доступным.
@@ -72,6 +75,8 @@
 - Ручной адрес всегда видим и selectable; copy/share/retry имеют текстовый feedback и доступны с клавиатуры.
 - `starting`, `ready`, `reconnecting`, `unavailable`, `expired`, `error`, `stale`, `copied` различаются текстом и semantics, а не только цветом.
 - `encodedValue` не включается в semantics, logs и пользовательскую диагностику; безопасный `displayAddress` передаётся отдельно.
+- Participant invitation постоянно виден в `Open`, а spectator QR открывается только явным действием и не конкурирует с roster или primary lifecycle action.
+- Participant и Spectator используют отдельные typed visual projections и role labels. На mock-only этапе оба могут ссылаться на один synthetic `http://<ip>:<port>`, но не объединяются в один interaction contract.
 
 ### Tournament structure representations
 

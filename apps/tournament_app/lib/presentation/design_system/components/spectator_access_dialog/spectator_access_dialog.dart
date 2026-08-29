@@ -1,0 +1,90 @@
+import 'package:flutter/material.dart';
+
+import '../connection_qr_card/connection_qr_card.dart';
+import '../ds_action/ds_action.dart';
+import '../ds_spacing/ds_spacing.dart';
+import '../ds_text/ds_text.dart';
+import '../page_header/page_header.dart';
+import '../qr_code/qr_code.dart';
+import '../status_badge/status_badge.dart';
+import 'spectator_access_dialog_theme.dart';
+import 'spectator_access_view_data.dart';
+
+class SpectatorAccessDialog extends StatelessWidget {
+  const SpectatorAccessDialog({
+    required this.data,
+    required this.onClose,
+    this.onCopyAddress,
+    this.onShare,
+    this.onRetry,
+    super.key,
+  });
+
+  final SpectatorAccessViewData data;
+  final VoidCallback onClose;
+  final VoidCallback? onCopyAddress;
+  final VoidCallback? onShare;
+  final VoidCallback? onRetry;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context).extension<SpectatorAccessDialogTheme>()!;
+    return Semantics(
+      container: true,
+      explicitChildNodes: true,
+      label: 'Полноэкранное подключение зрителей',
+      child: ColoredBox(
+        color: theme.background,
+        child: SafeArea(
+          child: SingleChildScrollView(
+            child: DsPagePadding(
+              child: Center(
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(maxWidth: theme.maxContentWidth),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      PageHeader(
+                        sectionLabel: 'SPECTATOR · ЭКРАН ДЛЯ ТВ',
+                        title: 'Подключить зрителей',
+                        subtitle: 'Откройте адрес в браузере телевизора или другого устройства в этой локальной сети.',
+                        trailing: StatusBadge(
+                          label: '${data.connectedClients} ПОДКЛЮЧЕНО',
+                          kind: data.connectedClients > 0
+                              ? StatusKind.success
+                              : StatusKind.neutral,
+                        ),
+                      ),
+                      SizedBox(height: theme.gap),
+                      ConnectionQrCard(
+                        encodedValue: data.endpoint,
+                        displayAddress: data.endpoint,
+                        state: data.state,
+                        qrSize: QrCodeSize.large,
+                        onCopyAddress: onCopyAddress,
+                        onShare: onShare,
+                        onRetry: onRetry,
+                      ),
+                      SizedBox(height: theme.gap),
+                      const DsText(
+                        'Spectator получает только read-only представление турнира. Закрытие этого окна не останавливает турнир.',
+                        variant: DsTextVariant.secondary,
+                        textAlign: TextAlign.center,
+                      ),
+                      SizedBox(height: theme.gap),
+                      DsAction(
+                        label: 'Вернуться к лобби',
+                        kind: DsActionKind.secondary,
+                        onPressed: onClose,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}

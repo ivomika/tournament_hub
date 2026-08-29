@@ -93,6 +93,29 @@ void main() {
     );
   });
 
+  test('catalog разделяет participant и spectator connection surfaces', () {
+    final useCaseNames = <String>{};
+
+    void collect(Iterable<WidgetbookNode> nodes) {
+      for (final node in nodes) {
+        if (node is WidgetbookUseCase) useCaseNames.add(node.name);
+        collect(node.children ?? const []);
+      }
+    }
+
+    collect(buildTournamentCatalog());
+
+    expect(
+      useCaseNames,
+      containsAll(const [
+        'Participant invite / ready',
+        'Participant join / scanning',
+        'Participant join / denied',
+        'Spectator access / Full screen TV',
+      ]),
+    );
+  });
+
   testWidgets('Widgetbook запускается отдельным entry tree', (tester) async {
     await tester.pumpWidget(const TournamentWidgetbook());
     await tester.pump();

@@ -26,6 +26,7 @@ class ConnectionQrCard extends StatelessWidget {
     this.onCopyAddress,
     this.onShare,
     this.onRetry,
+    this.qrSize,
     super.key,
   });
 
@@ -35,6 +36,7 @@ class ConnectionQrCard extends StatelessWidget {
   final VoidCallback? onCopyAddress;
   final VoidCallback? onShare;
   final VoidCallback? onRetry;
+  final QrCodeSize? qrSize;
 
   @override
   Widget build(BuildContext context) {
@@ -77,9 +79,11 @@ class ConnectionQrCard extends StatelessWidget {
                         final qr = _QrPanel(
                           encodedValue: encodedValue,
                           presentation: presentation,
-                          size: compact
-                              ? QrCodeSize.compact
-                              : QrCodeSize.standard,
+                          size:
+                              qrSize ??
+                              (compact
+                                  ? QrCodeSize.compact
+                                  : QrCodeSize.standard),
                         );
                         final details = _ConnectionDetails(
                           displayAddress: displayAddress,

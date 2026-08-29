@@ -19,20 +19,13 @@ class JoinScreenPreview extends StatelessWidget {
         ),
         const DsGap(DsSpace.lg),
         AdaptiveSplit(
-          primary: DsSection(
-            title: 'Код лобби',
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                const DsTextField(
-                  label: 'Код с экрана хоста',
-                  helperText: 'Например, FIGHT-24',
-                  textInputAction: DsTextInputAction.done,
-                ),
-                const DsGap(DsSpace.md),
-                DsAction(label: 'Присоединиться', onPressed: () {}),
-              ],
+          primary: ParticipantJoinPanel(
+            data: const ParticipantJoinViewData(
+              state: ParticipantJoinState.idle,
             ),
+            onScan: () {},
+            onSubmit: (_) {},
+            onRetry: () {},
           ),
           secondary: const DsSection(
             title: 'Перед подключением',

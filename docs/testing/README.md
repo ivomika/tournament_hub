@@ -58,6 +58,8 @@ Property tests используют many seeds/sizes и сохраняют faili
 
 Golden tests фиксируют component contract, но не должны массово обновляться без review причины. Dynamic timestamps/IDs изолируются.
 
+QR presentation отдельно проверяет role isolation: Participant invitation постоянно присутствует в `Open`, Spectator access открывается только явным действием, а Join остаётся scanner/code-first. Visual matrix включает mobile/tablet/desktop и large-TV composition; raster decode не заменяет physical camera/TV gate.
+
 ## E2E release scenarios
 
 1. First run → profile → Host Draft→Finished → history, offline Internet.

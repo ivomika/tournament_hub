@@ -252,6 +252,52 @@ List<WidgetbookNode> buildTournamentCatalog() => [
         ],
       ),
       WidgetbookComponent(
+        name: 'Role connection',
+        useCases: [
+          for (final state in ParticipantInviteState.values)
+            _useCase(
+              'Participant invite / ${state.name}',
+              ParticipantInviteCard(
+                data: ParticipantInviteViewData(
+                  endpoint: 'http://192.168.1.42:8080',
+                  joinCode: 'FIGHT-24',
+                  state: state,
+                ),
+                onCopyCode: () {},
+                onCopyAddress: () {},
+                onRetry: () {},
+              ),
+            ),
+          for (final state in ParticipantJoinState.values)
+            _useCase(
+              'Participant join / ${state.name}',
+              ParticipantJoinPanel(
+                data: ParticipantJoinViewData(
+                  state: state,
+                  enteredValue: 'http://192.168.1.42:8080',
+                ),
+                onScan: () {},
+                onSubmit: (_) {},
+                onRetry: () {},
+              ),
+            ),
+          WidgetbookUseCase(
+            name: 'Spectator access / Full screen TV',
+            builder: (_) => SpectatorAccessDialog(
+              data: const SpectatorAccessViewData(
+                endpoint: 'http://192.168.1.42:8080',
+                state: ConnectionQrState.ready,
+                connectedClients: 2,
+              ),
+              onClose: () {},
+              onCopyAddress: () {},
+              onShare: () {},
+              onRetry: () {},
+            ),
+          ),
+        ],
+      ),
+      WidgetbookComponent(
         name: 'Stress matrix',
         useCases: [
           _useCase(

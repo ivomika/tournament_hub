@@ -26,12 +26,15 @@ import '../components/match_list/match_list_theme.dart';
 import '../components/outcome_picker/outcome_picker_theme.dart';
 import '../components/page_header/page_header_theme.dart';
 import '../components/participant_identity/participant_identity_theme.dart';
+import '../components/participant_invite_card/participant_invite_card_theme.dart';
+import '../components/participant_join_panel/participant_join_panel_theme.dart';
 import '../components/profile_summary/profile_summary_theme.dart';
 import '../components/qr_code/qr_code_theme.dart';
 import '../components/qr_quiet_zone/qr_quiet_zone_theme.dart';
 import '../components/responsive_actions/responsive_actions_theme.dart';
 import '../components/standings/standings_theme.dart';
 import '../components/status_badge/status_badge_theme.dart';
+import '../components/spectator_access_dialog/spectator_access_dialog_theme.dart';
 import '../components/token_showcase/token_showcase_theme.dart';
 import '../components/tournament_summary/tournament_summary_theme.dart';
 import '../components/tournament_stage/tournament_stage_theme.dart';
@@ -230,6 +233,36 @@ abstract final class TournamentTheme {
           radius: TournamentTokens.radiusXl,
           compactBreakpoint: TournamentTokens.breakpointMediumMin,
           accentWidth: TournamentTokens.borderWidthBase,
+        ),
+        ParticipantInviteCardTheme(
+          background: TournamentTokens.colorBackgroundElevated,
+          border: TournamentTokens.colorSurfaceTertiary,
+          accent: TournamentTokens.colorAccentPrimary,
+          warning: TournamentTokens.colorStatusWarning,
+          danger: TournamentTokens.colorStatusDanger,
+          radius: TournamentTokens.radiusXl,
+          padding: TournamentTokens.spaceV6,
+          gap: TournamentTokens.spaceV6,
+          compactGap: TournamentTokens.spaceV2,
+          compactBreakpoint: TournamentTokens.breakpointMediumMin,
+          codeStyle: text.heading.copyWith(
+            fontFamily: 'monospace',
+            color: TournamentTokens.colorTextPrimary,
+          ),
+        ),
+        const ParticipantJoinPanelTheme(
+          scannerBackground: TournamentTokens.colorBackgroundElevated,
+          scannerBorder: TournamentTokens.colorAccentPrimary,
+          radius: TournamentTokens.radiusXl,
+          padding: TournamentTokens.spaceV6,
+          gap: TournamentTokens.spaceV4,
+          scannerHeight:
+              TournamentTokens.artworkSizeHero + TournamentTokens.spaceV12,
+        ),
+        const SpectatorAccessDialogTheme(
+          background: TournamentTokens.colorBackgroundCanvas,
+          maxContentWidth: TournamentTokens.layoutHostContentMaxMax,
+          gap: TournamentTokens.spaceV6,
         ),
         const QrQuietZoneTheme(
           background: TournamentTokens.colorTextPrimary,

@@ -57,7 +57,7 @@ Draft/Open/Distribution/Running
 | Tournament state | Primary screen content | Host actions | Navigation guarantees |
 |---|---|---|---|
 | Draft | Settings form + persistent summary | Save/open/cancel | Back/Main сохраняет Draft |
-| Open | Connection, roster, Guests | Add/remove, distribution, cancel | Settings immutable; Main сохраняет active |
+| Open | Постоянное Participant-приглашение, roster, Guests; Spectator QR по явному действию | Add/remove, открыть spectator access, distribution, cancel | Settings immutable; Main сохраняет active; spectator availability не блокирует progression |
 | Distribution | Full fighter assignments | Reroll All, back Open, start, cancel | Back transition только explicit Domain command |
 | Running | Current match + structure/progress | Result, technical, valid correction, withdrawal | Нельзя route-назад в Open/Distribution |
 | Finished | Champion + ranking + structure | Read-only | Main/History доступны |
@@ -76,6 +76,8 @@ Disconnect -> stale last-known projection -> reconnect/full snapshot
 ```
 
 Participant route не показывает organizer actions. Disconnect/back не создаёт loss, withdrawal или Host cancellation. Локальное прекращение reconnect отделено от tournament terminal state.
+
+Экран Join остаётся scanner/code-first: камера и ручной адрес/код равноправны, состояния scanning/connecting/denied/notFound/error названы текстом. Визуальные mock states не являются handshake или transport implementation.
 
 ## Spectator Web flow
 

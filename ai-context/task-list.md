@@ -6,12 +6,12 @@
 
 ## Активные задачи
 
-- 🟢 **068** — Подключить role-specific QR для participant join и spectator access — [детали](tasks/TH-20260829-068.md)
 - 🟢 **064** — Подключить ConnectionQrCard на Host/Open — [детали](tasks/TH-20260829-064.md)
 - 📝 **053** — Привести Spectator Web к утверждённому visual language — [детали](tasks/TH-20260828-053.md)
 
 ## Завершённые задачи
 
+- ✅ **068** — Подключить role-specific QR для participant join и spectator access — [детали](tasks/TH-20260829-068.md)
 - ✅ **067** — Реализовать переиспользуемые QrCode и QrQuietZone — [детали](tasks/TH-20260829-067.md)
 - ✅ **066** — Провести QR UX-батл для participant и spectator — [детали](tasks/TH-20260829-066.md)
 - ✅ **065** — Провести QR design-батл и утвердить визуальный контракт — [детали](tasks/TH-20260829-065.md)

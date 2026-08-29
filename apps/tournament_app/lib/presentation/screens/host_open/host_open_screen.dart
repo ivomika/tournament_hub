@@ -5,6 +5,17 @@ import '../../design_system/design_system.dart';
 class HostOpenScreenPreview extends StatelessWidget {
   const HostOpenScreenPreview({super.key});
 
+  static const _participantInvite = ParticipantInviteViewData(
+    endpoint: 'http://192.168.1.42:8080',
+    joinCode: 'FIGHT-24',
+    state: ParticipantInviteState.ready,
+  );
+  static const _spectatorAccess = SpectatorAccessViewData(
+    endpoint: 'http://192.168.1.42:8080',
+    state: ConnectionQrState.ready,
+    connectedClients: 0,
+  );
+
   @override
   Widget build(BuildContext context) => AppShell(
     title: 'Лобби открыто',
@@ -13,6 +24,18 @@ class HostOpenScreenPreview extends StatelessWidget {
     pageActions: ResponsiveActions(
       primary: DsAction(label: 'Начать раздачу', onPressed: () {}),
       secondary: [
+        DsAction(
+          key: const Key('open-spectator-access'),
+          label: 'Подключить зрителей',
+          kind: DsActionKind.secondary,
+          onPressed: () => showSpectatorAccessDialog(
+            context,
+            data: _spectatorAccess,
+            onCopyAddress: () {},
+            onShare: () {},
+            onRetry: () {},
+          ),
+        ),
         DsAction(
           label: 'Добавить гостя',
           kind: DsActionKind.secondary,
@@ -31,23 +54,11 @@ class HostOpenScreenPreview extends StatelessWidget {
         ),
         const DsGap(DsSpace.lg),
         AdaptiveSplit(
-          primary: DsSection(
-            title: 'Подключение',
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const DsInfoRow(
-                  title: 'Код локальной игры',
-                  subtitle: 'FIGHT-24',
-                ),
-                const DsGap(DsSpace.md),
-                DsAction(
-                  label: 'Копировать код',
-                  kind: DsActionKind.text,
-                  onPressed: () {},
-                ),
-              ],
-            ),
+          primary: ParticipantInviteCard(
+            data: _participantInvite,
+            onCopyCode: () {},
+            onCopyAddress: () {},
+            onRetry: () {},
           ),
           secondary: DsSection(
             title: 'Участники',
