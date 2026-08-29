@@ -403,6 +403,7 @@ abstract final class TournamentTheme {
           markerWidth: TournamentTokens.spaceV1,
           markerHeight: TournamentTokens.spaceV6,
           trailingBreakpoint: TournamentTokens.breakpointExpandedMin,
+          trailingTopPadding: TournamentTokens.spaceV6,
         ),
         const TournamentSummaryTheme(
           gap: TournamentTokens.spaceV6,

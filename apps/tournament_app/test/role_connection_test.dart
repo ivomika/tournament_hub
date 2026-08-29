@@ -30,8 +30,7 @@ void main() {
     await tester.pumpWidget(_app(const HostOpenScreenPreview()));
     await tester.pumpAndSettle();
 
-    await tester.tap(find.byKey(const Key('open-spectator-access')));
-    await tester.pumpAndSettle();
+    await _openSpectatorAccess(tester);
 
     expect(find.byType(SpectatorAccessDialog), findsOneWidget);
     expect(find.text('SPECTATOR · ЭКРАН ДЛЯ ТВ'), findsOneWidget);
@@ -126,3 +125,10 @@ Widget _app(Widget child) => MaterialApp(
   theme: TournamentTheme.dark,
   home: Scaffold(body: child),
 );
+
+Future<void> _openSpectatorAccess(WidgetTester tester) async {
+  await tester.tap(find.byTooltip('Дополнительные действия').first);
+  await tester.pumpAndSettle();
+  await tester.tap(find.byKey(const Key('open-spectator-access')));
+  await tester.pumpAndSettle();
+}

@@ -64,7 +64,8 @@ class AppShell extends StatelessWidget {
                                   primary: pageActions!.primary,
                                   secondary: pageActions!.secondary,
                                   destructive: pageActions!.destructive,
-                                  layout: ResponsiveActionsLayout.vertical,
+                                  overflow: pageActions!.overflow,
+                                  layout: ResponsiveActionsLayout.horizontal,
                                 ),
                           gap: theme.contentGap,
                         )
@@ -147,6 +148,7 @@ class AppShell extends StatelessWidget {
                           primary: pageActions!.primary,
                           secondary: pageActions!.secondary,
                           destructive: pageActions!.destructive,
+                          overflow: pageActions!.overflow,
                           showSurface: true,
                           layout: ResponsiveActionsLayout.vertical,
                         ),
@@ -202,13 +204,12 @@ class _DesktopTrailing extends StatelessWidget {
     if (contextWidget == null && pageActions == null) {
       return const SizedBox.shrink();
     }
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.end,
-      children: [
-        ?contextWidget,
-        if (contextWidget != null && pageActions != null) SizedBox(height: gap),
-        ?pageActions,
-      ],
+    return Wrap(
+      alignment: WrapAlignment.end,
+      crossAxisAlignment: WrapCrossAlignment.start,
+      spacing: gap,
+      runSpacing: gap,
+      children: [?contextWidget, ?pageActions],
     );
   }
 }

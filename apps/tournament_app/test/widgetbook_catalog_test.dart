@@ -216,6 +216,40 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
+  testWidgets('desktop actions выровнены с header и используют overflow', (
+    tester,
+  ) async {
+    tester.view.devicePixelRatio = 1;
+    tester.view.physicalSize = const Size(1280, 960);
+    addTearDown(() {
+      tester.view.resetPhysicalSize();
+      tester.view.resetDevicePixelRatio();
+    });
+
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: TournamentTheme.dark,
+        home: const TournamentScreenPreview(kind: ScreenPreviewKind.hostOpen),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    final title = find.text('Лобби открыто');
+    final primary = find.text('Начать раздачу');
+    expect(find.byType(ActionDock), findsNothing);
+    expect(find.byTooltip('Дополнительные действия'), findsOneWidget);
+    expect(
+      (tester.getTopLeft(primary).dy - tester.getTopLeft(title).dy).abs(),
+      lessThan(48),
+    );
+    expect(find.text('Подключить зрителей'), findsNothing);
+
+    await tester.tap(find.byTooltip('Дополнительные действия'));
+    await tester.pumpAndSettle();
+    expect(find.text('Подключить зрителей'), findsOneWidget);
+    expect(find.text('Добавить гостя'), findsOneWidget);
+  });
+
   testWidgets('field отображает focus, helper и локальную ошибку', (
     tester,
   ) async {

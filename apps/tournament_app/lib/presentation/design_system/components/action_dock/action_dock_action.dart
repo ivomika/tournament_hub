@@ -11,6 +11,7 @@ class ActionDockAction {
     this.confirmationTitle,
     this.confirmationMessage,
     this.enabled = true,
+    this.key,
   });
 
   final String label;
@@ -20,4 +21,5 @@ class ActionDockAction {
   final String? confirmationTitle;
   final String? confirmationMessage;
   final bool enabled;
+  final Key? key;
 }

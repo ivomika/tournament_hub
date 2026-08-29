@@ -29,12 +29,11 @@ class HostOpenScreenPreview extends StatelessWidget {
       sectionLabel: 'ЛОББИ ОТКРЫТО · ЭТАП 2 ИЗ 5',
       pageActions: ResponsiveActions(
         primary: DsAction(label: 'Начать раздачу', onPressed: () {}),
-        secondary: [
-          DsAction(
+        overflow: [
+          ActionDockAction(
             key: const Key('open-spectator-access'),
             label: 'Подключить зрителей',
-            kind: DsActionKind.secondary,
-            onPressed: () => showSpectatorAccessDialog(
+            onSelected: () => showSpectatorAccessDialog(
               context,
               data: spectatorProjection.spectatorAccess,
               onCopyAddress: () => onCopySpectatorAddress?.call(),
@@ -42,11 +41,7 @@ class HostOpenScreenPreview extends StatelessWidget {
               onRetry: () => onRetrySpectator?.call(),
             ),
           ),
-          DsAction(
-            label: 'Добавить гостя',
-            kind: DsActionKind.secondary,
-            onPressed: () {},
-          ),
+          ActionDockAction(label: 'Добавить гостя', onSelected: () {}),
         ],
       ),
       child: Column(

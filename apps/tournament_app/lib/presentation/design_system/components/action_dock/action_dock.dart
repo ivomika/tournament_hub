@@ -57,6 +57,7 @@ class ActionDock extends StatelessWidget {
                     itemBuilder: (context) => [
                       for (final action in _overflowActions)
                         PopupMenuItem(
+                          key: action.key,
                           value: action,
                           enabled: action.enabled,
                           child: Row(

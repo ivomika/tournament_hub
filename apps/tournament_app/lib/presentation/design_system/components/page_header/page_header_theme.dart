@@ -10,6 +10,7 @@ class PageHeaderTheme extends ThemeExtension<PageHeaderTheme> {
     required this.markerWidth,
     required this.markerHeight,
     required this.trailingBreakpoint,
+    required this.trailingTopPadding,
   });
 
   final Color accent;
@@ -18,6 +19,7 @@ class PageHeaderTheme extends ThemeExtension<PageHeaderTheme> {
   final double markerWidth;
   final double markerHeight;
   final double trailingBreakpoint;
+  final double trailingTopPadding;
 
   @override
   PageHeaderTheme copyWith({
@@ -27,6 +29,7 @@ class PageHeaderTheme extends ThemeExtension<PageHeaderTheme> {
     double? markerWidth,
     double? markerHeight,
     double? trailingBreakpoint,
+    double? trailingTopPadding,
   }) => PageHeaderTheme(
     accent: accent ?? this.accent,
     gap: gap ?? this.gap,
@@ -34,6 +37,7 @@ class PageHeaderTheme extends ThemeExtension<PageHeaderTheme> {
     markerWidth: markerWidth ?? this.markerWidth,
     markerHeight: markerHeight ?? this.markerHeight,
     trailingBreakpoint: trailingBreakpoint ?? this.trailingBreakpoint,
+    trailingTopPadding: trailingTopPadding ?? this.trailingTopPadding,
   );
 
   @override
@@ -48,6 +52,11 @@ class PageHeaderTheme extends ThemeExtension<PageHeaderTheme> {
       trailingBreakpoint: lerpDouble(
         trailingBreakpoint,
         other.trailingBreakpoint,
+        t,
+      )!,
+      trailingTopPadding: lerpDouble(
+        trailingTopPadding,
+        other.trailingTopPadding,
         t,
       )!,
     );

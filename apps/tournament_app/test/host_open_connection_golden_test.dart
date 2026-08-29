@@ -53,6 +53,8 @@ void main() {
       );
       await tester.pumpAndSettle();
       if (scenario.name != 'serving_mobile') {
+        await tester.tap(find.byTooltip('Дополнительные действия').first);
+        await tester.pumpAndSettle();
         await tester.tap(find.byKey(const Key('open-spectator-access')));
         await tester.pumpAndSettle();
       }

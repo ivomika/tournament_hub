@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../action_dock/action_dock_action.dart';
+import '../ds_text/ds_text.dart';
 import 'responsive_actions_theme.dart';
 
 enum ResponsiveActionsLayout { auto, horizontal, vertical }
@@ -9,6 +11,7 @@ class ResponsiveActions extends StatelessWidget {
     required this.primary,
     this.secondary = const [],
     this.destructive,
+    this.overflow = const [],
     this.showSurface = false,
     this.layout = ResponsiveActionsLayout.auto,
     super.key,
@@ -17,13 +20,32 @@ class ResponsiveActions extends StatelessWidget {
   final Widget primary;
   final List<Widget> secondary;
   final Widget? destructive;
+  final List<ActionDockAction> overflow;
   final bool showSurface;
   final ResponsiveActionsLayout layout;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context).extension<ResponsiveActionsTheme>()!;
-    final actions = <Widget>[primary, ...secondary];
+    final actions = <Widget>[
+      primary,
+      ...secondary,
+      if (overflow.isNotEmpty)
+        PopupMenuButton<ActionDockAction>(
+          tooltip: 'Дополнительные действия',
+          icon: const Icon(Icons.more_horiz),
+          onSelected: (action) => action.onSelected(),
+          itemBuilder: (context) => [
+            for (final action in overflow)
+              PopupMenuItem(
+                key: action.key,
+                value: action,
+                enabled: action.enabled,
+                child: DsText(action.label, variant: DsTextVariant.secondary),
+              ),
+          ],
+        ),
+    ];
     final content = LayoutBuilder(
       builder: (context, constraints) {
         final horizontal = switch (layout) {
@@ -33,18 +55,12 @@ class ResponsiveActions extends StatelessWidget {
           ResponsiveActionsLayout.vertical => false,
         };
         if (horizontal) {
-          return Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              if (destructive != null) ...[
-                destructive!,
-                SizedBox(width: theme.sectionGap),
-              ],
-              for (var index = 0; index < actions.length; index++) ...[
-                if (index > 0) SizedBox(width: theme.gap),
-                actions[index],
-              ],
-            ],
+          return Wrap(
+            alignment: WrapAlignment.end,
+            crossAxisAlignment: WrapCrossAlignment.center,
+            spacing: theme.gap,
+            runSpacing: theme.gap,
+            children: [...actions, ?destructive],
           );
         }
         return Column(

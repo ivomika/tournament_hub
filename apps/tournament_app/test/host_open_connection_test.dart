@@ -32,8 +32,7 @@ void main() {
       expect(find.text(projection.statusLabel), findsOneWidget);
       expect(find.text('Начать раздачу'), findsOneWidget);
 
-      await tester.tap(find.byKey(const Key('open-spectator-access')));
-      await tester.pumpAndSettle();
+      await _openSpectatorAccess(tester);
 
       final card = tester.widget<ConnectionQrCard>(
         find.byType(ConnectionQrCard),
@@ -67,8 +66,7 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    await tester.tap(find.byKey(const Key('open-spectator-access')));
-    await tester.pumpAndSettle();
+    await _openSpectatorAccess(tester);
     final copyAction = find.descendant(
       of: find.byType(SpectatorAccessDialog),
       matching: find.text('Копировать адрес'),
@@ -111,8 +109,7 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Начать раздачу'), findsOneWidget);
-    await tester.tap(find.byKey(const Key('open-spectator-access')));
-    await tester.pumpAndSettle();
+    await _openSpectatorAccess(tester);
     await tester.ensureVisible(find.text('Попробовать снова'));
     await tester.tap(find.text('Попробовать снова'));
     await tester.pump();
@@ -120,6 +117,13 @@ void main() {
     expect(retryCalls, 1);
     expect(find.text('Ошибка подключения'), findsOneWidget);
   });
+}
+
+Future<void> _openSpectatorAccess(WidgetTester tester) async {
+  await tester.tap(find.byTooltip('Дополнительные действия').first);
+  await tester.pumpAndSettle();
+  await tester.tap(find.byKey(const Key('open-spectator-access')));
+  await tester.pumpAndSettle();
 }
 
 const _hostStates = [
