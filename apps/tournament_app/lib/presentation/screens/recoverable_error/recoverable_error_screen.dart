@@ -10,31 +10,28 @@ class RecoverableErrorScreenPreview extends StatelessWidget {
     title: 'Подключение прервано',
     subtitle: 'Локальные данные в безопасности',
     sectionLabel: 'ВОССТАНОВЛЕНИЕ',
+    pageActions: ResponsiveActions(
+      primary: DsAction(label: 'Проверить снова', onPressed: () {}),
+      secondary: [
+        DsAction(
+          label: 'На главную',
+          kind: DsActionKind.secondary,
+          onPressed: () {},
+        ),
+      ],
+    ),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         ConnectionBanner(
           state: TournamentConnectionState.incompatible,
           detail: 'Обновите приложение на обоих устройствах',
-          onAction: () {},
         ),
         const DsGap(DsSpace.lg),
         TournamentEmptyState(
           title: 'Не удалось загрузить турнир',
           message: 'Обновите приложение или вернитесь на главную. Технические данные подключения не публикуются.',
-          actionLabel: 'Повторить подключение',
-          onAction: () {},
           isError: true,
-        ),
-        const DsGap(DsSpace.md),
-        DsFlow(
-          children: [
-            DsAction(
-              label: 'На главную',
-              kind: DsActionKind.secondary,
-              onPressed: () {},
-            ),
-          ],
         ),
       ],
     ),

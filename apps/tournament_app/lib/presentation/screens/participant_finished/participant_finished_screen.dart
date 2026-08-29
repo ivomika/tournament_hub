@@ -9,7 +9,7 @@ class ParticipantFinishedScreenPreview extends StatelessWidget {
   Widget build(BuildContext context) => AppShell(
     title: 'Турнир завершён',
     subtitle: 'Friday Fight Night · итоговая проекция',
-    sectionLabel: 'PARTICIPANT · ФИНАЛ',
+    sectionLabel: 'УЧАСТНИК · ФИНАЛ',
     pageActions: ResponsiveActions(
       primary: DsAction(
         label: 'На главную',

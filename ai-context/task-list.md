@@ -6,11 +6,11 @@
 
 ## Активные задачи
 
-- 🟢 **062** — Провести screen-by-screen visual polish и Widgetbook stress matrix — [детали](tasks/TH-20260829-062.md)
 - 📝 **053** — Привести Spectator Web к утверждённому visual language — [детали](tasks/TH-20260828-053.md)
 
 ## Завершённые задачи
 
+- ✅ **062** — Провести screen-by-screen visual polish и Widgetbook stress matrix — [детали](tasks/TH-20260829-062.md)
 - ✅ **055** — Пересобрать AppShell, PageHeader и active navigation — [детали](tasks/TH-20260829-055.md)
 - ✅ **056** — Закрепить responsive layout и иерархию действий — [детали](tasks/TH-20260829-056.md)
 - ✅ **057** — Ввести полную матрицу состояний форм и действий — [детали](tasks/TH-20260829-057.md)

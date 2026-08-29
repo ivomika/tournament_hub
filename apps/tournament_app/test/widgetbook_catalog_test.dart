@@ -24,6 +24,24 @@ void main() {
     );
   });
 
+  test('catalog содержит обязательные stress-сценарии', () {
+    final useCaseNames = <String>{};
+
+    void collect(Iterable<WidgetbookNode> nodes) {
+      for (final node in nodes) {
+        if (node is WidgetbookUseCase) useCaseNames.add(node.name);
+        collect(node.children ?? const []);
+      }
+    }
+
+    collect(buildTournamentCatalog());
+
+    expect(
+      useCaseNames,
+      containsAll(const ['Long Russian copy', 'Error loading empty']),
+    );
+  });
+
   testWidgets('Widgetbook запускается отдельным entry tree', (tester) async {
     await tester.pumpWidget(const TournamentWidgetbook());
     await tester.pump();
@@ -393,34 +411,15 @@ void main() {
     tester.view.physicalSize = const Size(390, 844);
     tester.platformDispatcher.textScaleFactorTestValue = 2;
 
-    for (final kind in const [
-      ScreenPreviewKind.registration,
-      ScreenPreviewKind.main,
-      ScreenPreviewKind.profile,
-      ScreenPreviewKind.history,
-      ScreenPreviewKind.historyDetail,
-      ScreenPreviewKind.settings,
-      ScreenPreviewKind.hostDraft,
-      ScreenPreviewKind.hostOpen,
-      ScreenPreviewKind.hostDistribution,
-      ScreenPreviewKind.hostRunning,
-      ScreenPreviewKind.hostResultEntry,
-      ScreenPreviewKind.hostFinished,
-      ScreenPreviewKind.hostCancelled,
-      ScreenPreviewKind.join,
-      ScreenPreviewKind.participantLobby,
-      ScreenPreviewKind.participantDistribution,
-      ScreenPreviewKind.participantRunning,
-      ScreenPreviewKind.participantFinished,
-      ScreenPreviewKind.recoverableError,
-    ]) {
+    for (final kind in ScreenPreviewKind.values) {
       await tester.pumpWidget(
         MaterialApp(
           theme: TournamentTheme.dark,
           home: TournamentScreenPreview(kind: kind),
         ),
       );
-      await tester.pumpAndSettle();
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 100));
       expect(tester.takeException(), isNull, reason: kind.name);
     }
   });

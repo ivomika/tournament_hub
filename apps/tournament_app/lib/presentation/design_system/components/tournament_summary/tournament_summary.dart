@@ -30,7 +30,7 @@ class TournamentSummary extends StatelessWidget {
     final copy = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const StatusBadge(label: 'LIVE', kind: StatusKind.warning),
+        const StatusBadge(label: 'ИДЁТ', kind: StatusKind.warning),
         SizedBox(height: theme.gap),
         DsText(tournamentName, variant: DsTextVariant.display, maxLines: 2),
         SizedBox(height: theme.gap),

@@ -19,7 +19,7 @@ class SettingsScreenPreview extends StatelessWidget {
           children: [
             const DsInfoRow(
               title: 'Тема',
-              subtitle: 'Tournament dark',
+              subtitle: 'Тёмная тема Tournament Hub',
               kind: DsInfoKind.settings,
             ),
             const DsGap(DsSpace.md),

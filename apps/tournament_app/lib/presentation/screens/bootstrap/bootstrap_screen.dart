@@ -9,7 +9,7 @@ class BootstrapScreenPreview extends StatelessWidget {
   Widget build(BuildContext context) => const AppShell(
     title: 'Tournament Hub',
     subtitle: 'Подготавливаем локальный профиль и турнирное состояние.',
-    sectionLabel: 'WELCOME TO THE ARENA',
+    sectionLabel: 'ДОБРО ПОЖАЛОВАТЬ НА АРЕНУ',
     child: DsSurface(
       tone: DsSurfaceTone.accent,
       child: Column(

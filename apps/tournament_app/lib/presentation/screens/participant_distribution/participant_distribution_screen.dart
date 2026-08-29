@@ -9,7 +9,7 @@ class ParticipantDistributionScreenPreview extends StatelessWidget {
   Widget build(BuildContext context) => AppShell(
     title: 'Персонаж определён',
     subtitle: 'Friday Fight Night · случайная раздача завершена',
-    sectionLabel: 'PARTICIPANT · РАЗДАЧА',
+    sectionLabel: 'УЧАСТНИК · РАЗДАЧА',
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [

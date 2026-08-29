@@ -9,7 +9,7 @@ class HostDraftScreenPreview extends StatelessWidget {
   Widget build(BuildContext context) => AppShell(
     title: 'Новый турнир',
     subtitle: 'Настрой правила до открытия лобби — после этого они неизменны.',
-    sectionLabel: 'DRAFT · ЭТАП 1 ИЗ 5',
+    sectionLabel: 'ЧЕРНОВИК · ЭТАП 1 ИЗ 5',
     pageActions: ResponsiveActions(
       primary: DsAction(label: 'Открыть лобби', onPressed: () {}),
     ),

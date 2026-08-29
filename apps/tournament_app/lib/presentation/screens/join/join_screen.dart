@@ -9,7 +9,7 @@ class JoinScreenPreview extends StatelessWidget {
   Widget build(BuildContext context) => AppShell(
     title: 'Войти в турнир',
     subtitle: 'Подключение к хосту в локальной сети',
-    sectionLabel: 'PARTICIPANT',
+    sectionLabel: 'УЧАСТНИК',
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [

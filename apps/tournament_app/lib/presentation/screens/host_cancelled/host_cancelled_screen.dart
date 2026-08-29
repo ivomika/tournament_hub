@@ -9,7 +9,7 @@ class HostCancelledScreenPreview extends StatelessWidget {
   Widget build(BuildContext context) => AppShell(
     title: 'Турнир отменён',
     subtitle: 'Friday Fight Night · отменён организатором',
-    sectionLabel: 'TERMINAL · READ ONLY',
+    sectionLabel: 'ЗАВЕРШЁН · ТОЛЬКО ЧТЕНИЕ',
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -22,7 +22,8 @@ class HostCancelledScreenPreview extends StatelessWidget {
         const DsGap(DsSpace.lg),
         TournamentEmptyState(
           title: 'Турнир не состоялся',
-          message: 'Факт отмены сохранён в истории без ranking и чемпиона.',
+          message:
+              'Факт отмены сохранён в истории без итоговых мест и чемпиона.',
           actionLabel: 'На главную',
           onAction: () {},
         ),

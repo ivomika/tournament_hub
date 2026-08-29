@@ -9,7 +9,7 @@ class ParticipantRunningScreenPreview extends StatelessWidget {
   Widget build(BuildContext context) => AppShell(
     title: 'Friday Fight Night',
     subtitle: 'Проекция турнира · управление остаётся у хоста',
-    sectionLabel: 'PARTICIPANT · LIVE',
+    sectionLabel: 'УЧАСТНИК · В ЭФИРЕ',
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [

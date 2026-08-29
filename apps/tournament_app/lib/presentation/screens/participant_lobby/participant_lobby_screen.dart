@@ -9,7 +9,7 @@ class ParticipantLobbyScreenPreview extends StatelessWidget {
   Widget build(BuildContext context) => AppShell(
     title: 'Friday Fight Night',
     subtitle: 'Вы подключены как участник',
-    sectionLabel: 'PARTICIPANT · ЛОББИ',
+    sectionLabel: 'УЧАСТНИК · ЛОББИ',
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [

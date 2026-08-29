@@ -9,7 +9,7 @@ class HostOpenScreenPreview extends StatelessWidget {
   Widget build(BuildContext context) => AppShell(
     title: 'Лобби открыто',
     subtitle: 'Добавь минимум двух игроков и переходи к раздаче персонажей.',
-    sectionLabel: 'OPEN · ЭТАП 2 ИЗ 5',
+    sectionLabel: 'ЛОББИ ОТКРЫТО · ЭТАП 2 ИЗ 5',
     pageActions: ResponsiveActions(
       primary: DsAction(label: 'Начать раздачу', onPressed: () {}),
       secondary: [

@@ -9,7 +9,7 @@ class HostDistributionScreenPreview extends StatelessWidget {
   Widget build(BuildContext context) => AppShell(
     title: 'Раздача персонажей',
     subtitle: 'Проверь каждую пару игрок—боец перед запуском сетки.',
-    sectionLabel: 'DISTRIBUTION · ЭТАП 3 ИЗ 5',
+    sectionLabel: 'РАЗДАЧА · ЭТАП 3 ИЗ 5',
     pageActions: ResponsiveActions(
       primary: DsAction(label: 'Создать сетку и начать', onPressed: () {}),
       secondary: [

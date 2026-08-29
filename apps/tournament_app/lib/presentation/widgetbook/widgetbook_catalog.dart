@@ -60,11 +60,11 @@ List<WidgetbookNode> buildTournamentCatalog() => [
           _useCase(
             'Standard',
             PageHeader(
-              sectionLabel: 'HOST · RUNNING',
+              sectionLabel: 'ОРГАНИЗАТОР · ТУРНИР ИДЁТ',
               title: 'Friday Fight Night',
               subtitle: 'Double Elimination · Верхняя сетка',
               trailing: const StatusBadge(
-                label: 'LIVE',
+                label: 'ИДЁТ',
                 kind: StatusKind.warning,
               ),
             ),
@@ -193,6 +193,62 @@ List<WidgetbookNode> buildTournamentCatalog() => [
             'Success',
             const TournamentConfirmationPreview(
               status: TournamentConfirmationStatus.success,
+            ),
+          ),
+        ],
+      ),
+      WidgetbookComponent(
+        name: 'Stress matrix',
+        useCases: [
+          _useCase(
+            'Long Russian copy',
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                const PageHeader(
+                  sectionLabel: 'УЧАСТНИК · ВОССТАНОВЛЕНИЕ СОЕДИНЕНИЯ',
+                  title:
+                      'Очень длинное название локального турнира выходного дня',
+                  subtitle: 'Информация должна переноситься без потери fighter identity и следующего действия.',
+                ),
+                const DsGap(DsSpace.lg),
+                ConnectionBanner(
+                  state: TournamentConnectionState.stale,
+                  detail: 'Показаны последние данные; изменения временно недоступны.',
+                  synchronizedAtLabel: '12 минут назад',
+                  onAction: () {},
+                ),
+                const DsGap(DsSpace.lg),
+                ResponsiveActions(
+                  primary: DsAction(
+                    label: 'Попробовать восстановить подключение',
+                    onPressed: () {},
+                  ),
+                  secondary: [
+                    DsAction(
+                      label: 'Вернуться на главный экран',
+                      kind: DsActionKind.secondary,
+                      onPressed: () {},
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          _useCase(
+            'Error loading empty',
+            const Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                DsTextField(
+                  label: 'Код локального турнира',
+                  errorText: 'Проверь код и попробуй снова',
+                ),
+                DsGap(DsSpace.lg),
+                TournamentStandings(state: TournamentStandingsState.loading),
+                DsGap(DsSpace.lg),
+                TournamentStandings(state: TournamentStandingsState.empty),
+              ],
             ),
           ),
         ],
