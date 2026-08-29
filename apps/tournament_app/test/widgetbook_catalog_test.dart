@@ -621,6 +621,96 @@ void main() {
     );
   });
 
+  testWidgets('Participant navigation не показывает Host-разделы', (
+    tester,
+  ) async {
+    tester.view.devicePixelRatio = 1;
+    tester.view.physicalSize = const Size(390, 844);
+    addTearDown(() {
+      tester.view.resetPhysicalSize();
+      tester.view.resetDevicePixelRatio();
+    });
+
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: TournamentTheme.dark,
+        home: const TournamentScreenPreview(
+          kind: ScreenPreviewKind.participantRunning,
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.byType(NavigationDestination), findsNWidgets(2));
+    expect(find.text('Главная'), findsOneWidget);
+    expect(find.text('Профиль'), findsOneWidget);
+    expect(find.text('История'), findsNothing);
+    expect(find.text('Настройки'), findsNothing);
+  });
+
+  testWidgets('focused flow не показывает глобальную навигацию', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: TournamentTheme.dark,
+        home: const TournamentScreenPreview(
+          kind: ScreenPreviewKind.registration,
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.byType(NavigationBar), findsNothing);
+    expect(find.byType(NavigationRail), findsNothing);
+  });
+
+  testWidgets('Spectator role не получает mutation navigation', (tester) async {
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: TournamentTheme.dark,
+        home: const AppShell(
+          title: 'Экран зрителя',
+          navigationRole: AppNavigationRole.spectator,
+          child: DsText('Только чтение'),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.byType(NavigationBar), findsNothing);
+    expect(find.byType(NavigationRail), findsNothing);
+  });
+
+  testWidgets('некритичные Host actions прокручиваются вместе с контентом', (
+    tester,
+  ) async {
+    tester.view.devicePixelRatio = 1;
+    tester.view.physicalSize = const Size(390, 844);
+    addTearDown(() {
+      tester.view.resetPhysicalSize();
+      tester.view.resetDevicePixelRatio();
+    });
+
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: TournamentTheme.dark,
+        home: const TournamentScreenPreview(kind: ScreenPreviewKind.hostOpen),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.byType(ActionDock), findsNothing);
+    expect(
+      tester.getBottomLeft(find.text('Начать раздачу')).dy,
+      lessThan(tester.getTopLeft(find.byType(NavigationBar)).dy),
+    );
+    expect(
+      tester.getSize(find.byType(NavigationBar)).height,
+      lessThanOrEqualTo(96),
+    );
+  });
+
   testWidgets('result picker называет fighter и не использует счёт', (
     tester,
   ) async {

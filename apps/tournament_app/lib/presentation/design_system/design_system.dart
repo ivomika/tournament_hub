@@ -2,6 +2,7 @@ export 'components/action_dock/action_dock.dart';
 export 'components/action_dock/action_dock_action.dart';
 export 'components/adaptive_split/adaptive_split.dart';
 export 'components/app_shell/app_shell.dart';
+export 'components/app_shell/app_navigation_role.dart';
 export 'components/bracket/bracket.dart';
 export 'components/champion_hero/champion_hero.dart';
 export 'components/confirmation/confirmation.dart';

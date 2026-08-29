@@ -48,13 +48,6 @@ class HostOpenScreenPreview extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          const TournamentStageHeader(
-            stage: 'Сбор участников',
-            progress: '4 ИГРОКА',
-            detail: 'Настройки турнира зафиксированы. Состав ещё можно менять.',
-            kind: StatusKind.success,
-          ),
-          const DsGap(DsSpace.lg),
           AdaptiveSplit(
             primary: DsSection(
               title: 'Участники',
@@ -74,6 +67,13 @@ class HostOpenScreenPreview extends StatelessWidget {
               onCopyAddress: () {},
               onRetry: () {},
             ),
+          ),
+          const DsGap(DsSpace.lg),
+          const TournamentStageHeader(
+            stage: 'Сбор участников',
+            progress: '4 ИГРОКА',
+            detail: 'Настройки турнира зафиксированы. Состав ещё можно менять.',
+            kind: StatusKind.success,
           ),
           const DsGap(DsSpace.lg),
           HostOpenConnectionSummary(data: spectatorProjection),

@@ -10,6 +10,7 @@ class RegistrationScreenPreview extends StatelessWidget {
     title: 'Как тебя представить?',
     subtitle: 'Никнейм будет виден участникам турнира на этом устройстве.',
     sectionLabel: 'ПЕРВЫЙ ВХОД',
+    navigationRole: AppNavigationRole.focused,
     child: AdaptiveSplit(
       primary: const DsSurface(
         tone: DsSurfaceTone.accent,

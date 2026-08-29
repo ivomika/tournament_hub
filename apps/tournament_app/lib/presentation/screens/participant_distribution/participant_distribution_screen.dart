@@ -10,6 +10,7 @@ class ParticipantDistributionScreenPreview extends StatelessWidget {
     title: 'Персонаж определён',
     subtitle: 'Friday Fight Night · случайная раздача завершена',
     sectionLabel: 'УЧАСТНИК · РАЗДАЧА',
+    navigationRole: AppNavigationRole.participant,
     headerVariant: PageHeaderVariant.compact,
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,

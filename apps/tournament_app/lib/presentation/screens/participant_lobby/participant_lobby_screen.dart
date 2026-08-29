@@ -10,6 +10,7 @@ class ParticipantLobbyScreenPreview extends StatelessWidget {
     title: 'Friday Fight Night',
     subtitle: 'Вы подключены как участник',
     sectionLabel: 'УЧАСТНИК · ЛОББИ',
+    navigationRole: AppNavigationRole.participant,
     headerVariant: PageHeaderVariant.compact,
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,

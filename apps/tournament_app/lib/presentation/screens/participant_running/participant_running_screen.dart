@@ -10,6 +10,7 @@ class ParticipantRunningScreenPreview extends StatelessWidget {
     title: 'Friday Fight Night',
     subtitle: 'Проекция турнира · управление остаётся у хоста',
     sectionLabel: 'УЧАСТНИК · В ЭФИРЕ',
+    navigationRole: AppNavigationRole.participant,
     headerVariant: PageHeaderVariant.compact,
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,

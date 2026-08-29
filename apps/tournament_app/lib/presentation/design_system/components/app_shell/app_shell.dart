@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../action_dock/action_dock.dart';
 import '../page_header/page_header.dart';
 import '../responsive_actions/responsive_actions.dart';
+import 'app_navigation_role.dart';
 import 'app_shell_theme.dart';
 
 enum AppDestination { home, history, profile, settings }
@@ -19,6 +20,7 @@ class AppShell extends StatelessWidget {
     this.headerVariant = PageHeaderVariant.standard,
     this.pageActions,
     this.actionDock,
+    this.navigationRole = AppNavigationRole.host,
     super.key,
   });
 
@@ -31,6 +33,7 @@ class AppShell extends StatelessWidget {
   final PageHeaderVariant headerVariant;
   final ResponsiveActions? pageActions;
   final ActionDock? actionDock;
+  final AppNavigationRole navigationRole;
   final Widget child;
 
   @override
@@ -44,6 +47,8 @@ class AppShell extends StatelessWidget {
             : constraints.maxWidth >= theme.mediumBreakpoint
             ? theme.pagePaddingMedium
             : theme.pagePaddingCompact;
+        final destinations = _destinationsFor(navigationRole);
+        final selectedIndex = destinations.indexOf(currentDestination);
         final content = SafeArea(
           child: SingleChildScrollView(
             padding: EdgeInsets.all(pagePadding),
@@ -72,6 +77,15 @@ class AppShell extends StatelessWidget {
                       : headerTrailing,
                   variant: headerVariant,
                 ),
+                if (!desktop && pageActions != null && actionDock == null) ...[
+                  SizedBox(height: theme.contentGap),
+                  ResponsiveActions(
+                    primary: pageActions!.primary,
+                    secondary: pageActions!.secondary,
+                    destructive: pageActions!.destructive,
+                    overflow: pageActions!.overflow,
+                  ),
+                ],
                 SizedBox(height: theme.contentGap),
                 Align(
                   alignment: Alignment.topLeft,
@@ -96,36 +110,20 @@ class AppShell extends StatelessWidget {
                 colors: [theme.elevatedBackground, theme.background],
               ),
             ),
-            child: desktop
+            child: desktop && destinations.isNotEmpty
                 ? Row(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       NavigationRail(
                         backgroundColor: theme.navigationBackground,
-                        selectedIndex: currentDestination.index,
+                        selectedIndex: selectedIndex < 0 ? 0 : selectedIndex,
                         onDestinationSelected: onDestinationSelected == null
                             ? null
-                            : (index) => onDestinationSelected!(
-                                AppDestination.values[index],
-                              ),
-                        destinations: const [
-                          NavigationRailDestination(
-                            icon: Icon(Icons.home_outlined),
-                            selectedIcon: Icon(Icons.home),
-                            label: Text('Главная'),
-                          ),
-                          NavigationRailDestination(
-                            icon: Icon(Icons.history),
-                            label: Text('История'),
-                          ),
-                          NavigationRailDestination(
-                            icon: Icon(Icons.person_outline),
-                            label: Text('Профиль'),
-                          ),
-                          NavigationRailDestination(
-                            icon: Icon(Icons.settings_outlined),
-                            label: Text('Настройки'),
-                          ),
+                            : (index) =>
+                                  onDestinationSelected!(destinations[index]),
+                        destinations: [
+                          for (final destination in destinations)
+                            _railDestination(destination),
                         ],
                       ),
                       VerticalDivider(color: theme.divider),
@@ -134,51 +132,28 @@ class AppShell extends StatelessWidget {
                   )
                 : content,
           ),
-          bottomNavigationBar: desktop
+          bottomNavigationBar:
+              desktop || (actionDock == null && destinations.isEmpty)
               ? null
               : SafeArea(
                   top: false,
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      if (actionDock != null)
-                        actionDock!
-                      else if (pageActions != null)
-                        ResponsiveActions(
-                          primary: pageActions!.primary,
-                          secondary: pageActions!.secondary,
-                          destructive: pageActions!.destructive,
-                          overflow: pageActions!.overflow,
-                          showSurface: true,
-                          layout: ResponsiveActionsLayout.vertical,
+                      ?actionDock,
+                      if (destinations.isNotEmpty)
+                        NavigationBar(
+                          backgroundColor: theme.navigationBackground,
+                          selectedIndex: selectedIndex < 0 ? 0 : selectedIndex,
+                          onDestinationSelected: onDestinationSelected == null
+                              ? null
+                              : (index) =>
+                                    onDestinationSelected!(destinations[index]),
+                          destinations: [
+                            for (final destination in destinations)
+                              _barDestination(destination),
+                          ],
                         ),
-                      NavigationBar(
-                        backgroundColor: theme.navigationBackground,
-                        selectedIndex: currentDestination.index,
-                        onDestinationSelected: onDestinationSelected == null
-                            ? null
-                            : (index) => onDestinationSelected!(
-                                AppDestination.values[index],
-                              ),
-                        destinations: const [
-                          NavigationDestination(
-                            icon: Icon(Icons.home),
-                            label: 'Главная',
-                          ),
-                          NavigationDestination(
-                            icon: Icon(Icons.history),
-                            label: 'История',
-                          ),
-                          NavigationDestination(
-                            icon: Icon(Icons.person),
-                            label: 'Профиль',
-                          ),
-                          NavigationDestination(
-                            icon: Icon(Icons.settings),
-                            label: 'Настройки',
-                          ),
-                        ],
-                      ),
                     ],
                   ),
                 ),
@@ -186,6 +161,63 @@ class AppShell extends StatelessWidget {
       },
     );
   }
+
+  List<AppDestination> _destinationsFor(AppNavigationRole role) =>
+      switch (role) {
+        AppNavigationRole.host => AppDestination.values,
+        AppNavigationRole.participant => const [
+          AppDestination.home,
+          AppDestination.profile,
+        ],
+        AppNavigationRole.spectator => const [],
+        AppNavigationRole.focused => const [],
+      };
+
+  NavigationRailDestination _railDestination(AppDestination destination) =>
+      switch (destination) {
+        AppDestination.home => const NavigationRailDestination(
+          icon: Icon(Icons.home_outlined),
+          selectedIcon: Icon(Icons.home),
+          label: Text('Главная'),
+        ),
+        AppDestination.history => const NavigationRailDestination(
+          icon: Icon(Icons.history),
+          label: Text('История'),
+        ),
+        AppDestination.profile => const NavigationRailDestination(
+          icon: Icon(Icons.person_outline),
+          selectedIcon: Icon(Icons.person),
+          label: Text('Профиль'),
+        ),
+        AppDestination.settings => const NavigationRailDestination(
+          icon: Icon(Icons.settings_outlined),
+          selectedIcon: Icon(Icons.settings),
+          label: Text('Настройки'),
+        ),
+      };
+
+  NavigationDestination _barDestination(AppDestination destination) =>
+      switch (destination) {
+        AppDestination.home => const NavigationDestination(
+          icon: Icon(Icons.home_outlined),
+          selectedIcon: Icon(Icons.home),
+          label: 'Главная',
+        ),
+        AppDestination.history => const NavigationDestination(
+          icon: Icon(Icons.history),
+          label: 'История',
+        ),
+        AppDestination.profile => const NavigationDestination(
+          icon: Icon(Icons.person_outline),
+          selectedIcon: Icon(Icons.person),
+          label: 'Профиль',
+        ),
+        AppDestination.settings => const NavigationDestination(
+          icon: Icon(Icons.settings_outlined),
+          selectedIcon: Icon(Icons.settings),
+          label: 'Настройки',
+        ),
+      };
 }
 
 class _DesktopTrailing extends StatelessWidget {

@@ -10,6 +10,7 @@ class RecoverableErrorScreenPreview extends StatelessWidget {
     title: 'Подключение прервано',
     subtitle: 'Локальные данные в безопасности',
     sectionLabel: 'ВОССТАНОВЛЕНИЕ',
+    navigationRole: AppNavigationRole.focused,
     headerVariant: PageHeaderVariant.compact,
     pageActions: ResponsiveActions(
       primary: DsAction(label: 'Проверить снова', onPressed: () {}),

@@ -10,6 +10,7 @@ class BootstrapScreenPreview extends StatelessWidget {
     title: 'Tournament Hub',
     subtitle: 'Подготавливаем локальный профиль и турнирное состояние.',
     sectionLabel: 'ДОБРО ПОЖАЛОВАТЬ НА АРЕНУ',
+    navigationRole: AppNavigationRole.focused,
     child: DsSurface(
       tone: DsSurfaceTone.accent,
       child: Column(

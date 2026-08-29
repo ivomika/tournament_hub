@@ -10,6 +10,7 @@ class ParticipantFinishedScreenPreview extends StatelessWidget {
     title: 'Турнир завершён',
     subtitle: 'Friday Fight Night · итоговая проекция',
     sectionLabel: 'УЧАСТНИК · ФИНАЛ',
+    navigationRole: AppNavigationRole.participant,
     headerVariant: PageHeaderVariant.compact,
     pageActions: ResponsiveActions(
       primary: DsAction(

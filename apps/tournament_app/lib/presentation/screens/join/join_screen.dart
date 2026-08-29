@@ -10,6 +10,7 @@ class JoinScreenPreview extends StatelessWidget {
     title: 'Войти в турнир',
     subtitle: 'Подключение к хосту в локальной сети',
     sectionLabel: 'УЧАСТНИК',
+    navigationRole: AppNavigationRole.participant,
     headerVariant: PageHeaderVariant.compact,
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,

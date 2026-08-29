@@ -17,12 +17,6 @@ class HostDraftScreenPreview extends StatelessWidget {
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        const TournamentStageHeader(
-          stage: 'Черновик',
-          progress: 'НАСТРОЙКА',
-          detail: 'Название, формат и правила ещё можно изменить.',
-        ),
-        const DsGap(DsSpace.lg),
         AdaptiveSplit(
           primary: DsSection(
             title: 'Параметры',
@@ -48,6 +42,12 @@ class HostDraftScreenPreview extends StatelessWidget {
             actionLabel: 'Удалить черновик',
             onAction: () {},
           ),
+        ),
+        const DsGap(DsSpace.lg),
+        const TournamentStageHeader(
+          stage: 'Черновик',
+          progress: 'НАСТРОЙКА',
+          detail: 'Название, формат и правила ещё можно изменить.',
         ),
       ],
     ),
