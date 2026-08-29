@@ -18,6 +18,7 @@ export 'components/fighter_avatar/fighter_avatar.dart';
 export 'components/history_snapshot_card/history_snapshot_card.dart';
 export 'components/match_card/match_card.dart';
 export 'components/outcome_picker/outcome_picker.dart';
+export 'components/page_header/page_header.dart';
 export 'components/participant_identity/participant_identity.dart';
 export 'components/profile_summary/profile_summary.dart';
 export 'components/standings/standings.dart';

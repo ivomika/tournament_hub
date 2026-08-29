@@ -10,6 +10,7 @@ class ProfileScreenPreview extends StatelessWidget {
     title: 'Профиль',
     subtitle: 'Локальная identity для турниров на этом устройстве.',
     sectionLabel: 'ИГРОК',
+    currentDestination: AppDestination.profile,
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [

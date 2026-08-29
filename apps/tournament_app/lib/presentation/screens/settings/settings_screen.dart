@@ -10,6 +10,7 @@ class SettingsScreenPreview extends StatelessWidget {
     title: 'Настройки',
     subtitle: 'Внешний вид, данные и информация о приложении.',
     sectionLabel: 'СИСТЕМА',
+    currentDestination: AppDestination.settings,
     child: AdaptiveSplit(
       primary: DsSection(
         title: 'Приложение',

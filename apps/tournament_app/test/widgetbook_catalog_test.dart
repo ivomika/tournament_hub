@@ -339,6 +339,40 @@ void main() {
     expect(find.byType(TextField), findsNothing);
   });
 
+  testWidgets('shell выбирает актуальный раздел навигации', (tester) async {
+    addTearDown(() {
+      tester.view.resetPhysicalSize();
+      tester.view.resetDevicePixelRatio();
+    });
+    tester.view.devicePixelRatio = 1;
+
+    tester.view.physicalSize = const Size(390, 844);
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: TournamentTheme.dark,
+        home: const TournamentScreenPreview(kind: ScreenPreviewKind.profile),
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(
+      tester.widget<NavigationBar>(find.byType(NavigationBar)).selectedIndex,
+      2,
+    );
+
+    tester.view.physicalSize = const Size(1280, 960);
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: TournamentTheme.dark,
+        home: const TournamentScreenPreview(kind: ScreenPreviewKind.history),
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(
+      tester.widget<NavigationRail>(find.byType(NavigationRail)).selectedIndex,
+      1,
+    );
+  });
+
   testWidgets('result picker называет fighter и не использует счёт', (
     tester,
   ) async {

@@ -10,6 +10,7 @@ class HistoryDetailScreenPreview extends StatelessWidget {
     title: 'Friday Fight Night',
     subtitle: 'Снимок завершённого турнира · сегодня, 22:14',
     sectionLabel: 'ИСТОРИЯ',
+    currentDestination: AppDestination.history,
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [

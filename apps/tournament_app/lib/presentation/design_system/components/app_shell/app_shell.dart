@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../ds_text/ds_text.dart';
+import '../page_header/page_header.dart';
 import 'app_shell_theme.dart';
+
+enum AppDestination { home, history, profile, settings }
 
 class AppShell extends StatelessWidget {
   const AppShell({
@@ -9,12 +11,20 @@ class AppShell extends StatelessWidget {
     required this.child,
     this.subtitle,
     this.sectionLabel = 'TOURNAMENT HUB',
+    this.currentDestination = AppDestination.home,
+    this.onDestinationSelected,
+    this.headerTrailing,
+    this.headerVariant = PageHeaderVariant.standard,
     super.key,
   });
 
   final String title;
   final String? subtitle;
   final String sectionLabel;
+  final AppDestination currentDestination;
+  final ValueChanged<AppDestination>? onDestinationSelected;
+  final Widget? headerTrailing;
+  final PageHeaderVariant headerVariant;
   final Widget child;
 
   @override
@@ -29,50 +39,27 @@ class AppShell extends StatelessWidget {
         final content = SafeArea(
           child: SingleChildScrollView(
             padding: EdgeInsets.all(pagePadding),
-            child: Center(
-              child: ConstrainedBox(
-                constraints: BoxConstraints(maxWidth: theme.contentMaxWidth),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        DecoratedBox(
-                          decoration: BoxDecoration(color: theme.accent),
-                          child: SizedBox(
-                            width: theme.brandMarkWidth,
-                            height: theme.headingGap,
-                          ),
-                        ),
-                        SizedBox(width: theme.labelGap),
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              DsText(
-                                sectionLabel,
-                                variant: DsTextVariant.label,
-                              ),
-                              SizedBox(height: theme.labelGap),
-                              DsText(title, variant: DsTextVariant.heading),
-                              if (subtitle != null) ...[
-                                SizedBox(height: theme.labelGap),
-                                DsText(
-                                  subtitle!,
-                                  variant: DsTextVariant.secondary,
-                                ),
-                              ],
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: theme.headingGap),
-                    child,
-                  ],
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                PageHeader(
+                  title: title,
+                  subtitle: subtitle,
+                  sectionLabel: sectionLabel,
+                  trailing: headerTrailing,
+                  variant: headerVariant,
                 ),
-              ),
+                SizedBox(height: theme.contentGap),
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: ConstrainedBox(
+                    constraints: BoxConstraints(
+                      maxWidth: theme.contentMaxWidth,
+                    ),
+                    child: child,
+                  ),
+                ),
+              ],
             ),
           ),
         );
@@ -88,10 +75,16 @@ class AppShell extends StatelessWidget {
             ),
             child: desktop
                 ? Row(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       NavigationRail(
                         backgroundColor: theme.navigationBackground,
-                        selectedIndex: 0,
+                        selectedIndex: currentDestination.index,
+                        onDestinationSelected: onDestinationSelected == null
+                            ? null
+                            : (index) => onDestinationSelected!(
+                                AppDestination.values[index],
+                              ),
                         destinations: const [
                           NavigationRailDestination(
                             icon: Icon(Icons.home_outlined),
@@ -106,6 +99,10 @@ class AppShell extends StatelessWidget {
                             icon: Icon(Icons.person_outline),
                             label: Text('Профиль'),
                           ),
+                          NavigationRailDestination(
+                            icon: Icon(Icons.settings_outlined),
+                            label: Text('Настройки'),
+                          ),
                         ],
                       ),
                       VerticalDivider(color: theme.divider),
@@ -118,7 +115,12 @@ class AppShell extends StatelessWidget {
               ? null
               : NavigationBar(
                   backgroundColor: theme.navigationBackground,
-                  selectedIndex: 0,
+                  selectedIndex: currentDestination.index,
+                  onDestinationSelected: onDestinationSelected == null
+                      ? null
+                      : (index) => onDestinationSelected!(
+                          AppDestination.values[index],
+                        ),
                   destinations: const [
                     NavigationDestination(
                       icon: Icon(Icons.home),
@@ -131,6 +133,10 @@ class AppShell extends StatelessWidget {
                     NavigationDestination(
                       icon: Icon(Icons.person),
                       label: 'Профиль',
+                    ),
+                    NavigationDestination(
+                      icon: Icon(Icons.settings),
+                      label: 'Настройки',
                     ),
                   ],
                 ),

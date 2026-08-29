@@ -55,6 +55,23 @@ List<WidgetbookNode> buildTournamentCatalog() => [
         ],
       ),
       WidgetbookComponent(
+        name: 'Page header',
+        useCases: [
+          _useCase(
+            'Standard',
+            PageHeader(
+              sectionLabel: 'HOST · RUNNING',
+              title: 'Friday Fight Night',
+              subtitle: 'Double Elimination · Верхняя сетка',
+              trailing: const StatusBadge(
+                label: 'LIVE',
+                kind: StatusKind.warning,
+              ),
+            ),
+          ),
+        ],
+      ),
+      WidgetbookComponent(
         name: 'Actions and fields',
         useCases: [
           WidgetbookUseCase(

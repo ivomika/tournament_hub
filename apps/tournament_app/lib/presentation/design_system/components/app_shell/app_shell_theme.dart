@@ -8,28 +8,22 @@ class AppShellTheme extends ThemeExtension<AppShellTheme> {
     required this.elevatedBackground,
     required this.navigationBackground,
     required this.divider,
-    required this.accent,
     required this.desktopBreakpoint,
     required this.contentMaxWidth,
     required this.pagePaddingCompact,
     required this.pagePaddingDesktop,
-    required this.headingGap,
-    required this.labelGap,
-    required this.brandMarkWidth,
+    required this.contentGap,
   });
 
   final Color background;
   final Color elevatedBackground;
   final Color navigationBackground;
   final Color divider;
-  final Color accent;
   final double desktopBreakpoint;
   final double contentMaxWidth;
   final double pagePaddingCompact;
   final double pagePaddingDesktop;
-  final double headingGap;
-  final double labelGap;
-  final double brandMarkWidth;
+  final double contentGap;
 
   @override
   AppShellTheme copyWith({
@@ -37,27 +31,21 @@ class AppShellTheme extends ThemeExtension<AppShellTheme> {
     Color? elevatedBackground,
     Color? navigationBackground,
     Color? divider,
-    Color? accent,
     double? desktopBreakpoint,
     double? contentMaxWidth,
     double? pagePaddingCompact,
     double? pagePaddingDesktop,
-    double? headingGap,
-    double? labelGap,
-    double? brandMarkWidth,
+    double? contentGap,
   }) => AppShellTheme(
     background: background ?? this.background,
     elevatedBackground: elevatedBackground ?? this.elevatedBackground,
     navigationBackground: navigationBackground ?? this.navigationBackground,
     divider: divider ?? this.divider,
-    accent: accent ?? this.accent,
     desktopBreakpoint: desktopBreakpoint ?? this.desktopBreakpoint,
     contentMaxWidth: contentMaxWidth ?? this.contentMaxWidth,
     pagePaddingCompact: pagePaddingCompact ?? this.pagePaddingCompact,
     pagePaddingDesktop: pagePaddingDesktop ?? this.pagePaddingDesktop,
-    headingGap: headingGap ?? this.headingGap,
-    labelGap: labelGap ?? this.labelGap,
-    brandMarkWidth: brandMarkWidth ?? this.brandMarkWidth,
+    contentGap: contentGap ?? this.contentGap,
   );
 
   @override
@@ -76,7 +64,6 @@ class AppShellTheme extends ThemeExtension<AppShellTheme> {
         t,
       )!,
       divider: Color.lerp(divider, other.divider, t)!,
-      accent: Color.lerp(accent, other.accent, t)!,
       desktopBreakpoint: lerpDouble(
         desktopBreakpoint,
         other.desktopBreakpoint,
@@ -93,9 +80,7 @@ class AppShellTheme extends ThemeExtension<AppShellTheme> {
         other.pagePaddingDesktop,
         t,
       )!,
-      headingGap: lerpDouble(headingGap, other.headingGap, t)!,
-      labelGap: lerpDouble(labelGap, other.labelGap, t)!,
-      brandMarkWidth: lerpDouble(brandMarkWidth, other.brandMarkWidth, t)!,
+      contentGap: lerpDouble(contentGap, other.contentGap, t)!,
     );
   }
 }

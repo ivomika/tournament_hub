@@ -21,6 +21,7 @@ import '../components/fighter_avatar/fighter_avatar_theme.dart';
 import '../components/history_snapshot_card/history_snapshot_card_theme.dart';
 import '../components/match_card/match_card_theme.dart';
 import '../components/outcome_picker/outcome_picker_theme.dart';
+import '../components/page_header/page_header_theme.dart';
 import '../components/participant_identity/participant_identity_theme.dart';
 import '../components/profile_summary/profile_summary_theme.dart';
 import '../components/standings/standings_theme.dart';
@@ -250,14 +251,19 @@ abstract final class TournamentTheme {
           elevatedBackground: TournamentTokens.colorBackgroundElevated,
           navigationBackground: TournamentTokens.colorBackgroundSubtle,
           divider: TournamentTokens.colorSurfaceTertiary,
-          accent: TournamentTokens.colorAccentPrimary,
           desktopBreakpoint: TournamentTokens.breakpointExpandedMin,
           contentMaxWidth: TournamentTokens.layoutHostContentMaxMax,
           pagePaddingCompact: TournamentTokens.layoutPagePaddingCompact,
           pagePaddingDesktop: TournamentTokens.layoutPagePaddingDesktopMax,
-          headingGap: TournamentTokens.spaceV6,
+          contentGap: TournamentTokens.spaceV6,
+        ),
+        const PageHeaderTheme(
+          accent: TournamentTokens.colorAccentPrimary,
+          gap: TournamentTokens.spaceV3,
           labelGap: TournamentTokens.spaceV2,
-          brandMarkWidth: TournamentTokens.spaceV1,
+          markerWidth: TournamentTokens.spaceV1,
+          markerHeight: TournamentTokens.spaceV6,
+          trailingBreakpoint: TournamentTokens.breakpointExpandedMin,
         ),
         const TournamentSummaryTheme(
           gap: TournamentTokens.spaceV6,

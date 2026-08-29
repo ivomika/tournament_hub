@@ -10,6 +10,7 @@ class HistoryScreenPreview extends StatelessWidget {
     title: 'История',
     subtitle: 'Локальные снимки завершённых турниров · только чтение',
     sectionLabel: 'АРХИВ',
+    currentDestination: AppDestination.history,
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
