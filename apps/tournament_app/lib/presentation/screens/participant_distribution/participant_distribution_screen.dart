@@ -14,8 +14,9 @@ class ParticipantDistributionScreenPreview extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         const ConnectionBanner(
-          message: 'Подключено · данные актуальны',
-          kind: StatusKind.success,
+          state: TournamentConnectionState.connected,
+          detail: 'Данные актуальны',
+          synchronizedAtLabel: 'только что',
         ),
         const DsGap(DsSpace.lg),
         const TournamentStageHeader(

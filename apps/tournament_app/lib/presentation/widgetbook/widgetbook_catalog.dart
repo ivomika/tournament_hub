@@ -256,34 +256,49 @@ List<WidgetbookNode> buildTournamentCatalog() => [
           _useCase(
             'Connection / Connected',
             const ConnectionBanner(
-              message: 'Подключено · данные актуальны',
-              kind: StatusKind.success,
+              state: TournamentConnectionState.connected,
+              detail: 'Данные актуальны',
+              synchronizedAtLabel: 'только что',
             ),
           ),
           _useCase(
             'Connection / Reconnecting',
             ConnectionBanner(
-              message: 'Переподключение к хосту',
-              kind: StatusKind.info,
-              actionLabel: 'Отменить',
+              state: TournamentConnectionState.reconnecting,
+              detail: 'Пытаемся связаться с хостом',
               onAction: () {},
             ),
           ),
           _useCase(
             'Connection / Stale',
             ConnectionBanner(
-              message: 'Связь потеряна · показаны последние данные',
-              kind: StatusKind.warning,
-              actionLabel: 'Переподключиться',
+              state: TournamentConnectionState.stale,
+              detail: 'Показаны последние полученные данные',
+              synchronizedAtLabel: '2 минуты назад',
+              onAction: () {},
+            ),
+          ),
+          _useCase(
+            'Connection / Disconnected',
+            ConnectionBanner(
+              state: TournamentConnectionState.disconnected,
+              detail: 'Хост недоступен в локальной сети',
               onAction: () {},
             ),
           ),
           _useCase(
             'Connection / Incompatible',
             ConnectionBanner(
-              message: 'Несовместимая версия протокола',
-              kind: StatusKind.danger,
-              actionLabel: 'Проверить снова',
+              state: TournamentConnectionState.incompatible,
+              detail: 'Обновите приложение на обоих устройствах',
+              onAction: () {},
+            ),
+          ),
+          _useCase(
+            'Connection / Retrying',
+            ConnectionBanner(
+              state: TournamentConnectionState.retrying,
+              detail: 'Запрос отправлен повторно',
               onAction: () {},
             ),
           ),

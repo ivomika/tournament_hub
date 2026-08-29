@@ -14,16 +14,16 @@ class ParticipantRunningScreenPreview extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         ConnectionBanner(
-          message: 'Связь потеряна · показаны последние данные',
-          kind: StatusKind.warning,
-          actionLabel: 'Переподключиться',
+          state: TournamentConnectionState.stale,
+          detail: 'Показаны последние полученные данные',
+          synchronizedAtLabel: '2 минуты назад',
           onAction: () {},
         ),
         const DsGap(DsSpace.lg),
         const TournamentStageHeader(
           stage: 'Double Elimination · Верхняя сетка',
           progress: 'ДАННЫЕ УСТАРЕЛИ',
-          detail: 'Раунд 2 · матч 07 · обновлено 2 минуты назад',
+          detail: 'Раунд 2 · матч 07 · изменения недоступны до синхронизации',
           kind: StatusKind.warning,
         ),
         const DsGap(DsSpace.lg),

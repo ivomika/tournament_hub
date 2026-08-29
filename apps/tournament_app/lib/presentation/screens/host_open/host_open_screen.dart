@@ -33,11 +33,20 @@ class HostOpenScreenPreview extends StatelessWidget {
         AdaptiveSplit(
           primary: DsSection(
             title: 'Подключение',
-            child: ConnectionBanner(
-              message: 'Код локальной игры: FIGHT-24',
-              kind: StatusKind.success,
-              actionLabel: 'Копировать',
-              onAction: () {},
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const DsInfoRow(
+                  title: 'Код локальной игры',
+                  subtitle: 'FIGHT-24',
+                ),
+                const DsGap(DsSpace.md),
+                DsAction(
+                  label: 'Копировать код',
+                  kind: DsActionKind.text,
+                  onPressed: () {},
+                ),
+              ],
             ),
           ),
           secondary: DsSection(

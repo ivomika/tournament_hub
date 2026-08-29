@@ -6,7 +6,6 @@
 
 ## Активные задачи
 
-- 🟢 **058** — Унифицировать connection, stale и recoverable states — [детали](tasks/TH-20260829-058.md)
 - 📝 **059** — Разделить MatchList и canonical Double Elimination renderer — [детали](tasks/TH-20260829-059.md)
 - 📝 **060** — Убрать demo-очки и зафиксировать standings contract — [детали](tasks/TH-20260829-060.md)
 - 🟢 **061** — Закрыть accessibility и content/localization gates — [детали](tasks/TH-20260829-061.md)
@@ -18,6 +17,7 @@
 - ✅ **055** — Пересобрать AppShell, PageHeader и active navigation — [детали](tasks/TH-20260829-055.md)
 - ✅ **056** — Закрепить responsive layout и иерархию действий — [детали](tasks/TH-20260829-056.md)
 - ✅ **057** — Ввести полную матрицу состояний форм и действий — [детали](tasks/TH-20260829-057.md)
+- ✅ **058** — Унифицировать connection, stale и recoverable states — [детали](tasks/TH-20260829-058.md)
 - ✅ **054** — Снизить визуальный приоритет редактирования профиля — [детали](tasks/TH-20260829-054.md)
 - ✅ **052** — Выравнять history, participant и recoverable screens по visual language — [детали](tasks/TH-20260828-052.md)
 - ✅ **051** — Выравнять Host tournament flow по новому visual language — [детали](tasks/TH-20260828-051.md)

@@ -21,8 +21,9 @@ class ParticipantFinishedScreenPreview extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         const ConnectionBanner(
-          message: 'Финальный снимок получен',
-          kind: StatusKind.success,
+          state: TournamentConnectionState.connected,
+          detail: 'Финальный снимок получен',
+          synchronizedAtLabel: 'только что',
         ),
         const DsGap(DsSpace.lg),
         const TournamentStageHeader(

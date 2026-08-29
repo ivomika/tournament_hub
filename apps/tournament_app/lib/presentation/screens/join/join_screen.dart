@@ -14,8 +14,8 @@ class JoinScreenPreview extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         const ConnectionBanner(
-          message: 'Подключение не начато',
-          kind: StatusKind.neutral,
+          state: TournamentConnectionState.disconnected,
+          detail: 'Подключение ещё не начато',
         ),
         const DsGap(DsSpace.lg),
         AdaptiveSplit(

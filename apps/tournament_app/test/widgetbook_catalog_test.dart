@@ -640,7 +640,40 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('ДАННЫЕ УСТАРЕЛИ'), findsOneWidget);
-    expect(find.textContaining('обновлено 2 минуты назад'), findsOneWidget);
+    expect(find.text('Обновлено: 2 минуты назад'), findsOneWidget);
     expect(find.text('Переподключиться'), findsOneWidget);
+  });
+
+  testWidgets('connection contract различает все состояния текстом', (
+    tester,
+  ) async {
+    const labels = {
+      TournamentConnectionState.connected: 'Подключено',
+      TournamentConnectionState.reconnecting: 'Восстанавливаем связь',
+      TournamentConnectionState.stale: 'Данные устарели',
+      TournamentConnectionState.disconnected: 'Нет подключения',
+      TournamentConnectionState.incompatible: 'Версия приложения несовместима',
+      TournamentConnectionState.retrying: 'Повторяем подключение',
+    };
+
+    for (final entry in labels.entries) {
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: TournamentTheme.dark,
+          home: Scaffold(
+            body: ConnectionBanner(
+              state: entry.key,
+              detail: 'Без технических данных',
+              synchronizedAtLabel: '2 минуты назад',
+              onAction: () {},
+            ),
+          ),
+        ),
+      );
+      await tester.pump();
+      expect(find.text(entry.value), findsOneWidget, reason: entry.key.name);
+      expect(find.textContaining('stack'), findsNothing);
+      expect(tester.takeException(), isNull, reason: entry.key.name);
+    }
   });
 }

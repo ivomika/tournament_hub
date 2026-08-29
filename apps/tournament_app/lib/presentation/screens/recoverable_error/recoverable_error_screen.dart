@@ -14,9 +14,8 @@ class RecoverableErrorScreenPreview extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         ConnectionBanner(
-          message: 'Несовместимая версия протокола',
-          kind: StatusKind.danger,
-          actionLabel: 'Проверить снова',
+          state: TournamentConnectionState.incompatible,
+          detail: 'Обновите приложение на обоих устройствах',
           onAction: () {},
         ),
         const DsGap(DsSpace.lg),
