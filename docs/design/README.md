@@ -57,6 +57,13 @@
 - `ConfirmationDialog`: объект, необратимое последствие и safe default focus.
 - `ChampionHero`: fighter identity, champion participant и tournament context; complete ranking остаётся доступным.
 
+### Tournament structure representations
+
+- `MatchList` — каноническая compact-representation: один линейный список с семантическими заголовками этапов, полными fighter/participant identities и текстовым состоянием каждого матча.
+- `DoubleEliminationBracket` — expanded-representation: отдельные Winners/Losers lanes, Grand Final, условный Bracket Reset и явные connectors. Pan/zoom не заменяет доступное текстовое описание связей.
+- Оба renderer получают готовые matches, states и links из presentation projection. Они не рассчитывают progression, Bye, Reset, места или correction.
+- Single Elimination и Round Robin используют `MatchList`, пока для них не определён отдельный канонический expanded renderer.
+
 ### Fighter artwork hierarchy
 
 Character artwork — главный визуальный якорь post-assignment identity, а не маленькая декоративная иконка. Semantic variants из `artwork.size.*` применяются по роли representation:

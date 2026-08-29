@@ -16,10 +16,12 @@ import '../components/ds_section/ds_section_theme.dart';
 import '../components/ds_spacing/ds_spacing_theme.dart';
 import '../components/ds_surface/ds_surface_theme.dart';
 import '../components/ds_text/ds_text_theme.dart';
+import '../components/double_elimination_bracket/double_elimination_bracket_theme.dart';
 import '../components/empty_state/empty_state_theme.dart';
 import '../components/fighter_avatar/fighter_avatar_theme.dart';
 import '../components/history_snapshot_card/history_snapshot_card_theme.dart';
 import '../components/match_card/match_card_theme.dart';
+import '../components/match_list/match_list_theme.dart';
 import '../components/outcome_picker/outcome_picker_theme.dart';
 import '../components/page_header/page_header_theme.dart';
 import '../components/participant_identity/participant_identity_theme.dart';
@@ -224,7 +226,31 @@ abstract final class TournamentTheme {
         ),
         const BracketTheme(
           gap: TournamentTokens.spaceV4,
-          itemWidth: TournamentTokens.breakpointCompactMax,
+          desktopBreakpoint: TournamentTokens.breakpointExpandedMin,
+        ),
+        const MatchListTheme(gap: TournamentTokens.spaceV4),
+        const DoubleEliminationBracketTheme(
+          connector: TournamentTokens.colorTextSecondary,
+          winnerConnector: TournamentTokens.colorStatusSuccess,
+          loserConnector: TournamentTokens.colorStatusWarning,
+          canvasWidth: TournamentTokens.layoutHostContentMaxMax,
+          canvasHeight:
+              TournamentTokens.breakpointXlargeMin +
+              TournamentTokens.artworkSizeHero,
+          viewportHeight: TournamentTokens.breakpointMediumMax,
+          nodeWidth: TournamentTokens.artworkSizeHero,
+          nodeHeight:
+              TournamentTokens.artworkSizeHero +
+              TournamentTokens.spaceV16 +
+              TournamentTokens.spaceV24 +
+              TournamentTokens.spaceV12,
+          columnGap: TournamentTokens.spaceV12,
+          rowGap: TournamentTokens.spaceV12,
+          losersOffset: TournamentTokens.breakpointExpandedMax,
+          padding: TournamentTokens.spaceV4,
+          lineWidth: TournamentTokens.spaceV1,
+          minScale: 1,
+          maxScale: 2,
         ),
         const EmptyStateTheme(
           foreground: TournamentTokens.colorTextSecondary,

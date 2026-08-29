@@ -555,6 +555,95 @@ void main() {
     expect(find.textContaining('Результат:'), findsNothing);
   });
 
+  testWidgets('DE использует список на mobile и связный граф на desktop', (
+    tester,
+  ) async {
+    tester.view.devicePixelRatio = 1;
+    addTearDown(() {
+      tester.view.resetPhysicalSize();
+      tester.view.resetDevicePixelRatio();
+    });
+
+    tester.view.physicalSize = const Size(375, 812);
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: TournamentTheme.dark,
+        home: const Scaffold(
+          body: SingleChildScrollView(child: TournamentBracketPreview()),
+        ),
+      ),
+    );
+    expect(find.byType(MatchList), findsOneWidget);
+    expect(find.byType(DoubleEliminationBracket), findsNothing);
+
+    tester.view.physicalSize = const Size(1280, 960);
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: TournamentTheme.dark,
+        home: const Scaffold(
+          body: SingleChildScrollView(child: TournamentBracketPreview()),
+        ),
+      ),
+    );
+    await tester.pump();
+    expect(find.byType(DoubleEliminationBracket), findsOneWidget);
+    expect(find.byType(InteractiveViewer), findsOneWidget);
+    expect(
+      find.bySemanticsLabel(RegExp('Победитель Матча 01.*верхней сетки')),
+      findsOneWidget,
+    );
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('match list различает все match states без вычисления', (
+    tester,
+  ) async {
+    final states = BracketMatchState.values;
+    final matches = [
+      for (final (index, state) in states.indexed)
+        BracketMatchViewData(
+          id: 'state-$index',
+          title: 'Очень длинное название матча номер $index',
+          lane: BracketLane.stage,
+          round: index,
+          order: index,
+          first: previewParticipants.first,
+          second: previewParticipants[1],
+          state: state,
+          conditionLabel: state == BracketMatchState.reset
+              ? 'Условие Reset приходит готовым из authoritative projection'
+              : null,
+        ),
+    ];
+    tester.view.devicePixelRatio = 1;
+    tester.view.physicalSize = const Size(320, 1600);
+    addTearDown(() {
+      tester.view.resetPhysicalSize();
+      tester.view.resetDevicePixelRatio();
+    });
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: TournamentTheme.dark,
+        home: Scaffold(
+          body: SingleChildScrollView(
+            child: MatchList(
+              data: BracketViewData(
+                format: TournamentStructureFormat.doubleElimination,
+                matches: matches,
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+    await tester.pump();
+
+    for (final state in states) {
+      expect(find.text(bracketMatchStateLabel(state)), findsWidgets);
+    }
+    expect(tester.takeException(), isNull);
+  });
+
   testWidgets('SE и RR structure имеют собственную семантику', (tester) async {
     for (final format in const [
       TournamentStructureFormat.singleElimination,
