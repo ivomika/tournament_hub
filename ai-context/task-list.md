@@ -10,6 +10,7 @@
 
 ## Завершённые задачи
 
+- ✅ **054** — Снизить визуальный приоритет редактирования профиля — [детали](tasks/TH-20260829-054.md)
 - ✅ **052** — Выравнять history, participant и recoverable screens по visual language — [детали](tasks/TH-20260828-052.md)
 - ✅ **051** — Выравнять Host tournament flow по новому visual language — [детали](tasks/TH-20260828-051.md)
 - ✅ **050** — Выравнять shell, Main и profile screens по новому visual language — [детали](tasks/TH-20260828-050.md)

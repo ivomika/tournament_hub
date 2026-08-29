@@ -322,6 +322,23 @@ void main() {
     );
   });
 
+  testWidgets('profile не раскрывает редактирование nickname по умолчанию', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: TournamentTheme.dark,
+        home: const TournamentScreenPreview(kind: ScreenPreviewKind.profile),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.text('Новый никнейм'), findsNothing);
+    expect(find.text('Сохранить изменения'), findsNothing);
+    expect(find.text('Редактировать профиль'), findsOneWidget);
+    expect(find.byType(TextField), findsNothing);
+  });
+
   testWidgets('result picker называет fighter и не использует счёт', (
     tester,
   ) async {

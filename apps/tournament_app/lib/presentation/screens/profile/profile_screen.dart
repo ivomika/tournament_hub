@@ -14,17 +14,15 @@ class ProfileScreenPreview extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         const ProfileSummary(nickname: 'Иван', tournaments: 12, victories: 4),
-        const DsGap(DsSpace.lg),
-        DsSection(
-          title: 'Изменить никнейм',
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              const DsTextField(label: 'Новый никнейм'),
-              const DsGap(DsSpace.md),
-              DsAction(label: 'Сохранить изменения', onPressed: () {}),
-            ],
-          ),
+        const DsGap(DsSpace.sm),
+        DsFlow(
+          children: [
+            DsAction(
+              label: 'Редактировать профиль',
+              kind: DsActionKind.text,
+              onPressed: () {},
+            ),
+          ],
         ),
       ],
     ),
