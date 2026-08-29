@@ -17,23 +17,23 @@ class HostFinishedScreenPreview extends StatelessWidget {
         ActionDockAction(label: 'Открыть историю', onSelected: () {}),
       ],
     ),
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        AdaptiveSplit(
-          primary: ChampionHero(champion: previewParticipants.first),
-          secondary: const TournamentStandings(),
-        ),
-        const DsGap(DsSpace.lg),
-        const TournamentStageHeader(
-          stage: 'Результат зафиксирован',
-          progress: 'ЗАВЕРШЁН',
-          detail: 'Турнир доступен только для чтения и сохранён в истории.',
-          kind: StatusKind.success,
-        ),
-        const DsGap(DsSpace.lg),
-        const TournamentBracketPreview(),
-      ],
+    child: PageLayout(
+      preset: PageLayoutPreset.hero,
+      primary: ChampionHero(champion: previewParticipants.first),
+      secondary: const TournamentStandings(),
+      supporting: const Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          TournamentStageHeader(
+            stage: 'Результат зафиксирован',
+            progress: 'ЗАВЕРШЁН',
+            detail: 'Турнир доступен только для чтения и сохранён в истории.',
+            kind: StatusKind.success,
+          ),
+          DsGap(DsSpace.lg),
+          TournamentBracketPreview(),
+        ],
+      ),
     ),
   );
 }

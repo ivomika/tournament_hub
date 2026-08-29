@@ -136,6 +136,8 @@ Character artwork — главный визуальный якорь post-assign
 
 Канонический список экранов и переходов находится в [screen map](../product/screen-map.md). Визуальные обязательства:
 
+Page-level adaptive composition задаётся public `PageLayout` и semantic preset из [ADR-0008](../adr/0008-semantic-page-layout-presets.md). `focused` предназначен для одной readable задачи, `split` — для dominant object и компактного контекста, `workspace` — для рабочей области с полноценным secondary rail, `archive` — для списка/snapshot с metadata, `hero` — для champion/current identity с ranking/context. На compact/medium regions следуют единым порядком `primary → secondary → supporting`; на expanded preset меняет композицию без дублирования content. Локальные `Row`/`Expanded`, screen-specific breakpoints и декоративное заполнение whitespace не заменяют semantic preset.
+
 - Main показывает active state и next action до вторичных действий.
 - Draft сохраняет видимый summary и показывает validation рядом с field.
 - Open отделяет roster, connection и management actions.

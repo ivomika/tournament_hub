@@ -17,29 +17,26 @@ class HostDistributionScreenPreview extends StatelessWidget {
         ActionDockAction(label: 'Перераздать всех', onSelected: () {}),
       ],
     ),
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        DsSection(
-          title: 'Назначения',
-          child: DsFlow(
-            children: [
-              for (final participant in previewParticipants)
-                DsSurface(
-                  tone: DsSurfaceTone.elevated,
-                  child: ParticipantIdentity(participant: participant),
-                ),
-            ],
-          ),
+    child: PageLayout(
+      preset: PageLayoutPreset.split,
+      primary: DsSection(
+        title: 'Назначения',
+        child: DsFlow(
+          children: [
+            for (final participant in previewParticipants)
+              DsSurface(
+                tone: DsSurfaceTone.elevated,
+                child: ParticipantIdentity(participant: participant),
+              ),
+          ],
         ),
-        const DsGap(DsSpace.lg),
-        const TournamentStageHeader(
-          stage: 'Случайное назначение',
-          progress: '4 ИЗ 4',
-          detail: 'Все участники получили уникальных бойцов.',
-          kind: StatusKind.success,
-        ),
-      ],
+      ),
+      secondary: const TournamentStageHeader(
+        stage: 'Случайное назначение',
+        progress: '4 ИЗ 4',
+        detail: 'Все участники получили уникальных бойцов.',
+        kind: StatusKind.success,
+      ),
     ),
   );
 }

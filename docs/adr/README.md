@@ -19,3 +19,4 @@ ADR фиксирует устойчивое решение, меняющее sys
 - [ADR-0005: Переиспользуемые QR primitives в Flutter design system](0005-reusable-qr-primitives.md) — Accepted.
 - [ADR-0006: Screen-level ActionDock для критичных mobile-действий](0006-screen-level-action-dock.md) — Superseded by ADR-0007.
 - [ADR-0007: Единый action contract для Host lifecycle](0007-unified-host-action-contract.md) — Accepted.
+- [ADR-0008: Семантические page-layout presets](0008-semantic-page-layout-presets.md) — Accepted.

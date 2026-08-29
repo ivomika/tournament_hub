@@ -27,6 +27,7 @@ export 'components/match_card/match_card.dart';
 export 'components/match_list/match_list.dart';
 export 'components/outcome_picker/outcome_picker.dart';
 export 'components/page_header/page_header.dart';
+export 'components/page_layout/page_layout.dart';
 export 'components/participant_identity/participant_identity.dart';
 export 'components/participant_invite_card/participant_invite_card.dart';
 export 'components/participant_invite_card/participant_invite_view_data.dart';

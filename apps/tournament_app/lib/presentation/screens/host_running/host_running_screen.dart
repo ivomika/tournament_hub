@@ -14,31 +14,28 @@ class HostRunningScreenPreview extends StatelessWidget {
     actionDock: ActionDock(
       primary: DsAction(label: 'Ввести результат', onPressed: () {}),
     ),
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        AdaptiveSplit(
-          primary: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              TournamentMatchCard(
-                title: 'Матч 07 · Верхняя сетка',
-                first: previewParticipants.first,
-                second: previewParticipants[1],
-                isCurrent: true,
-              ),
-            ],
+    child: PageLayout(
+      preset: PageLayoutPreset.workspace,
+      primary: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          TournamentMatchCard(
+            title: 'Матч 07 · Верхняя сетка',
+            first: previewParticipants.first,
+            second: previewParticipants[1],
+            isCurrent: true,
           ),
-          secondary: const TournamentBracketPreview(),
-        ),
-        const DsGap(DsSpace.lg),
-        const TournamentStageHeader(
-          stage: 'Турнир идёт',
-          progress: 'МАТЧ 7 ИЗ 15',
-          detail: 'Текущий матч — единственное доступное спортивное действие.',
-          kind: StatusKind.warning,
-        ),
-      ],
+          const DsGap(DsSpace.lg),
+          const TournamentStageHeader(
+            stage: 'Турнир идёт',
+            progress: 'МАТЧ 7 ИЗ 15',
+            detail:
+                'Текущий матч — единственное доступное спортивное действие.',
+            kind: StatusKind.warning,
+          ),
+        ],
+      ),
+      secondary: const TournamentBracketPreview(),
     ),
   );
 }

@@ -73,6 +73,13 @@ List<WidgetbookNode> buildTournamentCatalog() => [
         ],
       ),
       WidgetbookComponent(
+        name: 'Page layouts',
+        useCases: [
+          for (final preset in PageLayoutPreset.values)
+            _useCase('Layout / ${preset.name}', _pageLayoutPreview(preset)),
+        ],
+      ),
+      WidgetbookComponent(
         name: 'Actions and fields',
         useCases: [
           WidgetbookUseCase(
@@ -568,6 +575,31 @@ List<WidgetbookNode> buildTournamentCatalog() => [
     ],
   ),
 ];
+
+Widget _pageLayoutPreview(PageLayoutPreset preset) => DsPagePadding(
+  child: PageLayout(
+    preset: preset,
+    primary: const DsSurface(
+      tone: DsSurfaceTone.elevated,
+      child: DsSection(
+        title: 'Главная область',
+        child: DsText('Dominant object и основной рабочий контекст.'),
+      ),
+    ),
+    secondary: preset == PageLayoutPreset.focused
+        ? null
+        : const DsSurface(
+            child: DsSection(
+              title: 'Контекст',
+              child: DsText('Secondary rail без дублирования content.'),
+            ),
+          ),
+    supporting: const DsText(
+      'Supporting content следует после основной композиции.',
+      variant: DsTextVariant.secondary,
+    ),
+  ),
+);
 
 WidgetbookUseCase _useCase(String name, Widget child) => WidgetbookUseCase(
   name: name,

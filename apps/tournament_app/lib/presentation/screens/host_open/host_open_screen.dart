@@ -52,39 +52,39 @@ class HostOpenScreenPreview extends StatelessWidget {
           onSelected: () {},
         ),
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          AdaptiveSplit(
-            primary: DsSection(
-              title: 'Участники',
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  for (final participant in previewParticipants) ...[
-                    ParticipantIdentity(participant: participant),
-                    const DsGap(DsSpace.sm),
-                  ],
-                ],
-              ),
-            ),
-            secondary: ParticipantInviteCard(
+      child: PageLayout(
+        preset: PageLayoutPreset.workspace,
+        primary: DsSection(
+          title: 'Участники',
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              for (final participant in previewParticipants) ...[
+                ParticipantIdentity(participant: participant),
+                const DsGap(DsSpace.sm),
+              ],
+            ],
+          ),
+        ),
+        secondary: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            ParticipantInviteCard(
               data: _participantInvite,
               onCopyCode: () {},
               onCopyAddress: () {},
               onRetry: () {},
             ),
-          ),
-          const DsGap(DsSpace.lg),
-          const TournamentStageHeader(
-            stage: 'Сбор участников',
-            progress: '4 ИГРОКА',
-            detail: 'Настройки турнира зафиксированы. Состав ещё можно менять.',
-            kind: StatusKind.success,
-          ),
-          const DsGap(DsSpace.lg),
-          HostOpenConnectionSummary(data: spectatorProjection),
-        ],
+            const DsGap(DsSpace.lg),
+            HostOpenConnectionSummary(data: spectatorProjection),
+          ],
+        ),
+        supporting: const TournamentStageHeader(
+          stage: 'Сбор участников',
+          progress: '4 ИГРОКА',
+          detail: 'Настройки турнира зафиксированы. Состав ещё можно менять.',
+          kind: StatusKind.success,
+        ),
       ),
     );
   }

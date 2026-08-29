@@ -27,6 +27,7 @@ import '../components/match_card/match_card_theme.dart';
 import '../components/match_list/match_list_theme.dart';
 import '../components/outcome_picker/outcome_picker_theme.dart';
 import '../components/page_header/page_header_theme.dart';
+import '../components/page_layout/page_layout_theme.dart';
 import '../components/participant_identity/participant_identity_theme.dart';
 import '../components/participant_invite_card/participant_invite_card_theme.dart';
 import '../components/participant_join_panel/participant_join_panel_theme.dart';
@@ -138,6 +139,20 @@ abstract final class TournamentTheme {
           gap: TournamentTokens.spaceV6,
           primaryFlex: 3,
           secondaryFlex: 2,
+        ),
+        const PageLayoutTheme(
+          expandedBreakpoint: TournamentTokens.breakpointExpandedMin,
+          panelGap: TournamentTokens.spaceV6,
+          supportingGap: TournamentTokens.spaceV6,
+          focusedMaxWidth: TournamentTokens.breakpointCompactMax,
+          splitPrimaryFlex: 2,
+          splitSecondaryFlex: 1,
+          workspacePrimaryFlex: 3,
+          workspaceSecondaryFlex: 2,
+          archivePrimaryFlex: 3,
+          archiveSecondaryFlex: 1,
+          heroPrimaryFlex: 2,
+          heroSecondaryFlex: 1,
         ),
         const DsSpacingTheme(
           xs: TournamentTokens.spaceV1,
