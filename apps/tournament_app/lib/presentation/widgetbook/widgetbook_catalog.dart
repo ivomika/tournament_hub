@@ -96,6 +96,26 @@ List<WidgetbookNode> buildTournamentCatalog() => [
               ),
             ),
           ),
+          WidgetbookUseCase(
+            name: 'Responsive hierarchy',
+            builder: (_) => DsPagePadding(
+              child: ResponsiveActions(
+                primary: DsAction(label: 'Продолжить', onPressed: () {}),
+                secondary: [
+                  DsAction(
+                    label: 'Сохранить черновик',
+                    kind: DsActionKind.secondary,
+                    onPressed: () {},
+                  ),
+                ],
+                destructive: DsAction(
+                  label: 'Удалить',
+                  kind: DsActionKind.danger,
+                  onPressed: () {},
+                ),
+              ),
+            ),
+          ),
         ],
       ),
       WidgetbookComponent(

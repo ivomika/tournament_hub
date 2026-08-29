@@ -10,6 +10,13 @@ class ParticipantFinishedScreenPreview extends StatelessWidget {
     title: 'Турнир завершён',
     subtitle: 'Friday Fight Night · итоговая проекция',
     sectionLabel: 'PARTICIPANT · ФИНАЛ',
+    pageActions: ResponsiveActions(
+      primary: DsAction(
+        label: 'На главную',
+        kind: DsActionKind.secondary,
+        onPressed: () {},
+      ),
+    ),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -28,16 +35,6 @@ class ParticipantFinishedScreenPreview extends StatelessWidget {
         AdaptiveSplit(
           primary: ChampionHero(champion: previewParticipants.first),
           secondary: TournamentStandings(participants: previewParticipants),
-        ),
-        const DsGap(DsSpace.lg),
-        DsFlow(
-          children: [
-            DsAction(
-              label: 'На главную',
-              kind: DsActionKind.secondary,
-              onPressed: () {},
-            ),
-          ],
         ),
       ],
     ),

@@ -11,6 +11,8 @@ class AppShellTheme extends ThemeExtension<AppShellTheme> {
     required this.desktopBreakpoint,
     required this.contentMaxWidth,
     required this.pagePaddingCompact,
+    required this.mediumBreakpoint,
+    required this.pagePaddingMedium,
     required this.pagePaddingDesktop,
     required this.contentGap,
   });
@@ -22,6 +24,8 @@ class AppShellTheme extends ThemeExtension<AppShellTheme> {
   final double desktopBreakpoint;
   final double contentMaxWidth;
   final double pagePaddingCompact;
+  final double mediumBreakpoint;
+  final double pagePaddingMedium;
   final double pagePaddingDesktop;
   final double contentGap;
 
@@ -34,6 +38,8 @@ class AppShellTheme extends ThemeExtension<AppShellTheme> {
     double? desktopBreakpoint,
     double? contentMaxWidth,
     double? pagePaddingCompact,
+    double? mediumBreakpoint,
+    double? pagePaddingMedium,
     double? pagePaddingDesktop,
     double? contentGap,
   }) => AppShellTheme(
@@ -44,6 +50,8 @@ class AppShellTheme extends ThemeExtension<AppShellTheme> {
     desktopBreakpoint: desktopBreakpoint ?? this.desktopBreakpoint,
     contentMaxWidth: contentMaxWidth ?? this.contentMaxWidth,
     pagePaddingCompact: pagePaddingCompact ?? this.pagePaddingCompact,
+    mediumBreakpoint: mediumBreakpoint ?? this.mediumBreakpoint,
+    pagePaddingMedium: pagePaddingMedium ?? this.pagePaddingMedium,
     pagePaddingDesktop: pagePaddingDesktop ?? this.pagePaddingDesktop,
     contentGap: contentGap ?? this.contentGap,
   );
@@ -73,6 +81,16 @@ class AppShellTheme extends ThemeExtension<AppShellTheme> {
       pagePaddingCompact: lerpDouble(
         pagePaddingCompact,
         other.pagePaddingCompact,
+        t,
+      )!,
+      mediumBreakpoint: lerpDouble(
+        mediumBreakpoint,
+        other.mediumBreakpoint,
+        t,
+      )!,
+      pagePaddingMedium: lerpDouble(
+        pagePaddingMedium,
+        other.pagePaddingMedium,
         t,
       )!,
       pagePaddingDesktop: lerpDouble(

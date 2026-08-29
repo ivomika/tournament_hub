@@ -21,6 +21,7 @@ export 'components/outcome_picker/outcome_picker.dart';
 export 'components/page_header/page_header.dart';
 export 'components/participant_identity/participant_identity.dart';
 export 'components/profile_summary/profile_summary.dart';
+export 'components/responsive_actions/responsive_actions.dart';
 export 'components/standings/standings.dart';
 export 'components/status_badge/status_badge.dart';
 export 'components/token_showcase/token_showcase.dart';

@@ -42,7 +42,10 @@ void main() {
 
     for (final size in const [
       Size(320, 720),
+      Size(375, 812),
       Size(599, 959),
+      Size(768, 1024),
+      Size(1024, 768),
       Size(1280, 960),
     ]) {
       tester.view.physicalSize = size;
@@ -57,6 +60,65 @@ void main() {
         expect(tester.takeException(), isNull, reason: '${kind.name} at $size');
       }
     }
+  });
+
+  testWidgets('page actions закреплены над mobile navigation', (tester) async {
+    tester.view.devicePixelRatio = 1;
+    tester.view.physicalSize = const Size(375, 812);
+    addTearDown(() {
+      tester.view.resetPhysicalSize();
+      tester.view.resetDevicePixelRatio();
+    });
+
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: TournamentTheme.dark,
+        home: const TournamentScreenPreview(
+          kind: ScreenPreviewKind.hostRunning,
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    final action = find.text('Определить победителя');
+    final navigation = find.byType(NavigationBar);
+    expect(action, findsOneWidget);
+    expect(navigation, findsOneWidget);
+    expect(
+      tester.getBottomLeft(action).dy,
+      lessThan(tester.getTopLeft(navigation).dy),
+    );
+  });
+
+  testWidgets('responsive actions сохраняют одну primary action', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: TournamentTheme.dark,
+        home: Scaffold(
+          body: ResponsiveActions(
+            primary: DsAction(label: 'Продолжить', onPressed: () {}),
+            secondary: [
+              DsAction(
+                label: 'Назад',
+                kind: DsActionKind.secondary,
+                onPressed: () {},
+              ),
+            ],
+            destructive: DsAction(
+              label: 'Удалить',
+              kind: DsActionKind.danger,
+              onPressed: () {},
+            ),
+          ),
+        ),
+      ),
+    );
+
+    expect(find.byType(ElevatedButton), findsOneWidget);
+    expect(find.byType(OutlinedButton), findsNWidgets(2));
+    expect(tester.takeException(), isNull);
   });
 
   testWidgets('identity показывает персонажа и участника', (tester) async {

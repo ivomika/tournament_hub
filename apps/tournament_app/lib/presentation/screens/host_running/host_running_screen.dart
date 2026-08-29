@@ -10,6 +10,9 @@ class HostRunningScreenPreview extends StatelessWidget {
     title: 'Турнир идёт',
     subtitle: 'Double Elimination · Верхняя сетка · Раунд 2',
     sectionLabel: 'FRIDAY FIGHT NIGHT',
+    pageActions: ResponsiveActions(
+      primary: DsAction(label: 'Определить победителя', onPressed: () {}),
+    ),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -30,8 +33,6 @@ class HostRunningScreenPreview extends StatelessWidget {
                 second: previewParticipants[1],
                 isCurrent: true,
               ),
-              const DsGap(DsSpace.md),
-              DsAction(label: 'Определить победителя', onPressed: () {}),
             ],
           ),
           secondary: const TournamentBracketPreview(),

@@ -24,6 +24,7 @@ import '../components/outcome_picker/outcome_picker_theme.dart';
 import '../components/page_header/page_header_theme.dart';
 import '../components/participant_identity/participant_identity_theme.dart';
 import '../components/profile_summary/profile_summary_theme.dart';
+import '../components/responsive_actions/responsive_actions_theme.dart';
 import '../components/standings/standings_theme.dart';
 import '../components/status_badge/status_badge_theme.dart';
 import '../components/token_showcase/token_showcase_theme.dart';
@@ -254,8 +255,18 @@ abstract final class TournamentTheme {
           desktopBreakpoint: TournamentTokens.breakpointExpandedMin,
           contentMaxWidth: TournamentTokens.layoutHostContentMaxMax,
           pagePaddingCompact: TournamentTokens.layoutPagePaddingCompact,
+          mediumBreakpoint: TournamentTokens.breakpointMediumMin,
+          pagePaddingMedium: TournamentTokens.layoutPagePaddingMediumMin,
           pagePaddingDesktop: TournamentTokens.layoutPagePaddingDesktopMax,
           contentGap: TournamentTokens.spaceV6,
+        ),
+        const ResponsiveActionsTheme(
+          background: TournamentTokens.colorBackgroundSubtle,
+          divider: TournamentTokens.colorSurfaceTertiary,
+          gap: TournamentTokens.spaceV3,
+          sectionGap: TournamentTokens.spaceV6,
+          padding: TournamentTokens.spaceV4,
+          horizontalBreakpoint: TournamentTokens.breakpointCompactMax,
         ),
         const PageHeaderTheme(
           accent: TournamentTokens.colorAccentPrimary,

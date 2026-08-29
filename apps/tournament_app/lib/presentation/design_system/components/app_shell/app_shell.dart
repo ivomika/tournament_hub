@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../page_header/page_header.dart';
+import '../responsive_actions/responsive_actions.dart';
 import 'app_shell_theme.dart';
 
 enum AppDestination { home, history, profile, settings }
@@ -15,6 +16,7 @@ class AppShell extends StatelessWidget {
     this.onDestinationSelected,
     this.headerTrailing,
     this.headerVariant = PageHeaderVariant.standard,
+    this.pageActions,
     super.key,
   });
 
@@ -25,6 +27,7 @@ class AppShell extends StatelessWidget {
   final ValueChanged<AppDestination>? onDestinationSelected;
   final Widget? headerTrailing;
   final PageHeaderVariant headerVariant;
+  final ResponsiveActions? pageActions;
   final Widget child;
 
   @override
@@ -35,6 +38,8 @@ class AppShell extends StatelessWidget {
         final desktop = constraints.maxWidth >= theme.desktopBreakpoint;
         final pagePadding = desktop
             ? theme.pagePaddingDesktop
+            : constraints.maxWidth >= theme.mediumBreakpoint
+            ? theme.pagePaddingMedium
             : theme.pagePaddingCompact;
         final content = SafeArea(
           child: SingleChildScrollView(
@@ -46,7 +51,21 @@ class AppShell extends StatelessWidget {
                   title: title,
                   subtitle: subtitle,
                   sectionLabel: sectionLabel,
-                  trailing: headerTrailing,
+                  trailing:
+                      desktop && (headerTrailing != null || pageActions != null)
+                      ? _DesktopTrailing(
+                          contextWidget: headerTrailing,
+                          pageActions: pageActions == null
+                              ? null
+                              : ResponsiveActions(
+                                  primary: pageActions!.primary,
+                                  secondary: pageActions!.secondary,
+                                  destructive: pageActions!.destructive,
+                                  layout: ResponsiveActionsLayout.vertical,
+                                ),
+                          gap: theme.contentGap,
+                        )
+                      : headerTrailing,
                   variant: headerVariant,
                 ),
                 SizedBox(height: theme.contentGap),
@@ -113,35 +132,75 @@ class AppShell extends StatelessWidget {
           ),
           bottomNavigationBar: desktop
               ? null
-              : NavigationBar(
-                  backgroundColor: theme.navigationBackground,
-                  selectedIndex: currentDestination.index,
-                  onDestinationSelected: onDestinationSelected == null
-                      ? null
-                      : (index) => onDestinationSelected!(
-                          AppDestination.values[index],
+              : Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    if (pageActions != null)
+                      ResponsiveActions(
+                        primary: pageActions!.primary,
+                        secondary: pageActions!.secondary,
+                        destructive: pageActions!.destructive,
+                        showSurface: true,
+                        layout: ResponsiveActionsLayout.vertical,
+                      ),
+                    NavigationBar(
+                      backgroundColor: theme.navigationBackground,
+                      selectedIndex: currentDestination.index,
+                      onDestinationSelected: onDestinationSelected == null
+                          ? null
+                          : (index) => onDestinationSelected!(
+                              AppDestination.values[index],
+                            ),
+                      destinations: const [
+                        NavigationDestination(
+                          icon: Icon(Icons.home),
+                          label: 'Главная',
                         ),
-                  destinations: const [
-                    NavigationDestination(
-                      icon: Icon(Icons.home),
-                      label: 'Главная',
-                    ),
-                    NavigationDestination(
-                      icon: Icon(Icons.history),
-                      label: 'История',
-                    ),
-                    NavigationDestination(
-                      icon: Icon(Icons.person),
-                      label: 'Профиль',
-                    ),
-                    NavigationDestination(
-                      icon: Icon(Icons.settings),
-                      label: 'Настройки',
+                        NavigationDestination(
+                          icon: Icon(Icons.history),
+                          label: 'История',
+                        ),
+                        NavigationDestination(
+                          icon: Icon(Icons.person),
+                          label: 'Профиль',
+                        ),
+                        NavigationDestination(
+                          icon: Icon(Icons.settings),
+                          label: 'Настройки',
+                        ),
+                      ],
                     ),
                   ],
                 ),
         );
       },
+    );
+  }
+}
+
+class _DesktopTrailing extends StatelessWidget {
+  const _DesktopTrailing({
+    required this.contextWidget,
+    required this.pageActions,
+    required this.gap,
+  });
+
+  final Widget? contextWidget;
+  final ResponsiveActions? pageActions;
+  final double gap;
+
+  @override
+  Widget build(BuildContext context) {
+    if (contextWidget == null && pageActions == null) {
+      return const SizedBox.shrink();
+    }
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children: [
+        ?contextWidget,
+        if (contextWidget != null && pageActions != null) SizedBox(height: gap),
+        ?pageActions,
+      ],
     );
   }
 }

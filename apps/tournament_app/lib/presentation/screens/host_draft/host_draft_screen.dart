@@ -10,6 +10,9 @@ class HostDraftScreenPreview extends StatelessWidget {
     title: 'Новый турнир',
     subtitle: 'Настрой правила до открытия лобби — после этого они неизменны.',
     sectionLabel: 'DRAFT · ЭТАП 1 ИЗ 5',
+    pageActions: ResponsiveActions(
+      primary: DsAction(label: 'Открыть лобби', onPressed: () {}),
+    ),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -31,8 +34,6 @@ class HostDraftScreenPreview extends StatelessWidget {
                   title: 'Формат',
                   subtitle: 'Double Elimination',
                 ),
-                const DsGap(DsSpace.md),
-                DsAction(label: 'Открыть лобби', onPressed: () {}),
               ],
             ),
           ),

@@ -10,6 +10,16 @@ class HostDistributionScreenPreview extends StatelessWidget {
     title: 'Раздача персонажей',
     subtitle: 'Проверь каждую пару игрок—боец перед запуском сетки.',
     sectionLabel: 'DISTRIBUTION · ЭТАП 3 ИЗ 5',
+    pageActions: ResponsiveActions(
+      primary: DsAction(label: 'Создать сетку и начать', onPressed: () {}),
+      secondary: [
+        DsAction(
+          label: 'Перераздать всех',
+          kind: DsActionKind.secondary,
+          onPressed: () {},
+        ),
+      ],
+    ),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -31,17 +41,6 @@ class HostDistributionScreenPreview extends StatelessWidget {
                 ),
             ],
           ),
-        ),
-        const DsGap(DsSpace.lg),
-        DsFlow(
-          children: [
-            DsAction(label: 'Создать сетку и начать', onPressed: () {}),
-            DsAction(
-              label: 'Перераздать всех',
-              kind: DsActionKind.secondary,
-              onPressed: () {},
-            ),
-          ],
         ),
       ],
     ),

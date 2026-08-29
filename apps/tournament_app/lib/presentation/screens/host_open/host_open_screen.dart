@@ -10,6 +10,16 @@ class HostOpenScreenPreview extends StatelessWidget {
     title: 'Лобби открыто',
     subtitle: 'Добавь минимум двух игроков и переходи к раздаче персонажей.',
     sectionLabel: 'OPEN · ЭТАП 2 ИЗ 5',
+    pageActions: ResponsiveActions(
+      primary: DsAction(label: 'Начать раздачу', onPressed: () {}),
+      secondary: [
+        DsAction(
+          label: 'Добавить гостя',
+          kind: DsActionKind.secondary,
+          onPressed: () {},
+        ),
+      ],
+    ),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -42,17 +52,6 @@ class HostOpenScreenPreview extends StatelessWidget {
               ],
             ),
           ),
-        ),
-        const DsGap(DsSpace.lg),
-        DsFlow(
-          children: [
-            DsAction(label: 'Начать раздачу', onPressed: () {}),
-            DsAction(
-              label: 'Добавить гостя',
-              kind: DsActionKind.secondary,
-              onPressed: () {},
-            ),
-          ],
         ),
       ],
     ),
