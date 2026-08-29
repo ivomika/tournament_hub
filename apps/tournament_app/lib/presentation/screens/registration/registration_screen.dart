@@ -35,7 +35,11 @@ class RegistrationScreenPreview extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const DsTextField(label: 'Никнейм'),
+            const DsTextField(
+              label: 'Никнейм',
+              helperText: 'Так тебя увидят участники',
+              textInputAction: DsTextInputAction.done,
+            ),
             const DsGap(DsSpace.md),
             DsAction(label: 'Войти в арену', onPressed: () {}),
           ],

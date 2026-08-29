@@ -24,7 +24,11 @@ class JoinScreenPreview extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                const DsTextField(label: 'Код с экрана хоста'),
+                const DsTextField(
+                  label: 'Код с экрана хоста',
+                  helperText: 'Например, FIGHT-24',
+                  textInputAction: DsTextInputAction.done,
+                ),
                 const DsGap(DsSpace.md),
                 DsAction(label: 'Присоединиться', onPressed: () {}),
               ],

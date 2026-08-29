@@ -139,12 +139,20 @@ abstract final class TournamentTheme {
           text: textButton,
           danger: dangerButton,
           contentGap: TournamentTokens.spaceV2,
+          success: TournamentTokens.colorStatusSuccess,
+          indicatorSize: TournamentTokens.fontSizeV18,
+          indicatorStrokeWidth: TournamentTokens.spaceV1,
         ),
         const DangerZoneTheme(
           gap: TournamentTokens.spaceV4,
           iconColor: TournamentTokens.colorStatusDanger,
         ),
-        DsFieldTheme(decoration: fieldDecoration),
+        DsFieldTheme(
+          decoration: fieldDecoration,
+          success: TournamentTokens.colorStatusSuccess,
+          indicatorSize: TournamentTokens.fontSizeV18,
+          indicatorStrokeWidth: TournamentTokens.spaceV1,
+        ),
         const DsFlowTheme(gap: TournamentTokens.spaceV3),
         const FighterAvatarTheme(
           background: TournamentTokens.colorSurfaceTertiary,

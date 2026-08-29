@@ -4,12 +4,15 @@ import 'ds_action_theme.dart';
 
 enum DsActionKind { primary, secondary, text, danger }
 
+enum DsActionStatus { idle, loading, success }
+
 class DsAction extends StatelessWidget {
   const DsAction({
     required this.label,
     this.onPressed,
     this.kind = DsActionKind.primary,
     this.icon,
+    this.status = DsActionStatus.idle,
     super.key,
   });
 
@@ -17,6 +20,7 @@ class DsAction extends StatelessWidget {
   final VoidCallback? onPressed;
   final DsActionKind kind;
   final IconData? icon;
+  final DsActionStatus status;
 
   @override
   Widget build(BuildContext context) {
@@ -27,37 +31,60 @@ class DsAction extends StatelessWidget {
       DsActionKind.text => theme.text,
       DsActionKind.danger => theme.danger,
     };
-    final child = icon == null
+    final stateIcon = switch (status) {
+      DsActionStatus.idle => icon == null ? null : Icon(icon),
+      DsActionStatus.loading => SizedBox.square(
+        dimension: theme.indicatorSize,
+        child: CircularProgressIndicator(
+          strokeWidth: theme.indicatorStrokeWidth,
+        ),
+      ),
+      DsActionStatus.success => Icon(Icons.check, color: theme.success),
+    };
+    final child = stateIcon == null
         ? Text(label)
         : Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Icon(icon),
+              stateIcon,
               SizedBox(width: theme.contentGap),
               Flexible(child: Text(label)),
             ],
           );
-    return switch (kind) {
+    final effectiveOnPressed = status == DsActionStatus.loading
+        ? null
+        : onPressed;
+    final button = switch (kind) {
       DsActionKind.primary => ElevatedButton(
-        onPressed: onPressed,
+        onPressed: effectiveOnPressed,
         style: style,
         child: child,
       ),
       DsActionKind.secondary => OutlinedButton(
-        onPressed: onPressed,
+        onPressed: effectiveOnPressed,
         style: style,
         child: child,
       ),
       DsActionKind.text => TextButton(
-        onPressed: onPressed,
+        onPressed: effectiveOnPressed,
         style: style,
         child: child,
       ),
       DsActionKind.danger => OutlinedButton(
-        onPressed: onPressed,
+        onPressed: effectiveOnPressed,
         style: style,
         child: child,
       ),
     };
+    return Semantics(
+      button: true,
+      liveRegion: status != DsActionStatus.idle,
+      label: switch (status) {
+        DsActionStatus.idle => label,
+        DsActionStatus.loading => '$label. Выполняется',
+        DsActionStatus.success => '$label. Выполнено',
+      },
+      child: ExcludeSemantics(child: button),
+    );
   }
 }

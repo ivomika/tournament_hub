@@ -28,7 +28,11 @@ class HostDraftScreenPreview extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                const DsTextField(label: 'Название'),
+                const DsTextField(
+                  label: 'Название',
+                  helperText: 'Его увидят все участники',
+                  textInputAction: DsTextInputAction.done,
+                ),
                 const DsGap(DsSpace.md),
                 const DsInfoRow(
                   title: 'Формат',

@@ -121,6 +121,82 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
+  testWidgets('field отображает focus, helper и локальную ошибку', (
+    tester,
+  ) async {
+    final focusNode = FocusNode();
+    addTearDown(focusNode.dispose);
+
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: TournamentTheme.dark,
+        home: Scaffold(
+          body: DsTextField(
+            label: 'Код лобби',
+            helperText: 'Например, FIGHT-24',
+            errorText: 'Проверь код и попробуй снова',
+            focusNode: focusNode,
+            autofocus: true,
+          ),
+        ),
+      ),
+    );
+    await tester.pump();
+
+    expect(focusNode.hasFocus, isTrue);
+    expect(find.text('Проверь код и попробуй снова'), findsOneWidget);
+    expect(find.text('Например, FIGHT-24'), findsNothing);
+  });
+
+  testWidgets('field передаёт ввод наружу без business validation', (
+    tester,
+  ) async {
+    String? changed;
+    String? submitted;
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: TournamentTheme.dark,
+        home: Scaffold(
+          body: DsTextField(
+            label: 'Никнейм',
+            onChanged: (value) => changed = value,
+            onSubmitted: (value) => submitted = value,
+          ),
+        ),
+      ),
+    );
+
+    await tester.enterText(find.byType(TextField), '  player  ');
+    await tester.testTextInput.receiveAction(TextInputAction.done);
+    expect(changed, '  player  ');
+    expect(submitted, '  player  ');
+  });
+
+  testWidgets('loading action недоступна и объявляет состояние', (
+    tester,
+  ) async {
+    final semantics = tester.ensureSemantics();
+    var presses = 0;
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: TournamentTheme.dark,
+        home: Scaffold(
+          body: DsAction(
+            label: 'Подключиться',
+            status: DsActionStatus.loading,
+            onPressed: () => presses++,
+          ),
+        ),
+      ),
+    );
+
+    await tester.tap(find.byType(ElevatedButton));
+    expect(presses, 0);
+    expect(find.bySemanticsLabel('Подключиться. Выполняется'), findsOneWidget);
+    expect(find.byType(CircularProgressIndicator), findsOneWidget);
+    semantics.dispose();
+  });
+
   testWidgets('identity показывает персонажа и участника', (tester) async {
     await tester.pumpWidget(
       MaterialApp(

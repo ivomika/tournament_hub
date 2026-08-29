@@ -2,10 +2,18 @@ import 'package:flutter/material.dart';
 
 import '../ds_action/ds_action.dart';
 import '../ds_text/ds_text.dart';
+import '../responsive_actions/responsive_actions.dart';
 import 'confirmation_theme.dart';
 
+enum TournamentConfirmationStatus { idle, loading, success }
+
 class TournamentConfirmationPreview extends StatelessWidget {
-  const TournamentConfirmationPreview({super.key});
+  const TournamentConfirmationPreview({
+    this.status = TournamentConfirmationStatus.idle,
+    super.key,
+  });
+
+  final TournamentConfirmationStatus status;
 
   @override
   Widget build(BuildContext context) {
@@ -28,16 +36,31 @@ class TournamentConfirmationPreview extends StatelessWidget {
               variant: DsTextVariant.secondary,
             ),
             SizedBox(height: theme.gap),
-            Wrap(
-              alignment: WrapAlignment.end,
-              spacing: theme.gap,
-              children: [
+            ResponsiveActions(
+              primary: DsAction(
+                label: status == TournamentConfirmationStatus.success
+                    ? 'Турнир отменён'
+                    : 'Отменить турнир',
+                kind: DsActionKind.danger,
+                status: switch (status) {
+                  TournamentConfirmationStatus.idle => DsActionStatus.idle,
+                  TournamentConfirmationStatus.loading =>
+                    DsActionStatus.loading,
+                  TournamentConfirmationStatus.success =>
+                    DsActionStatus.success,
+                },
+                onPressed: status == TournamentConfirmationStatus.success
+                    ? null
+                    : () {},
+              ),
+              secondary: [
                 DsAction(
                   label: 'Назад',
                   kind: DsActionKind.text,
-                  onPressed: () {},
+                  onPressed: status == TournamentConfirmationStatus.loading
+                      ? null
+                      : () {},
                 ),
-                DsAction(label: 'Отменить турнир', onPressed: () {}),
               ],
             ),
           ],

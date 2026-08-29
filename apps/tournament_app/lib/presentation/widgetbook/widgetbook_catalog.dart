@@ -75,7 +75,7 @@ List<WidgetbookNode> buildTournamentCatalog() => [
         name: 'Actions and fields',
         useCases: [
           WidgetbookUseCase(
-            name: 'States',
+            name: 'Default and disabled',
             builder: (_) => DsPagePadding(
               child: DsFlow(
                 children: [
@@ -91,7 +91,68 @@ List<WidgetbookNode> buildTournamentCatalog() => [
                     onPressed: () {},
                   ),
                   const DsAction(label: 'Disabled'),
-                  const DsTextField(label: 'Tournament name'),
+                  const DsTextField(
+                    label: 'Название турнира',
+                    helperText: 'Отображается участникам',
+                  ),
+                  const DsTextField(label: 'Код лобби', enabled: false),
+                ],
+              ),
+            ),
+          ),
+          WidgetbookUseCase(
+            name: 'Focus and validation',
+            builder: (_) => const DsPagePadding(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  DsTextField(
+                    label: 'Никнейм',
+                    helperText: 'Так тебя увидят участники',
+                    autofocus: true,
+                    textInputAction: DsTextInputAction.next,
+                  ),
+                  DsGap(DsSpace.md),
+                  DsTextField(
+                    label: 'Код лобби',
+                    errorText: 'Проверь код и попробуй снова',
+                    textInputAction: DsTextInputAction.done,
+                  ),
+                ],
+              ),
+            ),
+          ),
+          WidgetbookUseCase(
+            name: 'Loading and success',
+            builder: (_) => DsPagePadding(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  const DsTextField(
+                    label: 'Проверка кода',
+                    status: DsFieldStatus.loading,
+                  ),
+                  const DsGap(DsSpace.md),
+                  const DsTextField(
+                    label: 'Никнейм сохранён',
+                    status: DsFieldStatus.success,
+                  ),
+                  const DsGap(DsSpace.md),
+                  ResponsiveActions(
+                    primary: DsAction(
+                      label: 'Подключение',
+                      status: DsActionStatus.loading,
+                      onPressed: () {},
+                    ),
+                    secondary: [
+                      DsAction(
+                        label: 'Сохранено',
+                        kind: DsActionKind.secondary,
+                        status: DsActionStatus.success,
+                        onPressed: () {},
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),
@@ -114,6 +175,24 @@ List<WidgetbookNode> buildTournamentCatalog() => [
                   onPressed: () {},
                 ),
               ),
+            ),
+          ),
+        ],
+      ),
+      WidgetbookComponent(
+        name: 'Confirmation',
+        useCases: [
+          _useCase('Idle', const TournamentConfirmationPreview()),
+          _useCase(
+            'Loading',
+            const TournamentConfirmationPreview(
+              status: TournamentConfirmationStatus.loading,
+            ),
+          ),
+          _useCase(
+            'Success',
+            const TournamentConfirmationPreview(
+              status: TournamentConfirmationStatus.success,
             ),
           ),
         ],

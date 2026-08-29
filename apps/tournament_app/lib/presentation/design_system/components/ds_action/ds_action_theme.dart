@@ -7,6 +7,9 @@ class DsActionTheme extends ThemeExtension<DsActionTheme> {
     required this.text,
     required this.danger,
     required this.contentGap,
+    required this.success,
+    required this.indicatorSize,
+    required this.indicatorStrokeWidth,
   });
 
   final ButtonStyle primary;
@@ -14,6 +17,9 @@ class DsActionTheme extends ThemeExtension<DsActionTheme> {
   final ButtonStyle text;
   final ButtonStyle danger;
   final double contentGap;
+  final Color success;
+  final double indicatorSize;
+  final double indicatorStrokeWidth;
 
   @override
   DsActionTheme copyWith({
@@ -22,12 +28,18 @@ class DsActionTheme extends ThemeExtension<DsActionTheme> {
     ButtonStyle? text,
     ButtonStyle? danger,
     double? contentGap,
+    Color? success,
+    double? indicatorSize,
+    double? indicatorStrokeWidth,
   }) => DsActionTheme(
     primary: primary ?? this.primary,
     secondary: secondary ?? this.secondary,
     text: text ?? this.text,
     danger: danger ?? this.danger,
     contentGap: contentGap ?? this.contentGap,
+    success: success ?? this.success,
+    indicatorSize: indicatorSize ?? this.indicatorSize,
+    indicatorStrokeWidth: indicatorStrokeWidth ?? this.indicatorStrokeWidth,
   );
 
   @override
@@ -39,6 +51,11 @@ class DsActionTheme extends ThemeExtension<DsActionTheme> {
       text: ButtonStyle.lerp(text, other.text, t)!,
       danger: ButtonStyle.lerp(danger, other.danger, t)!,
       contentGap: contentGap + (other.contentGap - contentGap) * t,
+      success: Color.lerp(success, other.success, t)!,
+      indicatorSize: indicatorSize + (other.indicatorSize - indicatorSize) * t,
+      indicatorStrokeWidth:
+          indicatorStrokeWidth +
+          (other.indicatorStrokeWidth - indicatorStrokeWidth) * t,
     );
   }
 }
