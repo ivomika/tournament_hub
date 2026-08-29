@@ -6,7 +6,7 @@ import '../ds_text/ds_text.dart';
 import 'action_dock_action.dart';
 import 'action_dock_theme.dart';
 
-class ActionDock extends StatelessWidget {
+class ActionDock extends StatefulWidget {
   const ActionDock({
     required this.primary,
     this.secondary = const [],
@@ -18,7 +18,25 @@ class ActionDock extends StatelessWidget {
   final List<ActionDockAction> secondary;
   final ActionDockAction? destructive;
 
-  List<ActionDockAction> get _overflowActions => [...secondary, ?destructive];
+  @override
+  State<ActionDock> createState() => _ActionDockState();
+}
+
+class _ActionDockState extends State<ActionDock> {
+  final FocusNode _overflowFocusNode = FocusNode(
+    debugLabel: 'ActionDock overflow',
+  );
+
+  List<ActionDockAction> get _overflowActions => [
+    ...widget.secondary,
+    ?widget.destructive,
+  ];
+
+  @override
+  void dispose() {
+    _overflowFocusNode.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,46 +61,45 @@ class ActionDock extends StatelessWidget {
               Expanded(
                 child: ConstrainedBox(
                   constraints: BoxConstraints(minHeight: theme.minimumHeight),
-                  child: primary,
+                  child: widget.primary,
                 ),
               ),
               if (_overflowActions.isNotEmpty) ...[
                 SizedBox(width: theme.gap),
-                SizedBox.square(
-                  dimension: theme.overflowSize,
-                  child: PopupMenuButton<ActionDockAction>(
-                    tooltip: 'Дополнительные действия',
-                    icon: const Icon(Icons.more_horiz),
-                    onSelected: (action) => _select(context, action),
-                    itemBuilder: (context) => [
-                      for (final action in _overflowActions)
-                        PopupMenuItem(
-                          key: action.key,
-                          value: action,
-                          enabled: action.enabled,
-                          child: Row(
-                            children: [
-                              if (action.icon case final icon?) ...[
-                                Icon(
-                                  icon,
-                                  color:
-                                      action.kind ==
-                                          ActionDockActionKind.destructive
-                                      ? theme.danger
-                                      : theme.foreground,
-                                ),
-                                SizedBox(width: theme.gap),
-                              ],
-                              Expanded(
-                                child: DsText(
-                                  action.label,
-                                  variant: DsTextVariant.secondary,
-                                ),
+                MenuAnchor(
+                  menuChildren: [
+                    for (final action in _overflowActions)
+                      MenuItemButton(
+                        key: action.key,
+                        onPressed: action.enabled
+                            ? () => _select(action)
+                            : null,
+                        leadingIcon: action.icon == null
+                            ? null
+                            : Icon(
+                                action.icon,
+                                color:
+                                    action.kind ==
+                                        ActionDockActionKind.destructive
+                                    ? theme.danger
+                                    : theme.foreground,
                               ),
-                            ],
-                          ),
+                        child: DsText(
+                          action.label,
+                          variant: DsTextVariant.secondary,
                         ),
-                    ],
+                      ),
+                  ],
+                  builder: (context, controller, child) => SizedBox.square(
+                    dimension: theme.overflowSize,
+                    child: IconButton(
+                      focusNode: _overflowFocusNode,
+                      tooltip: 'Дополнительные действия',
+                      icon: const Icon(Icons.more_horiz),
+                      onPressed: () => controller.isOpen
+                          ? controller.close()
+                          : controller.open(),
+                    ),
                   ),
                 ),
               ],
@@ -93,10 +110,11 @@ class ActionDock extends StatelessWidget {
     );
   }
 
-  Future<void> _select(BuildContext context, ActionDockAction action) async {
+  Future<void> _select(ActionDockAction action) async {
     if (!action.enabled) return;
     if (action.kind != ActionDockActionKind.destructive) {
       action.onSelected();
+      _restoreOverflowFocus();
       return;
     }
     final confirmed = await showTournamentConfirmationDialog<bool>(
@@ -126,5 +144,14 @@ class ActionDock extends StatelessWidget {
       ),
     );
     if (confirmed ?? false) action.onSelected();
+    _restoreOverflowFocus();
+  }
+
+  void _restoreOverflowFocus() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted && _overflowFocusNode.canRequestFocus) {
+        _overflowFocusNode.requestFocus();
+      }
+    });
   }
 }
