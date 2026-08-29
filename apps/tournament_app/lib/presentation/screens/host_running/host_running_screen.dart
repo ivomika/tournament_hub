@@ -13,6 +13,9 @@ class HostRunningScreenPreview extends StatelessWidget {
     pageActions: ResponsiveActions(
       primary: DsAction(label: 'Определить победителя', onPressed: () {}),
     ),
+    actionDock: ActionDock(
+      primary: DsAction(label: 'Ввести результат', onPressed: () {}),
+    ),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [

@@ -157,7 +157,7 @@ void main() {
     }
   });
 
-  testWidgets('page actions закреплены над mobile navigation', (tester) async {
+  testWidgets('ActionDock закреплён над mobile navigation', (tester) async {
     tester.view.devicePixelRatio = 1;
     tester.view.physicalSize = const Size(375, 812);
     addTearDown(() {
@@ -175,7 +175,7 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    final action = find.text('Определить победителя');
+    final action = find.text('Ввести результат');
     final navigation = find.byType(NavigationBar);
     expect(action, findsOneWidget);
     expect(navigation, findsOneWidget);

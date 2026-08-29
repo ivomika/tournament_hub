@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../action_dock/action_dock.dart';
 import '../page_header/page_header.dart';
 import '../responsive_actions/responsive_actions.dart';
 import 'app_shell_theme.dart';
@@ -17,6 +18,7 @@ class AppShell extends StatelessWidget {
     this.headerTrailing,
     this.headerVariant = PageHeaderVariant.standard,
     this.pageActions,
+    this.actionDock,
     super.key,
   });
 
@@ -28,6 +30,7 @@ class AppShell extends StatelessWidget {
   final Widget? headerTrailing;
   final PageHeaderVariant headerVariant;
   final ResponsiveActions? pageActions;
+  final ActionDock? actionDock;
   final Widget child;
 
   @override
@@ -132,45 +135,50 @@ class AppShell extends StatelessWidget {
           ),
           bottomNavigationBar: desktop
               ? null
-              : Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    if (pageActions != null)
-                      ResponsiveActions(
-                        primary: pageActions!.primary,
-                        secondary: pageActions!.secondary,
-                        destructive: pageActions!.destructive,
-                        showSurface: true,
-                        layout: ResponsiveActionsLayout.vertical,
+              : SafeArea(
+                  top: false,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      if (actionDock != null)
+                        actionDock!
+                      else if (pageActions != null)
+                        ResponsiveActions(
+                          primary: pageActions!.primary,
+                          secondary: pageActions!.secondary,
+                          destructive: pageActions!.destructive,
+                          showSurface: true,
+                          layout: ResponsiveActionsLayout.vertical,
+                        ),
+                      NavigationBar(
+                        backgroundColor: theme.navigationBackground,
+                        selectedIndex: currentDestination.index,
+                        onDestinationSelected: onDestinationSelected == null
+                            ? null
+                            : (index) => onDestinationSelected!(
+                                AppDestination.values[index],
+                              ),
+                        destinations: const [
+                          NavigationDestination(
+                            icon: Icon(Icons.home),
+                            label: 'Главная',
+                          ),
+                          NavigationDestination(
+                            icon: Icon(Icons.history),
+                            label: 'История',
+                          ),
+                          NavigationDestination(
+                            icon: Icon(Icons.person),
+                            label: 'Профиль',
+                          ),
+                          NavigationDestination(
+                            icon: Icon(Icons.settings),
+                            label: 'Настройки',
+                          ),
+                        ],
                       ),
-                    NavigationBar(
-                      backgroundColor: theme.navigationBackground,
-                      selectedIndex: currentDestination.index,
-                      onDestinationSelected: onDestinationSelected == null
-                          ? null
-                          : (index) => onDestinationSelected!(
-                              AppDestination.values[index],
-                            ),
-                      destinations: const [
-                        NavigationDestination(
-                          icon: Icon(Icons.home),
-                          label: 'Главная',
-                        ),
-                        NavigationDestination(
-                          icon: Icon(Icons.history),
-                          label: 'История',
-                        ),
-                        NavigationDestination(
-                          icon: Icon(Icons.person),
-                          label: 'Профиль',
-                        ),
-                        NavigationDestination(
-                          icon: Icon(Icons.settings),
-                          label: 'Настройки',
-                        ),
-                      ],
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
         );
       },

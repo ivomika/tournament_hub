@@ -20,6 +20,12 @@ class HostDistributionScreenPreview extends StatelessWidget {
         ),
       ],
     ),
+    actionDock: ActionDock(
+      primary: DsAction(label: 'Создать сетку и начать', onPressed: () {}),
+      secondary: [
+        ActionDockAction(label: 'Перераздать всех', onSelected: () {}),
+      ],
+    ),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [

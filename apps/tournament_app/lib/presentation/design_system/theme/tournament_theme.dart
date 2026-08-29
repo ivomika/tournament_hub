@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../components/action_dock/action_dock_theme.dart';
 import '../components/adaptive_split/adaptive_split_theme.dart';
 import '../components/app_shell/app_shell_theme.dart';
 import '../components/bracket/bracket_theme.dart';
@@ -119,6 +120,19 @@ abstract final class TournamentTheme {
       inputDecorationTheme: fieldTheme,
       extensions: [
         text,
+        const ActionDockTheme(
+          background: TournamentTokens.colorBackgroundSubtle,
+          divider: TournamentTokens.colorSurfaceTertiary,
+          foreground: TournamentTokens.colorTextPrimary,
+          danger: TournamentTokens.colorStatusDanger,
+          padding: TournamentTokens.spaceV3,
+          gap: TournamentTokens.spaceV2,
+          radius: TournamentTokens.radiusMd,
+          minimumHeight: TournamentTokens.controlHeightLargeMin,
+          overflowSize: TournamentTokens.controlTouchTargetPreferred,
+          portraitMaxFraction: 0.25,
+          landscapeMaxFraction: 0.20,
+        ),
         const AdaptiveSplitTheme(
           breakpoint: TournamentTokens.breakpointExpandedMin,
           gap: TournamentTokens.spaceV6,
