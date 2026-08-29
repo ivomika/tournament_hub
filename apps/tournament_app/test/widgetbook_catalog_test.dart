@@ -112,6 +112,9 @@ void main() {
         'Participant join / scanning',
         'Participant join / denied',
         'Spectator access / Full screen TV',
+        'Host Open spectator / serving',
+        'Host Open spectator / rebinding',
+        'Host Open spectator / failed',
       ]),
     );
   });

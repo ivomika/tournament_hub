@@ -59,6 +59,7 @@
 - `ParticipantInviteCard`: постоянное приглашение в открытом лобби с participant-specific label, QR, кодом и тем же ручным endpoint.
 - `ParticipantJoinPanel`: scanner/code-first поверхность входа с отдельными idle/scanning/connecting/accepted/denied/notFound/error состояниями.
 - `SpectatorAccessDialog`: полноэкранная on-demand поверхность для телевизора; композирует `ConnectionQrCard`, сохраняет read-only role label и не блокирует Host flow.
+- `HostOpenConnectionSummary`: компактная Host/Open-диагностика из готовой typed view projection; endpoint/state не вычисляются экраном, QR остаётся внутри on-demand spectator dialog.
 - `Empty/ErrorState`: конкретная причина и одно recovery action.
 - `ConfirmationDialog`: объект, необратимое последствие и safe default focus.
 - `ChampionHero`: fighter identity, champion participant и tournament context; complete ranking остаётся доступным.

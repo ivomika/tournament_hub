@@ -7,7 +7,7 @@ class SpectatorAccessViewData {
     required this.connectedClients,
   });
 
-  final String endpoint;
+  final String? endpoint;
   final ConnectionQrState state;
   final int connectedClients;
 }

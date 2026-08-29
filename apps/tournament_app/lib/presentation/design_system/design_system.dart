@@ -18,6 +18,8 @@ export 'components/double_elimination_bracket/double_elimination_bracket.dart';
 export 'components/empty_state/empty_state.dart';
 export 'components/fighter_avatar/fighter_avatar.dart';
 export 'components/history_snapshot_card/history_snapshot_card.dart';
+export 'components/host_open_connection_summary/host_open_connection_summary.dart';
+export 'components/host_open_connection_summary/host_open_connection_view_data.dart';
 export 'components/match_card/match_card.dart';
 export 'components/match_list/match_list.dart';
 export 'components/outcome_picker/outcome_picker.dart';

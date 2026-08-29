@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:widgetbook/widgetbook.dart';
 
 import '../design_system/design_system.dart';
+import '../screens/host_open/host_open_screen.dart';
 import '../screens/screen_registry.dart';
 
 class TournamentWidgetbook extends StatelessWidget {
@@ -295,6 +296,15 @@ List<WidgetbookNode> buildTournamentCatalog() => [
               onRetry: () {},
             ),
           ),
+          for (final state in ConnectionQrState.values.where(
+            (state) => state != ConnectionQrState.copied,
+          ))
+            WidgetbookUseCase(
+              name: 'Host Open spectator / ${_hostStateName(state)}',
+              builder: (_) => HostOpenScreenPreview(
+                spectatorProjection: _hostConnectionProjection(state),
+              ),
+            ),
         ],
       ),
       WidgetbookComponent(
@@ -583,3 +593,36 @@ String _connectionQrStateName(ConnectionQrState state) => switch (state) {
   ConnectionQrState.stale => 'Stale',
   ConnectionQrState.copied => 'Copied',
 };
+
+String _hostStateName(ConnectionQrState state) => switch (state) {
+  ConnectionQrState.starting => 'starting',
+  ConnectionQrState.ready => 'serving',
+  ConnectionQrState.reconnecting => 'reconnecting',
+  ConnectionQrState.stale => 'rebinding',
+  ConnectionQrState.unavailable => 'stopped',
+  ConnectionQrState.error => 'failed',
+  ConnectionQrState.expired => 'expired',
+  ConnectionQrState.copied => 'copied',
+};
+
+HostOpenConnectionViewData _hostConnectionProjection(
+  ConnectionQrState state,
+) => HostOpenConnectionViewData(
+  state: state,
+  connectedSpectators: state == ConnectionQrState.ready ? 2 : 0,
+  statusLabel: 'Spectator · ${_hostStateName(state)}',
+  detail: 'Готовое состояние Host connection projection.',
+  kind: switch (state) {
+    ConnectionQrState.ready => StatusKind.success,
+    ConnectionQrState.stale || ConnectionQrState.expired => StatusKind.warning,
+    ConnectionQrState.error => StatusKind.danger,
+    ConnectionQrState.starting ||
+    ConnectionQrState.reconnecting => StatusKind.info,
+    ConnectionQrState.unavailable ||
+    ConnectionQrState.copied => StatusKind.neutral,
+  },
+  localEndpoint:
+      state == ConnectionQrState.unavailable || state == ConnectionQrState.error
+      ? null
+      : 'http://192.168.1.42:8080',
+);

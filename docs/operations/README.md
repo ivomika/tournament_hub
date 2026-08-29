@@ -6,6 +6,8 @@
 
 Host UI показывает bind address/port, connection readiness, connected client count как diagnostics (не business presence), last error и recovery. Stack trace не показывается пользователю.
 
+Presentation boundary получает готовую `HostOpenConnectionViewData`: локальный endpoint, typed `ConnectionQrState`, число spectator clients и безопасные status/detail labels. `Host/Open` не выбирает интерфейс, port или rebind policy и не собирает URI; он показывает компактную диагностику и передаёт ту же projection в on-demand `ConnectionQrCard`. Состояние `copied` локально для UI и не является состоянием Host server.
+
 ## LAN threat model
 
 LAN не считается полностью доверенной. Возможные угрозы: угадывание join code, unauthorized command, replay/duplicate request, spectator scraping, malformed JSON/resource exhaustion, cross-origin browser access и публикация private profile fields.

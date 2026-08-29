@@ -10,7 +10,7 @@ import '../status_badge/status_badge.dart';
 import 'spectator_access_dialog_theme.dart';
 import 'spectator_access_view_data.dart';
 
-class SpectatorAccessDialog extends StatelessWidget {
+class SpectatorAccessDialog extends StatefulWidget {
   const SpectatorAccessDialog({
     required this.data,
     required this.onClose,
@@ -27,8 +27,29 @@ class SpectatorAccessDialog extends StatelessWidget {
   final VoidCallback? onRetry;
 
   @override
+  State<SpectatorAccessDialog> createState() => _SpectatorAccessDialogState();
+}
+
+class _SpectatorAccessDialogState extends State<SpectatorAccessDialog> {
+  var _copied = false;
+
+  @override
+  void didUpdateWidget(covariant SpectatorAccessDialog oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.data.endpoint != widget.data.endpoint ||
+        oldWidget.data.state != widget.data.state) {
+      _copied = false;
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context).extension<SpectatorAccessDialogTheme>()!;
+    final endpoint = widget.data.endpoint;
+    final effectiveState =
+        _copied && widget.data.state == ConnectionQrState.ready
+        ? ConnectionQrState.copied
+        : widget.data.state;
     return Semantics(
       container: true,
       explicitChildNodes: true,
@@ -49,21 +70,26 @@ class SpectatorAccessDialog extends StatelessWidget {
                         title: 'Подключить зрителей',
                         subtitle: 'Откройте адрес в браузере телевизора или другого устройства в этой локальной сети.',
                         trailing: StatusBadge(
-                          label: '${data.connectedClients} ПОДКЛЮЧЕНО',
-                          kind: data.connectedClients > 0
+                          label: '${widget.data.connectedClients} ПОДКЛЮЧЕНО',
+                          kind: widget.data.connectedClients > 0
                               ? StatusKind.success
                               : StatusKind.neutral,
                         ),
                       ),
                       SizedBox(height: theme.gap),
                       ConnectionQrCard(
-                        encodedValue: data.endpoint,
-                        displayAddress: data.endpoint,
-                        state: data.state,
+                        encodedValue: endpoint ?? '',
+                        displayAddress: endpoint ?? 'Адрес ещё недоступен',
+                        state: effectiveState,
                         qrSize: QrCodeSize.large,
-                        onCopyAddress: onCopyAddress,
-                        onShare: onShare,
-                        onRetry: onRetry,
+                        onCopyAddress: widget.onCopyAddress == null
+                            ? null
+                            : () {
+                                widget.onCopyAddress!();
+                                setState(() => _copied = true);
+                              },
+                        onShare: widget.onShare,
+                        onRetry: widget.onRetry,
                       ),
                       SizedBox(height: theme.gap),
                       const DsText(
@@ -75,7 +101,7 @@ class SpectatorAccessDialog extends StatelessWidget {
                       DsAction(
                         label: 'Вернуться к лобби',
                         kind: DsActionKind.secondary,
-                        onPressed: onClose,
+                        onPressed: widget.onClose,
                       ),
                     ],
                   ),

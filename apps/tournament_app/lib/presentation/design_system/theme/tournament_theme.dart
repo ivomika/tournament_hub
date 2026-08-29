@@ -21,6 +21,7 @@ import '../components/double_elimination_bracket/double_elimination_bracket_them
 import '../components/empty_state/empty_state_theme.dart';
 import '../components/fighter_avatar/fighter_avatar_theme.dart';
 import '../components/history_snapshot_card/history_snapshot_card_theme.dart';
+import '../components/host_open_connection_summary/host_open_connection_summary_theme.dart';
 import '../components/match_card/match_card_theme.dart';
 import '../components/match_list/match_list_theme.dart';
 import '../components/outcome_picker/outcome_picker_theme.dart';
@@ -190,6 +191,7 @@ abstract final class TournamentTheme {
           radius: TournamentTokens.radiusLg,
           iconColor: TournamentTokens.colorTextSecondary,
         ),
+        const HostOpenConnectionSummaryTheme(gap: TournamentTokens.spaceV3),
         const ProfileSummaryTheme(
           gap: TournamentTokens.spaceV4,
           iconSize: TournamentTokens.artworkSizeStandard,
