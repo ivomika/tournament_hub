@@ -42,6 +42,14 @@ class AppShell extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         final desktop = constraints.maxWidth >= theme.desktopBreakpoint;
+        final keyboardInset = MediaQuery.viewInsetsOf(context).bottom;
+        final keyboardOpen = keyboardInset > 0;
+        final defaultFontSize =
+            DefaultTextStyle.of(context).style.fontSize ??
+            Theme.of(context).textTheme.bodyMedium!.fontSize!;
+        final textScale =
+            MediaQuery.textScalerOf(context).scale(defaultFontSize) /
+            defaultFontSize;
         final pagePadding = desktop
             ? theme.pagePaddingDesktop
             : constraints.maxWidth >= theme.mediumBreakpoint
@@ -49,9 +57,31 @@ class AppShell extends StatelessWidget {
             : theme.pagePaddingCompact;
         final destinations = _destinationsFor(navigationRole);
         final selectedIndex = destinations.indexOf(currentDestination);
+        final showMobileDock = !desktop && actionDock != null;
+        final fixedStackMaxFraction =
+            constraints.maxWidth > constraints.maxHeight
+            ? theme.landscapeFixedStackMaxFraction
+            : theme.portraitFixedStackMaxFraction;
+        final fixedStackFits =
+            theme.navigationHeight + theme.actionDockEstimatedHeight <=
+            constraints.maxHeight * fixedStackMaxFraction;
+        final showMobileNavigation =
+            !desktop &&
+            destinations.isNotEmpty &&
+            !keyboardOpen &&
+            (!showMobileDock ||
+                (fixedStackFits &&
+                    textScale <= theme.navigationWithDockMaxTextScale));
         final content = SafeArea(
           child: SingleChildScrollView(
-            padding: EdgeInsets.all(pagePadding),
+            key: const Key('app-shell-scroll-view'),
+            padding: EdgeInsets.fromLTRB(
+              pagePadding,
+              pagePadding,
+              pagePadding,
+              pagePadding +
+                  (showMobileDock ? theme.contentGap : EdgeInsets.zero.bottom),
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
@@ -141,29 +171,39 @@ class AppShell extends StatelessWidget {
                   )
                 : content,
           ),
-          bottomNavigationBar:
-              desktop || (actionDock == null && destinations.isEmpty)
+          bottomNavigationBar: !showMobileDock && !showMobileNavigation
               ? null
-              : SafeArea(
-                  top: false,
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      ?actionDock,
-                      if (destinations.isNotEmpty)
-                        NavigationBar(
-                          backgroundColor: theme.navigationBackground,
-                          selectedIndex: selectedIndex < 0 ? 0 : selectedIndex,
-                          onDestinationSelected: onDestinationSelected == null
-                              ? null
-                              : (index) =>
-                                    onDestinationSelected!(destinations[index]),
-                          destinations: [
-                            for (final destination in destinations)
-                              _barDestination(destination),
-                          ],
-                        ),
-                    ],
+              : Padding(
+                  padding: EdgeInsets.only(
+                    bottom: showMobileDock
+                        ? keyboardInset
+                        : EdgeInsets.zero.bottom,
+                  ),
+                  child: SafeArea(
+                    top: false,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        if (showMobileDock) actionDock!,
+                        if (showMobileNavigation)
+                          NavigationBar(
+                            height: theme.navigationHeight,
+                            backgroundColor: theme.navigationBackground,
+                            selectedIndex: selectedIndex < 0
+                                ? 0
+                                : selectedIndex,
+                            onDestinationSelected: onDestinationSelected == null
+                                ? null
+                                : (index) => onDestinationSelected!(
+                                    destinations[index],
+                                  ),
+                            destinations: [
+                              for (final destination in destinations)
+                                _barDestination(destination),
+                            ],
+                          ),
+                      ],
+                    ),
                   ),
                 ),
         );

@@ -387,6 +387,13 @@ abstract final class TournamentTheme {
           pagePaddingMedium: TournamentTokens.layoutPagePaddingMediumMin,
           pagePaddingDesktop: TournamentTokens.layoutPagePaddingDesktopMax,
           contentGap: TournamentTokens.spaceV6,
+          navigationHeight:
+              TournamentTokens.spaceV16 + TournamentTokens.spaceV4,
+          actionDockEstimatedHeight:
+              TournamentTokens.spaceV16 + TournamentTokens.spaceV3,
+          portraitFixedStackMaxFraction: 0.25,
+          landscapeFixedStackMaxFraction: 0.20,
+          navigationWithDockMaxTextScale: 1.5,
         ),
         const ResponsiveActionsTheme(
           background: TournamentTokens.colorBackgroundSubtle,

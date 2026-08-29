@@ -137,6 +137,94 @@ void main() {
     );
   });
 
+  testWidgets('короткий viewport сохраняет ceiling всего fixed stack', (
+    tester,
+  ) async {
+    tester.view.devicePixelRatio = 1;
+    tester.view.physicalSize = const Size(320, 568);
+    tester.platformDispatcher.textScaleFactorTestValue = 2;
+    addTearDown(() {
+      tester.view.resetPhysicalSize();
+      tester.view.resetDevicePixelRatio();
+      tester.platformDispatcher.clearTextScaleFactorTestValue();
+    });
+
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: TournamentTheme.dark,
+        home: const HostRunningScreenPreview(),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    final fixedTop = tester.getTopLeft(find.byType(ActionDock)).dy;
+    expect(568 - fixedTop, lessThanOrEqualTo(142));
+    expect(find.byType(NavigationBar), findsNothing);
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('critical content можно прокрутить выше fixed stack', (
+    tester,
+  ) async {
+    tester.view.devicePixelRatio = 1;
+    tester.view.physicalSize = const Size(320, 568);
+    addTearDown(() {
+      tester.view.resetPhysicalSize();
+      tester.view.resetDevicePixelRatio();
+    });
+
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: TournamentTheme.dark,
+        home: const HostFinishedScreenPreview(),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    await tester.drag(
+      find.byKey(const Key('app-shell-scroll-view')),
+      const Offset(0, -2000),
+    );
+    await tester.pumpAndSettle();
+
+    expect(
+      tester.getBottomLeft(find.byType(TournamentStageHeader)).dy,
+      lessThanOrEqualTo(tester.getTopLeft(find.byType(ActionDock)).dy),
+    );
+  });
+
+  testWidgets('keyboard поднимает dock и скрывает global navigation', (
+    tester,
+  ) async {
+    tester.view.devicePixelRatio = 1;
+    tester.view.physicalSize = const Size(320, 568);
+    addTearDown(() {
+      tester.view.resetPhysicalSize();
+      tester.view.resetDevicePixelRatio();
+    });
+
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: TournamentTheme.dark,
+        home: Builder(
+          builder: (context) => MediaQuery(
+            data: MediaQuery.of(context)
+                .copyWith(viewInsets: const EdgeInsets.only(bottom: 240)),
+            child: const HostDraftScreenPreview(),
+          ),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.byType(NavigationBar), findsNothing);
+    expect(
+      tester.getBottomLeft(find.byType(ActionDock)).dy,
+      lessThanOrEqualTo(328),
+    );
+    expect(tester.takeException(), isNull);
+  });
+
   testWidgets('landscape, keyboard и reduced motion не ломают ActionDock', (
     tester,
   ) async {
@@ -209,20 +297,13 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.byType(ActionDock), findsOneWidget);
-      expect(find.byType(NavigationBar), findsOneWidget);
+      expect(find.byType(NavigationBar), findsNothing);
       expect(tester.takeException(), isNull);
       expect(
         tester.getSize(find.byType(ActionDock)).height,
         lessThanOrEqualTo(180),
       );
-      expect(
-        tester.getBottomLeft(find.byType(ActionDock)).dy,
-        lessThanOrEqualTo(tester.getTopLeft(find.byType(NavigationBar)).dy),
-      );
-      expect(
-        tester.getBottomLeft(find.byType(NavigationBar)).dy,
-        lessThanOrEqualTo(720),
-      );
+      expect(tester.getBottomLeft(find.byType(ActionDock)).dy, 720);
     });
   }
 
