@@ -32,6 +32,7 @@ class HostDistributionScreenPreview extends StatelessWidget {
         ),
       ),
       secondary: const TournamentStageHeader(
+        variant: TournamentStageVariant.strip,
         stage: 'Случайное назначение',
         progress: '4 ИЗ 4',
         detail: 'Все участники получили уникальных бойцов.',

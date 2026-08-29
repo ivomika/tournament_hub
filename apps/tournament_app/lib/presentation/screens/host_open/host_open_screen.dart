@@ -80,6 +80,7 @@ class HostOpenScreenPreview extends StatelessWidget {
           ],
         ),
         supporting: const TournamentStageHeader(
+          variant: TournamentStageVariant.strip,
           stage: 'Сбор участников',
           progress: '4 ИГРОКА',
           detail: 'Настройки турнира зафиксированы. Состав ещё можно менять.',

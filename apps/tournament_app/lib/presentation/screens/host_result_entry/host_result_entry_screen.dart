@@ -28,6 +28,7 @@ class HostResultEntryScreenPreview extends StatelessWidget {
         ),
         const DsGap(DsSpace.lg),
         const TournamentStageHeader(
+          variant: TournamentStageVariant.strip,
           stage: 'Фиксация результата',
           progress: 'МАТЧ 07',
           detail: 'Изменение применится только после выбора победителя.',

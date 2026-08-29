@@ -30,6 +30,7 @@ class ParticipantDistributionScreenPreview extends StatelessWidget {
         ),
         const DsGap(DsSpace.md),
         const TournamentStageHeader(
+          variant: TournamentStageVariant.strip,
           stage: 'Распределение',
           progress: 'ОЖИДАЕМ СЕТКУ',
           detail: 'Хост формирует случайный seeding и запускает турнир.',

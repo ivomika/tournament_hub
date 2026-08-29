@@ -27,6 +27,7 @@ class HostCancelledScreenPreview extends StatelessWidget {
         ),
         const DsGap(DsSpace.lg),
         const TournamentStageHeader(
+          variant: TournamentStageVariant.strip,
           stage: 'Отменён',
           progress: 'БЕЗ ЧЕМПИОНА',
           detail: 'Состояние неизменяемо. Спортивный результат не определён.',

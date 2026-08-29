@@ -34,6 +34,7 @@ class ParticipantFinishedScreenPreview extends StatelessWidget {
         ),
         const DsGap(DsSpace.md),
         const TournamentStageHeader(
+          variant: TournamentStageVariant.strip,
           stage: 'Double Elimination',
           progress: 'ЗАВЕРШЁН',
           detail: 'Все результаты подтверждены хостом.',

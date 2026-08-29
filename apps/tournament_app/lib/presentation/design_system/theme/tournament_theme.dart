@@ -435,6 +435,7 @@ abstract final class TournamentTheme {
         ),
         const TournamentStageTheme(
           gap: TournamentTokens.spaceV4,
+          compactGap: TournamentTokens.spaceV2,
           accent: TournamentTokens.colorAccentPrimary,
           divider: TournamentTokens.colorSurfaceTertiary,
         ),

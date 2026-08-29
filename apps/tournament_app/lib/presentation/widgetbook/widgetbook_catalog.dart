@@ -73,6 +73,28 @@ List<WidgetbookNode> buildTournamentCatalog() => [
         ],
       ),
       WidgetbookComponent(
+        name: 'Tournament stage',
+        useCases: [
+          _useCase(
+            'Stage / Panel',
+            const TournamentStageHeader(
+              stage: 'Верхняя сетка',
+              progress: 'МАТЧ 7 ИЗ 15',
+              detail: 'Полный stage summary как самостоятельный объект.',
+            ),
+          ),
+          _useCase(
+            'Stage / Strip',
+            const TournamentStageHeader(
+              variant: TournamentStageVariant.strip,
+              stage: 'Верхняя сетка',
+              progress: 'МАТЧ 7 ИЗ 15',
+              detail: 'Компактный контекст рядом с dominant object.',
+            ),
+          ),
+        ],
+      ),
+      WidgetbookComponent(
         name: 'Page layouts',
         useCases: [
           for (final preset in PageLayoutPreset.values)

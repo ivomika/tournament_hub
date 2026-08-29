@@ -36,6 +36,7 @@ class ParticipantLobbyScreenPreview extends StatelessWidget {
         ),
         const DsGap(DsSpace.md),
         const TournamentStageHeader(
+          variant: TournamentStageVariant.strip,
           stage: 'Лобби открыто',
           progress: 'ОЖИДАНИЕ ХОСТА',
           detail: '6 участников в лобби · Double Elimination',

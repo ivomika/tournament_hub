@@ -138,6 +138,27 @@ Character artwork — главный визуальный якорь post-assign
 
 Page-level adaptive composition задаётся public `PageLayout` и semantic preset из [ADR-0008](../adr/0008-semantic-page-layout-presets.md). `focused` предназначен для одной readable задачи, `split` — для dominant object и компактного контекста, `workspace` — для рабочей области с полноценным secondary rail, `archive` — для списка/snapshot с metadata, `hero` — для champion/current identity с ranking/context. На compact/medium regions следуют единым порядком `primary → secondary → supporting`; на expanded preset меняет композицию без дублирования content. Локальные `Row`/`Expanded`, screen-specific breakpoints и декоративное заполнение whitespace не заменяют semantic preset.
 
+### Dominant-object matrix
+
+Header называет экран и роль, но не конкурирует с его рабочим объектом. Повторный stage context на operational/terminal screens использует компактный `TournamentStageVariant.strip`: label, текстовый status и detail без второго крупного title/divider. `panel` допустим только когда stage summary сам является dominant object. В первом viewport допускаются одна accent surface и одна primary action.
+
+| Состояние | Dominant object | Dominant action | Supporting objects |
+|---|---|---|---|
+| Main | active tournament summary либо create/join choice | продолжить active flow либо создать турнир | история и профиль |
+| Host Draft | параметры и validation формы | открыть лобби | summary черновика |
+| Host Open | roster/readiness | начать раздачу | participant invite, connection status |
+| Host Distribution | fighter assignments | создать сетку и начать | compact assignment status |
+| Host Running | current matchup | ввести результат | bracket/progress |
+| Host Result Entry | winner selection | подтвердить победителя | match metadata |
+| Host Finished | champion identity | на главную | ranking, structure, read-only status |
+| Host Cancelled | factual cancellation reason | на главную | immutable status, history link |
+| Participant Lobby | собственная identity и readiness | отсутствует | next step, connection freshness |
+| Participant Distribution | собственная fighter identity | отсутствует | connection и seeding status |
+| Participant Running | current matchup | отсутствует | standings, connection freshness |
+| Participant Finished | champion identity | переход на главную | ranking и final snapshot status |
+| History | snapshot list | открыть snapshot inline | read-only metadata |
+| History Detail | champion/result snapshot | отсутствует | ranking и structure |
+
 - Main показывает active state и next action до вторичных действий.
 - Draft сохраняет видимый summary и показывает validation рядом с field.
 - Open отделяет roster, connection и management actions.

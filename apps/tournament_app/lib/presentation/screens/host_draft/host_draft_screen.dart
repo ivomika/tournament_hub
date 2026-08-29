@@ -42,6 +42,7 @@ class HostDraftScreenPreview extends StatelessWidget {
         ),
         const DsGap(DsSpace.lg),
         const TournamentStageHeader(
+          variant: TournamentStageVariant.strip,
           stage: 'Черновик',
           progress: 'НАСТРОЙКА',
           detail: 'Название, формат и правила ещё можно изменить.',

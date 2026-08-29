@@ -25,6 +25,7 @@ class HostFinishedScreenPreview extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           TournamentStageHeader(
+            variant: TournamentStageVariant.strip,
             stage: 'Результат зафиксирован',
             progress: 'ЗАВЕРШЁН',
             detail: 'Турнир доступен только для чтения и сохранён в истории.',

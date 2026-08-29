@@ -33,6 +33,7 @@ class ParticipantRunningScreenPreview extends StatelessWidget {
         ),
         const DsGap(DsSpace.md),
         const TournamentStageHeader(
+          variant: TournamentStageVariant.strip,
           stage: 'Double Elimination · Верхняя сетка',
           progress: 'ДАННЫЕ УСТАРЕЛИ',
           detail: 'Раунд 2 · матч 07 · изменения недоступны до синхронизации',

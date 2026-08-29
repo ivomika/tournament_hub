@@ -27,6 +27,7 @@ class HostRunningScreenPreview extends StatelessWidget {
           ),
           const DsGap(DsSpace.lg),
           const TournamentStageHeader(
+            variant: TournamentStageVariant.strip,
             stage: 'Турнир идёт',
             progress: 'МАТЧ 7 ИЗ 15',
             detail:
