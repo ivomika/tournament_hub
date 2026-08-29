@@ -9,6 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  pretty_qr_code: ^3.6.0
   widgetbook: 3.25.0
 
 dev_dependencies:

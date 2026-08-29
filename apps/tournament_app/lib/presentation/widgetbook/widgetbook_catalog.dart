@@ -198,6 +198,60 @@ List<WidgetbookNode> buildTournamentCatalog() => [
         ],
       ),
       WidgetbookComponent(
+        name: 'QR code',
+        useCases: [
+          _useCase(
+            'QR / Compact',
+            const QrCode(
+              value: 'http://192.168.1.42:8080',
+              semanticLabel: 'QR-код локального подключения.',
+              size: QrCodeSize.compact,
+            ),
+          ),
+          _useCase(
+            'QR / Standard IPv6',
+            const QrCode(
+              value: 'http://[fe80::20c:29ff:fe9c:409b]:18080/spectator',
+              semanticLabel: 'QR-код локального подключения.',
+            ),
+          ),
+          _useCase(
+            'QR / Large Participant',
+            const QrCode(
+              value: 'http://192.168.1.42:8080/join?role=participant&tournament=demo&code=ABCD-EFGH',
+              semanticLabel: 'QR-код подключения участника.',
+              size: QrCodeSize.large,
+            ),
+          ),
+          _useCase(
+            'QR / Unavailable',
+            const QrCode(
+              value: 'http://192.168.1.42:8080',
+              semanticLabel: 'QR-код локального подключения.',
+              state: QrCodeState.unavailable,
+            ),
+          ),
+        ],
+      ),
+      WidgetbookComponent(
+        name: 'Connection QR card',
+        useCases: [
+          for (final state in ConnectionQrState.values)
+            _useCase(_connectionQrStateName(state), _connectionQrCard(state)),
+          _useCase(
+            'Long address / Narrow',
+            ConnectionQrCard(
+              encodedValue: 'http://[fe80::20c:29ff:fe9c:409b]:18080/spectator',
+              displayAddress:
+                  'http://[fe80::20c:29ff:fe9c:409b]:18080/spectator',
+              state: ConnectionQrState.ready,
+              onCopyAddress: () {},
+              onShare: () {},
+            ),
+          ),
+        ],
+      ),
+      WidgetbookComponent(
         name: 'Stress matrix',
         useCases: [
           _useCase(
@@ -463,3 +517,23 @@ WidgetbookUseCase _useCase(String name, Widget child) => WidgetbookUseCase(
   name: name,
   builder: (_) => SingleChildScrollView(child: DsPagePadding(child: child)),
 );
+
+ConnectionQrCard _connectionQrCard(ConnectionQrState state) => ConnectionQrCard(
+  encodedValue: 'http://192.168.1.42:8080',
+  displayAddress: 'http://192.168.1.42:8080',
+  state: state,
+  onCopyAddress: () {},
+  onShare: () {},
+  onRetry: () {},
+);
+
+String _connectionQrStateName(ConnectionQrState state) => switch (state) {
+  ConnectionQrState.starting => 'Starting',
+  ConnectionQrState.ready => 'Ready',
+  ConnectionQrState.reconnecting => 'Reconnecting',
+  ConnectionQrState.unavailable => 'Unavailable',
+  ConnectionQrState.expired => 'Expired',
+  ConnectionQrState.error => 'Error',
+  ConnectionQrState.stale => 'Stale',
+  ConnectionQrState.copied => 'Copied',
+};

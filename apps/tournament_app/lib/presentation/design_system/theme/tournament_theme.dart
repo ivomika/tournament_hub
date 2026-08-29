@@ -6,6 +6,7 @@ import '../components/bracket/bracket_theme.dart';
 import '../components/champion_hero/champion_hero_theme.dart';
 import '../components/confirmation/confirmation_theme.dart';
 import '../components/connection_banner/connection_banner_theme.dart';
+import '../components/connection_qr_card/connection_qr_card_theme.dart';
 import '../components/danger_zone/danger_zone_theme.dart';
 import '../components/ds_action/ds_action_theme.dart';
 import '../components/ds_field/ds_field_theme.dart';
@@ -26,6 +27,8 @@ import '../components/outcome_picker/outcome_picker_theme.dart';
 import '../components/page_header/page_header_theme.dart';
 import '../components/participant_identity/participant_identity_theme.dart';
 import '../components/profile_summary/profile_summary_theme.dart';
+import '../components/qr_code/qr_code_theme.dart';
+import '../components/qr_quiet_zone/qr_quiet_zone_theme.dart';
 import '../components/responsive_actions/responsive_actions_theme.dart';
 import '../components/standings/standings_theme.dart';
 import '../components/status_badge/status_badge_theme.dart';
@@ -207,6 +210,46 @@ abstract final class TournamentTheme {
         const ConnectionBannerTheme(
           gap: TournamentTokens.spaceV2,
           compactWidth: TournamentTokens.breakpointCompactMax,
+        ),
+        ConnectionQrCardTheme(
+          background: TournamentTokens.colorBackgroundElevated,
+          border: TournamentTokens.colorSurfaceTertiary,
+          accent: TournamentTokens.colorAccentPrimary,
+          info: TournamentTokens.colorStatusInfo,
+          success: TournamentTokens.colorStatusSuccess,
+          warning: TournamentTokens.colorStatusWarning,
+          danger: TournamentTokens.colorStatusDanger,
+          neutral: TournamentTokens.colorTextSecondary,
+          addressStyle: text.title.copyWith(
+            fontFamily: 'monospace',
+            color: TournamentTokens.colorTextPrimary,
+          ),
+          padding: TournamentTokens.spaceV6,
+          gap: TournamentTokens.spaceV6,
+          compactGap: TournamentTokens.spaceV2,
+          radius: TournamentTokens.radiusXl,
+          compactBreakpoint: TournamentTokens.breakpointMediumMin,
+          accentWidth: TournamentTokens.borderWidthBase,
+        ),
+        const QrQuietZoneTheme(
+          background: TournamentTokens.colorTextPrimary,
+          modules: 4,
+          radius: TournamentTokens.radiusLg,
+        ),
+        const QrCodeTheme(
+          foreground: TournamentTokens.colorBackgroundCanvas,
+          fallbackBackground: TournamentTokens.colorSurfaceSecondary,
+          fallbackForeground: TournamentTokens.colorTextSecondary,
+          moduleRoundFactor: 0.72,
+          finderOuterRadiusFactor: 1.65,
+          finderCenterRadiusFactor: 0.82,
+          compactSize: TournamentTokens.artworkSizeHero,
+          standardSize:
+              TournamentTokens.artworkSizeHero + TournamentTokens.spaceV16,
+          largeSize:
+              TournamentTokens.artworkSizeHero + TournamentTokens.spaceV16 * 3,
+          minimumModulePitch: TournamentTokens.spaceV1,
+          fallbackIconSize: TournamentTokens.spaceV16,
         ),
         const MatchCardTheme(
           gap: TournamentTokens.spaceV6,

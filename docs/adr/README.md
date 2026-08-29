@@ -15,3 +15,5 @@ ADR фиксирует устойчивое решение, меняющее sys
 - [ADR-0001: JSON manifest как источник значений design tokens](0001-design-token-manifest.md) — Accepted.
 - [ADR-0002: Widgetbook как Flutter presentation catalog](0002-widgetbook-presentation-catalog.md) — Accepted.
 - [ADR-0003: Theme-driven границы Flutter design system](0003-flutter-design-system-boundaries.md) — Accepted.
+- [ADR-0004: pretty_qr_code как Flutter QR renderer](0004-pretty-qr-code-adapter.md) — Superseded by ADR-0005.
+- [ADR-0005: Переиспользуемые QR primitives в Flutter design system](0005-reusable-qr-primitives.md) — Accepted.

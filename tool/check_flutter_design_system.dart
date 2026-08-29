@@ -194,10 +194,23 @@ List<Violation> _sourceViolations(String path, String source) {
     '/design_system/theme/tournament_theme.dart',
   );
   final isComponent = normalized.contains('design_system/components/');
+  final isQrCodeAdapter = normalized.contains(
+    'design_system/components/qr_code/',
+  );
   final isScreen =
       normalized.endsWith('_screen.dart') &&
       normalized.contains('presentation/screens/');
   final violations = <Violation>[];
+
+  if (source.contains("package:pretty_qr_code/") && !isQrCodeAdapter) {
+    violations.add(
+      Violation(
+        'qr-renderer-boundary',
+        path,
+        'pretty_qr_code may be imported only by QrCode adapter',
+      ),
+    );
+  }
 
   if (!isGenerated && !isCompositionTheme) {
     if (RegExp(

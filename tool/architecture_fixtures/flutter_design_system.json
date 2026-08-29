@@ -30,6 +30,12 @@
     "expectedRule": "component-token-import"
   },
   {
+    "name": "qr renderer imported outside adapter",
+    "path": "presentation/screens/sample/sample_screen.dart",
+    "source": "import 'package:pretty_qr_code/pretty_qr_code.dart';",
+    "expectedRule": "qr-renderer-boundary"
+  },
+  {
     "name": "material import in screen",
     "path": "presentation/screens/sample/sample_screen.dart",
     "source": "import 'package:flutter/material.dart';",

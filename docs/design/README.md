@@ -53,9 +53,25 @@
 - `Bracket`: связи первичны, затем identity/result/metadata; предусмотрены pan/zoom/keyboard alternatives.
 - `StatusBadge`: text плюс icon/shape; значение не передаётся только цветом.
 - `ConnectionBanner`: live/reconnecting/stale/incompatible и recovery.
+- `QrCode`: готовый opaque value, semantic label, scan state и size preset; renderer, minimum module pitch и безопасный fallback скрыты внутри primitive.
+- `QrQuietZone`: скруглённая непрозрачная светлая подложка и quiet zone не менее четырёх модулей, вычисленная из фактической QR dimension; внешний радиус не пересекает матрицу.
+- `ConnectionQrCard`: scenario wrapper над `QrCode`; безопасный ручной адрес, typed connection state и copy/share/retry callbacks. Generation URI и Host lifecycle остаются вне presentation.
 - `Empty/ErrorState`: конкретная причина и одно recovery action.
 - `ConfirmationDialog`: объект, необратимое последствие и safe default focus.
 - `ChampionHero`: fighter identity, champion participant и tournament context; complete ranking остаётся доступным.
+
+### QR connection presentation
+
+`QrCode` и `QrQuietZone` определены [ADR-0005](../adr/0005-reusable-qr-primitives.md). `pretty_qr_code` остаётся внутренним adapter только в `QrCode`; `ConnectionQrCard` композирует public primitive и не владеет renderer-ом. Публичный DS API не экспортирует package types и не генерирует LAN/session URI.
+
+- QR использует однотонный связный smooth shape с контролируемым скруглением, светлый фон, error correction `M` и quiet zone в четыре модуля; разрозненные точки, логотип, градиент и прозрачность внутри матрицы запрещены.
+- `QrCode` всегда включает `QrQuietZone`; consumer не может уменьшить quiet zone, сделать подложку прозрачной или изменить renderer knobs.
+- Size preset обязан сохранять minimum module pitch для фактического payload; иначе primitive показывает явный non-scannable fallback.
+- Логотип, градиент, прозрачность, motion и декоративные overlays внутри матрицы запрещены.
+- Mobile композиция ставит QR перед адресом; expanded композиция разделяет QR и address/actions на независимые панели.
+- Ручной адрес всегда видим и selectable; copy/share/retry имеют текстовый feedback и доступны с клавиатуры.
+- `starting`, `ready`, `reconnecting`, `unavailable`, `expired`, `error`, `stale`, `copied` различаются текстом и semantics, а не только цветом.
+- `encodedValue` не включается в semantics, logs и пользовательскую диагностику; безопасный `displayAddress` передаётся отдельно.
 
 ### Tournament structure representations
 

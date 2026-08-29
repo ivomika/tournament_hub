@@ -6,10 +6,16 @@
 
 ## Активные задачи
 
+- 🟢 **068** — Подключить role-specific QR для participant join и spectator access — [детали](tasks/TH-20260829-068.md)
+- 🟢 **064** — Подключить ConnectionQrCard на Host/Open — [детали](tasks/TH-20260829-064.md)
 - 📝 **053** — Привести Spectator Web к утверждённому visual language — [детали](tasks/TH-20260828-053.md)
 
 ## Завершённые задачи
 
+- ✅ **067** — Реализовать переиспользуемые QrCode и QrQuietZone — [детали](tasks/TH-20260829-067.md)
+- ✅ **066** — Провести QR UX-батл для participant и spectator — [детали](tasks/TH-20260829-066.md)
+- ✅ **065** — Провести QR design-батл и утвердить визуальный контракт — [детали](tasks/TH-20260829-065.md)
+- ✅ **063** — Добавить ConnectionQrCard в Flutter design system — [детали](tasks/TH-20260829-063.md)
 - ✅ **062** — Провести screen-by-screen visual polish и Widgetbook stress matrix — [детали](tasks/TH-20260829-062.md)
 - ✅ **055** — Пересобрать AppShell, PageHeader и active navigation — [детали](tasks/TH-20260829-055.md)
 - ✅ **056** — Закрепить responsive layout и иерархию действий — [детали](tasks/TH-20260829-056.md)
