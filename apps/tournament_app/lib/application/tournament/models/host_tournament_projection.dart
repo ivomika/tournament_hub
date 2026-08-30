@@ -1,4 +1,5 @@
 import '../../../domain/tournament/engine/tournament_engines.dart';
+import '../../../domain/tournament/tournament_models.dart';
 import 'host_tournament_session.dart';
 
 final class HostParticipantProjection {
@@ -131,16 +132,20 @@ abstract final class HostTournamentProjectionMapper {
             const <HostMatchProjection>[],
       ),
       ranking: List.unmodifiable(
-        state?.outcome?.ranking.map(
-              (placement) => HostPlacementProjection(
-                participantId: placement.participantId.value,
-                from: placement.from,
-                to: placement.to,
-              ),
-            ) ??
-            const <HostPlacementProjection>[],
+        tournament.lifecycle == TournamentLifecycle.cancelled
+            ? const <HostPlacementProjection>[]
+            : state?.outcome?.ranking.map(
+                    (placement) => HostPlacementProjection(
+                      participantId: placement.participantId.value,
+                      from: placement.from,
+                      to: placement.to,
+                    ),
+                  ) ??
+                  const <HostPlacementProjection>[],
       ),
-      championId: state?.outcome?.championId.value,
+      championId: tournament.lifecycle == TournamentLifecycle.cancelled
+          ? null
+          : state?.outcome?.championId.value,
       cancellationReason: tournament.cancellation?.reason,
     );
   }

@@ -10,6 +10,8 @@ import '../../presentation/screens/host_open/host_open_screen.dart';
 import '../../presentation/screens/host_result_entry/host_result_entry_screen.dart';
 import '../../presentation/screens/host_running/host_running_screen.dart';
 import '../../presentation/screens/main/main_screen.dart';
+import '../../presentation/screens/history/history_screen.dart';
+import '../../presentation/screens/history_detail/history_detail_screen.dart';
 import '../../presentation/screens/recoverable_error/recoverable_error_screen.dart';
 import '../../presentation/screens/profile/profile_screen.dart';
 import '../../presentation/screens/registration/registration_screen.dart';
@@ -30,6 +32,7 @@ final class AppRouteScreen extends StatelessWidget {
     this.onResetAccount,
     this.onRetry,
     this.hostRuntime,
+    this.historyRuntime,
     super.key,
   });
 
@@ -41,6 +44,7 @@ final class AppRouteScreen extends StatelessWidget {
   final Future<void> Function()? onResetAccount;
   final VoidCallback? onRetry;
   final AppHostTournamentRuntime? hostRuntime;
+  final AppHistoryRuntime? historyRuntime;
 
   @override
   Widget build(BuildContext context) {
@@ -56,9 +60,15 @@ final class AppRouteScreen extends StatelessWidget {
       ),
       AppRouteId.profile => ProfileScreenPreview(
         nickname: _profileNickname,
+        statistics: _profileStatistics,
         onSave: onRenameProfile,
       ),
-      AppRouteId.settings => SettingsScreenPreview(onReset: onResetAccount),
+      AppRouteId.history => _historyScreen(),
+      AppRouteId.historyDetail => _historyDetailScreen(),
+      AppRouteId.settings => SettingsScreenPreview(
+        onClearHistory: historyRuntime?.clearHistory,
+        onReset: onResetAccount,
+      ),
       AppRouteId.main => _mainScreen(),
       AppRouteId.hostDraft =>
         _hasHostSession ? _draftScreen() : const HostDraftScreenPreview(),
@@ -94,6 +104,84 @@ final class AppRouteScreen extends StatelessWidget {
   };
 
   bool get _hasHostSession => hostRuntime?.hostTournamentProjection != null;
+
+  Widget _historyScreen() => HistoryScreenPreview(
+    entries: historyRuntime?.historyProjection?.entries
+        .map(
+          (entry) => HistoryListItemViewData(
+            id: entry.tournament.id,
+            title: entry.tournament.title,
+            summary:
+                '${_formatLabel(entry.tournament.formatId)} · ${entry.tournament.participants.length} участников · ${entry.finishedAtUtc.toLocal()}',
+            isCancelled: entry.tournament.lifecycle == 'cancelled',
+            champion: entry.tournament.championId == null
+                ? null
+                : _historyParticipant(
+                    entry.tournament,
+                    entry.tournament.championId!,
+                  ),
+          ),
+        )
+        .toList(),
+    onOpen: historyRuntime?.openHistoryDetail,
+  );
+
+  Widget _historyDetailScreen() {
+    final id = projection.snapshotId;
+    final entry = id == null
+        ? null
+        : historyRuntime?.historyProjection?.byId(id);
+    if (entry == null) {
+      return HistoryDetailScreenPreview(
+        isNotFound: historyRuntime?.historyProjection != null,
+      );
+    }
+    final tournament = entry.tournament;
+    final cancelled = tournament.lifecycle == 'cancelled';
+    return HistoryDetailScreenPreview(
+      data: HistoryDetailViewData(
+        title: tournament.title,
+        subtitle: 'Immutable snapshot · ${entry.finishedAtUtc.toLocal()}',
+        formatLabel: _formatLabel(tournament.formatId),
+        participantCount: tournament.participants.length,
+        matchCount: tournament.matches.length,
+        isCancelled: cancelled,
+        champion: tournament.championId == null
+            ? null
+            : _historyParticipant(tournament, tournament.championId!),
+        cancellationReason: tournament.cancellationReason,
+        standings: [
+          for (final placement in tournament.ranking)
+            StandingRowViewData(
+              placeLabel: placement.from == placement.to
+                  ? '${placement.from}'
+                  : '${placement.from}–${placement.to}',
+              participant: _historyParticipant(
+                tournament,
+                placement.participantId,
+              ),
+              resultLabel: placement.from == 1 ? 'Чемпион' : 'Итоговое место',
+            ),
+        ],
+        structure: cancelled ? null : _historyStructure(tournament),
+      ),
+    );
+  }
+
+  ProfileStatisticsViewData? get _profileStatistics {
+    final statistics = historyRuntime?.historyProjection?.statistics;
+    return statistics == null
+        ? null
+        : ProfileStatisticsViewData(
+            tournaments: statistics.tournamentCount,
+            victories: statistics.tournamentWins,
+            tournamentWinRate: statistics.tournamentWinRate,
+            normalMatches: statistics.normalMatchCount,
+            normalMatchWins: statistics.normalMatchWins,
+            normalMatchWinRate: statistics.normalMatchWinRate,
+            bestPlace: statistics.bestPlace,
+          );
+  }
 
   Widget _mainScreen() {
     final session = hostRuntime?.hostTournamentProjection;
@@ -249,6 +337,55 @@ final class AppRouteScreen extends StatelessWidget {
       isGuest: participant.isGuest,
     );
   }
+
+  PreviewParticipant _historyParticipant(
+    HostTournamentProjection tournament,
+    String participantId,
+  ) {
+    final participant = tournament.participants.singleWhere(
+      (value) => value.id == participantId,
+    );
+    return PreviewParticipant(
+      nickname: participant.nickname,
+      fighterId: participant.fighterId ?? 'unknown',
+      fighterName: participant.fighterName ?? 'Боец не назначен',
+      isGuest: participant.isGuest,
+    );
+  }
+
+  BracketViewData _historyStructure(HostTournamentProjection state) =>
+      BracketViewData(
+        format: switch (state.formatId) {
+          'double-elimination' => TournamentStructureFormat.doubleElimination,
+          'single-elimination' => TournamentStructureFormat.singleElimination,
+          'round-robin' => TournamentStructureFormat.roundRobin,
+          _ => throw StateError('Unsupported tournament format.'),
+        },
+        matches: [
+          for (final match in state.matches)
+            BracketMatchViewData(
+              id: match.id,
+              title: _matchTitle(match),
+              lane: switch (match.stage) {
+                'winners' => BracketLane.winners,
+                'losers' => BracketLane.losers,
+                'finalMatch' || 'bracketReset' => BracketLane.finals,
+                _ => BracketLane.stage,
+              },
+              round: match.round,
+              order: match.order,
+              first: _historyParticipant(state, match.firstParticipantId),
+              second: _historyParticipant(state, match.secondParticipantId),
+              state: switch (match.status) {
+                'upcoming' => BracketMatchState.pending,
+                'current' => BracketMatchState.current,
+                'finished' => BracketMatchState.won,
+                _ => BracketMatchState.locked,
+              },
+              resultLabel: _resultLabel(match),
+            ),
+        ],
+      );
 
   BracketViewData _structure(HostTournamentProjection state) => BracketViewData(
     format: switch (state.formatId) {

@@ -144,6 +144,18 @@ History содержит только immutable Finished/Cancelled snapshots. О
 
 Technical results не входят в normal Match Win Rate. Host без participant place учитывается как организатор только если отдельная метрика это явно поддерживает.
 
+V1 derived projection считает tournament count/wins/win rate только для Finished snapshots, где local profile присутствует как participant; Cancelled не имеет tournament outcome и в этот denominator не входит, а организатор без participant identity не считается игроком. Normal Match Win Rate использует normal results этого participant из terminal history, полностью исключая technical results. Best place — минимальная известная граница place range Finished tournament, recent tournaments — три последних terminal snapshot с участием profile по persisted ordering. Все значения пересчитываются из immutable history после restart или очистки projection cache.
+
+### Решение STAT-001
+
+- ID/дата/владелец: `STAT-001`, 2026-08-30, task `TH-20260830-097`, Product/Data.
+- Контекст: Finished и Cancelled находятся в одном immutable history, но Cancelled не имеет tournament outcome; Host может не быть participant.
+- Решение: tournament metrics и best place используют только Finished snapshots с participant identity local profile; normal match metrics используют только normal results этого participant из terminal history; recent включает до трёх последних terminal snapshots с его участием.
+- Отклонено: считать organizer игроком; включать Cancelled в tournament win-rate denominator; включать technical result в normal Match Win Rate; хранить mutable counters как authority.
+- Последствия/consumers: History service каждый раз выводит projection из versioned snapshots; Profile/History UI только отображают готовые значения; очистка history обнуляет derived projection.
+- Compatibility/migration/rollback: persisted schema не меняется, cache отсутствует; алгоритм можно откатить заменой read-model policy без переписывания immutable snapshots.
+- Verification: snapshot replay/isolation, Cancelled-with-engine-outcome, technical exclusion и clear-history tests задачи 097.
+
 ## Notifications
 
 Локальные notifications создаёт Participant app только из committed Host events: tournament start, own Current match, elimination, finished/place. Нет notification history, acknowledgement или replay missed notifications. Global toggle не влияет на in-app state.

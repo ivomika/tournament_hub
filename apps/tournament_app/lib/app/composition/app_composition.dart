@@ -7,6 +7,8 @@ import '../../application/bootstrap/models/app_actor.dart';
 import '../../application/bootstrap/models/app_session_projection.dart';
 import '../../application/bootstrap/models/tournament_lifecycle_projection.dart';
 import '../../application/profile/profile_service.dart';
+import '../../application/history/history_service.dart';
+import '../../application/history/models/history_projection.dart';
 import '../../application/tournament/host_tournament_service.dart';
 import '../../application/tournament/models/host_tournament_session.dart';
 import '../../application/tournament/models/host_tournament_projection.dart';
@@ -32,7 +34,11 @@ import '../navigation/ports/navigation_intent_sink.dart';
 import '../runtime/app_runtime.dart';
 
 final class AppComposition
-    implements AppRuntime, AppProfileRuntime, AppHostTournamentRuntime {
+    implements
+        AppRuntime,
+        AppProfileRuntime,
+        AppHostTournamentRuntime,
+        AppHistoryRuntime {
   AppComposition._(
     this._bootstrap,
     this._stateStore,
@@ -40,6 +46,7 @@ final class AppComposition
     this._router,
     this._profiles,
     this._tournaments,
+    this._history,
     this._database,
   );
 
@@ -73,6 +80,12 @@ final class AppComposition
             '$prefix-${DateTime.now().microsecondsSinceEpoch}-${++idCounter}',
       );
     });
+    final history = database.then(
+      (value) => HistoryService(
+        DriftTournamentHistoryStore(value),
+        createTournamentFormatEngineRegistryV1(),
+      ),
+    );
     final bootstrap = AppBootstrap(localStore, stateStore);
     final intentStore = NavigationIntentStore();
     final router = AppRouter(stateSource: stateStore, intentStore: intentStore);
@@ -83,6 +96,7 @@ final class AppComposition
       router,
       profiles,
       tournaments,
+      history,
       database,
     );
   }
@@ -93,8 +107,10 @@ final class AppComposition
   final AppRouter _router;
   final ProfileService _profiles;
   final Future<HostTournamentService> _tournaments;
+  final Future<HistoryService> _history;
   final Future<TournamentHubDatabase> _database;
   HostTournamentSession? _hostTournamentSession;
+  HistoryProjection? _historyProjection;
   String? _correctionMatchId;
   int _seed = 100;
   bool _isDisposed = false;
@@ -133,6 +149,29 @@ final class AppComposition
   Future<void> renameProfile(String nickname) async {
     await _profiles.rename(nickname);
     await _bootstrap.retry();
+  }
+
+  @override
+  HistoryProjection? get historyProjection => _historyProjection;
+
+  @override
+  Future<void> loadHistory() async {
+    _historyProjection = await (await _history).read(
+      localProfileId: _profile.id,
+    );
+  }
+
+  @override
+  void openHistoryDetail(String tournamentId) {
+    _router.go(NavigationIntent.historyDetail(snapshotId: tournamentId));
+  }
+
+  @override
+  Future<void> clearHistory() async {
+    await (await _history).clear();
+    await loadHistory();
+    _router.go(const NavigationIntent.main());
+    _router.go(const NavigationIntent.history());
   }
 
   @override

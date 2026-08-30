@@ -38,6 +38,9 @@ final class _TournamentHubAppState extends State<TournamentHubApp> {
     final hostRuntime = widget.runtime is AppHostTournamentRuntime
         ? widget.runtime as AppHostTournamentRuntime
         : null;
+    final historyRuntime = widget.runtime is AppHistoryRuntime
+        ? widget.runtime as AppHistoryRuntime
+        : null;
     return MaterialApp(
       title: 'Tournament Hub',
       debugShowCheckedModeBanner: false,
@@ -60,6 +63,7 @@ final class _TournamentHubAppState extends State<TournamentHubApp> {
             onRenameProfile: profileRuntime?.renameProfile,
             onResetAccount: profileRuntime?.resetAccount,
             hostRuntime: hostRuntime,
+            historyRuntime: historyRuntime,
             onDestinationSelected: _selectDestination,
           ),
         ),
@@ -67,7 +71,14 @@ final class _TournamentHubAppState extends State<TournamentHubApp> {
     );
   }
 
-  void _selectDestination(AppDestination destination) {
+  Future<void> _selectDestination(AppDestination destination) async {
+    if (destination == AppDestination.history ||
+        destination == AppDestination.profile) {
+      final runtime = widget.runtime;
+      if (runtime is AppHistoryRuntime) {
+        await (runtime as AppHistoryRuntime).loadHistory();
+      }
+    }
     final intent = switch (destination) {
       AppDestination.home => const NavigationIntent.main(),
       AppDestination.history => const NavigationIntent.history(),

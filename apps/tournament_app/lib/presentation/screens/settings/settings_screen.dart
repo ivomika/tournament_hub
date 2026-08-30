@@ -3,8 +3,9 @@ import 'package:flutter/widgets.dart';
 import '../../design_system/design_system.dart';
 
 class SettingsScreenPreview extends StatefulWidget {
-  const SettingsScreenPreview({this.onReset, super.key});
+  const SettingsScreenPreview({this.onClearHistory, this.onReset, super.key});
 
+  final Future<void> Function()? onClearHistory;
   final Future<void> Function()? onReset;
 
   @override
@@ -13,6 +14,35 @@ class SettingsScreenPreview extends StatefulWidget {
 
 class _SettingsScreenPreviewState extends State<SettingsScreenPreview> {
   bool _resetting = false;
+  bool _clearingHistory = false;
+
+  Future<void> _showClearHistory() async {
+    await showTournamentConfirmationDialog<void>(
+      context: context,
+      builder: (dialogContext) => DsConfirmationDialog(
+        title: 'Очистить историю?',
+        message: 'Все завершённые и отменённые турниры будут удалены. Действие нельзя отменить.',
+        confirmLabel: 'Очистить историю',
+        loading: _clearingHistory,
+        onConfirm: () => _clearHistory(dialogContext),
+      ),
+    );
+  }
+
+  Future<void> _clearHistory(BuildContext dialogContext) async {
+    final clear = widget.onClearHistory;
+    if (clear == null) {
+      Navigator.of(dialogContext).pop();
+      return;
+    }
+    setState(() => _clearingHistory = true);
+    try {
+      await clear();
+      if (dialogContext.mounted) Navigator.of(dialogContext).pop();
+    } finally {
+      if (mounted) setState(() => _clearingHistory = false);
+    }
+  }
 
   Future<void> _showReset() async {
     await showTournamentConfirmationDialog<void>(
@@ -74,6 +104,12 @@ class _SettingsScreenPreviewState extends State<SettingsScreenPreview> {
         message: 'Удаляет profile и все owned records после подтверждения.',
         actionLabel: 'Сбросить данные',
         onAction: _resetting ? null : _showReset,
+      ),
+      supporting: DangerZone(
+        title: 'История турниров',
+        message: 'Удаляет все immutable snapshots одной операцией. Активный турнир не затрагивается.',
+        actionLabel: 'Очистить историю',
+        onAction: _clearingHistory ? null : _showClearHistory,
       ),
     ),
   );

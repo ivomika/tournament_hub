@@ -2,6 +2,7 @@ import '../lifecycle/app_state_source.dart';
 import '../navigation/ports/app_route_source.dart';
 import '../navigation/ports/navigation_intent_sink.dart';
 import '../../application/tournament/models/host_tournament_projection.dart';
+import '../../application/history/models/history_projection.dart';
 
 abstract interface class AppRuntime {
   AppStateSource get appStateSource;
@@ -46,4 +47,12 @@ abstract interface class AppHostTournamentRuntime {
   Future<void> finishTournament();
   Future<void> cancelTournament();
   Future<void> leaveTerminalTournament();
+}
+
+abstract interface class AppHistoryRuntime {
+  HistoryProjection? get historyProjection;
+
+  Future<void> loadHistory();
+  void openHistoryDetail(String tournamentId);
+  Future<void> clearHistory();
 }
