@@ -135,6 +135,50 @@ void main() {
         );
       }
     });
+
+    test(
+      'correction replays unplayed downstream and blocks played downstream',
+      () {
+        for (final engine in const <TournamentFormatEngine>[
+          SingleEliminationEngine(),
+          DoubleEliminationEngine(),
+          RoundRobinEngine(),
+        ]) {
+          var state = engine.create(participants: _participants(4), seed: 5);
+          final target = state.currentMatch!;
+          state = _finishCurrent(engine, state);
+          state = engine.correctResult(
+            state: state,
+            matchId: target.id,
+            result: NormalMatchResult(
+              winnerId: target.secondParticipantId,
+              loserId: target.firstParticipantId,
+              winnerScore: target.firstTo,
+              loserScore: 0,
+            ),
+          );
+          final corrected = state.matches.singleWhere(
+            (match) => match.id == target.id,
+          );
+          expect(corrected.result!.winnerId, target.secondParticipantId);
+
+          state = _finishCurrent(engine, state);
+          expect(
+            () => engine.correctResult(
+              state: state,
+              matchId: target.id,
+              result: NormalMatchResult(
+                winnerId: target.firstParticipantId,
+                loserId: target.secondParticipantId,
+                winnerScore: target.firstTo,
+                loserScore: 0,
+              ),
+            ),
+            throwsStateError,
+          );
+        }
+      },
+    );
   });
 
   group('Single Elimination v1', () {

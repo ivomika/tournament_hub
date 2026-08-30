@@ -66,6 +66,7 @@ final class RoundRobinState extends FormatEngineState {
     required this.mainMatchCount,
     required this.rankingGroups,
     required this.outcome,
+    required this.seed,
     this.withdrawnParticipants = const {},
   });
 
@@ -75,6 +76,8 @@ final class RoundRobinState extends FormatEngineState {
   String get rulesetVersion => tournamentRulesetV1;
   @override
   final List<TournamentParticipantId> participants;
+  @override
+  final int seed;
   @override
   final List<TournamentMatch> matches;
   final int mainMatchCount;
@@ -149,6 +152,7 @@ final class RoundRobinEngine implements TournamentFormatEngine {
       mainMatchCount: matches.length,
       rankingGroups: const [],
       outcome: null,
+      seed: seed,
     );
   }
 
@@ -188,6 +192,7 @@ final class RoundRobinEngine implements TournamentFormatEngine {
         rankingGroups: state.rankingGroups,
         outcome: null,
         withdrawnParticipants: state.withdrawnParticipants,
+        seed: state.seed,
       );
     }
 
@@ -219,6 +224,7 @@ final class RoundRobinEngine implements TournamentFormatEngine {
           championId: ranking.first.participantId,
           ranking: List.unmodifiable(ranking),
         ),
+        seed: state.seed,
       );
     }
 
@@ -242,6 +248,7 @@ final class RoundRobinEngine implements TournamentFormatEngine {
       rankingGroups: groups,
       outcome: null,
       withdrawnParticipants: state.withdrawnParticipants,
+      seed: state.seed,
     );
   }
 
@@ -265,12 +272,30 @@ final class RoundRobinEngine implements TournamentFormatEngine {
         mainMatchCount: state.mainMatchCount,
         rankingGroups: state.rankingGroups,
         outcome: state.outcome,
+        seed: state.seed,
         withdrawnParticipants: Set.unmodifiable({
           ...state.withdrawnParticipants,
           participantId,
         }),
       ),
     );
+  }
+
+  @override
+  RoundRobinState correctResult({
+    required FormatEngineState state,
+    required String matchId,
+    required TournamentMatchResult result,
+  }) {
+    if (state is! RoundRobinState) {
+      throw ArgumentError('Round Robin state expected.');
+    }
+    return replayWithCorrectedResult(
+      engine: this,
+      state: state,
+      matchId: matchId,
+      replacement: result,
+    ) as RoundRobinState;
   }
 
   RoundRobinState _resolveWithdrawals(RoundRobinState state) {
@@ -315,6 +340,7 @@ final class RoundRobinEngine implements TournamentFormatEngine {
       mainMatchCount: state.mainMatchCount,
       rankingGroups: const [],
       outcome: null,
+      seed: state.seed,
     );
     final byPoints = <int, List<TournamentParticipantId>>{};
     for (final standing in completed.standings) {

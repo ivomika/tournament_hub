@@ -44,6 +44,10 @@ broadcast committed events
 
 При любой ошибке до commit всё откатывается. После commit publish failure не меняет truth; reconnect получает snapshot или missing events.
 
+## Result correction
+
+Correction — idempotent active mutation с `commandId` и `expectedRevision`. Domain сначала проверяет downstream boundary и строит corrected state через deterministic replay. Затем одна active transaction записывает snapshot на revision+1, append-only `result_corrected` event и processed command result. Ранее записанные events не update/delete-ятся: snapshot остаётся authoritative truth, а event фиксирует supersession. Любая validation или persistence error оставляет snapshot/log без изменений; success UI/publish возможны только после commit.
+
 ## Terminal normalization
 
 Противоречие исходного Design Doc нормализуется обязательным правилом commit-before-broadcast:

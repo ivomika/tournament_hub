@@ -24,6 +24,7 @@ final class SingleEliminationState extends FormatEngineState {
     required this.roundWinners,
     required this.eliminatedByRound,
     required this.outcome,
+    required this.seed,
     this.withdrawnParticipants = const {},
   });
 
@@ -33,6 +34,8 @@ final class SingleEliminationState extends FormatEngineState {
   String get rulesetVersion => tournamentRulesetV1;
   @override
   final List<TournamentParticipantId> participants;
+  @override
+  final int seed;
   @override
   final List<TournamentMatch> matches;
   final int round;
@@ -68,6 +71,7 @@ final class SingleEliminationEngine implements TournamentFormatEngine {
       round: 1,
       entrants: entrants,
       eliminatedByRound: const [],
+      seed: seed,
     );
   }
 
@@ -122,6 +126,7 @@ final class SingleEliminationEngine implements TournamentFormatEngine {
         eliminatedByRound: _freezeGroups(eliminated),
         outcome: null,
         withdrawnParticipants: state.withdrawnParticipants,
+        seed: state.seed,
       );
     }
     if (winners.length == 1) {
@@ -134,6 +139,7 @@ final class SingleEliminationEngine implements TournamentFormatEngine {
         eliminatedByRound: _freezeGroups(eliminated),
         outcome: _outcome(winners.single, eliminated),
         withdrawnParticipants: state.withdrawnParticipants,
+        seed: state.seed,
       );
     }
     return _scheduleRound(
@@ -143,6 +149,7 @@ final class SingleEliminationEngine implements TournamentFormatEngine {
       entrants: winners,
       eliminatedByRound: eliminated,
       withdrawnParticipants: state.withdrawnParticipants,
+      seed: state.seed,
     );
   }
 
@@ -168,12 +175,30 @@ final class SingleEliminationEngine implements TournamentFormatEngine {
         roundWinners: state.roundWinners,
         eliminatedByRound: state.eliminatedByRound,
         outcome: state.outcome,
+        seed: state.seed,
         withdrawnParticipants: Set.unmodifiable({
           ...state.withdrawnParticipants,
           participantId,
         }),
       ),
     );
+  }
+
+  @override
+  SingleEliminationState correctResult({
+    required FormatEngineState state,
+    required String matchId,
+    required TournamentMatchResult result,
+  }) {
+    if (state is! SingleEliminationState) {
+      throw ArgumentError('Single Elimination state expected.');
+    }
+    return replayWithCorrectedResult(
+      engine: this,
+      state: state,
+      matchId: matchId,
+      replacement: result,
+    ) as SingleEliminationState;
   }
 
   SingleEliminationState _resolveWithdrawals(SingleEliminationState state) {
@@ -214,6 +239,7 @@ final class SingleEliminationEngine implements TournamentFormatEngine {
     required int round,
     required List<TournamentParticipantId> entrants,
     required List<List<TournamentParticipantId>> eliminatedByRound,
+    required int seed,
     Set<TournamentParticipantId> withdrawnParticipants = const {},
   }) {
     final winners = <TournamentParticipantId>[];
@@ -247,6 +273,7 @@ final class SingleEliminationEngine implements TournamentFormatEngine {
       roundWinners: List.unmodifiable(winners),
       eliminatedByRound: _freezeGroups(eliminatedByRound),
       outcome: null,
+      seed: seed,
       withdrawnParticipants: Set.unmodifiable(withdrawnParticipants),
     );
   }

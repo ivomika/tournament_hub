@@ -49,6 +49,56 @@ final class HostTournament extends Equatable {
     );
   }
 
+  factory HostTournament.restore({
+    required String id,
+    required int revision,
+    required String title,
+    required String gameId,
+    required String formatId,
+    required int rulesetVersion,
+    required TournamentLifecycle lifecycle,
+    required List<TournamentParticipant> participants,
+    required FighterAssignmentSet? assignments,
+    required DateTime createdAtUtc,
+    required DateTime updatedAtUtc,
+    TournamentFinalOutcome? finalOutcome,
+    TournamentCancellation? cancellation,
+  }) {
+    if (id.trim().isEmpty || revision < 0) {
+      throw const FormatException('Invalid restored tournament identity.');
+    }
+    _title(title);
+    if (participants.map((value) => value.id).toSet().length !=
+        participants.length) {
+      throw const FormatException('Restored participants are duplicated.');
+    }
+    final terminalFactsValid = switch (lifecycle) {
+      TournamentLifecycle.finished =>
+        finalOutcome != null && cancellation == null,
+      TournamentLifecycle.cancelled =>
+        finalOutcome == null && cancellation != null,
+      _ => finalOutcome == null && cancellation == null,
+    };
+    if (!terminalFactsValid) {
+      throw const FormatException('Restored lifecycle facts are inconsistent.');
+    }
+    return HostTournament._(
+      id: id,
+      revision: revision,
+      title: title.trim(),
+      gameId: gameId,
+      formatId: formatId,
+      rulesetVersion: rulesetVersion,
+      lifecycle: lifecycle,
+      participants: List.unmodifiable(participants),
+      assignments: assignments,
+      createdAtUtc: createdAtUtc.toUtc(),
+      updatedAtUtc: updatedAtUtc.toUtc(),
+      finalOutcome: finalOutcome,
+      cancellation: cancellation,
+    );
+  }
+
   final String id;
   final int revision;
   final String title;

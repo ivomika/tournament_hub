@@ -35,6 +35,9 @@ final class _TournamentHubAppState extends State<TournamentHubApp> {
     final profileRuntime = widget.runtime is AppProfileRuntime
         ? widget.runtime as AppProfileRuntime
         : null;
+    final hostRuntime = widget.runtime is AppHostTournamentRuntime
+        ? widget.runtime as AppHostTournamentRuntime
+        : null;
     return MaterialApp(
       title: 'Tournament Hub',
       debugShowCheckedModeBanner: false,
@@ -56,6 +59,7 @@ final class _TournamentHubAppState extends State<TournamentHubApp> {
             onCreateProfile: profileRuntime?.createProfile,
             onRenameProfile: profileRuntime?.renameProfile,
             onResetAccount: profileRuntime?.resetAccount,
+            hostRuntime: hostRuntime,
             onDestinationSelected: _selectDestination,
           ),
         ),

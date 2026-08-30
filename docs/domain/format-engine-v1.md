@@ -35,7 +35,17 @@ Tie resolution — отдельный Domain policy contract. V1 использ�
 
 ## Correction boundary
 
-V1 state хранит dependency facts, но correction command не публикуется до закрытия OD-004. Это исключает молчаливую invalidation event log. Result в `Finished` tournament immutable.
+V1 correction детерминированно replay-ит engine от сохранённых participants, seed и settings, заменяя result target match. Correction разрешена только если ни один созданный после target match не Finished. После correction current и вся несыгранная downstream structure снова выводятся engine. Result в terminal tournament immutable.
+
+### Решение OD-004
+
+- ID/дата/владелец: `OD-004`, 2026-08-30, task `TH-20260830-096`, Domain/Data.
+- Контекст: correction должна менять progression без переписывания committed event log и без неоднозначной частичной invalidation.
+- Решение: replay исходного seed и упорядоченных results с заменой target result; любой Finished downstream match блокирует команду. Успех атомарно добавляет новую snapshot revision и append-only `result_corrected` event.
+- Отклонено: update/delete старых events; ручное редактирование downstream matches; correction после terminal transition.
+- Последствия/consumers: format engines отвечают за replay и dependency boundary, application формирует команду, active store отвечает за atomic commit, UI публикует только committed projection.
+- Compatibility/migration/rollback: schema v1 не меняется; старые snapshots без correction events читаются как раньше. До production rollback возможен удалением application command/UI при сохранении replay API; committed history не мигрирует и не переписывается.
+- Verification: deterministic correction/downstream tests, atomic active-store tests и offline Host integration test из `TH-20260830-096`.
 
 ## Compatibility, rollback и verification
 

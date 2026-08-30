@@ -95,7 +95,7 @@ Schedule invariants: N(N−1)/2 main matches; каждая пара один р�
 
 ## Correction
 
-Общее правило: correction запрещена, если любой downstream match уже Finished. Форматный engine владеет dependency graph и invalidation plan. До закрытия OD-004 correction не реализуется догадкой. History после Finished не корректируется.
+Общее правило: correction запрещена, если любой downstream match уже Finished. Форматный engine детерминированно replay-ит initial seed и ordered results, заменяя target result; так пересчитывается только несыгранная зависимая часть. Correction не переписывает events и не допускается после terminal transition.
 
 ## Completion
 

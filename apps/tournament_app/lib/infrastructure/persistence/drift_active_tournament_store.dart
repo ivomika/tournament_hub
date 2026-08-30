@@ -88,21 +88,26 @@ final class DriftActiveTournamentStore implements ActiveTournamentStore {
       }
     }
 
-    await database
-        .into(database.activeTournamentSnapshots)
-        .insertOnConflictUpdate(
-          ActiveTournamentSnapshotsCompanion.insert(
-            tournamentId: snapshot.tournamentId,
-            schemaVersion: snapshot.schemaVersion,
-            revision: snapshot.revision,
-            formatId: snapshot.formatId,
-            rulesetVersion: snapshot.rulesetVersion,
-            lifecycle: snapshot.lifecycle,
-            createdAtUtc: snapshot.createdAtUtc.toUtc().toIso8601String(),
-            updatedAtUtc: snapshot.updatedAtUtc.toUtc().toIso8601String(),
-            payload: snapshot.encodePayload(),
-          ),
-        );
+    final snapshotRow = ActiveTournamentSnapshotsCompanion(
+      tournamentId: Value(snapshot.tournamentId),
+      schemaVersion: Value(snapshot.schemaVersion),
+      revision: Value(snapshot.revision),
+      formatId: Value(snapshot.formatId),
+      rulesetVersion: Value(snapshot.rulesetVersion),
+      lifecycle: Value(snapshot.lifecycle),
+      createdAtUtc: Value(snapshot.createdAtUtc.toUtc().toIso8601String()),
+      updatedAtUtc: Value(snapshot.updatedAtUtc.toUtc().toIso8601String()),
+      payload: Value(snapshot.encodePayload()),
+    );
+    if (current == null) {
+      await database
+          .into(database.activeTournamentSnapshots)
+          .insert(snapshotRow);
+    } else {
+      await (database.update(database.activeTournamentSnapshots)
+            ..where((table) => table.singletonId.equals(current.singletonId)))
+          .write(snapshotRow);
+    }
     for (final event in events) {
       await database
           .into(database.activeTournamentEvents)

@@ -10,6 +10,7 @@ final class DoubleEliminationState extends FormatEngineState {
     required this.losses,
     required this.eliminatedByStage,
     required this.outcome,
+    required this.seed,
     this.withdrawnParticipants = const {},
   });
 
@@ -19,6 +20,8 @@ final class DoubleEliminationState extends FormatEngineState {
   String get rulesetVersion => tournamentRulesetV1;
   @override
   final List<TournamentParticipantId> participants;
+  @override
+  final int seed;
   @override
   final List<TournamentMatch> matches;
   final int wave;
@@ -55,6 +58,7 @@ final class DoubleEliminationEngine implements TournamentFormatEngine {
       losses: losses,
       eliminatedByStage: const [],
       preferredOrder: ordered,
+      seed: seed,
     );
   }
 
@@ -107,6 +111,7 @@ final class DoubleEliminationEngine implements TournamentFormatEngine {
         eliminatedByStage: _freeze(eliminated),
         outcome: null,
         withdrawnParticipants: state.withdrawnParticipants,
+        seed: state.seed,
       );
     }
 
@@ -136,6 +141,7 @@ final class DoubleEliminationEngine implements TournamentFormatEngine {
         eliminatedByStage: _freeze(eliminated),
         outcome: null,
         withdrawnParticipants: state.withdrawnParticipants,
+        seed: state.seed,
       );
     }
 
@@ -147,6 +153,7 @@ final class DoubleEliminationEngine implements TournamentFormatEngine {
       eliminatedByStage: eliminated,
       preferredOrder: state.participants,
       withdrawnParticipants: state.withdrawnParticipants,
+      seed: state.seed,
     );
   }
 
@@ -171,12 +178,30 @@ final class DoubleEliminationEngine implements TournamentFormatEngine {
         losses: state.losses,
         eliminatedByStage: state.eliminatedByStage,
         outcome: state.outcome,
+        seed: state.seed,
         withdrawnParticipants: Set.unmodifiable({
           ...state.withdrawnParticipants,
           participantId,
         }),
       ),
     );
+  }
+
+  @override
+  DoubleEliminationState correctResult({
+    required FormatEngineState state,
+    required String matchId,
+    required TournamentMatchResult result,
+  }) {
+    if (state is! DoubleEliminationState) {
+      throw ArgumentError('Double Elimination state expected.');
+    }
+    return replayWithCorrectedResult(
+      engine: this,
+      state: state,
+      matchId: matchId,
+      replacement: result,
+    ) as DoubleEliminationState;
   }
 
   DoubleEliminationState _resolveWithdrawals(DoubleEliminationState state) {
@@ -218,6 +243,7 @@ final class DoubleEliminationEngine implements TournamentFormatEngine {
     required Map<TournamentParticipantId, int> losses,
     required List<List<TournamentParticipantId>> eliminatedByStage,
     required List<TournamentParticipantId> preferredOrder,
+    required int seed,
     Set<TournamentParticipantId> withdrawnParticipants = const {},
   }) {
     final active = preferredOrder.where((id) => losses[id]! < 2).toList();
@@ -244,6 +270,7 @@ final class DoubleEliminationEngine implements TournamentFormatEngine {
         losses: Map.unmodifiable(losses),
         eliminatedByStage: _freeze(eliminatedByStage),
         outcome: null,
+        seed: seed,
         withdrawnParticipants: Set.unmodifiable(withdrawnParticipants),
       );
     }
@@ -278,6 +305,7 @@ final class DoubleEliminationEngine implements TournamentFormatEngine {
       losses: Map.unmodifiable(losses),
       eliminatedByStage: _freeze(eliminatedByStage),
       outcome: null,
+      seed: seed,
       withdrawnParticipants: Set.unmodifiable(withdrawnParticipants),
     );
   }
@@ -324,6 +352,7 @@ final class DoubleEliminationEngine implements TournamentFormatEngine {
         championId: champion,
         ranking: List.unmodifiable(placements),
       ),
+      seed: state.seed,
     );
   }
 }

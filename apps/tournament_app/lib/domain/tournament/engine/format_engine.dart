@@ -124,6 +124,7 @@ abstract class FormatEngineState {
   TournamentFormat get format;
   String get rulesetVersion;
   List<TournamentParticipantId> get participants;
+  int get seed;
   List<TournamentMatch> get matches;
   TournamentEngineOutcome? get outcome;
 
@@ -156,6 +157,66 @@ abstract interface class TournamentFormatEngine {
     required FormatEngineState state,
     required TournamentParticipantId participantId,
   });
+
+  FormatEngineState correctResult({
+    required FormatEngineState state,
+    required String matchId,
+    required TournamentMatchResult result,
+  });
+}
+
+FormatEngineState replayWithCorrectedResult({
+  required TournamentFormatEngine engine,
+  required FormatEngineState state,
+  required String matchId,
+  required TournamentMatchResult replacement,
+}) {
+  if (state.isComplete) throw StateError('Terminal tournament is immutable.');
+  final targetIndex = state.matches.indexWhere((match) => match.id == matchId);
+  if (targetIndex < 0 || state.matches[targetIndex].result == null) {
+    throw StateError('Only a finished match can be corrected.');
+  }
+  if (state.matches
+      .skip(targetIndex + 1)
+      .any((match) => match.status == TournamentMatchStatus.finished)) {
+    throw StateError('A downstream match is already finished.');
+  }
+
+  var replay = engine.create(
+    participants: state.participants,
+    seed: state.seed,
+  );
+  for (var index = 0; index <= targetIndex; index++) {
+    final original = state.matches[index];
+    final desired = index == targetIndex ? replacement : original.result!;
+    final alreadyReplayed = replay.matches
+        .where((match) => match.id == original.id)
+        .firstOrNull;
+    if (alreadyReplayed?.result != null) {
+      if (index == targetIndex) {
+        throw StateError('Automatic withdrawal result cannot be corrected.');
+      }
+      continue;
+    }
+    final current = replay.currentMatch;
+    if (current == null || current.id != original.id) {
+      throw StateError('Ruleset replay diverged at ${original.id}.');
+    }
+    if (desired is TechnicalMatchResult &&
+        desired.reason == TechnicalResultReason.withdrawal) {
+      replay = engine.withdrawParticipant(
+        state: replay,
+        participantId: desired.loserId,
+      );
+    } else {
+      replay = engine.submitResult(
+        state: replay,
+        matchId: current.id,
+        result: desired,
+      );
+    }
+  }
+  return replay;
 }
 
 final class TournamentFormatEngineRegistry {

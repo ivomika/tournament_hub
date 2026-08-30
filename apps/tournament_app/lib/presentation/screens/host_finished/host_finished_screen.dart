@@ -2,66 +2,40 @@ import 'package:flutter/widgets.dart';
 
 import '../../design_system/design_system.dart';
 
-class HostFinishedScreenPreview extends StatefulWidget {
-  const HostFinishedScreenPreview({super.key});
+class HostFinishedScreenPreview extends StatelessWidget {
+  const HostFinishedScreenPreview({
+    this.title = 'Турнир завершён',
+    this.champion = previewIvan,
+    this.standings = previewStandingsRows,
+    this.onMain,
+    super.key,
+  });
 
-  @override
-  State<HostFinishedScreenPreview> createState() =>
-      _HostFinishedScreenPreviewState();
-}
-
-class _HostFinishedScreenPreviewState extends State<HostFinishedScreenPreview> {
-  final _resultsKey = GlobalKey();
-  final _structureKey = GlobalKey();
+  final String title;
+  final PreviewParticipant champion;
+  final List<StandingRowViewData> standings;
+  final VoidCallback? onMain;
 
   @override
   Widget build(BuildContext context) => AppShell(
     title: 'Турнир завершён',
-    subtitle: 'Friday Fight Night · Double Elimination',
-    sectionLabel: 'ФИНАЛ',
+    subtitle: title,
+    sectionLabel: 'ФИНАЛ · ЭТАП 5 ИЗ 5',
     headerVariant: PageHeaderVariant.compact,
     actionDock: ActionDock(
-      primary: DsAction(label: 'На главную', onPressed: () {}),
-      contextual: ActionDockAction(
-        key: const Key('host-finished-results-jump'),
-        label: 'К итогам',
-        onSelected: () => _scrollTo(_resultsKey),
-      ),
-      secondary: [
-        ActionDockAction(label: 'Открыть историю', onSelected: () {}),
-        ActionDockAction(
-          label: 'К структуре',
-          onSelected: () => _scrollTo(_structureKey),
-        ),
-      ],
+      primary: DsAction(label: 'На главную', onPressed: onMain),
     ),
     child: PageLayout(
       preset: PageLayoutPreset.flow,
-      primary: ChampionHero(champion: previewParticipants.first),
+      primary: ChampionHero(champion: champion),
       secondary: const TournamentStageHeader(
         variant: TournamentStageVariant.strip,
         stage: 'Результат зафиксирован',
         progress: 'ЗАВЕРШЁН',
-        detail: 'Турнир доступен только для чтения и сохранён в истории.',
+        detail: 'Чемпион и полный ranking сохранены в immutable history.',
         kind: StatusKind.success,
       ),
-      supporting: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          KeyedSubtree(key: _resultsKey, child: const TournamentStandings()),
-          const DsGap(DsSpace.lg),
-          KeyedSubtree(
-            key: _structureKey,
-            child: const TournamentBracketPreview(completedPreviewCount: 3),
-          ),
-        ],
-      ),
+      supporting: TournamentStandings(rows: standings),
     ),
   );
-
-  void _scrollTo(GlobalKey key) {
-    final target = key.currentContext;
-    if (target == null) return;
-    Scrollable.ensureVisible(target, alignment: 0.04);
-  }
 }

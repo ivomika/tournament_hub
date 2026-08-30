@@ -117,6 +117,36 @@ void main() {
     expect(retryCalls, 1);
     expect(find.text('Ошибка подключения'), findsOneWidget);
   });
+
+  testWidgets('Guest можно удалить из открытого лобби', (tester) async {
+    await _setViewport(tester, const Size(1280, 960));
+    String? removedId;
+    await tester.pumpWidget(
+      _app(
+        HostOpenScreenPreview(
+          participants: const [
+            HostLobbyParticipantViewData(
+              id: 'host',
+              nickname: 'Организатор',
+              isGuest: false,
+            ),
+            HostLobbyParticipantViewData(
+              id: 'guest-1',
+              nickname: 'Соня',
+              isGuest: true,
+            ),
+          ],
+          onRemoveParticipant: (value) => removedId = value,
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    await tester.ensureVisible(find.text('Удалить гостя'));
+    await tester.tap(find.text('Удалить гостя'));
+
+    expect(removedId, 'guest-1');
+  });
 }
 
 Future<void> _openSpectatorAccess(WidgetTester tester) async {

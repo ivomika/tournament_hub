@@ -7,7 +7,6 @@
 ## Активные задачи
 
 - ⛔ **053** — Привести Spectator Web к утверждённому visual language — [детали](tasks/TH-20260828-053.md)
-- 📝 **096** — Подключить Host application flow от Draft до Finished/Cancelled — [детали](tasks/TH-20260830-096.md)
 - 📝 **097** — Реализовать immutable history и Host statistics — [детали](tasks/TH-20260830-097.md)
 - 🟢 **098** — Зафиксировать Spectator projection и read-only protocol contract — [детали](tasks/TH-20260830-098.md)
 - 📝 **099** — Реализовать Host LAN server для Spectator — [детали](tasks/TH-20260830-099.md)
@@ -16,6 +15,7 @@
 
 ## Завершённые задачи
 
+- ✅ **096** — Подключить Host application flow от Draft до Finished/Cancelled — [детали](tasks/TH-20260830-096.md)
 - ✅ **095** — Реализовать versioned DE/SE/RR engines, scoring и tie-break — [детали](tasks/TH-20260830-095.md)
 - ✅ **094** — Подключить MK11 roster и уникальную выдачу fighters — [детали](tasks/TH-20260830-094.md)
 - ✅ **093** — Реализовать SQLite/Drift stores и crash-safe terminal history — [детали](tasks/TH-20260830-093.md)
