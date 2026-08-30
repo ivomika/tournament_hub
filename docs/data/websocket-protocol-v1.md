@@ -29,6 +29,8 @@ Spectator первым отправляет:
 
 Успешный ответ — `handshake.accepted` с `connectionId`, `clientType`, `tournamentId` и `currentSequence`.
 
+Для Spectator inbound разрешён ровно один JSON message type — `handshake.client`. Business `request`, повторный handshake и неизвестная `category/type` запрещены и завершаются `INVALID_HANDSHAKE`; mutation command невозможно выразить этим contract. Максимальный размер inbound message — `16 KiB` UTF-8, максимальная глубина JSON — `8`, неизвестные поля rejected. Snapshot/event payload Host ограничен `2 MiB`; превышение переводит spectator availability в degraded/unavailable, но не влияет на tournament progression.
+
 ## Synchronization и ordering
 
 После handshake Host отправляет `sync.started`, затем либо contiguous events (`mode: events`), либо `sync.snapshot` (`mode: snapshot`), и завершает `sync.completed`. Snapshot содержит `tournamentId`, `sequence`, `snapshotVersion` и role-specific `snapshot`.
@@ -36,6 +38,8 @@ Spectator первым отправляет:
 `sequence` — единый для турнира поток: начинается с 1, монотонно возрастает, не переиспользуется и общий для всех клиентов. Клиент применяет событие только при `sequence == lastSequence + 1`; дубликаты и старые события игнорируются. Gap переводит клиент в `SYNCHRONIZING`, приостанавливает live events и требует replay либо full snapshot.
 
 Event envelope содержит `eventVersion`, `eventId`, `tournamentId`, `sequence`, UTC `timestamp` и `payload`. События рассылаются строго по sequence. После terminal `tournament.finished` или `tournament.cancelled` live stream турнира завершается.
+
+V1 публикует один public event type `spectator.projection.replaced` (`eventVersion: 1`): payload содержит полную новую public projection после committed revision. Duplicate/old sequence игнорируется; reordered future event создаёт gap и не применяется; Host replay-ит contiguous retained events либо отправляет `sync.snapshot`. Replay window хранит последние `4096` committed public events на active tournament; более старый `lastSequence` всегда получает full snapshot.
 
 ## Spectator projection
 
@@ -48,6 +52,16 @@ Authoritative Domain Model напрямую не сериализуется. Pro
 - признаки `stale`, `syncing`, `incompatible` для UI.
 
 Запрещены profile IDs, local history Host, app settings, network addresses, diagnostics и любые mutation-команды. Spectator не отправляет business `request`; он только читает snapshot/events.
+
+`snapshotVersion: 1` имеет закрытый shape:
+
+- root: `tournamentId`, `revision`, `sequence`, `snapshotVersion`, `tournament`, `participants`, `matches`, `standings`, optional `championParticipantId`;
+- tournament: `title`, `formatId`, `rulesetVersion`, `lifecycle` (`distribution|running|finished`);
+- participant: tournament-scoped `participantId`, public `nickname`, `isGuest`, optional fighter `{fighterId, displayName, assetPath}`;
+- match: stable ID, round/order/stage/FT, два participant IDs, status и optional public normal/technical result;
+- standing: participant ID и place range. Cancelled projection не публикуется Spectator и не содержит synthetic champion/ranking.
+
+Ни одно поле не содержит `profileId`, `localProfileId`, Guest internal ID отдельно от public participant ID, local endpoint, history/settings, command/event diagnostics или stack trace. Canonical JSON Schema и synthetic fixtures находятся в [`schemas/spectator-projection-v1.schema.json`](schemas/spectator-projection-v1.schema.json) и [`fixtures/spectator-protocol-v1.json`](fixtures/spectator-protocol-v1.json).
 
 ## Persistence boundary
 
@@ -69,5 +83,14 @@ Authoritative mutation сначала применяет Domain operation, со�
 - Protocol-level лимита Spectator connections нет.
 - При утрате event range всегда используется full snapshot.
 - Audience policy (`spectators`) принадлежит application/projection layer, не Domain Model.
+
+## Решения SPEC-001 / SPEC-002
+
+- ID/дата/владелец: `SPEC-001` (capacity/compatibility) и `SPEC-002` (privacy), 2026-08-30, task `TH-20260830-098`, Data/Security.
+- Решение: protocol не ограничивает число Spectator connections; replay window — 4096 public events, затем snapshot; inbound 16 KiB/depth 8, outbound projection 2 MiB. Public allowlist задан schema выше; unknown/private fields rejected.
+- Отклонено: client deltas и business requests; неограниченный payload/log; blacklist-redaction внутреннего snapshot; публикация profile IDs; silent acceptance unknown fields.
+- Последствия: 099 реализует limits/full-snapshot fallback, 100 применяет replace-only reducer; Participant envelope/authorization остаётся OD-002/OD-003 и не наследует Spectator handshake.
+- Compatibility/migration/rollback: новые shapes требуют нового `protocolVersion`/`snapshotVersion`/`eventVersion`; v1 не расширяется неизвестными полями. До release rollback — отключить Spectator server, Host flow остаётся offline.
+- Verification: schema fixtures, strict validation/redaction и duplicate/reorder/gap/snapshot reducer tests задачи 098; capacity/server tests — 099.
 
 Источник: `websocket_protocol_v1_ru.md` (предоставленный технический документ), нормализованный под MVP scope. Связанные нормы: [Data and protocol](README.md), [Operations](../operations/README.md), [Screen map](../product/screen-map.md#spectator-web-flow).

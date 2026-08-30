@@ -32,9 +32,14 @@
 | OD-009 | Какие OS и минимальные версии входят в MVP? | Platform support matrix и CI jobs. |
 | OD-010 | Как лицензируются и распространяются fighter artwork и Mortal Kombat naming? | Legal/asset approval. |
 | OD-011 | Какой font/fallback используется одинаково во Flutter и Web? | Typography tokens и license record. |
-| OD-012 | Каковы limits active event log и spectator connections? | Capacity test и fallback policy. |
 | OD-013 | Как обрабатываются port conflict, interface change и app background? | Host server lifecycle contract. |
-| OD-014 | Какие поля profile разрешено публиковать Participant/Spectator? | Projection/privacy schema. |
+
+## Закрытые Spectator decisions
+
+| ID | Решение | Дата и владелец | Канон и verification |
+|---|---|---|---|
+| OD-012 (Spectator) | Protocol-level число connections не ограничено; replay window 4096 public events, затем full snapshot; inbound/outbound limits зафиксированы SPEC-001. | 2026-08-30, product owner + task 098 | [WebSocket v1](../data/websocket-protocol-v1.md#решения-spec-001--spec-002), schema/replay/security tests; runtime capacity — 099 |
+| OD-014 (Spectator) | Публикуется только allowlisted tournament-scoped projection; profile/local/network/diagnostic fields запрещены. Participant privacy остаётся вне MVP. | 2026-08-30, product owner + task 098 | [WebSocket v1](../data/websocket-protocol-v1.md#spectator-projection), redaction/schema tests |
 
 ## Шаблон закрытия
 

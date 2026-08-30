@@ -1,0 +1,30 @@
+{
+  "handshake": {
+    "category": "handshake", "type": "handshake.client", "protocolVersion": 1,
+    "payload": { "clientType": "spectator", "tournamentId": "t-1", "lastSequence": 0 }
+  },
+  "snapshot": {
+    "tournamentId": "t-1", "revision": 7, "sequence": 7, "snapshotVersion": 1,
+    "tournament": { "title": "Friday Fight", "formatId": "single-elimination", "rulesetVersion": 1, "lifecycle": "running" },
+    "participants": [
+      { "participantId": "p-1", "nickname": "Иван", "isGuest": false, "fighter": { "fighterId": "scorpion", "displayName": "Scorpion", "assetPath": "assets/fighters/scorpion.png" } },
+      { "participantId": "p-2", "nickname": "Гость", "isGuest": true, "fighter": { "fighterId": "sub-zero", "displayName": "Sub-Zero", "assetPath": "assets/fighters/sub-zero.png" } }
+    ],
+    "matches": [
+      { "matchId": "m-1", "round": 1, "order": 0, "stage": "main", "firstTo": 1, "firstParticipantId": "p-1", "secondParticipantId": "p-2", "status": "current" }
+    ],
+    "standings": []
+  },
+  "event": {
+    "category": "event", "type": "spectator.projection.replaced", "protocolVersion": 1,
+    "eventVersion": 1, "eventId": "e-7", "tournamentId": "t-1", "sequence": 7,
+    "timestamp": "2026-08-30T12:00:00Z",
+    "payload": {
+      "projection": {
+        "tournamentId": "t-1", "revision": 7, "sequence": 7, "snapshotVersion": 1,
+        "tournament": { "title": "Friday Fight", "formatId": "single-elimination", "rulesetVersion": 1, "lifecycle": "running" },
+        "participants": [], "matches": [], "standings": []
+      }
+    }
+  }
+}

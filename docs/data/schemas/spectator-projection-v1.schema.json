@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tournament-hub/spectator-projection-v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["tournamentId", "revision", "sequence", "snapshotVersion", "tournament", "participants", "matches", "standings"],
+  "properties": {
+    "tournamentId": { "type": "string", "minLength": 1 },
+    "revision": { "type": "integer", "minimum": 1 },
+    "sequence": { "type": "integer", "minimum": 0 },
+    "snapshotVersion": { "const": 1 },
+    "championParticipantId": { "type": "string", "minLength": 1 },
+    "tournament": {
+      "type": "object", "additionalProperties": false,
+      "required": ["title", "formatId", "rulesetVersion", "lifecycle"],
+      "properties": {
+        "title": { "type": "string", "minLength": 1 },
+        "formatId": { "enum": ["double-elimination", "single-elimination", "round-robin"] },
+        "rulesetVersion": { "const": 1 },
+        "lifecycle": { "enum": ["distribution", "running", "finished"] }
+      }
+    },
+    "participants": {
+      "type": "array", "items": { "$ref": "#/$defs/participant" }
+    },
+    "matches": {
+      "type": "array", "items": { "$ref": "#/$defs/match" }
+    },
+    "standings": {
+      "type": "array", "items": { "$ref": "#/$defs/standing" }
+    }
+  },
+  "$defs": {
+    "fighter": {
+      "type": "object", "additionalProperties": false,
+      "required": ["fighterId", "displayName", "assetPath"],
+      "properties": {
+        "fighterId": { "type": "string", "minLength": 1 },
+        "displayName": { "type": "string", "minLength": 1 },
+        "assetPath": { "type": "string", "minLength": 1 }
+      }
+    },
+    "participant": {
+      "type": "object", "additionalProperties": false,
+      "required": ["participantId", "nickname", "isGuest"],
+      "properties": {
+        "participantId": { "type": "string", "minLength": 1 },
+        "nickname": { "type": "string", "minLength": 1 },
+        "isGuest": { "type": "boolean" },
+        "fighter": { "$ref": "#/$defs/fighter" }
+      }
+    },
+    "result": {
+      "type": "object", "additionalProperties": false,
+      "required": ["kind", "winnerParticipantId", "loserParticipantId"],
+      "properties": {
+        "kind": { "enum": ["normal", "technical"] },
+        "winnerParticipantId": { "type": "string" },
+        "loserParticipantId": { "type": "string" },
+        "winnerScore": { "type": "integer", "minimum": 1 },
+        "loserScore": { "type": "integer", "minimum": 0 },
+        "reason": { "enum": ["forfeit", "withdrawal"] }
+      }
+    },
+    "match": {
+      "type": "object", "additionalProperties": false,
+      "required": ["matchId", "round", "order", "stage", "firstTo", "firstParticipantId", "secondParticipantId", "status"],
+      "properties": {
+        "matchId": { "type": "string" }, "round": { "type": "integer", "minimum": 1 },
+        "order": { "type": "integer", "minimum": 0 }, "stage": { "type": "string" },
+        "firstTo": { "type": "integer", "minimum": 1 }, "firstParticipantId": { "type": "string" },
+        "secondParticipantId": { "type": "string" }, "status": { "enum": ["upcoming", "current", "finished"] },
+        "result": { "$ref": "#/$defs/result" }
+      }
+    },
+    "standing": {
+      "type": "object", "additionalProperties": false,
+      "required": ["participantId", "placeFrom", "placeTo"],
+      "properties": {
+        "participantId": { "type": "string" }, "placeFrom": { "type": "integer", "minimum": 1 },
+        "placeTo": { "type": "integer", "minimum": 1 }
+      }
+    }
+  }
+}
