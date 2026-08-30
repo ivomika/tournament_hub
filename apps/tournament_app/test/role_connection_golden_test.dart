@@ -9,6 +9,7 @@ void main() {
     (name: 'mobile', size: Size(390, 844)),
     (name: 'tablet', size: Size(768, 1024)),
     (name: 'desktop', size: Size(1280, 960)),
+    (name: 'wide_desktop', size: Size(1800, 1000)),
   ]) {
     testWidgets('role connection сохраняет ${viewport.name} composition', (
       tester,

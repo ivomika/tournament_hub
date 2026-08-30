@@ -76,3 +76,7 @@
 - Mobile full-page остаётся длинным как полная техническая история, но текущий Host-контекст доступен без ручного возврата наверх; старые completed matches имеют единый disclosure contract.
 - `Host Distribution`, `History`, `Settings` и `Host Cancelled` сохраняют split/archive-композицию: соседние блоки сопоставимы по высоте и не создают пустой rail. `Main`, `Host Draft`, `Host Result Entry`, `Profile`, `Bootstrap` и recoverable states остаются компактными однонаправленными потоками без декоративного заполнения canvas.
 - Обновлённые viewport и full-page goldens остаются отдельными regression artifacts.
+
+## Уточнение desktop content frame после TH-20260830-083
+
+На viewport шире `contentMaxWidth` header раньше продолжал занимать весь canvas, хотя body уже был ограничен. Из-за этого actions визуально отрывались вправо от последнего столбца content. Теперь `PageHeader` и body используют общий левый-aligned `AppShell` content frame: правый край toolbar совпадает с правым краем основной композиции. Отдельный `Host Open` wide-desktop golden 1800×1000 фиксирует поведение за пределами стандартного desktop viewport.

@@ -6,12 +6,17 @@
 
 ## Активные задачи
 
+- 🟢 **086** — Зафиксировать app lifecycle и state-driven navigation contract — [детали](tasks/TH-20260830-086.md)
+- 🟢 **087** — Реализовать bootstrap и composition root app-слоя — [детали](tasks/TH-20260830-087.md)
+- 🟢 **088** — Реализовать state-driven router и logical navigation — [детали](tasks/TH-20260830-088.md)
+- 🟢 **089** — Защитить app lifecycle и state-driven routing contract тестами — [детали](tasks/TH-20260830-089.md)
 - 📝 **053** — Привести Spectator Web к утверждённому visual language — [детали](tasks/TH-20260828-053.md)
 
 ## Завершённые задачи
 
 - ✅ **085** — Реализовать строгий architecture import gate — [детали](tasks/TH-20260830-085.md)
 - ✅ **084** — Зафиксировать матрицу зависимостей слоёв — [детали](tasks/TH-20260830-084.md)
+- ✅ **083** — Выровнять desktop header actions по границе контента — [детали](tasks/TH-20260830-083.md)
 - ✅ **082** — Пересобрать композицию длинных экранов по full-page аудиту — [детали](tasks/TH-20260830-082.md)
 - ✅ **081** — Добавить full-page goldens и аудит layout по scroll — [детали](tasks/TH-20260830-081.md)
 - ✅ **080** — Унифицировать Structure и прижать desktop primary action вправо — [детали](tasks/TH-20260830-080.md)

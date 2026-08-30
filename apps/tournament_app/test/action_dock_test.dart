@@ -409,4 +409,44 @@ void main() {
       lessThan(1),
     );
   });
+
+  testWidgets('desktop header и body используют общий content frame', (
+    tester,
+  ) async {
+    tester.view.devicePixelRatio = 1;
+    tester.view.physicalSize = const Size(1800, 1000);
+    addTearDown(() {
+      tester.view.resetPhysicalSize();
+      tester.view.resetDevicePixelRatio();
+    });
+
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: TournamentTheme.dark,
+        home: const HostOpenScreenPreview(),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    final headerFrame = find.byKey(const Key('app-shell-header-frame'));
+    final contentFrame = find.byKey(const Key('app-shell-content-frame'));
+    final primaryButton = find.ancestor(
+      of: find.text('Начать раздачу'),
+      matching: find.byType(ElevatedButton),
+    );
+
+    expect(
+      tester.getTopLeft(headerFrame).dx,
+      tester.getTopLeft(contentFrame).dx,
+    );
+    expect(
+      tester.getTopRight(headerFrame).dx,
+      tester.getTopRight(contentFrame).dx,
+    );
+    expect(
+      tester.getTopRight(primaryButton).dx,
+      tester.getTopRight(contentFrame).dx,
+    );
+    expect(tester.getTopRight(contentFrame).dx, lessThan(1800));
+  });
 }

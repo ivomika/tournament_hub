@@ -36,7 +36,7 @@
 
 `ActionDock` — единый action contract для Host lifecycle: закреплённый region на mobile и компактный toolbar у заголовка на desktop. Он не является универсальной нижней панелью для остальных ролей и не владеет lifecycle или navigation logic. На длинном operational screen допускается одно компактное contextual action для возврата к текущему semantic region; оно не дублирует primary и не создаёт второй fixed-слой. Подробные решения зафиксированы в [ADR-0007](../adr/0007-unified-host-action-contract.md) и [ADR-0009](../adr/0009-flow-layout-and-context-jumps.md).
 
-На desktop toolbar прижат к правому краю page layout. Primary action является крайним правым control; overflow и contextual actions располагаются слева от него. Порядок не меняет keyboard/focus semantics и не создаёт второе primary действие.
+На desktop toolbar прижат к правому краю общего `AppShell` content frame, а не к краю окна: header и body имеют одинаковые левую и правую границы даже на viewport шире `contentMaxWidth`. Primary action является крайним правым control внутри этого контура; overflow и contextual actions располагаются слева от него. Порядок не меняет keyboard/focus semantics и не создаёт второе primary действие.
 
 | Экран | Primary placement | Secondary/destructive placement |
 |---|---|---|

@@ -85,37 +85,41 @@ class AppShell extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                PageHeader(
-                  title: title,
-                  subtitle: subtitle,
-                  sectionLabel: sectionLabel,
-                  trailing:
-                      desktop &&
-                          (headerTrailing != null ||
-                              pageActions != null ||
-                              actionDock != null)
-                      ? _DesktopTrailing(
-                          contextWidget: headerTrailing,
-                          actions: actionDock != null
-                              ? ActionDock.toolbar(
-                                  primary: actionDock!.primary,
-                                  contextual: actionDock!.contextual,
-                                  secondary: actionDock!.secondary,
-                                  destructive: actionDock!.destructive,
-                                )
-                              : pageActions == null
-                              ? null
-                              : ResponsiveActions(
-                                  primary: pageActions!.primary,
-                                  secondary: pageActions!.secondary,
-                                  destructive: pageActions!.destructive,
-                                  overflow: pageActions!.overflow,
-                                  layout: ResponsiveActionsLayout.horizontal,
-                                ),
-                          gap: theme.contentGap,
-                        )
-                      : headerTrailing,
-                  variant: headerVariant,
+                _ContentFrame(
+                  frameKey: const Key('app-shell-header-frame'),
+                  maxWidth: theme.contentMaxWidth,
+                  child: PageHeader(
+                    title: title,
+                    subtitle: subtitle,
+                    sectionLabel: sectionLabel,
+                    trailing:
+                        desktop &&
+                            (headerTrailing != null ||
+                                pageActions != null ||
+                                actionDock != null)
+                        ? _DesktopTrailing(
+                            contextWidget: headerTrailing,
+                            actions: actionDock != null
+                                ? ActionDock.toolbar(
+                                    primary: actionDock!.primary,
+                                    contextual: actionDock!.contextual,
+                                    secondary: actionDock!.secondary,
+                                    destructive: actionDock!.destructive,
+                                  )
+                                : pageActions == null
+                                ? null
+                                : ResponsiveActions(
+                                    primary: pageActions!.primary,
+                                    secondary: pageActions!.secondary,
+                                    destructive: pageActions!.destructive,
+                                    overflow: pageActions!.overflow,
+                                    layout: ResponsiveActionsLayout.horizontal,
+                                  ),
+                            gap: theme.contentGap,
+                          )
+                        : headerTrailing,
+                    variant: headerVariant,
+                  ),
                 ),
                 if (!desktop && pageActions != null && actionDock == null) ...[
                   SizedBox(height: theme.contentGap),
@@ -127,14 +131,10 @@ class AppShell extends StatelessWidget {
                   ),
                 ],
                 SizedBox(height: theme.contentGap),
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: ConstrainedBox(
-                    constraints: BoxConstraints(
-                      maxWidth: theme.contentMaxWidth,
-                    ),
-                    child: child,
-                  ),
+                _ContentFrame(
+                  frameKey: const Key('app-shell-content-frame'),
+                  maxWidth: theme.contentMaxWidth,
+                  child: child,
                 ),
               ],
             ),
@@ -268,6 +268,28 @@ class AppShell extends StatelessWidget {
           label: 'Настройки',
         ),
       };
+}
+
+class _ContentFrame extends StatelessWidget {
+  const _ContentFrame({
+    required this.maxWidth,
+    required this.child,
+    this.frameKey,
+  });
+
+  final double maxWidth;
+  final Widget child;
+  final Key? frameKey;
+
+  @override
+  Widget build(BuildContext context) => Align(
+    alignment: Alignment.topLeft,
+    child: ConstrainedBox(
+      key: frameKey,
+      constraints: BoxConstraints(maxWidth: maxWidth),
+      child: child,
+    ),
+  );
 }
 
 class _DesktopTrailing extends StatelessWidget {
