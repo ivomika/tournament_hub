@@ -21,6 +21,9 @@ Future<void> main(List<String> arguments) async {
     case 'sync-fighter-assets':
       await runner.syncFighterAssets();
       return;
+    case 'generate-tokens':
+      await runner.generateTokens();
+      return;
     case 'run':
       final device = options['device'];
       await runner.flutter([
@@ -178,11 +181,15 @@ final class ProjectRunner {
 
   Future<void> buildSpectator() => npm(const ['run', 'build']);
 
-  Future<void> generateTokens() =>
-      dart(const ['tool/generate_flutter_tokens.dart']);
+  Future<void> generateTokens() async {
+    await dart(const ['tool/generate_flutter_tokens.dart']);
+    await dart(const ['tool/generate_web_tokens.dart']);
+  }
 
-  Future<void> checkTokens() =>
-      dart(const ['tool/generate_flutter_tokens.dart', '--check']);
+  Future<void> checkTokens() async {
+    await dart(const ['tool/generate_flutter_tokens.dart', '--check']);
+    await dart(const ['tool/generate_web_tokens.dart', '--check']);
+  }
 
   Future<void> checkArchitecture() async {
     await dart(const ['tool/check_flutter_layer_imports.dart']);

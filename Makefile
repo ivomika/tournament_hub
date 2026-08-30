@@ -11,7 +11,7 @@ setup:
 	$(DART) run tool/project.dart setup
 
 generate-tokens:
-	$(DART) tool/generate_flutter_tokens.dart
+	$(DART) run tool/project.dart generate-tokens
 
 sync-fighter-assets:
 	$(DART) tool/project.dart sync-fighter-assets
