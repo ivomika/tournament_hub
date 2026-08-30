@@ -84,6 +84,8 @@ QR presentation отдельно проверяет role isolation: Participant 
 - Secret and generated-artifact scan.
 - Production build only for release/platform task.
 
+Layer import gate запускается командой `make architecture`. Его self-test fixtures лежат в `tool/architecture_fixtures/flutter_layer_imports.json`: positive cases подтверждают разрешённые направления и composition exception, negative cases покрывают каждый запрещённый crossing из [ADR-0010](../adr/0010-layer-import-boundaries.md). Любое production-нарушение печатает source path, import URI и rule ID и возвращает non-zero exit code.
+
 ## Failure policy
 
 Нельзя удалять/ослаблять assertion, повышать timeout или добавлять ignore, чтобы «починить» gate без причины. Flaky test получает task, reproduction data и owner. Непроведённая проверка указывается вместе с риском, а не считается успешной.

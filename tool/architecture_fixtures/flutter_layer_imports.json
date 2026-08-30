@@ -1,0 +1,189 @@
+[
+  {
+    "name": "domain allows domain and shared",
+    "path": "apps/tournament_app/lib/domain/example.dart",
+    "source": "import 'model.dart';\nimport '../shared/id.dart';",
+    "expectedRules": []
+  },
+  {
+    "name": "domain rejects every outer layer",
+    "path": "apps/tournament_app/lib/domain/example.dart",
+    "source": "import '../application/use_case.dart';\nimport '../presentation/view.dart';\nimport '../infrastructure/db.dart';\nimport '../platform/device.dart';\nimport '../app/bootstrap.dart';",
+    "expectedRules": [
+      "layer-import:domain->app",
+      "layer-import:domain->application",
+      "layer-import:domain->infrastructure",
+      "layer-import:domain->platform",
+      "layer-import:domain->presentation"
+    ]
+  },
+  {
+    "name": "application allows domain application and shared",
+    "path": "apps/tournament_app/lib/application/example.dart",
+    "source": "import 'port.dart';\nimport '../domain/entity.dart';\nimport '../shared/id.dart';",
+    "expectedRules": []
+  },
+  {
+    "name": "application rejects app presentation and adapters",
+    "path": "apps/tournament_app/lib/application/example.dart",
+    "source": "import '../app/bootstrap.dart';\nimport '../presentation/view.dart';\nimport '../infrastructure/db.dart';\nimport '../platform/device.dart';",
+    "expectedRules": [
+      "layer-import:application->app",
+      "layer-import:application->infrastructure",
+      "layer-import:application->platform",
+      "layer-import:application->presentation"
+    ]
+  },
+  {
+    "name": "presentation allows presentation application and shared package imports",
+    "path": "apps/tournament_app/lib/presentation/example.dart",
+    "source": "import 'view.dart';\nimport 'package:tournament_hub_app/application/state.dart';\nimport 'package:tournament_hub_app/shared/id.dart';",
+    "expectedRules": []
+  },
+  {
+    "name": "presentation rejects domain app and adapters",
+    "path": "apps/tournament_app/lib/presentation/example.dart",
+    "source": "import '../domain/entity.dart';\nimport '../app/bootstrap.dart';\nimport '../infrastructure/db.dart';\nimport '../platform/device.dart';",
+    "expectedRules": [
+      "layer-import:presentation->app",
+      "layer-import:presentation->domain",
+      "layer-import:presentation->infrastructure",
+      "layer-import:presentation->platform"
+    ]
+  },
+  {
+    "name": "infrastructure allows ports domain shared and itself",
+    "path": "apps/tournament_app/lib/infrastructure/example.dart",
+    "source": "import 'db.dart';\nimport '../application/port.dart';\nimport '../domain/entity.dart';\nimport '../shared/id.dart';",
+    "expectedRules": []
+  },
+  {
+    "name": "infrastructure rejects app presentation and platform",
+    "path": "apps/tournament_app/lib/infrastructure/example.dart",
+    "source": "import '../app/bootstrap.dart';\nimport '../presentation/view.dart';\nimport '../platform/device.dart';",
+    "expectedRules": [
+      "layer-import:infrastructure->app",
+      "layer-import:infrastructure->platform",
+      "layer-import:infrastructure->presentation"
+    ]
+  },
+  {
+    "name": "platform allows ports domain shared and itself",
+    "path": "apps/tournament_app/lib/platform/example.dart",
+    "source": "import 'device.dart';\nimport '../application/port.dart';\nimport '../domain/entity.dart';\nimport '../shared/id.dart';",
+    "expectedRules": []
+  },
+  {
+    "name": "platform rejects app presentation and infrastructure",
+    "path": "apps/tournament_app/lib/platform/example.dart",
+    "source": "import '../app/bootstrap.dart';\nimport '../presentation/view.dart';\nimport '../infrastructure/db.dart';",
+    "expectedRules": [
+      "layer-import:platform->app",
+      "layer-import:platform->infrastructure",
+      "layer-import:platform->presentation"
+    ]
+  },
+  {
+    "name": "app allows app application presentation and shared",
+    "path": "apps/tournament_app/lib/app/router.dart",
+    "source": "import 'bootstrap.dart';\nimport '../application/state.dart';\nimport '../presentation/view.dart';\nimport '../shared/id.dart';",
+    "expectedRules": []
+  },
+  {
+    "name": "app rejects domain and concrete adapters",
+    "path": "apps/tournament_app/lib/app/router.dart",
+    "source": "import '../domain/entity.dart';\nimport '../infrastructure/db.dart';\nimport '../platform/device.dart';",
+    "expectedRules": [
+      "layer-import:app->domain",
+      "layer-import:app->infrastructure",
+      "layer-import:app->platform"
+    ]
+  },
+  {
+    "name": "composition may wire every project layer",
+    "path": "apps/tournament_app/lib/app/composition/root.dart",
+    "source": "import '../../domain/entity.dart';\nimport '../../application/port.dart';\nimport '../../presentation/view.dart';\nimport '../../infrastructure/db.dart';\nimport '../../platform/device.dart';\nimport '../../shared/id.dart';",
+    "expectedRules": []
+  },
+  {
+    "name": "main is composition entry point",
+    "path": "apps/tournament_app/lib/main.dart",
+    "source": "import 'domain/entity.dart';\nimport 'infrastructure/db.dart';\nimport 'presentation/view.dart';",
+    "expectedRules": []
+  },
+  {
+    "name": "shared allows only shared",
+    "path": "apps/tournament_app/lib/shared/example.dart",
+    "source": "import 'id.dart';\nimport '../app/bootstrap.dart';\nimport '../application/port.dart';\nimport '../domain/entity.dart';\nimport '../presentation/view.dart';\nimport '../infrastructure/db.dart';\nimport '../platform/device.dart';",
+    "expectedRules": [
+      "layer-import:shared->app",
+      "layer-import:shared->application",
+      "layer-import:shared->domain",
+      "layer-import:shared->infrastructure",
+      "layer-import:shared->platform",
+      "layer-import:shared->presentation"
+    ]
+  },
+  {
+    "name": "widgetbook entry allows presentation application shared",
+    "path": "apps/tournament_app/lib/main_widgetbook.dart",
+    "source": "import 'presentation/catalog.dart';\nimport 'application/state.dart';\nimport 'shared/id.dart';",
+    "expectedRules": []
+  },
+  {
+    "name": "widgetbook entry rejects domain app and adapters",
+    "path": "apps/tournament_app/lib/main_widgetbook.dart",
+    "source": "import 'domain/entity.dart';\nimport 'app/bootstrap.dart';\nimport 'infrastructure/db.dart';\nimport 'platform/device.dart';",
+    "expectedRules": [
+      "layer-import:widgetbook-entry->app",
+      "layer-import:widgetbook-entry->domain",
+      "layer-import:widgetbook-entry->infrastructure",
+      "layer-import:widgetbook-entry->platform"
+    ]
+  },
+  {
+    "name": "domain rejects framework and platform packages",
+    "path": "apps/tournament_app/lib/domain/example.dart",
+    "source": "import 'dart:io';\nimport 'dart:convert';\nimport 'package:flutter/widgets.dart';\nimport 'package:drift/drift.dart';\nimport 'package:json_annotation/json_annotation.dart';",
+    "expectedRules": [
+      "external-import:domain",
+      "external-import:domain",
+      "external-import:domain",
+      "external-import:domain",
+      "external-import:domain"
+    ]
+  },
+  {
+    "name": "application rejects framework and adapter packages",
+    "path": "apps/tournament_app/lib/application/example.dart",
+    "source": "import 'package:flutter/widgets.dart';\nimport 'package:web_socket_channel/web_socket_channel.dart';",
+    "expectedRules": [
+      "external-import:application",
+      "external-import:application"
+    ]
+  },
+  {
+    "name": "shared rejects framework packages",
+    "path": "apps/tournament_app/lib/shared/example.dart",
+    "source": "import 'package:flutter/widgets.dart';",
+    "expectedRules": ["external-import:shared"]
+  },
+  {
+    "name": "generated file inherits its owner layer",
+    "path": "apps/tournament_app/lib/domain/model.g.dart",
+    "source": "import '../infrastructure/db.dart';",
+    "expectedRules": ["layer-import:domain->infrastructure"]
+  },
+  {
+    "name": "unknown production root is rejected",
+    "path": "apps/tournament_app/lib/helpers/example.dart",
+    "source": "",
+    "expectedRules": ["unknown-layer"]
+  },
+  {
+    "name": "relative import cannot escape lib",
+    "path": "apps/tournament_app/lib/domain/example.dart",
+    "source": "import '../../test/helper.dart';",
+    "expectedRules": ["project-import-outside-lib"]
+  }
+]

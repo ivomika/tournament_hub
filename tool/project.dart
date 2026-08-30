@@ -184,8 +184,10 @@ final class ProjectRunner {
   Future<void> checkTokens() =>
       dart(const ['tool/generate_flutter_tokens.dart', '--check']);
 
-  Future<void> checkArchitecture() =>
-      dart(const ['tool/check_flutter_design_system.dart']);
+  Future<void> checkArchitecture() async {
+    await dart(const ['tool/check_flutter_layer_imports.dart']);
+    await dart(const ['tool/check_flutter_design_system.dart']);
+  }
 
   Future<void> syncFighterAssets() =>
       dart(const ['tool/sync_fighter_assets.dart']);
@@ -237,7 +239,7 @@ Tournament Hub project commands
   make format                Format Dart and TypeScript sources
   make lint                  Analyze/typecheck both applications
   make test                  Run Flutter tests
-  make architecture          Check Flutter design-system boundaries
+  make architecture          Check Flutter layer and design-system boundaries
   make check                 Check format, analyze, typecheck and test
   make clean                 Remove Flutter build outputs
 
