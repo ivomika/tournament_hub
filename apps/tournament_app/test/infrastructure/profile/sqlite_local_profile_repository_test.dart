@@ -1,20 +1,19 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:sqlite3/sqlite3.dart';
 import 'package:tournament_hub_app/domain/profile/local_profile.dart';
-import 'package:tournament_hub_app/infrastructure/profile/sqlite_local_profile_repository.dart';
+import 'package:tournament_hub_app/infrastructure/database/tournament_hub_database.dart'
+    hide LocalProfile;
+import 'package:tournament_hub_app/infrastructure/profile/drift_local_profile_repository.dart';
 
 void main() {
-  late Database database;
-  late SqliteLocalProfileRepository repository;
+  late TournamentHubDatabase database;
+  late DriftLocalProfileRepository repository;
 
   setUp(() {
-    database = sqlite3.openInMemory();
-    repository = SqliteLocalProfileRepository(
-      openDatabase: () async => database,
-    );
+    database = TournamentHubDatabase.memory();
+    repository = DriftLocalProfileRepository(Future.value(database));
   });
 
-  tearDown(() => repository.dispose());
+  tearDown(() => database.close());
 
   test('profile survives repository round trip', () async {
     final profile = LocalProfile(id: 'profile-1', nickname: 'Иво');

@@ -77,6 +77,17 @@ Terminal payload сохраняется в memory/outbox-подобном applic
 - Destructive fallback запрещён без explicit user decision, backup/export и release note.
 - Generated Drift files меняются codegen, не вручную.
 
+### SQLite schema v2
+
+Drift владеет общей физической SQLite database, но application ports остаются разделены по consistency boundary. Schema v2 добавляет к `local_profile` четыре critical store:
+
+- singleton `active_tournament_snapshots` с полным versioned snapshot и revision;
+- active-only `active_tournament_events` с уникальной парой tournament/sequence;
+- `processed_commands` с command result для idempotency;
+- immutable `tournament_history_entries`, дедуплицируемый по tournament ID.
+
+Миграция `v1 → v2` сохраняет `local_profile` и только добавляет новые таблицы. Active mutation проверяет expected revision и одной transaction записывает snapshot, непрерывные events и command result. Terminal transaction вставляет history (либо распознаёт duplicate), затем удаляет active snapshot/events/commands. Возвращённый terminal event разрешено публиковать только после успешного завершения этой transaction.
+
 ## Time and ordering
 
 - Persisted time — ISO-8601 UTC либо epoch с явной unit; offset может храниться для display.

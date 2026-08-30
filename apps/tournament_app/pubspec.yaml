@@ -7,6 +7,7 @@ environment:
   sdk: ^3.13.0
 
 dependencies:
+  drift: ^2.34.3
   equatable: ^2.1.0
   flutter:
     sdk: flutter
@@ -17,6 +18,8 @@ dependencies:
   widgetbook: 3.25.0
 
 dev_dependencies:
+  build_runner: ^2.16.0
+  drift_dev: ^2.34.5
   flutter_test:
     sdk: flutter
   flutter_lints: ^6.0.0

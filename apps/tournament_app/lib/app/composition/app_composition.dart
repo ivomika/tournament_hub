@@ -1,7 +1,8 @@
 import 'dart:async';
 
 import '../../application/profile/profile_service.dart';
-import '../../infrastructure/profile/sqlite_local_profile_repository.dart';
+import '../../infrastructure/database/tournament_hub_database.dart';
+import '../../infrastructure/profile/drift_local_profile_repository.dart';
 import '../../infrastructure/settings/shared_preferences_app_settings_repository.dart';
 import '../bootstrap/app_bootstrap.dart';
 import '../lifecycle/app_state_source.dart';
@@ -19,12 +20,13 @@ final class AppComposition implements AppRuntime, AppProfileRuntime {
     this._intentStore,
     this._router,
     this._profiles,
-    this._localStore,
+    this._database,
   );
 
   factory AppComposition.production() {
     final stateStore = AppStateStore();
-    final localStore = SqliteLocalProfileRepository();
+    final database = TournamentHubDatabase.production();
+    final localStore = DriftLocalProfileRepository(database);
     final settings = SharedPreferencesAppSettingsRepository();
     final profiles = ProfileService(localStore, settings);
     final bootstrap = AppBootstrap(localStore, stateStore);
@@ -36,7 +38,7 @@ final class AppComposition implements AppRuntime, AppProfileRuntime {
       intentStore,
       router,
       profiles,
-      localStore,
+      database,
     );
   }
 
@@ -45,7 +47,7 @@ final class AppComposition implements AppRuntime, AppProfileRuntime {
   final NavigationIntentStore _intentStore;
   final AppRouter _router;
   final ProfileService _profiles;
-  final SqliteLocalProfileRepository _localStore;
+  final Future<TournamentHubDatabase> _database;
   bool _isDisposed = false;
 
   @override
@@ -92,6 +94,6 @@ final class AppComposition implements AppRuntime, AppProfileRuntime {
     unawaited(_router.dispose());
     unawaited(_intentStore.dispose());
     unawaited(_stateStore.dispose());
-    _localStore.dispose();
+    unawaited(_database.then((database) => database.close()));
   }
 }
