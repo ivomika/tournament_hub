@@ -35,6 +35,7 @@
 | Домен | [Tournament rules](domain/tournament-rules.md) | DE, SE, RR, результаты, correction, withdrawal |
 | Данные | [Data and protocol](data/README.md) | Persistence, migrations, transactions, realtime |
 | Дизайн | [Design system](design/README.md) | Visual language, tokens, layouts, states, a11y |
+| Дизайн | [Full-page layout audit](design/full-page-layout-audit.md) | Full-height screen goldens и наблюдения по scroll/layout |
 | Design contract | [Tokens manifest](design/tokens.json) · [usage](design/tokens.md) | Единственные значения design tokens и правила потребления |
 | Assets | [Fighter assets](assets/fighters.md) | Manifest contract, identity и pipeline |
 | Разработка | [Development guide](development/README.md) | Структура, workflow, DoR/DoD, зависимости |

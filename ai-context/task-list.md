@@ -10,6 +10,8 @@
 
 ## Завершённые задачи
 
+- ✅ **081** — Добавить full-page goldens и аудит layout по scroll — [детали](tasks/TH-20260830-081.md)
+- ✅ **080** — Унифицировать Structure и прижать desktop primary action вправо — [детали](tasks/TH-20260830-080.md)
 - ✅ **079** — Выровнять density, surface hierarchy и archive/participant layouts — [детали](tasks/TH-20260829-079.md)
 - ✅ **078** — Упростить header и закрепить dominant object экранов — [детали](tasks/TH-20260829-078.md)
 - ✅ **077** — Ввести семантические desktop layout presets — [детали](tasks/TH-20260829-077.md)

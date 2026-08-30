@@ -57,11 +57,11 @@ class _ActionDockState extends State<ActionDock> {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          widget.primary,
           if (_overflowActions.isNotEmpty) ...[
-            SizedBox(width: theme.gap),
             _buildOverflow(theme),
+            SizedBox(width: theme.gap),
           ],
+          widget.primary,
         ],
       );
     }

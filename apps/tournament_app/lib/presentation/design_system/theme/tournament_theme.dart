@@ -339,10 +339,7 @@ abstract final class TournamentTheme {
           desktopBreakpoint: TournamentTokens.breakpointMediumMin,
           divider: TournamentTokens.colorSurfaceTertiary,
         ),
-        const BracketTheme(
-          gap: TournamentTokens.spaceV4,
-          desktopBreakpoint: TournamentTokens.breakpointExpandedMin,
-        ),
+        const BracketTheme(gap: TournamentTokens.spaceV4),
         const MatchListTheme(gap: TournamentTokens.spaceV4),
         const DoubleEliminationBracketTheme(
           connector: TournamentTokens.colorTextSecondary,

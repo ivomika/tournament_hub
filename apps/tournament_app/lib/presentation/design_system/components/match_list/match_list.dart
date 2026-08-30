@@ -16,21 +16,23 @@ class MatchList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context).extension<MatchListTheme>()!;
-    final lanes = BracketLane.values.where(
-      (lane) => data.matches.any((match) => match.lane == lane),
+    final phases = _MatchPhase.values.where(
+      (phase) => data.matches.any((match) => _phaseFor(match.state) == phase),
     );
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        for (final (laneIndex, lane) in lanes.indexed) ...[
-          if (laneIndex > 0) SizedBox(height: theme.gap),
+        for (final (phaseIndex, phase) in phases.indexed) ...[
+          if (phaseIndex > 0) SizedBox(height: theme.gap),
           Semantics(
             header: true,
-            child: DsText(_laneLabel(lane), variant: DsTextVariant.title),
+            child: DsText(_phaseLabel(phase), variant: DsTextVariant.title),
           ),
           SizedBox(height: theme.gap),
           for (final (matchIndex, match)
-              in data.matches.where((match) => match.lane == lane).indexed) ...[
+              in data.matches
+                  .where((match) => _phaseFor(match.state) == phase)
+                  .indexed) ...[
             if (matchIndex > 0) SizedBox(height: theme.gap),
             _MatchListItem(match: match),
           ],
@@ -57,12 +59,18 @@ class _MatchListItem extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Align(
-            alignment: Alignment.centerLeft,
-            child: StatusBadge(
-              label: bracketMatchStateLabel(match.state),
-              kind: bracketMatchStateKind(match.state),
-            ),
+          Wrap(
+            alignment: WrapAlignment.spaceBetween,
+            crossAxisAlignment: WrapCrossAlignment.center,
+            spacing: theme.gap,
+            runSpacing: theme.gap,
+            children: [
+              DsText(_laneLabel(match.lane), variant: DsTextVariant.secondary),
+              StatusBadge(
+                label: bracketMatchStateLabel(match.state),
+                kind: bracketMatchStateKind(match.state),
+              ),
+            ],
           ),
           SizedBox(height: theme.gap),
           if (first != null && second != null)
@@ -117,4 +125,22 @@ String _laneLabel(BracketLane lane) => switch (lane) {
   BracketLane.losers => 'Нижняя сетка',
   BracketLane.finals => 'Grand Final',
   BracketLane.stage => 'Общий этап',
+};
+
+enum _MatchPhase { current, upcoming, completed }
+
+_MatchPhase _phaseFor(BracketMatchState state) => switch (state) {
+  BracketMatchState.current => _MatchPhase.current,
+  BracketMatchState.pending ||
+  BracketMatchState.reset ||
+  BracketMatchState.locked => _MatchPhase.upcoming,
+  BracketMatchState.won ||
+  BracketMatchState.lost ||
+  BracketMatchState.bye => _MatchPhase.completed,
+};
+
+String _phaseLabel(_MatchPhase phase) => switch (phase) {
+  _MatchPhase.current => 'Сейчас',
+  _MatchPhase.upcoming => 'Далее',
+  _MatchPhase.completed => 'Завершённые',
 };

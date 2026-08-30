@@ -79,9 +79,12 @@ class PageHeader extends StatelessWidget {
             Expanded(child: copy),
             SizedBox(width: theme.gap),
             Flexible(
-              child: Padding(
-                padding: EdgeInsets.only(top: theme.trailingTopPadding),
-                child: trailing,
+              child: Align(
+                alignment: Alignment.topRight,
+                child: Padding(
+                  padding: EdgeInsets.only(top: theme.trailingTopPadding),
+                  child: trailing,
+                ),
               ),
             ),
           ],

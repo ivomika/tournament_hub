@@ -331,5 +331,20 @@ void main() {
     expect(find.byTooltip('Дополнительные действия'), findsOneWidget);
     expect(find.byType(NavigationRail), findsOneWidget);
     expect(find.byType(NavigationBar), findsNothing);
+
+    final primaryButton = find.ancestor(
+      of: find.text('Начать раздачу'),
+      matching: find.byType(ElevatedButton),
+    );
+    final overflowButton = find.byTooltip('Дополнительные действия');
+    expect(
+      tester.getTopRight(primaryButton).dx,
+      greaterThan(tester.getTopRight(overflowButton).dx),
+    );
+    expect(
+      tester.getTopRight(find.byType(PageHeader)).dx -
+          tester.getTopRight(primaryButton).dx,
+      lessThan(1),
+    );
   });
 }

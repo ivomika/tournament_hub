@@ -58,6 +58,8 @@ Property tests используют many seeds/sizes и сохраняют faili
 
 Golden tests фиксируют component contract, но не должны массово обновляться без review причины. Dynamic timestamps/IDs изолируются.
 
+Для анализа вертикальной композиции используется отдельный full-page golden harness: он сначала измеряет scrollable content, затем делает один PNG фактической высоты страницы. Fixed `ActionDock` и navigation остаются отдельным нижним слоем и не повторяются внутри прокручиваемого контента. Эти диагностические goldens дополняют, а не заменяют обычные viewport goldens.
+
 QR presentation отдельно проверяет role isolation: Participant invitation постоянно присутствует в `Open`, Spectator access открывается только явным действием, а Join остаётся scanner/code-first. Visual matrix включает mobile/tablet/desktop и large-TV composition; raster decode не заменяет physical camera/TV gate.
 
 ## E2E release scenarios

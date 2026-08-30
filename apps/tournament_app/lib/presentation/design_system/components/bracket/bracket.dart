@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../double_elimination_bracket/double_elimination_bracket.dart';
 import '../ds_surface/ds_surface.dart';
 import '../ds_text/ds_text.dart';
 import '../match_list/match_list.dart';
@@ -44,16 +43,7 @@ class TournamentBracketPreview extends StatelessWidget {
             variant: DsTextVariant.secondary,
           ),
           SizedBox(height: theme.gap),
-          LayoutBuilder(
-            builder: (context, constraints) {
-              final useGraph =
-                  data.format == TournamentStructureFormat.doubleElimination &&
-                  constraints.maxWidth >= theme.desktopBreakpoint;
-              return useGraph
-                  ? DoubleEliminationBracket(data: data)
-                  : MatchList(data: data);
-            },
-          ),
+          MatchList(data: data),
         ],
       ),
     );

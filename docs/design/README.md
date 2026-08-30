@@ -36,6 +36,8 @@
 
 `ActionDock` — единый action contract для Host lifecycle: закреплённый region на mobile и компактный toolbar у заголовка на desktop. Он не является универсальной нижней панелью для остальных ролей и не владеет lifecycle или navigation logic. Подробное решение зафиксировано в [ADR-0007](../adr/0007-unified-host-action-contract.md).
 
+На desktop toolbar прижат к правому краю page layout. Primary action является крайним правым control; overflow и contextual actions располагаются слева от него. Порядок не меняет keyboard/focus semantics и не создаёт второе primary действие.
+
 | Экран | Primary placement | Secondary/destructive placement |
 |---|---|---|
 | Host Draft | `ActionDock`: «Открыть лобби» | Удаление черновика — destructive overflow с confirmation |
@@ -128,10 +130,10 @@ Surface tone выражает роль, а не вложенность: `base` �
 
 ### Tournament structure representations
 
-- `MatchList` — каноническая compact-representation: один линейный список с семантическими заголовками этапов, полными fighter/participant identities и текстовым состоянием каждого матча.
-- `DoubleEliminationBracket` — expanded-representation: отдельные Winners/Losers lanes, Grand Final, условный Bracket Reset и явные connectors. Pan/zoom не заменяет доступное текстовое описание связей.
-- Оба renderer получают готовые matches, states и links из presentation projection. Они не рассчитывают progression, Bye, Reset, места или correction.
-- Single Elimination и Round Robin используют `MatchList`, пока для них не определён отдельный канонический expanded renderer.
+- `MatchList` — единственное operational-представление `TournamentBracketPreview` на всех viewport и для всех поддерживаемых форматов. Width и format меняют данные и семантические labels, но не renderer, порядок чтения или interaction model.
+- Список организован по рабочему времени турнира: `Сейчас` → `Далее` → `Завершённые`. В каждой строке явно сохраняются stage/lane, готовое состояние матча и полные fighter/participant identities.
+- Renderer получает готовые matches, states и links из presentation projection и не рассчитывает progression, Bye, Reset, места или correction.
+- `DoubleEliminationBracket` остаётся отдельным reference/catalog component для исследования связей DE, но не подменяет operational Structure на desktop и не используется screen-level `TournamentBracketPreview`.
 
 ### Fighter artwork hierarchy
 
