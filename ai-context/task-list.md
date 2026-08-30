@@ -7,7 +7,6 @@
 ## Активные задачи
 
 - ⛔ **053** — Привести Spectator Web к утверждённому visual language — [детали](tasks/TH-20260828-053.md)
-- 🟢 **092** — Реализовать Host tournament aggregate и local Guests — [детали](tasks/TH-20260830-092.md)
 - 🟢 **093** — Реализовать SQLite/Drift stores и crash-safe terminal history — [детали](tasks/TH-20260830-093.md)
 - 🟢 **094** — Подключить MK11 roster и уникальную выдачу fighters — [детали](tasks/TH-20260830-094.md)
 - 📝 **095** — Реализовать versioned DE/SE/RR engines, scoring и tie-break — [детали](tasks/TH-20260830-095.md)
@@ -20,6 +19,7 @@
 
 ## Завершённые задачи
 
+- ✅ **092** — Реализовать Host tournament aggregate и local Guests — [детали](tasks/TH-20260830-092.md)
 - ✅ **091** — Реализовать local profile и settings для Host MVP — [детали](tasks/TH-20260830-091.md)
 - ✅ **090** — Зафиксировать MVP scope и Spectator projection contract — [детали](tasks/TH-20260830-090.md)
 
