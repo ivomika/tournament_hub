@@ -62,6 +62,21 @@ void main() {
     );
   });
 
+  test('catalog содержит completed disclosure Structure', () {
+    final useCaseNames = <String>{};
+
+    void collect(Iterable<WidgetbookNode> nodes) {
+      for (final node in nodes) {
+        if (node is WidgetbookUseCase) useCaseNames.add(node.name);
+        collect(node.children ?? const []);
+      }
+    }
+
+    collect(buildTournamentCatalog());
+
+    expect(useCaseNames, contains('Structure / Completed disclosure'));
+  });
+
   test('catalog различает panel и strip stage context', () {
     final useCaseNames = <String>{};
 

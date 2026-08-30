@@ -53,7 +53,7 @@ class HostOpenScreenPreview extends StatelessWidget {
         ),
       ),
       child: PageLayout(
-        preset: PageLayoutPreset.workspace,
+        preset: PageLayoutPreset.flow,
         primary: DsSection(
           title: 'Участники',
           child: Column(
@@ -66,25 +66,26 @@ class HostOpenScreenPreview extends StatelessWidget {
             ],
           ),
         ),
-        secondary: Column(
+        secondary: ParticipantInviteCard(
+          data: _participantInvite,
+          onCopyCode: () {},
+          onCopyAddress: () {},
+          onRetry: () {},
+        ),
+        supporting: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            ParticipantInviteCard(
-              data: _participantInvite,
-              onCopyCode: () {},
-              onCopyAddress: () {},
-              onRetry: () {},
-            ),
-            const DsGap(DsSpace.lg),
             HostOpenConnectionSummary(data: spectatorProjection),
+            const DsGap(DsSpace.lg),
+            const TournamentStageHeader(
+              variant: TournamentStageVariant.strip,
+              stage: 'Сбор участников',
+              progress: '4 ИГРОКА',
+              detail:
+                  'Настройки турнира зафиксированы. Состав ещё можно менять.',
+              kind: StatusKind.success,
+            ),
           ],
-        ),
-        supporting: const TournamentStageHeader(
-          variant: TournamentStageVariant.strip,
-          stage: 'Сбор участников',
-          progress: '4 ИГРОКА',
-          detail: 'Настройки турнира зафиксированы. Состав ещё можно менять.',
-          kind: StatusKind.success,
         ),
       ),
     );

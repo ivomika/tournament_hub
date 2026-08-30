@@ -11,7 +11,8 @@ class RegistrationScreenPreview extends StatelessWidget {
     subtitle: 'Никнейм будет виден участникам турнира на этом устройстве.',
     sectionLabel: 'ПЕРВЫЙ ВХОД',
     navigationRole: AppNavigationRole.focused,
-    child: AdaptiveSplit(
+    child: PageLayout(
+      preset: PageLayoutPreset.workspace,
       primary: const DsSurface(
         tone: DsSurfaceTone.accent,
         child: Column(

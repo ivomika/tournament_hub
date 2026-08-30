@@ -32,14 +32,20 @@
 
 Рекомендация: следующей задачей проверить progressive disclosure для завершённых матчей и быстрый jump-to-current; не уменьшать touch targets и не скрывать identity.
 
-### P2 — desktop connection/open composition имеет большой QR-dependent rail
+### P2 — desktop connection/open composition имела большой QR-dependent rail
 
 `Host Open` занимает 1548 px на desktop и 2462 px на mobile: roster и connection card последовательно видимы, но QR/address block становится длинным самостоятельным потоком. Это допустимо для scanner-first сценария, однако требует отдельной проверки при реальном адресе и разных размерах QR.
 
 - [Host Open desktop](../../apps/tournament_app/test/goldens/full_page/host_open_desktop.png)
 - [Host Open mobile](../../apps/tournament_app/test/goldens/full_page/host_open_mobile.png)
 
-Рекомендация: сохранять QR и ручной адрес в одном interaction region, а не сокращать readable address ради высоты.
+Рекомендация: сохранять QR и ручной адрес в одном interaction region, а не сокращать readable address ради высоты. В TH-20260830-082 QR-card оставлена самостоятельным верхним блоком, а connection summary и stage вынесены в full-width continuation: roster больше не соседствует с длинным пустым столбцом.
+
+### P2 — page-level `AdaptiveSplit` скрывал общую модель композиции
+
+`Registration`, `Join` и `Participant Lobby` визуально оставались сбалансированными, но собирали весь экран через локальный `AdaptiveSplit`. Это создавало второй неявный page-layout contract рядом с `PageLayout` и делало дальнейшую адаптацию экранов несогласованной.
+
+В TH-20260830-082 эти экраны переведены на `PageLayout.workspace` или `PageLayout.flow`. `AdaptiveSplit` остаётся допустимым только внутри самостоятельного компонента, но не как каркас screen preview.
 
 ### P2 — короткие desktop screens визуально корректны, но full-page не должен маскировать canvas whitespace
 
@@ -55,6 +61,18 @@
 
 ## Следующие задачи
 
-1. Прототипировать flow/sticky strategy для длинных desktop supporting rails.
-2. Добавить jump-to-current/progressive disclosure для длинных mobile tournament histories.
+1. Реализовано в TH-20260830-082: `flow` переносит длинный operational stream на всю ширину после короткой верхней hybrid-композиции.
+2. Реализовано в TH-20260830-082: contextual jump использует существующий `ActionDock`, а completed disclosure сохраняет последние три матча.
 3. Отдельно проверить Host Open QR/address при реальном LAN URI и physical TV/mobile capture.
+
+## Повторная проверка после TH-20260830-082
+
+- `Host Running`, `Host Finished` и `History Detail` больше не оставляют длинный пустой dominant-столбец: Structure/standings продолжаются на полную ширину desktop content area.
+- `Host Open` использует короткую верхнюю пару roster/QR и full-width continuation для connection summary и stage; QR и ручной адрес остаются одной interaction region.
+- `Host Running` возвращает current match одним contextual action из существующего fixed dock; новая панель поверх контента не добавлена.
+- Terminal screens начинают поток с winner/result snapshot и не используют sticky current context.
+- Participant Lobby/Running/Finished используют тот же `PageLayout.flow`, что соответствующие Host states, но не получают Host mutation actions.
+- `Registration` и `Join` используют `PageLayout.workspace`; screen-level `AdaptiveSplit` во Flutter previews больше не осталось.
+- Mobile full-page остаётся длинным как полная техническая история, но текущий Host-контекст доступен без ручного возврата наверх; старые completed matches имеют единый disclosure contract.
+- `Host Distribution`, `History`, `Settings` и `Host Cancelled` сохраняют split/archive-композицию: соседние блоки сопоставимы по высоте и не создают пустой rail. `Main`, `Host Draft`, `Host Result Entry`, `Profile`, `Bootstrap` и recoverable states остаются компактными однонаправленными потоками без декоративного заполнения canvas.
+- Обновлённые viewport и full-page goldens остаются отдельными regression artifacts.

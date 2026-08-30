@@ -3,42 +3,95 @@ import 'package:flutter/material.dart';
 import '../bracket/bracket_view_data.dart';
 import '../ds_surface/ds_surface.dart';
 import '../ds_text/ds_text.dart';
+import '../ds_action/ds_action.dart';
 import '../fighter_avatar/fighter_avatar.dart';
 import '../match_card/match_card.dart';
 import '../status_badge/status_badge.dart';
 import 'match_list_theme.dart';
 
-class MatchList extends StatelessWidget {
-  const MatchList({required this.data, super.key});
+class MatchList extends StatefulWidget {
+  const MatchList({required this.data, this.completedPreviewCount, super.key})
+    : assert(completedPreviewCount == null || completedPreviewCount > 0);
 
   final BracketViewData data;
+  final int? completedPreviewCount;
+
+  @override
+  State<MatchList> createState() => _MatchListState();
+}
+
+class _MatchListState extends State<MatchList> {
+  bool _showAllCompleted = false;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context).extension<MatchListTheme>()!;
     final phases = _MatchPhase.values.where(
-      (phase) => data.matches.any((match) => _phaseFor(match.state) == phase),
+      (phase) =>
+          widget.data.matches.any((match) => _phaseFor(match.state) == phase),
     );
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         for (final (phaseIndex, phase) in phases.indexed) ...[
           if (phaseIndex > 0) SizedBox(height: theme.gap),
-          Semantics(
-            header: true,
-            child: DsText(_phaseLabel(phase), variant: DsTextVariant.title),
+          KeyedSubtree(
+            key: ValueKey('match-list-phase-${phase.name}'),
+            child: Semantics(
+              header: true,
+              child: DsText(_phaseLabel(phase), variant: DsTextVariant.title),
+            ),
           ),
           SizedBox(height: theme.gap),
-          for (final (matchIndex, match)
-              in data.matches
-                  .where((match) => _phaseFor(match.state) == phase)
-                  .indexed) ...[
+          if (_hiddenCompletedCount(phase) > 0) ...[
+            Align(
+              alignment: Alignment.centerLeft,
+              child: DsAction(
+                key: const Key('match-list-completed-toggle'),
+                label: _showAllCompleted
+                    ? 'Скрыть старые матчи'
+                    : 'Показать ещё (${_hiddenCompletedCount(phase)})',
+                kind: DsActionKind.text,
+                onPressed: () =>
+                    setState(() => _showAllCompleted = !_showAllCompleted),
+              ),
+            ),
+            SizedBox(height: theme.gap),
+          ],
+          for (final (matchIndex, match) in _visibleMatches(phase).indexed) ...[
             if (matchIndex > 0) SizedBox(height: theme.gap),
             _MatchListItem(match: match),
           ],
         ],
       ],
     );
+  }
+
+  List<BracketMatchViewData> _matchesFor(_MatchPhase phase) => widget
+      .data
+      .matches
+      .where((match) => _phaseFor(match.state) == phase)
+      .toList(growable: false);
+
+  List<BracketMatchViewData> _visibleMatches(_MatchPhase phase) {
+    final matches = _matchesFor(phase);
+    final previewCount = widget.completedPreviewCount;
+    if (phase != _MatchPhase.completed ||
+        previewCount == null ||
+        _showAllCompleted ||
+        matches.length <= previewCount) {
+      return matches;
+    }
+    return matches.sublist(matches.length - previewCount);
+  }
+
+  int _hiddenCompletedCount(_MatchPhase phase) {
+    if (phase != _MatchPhase.completed ||
+        widget.completedPreviewCount == null) {
+      return 0;
+    }
+    final hidden = _matchesFor(phase).length - widget.completedPreviewCount!;
+    return hidden > 0 ? hidden : 0;
   }
 }
 

@@ -596,6 +596,10 @@ List<WidgetbookNode> buildTournamentCatalog() => [
               format: TournamentStructureFormat.roundRobin,
             ),
           ),
+          _useCase(
+            'Structure / Completed disclosure',
+            const TournamentBracketPreview(completedPreviewCount: 1),
+          ),
           _useCase('Confirmation', const TournamentConfirmationPreview()),
         ],
       ),

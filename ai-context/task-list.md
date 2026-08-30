@@ -10,6 +10,7 @@
 
 ## Завершённые задачи
 
+- ✅ **082** — Пересобрать композицию длинных экранов по full-page аудиту — [детали](tasks/TH-20260830-082.md)
 - ✅ **081** — Добавить full-page goldens и аудит layout по scroll — [детали](tasks/TH-20260830-081.md)
 - ✅ **080** — Унифицировать Structure и прижать desktop primary action вправо — [детали](tasks/TH-20260830-080.md)
 - ✅ **079** — Выровнять density, surface hierarchy и archive/participant layouts — [детали](tasks/TH-20260829-079.md)

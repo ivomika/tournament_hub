@@ -19,28 +19,28 @@ class ParticipantFinishedScreenPreview extends StatelessWidget {
         onPressed: () {},
       ),
     ),
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        AdaptiveSplit(
-          primary: ChampionHero(champion: previewParticipants.first),
-          secondary: const TournamentStandings(),
-        ),
-        const DsGap(DsSpace.lg),
-        const ConnectionBanner(
-          state: TournamentConnectionState.connected,
-          detail: 'Финальный снимок получен',
-          synchronizedAtLabel: 'только что',
-        ),
-        const DsGap(DsSpace.md),
-        const TournamentStageHeader(
-          variant: TournamentStageVariant.strip,
-          stage: 'Double Elimination',
-          progress: 'ЗАВЕРШЁН',
-          detail: 'Все результаты подтверждены хостом.',
-          kind: StatusKind.neutral,
-        ),
-      ],
+    child: PageLayout(
+      preset: PageLayoutPreset.flow,
+      primary: ChampionHero(champion: previewParticipants.first),
+      secondary: const Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          ConnectionBanner(
+            state: TournamentConnectionState.connected,
+            detail: 'Финальный снимок получен',
+            synchronizedAtLabel: 'только что',
+          ),
+          DsGap(DsSpace.md),
+          TournamentStageHeader(
+            variant: TournamentStageVariant.strip,
+            stage: 'Double Elimination',
+            progress: 'ЗАВЕРШЁН',
+            detail: 'Все результаты подтверждены хостом.',
+            kind: StatusKind.neutral,
+          ),
+        ],
+      ),
+      supporting: const TournamentStandings(),
     ),
   );
 }

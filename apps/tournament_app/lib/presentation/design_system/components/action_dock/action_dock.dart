@@ -11,6 +11,7 @@ enum ActionDockPresentation { dock, toolbar }
 class ActionDock extends StatefulWidget {
   const ActionDock({
     required this.primary,
+    this.contextual,
     this.secondary = const [],
     this.destructive,
     this.presentation = ActionDockPresentation.dock,
@@ -19,12 +20,14 @@ class ActionDock extends StatefulWidget {
 
   const ActionDock.toolbar({
     required this.primary,
+    this.contextual,
     this.secondary = const [],
     this.destructive,
     super.key,
   }) : presentation = ActionDockPresentation.toolbar;
 
   final Widget primary;
+  final ActionDockAction? contextual;
   final List<ActionDockAction> secondary;
   final ActionDockAction? destructive;
   final ActionDockPresentation presentation;
@@ -57,6 +60,10 @@ class _ActionDockState extends State<ActionDock> {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          if (widget.contextual != null) ...[
+            _buildContextual(theme, widget.contextual!),
+            SizedBox(width: theme.gap),
+          ],
           if (_overflowActions.isNotEmpty) ...[
             _buildOverflow(theme),
             SizedBox(width: theme.gap),
@@ -88,6 +95,10 @@ class _ActionDockState extends State<ActionDock> {
                   child: widget.primary,
                 ),
               ),
+              if (widget.contextual != null) ...[
+                SizedBox(width: theme.gap),
+                _buildContextual(theme, widget.contextual!),
+              ],
               if (_overflowActions.isNotEmpty) ...[
                 SizedBox(width: theme.gap),
                 _buildOverflow(theme),
@@ -127,6 +138,20 @@ class _ActionDockState extends State<ActionDock> {
       ),
     ),
   );
+
+  Widget _buildContextual(ActionDockTheme theme, ActionDockAction action) =>
+      SizedBox.square(
+        dimension: theme.overflowSize,
+        child: IconButton(
+          key: action.key,
+          tooltip: action.label,
+          onPressed: action.enabled ? action.onSelected : null,
+          icon: Icon(
+            action.icon ?? Icons.vertical_align_top,
+            color: theme.foreground,
+          ),
+        ),
+      );
 
   Future<void> _select(ActionDockAction action) async {
     if (!action.enabled) return;

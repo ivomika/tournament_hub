@@ -99,6 +99,7 @@ class AppShell extends StatelessWidget {
                           actions: actionDock != null
                               ? ActionDock.toolbar(
                                   primary: actionDock!.primary,
+                                  contextual: actionDock!.contextual,
                                   secondary: actionDock!.secondary,
                                   destructive: actionDock!.destructive,
                                 )

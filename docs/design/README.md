@@ -34,7 +34,7 @@
 
 ### Action placement
 
-`ActionDock` — единый action contract для Host lifecycle: закреплённый region на mobile и компактный toolbar у заголовка на desktop. Он не является универсальной нижней панелью для остальных ролей и не владеет lifecycle или navigation logic. Подробное решение зафиксировано в [ADR-0007](../adr/0007-unified-host-action-contract.md).
+`ActionDock` — единый action contract для Host lifecycle: закреплённый region на mobile и компактный toolbar у заголовка на desktop. Он не является универсальной нижней панелью для остальных ролей и не владеет lifecycle или navigation logic. На длинном operational screen допускается одно компактное contextual action для возврата к текущему semantic region; оно не дублирует primary и не создаёт второй fixed-слой. Подробные решения зафиксированы в [ADR-0007](../adr/0007-unified-host-action-contract.md) и [ADR-0009](../adr/0009-flow-layout-and-context-jumps.md).
 
 На desktop toolbar прижат к правому краю page layout. Primary action является крайним правым control; overflow и contextual actions располагаются слева от него. Порядок не меняет keyboard/focus semantics и не создаёт второе primary действие.
 
@@ -132,6 +132,7 @@ Surface tone выражает роль, а не вложенность: `base` �
 
 - `MatchList` — единственное operational-представление `TournamentBracketPreview` на всех viewport и для всех поддерживаемых форматов. Width и format меняют данные и семантические labels, но не renderer, порядок чтения или interaction model.
 - Список организован по рабочему времени турнира: `Сейчас` → `Далее` → `Завершённые`. В каждой строке явно сохраняются stage/lane, готовое состояние матча и полные fighter/participant identities.
+- На длинной completed-группе последние три матча остаются видимыми, более старые раскрываются через явное `Показать ещё (N)`. `Сейчас` и `Далее` не сворачиваются; disclosure не зависит от viewport или tournament format.
 - Renderer получает готовые matches, states и links из presentation projection и не рассчитывает progression, Bye, Reset, места или correction.
 - `DoubleEliminationBracket` остаётся отдельным reference/catalog component для исследования связей DE, но не подменяет operational Structure на desktop и не используется screen-level `TournamentBracketPreview`.
 
@@ -150,7 +151,7 @@ Character artwork — главный визуальный якорь post-assign
 
 Канонический список экранов и переходов находится в [screen map](../product/screen-map.md). Визуальные обязательства:
 
-Page-level adaptive composition задаётся public `PageLayout` и semantic preset из [ADR-0008](../adr/0008-semantic-page-layout-presets.md). `focused` предназначен для одной readable задачи, `split` — для dominant object и компактного контекста, `workspace` — для рабочей области с полноценным secondary rail, `archive` — для списка/snapshot с metadata, `hero` — для champion/current identity с ranking/context. На compact/medium regions следуют единым порядком `primary → secondary → supporting`; на expanded preset меняет композицию без дублирования content. Локальные `Row`/`Expanded`, screen-specific breakpoints и декоративное заполнение whitespace не заменяют semantic preset.
+Page-level adaptive composition задаётся public `PageLayout` и semantic presets из [ADR-0008](../adr/0008-semantic-page-layout-presets.md) и [ADR-0009](../adr/0009-flow-layout-and-context-jumps.md). `focused` предназначен для одной readable задачи, `split` — для dominant object и компактного контекста, `workspace` — для рабочей области с полноценным secondary rail, `archive` — для списка/snapshot с metadata, `hero` — для champion/current identity с ranking/context, `flow` — для короткой верхней hybrid-композиции и длинного полноширинного operational continuation. На compact/medium regions следуют единым порядком `primary → secondary → supporting`; на expanded preset меняет композицию без дублирования content. Локальные `Row`/`Expanded`, screen-specific breakpoints, runtime-эвристики высоты и декоративное заполнение whitespace не заменяют semantic preset.
 
 ### Dominant-object matrix
 

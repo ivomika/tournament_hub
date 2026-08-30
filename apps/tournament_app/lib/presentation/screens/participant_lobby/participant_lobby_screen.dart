@@ -12,36 +12,36 @@ class ParticipantLobbyScreenPreview extends StatelessWidget {
     sectionLabel: 'УЧАСТНИК · ЛОББИ',
     navigationRole: AppNavigationRole.participant,
     headerVariant: PageHeaderVariant.compact,
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        AdaptiveSplit(
-          primary: DsSection(
-            title: 'Вы в турнире',
-            child: ParticipantIdentity(participant: previewParticipants.first),
+    child: PageLayout(
+      preset: PageLayoutPreset.flow,
+      primary: DsSection(
+        title: 'Вы в турнире',
+        child: ParticipantIdentity(participant: previewParticipants.first),
+      ),
+      secondary: const DsSection(
+        title: 'Что дальше',
+        child: DsText(
+          'Хост закроет набор и запустит случайную раздачу персонажей. Здесь не требуется никаких действий.',
+          variant: DsTextVariant.secondary,
+        ),
+      ),
+      supporting: const Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          ConnectionBanner(
+            state: TournamentConnectionState.connected,
+            detail: 'Данные актуальны',
+            synchronizedAtLabel: 'только что',
           ),
-          secondary: const DsSection(
-            title: 'Что дальше',
-            child: DsText(
-              'Хост закроет набор и запустит случайную раздачу персонажей. Здесь не требуется никаких действий.',
-              variant: DsTextVariant.secondary,
-            ),
+          DsGap(DsSpace.md),
+          TournamentStageHeader(
+            variant: TournamentStageVariant.strip,
+            stage: 'Лобби открыто',
+            progress: 'ОЖИДАНИЕ ХОСТА',
+            detail: '6 участников в лобби · Double Elimination',
           ),
-        ),
-        const DsGap(DsSpace.lg),
-        const ConnectionBanner(
-          state: TournamentConnectionState.connected,
-          detail: 'Данные актуальны',
-          synchronizedAtLabel: 'только что',
-        ),
-        const DsGap(DsSpace.md),
-        const TournamentStageHeader(
-          variant: TournamentStageVariant.strip,
-          stage: 'Лобби открыто',
-          progress: 'ОЖИДАНИЕ ХОСТА',
-          detail: '6 участников в лобби · Double Elimination',
-        ),
-      ],
+        ],
+      ),
     ),
   );
 }

@@ -14,11 +14,13 @@ class TournamentBracketPreview extends StatelessWidget {
   const TournamentBracketPreview({
     this.format = TournamentStructureFormat.doubleElimination,
     this.data,
+    this.completedPreviewCount,
     super.key,
   });
 
   final TournamentStructureFormat format;
   final BracketViewData? data;
+  final int? completedPreviewCount;
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +45,7 @@ class TournamentBracketPreview extends StatelessWidget {
             variant: DsTextVariant.secondary,
           ),
           SizedBox(height: theme.gap),
-          MatchList(data: data),
+          MatchList(data: data, completedPreviewCount: completedPreviewCount),
         ],
       ),
     );

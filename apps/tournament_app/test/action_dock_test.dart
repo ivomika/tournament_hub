@@ -46,6 +46,68 @@ void main() {
     },
   );
 
+  testWidgets('contextual action доступен одним нажатием рядом с primary', (
+    tester,
+  ) async {
+    var selected = false;
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: TournamentTheme.dark,
+        home: Scaffold(
+          bottomNavigationBar: ActionDock(
+            primary: DsAction(label: 'Продолжить', onPressed: () {}),
+            contextual: ActionDockAction(
+              label: 'К текущему бою',
+              onSelected: () => selected = true,
+            ),
+          ),
+        ),
+      ),
+    );
+
+    expect(find.byTooltip('К текущему бою'), findsOneWidget);
+    await tester.tap(find.byTooltip('К текущему бою'));
+    await tester.pump();
+
+    expect(selected, isTrue);
+    expect(find.text('Продолжить'), findsOneWidget);
+  });
+
+  testWidgets('Host Running возвращает current match из конца страницы', (
+    tester,
+  ) async {
+    tester.view.devicePixelRatio = 1;
+    tester.view.physicalSize = const Size(390, 844);
+    addTearDown(() {
+      tester.view.resetPhysicalSize();
+      tester.view.resetDevicePixelRatio();
+    });
+
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: TournamentTheme.dark,
+        home: const HostRunningScreenPreview(),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    final scroll = find.byKey(const Key('app-shell-scroll-view'));
+    await tester.drag(scroll, const Offset(0, -3000));
+    await tester.pumpAndSettle();
+    expect(
+      tester.getTopLeft(find.byType(TournamentMatchCard).first).dy,
+      lessThan(0),
+    );
+
+    await tester.tap(find.byTooltip('К текущему бою'));
+    await tester.pumpAndSettle();
+
+    expect(
+      tester.getBottomLeft(find.byType(TournamentMatchCard).first).dy,
+      greaterThan(0),
+    );
+  });
+
   testWidgets('destructive overflow требует подтверждения', (tester) async {
     var selected = false;
     await tester.pumpWidget(

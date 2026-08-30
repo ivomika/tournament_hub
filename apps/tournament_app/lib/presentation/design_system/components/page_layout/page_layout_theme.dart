@@ -16,6 +16,8 @@ class PageLayoutTheme extends ThemeExtension<PageLayoutTheme> {
     required this.archiveSecondaryFlex,
     required this.heroPrimaryFlex,
     required this.heroSecondaryFlex,
+    required this.flowPrimaryFlex,
+    required this.flowSecondaryFlex,
   });
 
   final double expandedBreakpoint;
@@ -30,6 +32,8 @@ class PageLayoutTheme extends ThemeExtension<PageLayoutTheme> {
   final int archiveSecondaryFlex;
   final int heroPrimaryFlex;
   final int heroSecondaryFlex;
+  final int flowPrimaryFlex;
+  final int flowSecondaryFlex;
 
   @override
   PageLayoutTheme copyWith({
@@ -45,6 +49,8 @@ class PageLayoutTheme extends ThemeExtension<PageLayoutTheme> {
     int? archiveSecondaryFlex,
     int? heroPrimaryFlex,
     int? heroSecondaryFlex,
+    int? flowPrimaryFlex,
+    int? flowSecondaryFlex,
   }) => PageLayoutTheme(
     expandedBreakpoint: expandedBreakpoint ?? this.expandedBreakpoint,
     panelGap: panelGap ?? this.panelGap,
@@ -59,6 +65,8 @@ class PageLayoutTheme extends ThemeExtension<PageLayoutTheme> {
     archiveSecondaryFlex: archiveSecondaryFlex ?? this.archiveSecondaryFlex,
     heroPrimaryFlex: heroPrimaryFlex ?? this.heroPrimaryFlex,
     heroSecondaryFlex: heroSecondaryFlex ?? this.heroSecondaryFlex,
+    flowPrimaryFlex: flowPrimaryFlex ?? this.flowPrimaryFlex,
+    flowSecondaryFlex: flowSecondaryFlex ?? this.flowSecondaryFlex,
   );
 
   @override
@@ -91,6 +99,8 @@ class PageLayoutTheme extends ThemeExtension<PageLayoutTheme> {
           : other.archiveSecondaryFlex,
       heroPrimaryFlex: t < 0.5 ? heroPrimaryFlex : other.heroPrimaryFlex,
       heroSecondaryFlex: t < 0.5 ? heroSecondaryFlex : other.heroSecondaryFlex,
+      flowPrimaryFlex: t < 0.5 ? flowPrimaryFlex : other.flowPrimaryFlex,
+      flowSecondaryFlex: t < 0.5 ? flowSecondaryFlex : other.flowSecondaryFlex,
     );
   }
 }

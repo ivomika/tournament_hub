@@ -13,7 +13,9 @@ class PageLayout extends StatelessWidget {
     this.supporting,
     super.key,
   }) : assert(
-         preset == PageLayoutPreset.focused || secondary != null,
+         preset == PageLayoutPreset.focused ||
+             preset == PageLayoutPreset.flow ||
+             secondary != null,
          'Для двухпанельного preset требуется secondary region.',
        );
 
@@ -74,8 +76,23 @@ class PageLayout extends StatelessWidget {
       );
     }
 
+    if (preset == PageLayoutPreset.flow) {
+      if (secondary == null) {
+        return KeyedSubtree(
+          key: const Key('page-layout-primary'),
+          child: primary,
+        );
+      }
+      return _expandedPair(
+        theme: theme,
+        primaryFlex: theme.flowPrimaryFlex,
+        secondaryFlex: theme.flowSecondaryFlex,
+      );
+    }
+
     final (primaryFlex, secondaryFlex) = switch (preset) {
       PageLayoutPreset.focused => throw StateError('Недостижимый preset'),
+      PageLayoutPreset.flow => throw StateError('Недостижимый preset'),
       PageLayoutPreset.split => (
         theme.splitPrimaryFlex,
         theme.splitSecondaryFlex,
@@ -91,25 +108,35 @@ class PageLayout extends StatelessWidget {
       PageLayoutPreset.hero => (theme.heroPrimaryFlex, theme.heroSecondaryFlex),
     };
 
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Expanded(
-          flex: primaryFlex,
-          child: KeyedSubtree(
-            key: const Key('page-layout-primary'),
-            child: primary,
-          ),
-        ),
-        SizedBox(width: theme.panelGap),
-        Expanded(
-          flex: secondaryFlex,
-          child: KeyedSubtree(
-            key: const Key('page-layout-secondary'),
-            child: secondary!,
-          ),
-        ),
-      ],
+    return _expandedPair(
+      theme: theme,
+      primaryFlex: primaryFlex,
+      secondaryFlex: secondaryFlex,
     );
   }
+
+  Widget _expandedPair({
+    required PageLayoutTheme theme,
+    required int primaryFlex,
+    required int secondaryFlex,
+  }) => Row(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Expanded(
+        flex: primaryFlex,
+        child: KeyedSubtree(
+          key: const Key('page-layout-primary'),
+          child: primary,
+        ),
+      ),
+      SizedBox(width: theme.panelGap),
+      Expanded(
+        flex: secondaryFlex,
+        child: KeyedSubtree(
+          key: const Key('page-layout-secondary'),
+          child: secondary!,
+        ),
+      ),
+    ],
+  );
 }

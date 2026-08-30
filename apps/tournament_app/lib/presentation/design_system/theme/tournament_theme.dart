@@ -153,6 +153,8 @@ abstract final class TournamentTheme {
           archiveSecondaryFlex: 1,
           heroPrimaryFlex: 2,
           heroSecondaryFlex: 1,
+          flowPrimaryFlex: 2,
+          flowSecondaryFlex: 1,
         ),
         const DsSpacingTheme(
           xs: TournamentTokens.spaceV1,

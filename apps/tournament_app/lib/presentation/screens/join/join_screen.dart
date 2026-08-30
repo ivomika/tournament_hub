@@ -12,32 +12,25 @@ class JoinScreenPreview extends StatelessWidget {
     sectionLabel: 'УЧАСТНИК',
     navigationRole: AppNavigationRole.participant,
     headerVariant: PageHeaderVariant.compact,
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        AdaptiveSplit(
-          primary: ParticipantJoinPanel(
-            data: const ParticipantJoinViewData(
-              state: ParticipantJoinState.idle,
-            ),
-            onScan: () {},
-            onSubmit: (_) {},
-            onRetry: () {},
-          ),
-          secondary: const DsSection(
-            title: 'Перед подключением',
-            child: DsText(
-              'Устройство должно быть в той же локальной сети. Хост остаётся единственным источником состояния турнира.',
-              variant: DsTextVariant.secondary,
-            ),
-          ),
+    child: PageLayout(
+      preset: PageLayoutPreset.workspace,
+      primary: ParticipantJoinPanel(
+        data: const ParticipantJoinViewData(state: ParticipantJoinState.idle),
+        onScan: () {},
+        onSubmit: (_) {},
+        onRetry: () {},
+      ),
+      secondary: const DsSection(
+        title: 'Перед подключением',
+        child: DsText(
+          'Устройство должно быть в той же локальной сети. Хост остаётся единственным источником состояния турнира.',
+          variant: DsTextVariant.secondary,
         ),
-        const DsGap(DsSpace.lg),
-        const ConnectionBanner(
-          state: TournamentConnectionState.disconnected,
-          detail: 'Подключение ещё не начато',
-        ),
-      ],
+      ),
+      supporting: const ConnectionBanner(
+        state: TournamentConnectionState.disconnected,
+        detail: 'Подключение ещё не начато',
+      ),
     ),
   );
 }
