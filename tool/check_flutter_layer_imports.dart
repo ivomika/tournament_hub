@@ -3,6 +3,7 @@ import 'dart:io';
 
 const _flutterLibPrefix = 'apps/tournament_app/lib/';
 const _packagePrefix = 'package:tournament_hub_app/';
+const _outsideLibTarget = '<outside-lib>';
 
 const _knownLayers = {
   'app',
@@ -197,6 +198,15 @@ List<LayerImportViolation> _sourceViolations(String path, String source) {
 
   final violations = <LayerImportViolation>[];
   for (final importUri in _directiveUris(source)) {
+    final targetRelative = _projectTargetRelative(normalizedPath, importUri);
+    final appContractViolation = _appContractViolation(
+      normalizedPath,
+      importUri,
+      targetRelative,
+    );
+    if (appContractViolation != null) {
+      violations.add(appContractViolation);
+    }
     final targetLayer = _projectTargetLayer(normalizedPath, importUri);
     if (targetLayer != null) {
       if (targetLayer == 'outside-lib') {
@@ -266,25 +276,163 @@ String? _sourceKind(String path) {
 }
 
 String? _projectTargetLayer(String sourcePath, String importUri) {
-  String? targetRelative;
-  if (importUri.startsWith(_packagePrefix)) {
-    targetRelative = importUri.substring(_packagePrefix.length);
-  } else if (importUri.startsWith('package:') ||
-      importUri.startsWith('dart:')) {
-    return null;
-  } else {
-    final sourceRelative = sourcePath.substring(_flutterLibPrefix.length);
-    targetRelative = _normalizeRelative(
-      '${_dirname(sourceRelative)}/$importUri',
-    );
-    if (targetRelative == null) return 'outside-lib';
-  }
+  final targetRelative = _projectTargetRelative(sourcePath, importUri);
+  if (targetRelative == null) return null;
+  if (targetRelative == _outsideLibTarget) return 'outside-lib';
 
   if (targetRelative == 'main.dart') return 'app';
   if (targetRelative == 'main_widgetbook.dart') return 'presentation';
   final targetRoot = targetRelative.split('/').first;
   return _knownLayers.contains(targetRoot) ? targetRoot : 'unknown';
 }
+
+String? _projectTargetRelative(String sourcePath, String importUri) {
+  if (importUri.startsWith(_packagePrefix)) {
+    return importUri.substring(_packagePrefix.length);
+  }
+  if (importUri.startsWith('package:') || importUri.startsWith('dart:')) {
+    return null;
+  }
+
+  final sourceRelative = sourcePath.substring(_flutterLibPrefix.length);
+  return _normalizeRelative('${_dirname(sourceRelative)}/$importUri') ??
+      _outsideLibTarget;
+}
+
+LayerImportViolation? _appContractViolation(
+  String sourcePath,
+  String importUri,
+  String? targetRelative,
+) {
+  final sourceRelative = sourcePath.substring(_flutterLibPrefix.length);
+  final importsFlutter = importUri.startsWith('package:flutter/');
+
+  if (sourceRelative == 'main.dart' &&
+      targetRelative != null &&
+      targetRelative != _outsideLibTarget &&
+      !targetRelative.startsWith('app/composition/') &&
+      !targetRelative.startsWith('app/host/')) {
+    return _appViolation(
+      'app-entrypoint-import',
+      sourcePath,
+      importUri,
+      'main.dart may import only app/composition and app/host project APIs',
+    );
+  }
+
+  if (sourceRelative.startsWith('app/bootstrap/')) {
+    if (importsFlutter) {
+      return _appViolation(
+        'app-bootstrap-framework',
+        sourcePath,
+        importUri,
+        'bootstrap must remain independent from Flutter and presentation',
+      );
+    }
+    if (_targetsAny(targetRelative, const [
+      'app/composition/',
+      'app/host/',
+      'app/navigation/',
+      'presentation/',
+    ])) {
+      return _appViolation(
+        'app-bootstrap-import',
+        sourcePath,
+        importUri,
+        'bootstrap may depend on lifecycle and application ports only',
+      );
+    }
+  }
+
+  if (sourceRelative.startsWith('app/lifecycle/')) {
+    if (importsFlutter) {
+      return _appViolation(
+        'app-lifecycle-framework',
+        sourcePath,
+        importUri,
+        'app lifecycle must remain framework independent',
+      );
+    }
+    if (_targetsAny(targetRelative, const [
+      'app/bootstrap/',
+      'app/composition/',
+      'app/host/',
+      'app/navigation/',
+      'presentation/',
+    ])) {
+      return _appViolation(
+        'app-lifecycle-import',
+        sourcePath,
+        importUri,
+        'app lifecycle may not depend on bootstrap, router or presentation',
+      );
+    }
+  }
+
+  if (sourceRelative.startsWith('app/navigation/')) {
+    if (importsFlutter) {
+      return _appViolation(
+        'app-navigation-framework',
+        sourcePath,
+        importUri,
+        'route policy and navigation state must remain Flutter independent',
+      );
+    }
+    if (_targetsAny(targetRelative, const [
+          'app/bootstrap/',
+          'app/composition/',
+          'app/lifecycle/app_state_store.dart',
+          'app/lifecycle/app_state_writer.dart',
+        ]) ||
+        _isApplicationCommandTarget(targetRelative)) {
+      return _appViolation(
+        'app-navigation-mutation-import',
+        sourcePath,
+        importUri,
+        'navigation may read AppState/projections but may not access writers or commands',
+      );
+    }
+  }
+
+  if (sourceRelative.startsWith('app/host/') &&
+      (_targetsAny(targetRelative, const [
+            'app/bootstrap/',
+            'app/lifecycle/app_state_store.dart',
+            'app/lifecycle/app_state_writer.dart',
+          ]) ||
+          _isApplicationCommandTarget(targetRelative))) {
+    return _appViolation(
+      'app-host-mutation-import',
+      sourcePath,
+      importUri,
+      'app host consumes runtime ports and may not access lifecycle writers or commands',
+    );
+  }
+
+  return null;
+}
+
+bool _targetsAny(String? target, List<String> prefixes) =>
+    target != null && prefixes.any(target.startsWith);
+
+bool _isApplicationCommandTarget(String? target) =>
+    target != null &&
+    target.startsWith('application/') &&
+    (target.contains('/commands/') ||
+        target.contains('/services/') ||
+        target.contains('/use_cases/'));
+
+LayerImportViolation _appViolation(
+  String rule,
+  String path,
+  String importUri,
+  String message,
+) => LayerImportViolation(
+  rule: rule,
+  path: path,
+  importUri: importUri,
+  message: message,
+);
 
 bool _hasRestrictedExternalImport(String sourceKind, String importUri) {
   if (sourceKind != 'domain' &&

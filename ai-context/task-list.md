@@ -6,11 +6,11 @@
 
 ## Активные задачи
 
-- 🟢 **089** — Защитить app lifecycle и state-driven routing contract тестами — [детали](tasks/TH-20260830-089.md)
 - 📝 **053** — Привести Spectator Web к утверждённому visual language — [детали](tasks/TH-20260828-053.md)
 
 ## Завершённые задачи
 
+- ✅ **089** — Защитить app lifecycle и state-driven routing contract тестами — [детали](tasks/TH-20260830-089.md)
 - ✅ **088** — Реализовать state-driven router и logical navigation — [детали](tasks/TH-20260830-088.md)
 - ✅ **087** — Реализовать bootstrap и composition root app-слоя — [детали](tasks/TH-20260830-087.md)
 - ✅ **086** — Зафиксировать app lifecycle и state-driven navigation contract — [детали](tasks/TH-20260830-086.md)

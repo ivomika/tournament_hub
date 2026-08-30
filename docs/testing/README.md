@@ -86,6 +86,16 @@ QR presentation отдельно проверяет role isolation: Participant 
 
 Layer import gate запускается командой `make architecture`. Его self-test fixtures лежат в `tool/architecture_fixtures/flutter_layer_imports.json`: positive cases подтверждают разрешённые направления и composition exception, negative cases покрывают каждый запрещённый crossing из [ADR-0010](../adr/0010-layer-import-boundaries.md). Любое production-нарушение печатает source path, import URI и rule ID и возвращает non-zero exit code.
 
+## App lifecycle и routing contract
+
+Contract из [ADR-0011](../adr/0011-app-lifecycle-and-state-driven-routing.md) защищается на трёх уровнях:
+
+- exhaustive unit matrix проверяет все пары app lifecycle transitions;
+- bootstrap/router tests проверяют restore ordering, retry, race generation, disposal, guards, Back и отсутствие route → AppState mutation;
+- architecture fixtures запрещают bootstrap → router/presentation, lifecycle → router/presentation, navigation/host → lifecycle writer/application commands и direct layer imports из `main.dart`.
+
+Route projection тестируется отдельно от widgets: одинаковые `AppState + NavigationIntent` обязаны давать одинаковый `AppRouteProjection`. Widget tests подтверждают shell navigation, recoverable retry и отсутствие retry/internal exception на fatal route. Изменение state list, logical route или app sub-boundary требует синхронного обновления ADR-0011, exhaustive matrix и negative fixtures.
+
 ## Failure policy
 
 Нельзя удалять/ослаблять assertion, повышать timeout или добавлять ignore, чтобы «починить» gate без причины. Flaky test получает task, reproduction data и owner. Непроведённая проверка указывается вместе с риском, а не считается успешной.

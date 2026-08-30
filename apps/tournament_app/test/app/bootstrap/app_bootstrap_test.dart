@@ -90,6 +90,29 @@ void main() {
       );
     });
 
+    test(
+      'retry после recoverable failure заново восстанавливает state',
+      () async {
+        final reader = _FakeAppSessionReader(
+          failure: const AppSessionReadFailure(
+            code: AppSessionReadFailureCode.profileReadFailed,
+            recoverable: true,
+          ),
+        );
+        final bootstrap = AppBootstrap(reader, store);
+
+        await bootstrap.start();
+        expect(store.current, isA<AppRecoverableFailure>());
+
+        reader
+          ..failure = null
+          ..profile = profile;
+        await bootstrap.retry();
+
+        expect((store.current as AppOperational).session.profile, profile);
+      },
+    );
+
     test('маппит non-recoverable failure в fatal state', () async {
       final reader = _FakeAppSessionReader(
         failure: const AppSessionReadFailure(
@@ -171,9 +194,9 @@ final class _FakeAppSessionReader implements AppSessionReader {
     this.readProfile,
   });
 
-  final LocalProfileProjection? profile;
-  final ActiveTournamentProjection? activeTournament;
-  final AppSessionReadFailure? failure;
+  LocalProfileProjection? profile;
+  ActiveTournamentProjection? activeTournament;
+  AppSessionReadFailure? failure;
   final Future<LocalProfileProjection?> Function()? readProfile;
   final List<String> calls = [];
 

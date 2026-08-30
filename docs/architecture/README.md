@@ -172,6 +172,7 @@ ADR обязателен для изменения authority model, layer direct
 ## Architecture fitness checks
 
 - Architecture import gate исполняет allow matrix из [ADR-0010](../adr/0010-layer-import-boundaries.md), нормализует relative/package imports и блокирует reverse dependency.
+- Тот же gate исполняет внутренние app-boundaries из [ADR-0011](../adr/0011-app-lifecycle-and-state-driven-routing.md): `main.dart` импортирует только composition/host API; bootstrap/lifecycle/navigation остаются framework-free; router не импортирует lifecycle writer/store, bootstrap или application commands.
 - Gate запрещает framework imports в Domain и Flutter UI/concrete adapter imports в application.
 - Generated Dart проверяется как часть owner layer; tests и tooling fixtures проверяют gate отдельно, но не ослабляют production matrix.
 - Engine conformance suite применяется к каждой ruleset version.

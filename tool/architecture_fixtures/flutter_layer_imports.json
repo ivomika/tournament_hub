@@ -106,10 +106,20 @@
     "expectedRules": []
   },
   {
-    "name": "main is composition entry point",
+    "name": "main imports only app composition and host",
+    "path": "apps/tournament_app/lib/main.dart",
+    "source": "import 'app/composition/root.dart';\nimport 'app/host/app.dart';",
+    "expectedRules": []
+  },
+  {
+    "name": "main rejects direct layer imports",
     "path": "apps/tournament_app/lib/main.dart",
     "source": "import 'domain/entity.dart';\nimport 'infrastructure/db.dart';\nimport 'presentation/view.dart';",
-    "expectedRules": []
+    "expectedRules": [
+      "app-entrypoint-import",
+      "app-entrypoint-import",
+      "app-entrypoint-import"
+    ]
   },
   {
     "name": "shared allows only shared",
@@ -185,5 +195,64 @@
     "path": "apps/tournament_app/lib/domain/example.dart",
     "source": "import '../../test/helper.dart';",
     "expectedRules": ["project-import-outside-lib"]
+  },
+  {
+    "name": "bootstrap may use lifecycle writer and application ports",
+    "path": "apps/tournament_app/lib/app/bootstrap/bootstrap.dart",
+    "source": "import '../lifecycle/app_state_writer.dart';\nimport '../../application/bootstrap/ports/session_reader.dart';",
+    "expectedRules": []
+  },
+  {
+    "name": "bootstrap rejects router presentation and Flutter",
+    "path": "apps/tournament_app/lib/app/bootstrap/bootstrap.dart",
+    "source": "import '../navigation/router.dart';\nimport '../../presentation/view.dart';\nimport 'package:flutter/widgets.dart';",
+    "expectedRules": [
+      "app-bootstrap-framework",
+      "app-bootstrap-import",
+      "app-bootstrap-import"
+    ]
+  },
+  {
+    "name": "lifecycle may use application projections",
+    "path": "apps/tournament_app/lib/app/lifecycle/state.dart",
+    "source": "import '../../application/bootstrap/models/session.dart';\nimport 'package:equatable/equatable.dart';",
+    "expectedRules": []
+  },
+  {
+    "name": "lifecycle rejects router presentation and Flutter",
+    "path": "apps/tournament_app/lib/app/lifecycle/state.dart",
+    "source": "import '../navigation/router.dart';\nimport '../../presentation/view.dart';\nimport 'package:flutter/widgets.dart';",
+    "expectedRules": [
+      "app-lifecycle-framework",
+      "app-lifecycle-import",
+      "app-lifecycle-import"
+    ]
+  },
+  {
+    "name": "navigation may read AppState and application projections",
+    "path": "apps/tournament_app/lib/app/navigation/router.dart",
+    "source": "import '../lifecycle/app_state.dart';\nimport '../../application/bootstrap/models/session.dart';\nimport 'package:equatable/equatable.dart';",
+    "expectedRules": []
+  },
+  {
+    "name": "navigation rejects writer commands bootstrap and Flutter",
+    "path": "apps/tournament_app/lib/app/navigation/router.dart",
+    "source": "import '../lifecycle/app_state_writer.dart';\nimport '../bootstrap/bootstrap.dart';\nimport '../../application/tournament/commands/start.dart';\nimport 'package:flutter/widgets.dart';",
+    "expectedRules": [
+      "app-navigation-framework",
+      "app-navigation-mutation-import",
+      "app-navigation-mutation-import",
+      "app-navigation-mutation-import"
+    ]
+  },
+  {
+    "name": "app host rejects lifecycle writer bootstrap and commands",
+    "path": "apps/tournament_app/lib/app/host/app.dart",
+    "source": "import '../lifecycle/app_state_store.dart';\nimport '../bootstrap/bootstrap.dart';\nimport '../../application/tournament/services/start.dart';",
+    "expectedRules": [
+      "app-host-mutation-import",
+      "app-host-mutation-import",
+      "app-host-mutation-import"
+    ]
   }
 ]
