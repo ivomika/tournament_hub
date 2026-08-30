@@ -34,7 +34,7 @@ Engine детерминированно выбирает Current. UI/Host не �
 
 ## Result model
 
-- `NormalResult`: winner/loser и форматная детализация score/bouts после решения OD-007.
+- `NormalResult`: winner/loser и фактический счёт серии; каждая битва имеет собственный score.
 - `TechnicalResult`: winner/loser + stable reason code, без normal score.
 - `Bye`: structural advancement, не result.
 - Forfeit текущего match создаёт technical loss и сам по себе не снимает participant.
@@ -49,7 +49,8 @@ Engine детерминированно выбирает Current. UI/Host не �
 - Reset использует final FT setting.
 - Следующий match становится Current только после полного определения его slots.
 - Correction допустима только до любого Finished dependent match.
-- Exact/ranged placement одинаково сериализуется и воспроизводится; tie policy закрывается OD-006.
+- Participants, выбывшие на одной стадии DE, делят один диапазон мест; exact/ranged placement одинаково сериализуется и воспроизводится.
+- Main bracket по умолчанию FT1; Grand Final может иметь отдельный FT; reset использует final FT.
 
 Property invariants: каждый non-bye result добавляет ровно winner/loser; participant не играет сам с собой; eliminated не возвращается; champion имеет менее двух поражений до terminal condition; каждый created match имеет стабильный ID.
 
@@ -58,7 +59,7 @@ Property invariants: каждый non-bye result добавляет ровно w
 - Первое поражение устраняет participant.
 - Bye не считается победой.
 - Матча за третье место нет; semifinal losers делят 3–4.
-- Final может иметь отдельный FT setting после OD-005.
+- Main bracket по умолчанию FT1; Final может иметь отдельный FT setting.
 - N participants завершают ровно N−1 normal/technical played matches без учёта Bye.
 
 ## Round Robin
@@ -69,6 +70,7 @@ Property invariants: каждый non-bye result добавляет ровно w
 - Standings — projection из authoritative results, а не независимо редактируемые данные.
 - При равенстве points создаётся отдельная mini-RR group только из равных participants.
 - Mini RR FT2 ранжирует по wins; оставшаяся tied subgroup получает новый tie-break iteration.
+- Лимита iterations и fallback нет: tournament остаётся Running, пока все tied subgroups не получат однозначный порядок.
 - Основные points не меняются; tie-break records хранятся отдельно и входят в history.
 - Tournament не Finished, пока place groups не соответствуют разрешённой уникальности/ranges.
 

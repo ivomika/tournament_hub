@@ -1,0 +1,24 @@
+{
+  "rulesetVersion": "tournament-format-engine/v1",
+  "commandStrategy": "normal-win-first-slot-2-0",
+  "cases": [
+    {
+      "format": "singleElimination",
+      "participantCount": 5,
+      "seed": 42,
+      "expectedChampion": "p1"
+    },
+    {
+      "format": "doubleElimination",
+      "participantCount": 6,
+      "seed": 17,
+      "expectedChampion": "p2"
+    },
+    {
+      "format": "roundRobin",
+      "participantCount": 2,
+      "seed": 7,
+      "expectedChampion": "p0"
+    }
+  ]
+}

@@ -10,20 +10,20 @@
 | OD-003 | Как устроены request/handshake/error envelopes, idempotency и protocol compatibility? | Без этого Host может применить duplicate command или принять несовместимый client. | До Participant flow |
 | OD-004 | Как исправление результата инвалидирует DE/SE progression и уже созданные events? | Определяет корректность bracket и snapshots. | До result correction |
 
-## Блокируют format engines
-
-| ID | Вопрос | Безопасный default запрещён потому что |
-|---|---|---|
-| OD-005 | Какие значения разрешены для DE/SE main FT и final FT? | Значения влияют на validation, UI и snapshot schema. |
-| OD-006 | Как ранжируются участники DE, выбывшие на одной стадии? | «Full ranking» не определяет exact place либо place range. |
-| OD-007 | Хранятся ли отдельные bouts/score в DE/SE или только winner серии? | Влияет на correction, history и spectator. |
-| OD-008 | Нужен ли safety mechanism для бесконечно повторяющегося RR tie-break? | Любой лимит или random fallback меняет спортивное правило. |
-
 ## Нормализованные противоречия источника
 
 | ID | Решение | Канон |
 |---|---|---|
 | OD-001 | Terminal history insert и удаление active snapshot/log выполняются одной DB transaction; terminal event публикуется только после commit. | [Data and protocol](../data/README.md#terminal-normalization) |
+
+## Закрытые Domain decisions
+
+| ID | Решение | Дата и владелец | Канон и verification |
+|---|---|---|---|
+| OD-005 | DE/SE main FT — positive integer, default FT1; final FT — independent positive integer, default main FT; DE reset использует final FT. | 2026-08-30, product owner via Design Doc | [Format engine v1](../domain/format-engine-v1.md), settings validation tests |
+| OD-006 | Выбывшие на одной стадии DE делят place range; искусственный tie-break не добавляется. | 2026-08-30, product owner via full-ranking requirement | [Format engine v1](../domain/format-engine-v1.md), ranking fixtures |
+| OD-007 | Normal result хранит winner/loser и фактический score серии; technical result score не имеет. | 2026-08-30, product owner via FT/result/history requirements | [Format engine v1](../domain/format-engine-v1.md), result validation/replay tests |
+| OD-008 | Mini-RR повторяется для tied subgroup без iteration limit, random fallback или жребия. | 2026-08-30, product owner via explicit Design Doc rule | [Format engine v1](../domain/format-engine-v1.md), repeated tie fixture |
 
 ## Блокируют production release
 

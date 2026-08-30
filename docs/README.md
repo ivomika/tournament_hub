@@ -33,6 +33,7 @@
 | Трассировка | [Traceability](architecture/traceability.md) | Requirement → owner → contract → UI → tests |
 | ADR | [ADR index](adr/README.md) | Устойчивые архитектурные решения |
 | Домен | [Tournament rules](domain/tournament-rules.md) | DE, SE, RR, результаты, correction, withdrawal |
+| Domain contract | [Format engine v1](domain/format-engine-v1.md) | Versioned settings, results, ranking и tie-break contract |
 | Данные | [Data and protocol](data/README.md) | Persistence, migrations, transactions, realtime |
 | Дизайн | [Design system](design/README.md) | Visual language, tokens, layouts, states, a11y |
 | Дизайн | [Full-page layout audit](design/full-page-layout-audit.md) | Full-height screen goldens и наблюдения по scroll/layout |
