@@ -130,6 +130,9 @@ Tournament core оперирует participant IDs и не импортируе�
 - Riverpod используется как composition/lifecycle mechanism, не service locator внутри Domain.
 - Clock, ID generator, RNG, storage, publisher и notifications injectable.
 - Production adapters собираются только в `app` composition root.
+- `main.dart` только создаёт composition и запускает app host; startup/recovery orchestration принадлежит `AppBootstrap`.
+- Bootstrap получает application ports, публикует immutable `AppState` и не импортирует presentation/router.
+- Composition владеет созданием и disposal dependency graph, но не содержит Domain decisions.
 - Tests используют fakes на портах, а не framework globals.
 
 ## Error model
@@ -147,7 +150,11 @@ UI маппит codes в русский user-facing текст. Domain не ло
 
 ## State and navigation
 
-Router guard читает application state. Route не вызывает lifecycle transition автоматически. Back/Main сохраняет active snapshot. Deep link валидирует role, tournament ID и state; недопустимый route ведёт к безопасному экрану с объяснением.
+App lifecycle и state-driven routing закреплены в [ADR-0011](../adr/0011-app-lifecycle-and-state-driven-routing.md).
+
+`AppBootstrap` — единственный writer app-level lifecycle state: `bootstrapping`, `profileRequired`, `operational`, `recoverableFailure`, `fatalFailure`. `operational` содержит application projections local profile и optional active context. Tournament lifecycle, connection state и presentation state остаются отдельными автоматами.
+
+Router получает read-only `AppState` и отдельный `NavigationIntent`. Чистая route policy проецирует их в logical route: state определяет допустимые routes/обязательные redirects, intent выбирает экран внутри разрешённого пространства. Router не меняет AppState и не вызывает lifecycle transition автоматически. Back/Main сохраняет active snapshot. Deep link валидирует role, tournament ID и state; недопустимый route ведёт к Main либо безопасному экрану с объяснением без mutation.
 
 ## Cross-cutting constraints
 

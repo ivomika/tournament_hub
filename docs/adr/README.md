@@ -22,3 +22,4 @@ ADR фиксирует устойчивое решение, меняющее sys
 - [ADR-0008: Семантические page-layout presets](0008-semantic-page-layout-presets.md) — Accepted.
 - [ADR-0009: Flow-layout и контекстные переходы длинных экранов](0009-flow-layout-and-context-jumps.md) — Accepted.
 - [ADR-0010: Строгие границы импортов между слоями](0010-layer-import-boundaries.md) — Accepted.
+- [ADR-0011: App lifecycle и state-driven routing](0011-app-lifecycle-and-state-driven-routing.md) — Accepted.

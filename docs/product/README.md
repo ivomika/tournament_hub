@@ -46,6 +46,8 @@ Host может не участвовать. Если Host участвует, �
 
 ## Lifecycle
 
+App lifecycle отделён от tournament lifecycle. При запуске `AppBootstrap` последовательно восстанавливает committed local profile и optional active context, после чего публикует `profileRequired`, `operational` либо typed failure. Router только проецирует опубликованное состояние в допустимый экран; navigation/deep link не являются способом создать профиль, tournament или изменить lifecycle. Полный контракт задан в [ADR-0011](../adr/0011-app-lifecycle-and-state-driven-routing.md).
+
 ```text
 Draft -> Open <-> Distribution -> Running -> Finished
    \        \          \             \
@@ -76,10 +78,12 @@ Draft -> Open <-> Distribution -> Running -> Finished
 ### Первый запуск
 
 ```text
-Bootstrap -> Profile loading -> Registration -> Main
+Bootstrap -> profileRequired -> Registration -> operational -> Main
+Bootstrap -> operational(profile + optional active context) -> Main
+Bootstrap -> recoverableFailure/fatalFailure -> Error projection
 ```
 
-Ошибки storage показывают recovery action; stack trace пользователю не показывается.
+Ошибки storage показывают recovery action; stack trace пользователю не показывается. Повторный bootstrap не позволяет late result старой попытки заменить новое состояние.
 
 ### Host
 

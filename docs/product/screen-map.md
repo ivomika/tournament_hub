@@ -2,6 +2,21 @@
 
 Navigation отражает committed application/tournament state. Route не меняет lifecycle автоматически.
 
+## App lifecycle и route projection
+
+По [ADR-0011](../adr/0011-app-lifecycle-and-state-driven-routing.md) bootstrap публикует read-only `AppState`, а router вычисляет route из пары `AppState + NavigationIntent`. AppState задаёт guards и обязательные redirects; intent выбирает Main/Profile/History/Settings либо разрешённый role flow. Back и deep link меняют только intent и никогда не являются lifecycle command.
+
+| AppState | Обязательная route policy |
+|---|---|
+| `bootstrapping` | Bootstrap |
+| `profileRequired` | Registration |
+| `operational` без допустимого intent | Main |
+| `operational` с допустимым intent | Соответствующий logical route |
+| `recoverableFailure` | Recoverable Error/retry |
+| `fatalFailure` | Fatal Error |
+
+App lifecycle, tournament lifecycle и Participant connection state не объединяются. Active tournament ограничивает create/join и разрешает Continue, но сам по себе не запрещает Main/Profile/History/Settings.
+
 ## Общая Flutter shell
 
 ```text
@@ -95,6 +110,7 @@ Spectator не имеет mutation routes. Cancelled tournament не публи�
 ## Route guards
 
 - Profile gate precedes application routes.
+- Guard читает AppState projection и не вызывает application/domain command.
 - Actor role и tournament/binding ID валидируются до content.
 - Host state выбирает единственную допустимую tournament composition.
 - Historical snapshot никогда не открывается как editable active tournament.

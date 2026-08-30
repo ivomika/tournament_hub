@@ -13,5 +13,6 @@
 | PR-009 Statistics | history projection | history snapshots | Profile/History | replay/technical exclusion |
 | PR-010 UI states/a11y | presentation/design | presentation state | all screens | widget/component/a11y matrix |
 | AR-001 Layer direction | architecture | [ADR-0010 allow matrix](../adr/0010-layer-import-boundaries.md) | all Flutter production layers | architecture import gate + positive/negative fixtures |
+| AR-002 State-driven routing | app | [ADR-0011 lifecycle/route projection](../adr/0011-app-lifecycle-and-state-driven-routing.md) | Flutter bootstrap/router/presentation | bootstrap transition + route policy + negative coupling tests |
 
 Новая requirement получает stable ID, owner, contract, consumer и test link. Матрица не заменяет подробный документ.
