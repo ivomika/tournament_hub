@@ -32,6 +32,9 @@ final class _TournamentHubAppState extends State<TournamentHubApp> {
 
   @override
   Widget build(BuildContext context) {
+    final profileRuntime = widget.runtime is AppProfileRuntime
+        ? widget.runtime as AppProfileRuntime
+        : null;
     return MaterialApp(
       title: 'Tournament Hub',
       debugShowCheckedModeBanner: false,
@@ -48,7 +51,11 @@ final class _TournamentHubAppState extends State<TournamentHubApp> {
           child: AppRouteScreen(
             key: ValueKey(snapshot.requireData),
             projection: snapshot.requireData,
+            appState: widget.runtime.appStateSource.current,
             onRetry: widget.runtime.retry,
+            onCreateProfile: profileRuntime?.createProfile,
+            onRenameProfile: profileRuntime?.renameProfile,
+            onResetAccount: profileRuntime?.resetAccount,
             onDestinationSelected: _selectDestination,
           ),
         ),

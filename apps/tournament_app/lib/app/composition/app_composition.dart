@@ -1,6 +1,8 @@
 import 'dart:async';
 
-import '../../infrastructure/bootstrap/empty_app_session_reader.dart';
+import '../../application/profile/profile_service.dart';
+import '../../infrastructure/profile/sqlite_local_profile_repository.dart';
+import '../../infrastructure/settings/shared_preferences_app_settings_repository.dart';
 import '../bootstrap/app_bootstrap.dart';
 import '../lifecycle/app_state_source.dart';
 import '../lifecycle/app_state_store.dart';
@@ -10,26 +12,40 @@ import '../navigation/ports/app_route_source.dart';
 import '../navigation/ports/navigation_intent_sink.dart';
 import '../runtime/app_runtime.dart';
 
-final class AppComposition implements AppRuntime {
+final class AppComposition implements AppRuntime, AppProfileRuntime {
   AppComposition._(
     this._bootstrap,
     this._stateStore,
     this._intentStore,
     this._router,
+    this._profiles,
+    this._localStore,
   );
 
   factory AppComposition.production() {
     final stateStore = AppStateStore();
-    final bootstrap = AppBootstrap(const EmptyAppSessionReader(), stateStore);
+    final localStore = SqliteLocalProfileRepository();
+    final settings = SharedPreferencesAppSettingsRepository();
+    final profiles = ProfileService(localStore, settings);
+    final bootstrap = AppBootstrap(localStore, stateStore);
     final intentStore = NavigationIntentStore();
     final router = AppRouter(stateSource: stateStore, intentStore: intentStore);
-    return AppComposition._(bootstrap, stateStore, intentStore, router);
+    return AppComposition._(
+      bootstrap,
+      stateStore,
+      intentStore,
+      router,
+      profiles,
+      localStore,
+    );
   }
 
   final AppBootstrap _bootstrap;
   final AppStateStore _stateStore;
   final NavigationIntentStore _intentStore;
   final AppRouter _router;
+  final ProfileService _profiles;
+  final SqliteLocalProfileRepository _localStore;
   bool _isDisposed = false;
 
   @override
@@ -51,6 +67,24 @@ final class AppComposition implements AppRuntime {
   Future<void> retry() => _bootstrap.retry();
 
   @override
+  Future<void> createProfile(String nickname) async {
+    await _profiles.create(nickname);
+    await _bootstrap.retry();
+  }
+
+  @override
+  Future<void> renameProfile(String nickname) async {
+    await _profiles.rename(nickname);
+    await _bootstrap.retry();
+  }
+
+  @override
+  Future<void> resetAccount() async {
+    await _profiles.reset();
+    await _bootstrap.retry();
+  }
+
+  @override
   void dispose() {
     if (_isDisposed) return;
     _isDisposed = true;
@@ -58,5 +92,6 @@ final class AppComposition implements AppRuntime {
     unawaited(_router.dispose());
     unawaited(_intentStore.dispose());
     unawaited(_stateStore.dispose());
+    _localStore.dispose();
   }
 }

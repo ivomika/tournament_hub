@@ -15,3 +15,11 @@ abstract interface class AppRuntime {
 
   void dispose();
 }
+
+abstract interface class AppProfileRuntime {
+  Future<void> createProfile(String nickname);
+
+  Future<void> renameProfile(String nickname);
+
+  Future<void> resetAccount();
+}

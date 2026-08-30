@@ -2,8 +2,45 @@ import 'package:flutter/widgets.dart';
 
 import '../../design_system/design_system.dart';
 
-class SettingsScreenPreview extends StatelessWidget {
-  const SettingsScreenPreview({super.key});
+class SettingsScreenPreview extends StatefulWidget {
+  const SettingsScreenPreview({this.onReset, super.key});
+
+  final Future<void> Function()? onReset;
+
+  @override
+  State<SettingsScreenPreview> createState() => _SettingsScreenPreviewState();
+}
+
+class _SettingsScreenPreviewState extends State<SettingsScreenPreview> {
+  bool _resetting = false;
+
+  Future<void> _showReset() async {
+    await showTournamentConfirmationDialog<void>(
+      context: context,
+      builder: (dialogContext) => DsConfirmationDialog(
+        title: 'Сбросить локальные данные?',
+        message: 'Профиль, активный турнир и история будут удалены с этого устройства. Действие нельзя отменить.',
+        confirmLabel: 'Сбросить данные',
+        loading: _resetting,
+        onConfirm: () => _reset(dialogContext),
+      ),
+    );
+  }
+
+  Future<void> _reset(BuildContext dialogContext) async {
+    final reset = widget.onReset;
+    if (reset == null) {
+      Navigator.of(dialogContext).pop();
+      return;
+    }
+    setState(() => _resetting = true);
+    try {
+      await reset();
+      if (dialogContext.mounted) Navigator.of(dialogContext).pop();
+    } finally {
+      if (mounted) setState(() => _resetting = false);
+    }
+  }
 
   @override
   Widget build(BuildContext context) => AppShell(
@@ -34,9 +71,9 @@ class SettingsScreenPreview extends StatelessWidget {
       ),
       secondary: DangerZone(
         title: 'Сброс локальных данных',
-        message: 'Профиль, активный турнир и история будут удалены с этого устройства. Перед удалением потребуется подтверждение.',
+        message: 'Удаляет profile и все owned records после подтверждения.',
         actionLabel: 'Сбросить данные',
-        onAction: () {},
+        onAction: _resetting ? null : _showReset,
       ),
     ),
   );

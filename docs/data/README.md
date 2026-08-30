@@ -141,6 +141,8 @@ Event log active-only и bounded; точный limit — OD-012. Он подде
 
 `shared_preferences` разрешён только для non-critical preferences. Profile, active/history/cache/event log/idempotency запрещены. Reset account должен удалить все owned stores crash-safe и вернуть Registration.
 
+Local Profile хранится в SQLite как singleton record schema v1 (`profile_id`, `nickname`), открываемый из platform application-support directory. `profile_id` неизменяем после создания; rename обновляет только nickname. Profile reset выполняется SQLite transaction до очистки non-critical preferences, после чего bootstrap обязан опубликовать `profileRequired`.
+
 ## Backup and privacy
 
 Local DB не добавляется в git/logs/tasks. Diagnostics редактирует IDs/payload. Экспорт/backup не входит в MVP до отдельного encrypted format decision. Тестовые fixtures содержат synthetic data.

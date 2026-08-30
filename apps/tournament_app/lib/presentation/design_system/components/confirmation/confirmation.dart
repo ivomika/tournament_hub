@@ -80,3 +80,62 @@ class TournamentConfirmationPreview extends StatelessWidget {
     );
   }
 }
+
+class DsConfirmationDialog extends StatelessWidget {
+  const DsConfirmationDialog({
+    required this.title,
+    required this.message,
+    required this.confirmLabel,
+    required this.onConfirm,
+    this.cancelLabel = 'Назад',
+    this.loading = false,
+    super.key,
+  });
+
+  final String title;
+  final String message;
+  final String confirmLabel;
+  final String cancelLabel;
+  final VoidCallback onConfirm;
+  final bool loading;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context).extension<ConfirmationTheme>()!;
+    return Dialog(
+      backgroundColor: theme.background,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(theme.radius),
+      ),
+      child: Padding(
+        padding: EdgeInsets.all(theme.padding),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            DsText(title, variant: DsTextVariant.title),
+            SizedBox(height: theme.gap),
+            DsText(message, variant: DsTextVariant.secondary),
+            SizedBox(height: theme.gap),
+            ResponsiveActions(
+              primary: DsAction(
+                label: confirmLabel,
+                kind: DsActionKind.danger,
+                status: loading ? DsActionStatus.loading : DsActionStatus.idle,
+                onPressed: loading ? null : onConfirm,
+              ),
+              secondary: [
+                DsAction(
+                  label: cancelLabel,
+                  kind: DsActionKind.text,
+                  autofocus: true,
+                  onPressed: loading ? null : () => Navigator.of(context).pop(),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

@@ -11,6 +11,9 @@ dependencies:
   flutter:
     sdk: flutter
   pretty_qr_code: ^3.6.0
+  path_provider: ^2.1.6
+  shared_preferences: ^2.5.5
+  sqlite3: ^3.5.2
   widgetbook: 3.25.0
 
 dev_dependencies:
