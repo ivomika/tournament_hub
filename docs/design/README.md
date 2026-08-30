@@ -77,6 +77,18 @@
 - Typography разделяет stage label, screen heading, object title и supporting copy. Uppercase допустим для коротких tournament/stage labels, но не для длинного body-текста.
 - Cinematic treatment создаётся semantic surface hierarchy, artwork scale и композицией. Декоративный шум, градиент или motion не могут ухудшать читаемость и не являются носителем состояния.
 
+### Density и surface hierarchy
+
+`DsDensity` описывает назначение content, а не размер экрана. Роль меняет только token-driven padding/gap и не уменьшает touch target, fighter identity или обязательный текст:
+
+| Density | Назначение | Типичные consumers |
+|---|---|---|
+| `compact` | Повторяющиеся read-only rows и metadata с высокой информационной плотностью | History list, archived winner summary |
+| `comfortable` | Обычная рабочая поверхность и формы; default | Draft, Settings, roster management |
+| `presentation` | Единственный крупный identity/result object, читаемый с первого взгляда | назначенный fighter, champion/current presentation |
+
+Surface tone выражает роль, а не вложенность: `base` — supporting/read-only, `elevated` — текущая рабочая группа или важный контекст, `accent` — единственный кульминационный/current boundary. Соседние containers не получают `accent` одновременно. Archive использует `compact` + `base` и не имитирует live climax; Participant может использовать `presentation` scale для fighter identity, но без Host mutation styling. Profile использует `focused` rationale как короткая identity-задача, Settings — `split` между обычными параметрами и отделённой danger zone; whitespace не заполняется декоративными cards.
+
 ## Core components
 
 Каждый component имеет необходимые default, hover/focus/pressed, disabled, loading и error states.

@@ -62,6 +62,10 @@ void main() {
       tester.getSize(find.byKey(const Key('page-layout-primary'))).width,
       lessThanOrEqualTo(599),
     );
+    expect(
+      tester.getTopLeft(find.byKey(const Key('page-layout-primary'))).dx,
+      0,
+    );
   });
 }
 

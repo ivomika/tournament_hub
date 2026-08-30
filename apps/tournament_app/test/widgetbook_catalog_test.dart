@@ -77,6 +77,28 @@ void main() {
     expect(useCaseNames, containsAll(const ['Stage / Panel', 'Stage / Strip']));
   });
 
+  test('catalog показывает все semantic density roles', () {
+    final useCaseNames = <String>{};
+
+    void collect(Iterable<WidgetbookNode> nodes) {
+      for (final node in nodes) {
+        if (node is WidgetbookUseCase) useCaseNames.add(node.name);
+        collect(node.children ?? const []);
+      }
+    }
+
+    collect(buildTournamentCatalog());
+
+    expect(
+      useCaseNames,
+      containsAll(const [
+        'History snapshot / Compact',
+        'History snapshot / Comfortable',
+        'History snapshot / Presentation',
+      ]),
+    );
+  });
+
   test('catalog содержит полную матрицу ConnectionQrCard', () {
     final useCaseNames = <String>{};
 

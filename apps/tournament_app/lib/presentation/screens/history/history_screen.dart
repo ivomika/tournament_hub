@@ -12,30 +12,35 @@ class HistoryScreenPreview extends StatelessWidget {
     sectionLabel: 'АРХИВ',
     headerVariant: PageHeaderVariant.compact,
     currentDestination: AppDestination.history,
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        HistorySnapshotCard(
-          tournamentName: 'Friday Fight Night',
-          summary: 'Double Elimination · 8 участников · сегодня, 22:14',
-          champion: previewParticipants.first,
-          onOpen: () {},
-        ),
-        const DsGap(DsSpace.lg),
-        const TournamentStageHeader(
-          stage: 'Локальный архив',
-          progress: 'ТОЛЬКО ЧТЕНИЕ',
-          detail: 'Снимки на этом устройстве не изменяют активный турнир.',
-          kind: StatusKind.neutral,
-        ),
-        const DsGap(DsSpace.md),
-        HistorySnapshotCard(
-          tournamentName: 'Weekend Cup',
-          summary: 'Single Elimination · 6 участников · 24 августа',
-          champion: previewParticipants[1],
-          onOpen: () {},
-        ),
-      ],
+    child: PageLayout(
+      preset: PageLayoutPreset.archive,
+      primary: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          HistorySnapshotCard(
+            density: DsDensity.compact,
+            tournamentName: 'Friday Fight Night',
+            summary: 'Double Elimination · 8 участников · сегодня, 22:14',
+            champion: previewParticipants.first,
+            onOpen: () {},
+          ),
+          const DsGap(DsSpace.md),
+          HistorySnapshotCard(
+            density: DsDensity.compact,
+            tournamentName: 'Weekend Cup',
+            summary: 'Single Elimination · 6 участников · 24 августа',
+            champion: previewParticipants[1],
+            onOpen: () {},
+          ),
+        ],
+      ),
+      secondary: const TournamentStageHeader(
+        variant: TournamentStageVariant.strip,
+        stage: 'Локальный архив',
+        progress: 'ТОЛЬКО ЧТЕНИЕ',
+        detail: 'Снимки на этом устройстве не изменяют активный турнир.',
+        kind: StatusKind.neutral,
+      ),
     ),
   );
 }

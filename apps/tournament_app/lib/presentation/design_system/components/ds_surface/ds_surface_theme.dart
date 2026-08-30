@@ -10,7 +10,9 @@ class DsSurfaceTheme extends ThemeExtension<DsSurfaceTheme> {
     required this.border,
     required this.accentBorder,
     required this.radius,
+    required this.compactPadding,
     required this.padding,
+    required this.presentationPadding,
   });
 
   final Color background;
@@ -19,7 +21,9 @@ class DsSurfaceTheme extends ThemeExtension<DsSurfaceTheme> {
   final Color border;
   final Color accentBorder;
   final double radius;
+  final double compactPadding;
   final double padding;
+  final double presentationPadding;
 
   @override
   DsSurfaceTheme copyWith({
@@ -29,7 +33,9 @@ class DsSurfaceTheme extends ThemeExtension<DsSurfaceTheme> {
     Color? border,
     Color? accentBorder,
     double? radius,
+    double? compactPadding,
     double? padding,
+    double? presentationPadding,
   }) => DsSurfaceTheme(
     background: background ?? this.background,
     elevatedBackground: elevatedBackground ?? this.elevatedBackground,
@@ -37,7 +43,9 @@ class DsSurfaceTheme extends ThemeExtension<DsSurfaceTheme> {
     border: border ?? this.border,
     accentBorder: accentBorder ?? this.accentBorder,
     radius: radius ?? this.radius,
+    compactPadding: compactPadding ?? this.compactPadding,
     padding: padding ?? this.padding,
+    presentationPadding: presentationPadding ?? this.presentationPadding,
   );
 
   @override
@@ -58,7 +66,13 @@ class DsSurfaceTheme extends ThemeExtension<DsSurfaceTheme> {
       border: Color.lerp(border, other.border, t)!,
       accentBorder: Color.lerp(accentBorder, other.accentBorder, t)!,
       radius: lerpDouble(radius, other.radius, t)!,
+      compactPadding: lerpDouble(compactPadding, other.compactPadding, t)!,
       padding: lerpDouble(padding, other.padding, t)!,
+      presentationPadding: lerpDouble(
+        presentationPadding,
+        other.presentationPadding,
+        t,
+      )!,
     );
   }
 }

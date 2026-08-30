@@ -14,7 +14,8 @@ void main() {
     ScreenPreviewKind.hostFinished: () => find.byType(ChampionHero),
     ScreenPreviewKind.hostCancelled: () => find.text('Турнир не состоялся'),
     ScreenPreviewKind.history: () => find.byType(HistorySnapshotCard).first,
-    ScreenPreviewKind.historyDetail: () => find.byType(ChampionHero),
+    ScreenPreviewKind.historyDetail: () =>
+        find.byType(ParticipantIdentity).first,
     ScreenPreviewKind.profile: () => find.byType(ProfileSummary),
     ScreenPreviewKind.join: () => find.byType(ParticipantJoinPanel),
     ScreenPreviewKind.participantLobby: () => find.text('Вы в турнире'),

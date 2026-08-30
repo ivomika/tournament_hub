@@ -12,21 +12,24 @@ class ProfileScreenPreview extends StatelessWidget {
     sectionLabel: 'ИГРОК',
     headerVariant: PageHeaderVariant.compact,
     currentDestination: AppDestination.profile,
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        const ProfileSummary(nickname: 'Иван', tournaments: 12, victories: 4),
-        const DsGap(DsSpace.sm),
-        DsFlow(
-          children: [
-            DsAction(
-              label: 'Редактировать профиль',
-              kind: DsActionKind.text,
-              onPressed: () {},
-            ),
-          ],
-        ),
-      ],
+    child: PageLayout(
+      preset: PageLayoutPreset.focused,
+      primary: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          const ProfileSummary(nickname: 'Иван', tournaments: 12, victories: 4),
+          const DsGap(DsSpace.sm),
+          DsFlow(
+            children: [
+              DsAction(
+                label: 'Редактировать профиль',
+                kind: DsActionKind.text,
+                onPressed: () {},
+              ),
+            ],
+          ),
+        ],
+      ),
     ),
   );
 }

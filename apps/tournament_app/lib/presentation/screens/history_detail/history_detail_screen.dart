@@ -12,23 +12,31 @@ class HistoryDetailScreenPreview extends StatelessWidget {
     sectionLabel: 'ИСТОРИЯ',
     headerVariant: PageHeaderVariant.compact,
     currentDestination: AppDestination.history,
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        AdaptiveSplit(
-          primary: ChampionHero(champion: previewParticipants.first),
-          secondary: const TournamentStandings(),
-        ),
-        const DsGap(DsSpace.lg),
-        const TournamentStageHeader(
-          stage: 'Double Elimination',
-          progress: 'ЗАВЕРШЁН',
-          detail: '8 участников · 14 матчей · локальный снимок',
-          kind: StatusKind.neutral,
-        ),
-        const DsGap(DsSpace.lg),
-        const TournamentBracketPreview(),
-      ],
+    child: PageLayout(
+      preset: PageLayoutPreset.archive,
+      primary: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          DsSection(
+            density: DsDensity.compact,
+            title: 'Победитель',
+            child: ParticipantIdentity(
+              participant: previewParticipants.first,
+              artworkVariant: FighterArtworkVariant.standard,
+            ),
+          ),
+          const DsGap(DsSpace.md),
+          const TournamentStageHeader(
+            variant: TournamentStageVariant.strip,
+            stage: 'Double Elimination',
+            progress: 'ЗАВЕРШЁН',
+            detail: '8 участников · 14 матчей · локальный снимок',
+            kind: StatusKind.neutral,
+          ),
+        ],
+      ),
+      secondary: const TournamentStandings(),
+      supporting: const TournamentBracketPreview(),
     ),
   );
 }

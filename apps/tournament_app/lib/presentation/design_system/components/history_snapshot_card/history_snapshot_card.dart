@@ -12,6 +12,7 @@ class HistorySnapshotCard extends StatelessWidget {
     required this.tournamentName,
     required this.summary,
     required this.champion,
+    this.density = DsDensity.comfortable,
     this.onOpen,
     super.key,
   });
@@ -19,21 +20,31 @@ class HistorySnapshotCard extends StatelessWidget {
   final String tournamentName;
   final String summary;
   final PreviewParticipant champion;
+  final DsDensity density;
   final VoidCallback? onOpen;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context).extension<HistorySnapshotCardTheme>()!;
+    final (gap, contentPadding) = switch (density) {
+      DsDensity.compact => (theme.compactGap, theme.compactContentPadding),
+      DsDensity.comfortable => (theme.gap, theme.contentPadding),
+      DsDensity.presentation => (
+        theme.presentationGap,
+        theme.presentationContentPadding,
+      ),
+    };
     return Semantics(
       button: onOpen != null,
       label:
           '$tournamentName. Победитель ${champion.fighterName}, ${champion.nickname}. $summary',
       child: DsSurface(
+        density: density,
         child: InkWell(
           onTap: onOpen,
           borderRadius: BorderRadius.circular(theme.radius),
           child: Padding(
-            padding: EdgeInsets.all(theme.contentPadding),
+            padding: EdgeInsets.all(contentPadding),
             child: LayoutBuilder(
               builder: (context, constraints) {
                 final identity = ParticipantIdentity(
@@ -47,9 +58,9 @@ class HistorySnapshotCard extends StatelessWidget {
                       label: 'ЗАВЕРШЁН',
                       kind: StatusKind.neutral,
                     ),
-                    SizedBox(height: theme.gap),
+                    SizedBox(height: gap),
                     DsText(tournamentName, variant: DsTextVariant.title),
-                    SizedBox(height: theme.gap),
+                    SizedBox(height: gap),
                     DsText(summary, variant: DsTextVariant.secondary),
                   ],
                 );
@@ -58,9 +69,9 @@ class HistorySnapshotCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       copy,
-                      SizedBox(height: theme.gap),
+                      SizedBox(height: gap),
                       const DsText('ПОБЕДИТЕЛЬ', variant: DsTextVariant.label),
-                      SizedBox(height: theme.gap),
+                      SizedBox(height: gap),
                       identity,
                     ],
                   );
@@ -69,9 +80,9 @@ class HistorySnapshotCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Expanded(child: copy),
-                    SizedBox(width: theme.gap),
+                    SizedBox(width: gap),
                     Expanded(child: identity),
-                    SizedBox(width: theme.gap),
+                    SizedBox(width: gap),
                     Icon(Icons.arrow_forward, color: theme.iconColor),
                   ],
                 );

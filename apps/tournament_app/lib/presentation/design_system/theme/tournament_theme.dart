@@ -169,7 +169,9 @@ abstract final class TournamentTheme {
           border: TournamentTokens.colorSurfaceTertiary,
           accentBorder: TournamentTokens.colorAccentPrimary,
           radius: TournamentTokens.radiusLg,
+          compactPadding: TournamentTokens.spaceV4,
           padding: TournamentTokens.spaceV6,
+          presentationPadding: TournamentTokens.spaceV8,
         ),
         DsActionTheme(
           primary: primaryButton,
@@ -214,8 +216,12 @@ abstract final class TournamentTheme {
           prominentGap: TournamentTokens.spaceV6,
         ),
         const HistorySnapshotCardTheme(
+          compactGap: TournamentTokens.spaceV2,
           gap: TournamentTokens.spaceV4,
+          presentationGap: TournamentTokens.spaceV6,
+          compactContentPadding: TournamentTokens.spaceV0,
           contentPadding: TournamentTokens.spaceV1,
+          presentationContentPadding: TournamentTokens.spaceV4,
           compactBreakpoint: TournamentTokens.breakpointMediumMin,
           radius: TournamentTokens.radiusLg,
           iconColor: TournamentTokens.colorTextSecondary,
@@ -381,7 +387,11 @@ abstract final class TournamentTheme {
           desktopBreakpoint: TournamentTokens.breakpointExpandedMin,
           contentMaxWidth: TournamentTokens.breakpointMediumMax,
         ),
-        const DsSectionTheme(gap: TournamentTokens.spaceV6),
+        const DsSectionTheme(
+          compactGap: TournamentTokens.spaceV3,
+          gap: TournamentTokens.spaceV6,
+          presentationGap: TournamentTokens.spaceV8,
+        ),
         const DsProgressTheme(
           color: TournamentTokens.colorAccentPrimary,
           size: TournamentTokens.spaceV12,

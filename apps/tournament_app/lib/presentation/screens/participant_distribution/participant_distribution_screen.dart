@@ -16,7 +16,8 @@ class ParticipantDistributionScreenPreview extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         DsSurface(
-          tone: DsSurfaceTone.accent,
+          tone: DsSurfaceTone.elevated,
+          density: DsDensity.presentation,
           child: ParticipantIdentity(
             participant: previewParticipants.first,
             artworkVariant: FighterArtworkVariant.hero,

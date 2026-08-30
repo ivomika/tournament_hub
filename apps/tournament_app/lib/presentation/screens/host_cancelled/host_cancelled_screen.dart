@@ -17,23 +17,19 @@ class HostCancelledScreenPreview extends StatelessWidget {
         ActionDockAction(label: 'Открыть историю', onSelected: () {}),
       ],
     ),
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        TournamentEmptyState(
-          title: 'Турнир не состоялся',
-          message:
-              'Факт отмены сохранён в истории без итоговых мест и чемпиона.',
-        ),
-        const DsGap(DsSpace.lg),
-        const TournamentStageHeader(
-          variant: TournamentStageVariant.strip,
-          stage: 'Отменён',
-          progress: 'БЕЗ ЧЕМПИОНА',
-          detail: 'Состояние неизменяемо. Спортивный результат не определён.',
-          kind: StatusKind.danger,
-        ),
-      ],
+    child: const PageLayout(
+      preset: PageLayoutPreset.split,
+      primary: TournamentEmptyState(
+        title: 'Турнир не состоялся',
+        message: 'Факт отмены сохранён в истории без итоговых мест и чемпиона.',
+      ),
+      secondary: TournamentStageHeader(
+        variant: TournamentStageVariant.strip,
+        stage: 'Отменён',
+        progress: 'БЕЗ ЧЕМПИОНА',
+        detail: 'Состояние неизменяемо. Спортивный результат не определён.',
+        kind: StatusKind.danger,
+      ),
     ),
   );
 }

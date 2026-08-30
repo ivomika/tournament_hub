@@ -63,7 +63,7 @@ class PageLayout extends StatelessWidget {
   Widget _expanded(PageLayoutTheme theme) {
     if (preset == PageLayoutPreset.focused) {
       return Align(
-        alignment: Alignment.topCenter,
+        alignment: Alignment.topLeft,
         child: ConstrainedBox(
           constraints: BoxConstraints(maxWidth: theme.focusedMaxWidth),
           child: KeyedSubtree(

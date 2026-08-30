@@ -6,11 +6,11 @@
 
 ## Активные задачи
 
-- 🟢 **079** — Выровнять density, surface hierarchy и archive/participant layouts — [детали](tasks/TH-20260829-079.md)
 - 📝 **053** — Привести Spectator Web к утверждённому visual language — [детали](tasks/TH-20260828-053.md)
 
 ## Завершённые задачи
 
+- ✅ **079** — Выровнять density, surface hierarchy и archive/participant layouts — [детали](tasks/TH-20260829-079.md)
 - ✅ **078** — Упростить header и закрепить dominant object экранов — [детали](tasks/TH-20260829-078.md)
 - ✅ **077** — Ввести семантические desktop layout presets — [детали](tasks/TH-20260829-077.md)
 - ✅ **076** — Устранить перекрытие fixed action stack на mobile — [детали](tasks/TH-20260829-076.md)

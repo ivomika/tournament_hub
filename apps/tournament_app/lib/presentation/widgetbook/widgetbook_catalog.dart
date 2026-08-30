@@ -440,8 +440,28 @@ List<WidgetbookNode> buildTournamentCatalog() => [
             ),
           ),
           _useCase(
-            'History snapshot / Finished',
+            'History snapshot / Comfortable',
             HistorySnapshotCard(
+              tournamentName: 'Friday Fight Night',
+              summary: 'Double Elimination · 8 участников · сегодня, 22:14',
+              champion: previewParticipants.first,
+              onOpen: () {},
+            ),
+          ),
+          _useCase(
+            'History snapshot / Compact',
+            HistorySnapshotCard(
+              density: DsDensity.compact,
+              tournamentName: 'Friday Fight Night',
+              summary: 'Double Elimination · 8 участников · сегодня, 22:14',
+              champion: previewParticipants.first,
+              onOpen: () {},
+            ),
+          ),
+          _useCase(
+            'History snapshot / Presentation',
+            HistorySnapshotCard(
+              density: DsDensity.presentation,
               tournamentName: 'Friday Fight Night',
               summary: 'Double Elimination · 8 участников · сегодня, 22:14',
               champion: previewParticipants.first,
