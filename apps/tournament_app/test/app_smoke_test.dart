@@ -7,7 +7,8 @@ void main() {
     await tester.pumpWidget(
       TournamentHubApp(runtime: AppComposition.production()),
     );
+    await tester.pumpAndSettle();
 
-    expect(find.text('Tournament Hub'), findsOneWidget);
+    expect(find.text('Как тебя представить?'), findsOneWidget);
   });
 }

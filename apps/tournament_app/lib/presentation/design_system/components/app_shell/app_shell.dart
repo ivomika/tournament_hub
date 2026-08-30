@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import '../action_dock/action_dock.dart';
 import '../page_header/page_header.dart';
 import '../responsive_actions/responsive_actions.dart';
+import 'app_destination.dart';
+import 'app_navigation_scope.dart';
 import 'app_navigation_role.dart';
 import 'app_shell_theme.dart';
-
-enum AppDestination { home, history, profile, settings }
 
 class AppShell extends StatelessWidget {
   const AppShell({
@@ -39,6 +39,9 @@ class AppShell extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context).extension<AppShellTheme>()!;
+    final destinationHandler =
+        onDestinationSelected ??
+        AppNavigationScope.maybeOf(context)?.onDestinationSelected;
     return LayoutBuilder(
       builder: (context, constraints) {
         final desktop = constraints.maxWidth >= theme.desktopBreakpoint;
@@ -157,10 +160,10 @@ class AppShell extends StatelessWidget {
                       NavigationRail(
                         backgroundColor: theme.navigationBackground,
                         selectedIndex: selectedIndex < 0 ? 0 : selectedIndex,
-                        onDestinationSelected: onDestinationSelected == null
+                        onDestinationSelected: destinationHandler == null
                             ? null
                             : (index) =>
-                                  onDestinationSelected!(destinations[index]),
+                                  destinationHandler(destinations[index]),
                         destinations: [
                           for (final destination in destinations)
                             _railDestination(destination),
@@ -193,11 +196,10 @@ class AppShell extends StatelessWidget {
                             selectedIndex: selectedIndex < 0
                                 ? 0
                                 : selectedIndex,
-                            onDestinationSelected: onDestinationSelected == null
+                            onDestinationSelected: destinationHandler == null
                                 ? null
-                                : (index) => onDestinationSelected!(
-                                    destinations[index],
-                                  ),
+                                : (index) =>
+                                      destinationHandler(destinations[index]),
                             destinations: [
                               for (final destination in destinations)
                                 _barDestination(destination),
