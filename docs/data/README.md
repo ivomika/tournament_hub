@@ -90,6 +90,8 @@ Typed stable IDs: profile, tournament, participant, guest, match, fighter, event
 
 ## Protocol envelope
 
+Полный канонический WebSocket-контракт v1: [websocket-protocol-v1.md](websocket-protocol-v1.md).
+
 До закрытия OD-002/OD-003 wire implementation не считается стабильной. Минимальная общая оболочка:
 
 ```json
