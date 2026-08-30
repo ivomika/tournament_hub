@@ -18,6 +18,8 @@ Importer обязан валидировать JSON schema, unique IDs, safe rel
 
 Flutter runtime copy создаётся командой `make sync-fighter-assets` в `apps/tournament_app/assets/fighters`. `make setup` синхронизирует copy, а `make check` сравнивает manifest и каждый PNG с read-only source. Runtime-файлы не редактируются вручную и не становятся новым источником истины.
 
+Runtime importer принимает только schema v1 с точными metadata MK11 Ultimate и полным набором 37 stable IDs. Official fighter display names задаются versioned GameDefinition и не выводятся из filename. Domain allocator получает GameDefinition и integer seed, поэтому assignment воспроизводится после restart. `Reroll All` строит новую полную bijection, в которой fighter меняется у каждого participant; individual reroll отсутствует.
+
 ## Visual requirements
 
 - Один стабильный crop per component variant.

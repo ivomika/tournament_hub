@@ -1,4 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:tournament_hub_app/domain/game/fighter.dart';
+import 'package:tournament_hub_app/domain/tournament/fighter_assignment.dart';
 import 'package:tournament_hub_app/domain/tournament/host_tournament.dart';
 import 'package:tournament_hub_app/domain/tournament/tournament_failure.dart';
 import 'package:tournament_hub_app/domain/tournament/tournament_ids.dart';
@@ -19,14 +21,29 @@ void main() {
       .addGuest(guestId: GuestId('t1', 'g1'), nickname: 'Иво', nowUtc: at(2))
       .addGuest(guestId: GuestId('t1', 'g2'), nickname: 'Мика', nowUtc: at(3));
 
+  HostTournament assign(HostTournament tournament) => tournament.assignFighters(
+    assignmentSet: FighterAssignmentSet([
+      for (var index = 0; index < tournament.participants.length; index++)
+        FighterAssignment(
+          participantId: tournament.participants[index].id,
+          fighter: Fighter(
+            id: FighterId('fighter-$index'),
+            displayName: 'Fighter $index',
+            assetPath: 'assets/fighters/fighter-$index.png',
+          ),
+        ),
+    ]),
+    nowUtc: at(5),
+  );
+
   test('lifecycle follows explicit domain commands and revision', () {
     final open = openTournament();
     final distribution = withRoster().startDistribution(nowUtc: at(4));
-    final running = distribution.startRunning(nowUtc: at(5));
+    final running = assign(distribution).startRunning(nowUtc: at(6));
     expect(open.lifecycle, TournamentLifecycle.open);
     expect(distribution.lifecycle, TournamentLifecycle.distribution);
     expect(running.lifecycle, TournamentLifecycle.running);
-    expect(running.revision, 5);
+    expect(running.revision, 6);
   });
 
   test('invalid transition returns typed failure', () {
@@ -59,6 +76,29 @@ void main() {
         ),
       ),
     );
+  });
+
+  test('running requires complete assignment and keeps it immutable', () {
+    final distribution = withRoster().startDistribution(nowUtc: at(4));
+    expect(
+      () => distribution.startRunning(nowUtc: at(5)),
+      throwsA(
+        isA<TournamentFailure>().having(
+          (error) => error.code,
+          'code',
+          TournamentFailureCode.invalidAssignments,
+        ),
+      ),
+    );
+    final assigned = assign(distribution);
+    final running = assigned.startRunning(nowUtc: at(6));
+    expect(running.assignments, assigned.assignments);
+  });
+
+  test('back to open clears all assignments', () {
+    final assigned = assign(withRoster().startDistribution(nowUtc: at(4)));
+    expect(assigned.assignments, isNotNull);
+    expect(assigned.backToOpen(nowUtc: at(6)).assignments, isNull);
   });
 
   test('guest id is tournament scoped', () {
@@ -114,9 +154,8 @@ void main() {
   });
 
   test('finished validates champion and ranking then becomes immutable', () {
-    final running = withRoster()
-        .startDistribution(nowUtc: at(4))
-        .startRunning(nowUtc: at(5));
+    final running = assign(withRoster().startDistribution(nowUtc: at(4)))
+        .startRunning(nowUtc: at(6));
     final ids = running.participants
         .map((participant) => participant.id)
         .toList();

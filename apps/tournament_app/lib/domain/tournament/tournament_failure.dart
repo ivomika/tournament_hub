@@ -7,6 +7,7 @@ enum TournamentFailureCode {
   duplicateParticipant,
   participantNotFound,
   invalidOutcome,
+  invalidAssignments,
 }
 
 final class TournamentFailure implements Exception {

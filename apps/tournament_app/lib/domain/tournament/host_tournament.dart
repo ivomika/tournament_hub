@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 
 import 'tournament_failure.dart';
+import 'fighter_assignment.dart';
 import 'tournament_ids.dart';
 import 'tournament_models.dart';
 
@@ -14,6 +15,7 @@ final class HostTournament extends Equatable {
     required this.rulesetVersion,
     required this.lifecycle,
     required this.participants,
+    required this.assignments,
     required this.createdAtUtc,
     required this.updatedAtUtc,
     this.finalOutcome,
@@ -41,6 +43,7 @@ final class HostTournament extends Equatable {
       rulesetVersion: rulesetVersion,
       lifecycle: TournamentLifecycle.draft,
       participants: const [],
+      assignments: null,
       createdAtUtc: nowUtc.toUtc(),
       updatedAtUtc: nowUtc.toUtc(),
     );
@@ -54,6 +57,7 @@ final class HostTournament extends Equatable {
   final int rulesetVersion;
   final TournamentLifecycle lifecycle;
   final List<TournamentParticipant> participants;
+  final FighterAssignmentSet? assignments;
   final DateTime createdAtUtc;
   final DateTime updatedAtUtc;
   final TournamentFinalOutcome? finalOutcome;
@@ -152,11 +156,37 @@ final class HostTournament extends Equatable {
 
   HostTournament backToOpen({required DateTime nowUtc}) {
     _require(TournamentLifecycle.distribution);
-    return _copy(lifecycle: TournamentLifecycle.open, nowUtc: nowUtc);
+    return _copy(
+      lifecycle: TournamentLifecycle.open,
+      clearAssignments: true,
+      nowUtc: nowUtc,
+    );
+  }
+
+  HostTournament assignFighters({
+    required FighterAssignmentSet assignmentSet,
+    required DateTime nowUtc,
+  }) {
+    _require(TournamentLifecycle.distribution);
+    final participantIds = participants
+        .map((participant) => participant.id)
+        .toSet();
+    final assignedIds = assignmentSet.values
+        .map((assignment) => assignment.participantId)
+        .toSet();
+    if (participantIds.length != assignedIds.length ||
+        !participantIds.containsAll(assignedIds)) {
+      throw const TournamentFailure(TournamentFailureCode.invalidAssignments);
+    }
+    return _copy(assignments: assignmentSet, nowUtc: nowUtc);
   }
 
   HostTournament startRunning({required DateTime nowUtc}) {
     _require(TournamentLifecycle.distribution);
+    if (assignments == null ||
+        assignments!.values.length != participants.length) {
+      throw const TournamentFailure(TournamentFailureCode.invalidAssignments);
+    }
     return _copy(lifecycle: TournamentLifecycle.running, nowUtc: nowUtc);
   }
 
@@ -222,6 +252,8 @@ final class HostTournament extends Equatable {
     String? title,
     TournamentLifecycle? lifecycle,
     List<TournamentParticipant>? participants,
+    FighterAssignmentSet? assignments,
+    bool clearAssignments = false,
     TournamentFinalOutcome? finalOutcome,
     TournamentCancellation? cancellation,
     required DateTime nowUtc,
@@ -234,6 +266,7 @@ final class HostTournament extends Equatable {
     rulesetVersion: rulesetVersion,
     lifecycle: lifecycle ?? this.lifecycle,
     participants: List.unmodifiable(participants ?? this.participants),
+    assignments: clearAssignments ? null : assignments ?? this.assignments,
     createdAtUtc: createdAtUtc,
     updatedAtUtc: nowUtc.toUtc(),
     finalOutcome: finalOutcome ?? this.finalOutcome,
@@ -258,6 +291,7 @@ final class HostTournament extends Equatable {
     rulesetVersion,
     lifecycle,
     participants,
+    assignments,
     createdAtUtc,
     updatedAtUtc,
     finalOutcome,
