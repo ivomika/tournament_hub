@@ -1,0 +1,1 @@
+enum AppActor { host, participant }
