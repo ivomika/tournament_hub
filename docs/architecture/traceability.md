@@ -12,5 +12,6 @@
 | PR-008 Offline cycle | whole Host | local DB | Host UI | platform E2E no Internet |
 | PR-009 Statistics | history projection | history snapshots | Profile/History | replay/technical exclusion |
 | PR-010 UI states/a11y | presentation/design | presentation state | all screens | widget/component/a11y matrix |
+| AR-001 Layer direction | architecture | [ADR-0010 allow matrix](../adr/0010-layer-import-boundaries.md) | all Flutter production layers | architecture import gate + positive/negative fixtures |
 
 Новая requirement получает stable ID, owner, contract, consumer и test link. Матрица не заменяет подробный документ.

@@ -21,3 +21,4 @@ ADR фиксирует устойчивое решение, меняющее sys
 - [ADR-0007: Единый action contract для Host lifecycle](0007-unified-host-action-contract.md) — Accepted.
 - [ADR-0008: Семантические page-layout presets](0008-semantic-page-layout-presets.md) — Accepted.
 - [ADR-0009: Flow-layout и контекстные переходы длинных экранов](0009-flow-layout-and-context-jumps.md) — Accepted.
+- [ADR-0010: Строгие границы импортов между слоями](0010-layer-import-boundaries.md) — Accepted.

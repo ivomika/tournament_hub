@@ -28,13 +28,28 @@ Host — единственный writer и source of truth. Participant/Spectat
 ## Dependency rule
 
 ```text
-app/presentation -> application/services -> domain
-app/composition  -> infrastructure adapters -> domain/application ports
-infrastructure   -X-> presentation
-domain           -X-> framework/infrastructure/application
+presentation   -> application -> domain
+infrastructure -> application/domain ports
+platform       -> application/domain ports
+app            -> presentation/application
+app/composition -> все слои только для wiring
+shared         -> shared
 ```
 
-Запрещены concrete Drift/WebSocket зависимости в services, domain decisions в providers/widgets и format switches вне registry/engine.
+Полная machine-readable семантика закреплена в [ADR-0010](../adr/0010-layer-import-boundaries.md). Краткая матрица project imports:
+
+| Source | Разрешённые targets |
+|---|---|
+| `domain` | `domain`, framework-free `shared` |
+| `application` | `application`, `domain`, `shared` |
+| `presentation` | `presentation`, `application`, `shared` |
+| `infrastructure` | `infrastructure`, `application`, `domain`, `shared` |
+| `platform` | `platform`, `application`, `domain`, `shared` |
+| `app` | `app`, `application`, `presentation`, `shared` |
+| `app/composition` | все project layers только для wiring |
+| `shared` | `shared` |
+
+`presentation` не импортирует Domain напрямую: UI использует application projections/contracts. Запрещены concrete Drift/WebSocket зависимости в services, domain decisions в providers/widgets и format switches вне registry/engine. Generated Dart наследует границы owner layer; Widgetbook остаётся presentation; tests не расширяют production graph.
 
 ## Рекомендуемая физическая структура
 
@@ -149,8 +164,9 @@ ADR обязателен для изменения authority model, layer direct
 
 ## Architecture fitness checks
 
-- Dependency test запрещает framework imports в Domain.
-- Search/lint запрещает concrete infrastructure imports в application.
+- Architecture import gate исполняет allow matrix из [ADR-0010](../adr/0010-layer-import-boundaries.md), нормализует relative/package imports и блокирует reverse dependency.
+- Gate запрещает framework imports в Domain и Flutter UI/concrete adapter imports в application.
+- Generated Dart проверяется как часть owner layer; tests и tooling fixtures проверяют gate отдельно, но не ослабляют production matrix.
 - Engine conformance suite применяется к каждой ruleset version.
 - Protocol schemas проходят fixtures/compatibility tests.
 - Persistence mutation проверяется fault injection до/после commit.
