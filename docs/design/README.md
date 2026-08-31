@@ -99,7 +99,7 @@ Surface tone выражает роль, а не вложенность: `base` �
 - `ParticipantAssignmentGrid`: сохраняет порядок участников и полную fighter identity; использует 1/2/3 колонки на compact/medium/expanded ширине без `Wrap`, а высота строки адаптируется к длинному тексту.
 - `FighterAvatar`: stable crop variants, semantic label, fallback/placeholder.
 - `MatchCard/CurrentMatch`: stage, identities, score/result type, Current emphasis и разрешённые actions.
-- `StandingsTable`: готовые place/result/tie-break labels и fighter identity; table на desktop, compact rows на mobile. Widget не вычисляет очки, победы или места.
+- `StandingsTable`: готовые place/result/tie-break labels и fighter identity; table на desktop, compact rows на mobile. Колонка place имеет отдельный semantic minimum и показывает точное место/диапазон одной строкой; widget не вычисляет очки, победы или места.
 - `Bracket`: связи первичны, затем identity/result/metadata; предусмотрены pan/zoom/keyboard alternatives.
 - `StatusBadge`: text плюс icon/shape; значение не передаётся только цветом.
 - `ConnectionBanner`: live/reconnecting/stale/incompatible и recovery.

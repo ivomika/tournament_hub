@@ -351,7 +351,7 @@ abstract final class TournamentTheme {
         ),
         const StandingsTheme(
           gap: TournamentTokens.spaceV4,
-          rankWidth: TournamentTokens.spaceV6,
+          rankWidth: TournamentTokens.layoutStandingsPlaceColumnMin,
           desktopBreakpoint: TournamentTokens.breakpointMediumMin,
           divider: TournamentTokens.colorSurfaceTertiary,
         ),

@@ -77,7 +77,7 @@ class _DesktopHeader extends StatelessWidget {
     children: [
       SizedBox(
         width: theme.rankWidth,
-        child: const DsText('МЕСТО', variant: DsTextVariant.label),
+        child: const DsText('МЕСТО', variant: DsTextVariant.label, maxLines: 1),
       ),
       const Expanded(
         flex: 3,
@@ -105,7 +105,11 @@ class _DesktopStandingRow extends StatelessWidget {
       children: [
         SizedBox(
           width: theme.rankWidth,
-          child: DsText(row.placeLabel, variant: DsTextVariant.label),
+          child: DsText(
+            row.placeLabel,
+            variant: DsTextVariant.label,
+            maxLines: 1,
+          ),
         ),
         Expanded(
           flex: 3,
@@ -153,7 +157,11 @@ class _CompactStandingRow extends StatelessWidget {
             children: [
               SizedBox(
                 width: theme.rankWidth,
-                child: DsText(row.placeLabel, variant: DsTextVariant.label),
+                child: DsText(
+                  row.placeLabel,
+                  variant: DsTextVariant.label,
+                  maxLines: 1,
+                ),
               ),
               Expanded(
                 child: ParticipantIdentity(

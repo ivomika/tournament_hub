@@ -17,6 +17,7 @@ const _bindings = <String, List<String>>{
   'space-24': ['space', '24'],
   'layout-page-padding-medium-min': ['layout', 'pagePaddingMediumMin'],
   'layout-page-padding-desktop-max': ['layout', 'pagePaddingDesktopMax'],
+  'layout-standings-place-column-min': ['layout', 'standingsPlaceColumnMin'],
   'layout-spectator-max': ['layout', 'spectatorContentMaxMax'],
   'color-canvas': ['color', 'background', 'canvas'],
   'color-subtle': ['color', 'background', 'subtle'],

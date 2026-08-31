@@ -8,7 +8,7 @@
 
 - `space.*` — spacing scale.
 - `breakpoint.*` — inclusive responsive boundaries.
-- `layout.*` — page padding и content-width limits.
+- `layout.*` — page padding, content-width limits и минимальные размеры структурных колонок.
 - `color.*` — semantic background/surface/text/accent/status colors.
 - `font.size.*`, `font.lineHeight.*`, `font.weight.*` — typography primitives.
 - `radius.*`, `border.*` — shape primitives.

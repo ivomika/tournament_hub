@@ -33,6 +33,7 @@ abstract final class TournamentTokens {
   static const double layoutPagePaddingDesktopMax = 48.0;
   static const double layoutHostContentMaxMin = 1200.0;
   static const double layoutHostContentMaxMax = 1440.0;
+  static const double layoutStandingsPlaceColumnMin = 96.0;
   static const double layoutSpectatorContentMaxMin = 1440.0;
   static const double layoutSpectatorContentMaxMax = 1600.0;
   static const Color colorBackgroundCanvas = Color(0xFF0B0D10);
