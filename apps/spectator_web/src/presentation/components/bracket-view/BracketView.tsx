@@ -35,6 +35,14 @@ function BracketMatch({ match }: { match: MatchModel }) {
   );
 }
 
+function groupBracketMatches(matches: readonly MatchModel[]) {
+  const groups: MatchModel[][] = [];
+  for (let index = 0; index < matches.length; index += 2) {
+    groups.push(matches.slice(index, index + 2));
+  }
+  return groups;
+}
+
 export function BracketView({
   formatId,
   matches,
@@ -44,6 +52,7 @@ export function BracketView({
 }) {
   const lanes = buildBracketLanes(formatId, matches);
   const viewportRef = useRef<HTMLDivElement>(null);
+  const panAreaRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLDivElement>(null);
   const dragRef = useRef<
     | {
@@ -59,14 +68,6 @@ export function BracketView({
   const [offset, setOffset] = useState({ x: 0, y: 0 });
   const [isFullscreen, setIsFullscreen] = useState(false);
 
-  useEffect(() => {
-    const onFullscreenChange = () =>
-      setIsFullscreen(document.fullscreenElement === viewportRef.current);
-    document.addEventListener("fullscreenchange", onFullscreenChange);
-    return () =>
-      document.removeEventListener("fullscreenchange", onFullscreenChange);
-  }, []);
-
   const updateZoom = (next: number) =>
     setZoom(Math.min(maximumZoom, Math.max(minimumZoom, next)));
   const reset = () => {
@@ -74,14 +75,24 @@ export function BracketView({
     setOffset({ x: 0, y: 0 });
   };
   const fit = () => {
-    const viewport = viewportRef.current;
+    const viewport = panAreaRef.current;
     const canvas = canvasRef.current;
     if (viewport === null || canvas === null) return reset();
     const horizontal = viewport.clientWidth / canvas.scrollWidth;
     const vertical = viewport.clientHeight / canvas.scrollHeight;
-    updateZoom(Math.min(1, horizontal || 1, vertical || 1));
+    setZoom(Math.min(1, horizontal || 1, vertical || 1));
     setOffset({ x: 0, y: 0 });
   };
+  useEffect(() => {
+    const onFullscreenChange = () => {
+      const entered = document.fullscreenElement === viewportRef.current;
+      setIsFullscreen(entered);
+      if (entered) window.requestAnimationFrame(fit);
+    };
+    document.addEventListener("fullscreenchange", onFullscreenChange);
+    return () =>
+      document.removeEventListener("fullscreenchange", onFullscreenChange);
+  }, []);
   const toggleFullscreen = async () => {
     if (document.fullscreenElement === viewportRef.current) {
       await document.exitFullscreen();
@@ -177,6 +188,7 @@ export function BracketView({
       </div>
       <div
         className="bracket-pan-area"
+        ref={panAreaRef}
         tabIndex={0}
         aria-label="Полотно сетки. Стрелки перемещают, плюс и минус меняют масштаб, 0 сбрасывает, F включает полноэкранный режим."
         onPointerDown={onPointerDown}
@@ -194,7 +206,7 @@ export function BracketView({
         >
           {lanes.map((lane) => (
             <section
-              className="bracket-lane"
+              className={`bracket-lane${lane.kind === "round-robin" ? "" : " bracket-lane--connected"}`}
               data-kind={lane.kind}
               key={lane.id}
               aria-labelledby={`bracket-lane-${lane.id}`}
@@ -211,13 +223,27 @@ export function BracketView({
                 </p>
               )}
               <div className="bracket-lane__rounds">
-                {lane.rounds.map((round) => (
-                  <section className="bracket-round" key={round.id}>
+                {lane.rounds.map((round, roundIndex) => (
+                  <section
+                    className="bracket-round"
+                    data-depth={Math.min(roundIndex, 3)}
+                    key={round.id}
+                  >
                     <h5 className="bracket-round__title">{round.label}</h5>
                     <div className="bracket-round__matches">
-                      {round.matches.map((match) => (
-                        <BracketMatch key={match.id} match={match} />
-                      ))}
+                      {groupBracketMatches(round.matches).map(
+                        (group, groupIndex) => (
+                          <div
+                            className="bracket-pair"
+                            data-single={group.length === 1}
+                            key={`${round.id}-pair-${groupIndex}`}
+                          >
+                            {group.map((match) => (
+                              <BracketMatch key={match.id} match={match} />
+                            ))}
+                          </div>
+                        ),
+                      )}
                     </div>
                   </section>
                 ))}
