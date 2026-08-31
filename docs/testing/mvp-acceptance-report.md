@@ -36,7 +36,7 @@ Correction, withdrawal, restart recovery, terminal dedupe/transaction и statist
 
 ## Непроведённые проверки и риск
 
-- Browser screenshot/manual distance review не выполнен: Browser runtime сообщил `No browser is available`. Из-за этого задача 053 остаётся заблокированной, а visual browser gate MVP не закрыт.
+- Spectator browser review выполнен в Microsoft Edge для live/tournament/champion/stale/waiting и compact fallback; evidence находится в [отдельном отчёте](spectator-web-visual-evidence.md).
 - Flutter/Web production builds и signing не запускались по прямому ограничению пользователя и release policy.
 - Physical LAN, background, firewall и entitlement smoke на Android/iOS/Windows/macOS не выполнялся до утверждения platform matrix.
 
