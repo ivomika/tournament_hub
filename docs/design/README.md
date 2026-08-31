@@ -101,6 +101,7 @@ Surface tone выражает роль, а не вложенность: `base` �
 - `MatchCard/CurrentMatch`: stage, identities, score/result type, Current emphasis и разрешённые actions.
 - `StandingsTable`: готовые place/result/tie-break labels и fighter identity; table на desktop, compact rows на mobile. Колонка place имеет отдельный semantic minimum и показывает точное место/диапазон одной строкой; widget не вычисляет очки, победы или места.
 - `Bracket`: связи первичны, затем identity/result/metadata; предусмотрены pan/zoom/keyboard alternatives.
+- Spectator `BracketView` выбирает композицию по authoritative `formatId`: DE разделяет winners/losers и финальную lane с Grand Final/Reset, SE показывает только последовательность elimination rounds, RR — rounds/pairings рядом с standings. Mapper переносит `stageId/round/order` без вычисления progression; canvas поддерживает drag/touch pan, wheel/buttons/keyboard zoom, fit/reset и fullscreen с постоянно доступным выходом. Compact использует тот же семантический список rounds/matches внутри прокручиваемого viewport.
 - `StatusBadge`: text плюс icon/shape; значение не передаётся только цветом.
 - `ConnectionBanner`: live/reconnecting/stale/incompatible и recovery.
 - `QrCode`: готовый opaque value, semantic label, scan state и size preset; renderer, minimum module pitch и безопасный fallback скрыты внутри primitive.

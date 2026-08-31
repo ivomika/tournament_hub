@@ -366,26 +366,120 @@ button:focus-visible {
   font-size: var(--ds-font-28);
   line-height: var(--ds-line-40);
 }
-.bracket {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(250px, 1fr));
-  gap: var(--ds-space-4);
-  overflow-x: auto;
-  padding-bottom: var(--ds-space-2);
+.bracket-viewport {
+  position: relative;
+  overflow: hidden;
+  border: var(--ds-border) solid var(--ds-color-surface-tertiary);
+  border-radius: var(--ds-radius-xl);
+  background: var(--ds-color-subtle);
 }
-.bracket__column {
-  display: grid;
-  gap: var(--ds-space-4);
-  align-content: center;
+.bracket-viewport:fullscreen {
+  border-radius: var(--ds-space-0);
+  background: var(--ds-color-canvas);
 }
-.bracket__title {
+.bracket-toolbar {
+  position: sticky;
+  top: var(--ds-space-0);
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--ds-space-2);
+  padding: var(--ds-space-3);
+  border-bottom: var(--ds-border) solid var(--ds-color-surface-tertiary);
+  background: var(--ds-color-surface-primary);
+}
+.bracket-toolbar button {
+  min-height: var(--ds-control-min);
+  padding: var(--ds-space-2) var(--ds-space-4);
+  border: var(--ds-border) solid var(--ds-color-surface-tertiary);
+  border-radius: var(--ds-radius-full);
+  background: var(--ds-color-surface-secondary);
+  color: var(--ds-color-text-primary);
+  cursor: pointer;
+}
+.bracket-toolbar button:hover {
+  background: var(--ds-color-surface-hover);
+}
+.bracket-toolbar output {
+  min-width: var(--ds-space-16);
+  color: var(--ds-color-accent);
+  text-align: center;
+  font-weight: var(--ds-weight-bold);
+}
+.bracket-pan-area {
+  height: calc(var(--ds-artwork-hero) * 3);
+  max-height: calc(100vh - var(--ds-space-20));
+  overflow: hidden;
+  cursor: grab;
+  touch-action: none;
+}
+.bracket-pan-area:active {
+  cursor: grabbing;
+}
+.bracket-pan-area:focus-visible {
+  outline: var(--ds-border) solid var(--ds-color-accent);
+  outline-offset: calc(var(--ds-border) * -1);
+}
+.bracket-canvas {
+  width: max-content;
+  min-width: 100%;
+  padding: var(--ds-space-6);
+  transform-origin: top left;
+  will-change: transform;
+}
+.bracket-lane + .bracket-lane {
+  margin-top: var(--ds-space-10);
+  padding-top: var(--ds-space-6);
+  border-top: var(--ds-border) solid var(--ds-color-surface-tertiary);
+}
+.bracket-lane__title {
+  margin: var(--ds-space-0) var(--ds-space-0) var(--ds-space-4);
+  color: var(--ds-color-text-primary);
+  font-size: var(--ds-font-24);
+  line-height: var(--ds-line-32);
+}
+.bracket-lane__transfer {
+  margin: calc(var(--ds-space-3) * -1) var(--ds-space-0) var(--ds-space-4);
+  color: var(--ds-color-warning);
+  font-size: var(--ds-font-12);
+  text-transform: uppercase;
+}
+.bracket-lane__rounds {
+  display: flex;
+  align-items: stretch;
+  gap: var(--ds-space-8);
+}
+.bracket-round {
+  position: relative;
+  width: calc(var(--ds-artwork-hero) + var(--ds-space-16));
+  flex: none;
+}
+.bracket-round:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: var(--ds-space-12);
+  right: calc(var(--ds-space-8) * -1);
+  width: var(--ds-space-8);
+  border-top: var(--ds-border) solid var(--ds-color-text-tertiary);
+}
+.bracket-round__title {
+  margin: var(--ds-space-0) var(--ds-space-0) var(--ds-space-3);
   color: var(--ds-color-text-tertiary);
   font-size: var(--ds-font-12);
   text-transform: uppercase;
 }
+.bracket-round__matches {
+  display: grid;
+  align-content: space-around;
+  gap: var(--ds-space-4);
+  min-height: 100%;
+}
 .bracket-match {
   padding: var(--ds-space-4);
   border-left: var(--ds-space-1) solid var(--ds-color-surface-tertiary);
+  content-visibility: auto;
+  contain-intrinsic-size: var(--ds-artwork-standard) var(--ds-artwork-hero);
 }
 .bracket-match[data-state="current"] {
   border-left-color: var(--ds-color-accent);
@@ -505,6 +599,14 @@ button:focus-visible {
   .identity--matchup .identity__art {
     width: var(--ds-artwork-matchup);
     height: var(--ds-artwork-matchup);
+  }
+  .bracket-pan-area {
+    height: calc(var(--ds-artwork-hero) * 2);
+    overflow: auto;
+    touch-action: pan-x pan-y;
+  }
+  .bracket-toolbar button {
+    flex: 1 1 auto;
   }
   .standings th:nth-child(3),
   .standings td:nth-child(3) {

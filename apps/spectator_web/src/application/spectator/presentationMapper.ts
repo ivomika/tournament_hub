@@ -45,6 +45,7 @@ export function toPresentationProjection(
     },
     tournament: {
       title: source.tournament.title,
+      formatId: source.tournament.formatId,
       format: formatLabel(source.tournament.formatId),
       progress:
         source.matches.length === 0
@@ -95,6 +96,9 @@ function toMatch(
       : undefined;
   return {
     id: match.matchId,
+    round: match.round,
+    order: match.order,
+    stageId: match.stage,
     stage: stageLabel(match.stage),
     label: `Раунд ${match.round} · матч ${match.order + 1} · FT${match.firstTo}`,
     first,

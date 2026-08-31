@@ -2,6 +2,8 @@ import type { SpectatorConnectionState } from "../application/spectator/reducer.
 
 export type SpectatorView = "dashboard" | "tournament" | "champion";
 export type ConnectionState = SpectatorConnectionState;
+export type TournamentFormatId =
+  "double-elimination" | "single-elimination" | "round-robin";
 
 export interface FighterIdentityModel {
   participantId: string;
@@ -13,6 +15,9 @@ export interface FighterIdentityModel {
 
 export interface MatchModel {
   id: string;
+  round: number;
+  order: number;
+  stageId: string;
   stage: string;
   label: string;
   first: FighterIdentityModel;
@@ -37,6 +42,7 @@ export interface SpectatorProjection {
   };
   tournament: {
     title: string;
+    formatId: TournamentFormatId;
     format: string;
     progress: string;
     lifecycle: "distribution" | "running" | "finished";

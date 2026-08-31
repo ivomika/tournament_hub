@@ -22,7 +22,10 @@ export function TournamentScreen({
         <h3 className="section__title" id="bracket-heading">
           Сетка
         </h3>
-        <BracketView matches={projection.bracket} />
+        <BracketView
+          formatId={projection.tournament.formatId}
+          matches={projection.bracket}
+        />
       </section>
       <section className="section" aria-labelledby="standings-heading">
         <h3 className="section__title" id="standings-heading">

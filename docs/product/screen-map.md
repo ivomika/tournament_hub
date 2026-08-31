@@ -111,6 +111,8 @@ Spectator не имеет mutation routes. LAN server не зависит от a
 
 На Running Dashboard expanded-композиция сохраняет пространственную хронологию `Завершённые → Сейчас → Будущие`: current match занимает доминирующую центральную lane. Compact-композиция сохраняет тот же DOM/read order вертикально; состояние каждой lane названо текстом и не кодируется только цветом.
 
+Tournament View выбирает read-only renderer по public `formatId`: DE показывает winners/losers/Grand Final/Reset, SE — elimination rounds, RR — round pairings и standings. Pan/zoom/fit/reset/fullscreen не меняют Host state; клавиатура и текстовый round/match order остаются альтернативой графическим связям.
+
 ## Route guards
 
 - Profile gate precedes application routes.

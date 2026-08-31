@@ -31,6 +31,7 @@ export const spectatorFixture: SpectatorProjection = {
   connection: { state: "live", label: "Прямой эфир", sequence: 58 },
   tournament: {
     title: "Friday Fatality",
+    formatId: "double-elimination",
     format: "Double Elimination",
     progress: "Матч 6 из 9",
     lifecycle: "running",
@@ -40,6 +41,9 @@ export const spectatorFixture: SpectatorProjection = {
     completed: [
       {
         id: "m5",
+        round: 2,
+        order: 0,
+        stageId: "losers",
         stage: "Нижняя сетка",
         label: "Раунд 2",
         first: kitana,
@@ -51,6 +55,9 @@ export const spectatorFixture: SpectatorProjection = {
     ],
     current: {
       id: "m6",
+      round: 2,
+      order: 0,
+      stageId: "winners",
       stage: "Верхняя сетка",
       label: "Финал",
       first: scorpion,
@@ -61,6 +68,9 @@ export const spectatorFixture: SpectatorProjection = {
     upcoming: [
       {
         id: "m7",
+        round: 3,
+        order: 0,
+        stageId: "losers",
         stage: "Нижняя сетка",
         label: "Финал",
         first: kitana,
@@ -72,6 +82,9 @@ export const spectatorFixture: SpectatorProjection = {
   bracket: [
     {
       id: "m1",
+      round: 1,
+      order: 0,
+      stageId: "winners",
       stage: "Верхняя сетка",
       label: "Полуфинал",
       first: scorpion,
@@ -82,6 +95,9 @@ export const spectatorFixture: SpectatorProjection = {
     },
     {
       id: "m2",
+      round: 1,
+      order: 1,
+      stageId: "winners",
       stage: "Верхняя сетка",
       label: "Полуфинал",
       first: subZero,
@@ -92,6 +108,9 @@ export const spectatorFixture: SpectatorProjection = {
     },
     {
       id: "m6",
+      round: 2,
+      order: 0,
+      stageId: "winners",
       stage: "Верхняя сетка",
       label: "Финал",
       first: scorpion,
@@ -101,6 +120,9 @@ export const spectatorFixture: SpectatorProjection = {
     },
     {
       id: "m5",
+      round: 1,
+      order: 0,
+      stageId: "losers",
       stage: "Нижняя сетка",
       label: "Раунд 2",
       first: kitana,
@@ -111,10 +133,35 @@ export const spectatorFixture: SpectatorProjection = {
     },
     {
       id: "m7",
+      round: 2,
+      order: 0,
+      stageId: "losers",
       stage: "Нижняя сетка",
       label: "Финал",
       first: kitana,
       second: raiden,
+      state: "next",
+    },
+    {
+      id: "grand-final",
+      round: 1,
+      order: 0,
+      stageId: "finalMatch",
+      stage: "Гранд-финал",
+      label: "Гранд-финал",
+      first: scorpion,
+      second: kitana,
+      state: "next",
+    },
+    {
+      id: "bracket-reset",
+      round: 2,
+      order: 0,
+      stageId: "bracketReset",
+      stage: "Сброс сетки",
+      label: "Сброс при необходимости",
+      first: scorpion,
+      second: kitana,
       state: "next",
     },
   ],
