@@ -184,6 +184,7 @@ Header называет экран и роль, но не конкурирует
 - Finished показывает champion и полную ranking с выходом в Main/History.
 - History явно read-only и адаптивно раскрывает snapshot detail.
 - Spectator показывает previous/current/next, connection state и не имитирует mutation controls.
+- Spectator Running Dashboard размещает completed/current/upcoming в трёх временных lanes слева направо; current lane доминирует по ширине. На compact lanes идут тем же вертикальным read order, а completed card резервирует отдельные области для полной fighter identity, score и result label.
 
 ## Participant identity
 

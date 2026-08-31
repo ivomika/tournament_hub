@@ -42,9 +42,11 @@ export interface SpectatorProjection {
     lifecycle: "distribution" | "running" | "finished";
   };
   participants: readonly FighterIdentityModel[];
-  previous?: MatchModel;
-  current?: MatchModel;
-  next?: MatchModel;
+  timeline: {
+    completed: readonly MatchModel[];
+    current?: MatchModel;
+    upcoming: readonly MatchModel[];
+  };
   bracket: readonly MatchModel[];
   standings: readonly StandingModel[];
   champion?: FighterIdentityModel;

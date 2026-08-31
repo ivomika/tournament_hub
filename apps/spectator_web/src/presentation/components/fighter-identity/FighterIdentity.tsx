@@ -31,7 +31,7 @@ export function FighterIdentity({
       ) : (
         <img className="identity__art" src={identity.fighterAssetPath} alt="" />
       )}
-      <div>
+      <div className="identity__copy">
         <p className="identity__fighter">{identity.fighterName}</p>
         <p className="identity__nickname">{identity.nickname}</p>
         {identity.guest && <span className="identity__guest">Гость</span>}

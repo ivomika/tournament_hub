@@ -23,9 +23,9 @@ export function toPresentationProjection(
     ]),
   );
   const matches = source.matches.map((match) => toMatch(match, identities));
-  const previous = matches.filter((match) => match.state === "previous").at(-1);
+  const completed = matches.filter((match) => match.state === "previous");
   const current = matches.find((match) => match.state === "current");
-  const next = matches.find((match) => match.state === "next");
+  const upcoming = matches.filter((match) => match.state === "next");
   const finishedCount = source.matches.filter(
     (match) => match.status === "finished",
   ).length;
@@ -53,9 +53,7 @@ export function toPresentationProjection(
       lifecycle: source.tournament.lifecycle,
     },
     participants: [...identities.values()],
-    previous,
-    current,
-    next,
+    timeline: { completed, current, upcoming },
     bracket: matches,
     standings,
     champion:

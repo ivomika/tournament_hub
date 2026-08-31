@@ -8,8 +8,19 @@ const stateLabel = {
 } as const;
 
 export function TimelineCard({ match }: { match: MatchModel }) {
+  const result =
+    match.resultLabel ??
+    (match.score === undefined
+      ? match.state === "previous"
+        ? "Результат не указан"
+        : "Счёт ещё не определён"
+      : `${match.score[0]}:${match.score[1]}`);
   return (
-    <article className="timeline-card surface">
+    <article
+      className="timeline-card surface"
+      data-state={match.state}
+      aria-label={`${stateLabel[match.state]}: ${match.first.fighterName}, ${match.first.nickname} против ${match.second.fighterName}, ${match.second.nickname}. ${result}`}
+    >
       <header className="timeline-card__header">
         <div>
           <p className="stage-label">{match.stage}</p>
@@ -25,6 +36,7 @@ export function TimelineCard({ match }: { match: MatchModel }) {
         <FighterIdentity identity={match.second} />
         <span className="timeline-card__score">{match.score?.[1] ?? "—"}</span>
       </div>
+      <p className="timeline-card__result">{result}</p>
     </article>
   );
 }

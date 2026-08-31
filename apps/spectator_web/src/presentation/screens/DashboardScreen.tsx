@@ -9,7 +9,8 @@ export function DashboardScreen({
   projection: SpectatorProjection;
 }) {
   const isLive = projection.connection.state === "live";
-  if (projection.current === undefined) {
+  const { completed, current, upcoming } = projection.timeline;
+  if (current === undefined) {
     return (
       <>
         <header className="screen-heading">
@@ -44,16 +45,44 @@ export function DashboardScreen({
           {projection.tournament.progress}
         </p>
       </header>
-      <div className="dashboard-grid">
-        <MatchupHero match={projection.current} />
-        <aside className="timeline" aria-label="Предыдущий и следующий матчи">
-          {projection.previous !== undefined && (
-            <TimelineCard match={projection.previous} />
-          )}
-          {projection.next !== undefined && (
-            <TimelineCard match={projection.next} />
-          )}
-        </aside>
+      <div className="dashboard-lanes" aria-label="Хронология матчей">
+        <section className="match-lane" aria-labelledby="completed-lane-title">
+          <h3 className="match-lane__title" id="completed-lane-title">
+            Завершённые
+          </h3>
+          <div className="match-lane__list">
+            {completed.length === 0 ? (
+              <p className="match-lane__empty">Завершённых матчей пока нет.</p>
+            ) : (
+              completed.map((match) => (
+                <TimelineCard key={match.id} match={match} />
+              ))
+            )}
+          </div>
+        </section>
+        <section
+          className="match-lane match-lane--current"
+          aria-labelledby="current-lane-title"
+        >
+          <h3 className="match-lane__title" id="current-lane-title">
+            Сейчас
+          </h3>
+          <MatchupHero match={current} />
+        </section>
+        <section className="match-lane" aria-labelledby="upcoming-lane-title">
+          <h3 className="match-lane__title" id="upcoming-lane-title">
+            Будущие
+          </h3>
+          <div className="match-lane__list">
+            {upcoming.length === 0 ? (
+              <p className="match-lane__empty">Будущих матчей пока нет.</p>
+            ) : (
+              upcoming.map((match) => (
+                <TimelineCard key={match.id} match={match} />
+              ))
+            )}
+          </div>
+        </section>
       </div>
     </>
   );

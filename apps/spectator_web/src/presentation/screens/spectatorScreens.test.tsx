@@ -28,6 +28,68 @@ describe("Spectator screens", () => {
     expect(screen.queryByRole("button")).not.toBeInTheDocument();
   });
 
+  it("показывает completed, current и upcoming lanes в одном read order", () => {
+    render(<DashboardScreen projection={spectatorFixture} />);
+
+    const completed = screen.getByRole("region", { name: "Завершённые" });
+    const current = screen.getByRole("region", { name: "Сейчас" });
+    const upcoming = screen.getByRole("region", { name: "Будущие" });
+    expect(
+      completed.compareDocumentPosition(current) &
+        Node.DOCUMENT_POSITION_FOLLOWING,
+    ).toBeTruthy();
+    expect(
+      current.compareDocumentPosition(upcoming) &
+        Node.DOCUMENT_POSITION_FOLLOWING,
+    ).toBeTruthy();
+    expect(
+      screen.getByLabelText(/Завершён: Kitana, LENA против Raiden, ROMAN. 2:1/),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByLabelText(
+        /Следующий: Kitana, LENA против Raiden, ROMAN. Счёт ещё не определён/,
+      ),
+    ).toBeInTheDocument();
+  });
+
+  it("completed card не подставляет ложный ноль и сохраняет длинные identity", () => {
+    const completed = {
+      ...spectatorFixture.timeline.completed[0]!,
+      first: {
+        ...spectatorFixture.timeline.completed[0]!.first,
+        fighterName: "Rambo с очень длинным именем бойца",
+        nickname: "Очень длинное имя участника",
+      },
+      second: {
+        ...spectatorFixture.timeline.completed[0]!.second,
+        fighterName: "Scarlet с очень длинным именем бойца",
+        nickname: "Ещё одно длинное имя гостя",
+      },
+      score: undefined,
+      resultLabel: "Техническая победа",
+    };
+    render(
+      <DashboardScreen
+        projection={{
+          ...spectatorFixture,
+          timeline: {
+            ...spectatorFixture.timeline,
+            completed: [completed],
+          },
+        }}
+      />,
+    );
+
+    expect(
+      screen.getByText("Rambo с очень длинным именем бойца"),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText("Scarlet с очень длинным именем бойца"),
+    ).toBeInTheDocument();
+    expect(screen.getByText("Техническая победа")).toBeInTheDocument();
+    expect(screen.queryByText("0")).not.toBeInTheDocument();
+  });
+
   it("показывает structure/standings и champion", () => {
     const { rerender } = render(
       <TournamentScreen projection={spectatorFixture} />,

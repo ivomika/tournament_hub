@@ -174,16 +174,39 @@ button:focus-visible {
   color: var(--ds-color-text-secondary);
   text-align: right;
 }
-.dashboard-grid {
+.dashboard-lanes {
   display: grid;
-  grid-template-columns: minmax(0, 2.2fr) minmax(280px, 1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.65fr) minmax(0, 1fr);
   gap: var(--ds-space-6);
-  align-items: stretch;
+  align-items: start;
 }
-.timeline {
+.match-lane {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--ds-space-4);
+  min-width: var(--ds-space-0);
+}
+.match-lane--current {
+  position: relative;
+}
+.match-lane__title {
+  margin: var(--ds-space-0);
+  color: var(--ds-color-text-secondary);
+  font-size: var(--ds-font-18);
+  line-height: var(--ds-line-24);
+}
+.match-lane--current .match-lane__title {
+  color: var(--ds-color-accent);
+}
+.match-lane__list {
+  display: grid;
+  gap: var(--ds-space-4);
+}
+.match-lane__empty {
+  margin: var(--ds-space-0);
+  padding: var(--ds-space-5);
+  border: var(--ds-border) solid var(--ds-color-surface-tertiary);
+  border-radius: var(--ds-radius-xl);
+  color: var(--ds-color-text-tertiary);
 }
 .surface {
   border: var(--ds-border) solid var(--ds-color-surface-tertiary);
@@ -268,6 +291,9 @@ button:focus-visible {
   line-height: var(--ds-line-32);
   font-weight: var(--ds-weight-bold);
 }
+.identity__copy {
+  min-width: var(--ds-space-0);
+}
 .identity--matchup .identity__fighter,
 .identity--hero .identity__fighter {
   font-size: clamp(var(--ds-font-28), 3vw, var(--ds-font-48));
@@ -316,9 +342,21 @@ button:focus-visible {
   align-items: center;
   padding-block: var(--ds-space-2);
 }
+.timeline-card .identity__fighter,
+.timeline-card .identity__nickname {
+  overflow-wrap: anywhere;
+}
 .timeline-card__score {
+  min-width: var(--ds-space-6);
+  text-align: right;
   font-size: var(--ds-font-24);
   font-weight: var(--ds-weight-bold);
+}
+.timeline-card__result {
+  margin: var(--ds-space-4) var(--ds-space-0) var(--ds-space-0);
+  padding-top: var(--ds-space-3);
+  border-top: var(--ds-border) solid var(--ds-color-surface-tertiary);
+  color: var(--ds-color-text-secondary);
 }
 .section {
   margin-top: var(--ds-space-10);
@@ -428,7 +466,7 @@ button:focus-visible {
     grid-column: 1 / -1;
     overflow-x: auto;
   }
-  .dashboard-grid {
+  .dashboard-lanes {
     grid-template-columns: 1fr;
   }
   .matchup {
@@ -467,9 +505,6 @@ button:focus-visible {
   .identity--matchup .identity__art {
     width: var(--ds-artwork-matchup);
     height: var(--ds-artwork-matchup);
-  }
-  .timeline {
-    grid-template-columns: 1fr;
   }
   .standings th:nth-child(3),
   .standings td:nth-child(3) {
