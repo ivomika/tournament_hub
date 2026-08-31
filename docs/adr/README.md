@@ -24,3 +24,5 @@ ADR фиксирует устойчивое решение, меняющее sys
 - [ADR-0010: Строгие границы импортов между слоями](0010-layer-import-boundaries.md) — Accepted.
 - [ADR-0011: App lifecycle и state-driven routing](0011-app-lifecycle-and-state-driven-routing.md) — Accepted.
 - [ADR-0012: Lifecycle локального Spectator server](0012-spectator-server-lifecycle.md) — Accepted.
+- [ADR-0013: Skia как renderer по умолчанию на macOS](0013-macos-skia-default-renderer.md) — Accepted.
+- [ADR-0014: Постоянно доступный Spectator server в foreground runtime](0014-always-available-spectator-runtime.md) — Accepted; уточняет ADR-0012.

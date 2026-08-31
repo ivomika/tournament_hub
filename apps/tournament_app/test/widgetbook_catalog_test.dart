@@ -288,7 +288,7 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
-  testWidgets('desktop actions выровнены с header и используют overflow', (
+  testWidgets('desktop primary остаётся в header, spectator CTA — в summary', (
     tester,
   ) async {
     tester.view.devicePixelRatio = 1;
@@ -318,12 +318,19 @@ void main() {
       (tester.getTopLeft(primary).dy - tester.getTopLeft(title).dy).abs(),
       lessThan(48),
     );
-    expect(find.text('Подключить зрителей'), findsNothing);
+    expect(
+      find.descendant(
+        of: find.byType(HostOpenConnectionSummary),
+        matching: find.text('Подключить зрителей'),
+      ),
+      findsOneWidget,
+    );
 
     await tester.tap(find.byTooltip('Дополнительные действия'));
     await tester.pumpAndSettle();
     expect(find.text('Подключить зрителей'), findsOneWidget);
     expect(find.text('Добавить гостя'), findsOneWidget);
+    expect(find.text('Отменить турнир'), findsOneWidget);
   });
 
   testWidgets('field отображает focus, helper и локальную ошибку', (

@@ -1,3 +1,4 @@
+import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 
 import '../../application/tournament/models/host_tournament_projection.dart';
@@ -187,6 +188,7 @@ final class AppRouteScreen extends StatelessWidget {
   Widget _mainScreen() {
     final session = hostRuntime?.hostTournamentProjection;
     final matchup = session == null ? null : _mainMatchup(session);
+    final last = historyRuntime?.historyProjection?.entries.firstOrNull;
     return MainScreenPreview(
       activeTournamentName: session?.title,
       activeStage: session?.lifecycle,
@@ -194,21 +196,33 @@ final class AppRouteScreen extends StatelessWidget {
       activeFirst: matchup == null ? previewIvan : _participant(matchup.$1),
       activeSecond: matchup == null ? previewMira : _participant(matchup.$2),
       showMatchupSummary: session == null || matchup != null,
+      lastTournament: last == null
+          ? null
+          : MainLastTournamentViewData(
+              id: last.tournament.id,
+              title: last.tournament.title,
+              summary:
+                  '${_formatLabel(last.tournament.formatId)} · ${last.tournament.participants.length} участников · ${last.finishedAtUtc.toLocal()}',
+              isCancelled: last.tournament.lifecycle == 'cancelled',
+              champion: last.tournament.championId == null
+                  ? null
+                  : _historyParticipant(
+                      last.tournament,
+                      last.tournament.championId!,
+                    ),
+            ),
+      onOpenLastTournament: historyRuntime?.openHistoryDetail,
       onCreate: hostRuntime == null
           ? null
           : () => hostRuntime!.createTournament(),
-      onCreateSingleElimination: hostRuntime == null
-          ? null
-          : () => hostRuntime!.createTournament(formatId: 'single-elimination'),
-      onCreateRoundRobin: hostRuntime == null
-          ? null
-          : () => hostRuntime!.createTournament(formatId: 'round-robin'),
     );
   }
 
   Widget _draftScreen() => HostDraftScreenPreview(
     title: _session.title,
-    formatLabel: _formatLabel(_session.formatId),
+    formatId: _session.formatId,
+    onSave: ({required title, required formatId}) =>
+        hostRuntime!.updateDraft(title: title, formatId: formatId),
     onOpen: hostRuntime?.openTournament,
     onCancel: hostRuntime?.cancelTournament,
   );
@@ -227,8 +241,16 @@ final class AppRouteScreen extends StatelessWidget {
     onStartDistribution: hostRuntime?.startDistribution,
     onCancel: hostRuntime?.cancelTournament,
     spectatorProjection: _spectatorConnection,
+    onCopySpectatorAddress: _spectatorEndpoint == null
+        ? null
+        : () => Clipboard.setData(ClipboardData(text: _spectatorEndpoint!)),
     onRetrySpectator: hostRuntime?.retrySpectatorServer,
   );
+
+  String? get _spectatorEndpoint {
+    final state = hostRuntime!.spectatorServerState;
+    return state.endpoint?.toString();
+  }
 
   HostOpenConnectionViewData get _spectatorConnection {
     final state = hostRuntime!.spectatorServerState;
@@ -257,14 +279,14 @@ final class AppRouteScreen extends StatelessWidget {
         localEndpoint: state.endpoint?.toString(),
       ),
       SpectatorServerStatus.degraded => HostOpenConnectionViewData(
-        state: state.endpoint == null
+        state: _spectatorEndpoint == null
             ? ConnectionQrState.unavailable
             : ConnectionQrState.stale,
         connectedSpectators: state.connectedSpectators,
         statusLabel: 'Зрительский экран ограничен',
         detail: _spectatorErrorLabel(state.safeErrorCode),
         kind: StatusKind.warning,
-        localEndpoint: state.endpoint?.toString(),
+        localEndpoint: _spectatorEndpoint,
       ),
       SpectatorServerStatus.failed => HostOpenConnectionViewData(
         state: ConnectionQrState.error,

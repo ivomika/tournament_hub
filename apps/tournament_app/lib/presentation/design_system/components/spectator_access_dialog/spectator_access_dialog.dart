@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import '../connection_qr_card/connection_qr_card.dart';
@@ -22,7 +24,7 @@ class SpectatorAccessDialog extends StatefulWidget {
 
   final SpectatorAccessViewData data;
   final VoidCallback onClose;
-  final VoidCallback? onCopyAddress;
+  final FutureOr<void> Function()? onCopyAddress;
   final VoidCallback? onShare;
   final VoidCallback? onRetry;
 
@@ -32,6 +34,7 @@ class SpectatorAccessDialog extends StatefulWidget {
 
 class _SpectatorAccessDialogState extends State<SpectatorAccessDialog> {
   var _copied = false;
+  var _copyFailed = false;
 
   @override
   void didUpdateWidget(covariant SpectatorAccessDialog oldWidget) {
@@ -39,6 +42,7 @@ class _SpectatorAccessDialogState extends State<SpectatorAccessDialog> {
     if (oldWidget.data.endpoint != widget.data.endpoint ||
         oldWidget.data.state != widget.data.state) {
       _copied = false;
+      _copyFailed = false;
     }
   }
 
@@ -84,13 +88,18 @@ class _SpectatorAccessDialogState extends State<SpectatorAccessDialog> {
                         qrSize: QrCodeSize.large,
                         onCopyAddress: widget.onCopyAddress == null
                             ? null
-                            : () {
-                                widget.onCopyAddress!();
-                                setState(() => _copied = true);
-                              },
+                            : _copyAddress,
                         onShare: widget.onShare,
                         onRetry: widget.onRetry,
                       ),
+                      if (_copyFailed) ...[
+                        SizedBox(height: theme.gap),
+                        const DsText(
+                          'Не удалось скопировать ссылку. Выделите адрес вручную.',
+                          variant: DsTextVariant.secondary,
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
                       SizedBox(height: theme.gap),
                       const DsText(
                         'Spectator получает только read-only представление турнира. Закрытие этого окна не останавливает турнир.',
@@ -112,5 +121,22 @@ class _SpectatorAccessDialogState extends State<SpectatorAccessDialog> {
         ),
       ),
     );
+  }
+
+  Future<void> _copyAddress() async {
+    try {
+      await widget.onCopyAddress!();
+      if (!mounted) return;
+      setState(() {
+        _copied = true;
+        _copyFailed = false;
+      });
+    } catch (_) {
+      if (!mounted) return;
+      setState(() {
+        _copied = false;
+        _copyFailed = true;
+      });
+    }
   }
 }

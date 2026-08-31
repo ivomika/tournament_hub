@@ -65,6 +65,34 @@ void main() {
     );
   });
 
+  test('Draft updates title and format only before Open', () {
+    final draft = HostTournament.createDraft(
+      id: 't1',
+      title: 'Cup',
+      formatId: 'double-elimination',
+      nowUtc: at(0),
+    );
+    final updated = draft.updateDraft(
+      title: '  New Cup  ',
+      formatId: 'round-robin',
+      nowUtc: at(1),
+    );
+
+    expect(updated.title, 'New Cup');
+    expect(updated.formatId, 'round-robin');
+    expect(updated.revision, draft.revision + 1);
+    expect(
+      () => updated
+          .open(nowUtc: at(2))
+          .updateDraft(
+            title: 'Late',
+            formatId: 'single-elimination',
+            nowUtc: at(3),
+          ),
+      throwsA(isA<TournamentFailure>()),
+    );
+  });
+
   test('distribution requires at least two participants', () {
     expect(
       () => openTournament().startDistribution(nowUtc: at(2)),

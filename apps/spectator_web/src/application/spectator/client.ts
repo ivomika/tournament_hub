@@ -36,7 +36,7 @@ export class SpectatorClient {
   private stopped = true;
 
   constructor(options: SpectatorClientOptions = {}) {
-    this.fetcher = options.fetcher ?? fetch;
+    this.fetcher = options.fetcher ?? fetch.bind(globalThis);
     this.socketFactory = options.socketFactory ?? ((url) => new WebSocket(url));
     this.clientLocation = options.location ?? window.location;
     this.retryDelayMs = options.retryDelayMs ?? 1_500;
@@ -77,17 +77,19 @@ export class SpectatorClient {
 
   private async loadSnapshotAndConnect(): Promise<void> {
     if (this.stopped) return;
-    this.dispatch({
-      type: "connection",
-      connection: this.state.projection ? "reconnecting" : "connecting",
-    });
+    if (this.state.projection?.tournament.lifecycle !== "finished") {
+      this.dispatch({
+        type: "connection",
+        connection: this.state.projection ? "reconnecting" : "connecting",
+      });
+    }
     try {
       const response = await this.fetcher(
         `${this.clientLocation.origin}/api/spectator/v1/snapshot`,
         { method: "GET", headers: { accept: "application/json" } },
       );
       if (response.status === 503 || response.status === 404) {
-        this.dispatch({ type: "connection", connection: "waiting" });
+        this.dispatch({ type: "waiting" });
         this.scheduleRetry();
         return;
       }
@@ -102,7 +104,10 @@ export class SpectatorClient {
         return;
       }
       this.dispatch({ type: "snapshot", projection: parsed.value });
-      if (parsed.value.tournament.lifecycle === "finished") return;
+      if (parsed.value.tournament.lifecycle === "finished") {
+        this.scheduleRetry();
+        return;
+      }
       this.connect(parsed.value);
     } catch {
       this.dispatch({
@@ -138,12 +143,12 @@ export class SpectatorClient {
     socket.addEventListener("close", () => {
       if (this.socket !== socket) return;
       this.socket = undefined;
-      if (
-        this.stopped ||
-        this.state.connection === "incompatible" ||
-        this.state.projection?.tournament.lifecycle === "finished"
-      )
+      if (this.stopped || this.state.connection === "incompatible")
         return;
+      if (this.state.projection?.tournament.lifecycle === "finished") {
+        this.scheduleRetry();
+        return;
+      }
       this.dispatch({
         type: "connection",
         connection: this.state.projection ? "stale" : "error",

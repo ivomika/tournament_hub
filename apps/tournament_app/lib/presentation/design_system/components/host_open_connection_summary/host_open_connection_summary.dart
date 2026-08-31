@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../ds_action/ds_action.dart';
 import '../ds_info_row/ds_info_row.dart';
 import '../ds_section/ds_section.dart';
 import '../status_badge/status_badge.dart';
@@ -7,9 +8,16 @@ import 'host_open_connection_summary_theme.dart';
 import 'host_open_connection_view_data.dart';
 
 class HostOpenConnectionSummary extends StatelessWidget {
-  const HostOpenConnectionSummary({required this.data, super.key});
+  const HostOpenConnectionSummary({
+    required this.data,
+    this.actionLabel,
+    this.onAction,
+    super.key,
+  });
 
   final HostOpenConnectionViewData data;
+  final String? actionLabel;
+  final VoidCallback? onAction;
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +35,15 @@ class HostOpenConnectionSummary extends StatelessWidget {
             label: '${data.connectedSpectators} ПОДКЛЮЧЕНО',
             kind: data.kind,
           ),
+          if (actionLabel != null) ...[
+            SizedBox(height: theme.gap),
+            DsAction(
+              key: const Key('open-spectator-access'),
+              label: actionLabel!,
+              kind: DsActionKind.secondary,
+              onPressed: onAction,
+            ),
+          ],
         ],
       ),
     );

@@ -94,6 +94,10 @@ void main() {
       );
 
       session = await service.startRunning(session, bracketSeed: 42);
+      expect(
+        () => service.rerollAll(session, assignmentSeed: 30),
+        throwsA(isA<Exception>()),
+      );
       session = (await service.loadActive())!;
       expect(session.engineState!.currentMatch, isNotNull);
       final first = session.engineState!.currentMatch!;
@@ -167,6 +171,34 @@ void main() {
     final stored = (await history.readAll()).single.snapshot;
     expect(stored.lifecycle, 'cancelled');
     expect(stored.payload['outcome'], isNull);
+  });
+
+  test('Draft settings survive persistence round-trip', () async {
+    final profile = LocalProfile(id: 'profile-1', nickname: 'Host');
+    var session = await service.createDraft(
+      profile: profile,
+      title: 'Draft',
+      formatId: 'double-elimination',
+    );
+
+    session = await service.updateDraft(
+      session,
+      title: 'Local Cup',
+      formatId: 'round-robin',
+    );
+    final restored = await service.loadActive();
+
+    expect(restored!.tournament.title, 'Local Cup');
+    expect(restored.tournament.formatId, 'round-robin');
+    expect(session.tournament, restored.tournament);
+    expect(
+      () => service.updateDraft(
+        session,
+        title: 'Unsupported',
+        formatId: 'unknown',
+      ),
+      throwsA(isA<FormatException>()),
+    );
   });
 }
 

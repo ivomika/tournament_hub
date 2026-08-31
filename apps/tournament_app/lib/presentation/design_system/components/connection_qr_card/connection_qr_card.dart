@@ -235,7 +235,7 @@ class _ConnectionDetails extends StatelessWidget {
     ConnectionQrState.starting => const [],
     ConnectionQrState.ready || ConnectionQrState.reconnecting => [
       DsAction(
-        label: 'Копировать адрес',
+        label: 'Копировать ссылку Spectator',
         icon: Icons.content_copy_outlined,
         onPressed: onCopyAddress,
       ),
@@ -249,7 +249,7 @@ class _ConnectionDetails extends StatelessWidget {
     ],
     ConnectionQrState.copied => [
       DsAction(
-        label: 'Адрес скопирован',
+        label: 'Ссылка скопирована',
         status: DsActionStatus.success,
         onPressed: onCopyAddress,
       ),
@@ -268,7 +268,7 @@ class _ConnectionDetails extends StatelessWidget {
         onPressed: onRetry,
       ),
       DsAction(
-        label: 'Копировать текущий',
+        label: 'Копировать ссылку Spectator',
         kind: DsActionKind.secondary,
         icon: Icons.content_copy_outlined,
         onPressed: onCopyAddress,

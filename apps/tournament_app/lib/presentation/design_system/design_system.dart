@@ -16,6 +16,7 @@ export 'components/ds_flow/ds_flow.dart';
 export 'components/ds_info_row/ds_info_row.dart';
 export 'components/ds_progress/ds_progress.dart';
 export 'components/ds_section/ds_section.dart';
+export 'components/ds_select/ds_select.dart';
 export 'components/ds_spacing/ds_spacing.dart';
 export 'components/ds_surface/ds_surface.dart';
 export 'components/ds_text/ds_text.dart';

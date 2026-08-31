@@ -88,7 +88,7 @@ void main() {
         onRetry: () => retryCount++,
       ),
     );
-    await tester.tap(find.text('Копировать адрес'));
+    await tester.tap(find.text('Копировать ссылку Spectator'));
     await tester.tap(find.text('Поделиться'));
     expect(copyCount, 1);
     expect(shareCount, 1);

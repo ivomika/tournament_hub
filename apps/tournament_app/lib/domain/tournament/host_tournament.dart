@@ -119,10 +119,15 @@ final class HostTournament extends Equatable {
 
   HostTournament updateDraft({
     required String title,
+    required String formatId,
     required DateTime nowUtc,
   }) {
     _require(TournamentLifecycle.draft);
-    return _copy(title: _title(title), nowUtc: nowUtc);
+    return _copy(
+      title: _title(title),
+      formatId: _formatId(formatId),
+      nowUtc: nowUtc,
+    );
   }
 
   HostTournament open({required DateTime nowUtc}) {
@@ -300,6 +305,7 @@ final class HostTournament extends Equatable {
 
   HostTournament _copy({
     String? title,
+    String? formatId,
     TournamentLifecycle? lifecycle,
     List<TournamentParticipant>? participants,
     FighterAssignmentSet? assignments,
@@ -312,7 +318,7 @@ final class HostTournament extends Equatable {
     revision: revision + 1,
     title: title ?? this.title,
     gameId: gameId,
-    formatId: formatId,
+    formatId: formatId ?? this.formatId,
     rulesetVersion: rulesetVersion,
     lifecycle: lifecycle ?? this.lifecycle,
     participants: List.unmodifiable(participants ?? this.participants),
@@ -327,6 +333,14 @@ final class HostTournament extends Equatable {
     final normalized = value.trim();
     if (normalized.isEmpty) {
       throw const TournamentFailure(TournamentFailureCode.invalidTitle);
+    }
+    return normalized;
+  }
+
+  static String _formatId(String value) {
+    final normalized = value.trim();
+    if (normalized.isEmpty) {
+      throw const FormatException('Tournament format is empty.');
     }
     return normalized;
   }

@@ -45,10 +45,11 @@ Future<void> main(List<String> arguments) async {
       await runner.npm(const ['run', 'dev']);
       return;
     case 'build':
-      await runner.buildFlutter(options['target']);
       await runner.buildSpectator();
+      await runner.buildFlutter(options['target']);
       return;
     case 'build-flutter':
+      await runner.buildSpectator();
       await runner.buildFlutter(options['target']);
       return;
     case 'build-spectator':
@@ -182,7 +183,54 @@ final class ProjectRunner {
     await flutter(['build', target]);
   }
 
-  Future<void> buildSpectator() => npm(const ['run', 'build']);
+  Future<void> buildSpectator() async {
+    await npm(const ['run', 'build']);
+    await syncSpectatorBundle();
+  }
+
+  Future<void> syncSpectatorBundle() async {
+    final source = Directory(
+      '${spectatorDirectory.path}${Platform.pathSeparator}dist',
+    );
+    final destination = Directory(
+      '${flutterDirectory.path}${Platform.pathSeparator}assets'
+      '${Platform.pathSeparator}spectator',
+    );
+    if (!source.existsSync()) {
+      throw StateError('Spectator dist is missing after build.');
+    }
+    await destination.create(recursive: true);
+    await for (final entity in destination.list()) {
+      if (entity is File && entity.path.endsWith('README.md')) continue;
+      await entity.delete(recursive: true);
+    }
+    await _copyDirectory(source, destination);
+    final index = File('${destination.path}${Platform.pathSeparator}index.html');
+    final scripts = Directory('${destination.path}${Platform.pathSeparator}assets');
+    final fighters = Directory('${destination.path}${Platform.pathSeparator}fighters');
+    if (!index.existsSync() ||
+        !scripts.existsSync() ||
+        !scripts.listSync().any((e) => e is File && e.path.endsWith('.js')) ||
+        !scripts.listSync().any((e) => e is File && e.path.endsWith('.css')) ||
+        !fighters.existsSync()) {
+      throw StateError('Spectator bundle is incomplete after sync.');
+    }
+  }
+
+  Future<void> _copyDirectory(Directory source, Directory destination) async {
+    await for (final entity in source.list(recursive: true)) {
+      final relative = entity.path.substring(source.path.length + 1);
+      final targetPath =
+          '${destination.path}${Platform.pathSeparator}$relative';
+      if (entity is Directory) {
+        await Directory(targetPath).create(recursive: true);
+      } else if (entity is File) {
+        final target = File(targetPath);
+        await target.parent.create(recursive: true);
+        await entity.copy(target.path);
+      }
+    }
+  }
 
   Future<void> prepareSpectatorBundle() async {
     stdout.writeln(

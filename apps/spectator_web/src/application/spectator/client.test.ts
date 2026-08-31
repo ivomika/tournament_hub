@@ -24,9 +24,32 @@ class FakeSocket extends EventTarget {
   }
 }
 
-afterEach(() => vi.restoreAllMocks());
+afterEach(() => {
+  vi.restoreAllMocks();
+  vi.unstubAllGlobals();
+});
 
 describe("Spectator client", () => {
+  it("вызывает browser fetch с корректным global receiver", async () => {
+    vi.stubGlobal("fetch", function (this: unknown) {
+      expect(this).toBe(globalThis);
+      return Promise.resolve(new Response(null, { status: 503 }));
+    });
+    const client = new SpectatorClient({
+      socketFactory: () => new FakeSocket() as unknown as WebSocket,
+      location: {
+        origin: "http://host.test:8080",
+        protocol: "http:",
+        host: "host.test:8080",
+      },
+      retryDelayMs: 60_000,
+    });
+
+    client.start();
+    await vi.waitFor(() => expect(client.current.connection).toBe("waiting"));
+    client.stop();
+  });
+
   it("получает snapshot, отправляет handshake и применяет live event", async () => {
     const socket = new FakeSocket();
     const client = new SpectatorClient({
@@ -90,6 +113,45 @@ describe("Spectator client", () => {
     client.start();
     await vi.advanceTimersByTimeAsync(0);
     expect(client.current.connection).toBe("waiting");
+    client.stop();
+    vi.useRealTimers();
+  });
+
+  it("после очистки terminal projection возвращается в waiting", async () => {
+    vi.useFakeTimers();
+    const socket = new FakeSocket();
+    const fetcher = vi
+      .fn<typeof fetch>()
+      .mockResolvedValueOnce(
+        Response.json({
+          ...projectionFixture,
+          tournament: {
+            ...projectionFixture.tournament,
+            lifecycle: "finished",
+          },
+        }),
+      )
+      .mockResolvedValue(new Response(null, { status: 503 }));
+    const client = new SpectatorClient({
+      fetcher,
+      socketFactory: () => socket as unknown as WebSocket,
+      location: {
+        origin: "http://host.test:8080",
+        protocol: "http:",
+        host: "host.test:8080",
+      },
+      retryDelayMs: 1,
+    });
+
+    client.start();
+    await vi.advanceTimersByTimeAsync(0);
+    expect(client.current.projection?.tournament.lifecycle).toBe("finished");
+    socket.close();
+    await vi.advanceTimersByTimeAsync(1);
+
+    expect(client.current.connection).toBe("waiting");
+    expect(client.current.projection).toBeUndefined();
+    expect(client.current.lastSequence).toBe(0);
     client.stop();
     vi.useRealTimers();
   });

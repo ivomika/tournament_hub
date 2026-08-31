@@ -129,6 +129,8 @@ final class AppComposition
   int _seed = 100;
   bool _isDisposed = false;
   Future<void> _spectatorWork = Future.value();
+  final StreamController<HostTournamentProjection?> _hostProjectionController =
+      StreamController.broadcast(sync: true);
 
   @override
   AppStateSource get appStateSource => _stateStore;
@@ -143,12 +145,14 @@ final class AppComposition
   Future<void> start() async {
     await _bootstrap.start();
     final state = _stateStore.current;
-    if (state case AppOperational(
-      session: AppSessionProjection(activeTournament: != null),
-    )) {
-      _hostTournamentSession = await (await _tournaments).loadActive();
-      _scheduleSpectatorSync();
+    if (state is AppOperational) {
+      await loadHistory();
+      if (state.session.activeTournament != null) {
+        _hostTournamentSession = await (await _tournaments).loadActive();
+      }
     }
+    _scheduleSpectatorSync();
+    await _spectatorWork;
     _router.start();
   }
 
@@ -192,10 +196,12 @@ final class AppComposition
 
   @override
   Future<void> resetAccount() async {
-    await _stopSpectatorServer(clearProjection: true);
     _hostTournamentSession = null;
+    _hostProjectionController.add(null);
     _historyProjection = null;
     _correctionMatchId = null;
+    _scheduleSpectatorSync();
+    await _spectatorWork;
     await _profiles.reset();
     await _bootstrap.retry();
   }
@@ -205,6 +211,10 @@ final class AppComposition
       _hostTournamentSession == null
       ? null
       : HostTournamentProjectionMapper.fromSession(_hostTournamentSession!);
+
+  @override
+  Stream<HostTournamentProjection?> get hostTournamentProjectionChanges =>
+      _hostProjectionController.stream;
 
   @override
   SpectatorServerState get spectatorServerState =>
@@ -229,6 +239,19 @@ final class AppComposition
     _hostTournamentSession = await (await _tournaments).createDraft(
       profile: profile,
       title: 'Новый турнир',
+      formatId: formatId,
+    );
+    _publishTournament();
+  }
+
+  @override
+  Future<void> updateDraft({
+    required String title,
+    required String formatId,
+  }) async {
+    _hostTournamentSession = await (await _tournaments).updateDraft(
+      _session,
+      title: title,
       formatId: formatId,
     );
     _publishTournament();
@@ -393,6 +416,10 @@ final class AppComposition
   @override
   Future<void> leaveTerminalTournament() async {
     _hostTournamentSession = null;
+    _hostProjectionController.add(null);
+    _scheduleSpectatorSync();
+    await _spectatorWork;
+    await loadHistory();
     final current = _stateStore.current;
     if (current is AppOperational) {
       _stateStore.publish(
@@ -450,18 +477,24 @@ final class AppComposition
     _router.go(
       NavigationIntent.hostTournament(tournamentId: session.tournament.id),
     );
+    _hostProjectionController.add(
+      HostTournamentProjectionMapper.fromSession(session),
+    );
     _scheduleSpectatorSync();
   }
 
   void _scheduleSpectatorSync() {
     final server = _spectatorServer;
     final session = _hostTournamentSession;
-    if (server == null || session == null) return;
-    final host = HostTournamentProjectionMapper.fromSession(session);
+    if (server == null) return;
+    final projection = session == null
+        ? null
+        : SpectatorProjectionFactory.fromHost(
+            HostTournamentProjectionMapper.fromSession(session),
+          );
     _spectatorWork = _spectatorWork.then((_) async {
       try {
         await server.start();
-        final projection = SpectatorProjectionFactory.fromHost(host);
         if (projection != null) {
           await server.publish(projection);
         } else {
@@ -511,6 +544,7 @@ final class AppComposition
     unawaited(_router.dispose());
     unawaited(_intentStore.dispose());
     unawaited(_stateStore.dispose());
+    unawaited(_hostProjectionController.close());
     if (_spectatorServer case final server?) {
       unawaited(server.stop());
     }

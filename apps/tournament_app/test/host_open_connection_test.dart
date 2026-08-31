@@ -31,6 +31,13 @@ void main() {
       await tester.pumpAndSettle();
       expect(find.text(projection.statusLabel), findsOneWidget);
       expect(find.text('Начать раздачу'), findsOneWidget);
+      expect(
+        find.descendant(
+          of: find.byType(HostOpenConnectionSummary),
+          matching: find.byKey(const Key('open-spectator-access')),
+        ),
+        findsOneWidget,
+      );
 
       await _openSpectatorAccess(tester);
 
@@ -59,7 +66,7 @@ void main() {
     await tester.pumpWidget(
       _app(
         HostOpenScreenPreview(
-          onCopySpectatorAddress: () => copyCalls += 1,
+          onCopySpectatorAddress: () async => copyCalls += 1,
           onShareSpectatorAddress: () => shareCalls += 1,
         ),
       ),
@@ -69,7 +76,7 @@ void main() {
     await _openSpectatorAccess(tester);
     final copyAction = find.descendant(
       of: find.byType(SpectatorAccessDialog),
-      matching: find.text('Копировать адрес'),
+      matching: find.text('Копировать ссылку Spectator'),
     );
     await tester.ensureVisible(copyAction);
     await tester.tap(copyAction);
@@ -80,7 +87,7 @@ void main() {
       tester.widget<ConnectionQrCard>(find.byType(ConnectionQrCard)).state,
       ConnectionQrState.copied,
     );
-    expect(find.text('Адрес скопирован'), findsWidgets);
+    expect(find.text('Ссылка скопирована'), findsWidgets);
 
     await tester.ensureVisible(find.text('Поделиться'));
     await tester.tap(find.text('Поделиться'));
@@ -118,6 +125,32 @@ void main() {
     expect(find.text('Ошибка подключения'), findsOneWidget);
   });
 
+  testWidgets('ошибка clipboard не показывает ложный success', (tester) async {
+    await _setViewport(tester, const Size(1280, 960));
+    await tester.pumpWidget(
+      _app(
+        HostOpenScreenPreview(
+          onCopySpectatorAddress: () async {
+            throw StateError('clipboard unavailable');
+          },
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    await _openSpectatorAccess(tester);
+    await tester.ensureVisible(find.text('Копировать ссылку Spectator'));
+    await tester.tap(find.text('Копировать ссылку Spectator'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Ссылка скопирована'), findsNothing);
+    expect(
+      find.text('Не удалось скопировать ссылку. Выделите адрес вручную.'),
+      findsOneWidget,
+    );
+    expect(find.textContaining('clipboard unavailable'), findsNothing);
+  });
+
   testWidgets('Guest можно удалить из открытого лобби', (tester) async {
     await _setViewport(tester, const Size(1280, 960));
     String? removedId;
@@ -150,8 +183,7 @@ void main() {
 }
 
 Future<void> _openSpectatorAccess(WidgetTester tester) async {
-  await tester.tap(find.byTooltip('Дополнительные действия').first);
-  await tester.pumpAndSettle();
+  await tester.ensureVisible(find.byKey(const Key('open-spectator-access')));
   await tester.tap(find.byKey(const Key('open-spectator-access')));
   await tester.pumpAndSettle();
 }

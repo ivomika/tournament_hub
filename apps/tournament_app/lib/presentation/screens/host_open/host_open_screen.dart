@@ -22,6 +22,7 @@ class HostOpenScreenPreview extends StatefulWidget {
     this.onRemoveParticipant,
     this.onStartDistribution,
     this.onCancel,
+    this.participantInvite,
     this.spectatorProjection = previewHostOpenConnectionViewData,
     this.onCopySpectatorAddress,
     this.onShareSpectatorAddress,
@@ -35,12 +36,13 @@ class HostOpenScreenPreview extends StatefulWidget {
   final ValueChanged<String>? onRemoveParticipant;
   final VoidCallback? onStartDistribution;
   final VoidCallback? onCancel;
+  final ParticipantInviteViewData? participantInvite;
   final HostOpenConnectionViewData spectatorProjection;
-  final VoidCallback? onCopySpectatorAddress;
+  final Future<void> Function()? onCopySpectatorAddress;
   final VoidCallback? onShareSpectatorAddress;
   final VoidCallback? onRetrySpectator;
 
-  static const participantInvite = ParticipantInviteViewData(
+  static const previewParticipantInvite = ParticipantInviteViewData(
     endpoint: 'http://192.168.1.42:8080',
     joinCode: 'FIGHT-24',
     state: ParticipantInviteState.ready,
@@ -81,19 +83,6 @@ class _HostOpenScreenPreviewState extends State<HostOpenScreenPreview> {
           label: 'Начать раздачу',
           onPressed: roster.length >= 2 ? widget.onStartDistribution : null,
         ),
-        secondary: [
-          ActionDockAction(
-            key: const Key('open-spectator-access'),
-            label: 'Подключить зрителей',
-            onSelected: () => showSpectatorAccessDialog(
-              context,
-              data: widget.spectatorProjection.spectatorAccess,
-              onCopyAddress: () => widget.onCopySpectatorAddress?.call(),
-              onShare: () => widget.onShareSpectatorAddress?.call(),
-              onRetry: () => widget.onRetrySpectator?.call(),
-            ),
-          ),
-        ],
         destructive: ActionDockAction(
           label: 'Отменить турнир',
           kind: ActionDockActionKind.destructive,
@@ -132,14 +121,8 @@ class _HostOpenScreenPreviewState extends State<HostOpenScreenPreview> {
         secondary: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            ParticipantInviteCard(
-              data: HostOpenScreenPreview.participantInvite,
-              onCopyCode: () {},
-              onCopyAddress: () {},
-              onRetry: () {},
-            ),
-            const DsGap(DsSpace.lg),
             DsSection(
+              key: const Key('guest-entry-section'),
               title: 'Добавить гостя',
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -155,12 +138,25 @@ class _HostOpenScreenPreviewState extends State<HostOpenScreenPreview> {
                 ],
               ),
             ),
+            if (widget.participantInvite != null) ...[
+              const DsGap(DsSpace.lg),
+              ParticipantInviteCard(
+                data: widget.participantInvite!,
+                onCopyCode: () {},
+                onCopyAddress: () {},
+                onRetry: () {},
+              ),
+            ],
           ],
         ),
         supporting: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            HostOpenConnectionSummary(data: widget.spectatorProjection),
+            HostOpenConnectionSummary(
+              data: widget.spectatorProjection,
+              actionLabel: 'Подключить зрителей',
+              onAction: _showSpectatorAccess,
+            ),
             const DsGap(DsSpace.lg),
             TournamentStageHeader(
               variant: TournamentStageVariant.strip,
@@ -183,4 +179,12 @@ class _HostOpenScreenPreviewState extends State<HostOpenScreenPreview> {
     widget.onAddGuest?.call(value);
     _nickname.clear();
   }
+
+  void _showSpectatorAccess() => showSpectatorAccessDialog(
+    context,
+    data: widget.spectatorProjection.spectatorAccess,
+    onCopyAddress: () => widget.onCopySpectatorAddress?.call(),
+    onShare: () => widget.onShareSpectatorAddress?.call(),
+    onRetry: () => widget.onRetrySpectator?.call(),
+  );
 }

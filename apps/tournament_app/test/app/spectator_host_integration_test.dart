@@ -36,7 +36,7 @@ void main() {
   );
 
   test(
-    'committed Host projection доступна через реальный LAN adapter',
+    'LAN adapter доступен всегда и переключает waiting/public projection',
     () async {
       SharedPreferences.setMockInitialValues({});
       final bundle = await Directory.systemTemp.createTemp(
@@ -57,14 +57,32 @@ void main() {
       });
 
       await runtime.start();
+      final initialEndpoint = server.state.endpoint!;
+      expect(server.state.status, SpectatorServerStatus.serving);
+      expect(await _getStatus(initialEndpoint, '/'), HttpStatus.ok);
+      expect(
+        await _getStatus(initialEndpoint, '/api/spectator/v1/snapshot'),
+        HttpStatus.serviceUnavailable,
+      );
+
       await runtime.createProfile('Организатор');
       await runtime.createTournament(formatId: 'single-elimination');
+      expect(server.state.endpoint, initialEndpoint);
+      expect(
+        await _getStatus(initialEndpoint, '/api/spectator/v1/snapshot'),
+        HttpStatus.serviceUnavailable,
+      );
       await runtime.openTournament();
       await runtime.addGuest('Гость 1');
+      expect(
+        await _getStatus(initialEndpoint, '/api/spectator/v1/snapshot'),
+        HttpStatus.serviceUnavailable,
+      );
       await runtime.startDistribution();
       await runtime.resumeSpectatorServer();
 
       final endpoint = server.state.endpoint!;
+      expect(endpoint, initialEndpoint);
       final socket = await Socket.connect(
         InternetAddress.loopbackIPv4,
         endpoint.port,
@@ -92,8 +110,40 @@ void main() {
       expect(payload['participants'], hasLength(2));
       expect(payload.toString(), isNot(contains('profileId')));
       expect(payload.toString(), isNot(contains('localProfileId')));
+
+      await runtime.startTournament();
+      final current = runtime.hostTournamentProjection!.matches.singleWhere(
+        (match) => match.status == 'current',
+      );
+      await runtime.selectWinner(current.firstParticipantId);
+      await runtime.finishTournament();
+      expect(
+        await _getStatus(endpoint, '/api/spectator/v1/snapshot'),
+        HttpStatus.ok,
+      );
+
+      await runtime.leaveTerminalTournament();
+      expect(server.state.endpoint, initialEndpoint);
+      expect(
+        await _getStatus(endpoint, '/api/spectator/v1/snapshot'),
+        HttpStatus.serviceUnavailable,
+      );
+      expect(await _getStatus(endpoint, '/'), HttpStatus.ok);
     },
   );
+}
+
+Future<int> _getStatus(Uri endpoint, String path) async {
+  final socket = await Socket.connect(endpoint.host, endpoint.port);
+  socket.write(
+    'GET $path HTTP/1.1\r\n'
+    'Host: ${endpoint.host}:${endpoint.port}\r\n'
+    'Connection: close\r\n\r\n',
+  );
+  await socket.flush();
+  final raw = await utf8.decoder.bind(socket.cast<List<int>>()).join();
+  final statusLine = raw.substring(0, raw.indexOf('\r\n'));
+  return int.parse(statusLine.split(' ')[1]);
 }
 
 final class _FailingSpectatorServer implements SpectatorServer {

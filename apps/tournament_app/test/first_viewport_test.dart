@@ -59,7 +59,15 @@ void main() {
     );
   }
 
-  testWidgets('Host Open ставит roster выше participant QR', (tester) async {
+  testWidgets('Host Open сохраняет общий двухрегионный layout и скрывает QR', (
+    tester,
+  ) async {
+    tester.view.devicePixelRatio = 1;
+    tester.view.physicalSize = const Size(1280, 960);
+    addTearDown(() {
+      tester.view.resetPhysicalSize();
+      tester.view.resetDevicePixelRatio();
+    });
     await tester.pumpWidget(
       MaterialApp(
         theme: TournamentTheme.dark,
@@ -68,10 +76,9 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    expect(
-      tester.getTopLeft(find.text('Участники')).dy,
-      lessThan(tester.getTopLeft(find.byType(ParticipantInviteCard)).dy),
-    );
+    expect(tester.getTopLeft(find.text('Участники')).dx, lessThan(300));
+    expect(tester.getTopLeft(find.text('Добавить гостя')).dx, greaterThan(600));
+    expect(find.byType(ParticipantInviteCard), findsNothing);
   });
 
   testWidgets(

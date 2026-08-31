@@ -43,6 +43,22 @@ void main() {
       );
       expect(server.projection?.lifecycle, 'distribution');
 
+      final projectionChanged = runtime.hostTournamentProjectionChanges.first;
+      final previousFighters = {
+        for (final participant in distribution.participants)
+          participant.id: participant.fighterId,
+      };
+      await runtime.rerollAll();
+      final rerolled = await projectionChanged;
+      expect(rerolled, isNotNull);
+      expect(
+        rerolled!.participants.every(
+          (participant) =>
+              participant.fighterId != previousFighters[participant.id],
+        ),
+        isTrue,
+      );
+
       await runtime.startTournament();
       var completedMatches = 0;
       while (true) {
@@ -132,7 +148,7 @@ void main() {
   );
 
   test(
-    'account reset закрывает spectator и очищает in-memory session',
+    'account reset очищает projection, но сохраняет waiting server',
     () async {
       SharedPreferences.setMockInitialValues({
         'confirm_tournament_start': false,
@@ -155,8 +171,8 @@ void main() {
       expect(runtime.hostTournamentProjection, isNull);
       expect(runtime.historyProjection, isNull);
       expect(server.projection, isNull);
-      expect(server.state.status, SpectatorServerStatus.stopped);
-      expect(server.stopCalls, greaterThan(0));
+      expect(server.state.status, SpectatorServerStatus.serving);
+      expect(server.stopCalls, 0);
       expect(server.clearCalls, greaterThan(0));
       expect((await SharedPreferences.getInstance()).getKeys(), isEmpty);
     },

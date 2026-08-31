@@ -7,6 +7,7 @@ import '../../presentation/design_system/design_system.dart';
 import '../navigation/models/app_route_projection.dart';
 import '../navigation/models/navigation_intent.dart';
 import '../runtime/app_runtime.dart';
+import '../../application/tournament/models/host_tournament_projection.dart';
 import '../../application/spectator/models/spectator_server_state.dart';
 import 'app_route_screen.dart';
 
@@ -98,10 +99,14 @@ final class _TournamentHubAppState extends State<TournamentHubApp>
             ),
           );
           if (hostRuntime == null) return screen();
-          return StreamBuilder<SpectatorServerState>(
-            stream: hostRuntime.spectatorServerStateChanges,
-            initialData: hostRuntime.spectatorServerState,
-            builder: (_, _) => screen(),
+          return StreamBuilder<HostTournamentProjection?>(
+            stream: hostRuntime.hostTournamentProjectionChanges,
+            initialData: hostRuntime.hostTournamentProjection,
+            builder: (_, _) => StreamBuilder<SpectatorServerState>(
+              stream: hostRuntime.spectatorServerStateChanges,
+              initialData: hostRuntime.spectatorServerState,
+              builder: (_, _) => screen(),
+            ),
           );
         },
       ),

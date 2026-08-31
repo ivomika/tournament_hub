@@ -47,6 +47,7 @@ final class HostTournamentService {
     required String title,
     required String formatId,
   }) async {
+    _engine(formatId);
     if (await _activeStore.readActive() != null) {
       throw StateError('An active tournament already exists.');
     }
@@ -68,6 +69,21 @@ final class HostTournamentService {
       eventType: 'tournament_created',
       payload: {'formatId': formatId},
       expectedRevision: 0,
+    );
+  }
+
+  Future<HostTournamentSession> updateDraft(
+    HostTournamentSession session, {
+    required String title,
+    required String formatId,
+  }) {
+    _engine(formatId);
+    return _mutateTournament(
+      session,
+      eventType: 'draft_updated',
+      payload: {'formatId': formatId},
+      mutate: (value, now) =>
+          value.updateDraft(title: title, formatId: formatId, nowUtc: now),
     );
   }
 

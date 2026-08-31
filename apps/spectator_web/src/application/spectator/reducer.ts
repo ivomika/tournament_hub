@@ -22,6 +22,7 @@ export interface SpectatorClientState {
 
 export type SpectatorClientAction =
   | { type: "connection"; connection: SpectatorConnectionState }
+  | { type: "waiting" }
   | { type: "snapshot"; projection: SpectatorProjectionDto }
   | { type: "event"; event: ProjectionReplacedEvent }
   | { type: "failure"; code: string; incompatible?: boolean };
@@ -38,6 +39,8 @@ export function spectatorReducer(
   switch (action.type) {
     case "connection":
       return { ...state, connection: action.connection, errorCode: undefined };
+    case "waiting":
+      return initialSpectatorState;
     case "snapshot":
       return {
         connection:

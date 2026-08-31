@@ -2,6 +2,30 @@ import 'package:flutter/widgets.dart';
 
 import '../../design_system/design_system.dart';
 
+class MainLastTournamentViewData {
+  const MainLastTournamentViewData({
+    required this.id,
+    required this.title,
+    required this.summary,
+    required this.isCancelled,
+    this.champion,
+  });
+
+  final String id;
+  final String title;
+  final String summary;
+  final bool isCancelled;
+  final PreviewParticipant? champion;
+}
+
+const previewLastTournament = MainLastTournamentViewData(
+  id: 'preview-last',
+  title: 'Weekend Cup',
+  summary: 'Single Elimination · 6 участников · 24 августа',
+  isCancelled: false,
+  champion: previewIvan,
+);
+
 class MainScreenPreview extends StatelessWidget {
   const MainScreenPreview({
     this.activeTournamentName = 'Friday Fight Night',
@@ -9,10 +33,10 @@ class MainScreenPreview extends StatelessWidget {
     this.activeFirst = previewIvan,
     this.activeSecond = previewMira,
     this.showMatchupSummary = true,
+    this.lastTournament = previewLastTournament,
     this.onContinue,
     this.onCreate,
-    this.onCreateSingleElimination,
-    this.onCreateRoundRobin,
+    this.onOpenLastTournament,
     super.key,
   });
 
@@ -21,10 +45,10 @@ class MainScreenPreview extends StatelessWidget {
   final PreviewParticipant activeFirst;
   final PreviewParticipant activeSecond;
   final bool showMatchupSummary;
+  final MainLastTournamentViewData? lastTournament;
   final VoidCallback? onContinue;
   final VoidCallback? onCreate;
-  final VoidCallback? onCreateSingleElimination;
-  final VoidCallback? onCreateRoundRobin;
+  final ValueChanged<String>? onOpenLastTournament;
 
   @override
   Widget build(BuildContext context) => AppShell(
@@ -61,32 +85,30 @@ class MainScreenPreview extends StatelessWidget {
         ],
         DsSection(
           title: 'Новый турнир',
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              DsAction(
-                label: 'Создать Double Elimination',
-                kind: DsActionKind.secondary,
-                onPressed: activeTournamentName == null ? onCreate : null,
-              ),
-              const DsGap(DsSpace.sm),
-              DsAction(
-                label: 'Создать Single Elimination',
-                kind: DsActionKind.secondary,
-                onPressed: activeTournamentName == null
-                    ? onCreateSingleElimination
-                    : null,
-              ),
-              const DsGap(DsSpace.sm),
-              DsAction(
-                label: 'Создать Round Robin',
-                kind: DsActionKind.secondary,
-                onPressed: activeTournamentName == null
-                    ? onCreateRoundRobin
-                    : null,
-              ),
-            ],
+          child: DsAction(
+            label: 'Создать турнир',
+            kind: DsActionKind.secondary,
+            onPressed: activeTournamentName == null ? onCreate : null,
           ),
+        ),
+        const DsGap(DsSpace.lg),
+        DsSection(
+          title: 'Последний турнир',
+          child: lastTournament == null
+              ? const TournamentEmptyState(
+                  title: 'История пуста',
+                  message: 'Завершённый или отменённый турнир появится здесь.',
+                )
+              : HistorySnapshotCard(
+                  density: DsDensity.compact,
+                  tournamentName: lastTournament!.title,
+                  summary: lastTournament!.summary,
+                  champion: lastTournament!.champion,
+                  isCancelled: lastTournament!.isCancelled,
+                  onOpen: onOpenLastTournament == null
+                      ? null
+                      : () => onOpenLastTournament!(lastTournament!.id),
+                ),
         ),
       ],
     ),

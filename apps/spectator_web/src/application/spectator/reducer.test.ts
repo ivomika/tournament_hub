@@ -54,4 +54,11 @@ describe("Spectator reducer", () => {
     expect(restored.lastSequence).toBe(10);
     expect(restored.connection).toBe("synchronizing");
   });
+
+  it("waiting удаляет last-known terminal projection", () => {
+    const waiting = spectatorReducer(live, { type: "waiting" });
+    expect(waiting.connection).toBe("waiting");
+    expect(waiting.projection).toBeUndefined();
+    expect(waiting.lastSequence).toBe(0);
+  });
 });

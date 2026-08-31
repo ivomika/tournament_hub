@@ -39,7 +39,7 @@
 |---|---|---|---|
 | OD-012 (Spectator) | Protocol-level число connections не ограничено; replay window 4096 public events, затем full snapshot; inbound/outbound limits зафиксированы SPEC-001. | 2026-08-30, product owner + task 098 | [WebSocket v1](../data/websocket-protocol-v1.md#решения-spec-001--spec-002), schema/replay/security tests; runtime capacity — 099 |
 | OD-014 (Spectator) | Публикуется только allowlisted tournament-scoped projection; profile/local/network/diagnostic fields запрещены. Participant privacy остаётся вне MVP. | 2026-08-30, product owner + task 098 | [WebSocket v1](../data/websocket-protocol-v1.md#spectator-projection), redaction/schema tests |
-| OD-013 | Any-address bind, 8080→ephemeral fallback, endpoint refresh без domain mutation; mobile pause stops и resume restarts/full-sync, desktop inactive продолжает serving. | 2026-08-30, Architecture/Operations + task 099 | [ADR-0012](../adr/0012-spectator-server-lifecycle.md), lifecycle/integration tests 099 |
+| OD-013 | Any-address bind, 8080→ephemeral fallback, endpoint refresh без domain mutation; server доступен весь foreground app runtime, mobile pause stops и resume restarts/full-sync, desktop inactive продолжает serving. | 2026-08-30/31, Architecture/Operations + tasks 099/113 | [ADR-0012](../adr/0012-spectator-server-lifecycle.md), [ADR-0014](../adr/0014-always-available-spectator-runtime.md), lifecycle/integration tests 099/113 |
 
 ## Шаблон закрытия
 

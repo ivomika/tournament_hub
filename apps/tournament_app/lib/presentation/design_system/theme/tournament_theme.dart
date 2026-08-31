@@ -15,6 +15,7 @@ import '../components/ds_flow/ds_flow_theme.dart';
 import '../components/ds_info_row/ds_info_row_theme.dart';
 import '../components/ds_progress/ds_progress_theme.dart';
 import '../components/ds_section/ds_section_theme.dart';
+import '../components/ds_select/ds_select_theme.dart';
 import '../components/ds_spacing/ds_spacing_theme.dart';
 import '../components/ds_surface/ds_surface_theme.dart';
 import '../components/ds_text/ds_text_theme.dart';
@@ -194,6 +195,10 @@ abstract final class TournamentTheme {
           success: TournamentTokens.colorStatusSuccess,
           indicatorSize: TournamentTokens.fontSizeV18,
           indicatorStrokeWidth: TournamentTokens.spaceV1,
+        ),
+        DsSelectTheme(
+          decoration: fieldDecoration,
+          menuMaxHeight: TournamentTokens.breakpointCompactMax,
         ),
         const DsFlowTheme(gap: TournamentTokens.spaceV3),
         const FighterAvatarTheme(

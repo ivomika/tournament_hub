@@ -137,6 +137,7 @@ Tournament core оперирует participant IDs и не импортируе�
 - Bootstrap получает application ports, публикует immutable `AppState` и не импортирует presentation/router.
 - Composition владеет созданием и disposal dependency graph, но не содержит Domain decisions.
 - Tests используют fakes на портах, а не framework globals.
+- Spectator transport стартует и завершается app/platform lifecycle, а public tournament projection независимо переключается между waiting и committed Distribution/Running/Finished по [ADR-0014](../adr/0014-always-available-spectator-runtime.md).
 
 ## Error model
 

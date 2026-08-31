@@ -15,6 +15,10 @@ void main() {
     bundle = await Directory.systemTemp.createTemp('spectator-bundle-');
     await File('${bundle.path}${Platform.pathSeparator}index.html')
         .writeAsString('<!doctype html><title>Spectator</title>');
+    await Directory('${bundle.path}${Platform.pathSeparator}assets').create();
+    await File(
+      '${bundle.path}${Platform.pathSeparator}assets${Platform.pathSeparator}app.js',
+    ).writeAsString('console.log("spectator");');
     server = SpectatorLanServer(
       preferredPort: 0,
       staticDirectory: bundle.path,
@@ -40,6 +44,16 @@ void main() {
       expect(root.statusCode, 200);
       expect(root.body, contains('Spectator'));
       expect((await _request(endpoint, 'HEAD', '/')).statusCode, 200);
+      expect((await _request(endpoint, 'GET', '/spectator')).statusCode, 200);
+      expect(endpoint.path, '/');
+
+      final js = await _request(endpoint, 'GET', '/assets/index.js');
+      expect(js.statusCode, 404);
+      expect(js.body, isNot(contains('<!doctype html>')));
+      final existingJs = await _request(endpoint, 'GET', '/assets/app.js');
+      expect(existingJs.statusCode, 200);
+      expect(existingJs.body, contains('console.log'));
+      expect(existingJs.contentType, contains('javascript'));
 
       final snapshot = await _request(
         endpoint,
@@ -177,6 +191,39 @@ void main() {
     expect(server.state.endpoint!.port, isPositive);
     expect(firstPort, isPositive);
   });
+
+  test('предпочитает физический LAN interface виртуальному VPN', () {
+    final selected = selectSpectatorLanAddress([
+      SpectatorLanAddressCandidate('utun4', InternetAddress('10.8.0.2')),
+      SpectatorLanAddressCandidate(
+        'bridge100',
+        InternetAddress('192.168.64.1'),
+      ),
+      SpectatorLanAddressCandidate('en0', InternetAddress('192.168.1.42')),
+    ]);
+
+    expect(selected?.address, '192.168.1.42');
+  });
+
+  test(
+    'использует подготовленный bundle вместо несуществующего пути',
+    () async {
+      final resolved = SpectatorLanServer(
+        preferredPort: 0,
+        staticDirectory: '${bundle.path}-missing',
+        bundleResolver: () async => bundle,
+        addressResolver: () async => InternetAddress.loopbackIPv4,
+      );
+      addTearDown(resolved.stop);
+
+      await resolved.start();
+      final response = await _request(resolved.state.endpoint!, 'GET', '/');
+
+      expect(resolved.state.status, SpectatorServerStatus.serving);
+      expect(response.statusCode, 200);
+      expect(response.body, contains('Spectator'));
+    },
+  );
 }
 
 Future<_TestResponse> _request(
@@ -190,16 +237,21 @@ Future<_TestResponse> _request(
   if (origin != null) request.headers.set('origin', origin);
   final response = await request.close();
   final body = await utf8.decoder.bind(response).join();
-  final result = _TestResponse(response.statusCode, body);
+  final result = _TestResponse(
+    response.statusCode,
+    body,
+    response.headers.contentType?.mimeType ?? '',
+  );
   client.close(force: true);
   return result;
 }
 
 final class _TestResponse {
-  const _TestResponse(this.statusCode, this.body);
+  const _TestResponse(this.statusCode, this.body, this.contentType);
 
   final int statusCode;
   final String body;
+  final String contentType;
 }
 
 SpectatorTournamentProjection _projection({required int sequence}) =>

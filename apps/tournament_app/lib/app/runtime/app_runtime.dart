@@ -29,11 +29,13 @@ abstract interface class AppProfileRuntime {
 
 abstract interface class AppHostTournamentRuntime {
   HostTournamentProjection? get hostTournamentProjection;
+  Stream<HostTournamentProjection?> get hostTournamentProjectionChanges;
   SpectatorServerState get spectatorServerState;
   Stream<SpectatorServerState> get spectatorServerStateChanges;
   String? get resultEntryMatchId;
 
   Future<void> createTournament({String formatId = 'double-elimination'});
+  Future<void> updateDraft({required String title, required String formatId});
   void continueTournament();
   Future<void> openTournament();
   Future<void> addGuest(String nickname);

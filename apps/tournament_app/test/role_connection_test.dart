@@ -7,16 +7,42 @@ import 'package:tournament_hub_app/presentation/screens/join/join_screen.dart';
 void main() {
   const endpoint = 'http://192.168.1.42:8080';
 
-  testWidgets('Host Open постоянно показывает participant invite', (
+  testWidgets('Host Open скрывает participant invite без capability', (
     tester,
   ) async {
     await tester.pumpWidget(_app(const HostOpenScreenPreview()));
     await tester.pumpAndSettle();
 
-    expect(find.byType(ParticipantInviteCard), findsOneWidget);
-    expect(find.text('УЧАСТНИК · ВХОД В ЛОББИ'), findsOneWidget);
-    expect(find.byKey(const Key('participant-invite-qr')), findsOneWidget);
+    expect(find.byType(ParticipantInviteCard), findsNothing);
+    expect(find.byKey(const Key('participant-invite-qr')), findsNothing);
     expect(find.byType(SpectatorAccessDialog), findsNothing);
+    expect(
+      find.descendant(
+        of: find.byKey(const Key('page-layout-primary')),
+        matching: find.text('Участники'),
+      ),
+      findsOneWidget,
+    );
+    expect(
+      find.descendant(
+        of: find.byKey(const Key('page-layout-secondary')),
+        matching: find.text('Добавить гостя'),
+      ),
+      findsOneWidget,
+    );
+  });
+
+  testWidgets('Host Open показывает participant invite по capability', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      _app(
+        const HostOpenScreenPreview(
+          participantInvite: HostOpenScreenPreview.previewParticipantInvite,
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
 
     final qr = tester.widget<QrCode>(
       find.byKey(const Key('participant-invite-qr')),
@@ -49,7 +75,7 @@ void main() {
     await tester.tap(find.text('Вернуться к лобби'));
     await tester.pumpAndSettle();
     expect(find.byType(SpectatorAccessDialog), findsNothing);
-    expect(find.byType(ParticipantInviteCard), findsOneWidget);
+    expect(find.byType(ParticipantInviteCard), findsNothing);
   });
 
   testWidgets('participant terminal states не оставляют рабочий QR', (
@@ -127,8 +153,7 @@ Widget _app(Widget child) => MaterialApp(
 );
 
 Future<void> _openSpectatorAccess(WidgetTester tester) async {
-  await tester.tap(find.byTooltip('Дополнительные действия').first);
-  await tester.pumpAndSettle();
+  await tester.ensureVisible(find.byKey(const Key('open-spectator-access')));
   await tester.tap(find.byKey(const Key('open-spectator-access')));
   await tester.pumpAndSettle();
 }

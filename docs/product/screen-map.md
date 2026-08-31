@@ -35,6 +35,7 @@ Main
 ```
 
 Main всегда доступен без отмены active tournament. При active tournament создание второго скрыто/заблокировано, а «Продолжить» ведёт в экран, соответствующий authoritative state.
+Main показывает одну карточку создания без выбора формата: название и режим задаются на Draft. Действие «Продолжить» сохраняется независимо от блока последнего terminal snapshot. Последний завершённый или отменённый турнир показывается отдельной read-only карточкой с переходом в `historyDetail`; при пустой истории отображается empty state.
 
 ## Logical route catalog
 
@@ -71,9 +72,9 @@ Draft/Open/Distribution/Running
 
 | Tournament state | Primary screen content | Host actions | Navigation guarantees |
 |---|---|---|---|
-| Draft | Settings form + persistent summary | Save/open/cancel | Back/Main сохраняет Draft |
-| Open | Постоянное Participant-приглашение, roster, Guests; Spectator QR по явному действию | Add/remove, открыть spectator access, distribution, cancel | Settings immutable; Main сохраняет active; spectator availability не блокирует progression |
-| Distribution | Full fighter assignments | Reroll All, back Open, start, cancel | Back transition только explicit Domain command |
+| Draft | Прежняя линейная композиция параметров: название, компактный dropdown DE/SE/RR и stage summary | Save/open/cancel | Back/Main сохраняет Draft; Open возможен только после committed valid settings |
+| Open | Общий двухрегионный layout: roster — основной блок, guest form расположена выше optional Participant invite во втором блоке; Spectator access рядом со статусом | Add/remove, открыть spectator access, distribution, cancel | Settings immutable; Main сохраняет active; недоступные Participant/Spectator возможности не блокируют local progression |
+| Distribution | Full fighter assignments и committed reroll feedback | Reroll All, back Open, start, cancel | Reroll блокирует duplicate command и сразу обновляет projection; Back transition только explicit Domain command |
 | Running | Current match + structure/progress | Result, technical, valid correction, withdrawal | Нельзя route-назад в Open/Distribution |
 | Finished | Champion + ranking + structure | Read-only | Main/History доступны |
 | Cancelled | Factual terminal summary | Read-only | Main/History доступны |
@@ -97,7 +98,8 @@ Participant route не показывает organizer actions. Disconnect/back �
 ## Spectator Web flow
 
 ```text
-Load bundle -> Waiting/Connecting
+Host foreground start -> Static bundle available
+  -> Waiting (нет public tournament, Draft/Open/Cancelled или terminal уже закрыт)
   -> Distribution presentation
   -> Running Dashboard <-> Tournament View
   -> Finished Champion <-> Final Structure/Ranking
@@ -105,7 +107,7 @@ Load bundle -> Waiting/Connecting
 Any connected view -> Disconnected/Stale -> Reconnecting -> Full projection
 ```
 
-Spectator не имеет mutation routes. Cancelled tournament не публикуется. Manual refresh не является sync mechanism.
+Spectator не имеет mutation routes. LAN server не зависит от active tournament и сохраняет endpoint между waiting и public стадиями; mobile background остаётся под OS lifecycle policy. Cancelled tournament не публикуется. Manual refresh не является sync mechanism.
 
 ## Route guards
 
