@@ -192,6 +192,10 @@ final class AppComposition
 
   @override
   Future<void> resetAccount() async {
+    await _stopSpectatorServer(clearProjection: true);
+    _hostTournamentSession = null;
+    _historyProjection = null;
+    _correctionMatchId = null;
     await _profiles.reset();
     await _bootstrap.retry();
   }
@@ -460,7 +464,7 @@ final class AppComposition
         final projection = SpectatorProjectionFactory.fromHost(host);
         if (projection != null) {
           await server.publish(projection);
-        } else if (host.lifecycle == TournamentLifecycle.cancelled.name) {
+        } else {
           await server.clear();
         }
       } catch (_) {
@@ -471,12 +475,31 @@ final class AppComposition
 
   @override
   Future<void> retrySpectatorServer() async {
+    await _stopSpectatorServer();
+    _scheduleSpectatorSync();
+    await _spectatorWork;
+  }
+
+  @override
+  Future<void> suspendSpectatorServer() => _stopSpectatorServer();
+
+  @override
+  Future<void> resumeSpectatorServer() async {
+    _scheduleSpectatorSync();
+    await _spectatorWork;
+  }
+
+  Future<void> _stopSpectatorServer({bool clearProjection = false}) async {
     final server = _spectatorServer;
     if (server == null) return;
-    try {
-      await server.stop();
-    } catch (_) {}
-    _scheduleSpectatorSync();
+    _spectatorWork = _spectatorWork.then((_) async {
+      try {
+        if (clearProjection) await server.clear();
+        await server.stop();
+      } catch (_) {
+        // Spectator availability is optional and cannot block Host lifecycle.
+      }
+    });
     await _spectatorWork;
   }
 

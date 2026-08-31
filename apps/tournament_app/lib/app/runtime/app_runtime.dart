@@ -51,6 +51,8 @@ abstract interface class AppHostTournamentRuntime {
   Future<void> cancelTournament();
   Future<void> leaveTerminalTournament();
   Future<void> retrySpectatorServer();
+  Future<void> suspendSpectatorServer();
+  Future<void> resumeSpectatorServer();
 }
 
 abstract interface class AppHistoryRuntime {

@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../../presentation/design_system/design_system.dart';
@@ -18,18 +19,45 @@ final class TournamentHubApp extends StatefulWidget {
   State<TournamentHubApp> createState() => _TournamentHubAppState();
 }
 
-final class _TournamentHubAppState extends State<TournamentHubApp> {
+final class _TournamentHubAppState extends State<TournamentHubApp>
+    with WidgetsBindingObserver {
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     unawaited(widget.runtime.start());
   }
 
   @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
     widget.runtime.dispose();
     super.dispose();
   }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (!_isMobilePlatform || widget.runtime is! AppHostTournamentRuntime) {
+      return;
+    }
+    final runtime = widget.runtime as AppHostTournamentRuntime;
+    switch (state) {
+      case AppLifecycleState.resumed:
+        unawaited(runtime.resumeSpectatorServer());
+        break;
+      case AppLifecycleState.paused:
+      case AppLifecycleState.hidden:
+      case AppLifecycleState.detached:
+        unawaited(runtime.suspendSpectatorServer());
+        break;
+      case AppLifecycleState.inactive:
+        break;
+    }
+  }
+
+  bool get _isMobilePlatform =>
+      defaultTargetPlatform == TargetPlatform.android ||
+      defaultTargetPlatform == TargetPlatform.iOS;
 
   @override
   Widget build(BuildContext context) {

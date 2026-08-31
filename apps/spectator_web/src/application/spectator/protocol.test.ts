@@ -1,8 +1,24 @@
+import { readFileSync } from "node:fs";
+import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 import { parseProjection, parseProjectionEvent } from "./protocol.ts";
 import { projectionFixture } from "./testFixture.ts";
 
 describe("Spectator protocol v1", () => {
+  it("читает канонические snapshot и event fixtures из docs", () => {
+    const fixturePath = resolve(
+      process.cwd(),
+      "../../docs/data/fixtures/spectator-protocol-v1.json",
+    );
+    const fixture = JSON.parse(readFileSync(fixturePath, "utf8")) as {
+      snapshot: unknown;
+      event: unknown;
+    };
+
+    expect(parseProjection(fixture.snapshot).ok).toBe(true);
+    expect(parseProjectionEvent(fixture.event).ok).toBe(true);
+  });
+
   it("принимает allowlisted projection", () => {
     expect(parseProjection(projectionFixture)).toEqual({
       ok: true,

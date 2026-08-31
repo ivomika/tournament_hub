@@ -7,7 +7,7 @@
 ## Активные задачи
 
 - ⛔ **053** — Привести Spectator Web к утверждённому visual language — [детали](tasks/TH-20260828-053.md)
-- 📝 **101** — Провести MVP Host + Guests + Spectator integration и hardening — [детали](tasks/TH-20260830-101.md)
+- ⛔ **101** — Провести MVP Host + Guests + Spectator integration и hardening — [детали](tasks/TH-20260830-101.md)
 
 ## Завершённые задачи
 

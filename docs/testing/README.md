@@ -1,5 +1,7 @@
 # Testing strategy
 
+Текущий результат вертикальной MVP-проверки: [Host + Guests + Spectator acceptance report](mvp-acceptance-report.md).
+
 ## Принцип
 
 Тест располагается на самом нижнем слое, владеющем решением. UI-тест не заменяет domain invariant test; E2E не заменяет migration contract test.

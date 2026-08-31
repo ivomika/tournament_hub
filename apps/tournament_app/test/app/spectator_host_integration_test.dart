@@ -1,9 +1,13 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tournament_hub_app/app/composition/app_composition.dart';
 import 'package:tournament_hub_app/application/spectator/models/spectator_projection.dart';
 import 'package:tournament_hub_app/application/spectator/models/spectator_server_state.dart';
 import 'package:tournament_hub_app/application/spectator/ports/spectator_server.dart';
+import 'package:tournament_hub_app/infrastructure/spectator/spectator_lan_server.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -28,6 +32,66 @@ void main() {
       expect(runtime.hostTournamentProjection!.lifecycle, 'distribution');
       expect(runtime.hostTournamentProjection!.participants, hasLength(4));
       expect(server.startCalls, greaterThan(0));
+    },
+  );
+
+  test(
+    'committed Host projection доступна через реальный LAN adapter',
+    () async {
+      SharedPreferences.setMockInitialValues({});
+      final bundle = await Directory.systemTemp.createTemp(
+        'spectator-host-bundle-',
+      );
+      await File('${bundle.path}${Platform.pathSeparator}index.html')
+          .writeAsString('<!doctype html><title>Spectator</title>');
+      final server = SpectatorLanServer(
+        preferredPort: 0,
+        staticDirectory: bundle.path,
+        addressResolver: () async => InternetAddress.loopbackIPv4,
+      );
+      final runtime = AppComposition.memory(spectatorServer: server);
+      addTearDown(() async {
+        runtime.dispose();
+        await server.stop();
+        await bundle.delete(recursive: true);
+      });
+
+      await runtime.start();
+      await runtime.createProfile('Организатор');
+      await runtime.createTournament(formatId: 'single-elimination');
+      await runtime.openTournament();
+      await runtime.addGuest('Гость 1');
+      await runtime.startDistribution();
+      await runtime.resumeSpectatorServer();
+
+      final endpoint = server.state.endpoint!;
+      final socket = await Socket.connect(
+        InternetAddress.loopbackIPv4,
+        endpoint.port,
+      );
+      socket.write(
+        'GET /api/spectator/v1/snapshot HTTP/1.1\r\n'
+        'Host: ${endpoint.host}:${endpoint.port}\r\n'
+        'Connection: close\r\n\r\n',
+      );
+      await socket.flush();
+      final rawResponse = await utf8.decoder
+          .bind(socket.cast<List<int>>())
+          .join();
+      final separator = rawResponse.indexOf('\r\n\r\n');
+      final statusLine = rawResponse.substring(0, rawResponse.indexOf('\r\n'));
+      final payload = jsonDecode(
+        rawResponse.substring(separator + 4),
+      ) as Map<String, Object?>;
+
+      expect(statusLine, contains(' ${HttpStatus.ok} '));
+      expect(
+        (payload['tournament']! as Map<String, Object?>)['lifecycle'],
+        'distribution',
+      );
+      expect(payload['participants'], hasLength(2));
+      expect(payload.toString(), isNot(contains('profileId')));
+      expect(payload.toString(), isNot(contains('localProfileId')));
     },
   );
 }
