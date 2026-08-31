@@ -5,6 +5,7 @@
       "name": "Flutter: Tournament Hub",
       "request": "launch",
       "type": "dart",
+      "preLaunchTask": "Tournament Hub: prepare Spectator Web",
       "cwd": "${workspaceFolder}/apps/tournament_app",
       "program": "${workspaceFolder}/apps/tournament_app/lib/main.dart"
     },

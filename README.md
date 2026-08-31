@@ -37,7 +37,9 @@ make check
 make clean
 ```
 
-`make run` запускает Flutter, `make run-spectator` — Vite development server. `make run` без `DEVICE` передаёт выбор доступного device Flutter. Общий `make build` последовательно собирает Flutter и Spectator Web; без `TARGET` Flutter выбирает desktop target текущего host. Для изолированной сборки есть `build-flutter` и `build-spectator`. Явно поддерживаемые Flutter build targets: `apk`, `appbundle`, `ios`, `linux`, `macos`, `web`, `windows`. Наличие runner не является обещанием production support: release matrix остаётся отдельным решением OD-009.
+`make run` сначала подготавливает `apps/spectator_web/dist`, затем запускает Flutter Host. Поэтому адрес/QR из Host отдаёт настоящий Spectator Web, а не `404 Not Found`. Команда без `DEVICE` передаёт выбор доступного device Flutter.
+
+`make run-spectator` запускает отдельный Vite development server только для разработки интерфейса. Он не заменяет LAN-server Host и без Host API показывает состояние подключения. Общий `make build` последовательно собирает Flutter и Spectator Web; без `TARGET` Flutter выбирает desktop target текущего host. Для изолированной сборки есть `build-flutter` и `build-spectator`. Явно поддерживаемые Flutter build targets: `apk`, `appbundle`, `ios`, `linux`, `macos`, `web`, `windows`. Наличие runner не является обещанием production support: release matrix остаётся отдельным решением OD-009.
 
 Widgetbook запускается отдельным entry point через `make run-widgetbook`. Внутри каталога доступны project viewports `Mobile` и `Desktop`, design tokens, reusable components и screen previews. VS Code configurations `Flutter: Tournament Hub` и `Flutter: Widgetbook` запускают entry points независимо и позволяют выбрать Flutter device стандартным способом.
 

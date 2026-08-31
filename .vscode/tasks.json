@@ -18,6 +18,16 @@
         "cwd": "${workspaceFolder}"
       },
       "problemMatcher": []
+    },
+    {
+      "label": "Tournament Hub: prepare Spectator Web",
+      "type": "process",
+      "command": "dart",
+      "args": ["run", "tool/project.dart", "build-spectator"],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
     }
   ]
 }

@@ -27,11 +27,11 @@
 | `make test` | Unit/widget/component tests |
 | `make architecture` | Layer imports и design-system boundaries с positive/negative fixtures |
 | `make check` | Assets + format check + lint + tests + docs links |
-| `make run DEVICE=...` | Запускает Flutter на явно/безопасно выбранном device |
+| `make run DEVICE=...` | Подготавливает Spectator bundle и запускает Flutter Host на выбранном device |
 | `make run-widgetbook DEVICE=...` | Запускает Flutter Widgetbook через отдельный entry point |
 | `make build` | Последовательно собирает выбранный Flutter target и Spectator Web |
 
-Windows/macOS/Linux branching реализован в `tool/project.dart`, а Makefile остаётся thin interface без bash/cmd/PowerShell-specific логики. `DEVICE` задаёт Flutter run target; `TARGET` задаёт Flutter build target, а без него выбирается desktop target текущего host. `run-spectator`, `build-flutter` и `build-spectator` доступны для изолированной работы. `make test` и `make check` включают Flutter suites и Vitest protocol/reducer/component suites Spectator Web.
+Windows/macOS/Linux branching реализован в `tool/project.dart`, а Makefile остаётся thin interface без bash/cmd/PowerShell-specific логики. `DEVICE` задаёт Flutter run target; `TARGET` задаёт Flutter build target, а без него выбирается desktop target текущего host. `make run` перед Flutter выполняет Spectator Web preparation, потому что Shelf Host раздаёт готовый `dist`; отсутствие bundle не является рабочим integrated run. `run-spectator` запускает standalone Vite UI server и не проксирует Host API. `build-flutter` и `build-spectator` доступны для изолированной работы. `make test` и `make check` включают Flutter suites и Vitest protocol/reducer/component suites Spectator Web.
 
 Flutter presentation catalog находится в `lib/main_widgetbook.dart`. Он использует generated bindings из `docs/design/tokens.json` и не является production router. Запуск также доступен через `.vscode/launch.json`; VS Code выбирает конкретный Flutter device, а Widgetbook `ViewportAddon` переключает project compositions Mobile/Desktop внутри catalog. `make architecture`, `make test` и `make check` запускают layer import gate из `tool/check_flutter_layer_imports.dart`, а затем design-system check. Gate исполняет [ADR-0010](../adr/0010-layer-import-boundaries.md) и [ADR-0011](../adr/0011-app-lifecycle-and-state-driven-routing.md), одинаково проверяет relative и `package:tournament_hub_app` imports и завершает команду с ошибкой при reverse dependency или router-owned lifecycle coupling.
 

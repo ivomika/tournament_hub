@@ -8,6 +8,8 @@ Read-only surface ограничен `GET /api/spectator/v1/snapshot`, WebSocket
 
 Отсутствующий static bundle переводит сервис в `degraded` с safe code `STATIC_BUNDLE_MISSING`, сохраняя snapshot/WebSocket и Host progression. Отсутствующий LAN address использует `LAN_ADDRESS_UNAVAILABLE`; bind failure — `SERVER_BIND_FAILED`; внутренние exception/stack trace наружу не передаются. Terminal `finished` остаётся доступен как HTTP snapshot, а live sockets закрываются с `TOURNAMENT_TERMINATED`; `cancelled` public projection не создаётся.
 
+Development integrated run выполняется через root `make run`: orchestration сначала подготавливает `apps/spectator_web/dist`, затем запускает Flutter Host, который раздаёт bundle и API с одного origin. `make run-spectator` — отдельный Vite UI server; он не является Host LAN endpoint и не подменяет snapshot/WebSocket API.
+
 Host UI показывает bind address/port, connection readiness, connected client count как diagnostics (не business presence), last error и recovery. Stack trace не показывается пользователю.
 
 Presentation boundary получает готовую `HostOpenConnectionViewData`: локальный endpoint, typed `ConnectionQrState`, число spectator clients и безопасные status/detail labels. `Host/Open` не выбирает интерфейс, port или rebind policy и не собирает URI; он показывает компактную диагностику и передаёт ту же projection в on-demand `ConnectionQrCard`. Состояние `copied` локально для UI и не является состоянием Host server.

@@ -26,6 +26,7 @@ Future<void> main(List<String> arguments) async {
       return;
     case 'run':
       final device = options['device'];
+      await runner.prepareSpectatorBundle();
       await runner.flutter([
         'run',
         if (device != null && device.isNotEmpty) ...['-d', device],
@@ -183,6 +184,13 @@ final class ProjectRunner {
 
   Future<void> buildSpectator() => npm(const ['run', 'build']);
 
+  Future<void> prepareSpectatorBundle() async {
+    stdout.writeln(
+      'Preparing Spectator Web bundle for the Flutter Host LAN server...',
+    );
+    await buildSpectator();
+  }
+
   Future<void> generateTokens() async {
     await dart(const ['tool/generate_flutter_tokens.dart']);
     await dart(const ['tool/generate_web_tokens.dart']);
@@ -235,12 +243,12 @@ Tournament Hub project commands
   make setup                 Install Flutter and Spectator dependencies
   make generate-tokens       Generate Flutter bindings from design manifest
   make sync-fighter-assets   Sync validated Flutter fighter artwork
-  make run                   Run on Flutter's selected device
+  make run                   Prepare Spectator Web and run Flutter Host
   make run DEVICE=windows    Run Flutter on an explicit device
   make run-widgetbook        Run Widgetbook on Flutter's selected device
   make run-widgetbook DEVICE=windows
                              Run Widgetbook on an explicit device
-  make run-spectator         Run the Spectator Vite dev server
+  make run-spectator         Run standalone Spectator UI Vite server
   make build                 Build Flutter and Spectator Web
   make build TARGET=web      Build selected Flutter target and Spectator Web
   make build-flutter         Build only Flutter
