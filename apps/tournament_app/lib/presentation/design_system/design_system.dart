@@ -32,6 +32,7 @@ export 'components/outcome_picker/outcome_picker.dart';
 export 'components/page_header/page_header.dart';
 export 'components/page_layout/page_layout.dart';
 export 'components/participant_identity/participant_identity.dart';
+export 'components/participant_assignment_grid/participant_assignment_grid.dart';
 export 'components/participant_invite_card/participant_invite_card.dart';
 export 'components/participant_invite_card/participant_invite_view_data.dart';
 export 'components/participant_join_panel/participant_join_panel.dart';

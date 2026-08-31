@@ -30,6 +30,7 @@ import '../components/outcome_picker/outcome_picker_theme.dart';
 import '../components/page_header/page_header_theme.dart';
 import '../components/page_layout/page_layout_theme.dart';
 import '../components/participant_identity/participant_identity_theme.dart';
+import '../components/participant_assignment_grid/participant_assignment_grid_theme.dart';
 import '../components/participant_invite_card/participant_invite_card_theme.dart';
 import '../components/participant_join_panel/participant_join_panel_theme.dart';
 import '../components/profile_summary/profile_summary_theme.dart';
@@ -221,6 +222,14 @@ abstract final class TournamentTheme {
           compactGap: TournamentTokens.spaceV3,
           standardGap: TournamentTokens.spaceV4,
           prominentGap: TournamentTokens.spaceV6,
+        ),
+        const AssignmentGridTheme(
+          mediumBreakpoint: TournamentTokens.breakpointMediumMin,
+          expandedBreakpoint: TournamentTokens.breakpointExpandedMin,
+          gap: TournamentTokens.spaceV3,
+          compactColumns: 1,
+          mediumColumns: 2,
+          expandedColumns: 3,
         ),
         const HistorySnapshotCardTheme(
           compactGap: TournamentTokens.spaceV2,

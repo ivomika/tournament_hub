@@ -96,6 +96,7 @@ Surface tone выражает роль, а не вложенность: `base` �
 Каждый component имеет необходимые default, hover/focus/pressed, disabled, loading и error states.
 
 - `ParticipantIdentity`: до assignment — nickname/status; после — artwork, fighter name, nickname и badge «Гость».
+- `ParticipantAssignmentGrid`: сохраняет порядок участников и полную fighter identity; использует 1/2/3 колонки на compact/medium/expanded ширине без `Wrap`, а высота строки адаптируется к длинному тексту.
 - `FighterAvatar`: stable crop variants, semantic label, fallback/placeholder.
 - `MatchCard/CurrentMatch`: stage, identities, score/result type, Current emphasis и разрешённые actions.
 - `StandingsTable`: готовые place/result/tie-break labels и fighter identity; table на desktop, compact rows на mobile. Widget не вычисляет очки, победы или места.

@@ -56,15 +56,7 @@ class _HostDistributionScreenPreviewState
       preset: PageLayoutPreset.split,
       primary: DsSection(
         title: 'Назначения',
-        child: DsFlow(
-          children: [
-            for (final participant in widget.participants)
-              DsSurface(
-                tone: DsSurfaceTone.elevated,
-                child: ParticipantIdentity(participant: participant),
-              ),
-          ],
-        ),
+        child: ParticipantAssignmentGrid(participants: widget.participants),
       ),
       secondary: TournamentStageHeader(
         variant: TournamentStageVariant.strip,

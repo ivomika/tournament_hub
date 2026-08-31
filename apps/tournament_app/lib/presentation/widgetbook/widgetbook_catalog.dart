@@ -421,6 +421,14 @@ List<WidgetbookNode> buildTournamentCatalog() => [
             ),
           ),
           _useCase(
+            'Assignment grid / Assigned',
+            const ParticipantAssignmentGrid(participants: previewParticipants),
+          ),
+          _useCase(
+            'Assignment grid / Empty',
+            const ParticipantAssignmentGrid(participants: []),
+          ),
+          _useCase(
             'Match card / Current',
             TournamentMatchCard(
               title: 'Матч 07 · Верхняя сетка',
