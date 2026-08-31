@@ -118,6 +118,50 @@ final class TournamentEngineOutcome {
   final List<TournamentPlacement> ranking;
 }
 
+/// Проверяет, что engine выдал полную и непротиворечивую таблицу мест.
+///
+/// Один exact place не может быть выдан двум участникам. Общий диапазон
+/// (`3–4`) разрешён и может повторяться у всех участников одной группы.
+void validateTournamentPlacements({
+  required Iterable<TournamentParticipantId> participants,
+  required Iterable<TournamentPlacement> ranking,
+}) {
+  final participantIds = participants.toSet();
+  final placements = ranking.toList(growable: false);
+  if (placements.length != participantIds.length ||
+      placements.map((value) => value.participantId).toSet().length !=
+          placements.length ||
+      placements.any(
+        (value) => !participantIds.contains(value.participantId),
+      )) {
+    throw const FormatException('Ranking must contain every participant once.');
+  }
+
+  final exactPlaces = <int>{};
+  for (final placement in placements) {
+    if (placement.from < 1 || placement.to < placement.from) {
+      throw const FormatException('Invalid placement range.');
+    }
+    if (placement.isExact && !exactPlaces.add(placement.from)) {
+      throw const FormatException('Duplicate exact placement.');
+    }
+  }
+
+  final ranges =
+      placements
+          .map((value) => (from: value.from, to: value.to))
+          .toSet()
+          .toList()
+        ..sort((a, b) => a.from.compareTo(b.from));
+  var expectedFrom = 1;
+  for (final range in ranges) {
+    if (range.from != expectedFrom) {
+      throw const FormatException('Placement ranges must form a partition.');
+    }
+    expectedFrom = range.to + 1;
+  }
+}
+
 abstract class FormatEngineState {
   const FormatEngineState();
 

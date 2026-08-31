@@ -47,6 +47,10 @@ V1 correction детерминированно replay-ит engine от сохр�
 - Compatibility/migration/rollback: schema v1 не меняется; старые snapshots без correction events читаются как раньше. До production rollback возможен удалением application command/UI при сохранении replay API; committed history не мигрирует и не переписывается.
 - Verification: deterministic correction/downstream tests, atomic active-store tests и offline Host integration test из `TH-20260830-096`.
 
+## Placement conformance
+
+Каждый `TournamentEngineOutcome` проходит domain-проверку перед завершением Host: ranking содержит каждого participant ровно один раз, ranges образуют непрерывную partition от места `1`, а два одинаковых exact places запрещены. Один и тот же диапазон (`3–4`) разрешён нескольким участникам, если он представляет одну elimination/tie группу. Проверка не назначает места и не выполняет tie-break — это обязанность соответствующего format engine и `RoundRobinTieResolver`.
+
 ## Compatibility, rollback и verification
 
 Новый contract не меняет DB schema и не мигрирует существующие snapshots: adapters будут добавлены отдельно. Rollback — удаление ещё не подключённого registry entry. Verification: settings/result unit tests, deterministic replay, schedule counts, one-current/no-self invariants, DE reset, SE ranges, RR points и repeated-tie fixtures.

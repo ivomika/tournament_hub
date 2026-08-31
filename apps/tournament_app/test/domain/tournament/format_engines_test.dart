@@ -86,6 +86,10 @@ void main() {
               engine.create(participants: participants, seed: seed),
             );
             expect(completed.outcome!.ranking, hasLength(count));
+            validateTournamentPlacements(
+              participants: participants,
+              ranking: completed.outcome!.ranking,
+            );
             expect(_hasSelfMatch(completed.matches), isFalse);
             expect(
               completed.matches.map((match) => match.id).toSet(),
@@ -101,6 +105,32 @@ void main() {
           expect(_unorderedPairs(rr.matches), hasLength(rr.mainMatchCount));
         }
       }
+    });
+
+    test('validates unique exact places and allows canonical ranges', () {
+      final participants = _participants(4);
+      validateTournamentPlacements(
+        participants: participants.map((value) => value),
+        ranking: [
+          TournamentPlacement(participantId: participants[0], from: 1, to: 1),
+          TournamentPlacement(participantId: participants[1], from: 2, to: 2),
+          TournamentPlacement(participantId: participants[2], from: 3, to: 4),
+          TournamentPlacement(participantId: participants[3], from: 3, to: 4),
+        ],
+      );
+
+      expect(
+        () => validateTournamentPlacements(
+          participants: participants,
+          ranking: [
+            TournamentPlacement(participantId: participants[0], from: 1, to: 1),
+            TournamentPlacement(participantId: participants[1], from: 2, to: 2),
+            TournamentPlacement(participantId: participants[2], from: 2, to: 2),
+            TournamentPlacement(participantId: participants[3], from: 3, to: 4),
+          ],
+        ),
+        throwsFormatException,
+      );
     });
 
     test('withdrawal is resolved by engines as technical losses', () {
@@ -393,6 +423,71 @@ void main() {
       for (final standing in state.standings) {
         expect(standing.points, mainPointsBeforeTie[standing.participantId]);
       }
+    });
+
+    test('replays a corrected RR tie-break result without stale downstream state', () {
+      const engine = RoundRobinEngine();
+      var state = engine.create(participants: _participants(3), seed: 1);
+      final winningPairs = {'p0:p1', 'p1:p2', 'p2:p0'};
+      while (state.matches
+          .take(state.mainMatchCount)
+          .any((match) => match.status != TournamentMatchStatus.finished)) {
+        final match = state.currentMatch!;
+        final direct =
+            '${match.firstParticipantId.value}:${match.secondParticipantId.value}';
+        final firstWins = winningPairs.contains(direct);
+        state = engine.submitResult(
+          state: state,
+          matchId: match.id,
+          result: NormalMatchResult(
+            winnerId: firstWins
+                ? match.firstParticipantId
+                : match.secondParticipantId,
+            loserId: firstWins
+                ? match.secondParticipantId
+                : match.firstParticipantId,
+            winnerScore: 2,
+            loserScore: 0,
+          ),
+        );
+      }
+      final mainPoints = {
+        for (final standing in state.standings)
+          standing.participantId: standing.points,
+      };
+      final tieMatch = state.currentMatch!;
+      final originalWinner = tieMatch.firstParticipantId;
+      state = engine.submitResult(
+        state: state,
+        matchId: tieMatch.id,
+        result: NormalMatchResult(
+          winnerId: tieMatch.firstParticipantId,
+          loserId: tieMatch.secondParticipantId,
+          winnerScore: 2,
+          loserScore: 0,
+        ),
+      );
+
+      final corrected = engine.correctResult(
+        state: state,
+        matchId: tieMatch.id,
+        result: NormalMatchResult(
+          winnerId: tieMatch.secondParticipantId,
+          loserId: tieMatch.firstParticipantId,
+          winnerScore: 2,
+          loserScore: 0,
+        ),
+      );
+      final correctedMatch = corrected.matches.singleWhere(
+        (match) => match.id == tieMatch.id,
+      );
+
+      expect(correctedMatch.result?.winnerId, isNot(originalWinner));
+      expect({
+        for (final standing in corrected.standings)
+          standing.participantId: standing.points,
+      }, mainPoints);
+      expect(corrected.isComplete, isFalse);
     });
 
     test('technical win grants 3/0 without a fake normal score', () {

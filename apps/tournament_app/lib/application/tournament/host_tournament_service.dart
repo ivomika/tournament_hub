@@ -268,6 +268,10 @@ final class HostTournamentService {
     final state = _requireEngineState(session);
     final engineOutcome = state.outcome;
     if (engineOutcome == null) throw StateError('Final ranking is not ready.');
+    validateTournamentPlacements(
+      participants: state.participants,
+      ranking: engineOutcome.ranking,
+    );
     final tournament = session.tournament.finish(
       outcome: TournamentFinalOutcome(
         championId: engineOutcome.championId,
