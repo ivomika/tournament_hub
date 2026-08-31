@@ -9,6 +9,7 @@
 
 ## Завершённые задачи
 
+- ✅ **120** — Исправить наложение участников в Spectator Current Match — [детали](tasks/TH-20260831-120.md)
 - ✅ **119** — Провести аудит уникальности мест и replay tie-break — [детали](tasks/TH-20260831-119.md)
 - ✅ **118** — Стабилизировать Spectator waiting и переход после terminal — [детали](tasks/TH-20260831-118.md)
 - ✅ **117** — Реализовать каноничные Spectator brackets с zoom/fullscreen — [детали](tasks/TH-20260831-117.md)

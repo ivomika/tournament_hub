@@ -265,6 +265,10 @@ button:focus-visible {
   flex-direction: row-reverse;
   text-align: right;
 }
+.identity--vertical.identity--reverse {
+  flex-direction: column;
+  text-align: center;
+}
 .identity__art {
   width: var(--ds-artwork-standard);
   height: var(--ds-artwork-standard);
@@ -290,6 +294,7 @@ button:focus-visible {
   font-size: var(--ds-font-24);
   line-height: var(--ds-line-32);
   font-weight: var(--ds-weight-bold);
+  overflow-wrap: anywhere;
 }
 .identity__copy {
   min-width: var(--ds-space-0);
@@ -304,6 +309,7 @@ button:focus-visible {
   color: var(--ds-color-text-secondary);
   font-weight: var(--ds-weight-semibold);
   letter-spacing: 0.08em;
+  overflow-wrap: anywhere;
 }
 .identity__guest {
   color: var(--ds-color-text-tertiary);
