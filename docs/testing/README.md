@@ -1,6 +1,6 @@
 # Testing strategy
 
-Текущий результат вертикальной MVP-проверки: [Host + Guests + Spectator acceptance report](mvp-acceptance-report.md).
+Текущий результат вертикальной MVP-проверки: [Host + Guests + Spectator acceptance report](mvp-acceptance-report.md). Visual review Spectator Web зафиксирован в [отдельном evidence report](spectator-web-visual-evidence.md).
 
 ## Принцип
 
