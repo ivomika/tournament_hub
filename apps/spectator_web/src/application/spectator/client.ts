@@ -34,6 +34,7 @@ export class SpectatorClient {
   private socket?: WebSocket;
   private retryTimer?: ReturnType<typeof setTimeout>;
   private stopped = true;
+  private snapshotGeneration = 0;
 
   constructor(options: SpectatorClientOptions = {}) {
     this.fetcher = options.fetcher ?? fetch.bind(globalThis);
@@ -55,29 +56,40 @@ export class SpectatorClient {
   start(): void {
     if (!this.stopped) return;
     this.stopped = false;
-    void this.loadSnapshotAndConnect();
+    this.beginSnapshotLoad();
   }
 
   stop(): void {
     this.stopped = true;
+    this.snapshotGeneration++;
     if (this.retryTimer !== undefined) clearTimeout(this.retryTimer);
     this.retryTimer = undefined;
-    this.socket?.close(1000, "NORMAL");
+    const socket = this.socket;
     this.socket = undefined;
+    socket?.close(1000, "NORMAL");
   }
 
   retry(): void {
     if (this.stopped) return;
     if (this.retryTimer !== undefined) clearTimeout(this.retryTimer);
     this.retryTimer = undefined;
-    this.socket?.close(1000, "NORMAL");
+    const socket = this.socket;
     this.socket = undefined;
-    void this.loadSnapshotAndConnect();
+    socket?.close(1000, "NORMAL");
+    this.beginSnapshotLoad();
   }
 
-  private async loadSnapshotAndConnect(): Promise<void> {
-    if (this.stopped) return;
-    if (this.state.projection?.tournament.lifecycle !== "finished") {
+  private beginSnapshotLoad(): void {
+    const generation = ++this.snapshotGeneration;
+    void this.loadSnapshotAndConnect(generation);
+  }
+
+  private async loadSnapshotAndConnect(generation: number): Promise<void> {
+    if (!this.isCurrentSnapshot(generation)) return;
+    if (
+      this.state.connection !== "waiting" &&
+      this.state.projection?.tournament.lifecycle !== "finished"
+    ) {
       this.dispatch({
         type: "connection",
         connection: this.state.projection ? "reconnecting" : "connecting",
@@ -88,6 +100,7 @@ export class SpectatorClient {
         `${this.clientLocation.origin}/api/spectator/v1/snapshot`,
         { method: "GET", headers: { accept: "application/json" } },
       );
+      if (!this.isCurrentSnapshot(generation)) return;
       if (response.status === 503 || response.status === 404) {
         this.dispatch({ type: "waiting" });
         this.scheduleRetry();
@@ -95,6 +108,7 @@ export class SpectatorClient {
       }
       if (!response.ok) throw new Error("SNAPSHOT_HTTP_ERROR");
       const parsed = parseProjection(await response.json());
+      if (!this.isCurrentSnapshot(generation)) return;
       if (!parsed.ok) {
         this.dispatch({
           type: "failure",
@@ -108,8 +122,9 @@ export class SpectatorClient {
         this.scheduleRetry();
         return;
       }
-      this.connect(parsed.value);
+      this.connect(parsed.value, generation);
     } catch {
+      if (!this.isCurrentSnapshot(generation)) return;
       this.dispatch({
         type: "connection",
         connection: this.state.projection ? "stale" : "error",
@@ -118,14 +133,18 @@ export class SpectatorClient {
     }
   }
 
-  private connect(projection: SpectatorProjectionDto): void {
-    if (this.stopped) return;
+  private connect(
+    projection: SpectatorProjectionDto,
+    generation: number,
+  ): void {
+    if (!this.isCurrentSnapshot(generation)) return;
     const scheme = this.clientLocation.protocol === "https:" ? "wss" : "ws";
     const socket = this.socketFactory(
       `${scheme}://${this.clientLocation.host}/ws`,
     );
     this.socket = socket;
     socket.addEventListener("open", () => {
+      if (this.socket !== socket) return;
       socket.send(
         JSON.stringify({
           category: "handshake",
@@ -139,7 +158,9 @@ export class SpectatorClient {
         }),
       );
     });
-    socket.addEventListener("message", (event) => this.onMessage(event.data));
+    socket.addEventListener("message", (event) => {
+      if (this.socket === socket) this.onMessage(event.data);
+    });
     socket.addEventListener("close", () => {
       if (this.socket !== socket) return;
       this.socket = undefined;
@@ -228,8 +249,12 @@ export class SpectatorClient {
     if (this.retryTimer !== undefined) clearTimeout(this.retryTimer);
     this.retryTimer = setTimeout(() => {
       this.retryTimer = undefined;
-      void this.loadSnapshotAndConnect();
+      this.beginSnapshotLoad();
     }, this.retryDelayMs);
+  }
+
+  private isCurrentSnapshot(generation: number): boolean {
+    return !this.stopped && generation === this.snapshotGeneration;
   }
 
   private dispatch(action: SpectatorClientAction): void {

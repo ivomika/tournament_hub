@@ -109,6 +109,8 @@ Any connected view -> Disconnected/Stale -> Reconnecting -> Full projection
 
 Spectator не имеет mutation routes. LAN server не зависит от active tournament и сохраняет endpoint между waiting и public стадиями; mobile background остаётся под OS lifecycle policy. Cancelled tournament не публикуется. Manual refresh не является sync mechanism.
 
+Первичная загрузка snapshot не вытесняет `Waiting` промежуточным spinner: пока public projection отсутствует, это устойчивый экран. `Finished` остаётся публичным terminal-состоянием с Champion и итоговой структурой до явного действия Host «На главный экран». После этого Host очищает active context, snapshot отвечает `503 SNAPSHOT_UNAVAILABLE`, а Spectator атомарно удаляет последнюю projection и возвращается в `Waiting`. Запоздавший ответ более раннего snapshot-запроса не может восстановить уже очищенные данные.
+
 На Running Dashboard expanded-композиция сохраняет пространственную хронологию `Завершённые → Сейчас → Будущие`: current match занимает доминирующую центральную lane. Compact-композиция сохраняет тот же DOM/read order вертикально; состояние каждой lane названо текстом и не кодируется только цветом.
 
 Tournament View выбирает read-only renderer по public `formatId`: DE показывает winners/losers/Grand Final/Reset, SE — elimination rounds, RR — round pairings и standings. Pan/zoom/fit/reset/fullscreen не меняют Host state; клавиатура и текстовый round/match order остаются альтернативой графическим связям.

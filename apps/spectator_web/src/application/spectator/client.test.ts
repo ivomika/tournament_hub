@@ -24,12 +24,47 @@ class FakeSocket extends EventTarget {
   }
 }
 
+function deferred<T>() {
+  let resolve!: (value: T) => void;
+  const promise = new Promise<T>((complete) => {
+    resolve = complete;
+  });
+  return { promise, resolve };
+}
+
 afterEach(() => {
   vi.restoreAllMocks();
   vi.unstubAllGlobals();
 });
 
 describe("Spectator client", () => {
+  it("сохраняет waiting, пока первый snapshot ещё загружается", async () => {
+    const snapshot = deferred<Response>();
+    const states: string[] = [];
+    const client = new SpectatorClient({
+      fetcher: vi.fn(() => snapshot.promise),
+      socketFactory: () => new FakeSocket() as unknown as WebSocket,
+      location: {
+        origin: "http://host.test:8080",
+        protocol: "http:",
+        host: "host.test:8080",
+      },
+      retryDelayMs: 60_000,
+    });
+    client.subscribe((state) => states.push(state.connection));
+
+    client.start();
+    await Promise.resolve();
+
+    expect(client.current.connection).toBe("waiting");
+    expect(states).toEqual(["waiting"]);
+
+    snapshot.resolve(new Response(null, { status: 503 }));
+    await vi.waitFor(() => expect(client.current.connection).toBe("waiting"));
+    expect(client.current.projection).toBeUndefined();
+    client.stop();
+  });
+
   it("вызывает browser fetch с корректным global receiver", async () => {
     vi.stubGlobal("fetch", function (this: unknown) {
       expect(this).toBe(globalThis);
@@ -119,7 +154,7 @@ describe("Spectator client", () => {
 
   it("после очистки terminal projection возвращается в waiting", async () => {
     vi.useFakeTimers();
-    const socket = new FakeSocket();
+    const clearedSnapshot = deferred<Response>();
     const fetcher = vi
       .fn<typeof fetch>()
       .mockResolvedValueOnce(
@@ -131,10 +166,10 @@ describe("Spectator client", () => {
           },
         }),
       )
-      .mockResolvedValue(new Response(null, { status: 503 }));
+      .mockImplementation(() => clearedSnapshot.promise);
     const client = new SpectatorClient({
       fetcher,
-      socketFactory: () => socket as unknown as WebSocket,
+      socketFactory: () => new FakeSocket() as unknown as WebSocket,
       location: {
         origin: "http://host.test:8080",
         protocol: "http:",
@@ -146,13 +181,90 @@ describe("Spectator client", () => {
     client.start();
     await vi.advanceTimersByTimeAsync(0);
     expect(client.current.projection?.tournament.lifecycle).toBe("finished");
-    socket.close();
     await vi.advanceTimersByTimeAsync(1);
+    expect(fetcher).toHaveBeenCalledTimes(2);
+    expect(client.current.projection?.tournament.lifecycle).toBe("finished");
+
+    clearedSnapshot.resolve(new Response(null, { status: 503 }));
+    await vi.advanceTimersByTimeAsync(0);
 
     expect(client.current.connection).toBe("waiting");
     expect(client.current.projection).toBeUndefined();
     expect(client.current.lastSequence).toBe(0);
     client.stop();
     vi.useRealTimers();
+  });
+
+  it("не удаляет running projection во время штатного reconnect", async () => {
+    const reconnectSnapshot = deferred<Response>();
+    const fetcher = vi
+      .fn<typeof fetch>()
+      .mockResolvedValueOnce(Response.json(projectionFixture))
+      .mockImplementationOnce(() => reconnectSnapshot.promise);
+    const client = new SpectatorClient({
+      fetcher,
+      socketFactory: () => new FakeSocket() as unknown as WebSocket,
+      location: {
+        origin: "http://host.test:8080",
+        protocol: "http:",
+        host: "host.test:8080",
+      },
+      retryDelayMs: 60_000,
+    });
+
+    client.start();
+    await vi.waitFor(() => expect(client.current.projection).toBeDefined());
+    const runningProjection = client.current.projection;
+
+    client.retry();
+
+    expect(client.current.connection).toBe("reconnecting");
+    expect(client.current.projection).toBe(runningProjection);
+
+    reconnectSnapshot.resolve(Response.json(projectionFixture));
+    await vi.waitFor(() =>
+      expect(client.current.connection).toBe("synchronizing"),
+    );
+    expect(client.current.projection).toBeDefined();
+    client.stop();
+  });
+
+  it("не возвращает stale матч из запоздавшего snapshot после waiting", async () => {
+    const obsoleteSnapshot = deferred<Response>();
+    const fetcher = vi
+      .fn<typeof fetch>()
+      .mockImplementationOnce(() => obsoleteSnapshot.promise)
+      .mockResolvedValueOnce(new Response(null, { status: 503 }));
+    const client = new SpectatorClient({
+      fetcher,
+      socketFactory: () => new FakeSocket() as unknown as WebSocket,
+      location: {
+        origin: "http://host.test:8080",
+        protocol: "http:",
+        host: "host.test:8080",
+      },
+      retryDelayMs: 60_000,
+    });
+
+    client.start();
+    client.retry();
+    await vi.waitFor(() => expect(fetcher).toHaveBeenCalledTimes(2));
+    expect(client.current.connection).toBe("waiting");
+
+    obsoleteSnapshot.resolve(
+      Response.json({
+        ...projectionFixture,
+        tournament: {
+          ...projectionFixture.tournament,
+          lifecycle: "finished",
+        },
+      }),
+    );
+    await Promise.resolve();
+    await Promise.resolve();
+
+    expect(client.current.connection).toBe("waiting");
+    expect(client.current.projection).toBeUndefined();
+    client.stop();
   });
 });

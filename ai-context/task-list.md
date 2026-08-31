@@ -6,11 +6,11 @@
 
 ## Активные задачи
 - ⛔ **101** — Провести MVP Host + Guests + Spectator integration и hardening — [детали](tasks/TH-20260830-101.md)
-- 🟢 **118** — Стабилизировать Spectator waiting и переход после terminal — [детали](tasks/TH-20260831-118.md)
 - 📝 **119** — Провести аудит уникальности мест и replay tie-break — [детали](tasks/TH-20260831-119.md)
 
 ## Завершённые задачи
 
+- ✅ **118** — Стабилизировать Spectator waiting и переход после terminal — [детали](tasks/TH-20260831-118.md)
 - ✅ **117** — Реализовать каноничные Spectator brackets с zoom/fullscreen — [детали](tasks/TH-20260831-117.md)
 - ✅ **116** — Перестроить Spectator Dashboard по временным lanes — [детали](tasks/TH-20260831-116.md)
 - ✅ **115** — Исправить ширину колонки «Место» на Host Finished — [детали](tasks/TH-20260831-115.md)
