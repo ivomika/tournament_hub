@@ -3,6 +3,7 @@ import '../navigation/ports/app_route_source.dart';
 import '../navigation/ports/navigation_intent_sink.dart';
 import '../../application/tournament/models/host_tournament_projection.dart';
 import '../../application/history/models/history_projection.dart';
+import '../../application/spectator/models/spectator_server_state.dart';
 
 abstract interface class AppRuntime {
   AppStateSource get appStateSource;
@@ -28,6 +29,8 @@ abstract interface class AppProfileRuntime {
 
 abstract interface class AppHostTournamentRuntime {
   HostTournamentProjection? get hostTournamentProjection;
+  SpectatorServerState get spectatorServerState;
+  Stream<SpectatorServerState> get spectatorServerStateChanges;
   String? get resultEntryMatchId;
 
   Future<void> createTournament({String formatId = 'double-elimination'});
@@ -47,6 +50,7 @@ abstract interface class AppHostTournamentRuntime {
   Future<void> finishTournament();
   Future<void> cancelTournament();
   Future<void> leaveTerminalTournament();
+  Future<void> retrySpectatorServer();
 }
 
 abstract interface class AppHistoryRuntime {

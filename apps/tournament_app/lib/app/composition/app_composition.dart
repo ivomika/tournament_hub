@@ -12,6 +12,9 @@ import '../../application/history/models/history_projection.dart';
 import '../../application/tournament/host_tournament_service.dart';
 import '../../application/tournament/models/host_tournament_session.dart';
 import '../../application/tournament/models/host_tournament_projection.dart';
+import '../../application/spectator/models/spectator_server_state.dart';
+import '../../application/spectator/ports/spectator_server.dart';
+import '../../application/spectator/spectator_projection_factory.dart';
 import '../../domain/profile/local_profile.dart';
 import '../../domain/tournament/engine/tournament_engines.dart';
 import '../../domain/tournament/tournament_models.dart';
@@ -22,6 +25,7 @@ import '../../infrastructure/persistence/drift_active_tournament_store.dart';
 import '../../infrastructure/persistence/drift_tournament_history_store.dart';
 import '../../infrastructure/profile/drift_local_profile_repository.dart';
 import '../../infrastructure/settings/shared_preferences_app_settings_repository.dart';
+import '../../infrastructure/spectator/spectator_server_factory.dart';
 import '../bootstrap/app_bootstrap.dart';
 import '../lifecycle/app_state_source.dart';
 import '../lifecycle/app_state_store.dart';
@@ -48,19 +52,27 @@ final class AppComposition
     this._tournaments,
     this._history,
     this._database,
+    this._spectatorServer,
   );
 
   factory AppComposition.production() {
-    return AppComposition._withDatabase(TournamentHubDatabase.production());
-  }
-
-  factory AppComposition.memory() {
     return AppComposition._withDatabase(
-      Future.value(TournamentHubDatabase.memory()),
+      TournamentHubDatabase.production(),
+      spectatorServer: createProductionSpectatorServer(),
     );
   }
 
-  factory AppComposition._withDatabase(Future<TournamentHubDatabase> database) {
+  factory AppComposition.memory({SpectatorServer? spectatorServer}) {
+    return AppComposition._withDatabase(
+      Future.value(TournamentHubDatabase.memory()),
+      spectatorServer: spectatorServer,
+    );
+  }
+
+  factory AppComposition._withDatabase(
+    Future<TournamentHubDatabase> database, {
+    SpectatorServer? spectatorServer,
+  }) {
     final stateStore = AppStateStore();
     final localStore = DriftLocalProfileRepository(database);
     final settings = SharedPreferencesAppSettingsRepository();
@@ -98,6 +110,7 @@ final class AppComposition
       tournaments,
       history,
       database,
+      spectatorServer,
     );
   }
 
@@ -109,11 +122,13 @@ final class AppComposition
   final Future<HostTournamentService> _tournaments;
   final Future<HistoryService> _history;
   final Future<TournamentHubDatabase> _database;
+  final SpectatorServer? _spectatorServer;
   HostTournamentSession? _hostTournamentSession;
   HistoryProjection? _historyProjection;
   String? _correctionMatchId;
   int _seed = 100;
   bool _isDisposed = false;
+  Future<void> _spectatorWork = Future.value();
 
   @override
   AppStateSource get appStateSource => _stateStore;
@@ -132,6 +147,7 @@ final class AppComposition
       session: AppSessionProjection(activeTournament: != null),
     )) {
       _hostTournamentSession = await (await _tournaments).loadActive();
+      _scheduleSpectatorSync();
     }
     _router.start();
   }
@@ -185,6 +201,18 @@ final class AppComposition
       _hostTournamentSession == null
       ? null
       : HostTournamentProjectionMapper.fromSession(_hostTournamentSession!);
+
+  @override
+  SpectatorServerState get spectatorServerState =>
+      _spectatorServer?.state ??
+      const SpectatorServerState(
+        status: SpectatorServerStatus.failed,
+        safeErrorCode: 'SERVER_UNAVAILABLE',
+      );
+
+  @override
+  Stream<SpectatorServerState> get spectatorServerStateChanges =>
+      _spectatorServer?.stateChanges ?? const Stream.empty();
 
   @override
   String? get resultEntryMatchId => _correctionMatchId;
@@ -418,6 +446,38 @@ final class AppComposition
     _router.go(
       NavigationIntent.hostTournament(tournamentId: session.tournament.id),
     );
+    _scheduleSpectatorSync();
+  }
+
+  void _scheduleSpectatorSync() {
+    final server = _spectatorServer;
+    final session = _hostTournamentSession;
+    if (server == null || session == null) return;
+    final host = HostTournamentProjectionMapper.fromSession(session);
+    _spectatorWork = _spectatorWork.then((_) async {
+      try {
+        await server.start();
+        final projection = SpectatorProjectionFactory.fromHost(host);
+        if (projection != null) {
+          await server.publish(projection);
+        } else if (host.lifecycle == TournamentLifecycle.cancelled.name) {
+          await server.clear();
+        }
+      } catch (_) {
+        // Spectator availability is optional and cannot fail Host progression.
+      }
+    });
+  }
+
+  @override
+  Future<void> retrySpectatorServer() async {
+    final server = _spectatorServer;
+    if (server == null) return;
+    try {
+      await server.stop();
+    } catch (_) {}
+    _scheduleSpectatorSync();
+    await _spectatorWork;
   }
 
   @override
@@ -428,6 +488,9 @@ final class AppComposition
     unawaited(_router.dispose());
     unawaited(_intentStore.dispose());
     unawaited(_stateStore.dispose());
+    if (_spectatorServer case final server?) {
+      unawaited(server.stop());
+    }
     unawaited(_database.then((database) => database.close()));
   }
 }

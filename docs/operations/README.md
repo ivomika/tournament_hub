@@ -2,7 +2,11 @@
 
 ## Host server lifecycle
 
-Предлагаемая state model: `stopped -> starting -> serving -> degraded/rebinding -> stopping -> stopped`, плюс `failed`. Tournament progression не должен зависеть от наличия LAN address. Port conflict/interface change/background policy требуют закрытия OD-013.
+Host использует optional Shelf adapter со state model `stopped -> starting -> serving | degraded | failed -> stopped`. Он bind-ится на IPv4 any-address: сначала на `8080`, а при невозможности занять preferred port повторяет bind на OS-assigned ephemeral port. Фактический endpoint строится только из private non-loopback IPv4 и bound port. Политика зафиксирована в [ADR-0012](../adr/0012-spectator-server-lifecycle.md); server start/publish failure никогда не отменяет committed tournament command.
+
+Read-only surface ограничен `GET /api/spectator/v1/snapshot`, WebSocket `/ws` и `GET/HEAD` static bundle. Snapshot и `spectator.projection.replaced` публикуются только из committed Host projection. Mutation methods/routes отсутствуют; browser Origin допускается только same-origin, non-browser запрос может не передавать Origin. Inbound handshake ограничен 16 KiB и JSON depth 8, outbound projection — 2 MiB, replay window — 4096 событий. Protocol-level лимита Spectator connections нет.
+
+Отсутствующий static bundle переводит сервис в `degraded` с safe code `STATIC_BUNDLE_MISSING`, сохраняя snapshot/WebSocket и Host progression. Отсутствующий LAN address использует `LAN_ADDRESS_UNAVAILABLE`; bind failure — `SERVER_BIND_FAILED`; внутренние exception/stack trace наружу не передаются. Terminal `finished` остаётся доступен как HTTP snapshot, а live sockets закрываются с `TOURNAMENT_TERMINATED`; `cancelled` public projection не создаётся.
 
 Host UI показывает bind address/port, connection readiness, connected client count как diagnostics (не business presence), last error и recovery. Stack trace не показывается пользователю.
 

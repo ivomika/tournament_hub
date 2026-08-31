@@ -7,12 +7,12 @@
 ## Активные задачи
 
 - ⛔ **053** — Привести Spectator Web к утверждённому visual language — [детали](tasks/TH-20260828-053.md)
-- 📝 **099** — Реализовать Host LAN server для Spectator — [детали](tasks/TH-20260830-099.md)
 - 📝 **100** — Подключить Spectator Web к Host projection contract — [детали](tasks/TH-20260830-100.md)
 - 📝 **101** — Провести MVP Host + Guests + Spectator integration и hardening — [детали](tasks/TH-20260830-101.md)
 
 ## Завершённые задачи
 
+- ✅ **099** — Реализовать Host LAN server для Spectator — [детали](tasks/TH-20260830-099.md)
 - ✅ **098** — Зафиксировать Spectator projection и read-only protocol contract — [детали](tasks/TH-20260830-098.md)
 - ✅ **097** — Реализовать immutable history и Host statistics — [детали](tasks/TH-20260830-097.md)
 - ✅ **096** — Подключить Host application flow от Draft до Finished/Cancelled — [детали](tasks/TH-20260830-096.md)

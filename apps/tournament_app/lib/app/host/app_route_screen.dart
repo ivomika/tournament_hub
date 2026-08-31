@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 
 import '../../application/tournament/models/host_tournament_projection.dart';
+import '../../application/spectator/models/spectator_server_state.dart';
 import '../../presentation/design_system/design_system.dart';
 import '../../presentation/screens/host_cancelled/host_cancelled_screen.dart';
 import '../../presentation/screens/host_distribution/host_distribution_screen.dart';
@@ -225,7 +226,62 @@ final class AppRouteScreen extends StatelessWidget {
     onRemoveParticipant: hostRuntime?.removeParticipant,
     onStartDistribution: hostRuntime?.startDistribution,
     onCancel: hostRuntime?.cancelTournament,
+    spectatorProjection: _spectatorConnection,
+    onRetrySpectator: hostRuntime?.retrySpectatorServer,
   );
+
+  HostOpenConnectionViewData get _spectatorConnection {
+    final state = hostRuntime!.spectatorServerState;
+    return switch (state.status) {
+      SpectatorServerStatus.stopped => const HostOpenConnectionViewData(
+        state: ConnectionQrState.unavailable,
+        connectedSpectators: 0,
+        statusLabel: 'Зрительский экран остановлен',
+        detail: 'Запустите сервер повторно',
+        kind: StatusKind.neutral,
+      ),
+      SpectatorServerStatus.starting => HostOpenConnectionViewData(
+        state: ConnectionQrState.starting,
+        connectedSpectators: state.connectedSpectators,
+        statusLabel: 'Зрительский экран запускается',
+        detail: 'Подготавливаем локальный адрес',
+        kind: StatusKind.info,
+      ),
+      SpectatorServerStatus.serving => HostOpenConnectionViewData(
+        state: ConnectionQrState.ready,
+        connectedSpectators: state.connectedSpectators,
+        statusLabel: 'Зрительский экран доступен',
+        detail:
+            '${state.connectedSpectators} подключено · QR открывается по кнопке',
+        kind: StatusKind.success,
+        localEndpoint: state.endpoint?.toString(),
+      ),
+      SpectatorServerStatus.degraded => HostOpenConnectionViewData(
+        state: state.endpoint == null
+            ? ConnectionQrState.unavailable
+            : ConnectionQrState.stale,
+        connectedSpectators: state.connectedSpectators,
+        statusLabel: 'Зрительский экран ограничен',
+        detail: _spectatorErrorLabel(state.safeErrorCode),
+        kind: StatusKind.warning,
+        localEndpoint: state.endpoint?.toString(),
+      ),
+      SpectatorServerStatus.failed => HostOpenConnectionViewData(
+        state: ConnectionQrState.error,
+        connectedSpectators: state.connectedSpectators,
+        statusLabel: 'Зрительский экран недоступен',
+        detail: _spectatorErrorLabel(state.safeErrorCode),
+        kind: StatusKind.danger,
+      ),
+    };
+  }
+
+  String _spectatorErrorLabel(String? code) => switch (code) {
+    'STATIC_BUNDLE_MISSING' => 'Web-интерфейс ещё не собран',
+    'LAN_ADDRESS_UNAVAILABLE' => 'Нет доступного адреса локальной сети',
+    'PROJECTION_TOO_LARGE' => 'Данные турнира превышают безопасный лимит',
+    _ => 'Проверьте локальную сеть и повторите запуск',
+  };
 
   Widget _distributionScreen() => HostDistributionScreenPreview(
     participants: [

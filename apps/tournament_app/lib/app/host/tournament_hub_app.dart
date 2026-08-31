@@ -6,6 +6,7 @@ import '../../presentation/design_system/design_system.dart';
 import '../navigation/models/app_route_projection.dart';
 import '../navigation/models/navigation_intent.dart';
 import '../runtime/app_runtime.dart';
+import '../../application/spectator/models/spectator_server_state.dart';
 import 'app_route_screen.dart';
 
 final class TournamentHubApp extends StatefulWidget {
@@ -49,24 +50,32 @@ final class _TournamentHubAppState extends State<TournamentHubApp> {
       home: StreamBuilder<AppRouteProjection>(
         stream: widget.runtime.appRouteSource.changes,
         initialData: widget.runtime.appRouteSource.current,
-        builder: (context, snapshot) => PopScope(
-          canPop: false,
-          onPopInvokedWithResult: (didPop, _) {
-            if (!didPop) widget.runtime.navigation.back();
-          },
-          child: AppRouteScreen(
-            key: ValueKey(snapshot.requireData),
-            projection: snapshot.requireData,
-            appState: widget.runtime.appStateSource.current,
-            onRetry: widget.runtime.retry,
-            onCreateProfile: profileRuntime?.createProfile,
-            onRenameProfile: profileRuntime?.renameProfile,
-            onResetAccount: profileRuntime?.resetAccount,
-            hostRuntime: hostRuntime,
-            historyRuntime: historyRuntime,
-            onDestinationSelected: _selectDestination,
-          ),
-        ),
+        builder: (context, snapshot) {
+          Widget screen() => PopScope(
+            canPop: false,
+            onPopInvokedWithResult: (didPop, _) {
+              if (!didPop) widget.runtime.navigation.back();
+            },
+            child: AppRouteScreen(
+              key: ValueKey(snapshot.requireData),
+              projection: snapshot.requireData,
+              appState: widget.runtime.appStateSource.current,
+              onRetry: widget.runtime.retry,
+              onCreateProfile: profileRuntime?.createProfile,
+              onRenameProfile: profileRuntime?.renameProfile,
+              onResetAccount: profileRuntime?.resetAccount,
+              hostRuntime: hostRuntime,
+              historyRuntime: historyRuntime,
+              onDestinationSelected: _selectDestination,
+            ),
+          );
+          if (hostRuntime == null) return screen();
+          return StreamBuilder<SpectatorServerState>(
+            stream: hostRuntime.spectatorServerStateChanges,
+            initialData: hostRuntime.spectatorServerState,
+            builder: (_, _) => screen(),
+          );
+        },
       ),
     );
   }

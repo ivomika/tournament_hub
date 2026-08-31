@@ -9,6 +9,7 @@ final class HostParticipantProjection {
     required this.isGuest,
     this.fighterId,
     this.fighterName,
+    this.fighterAssetPath,
   });
 
   final String id;
@@ -16,6 +17,7 @@ final class HostParticipantProjection {
   final bool isGuest;
   final String? fighterId;
   final String? fighterName;
+  final String? fighterAssetPath;
 }
 
 final class HostMatchProjection {
@@ -31,6 +33,9 @@ final class HostMatchProjection {
     this.winnerScore,
     this.loserScore,
     this.isTechnical = false,
+    this.winnerParticipantId,
+    this.loserParticipantId,
+    this.technicalReason,
   });
 
   final String id;
@@ -44,6 +49,9 @@ final class HostMatchProjection {
   final int? winnerScore;
   final int? loserScore;
   final bool isTechnical;
+  final String? winnerParticipantId;
+  final String? loserParticipantId;
+  final String? technicalReason;
 }
 
 final class HostPlacementProjection {
@@ -67,6 +75,8 @@ final class HostTournamentProjection {
     required this.participants,
     required this.matches,
     required this.ranking,
+    required this.revision,
+    required this.sequence,
     this.championId,
     this.cancellationReason,
   });
@@ -78,6 +88,8 @@ final class HostTournamentProjection {
   final List<HostParticipantProjection> participants;
   final List<HostMatchProjection> matches;
   final List<HostPlacementProjection> ranking;
+  final int revision;
+  final int sequence;
   final String? championId;
   final String? cancellationReason;
 
@@ -96,6 +108,8 @@ abstract final class HostTournamentProjectionMapper {
       title: tournament.title,
       formatId: tournament.formatId,
       lifecycle: tournament.lifecycle.name,
+      revision: session.storageRevision,
+      sequence: session.lastSequence,
       participants: List.unmodifiable(
         tournament.participants.map((participant) {
           final assignment = assignments?.forParticipant(participant.id);
@@ -105,6 +119,7 @@ abstract final class HostTournamentProjectionMapper {
             isGuest: participant.source.name == 'guest',
             fighterId: assignment?.fighter.id.value,
             fighterName: assignment?.fighter.displayName,
+            fighterAssetPath: assignment?.fighter.assetPath,
           );
         }),
       ),
@@ -127,6 +142,11 @@ abstract final class HostTournamentProjectionMapper {
                     ? result.loserScore
                     : null,
                 isTechnical: result is TechnicalMatchResult,
+                winnerParticipantId: result?.winnerId.value,
+                loserParticipantId: result?.loserId.value,
+                technicalReason: result is TechnicalMatchResult
+                    ? result.reason.name
+                    : null,
               );
             }) ??
             const <HostMatchProjection>[],
