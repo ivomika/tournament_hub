@@ -75,9 +75,12 @@ apps/
       controllers/       # presentation state/adapters when introduced
     shared/              # truly generic primitives only
   spectator_web/src/
-    app/
-    tournament/          # read model and views, no engine
-    shared/
+    application/
+      spectator/         # protocol DTO validation, sequence reducer, reconnect client
+    presentation/
+      design-system/     # generated tokens and shared Web theme
+      components/        # read-only visual components
+      screens/           # Waiting/Distribution/Running/Finished composition
 ```
 
 Feature subfolders допустимы внутри owner layer. `shared`, `utils`, `common` не используются как склад.

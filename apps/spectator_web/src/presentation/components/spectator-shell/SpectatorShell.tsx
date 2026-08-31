@@ -25,6 +25,10 @@ export function SpectatorShell({
   onViewChange,
   children,
 }: SpectatorShellProps) {
+  const availableViews =
+    tournament.lifecycle === "finished"
+      ? views
+      : views.filter((item) => item.id !== "champion");
   return (
     <div className="shell">
       <header className="shell__header">
@@ -33,7 +37,7 @@ export function SpectatorShell({
           <h1 className="brand__title">{tournament.title}</h1>
         </div>
         <nav className="view-nav" aria-label="Разделы трансляции">
-          {views.map((item) => (
+          {availableViews.map((item) => (
             <button
               className="view-nav__item"
               type="button"

@@ -68,6 +68,7 @@ Future<void> main(List<String> arguments) async {
     case 'test':
       await runner.checkArchitecture();
       await runner.flutter(const ['test']);
+      await runner.npm(const ['test']);
       return;
     case 'architecture':
       await runner.checkArchitecture();
@@ -86,6 +87,7 @@ Future<void> main(List<String> arguments) async {
       await runner.npm(const ['run', 'format:check']);
       await runner.flutter(const ['analyze']);
       await runner.flutter(const ['test']);
+      await runner.npm(const ['test']);
       await runner.npm(const ['run', 'check']);
       return;
     case 'clean':

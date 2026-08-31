@@ -14,7 +14,7 @@
 
 ## Current repository state
 
-Репозиторий содержит минимальные Flutter `apps/tournament_app` и React/Vite `apps/spectator_web` skeletons, root `Makefile` и cross-platform Dart orchestration. Realtime Spectator implementation, CI и production platform matrix ещё не реализованы. Platform runners обеспечивают development bootstrap и сами по себе не закрывают OD-009.
+Репозиторий содержит Flutter Host `apps/tournament_app`, read-only React/Vite Spectator `apps/spectator_web`, root `Makefile` и cross-platform Dart orchestration. Spectator получает public snapshot/events v1 через локальный Host, валидирует DTO и восстанавливается только full snapshot/contiguous replay; Participant transport, CI и production platform matrix ещё не реализованы. Platform runners обеспечивают development bootstrap и сами по себе не закрывают OD-009.
 
 ## Tool interface
 
@@ -31,7 +31,7 @@
 | `make run-widgetbook DEVICE=...` | Запускает Flutter Widgetbook через отдельный entry point |
 | `make build` | Последовательно собирает выбранный Flutter target и Spectator Web |
 
-Windows/macOS/Linux branching реализован в `tool/project.dart`, а Makefile остаётся thin interface без bash/cmd/PowerShell-specific логики. `DEVICE` задаёт Flutter run target; `TARGET` задаёт Flutter build target, а без него выбирается desktop target текущего host. `run-spectator`, `build-flutter` и `build-spectator` доступны для изолированной работы.
+Windows/macOS/Linux branching реализован в `tool/project.dart`, а Makefile остаётся thin interface без bash/cmd/PowerShell-specific логики. `DEVICE` задаёт Flutter run target; `TARGET` задаёт Flutter build target, а без него выбирается desktop target текущего host. `run-spectator`, `build-flutter` и `build-spectator` доступны для изолированной работы. `make test` и `make check` включают Flutter suites и Vitest protocol/reducer/component suites Spectator Web.
 
 Flutter presentation catalog находится в `lib/main_widgetbook.dart`. Он использует generated bindings из `docs/design/tokens.json` и не является production router. Запуск также доступен через `.vscode/launch.json`; VS Code выбирает конкретный Flutter device, а Widgetbook `ViewportAddon` переключает project compositions Mobile/Desktop внутри catalog. `make architecture`, `make test` и `make check` запускают layer import gate из `tool/check_flutter_layer_imports.dart`, а затем design-system check. Gate исполняет [ADR-0010](../adr/0010-layer-import-boundaries.md) и [ADR-0011](../adr/0011-app-lifecycle-and-state-driven-routing.md), одинаково проверяет relative и `package:tournament_hub_app` imports и завершает команду с ошибкой при reverse dependency или router-owned lifecycle coupling.
 

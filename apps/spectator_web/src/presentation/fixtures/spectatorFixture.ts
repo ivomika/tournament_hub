@@ -1,25 +1,29 @@
 import type { SpectatorProjection } from "../types.ts";
 
 const scorpion = {
+  participantId: "participant-1",
   nickname: "IVO",
   fighterName: "Scorpion",
-  fighterSlug: "scorpion",
+  fighterAssetPath: "/fighters/scorpion.png",
 };
 const subZero = {
+  participantId: "participant-2",
   nickname: "MIKA",
   fighterName: "Sub-Zero",
-  fighterSlug: "sub-zero",
+  fighterAssetPath: "/fighters/sub-zero.png",
 };
 const kitana = {
+  participantId: "participant-3",
   nickname: "LENA",
   fighterName: "Kitana",
-  fighterSlug: "kitana",
+  fighterAssetPath: "/fighters/kitana.png",
   guest: true,
 };
 const raiden = {
+  participantId: "participant-4",
   nickname: "ROMAN",
   fighterName: "Raiden",
-  fighterSlug: "raiden",
+  fighterAssetPath: "/fighters/raiden.png",
   guest: true,
 };
 
@@ -29,7 +33,9 @@ export const spectatorFixture: SpectatorProjection = {
     title: "Friday Fatality",
     format: "Double Elimination",
     progress: "Матч 6 из 9",
+    lifecycle: "running",
   },
+  participants: [scorpion, subZero, kitana, raiden],
   previous: {
     id: "m5",
     stage: "Нижняя сетка",
@@ -107,10 +113,10 @@ export const spectatorFixture: SpectatorProjection = {
     },
   ],
   standings: [
-    { place: 1, identity: scorpion, played: 3, wins: 3, points: 8 },
-    { place: 2, identity: subZero, played: 3, wins: 2, points: 6 },
-    { place: 3, identity: kitana, played: 4, wins: 2, points: 5 },
-    { place: 4, identity: raiden, played: 4, wins: 1, points: 3 },
+    { participantId: "participant-1", placeLabel: "1", identity: scorpion },
+    { participantId: "participant-2", placeLabel: "2", identity: subZero },
+    { participantId: "participant-3", placeLabel: "3", identity: kitana },
+    { participantId: "participant-4", placeLabel: "4", identity: raiden },
   ],
   champion: scorpion,
 };

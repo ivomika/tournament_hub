@@ -22,31 +22,19 @@ function BracketMatch({ match }: { match: MatchModel }) {
 }
 
 export function BracketView({ matches }: { matches: readonly MatchModel[] }) {
-  const upper = matches.filter((match) => match.stage === "Верхняя сетка");
-  const lower = matches.filter((match) => match.stage === "Нижняя сетка");
+  const stages = [...new Set(matches.map((match) => match.stage))];
   return (
-    <div className="bracket" aria-label="Турнирная сетка Double Elimination">
-      <section className="bracket__column">
-        <h3 className="bracket__title">Верхняя сетка</h3>
-        {upper.slice(0, 2).map((match) => (
-          <BracketMatch key={match.id} match={match} />
-        ))}
-      </section>
-      <section className="bracket__column">
-        <h3 className="bracket__title">Финалы</h3>
-        {upper.slice(2).map((match) => (
-          <BracketMatch key={match.id} match={match} />
-        ))}
-        {lower.slice(1).map((match) => (
-          <BracketMatch key={match.id} match={match} />
-        ))}
-      </section>
-      <section className="bracket__column">
-        <h3 className="bracket__title">Нижняя сетка</h3>
-        {lower.slice(0, 1).map((match) => (
-          <BracketMatch key={match.id} match={match} />
-        ))}
-      </section>
+    <div className="bracket" aria-label="Структура турнира">
+      {stages.map((stage) => (
+        <section className="bracket__column" key={stage}>
+          <h3 className="bracket__title">{stage}</h3>
+          {matches
+            .filter((match) => match.stage === stage)
+            .map((match) => (
+              <BracketMatch key={match.id} match={match} />
+            ))}
+        </section>
+      ))}
     </div>
   );
 }

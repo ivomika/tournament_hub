@@ -7,6 +7,7 @@ export function ChampionScreen({
 }: {
   projection: SpectatorProjection;
 }) {
+  if (projection.champion === undefined) return null;
   return (
     <>
       <section className="champion surface" aria-labelledby="champion-title">

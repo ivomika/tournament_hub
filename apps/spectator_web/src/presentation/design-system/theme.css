@@ -105,12 +105,18 @@ button:focus-visible {
   box-shadow: 0 0 var(--ds-space-3)
     color-mix(in srgb, var(--ds-color-success) 65%, transparent);
 }
+.connection[data-state="waiting"] .connection__dot,
+.connection[data-state="connecting"] .connection__dot,
+.connection[data-state="synchronizing"] .connection__dot {
+  background: var(--ds-color-info);
+}
 .connection[data-state="stale"] .connection__dot,
 .connection[data-state="reconnecting"] .connection__dot {
   background: var(--ds-color-warning);
 }
-.connection[data-state="connecting"] .connection__dot {
-  background: var(--ds-color-info);
+.connection[data-state="incompatible"] .connection__dot,
+.connection[data-state="error"] .connection__dot {
+  background: var(--ds-color-danger);
 }
 .shell__content {
   width: min(100%, var(--ds-layout-spectator-max));
@@ -122,6 +128,35 @@ button:focus-visible {
       var(--ds-layout-page-padding-desktop-max)
     )
     var(--ds-space-20);
+}
+.shell__content--centered {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+.connection-state {
+  width: min(100%, var(--ds-layout-spectator-max));
+  padding: var(--ds-space-10);
+  text-align: center;
+}
+.connection-state h1 {
+  margin: var(--ds-space-4) var(--ds-space-0);
+  font-size: clamp(var(--ds-font-32), 4vw, var(--ds-font-56));
+  line-height: var(--ds-line-64);
+}
+.connection-state p:last-of-type {
+  color: var(--ds-color-text-secondary);
+}
+.connection-state__action {
+  min-height: var(--ds-control-min);
+  margin-top: var(--ds-space-5);
+  padding: var(--ds-space-2) var(--ds-space-5);
+  border: var(--ds-border) solid var(--ds-color-accent);
+  border-radius: var(--ds-radius-full);
+  background: var(--ds-color-accent);
+  color: var(--ds-color-canvas);
+  font-weight: var(--ds-weight-bold);
+  cursor: pointer;
 }
 .screen-heading {
   display: flex;
@@ -216,6 +251,9 @@ button:focus-visible {
   border-radius: var(--ds-radius-lg);
   background: var(--ds-color-surface-secondary);
 }
+.identity__art--missing {
+  border: var(--ds-border) solid var(--ds-color-surface-tertiary);
+}
 .identity--matchup .identity__art {
   width: clamp(var(--ds-artwork-matchup), 17vw, var(--ds-artwork-hero));
   height: clamp(var(--ds-artwork-matchup), 17vw, var(--ds-artwork-hero));
@@ -248,6 +286,17 @@ button:focus-visible {
 }
 .timeline-card {
   padding: var(--ds-space-5);
+}
+.assignment-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--ds-artwork-hero), 1fr));
+  gap: var(--ds-space-6);
+}
+.assignment-card {
+  display: grid;
+  place-items: center;
+  min-height: calc(var(--ds-artwork-hero) + var(--ds-space-16));
+  padding: var(--ds-space-6);
 }
 .timeline-card__header {
   display: flex;

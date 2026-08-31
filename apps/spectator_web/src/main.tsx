@@ -1,7 +1,9 @@
-import { StrictMode, useState } from "react";
+import { StrictMode, useMemo, useState } from "react";
 import { createRoot } from "react-dom/client";
+import { toPresentationProjection } from "./application/spectator/presentationMapper.ts";
+import { useSpectatorClient } from "./application/spectator/useSpectatorClient.ts";
+import { ConnectionStatePanel } from "./presentation/components/connection-state-panel/ConnectionStatePanel.tsx";
 import { SpectatorShell } from "./presentation/components/spectator-shell/SpectatorShell.tsx";
-import { spectatorFixture } from "./presentation/fixtures/spectatorFixture.ts";
 import { ChampionScreen } from "./presentation/screens/ChampionScreen.tsx";
 import { DashboardScreen } from "./presentation/screens/DashboardScreen.tsx";
 import { TournamentScreen } from "./presentation/screens/TournamentScreen.tsx";
@@ -11,21 +13,39 @@ import "./presentation/design-system/theme.css";
 
 export function SpectatorApp() {
   const [view, setView] = useState<SpectatorView>("dashboard");
+  const { state, retry } = useSpectatorClient();
+  const projection = useMemo(() => toPresentationProjection(state), [state]);
+
+  if (projection === undefined) {
+    return (
+      <div className="shell">
+        <main className="shell__content shell__content--centered">
+          <ConnectionStatePanel state={state.connection} onRetry={retry} />
+        </main>
+      </div>
+    );
+  }
+  const activeView: SpectatorView =
+    projection.tournament.lifecycle === "finished"
+      ? "champion"
+      : view === "champion"
+        ? "dashboard"
+        : view;
 
   return (
     <SpectatorShell
-      connection={spectatorFixture.connection}
-      tournament={spectatorFixture.tournament}
-      view={view}
+      connection={projection.connection}
+      tournament={projection.tournament}
+      view={activeView}
       onViewChange={setView}
     >
-      {view === "dashboard" && (
-        <DashboardScreen projection={spectatorFixture} />
+      {activeView === "dashboard" && (
+        <DashboardScreen projection={projection} />
       )}
-      {view === "tournament" && (
-        <TournamentScreen projection={spectatorFixture} />
+      {activeView === "tournament" && (
+        <TournamentScreen projection={projection} />
       )}
-      {view === "champion" && <ChampionScreen projection={spectatorFixture} />}
+      {activeView === "champion" && <ChampionScreen projection={projection} />}
     </SpectatorShell>
   );
 }

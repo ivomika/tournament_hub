@@ -23,11 +23,14 @@ export function FighterIdentity({
 
   return (
     <article className={classes} aria-label={semanticLabel}>
-      <img
-        className="identity__art"
-        src={`/fighters/${identity.fighterSlug}.png`}
-        alt=""
-      />
+      {identity.fighterAssetPath === undefined ? (
+        <div
+          className="identity__art identity__art--missing"
+          aria-hidden="true"
+        />
+      ) : (
+        <img className="identity__art" src={identity.fighterAssetPath} alt="" />
+      )}
       <div>
         <p className="identity__fighter">{identity.fighterName}</p>
         <p className="identity__nickname">{identity.nickname}</p>

@@ -1,11 +1,13 @@
-export type SpectatorView = "dashboard" | "tournament" | "champion";
+import type { SpectatorConnectionState } from "../application/spectator/reducer.ts";
 
-export type ConnectionState = "live" | "stale" | "reconnecting" | "connecting";
+export type SpectatorView = "dashboard" | "tournament" | "champion";
+export type ConnectionState = SpectatorConnectionState;
 
 export interface FighterIdentityModel {
+  participantId: string;
   nickname: string;
   fighterName: string;
-  fighterSlug: string;
+  fighterAssetPath?: string;
   guest?: boolean;
 }
 
@@ -16,16 +18,15 @@ export interface MatchModel {
   first: FighterIdentityModel;
   second: FighterIdentityModel;
   score?: readonly [number, number];
+  resultLabel?: string;
   winnerId?: string;
   state: "previous" | "current" | "next";
 }
 
 export interface StandingModel {
-  place: number;
+  participantId: string;
+  placeLabel: string;
   identity: FighterIdentityModel;
-  played: number;
-  wins: number;
-  points: number;
 }
 
 export interface SpectatorProjection {
@@ -38,11 +39,13 @@ export interface SpectatorProjection {
     title: string;
     format: string;
     progress: string;
+    lifecycle: "distribution" | "running" | "finished";
   };
-  previous: MatchModel;
-  current: MatchModel;
-  next: MatchModel;
+  participants: readonly FighterIdentityModel[];
+  previous?: MatchModel;
+  current?: MatchModel;
+  next?: MatchModel;
   bracket: readonly MatchModel[];
   standings: readonly StandingModel[];
-  champion: FighterIdentityModel;
+  champion?: FighterIdentityModel;
 }

@@ -1,6 +1,7 @@
 import type { SpectatorProjection } from "../types.ts";
 import { MatchupHero } from "../components/matchup-hero/MatchupHero.tsx";
 import { TimelineCard } from "../components/timeline-card/TimelineCard.tsx";
+import { AssignmentGrid } from "../components/assignment-grid/AssignmentGrid.tsx";
 
 export function DashboardScreen({
   projection,
@@ -8,6 +9,22 @@ export function DashboardScreen({
   projection: SpectatorProjection;
 }) {
   const isLive = projection.connection.state === "live";
+  if (projection.current === undefined) {
+    return (
+      <>
+        <header className="screen-heading">
+          <div>
+            <p className="stage-label">Раздача персонажей</p>
+            <h2>Участники готовы к турниру</h2>
+          </div>
+          <p className="screen-heading__context">
+            {projection.tournament.format}
+          </p>
+        </header>
+        <AssignmentGrid participants={projection.participants} />
+      </>
+    );
+  }
   return (
     <>
       {!isLive && (
@@ -30,8 +47,12 @@ export function DashboardScreen({
       <div className="dashboard-grid">
         <MatchupHero match={projection.current} />
         <aside className="timeline" aria-label="Предыдущий и следующий матчи">
-          <TimelineCard match={projection.previous} />
-          <TimelineCard match={projection.next} />
+          {projection.previous !== undefined && (
+            <TimelineCard match={projection.previous} />
+          )}
+          {projection.next !== undefined && (
+            <TimelineCard match={projection.next} />
+          )}
         </aside>
       </div>
     </>

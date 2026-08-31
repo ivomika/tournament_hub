@@ -13,22 +13,20 @@ export function StandingsTable({
           <tr>
             <th>Место</th>
             <th>Участник</th>
-            <th>Матчи</th>
-            <th>Победы</th>
-            <th>Очки</th>
+            <th>Результат</th>
           </tr>
         </thead>
         <tbody>
           {standings.map((standing) => (
-            <tr key={standing.identity.nickname}>
-              <td className="standings__place">{standing.place}</td>
+            <tr key={standing.participantId}>
+              <td className="standings__place">{standing.placeLabel}</td>
               <td>
                 <FighterIdentity identity={standing.identity} />
               </td>
-              <td>{standing.played}</td>
-              <td>{standing.wins}</td>
               <td>
-                <strong>{standing.points}</strong>
+                <strong>
+                  {standing.placeLabel === "1" ? "Чемпион" : "Итоговое место"}
+                </strong>
               </td>
             </tr>
           ))}
