@@ -163,6 +163,7 @@ final class AppRouteScreen extends StatelessWidget {
                 placement.participantId,
               ),
               resultLabel: placement.from == 1 ? 'Чемпион' : 'Итоговое место',
+              points: _pointsFor(tournament, placement.participantId),
             ),
         ],
         structure: cancelled ? null : _historyStructure(tournament),
@@ -330,6 +331,16 @@ final class AppRouteScreen extends StatelessWidget {
       progress:
           '${state.matches.where((match) => match.status == 'finished').length} ИЗ ${state.matches.length}',
       structure: _structure(state),
+      standings: [
+        for (final standing in state.standings)
+          StandingRowViewData(
+            placeLabel: '—',
+            participant: _participant(standing.participantId),
+            resultLabel:
+                'Победы: ${standing.wins} · Поражения: ${standing.losses}',
+            points: standing.points,
+          ),
+      ],
       readyToFinish: state.isReadyToFinish,
       onEnterResult: hostRuntime?.openCurrentResult,
       onCorrectResult: hasFinished
@@ -385,6 +396,7 @@ final class AppRouteScreen extends StatelessWidget {
                 : '${placement.from}–${placement.to}',
             participant: _participant(placement.participantId),
             resultLabel: placement.from == 1 ? 'Чемпион' : 'Итоговое место',
+            points: _pointsFor(session, placement.participantId),
           ),
       ],
       onMain: hostRuntime?.leaveTerminalTournament,
@@ -402,6 +414,12 @@ final class AppRouteScreen extends StatelessWidget {
     if (session == null) throw StateError('Host session is unavailable.');
     return session;
   }
+
+  int? _pointsFor(HostTournamentProjection tournament, String participantId) =>
+      tournament.standings
+          .where((standing) => standing.participantId == participantId)
+          .firstOrNull
+          ?.points;
 
   PreviewParticipant _participant(String participantId) {
     final session = _session;

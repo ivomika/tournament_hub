@@ -10,6 +10,7 @@ class HostRunningScreenPreview extends StatelessWidget {
     this.currentMatchTitle = 'Текущий матч',
     this.progress = 'МАТЧ 1',
     this.structure,
+    this.standings = const [],
     this.readyToFinish = false,
     this.onEnterResult,
     this.onCorrectResult,
@@ -25,6 +26,7 @@ class HostRunningScreenPreview extends StatelessWidget {
   final String currentMatchTitle;
   final String progress;
   final BracketViewData? structure;
+  final List<StandingRowViewData> standings;
   final bool readyToFinish;
   final VoidCallback? onEnterResult;
   final VoidCallback? onCorrectResult;
@@ -97,7 +99,16 @@ class HostRunningScreenPreview extends StatelessWidget {
               : 'Выбери победителя после завершения серии.',
           kind: readyToFinish ? StatusKind.success : StatusKind.warning,
         ),
-        supporting: TournamentBracketPreview(data: structure),
+        supporting: standings.isEmpty
+            ? TournamentBracketPreview(data: structure)
+            : Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  TournamentStandings(rows: standings),
+                  const DsGap(DsSpace.lg),
+                  TournamentBracketPreview(data: structure),
+                ],
+              ),
       ),
     );
   }

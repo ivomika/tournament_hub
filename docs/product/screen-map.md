@@ -75,7 +75,7 @@ Draft/Open/Distribution/Running
 | Draft | Прежняя линейная композиция параметров: название, компактный dropdown DE/SE/RR и stage summary | Save/open/cancel | Back/Main сохраняет Draft; Open возможен только после committed valid settings |
 | Open | Общий двухрегионный layout: roster — основной блок, guest form расположена выше optional Participant invite во втором блоке; Spectator access рядом со статусом | Add/remove, открыть spectator access, distribution, cancel | Settings immutable; Main сохраняет active; недоступные Participant/Spectator возможности не блокируют local progression |
 | Distribution | Full fighter assignments и committed reroll feedback | Reroll All, back Open, start, cancel | Reroll блокирует duplicate command и сразу обновляет projection; Back transition только explicit Domain command |
-| Running | Current match + structure/progress | Result, technical, valid correction, withdrawal | Нельзя route-назад в Open/Distribution |
+| Running | Current match + structure/progress; RR дополнительно показывает текущие points из Domain projection | Result, technical, valid correction, withdrawal | Нельзя route-назад в Open/Distribution; UI не пересчитывает points |
 | Finished | Champion + ranking + structure | Read-only | Main/History доступны |
 | Cancelled | Factual terminal summary | Read-only | Main/History доступны |
 

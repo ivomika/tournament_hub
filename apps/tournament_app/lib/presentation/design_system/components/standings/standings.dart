@@ -45,15 +45,21 @@ class TournamentStandings extends StatelessWidget {
               builder: (context, constraints) {
                 final expanded =
                     constraints.maxWidth >= theme.desktopBreakpoint;
+                final showsPoints = rows.any((row) => row.points != null);
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    if (expanded) _DesktopHeader(theme: theme),
+                    if (expanded)
+                      _DesktopHeader(theme: theme, showsPoints: showsPoints),
                     for (final (index, row) in rows.indexed) ...[
                       if (index > 0 || expanded)
                         Divider(color: theme.divider, height: theme.gap),
                       expanded
-                          ? _DesktopStandingRow(row: row, theme: theme)
+                          ? _DesktopStandingRow(
+                              row: row,
+                              theme: theme,
+                              showsPoints: showsPoints,
+                            )
                           : _CompactStandingRow(row: row, theme: theme),
                     ],
                   ],
@@ -68,9 +74,10 @@ class TournamentStandings extends StatelessWidget {
 }
 
 class _DesktopHeader extends StatelessWidget {
-  const _DesktopHeader({required this.theme});
+  const _DesktopHeader({required this.theme, required this.showsPoints});
 
   final StandingsTheme theme;
+  final bool showsPoints;
 
   @override
   Widget build(BuildContext context) => Row(
@@ -87,16 +94,25 @@ class _DesktopHeader extends StatelessWidget {
         flex: 2,
         child: DsText('РЕЗУЛЬТАТ', variant: DsTextVariant.label),
       ),
+      if (showsPoints)
+        const Expanded(
+          child: DsText('ОЧКИ', variant: DsTextVariant.label, maxLines: 1),
+        ),
       const Expanded(child: DsText('КОНТЕКСТ', variant: DsTextVariant.label)),
     ],
   );
 }
 
 class _DesktopStandingRow extends StatelessWidget {
-  const _DesktopStandingRow({required this.row, required this.theme});
+  const _DesktopStandingRow({
+    required this.row,
+    required this.theme,
+    required this.showsPoints,
+  });
 
   final StandingRowViewData row;
   final StandingsTheme theme;
+  final bool showsPoints;
 
   @override
   Widget build(BuildContext context) => _StandingSemantics(
@@ -122,6 +138,14 @@ class _DesktopStandingRow extends StatelessWidget {
           flex: 2,
           child: DsText(row.resultLabel, variant: DsTextVariant.secondary),
         ),
+        if (showsPoints)
+          Expanded(
+            child: DsText(
+              row.points?.toString() ?? '—',
+              variant: DsTextVariant.title,
+              maxLines: 1,
+            ),
+          ),
         Expanded(
           child: row.tieBreakLabel == null
               ? const DsText('—', variant: DsTextVariant.secondary)
@@ -173,6 +197,10 @@ class _CompactStandingRow extends StatelessWidget {
           ),
           SizedBox(height: theme.gap),
           DsText(row.resultLabel, variant: DsTextVariant.secondary),
+          if (row.points != null) ...[
+            SizedBox(height: theme.gap),
+            DsText('Очки: ${row.points}', variant: DsTextVariant.title),
+          ],
           if (row.tieBreakLabel != null) ...[
             SizedBox(height: theme.gap),
             StatusBadge(label: row.tieBreakLabel!, kind: StatusKind.warning),
@@ -196,6 +224,7 @@ class _StandingSemantics extends StatelessWidget {
       'Место ${row.placeLabel}',
       '${row.participant.fighterName}, ${row.participant.nickname}',
       row.resultLabel,
+      if (row.points != null) 'Очки: ${row.points}',
       ?row.tieBreakLabel,
     ].join('. '),
     child: child,

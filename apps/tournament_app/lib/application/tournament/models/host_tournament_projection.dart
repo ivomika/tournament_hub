@@ -66,6 +66,20 @@ final class HostPlacementProjection {
   final int to;
 }
 
+final class HostStandingProjection {
+  const HostStandingProjection({
+    required this.participantId,
+    required this.points,
+    required this.wins,
+    required this.losses,
+  });
+
+  final String participantId;
+  final int points;
+  final int wins;
+  final int losses;
+}
+
 final class HostTournamentProjection {
   const HostTournamentProjection({
     required this.id,
@@ -77,6 +91,7 @@ final class HostTournamentProjection {
     required this.ranking,
     required this.revision,
     required this.sequence,
+    this.standings = const [],
     this.championId,
     this.cancellationReason,
   });
@@ -88,6 +103,7 @@ final class HostTournamentProjection {
   final List<HostParticipantProjection> participants;
   final List<HostMatchProjection> matches;
   final List<HostPlacementProjection> ranking;
+  final List<HostStandingProjection> standings;
   final int revision;
   final int sequence;
   final String? championId;
@@ -162,6 +178,18 @@ abstract final class HostTournamentProjectionMapper {
                     ),
                   ) ??
                   const <HostPlacementProjection>[],
+      ),
+      standings: List.unmodifiable(
+        state is RoundRobinState
+            ? state.standings.map(
+                (standing) => HostStandingProjection(
+                  participantId: standing.participantId.value,
+                  points: standing.points,
+                  wins: standing.wins,
+                  losses: standing.losses,
+                ),
+              )
+            : const <HostStandingProjection>[],
       ),
       championId: tournament.lifecycle == TournamentLifecycle.cancelled
           ? null

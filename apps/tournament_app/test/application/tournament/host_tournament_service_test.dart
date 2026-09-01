@@ -1,5 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tournament_hub_app/application/tournament/host_tournament_service.dart';
+import 'package:tournament_hub_app/application/tournament/models/host_tournament_projection.dart';
 import 'package:tournament_hub_app/domain/game/fighter.dart';
 import 'package:tournament_hub_app/domain/game/game_definition.dart';
 import 'package:tournament_hub_app/domain/profile/local_profile.dart';
@@ -200,6 +201,62 @@ void main() {
       throwsA(isA<FormatException>()),
     );
   });
+
+  test(
+    'RR points проходят через projection и persistence round-trip',
+    () async {
+      final profile = LocalProfile(id: 'profile-1', nickname: 'Host');
+      var session = await service.createDraft(
+        profile: profile,
+        title: 'RR Cup',
+        formatId: 'round-robin',
+      );
+      session = await service.open(session);
+      session = await service.addLocalProfile(session, profile: profile);
+      session = await service.addGuest(session, nickname: 'Guest');
+      session = await service.startDistribution(session, assignmentSeed: 1);
+      session = await service.startRunning(session, bracketSeed: 1);
+
+      final match = session.engineState!.currentMatch!;
+      session = await service.submitResult(
+        session,
+        result: NormalMatchResult(
+          winnerId: match.firstParticipantId,
+          loserId: match.secondParticipantId,
+          winnerScore: match.firstTo,
+          loserScore: 0,
+        ),
+      );
+
+      final projection = HostTournamentProjectionMapper.fromSession(session);
+      expect(
+        projection.standings
+            .singleWhere(
+              (standing) =>
+                  standing.participantId == match.firstParticipantId.value,
+            )
+            .points,
+        3,
+      );
+      expect(
+        projection.standings
+            .singleWhere(
+              (standing) =>
+                  standing.participantId == match.secondParticipantId.value,
+            )
+            .points,
+        0,
+      );
+
+      final restored = HostTournamentProjectionMapper.fromSession(
+        (await service.loadActive())!,
+      );
+      expect(
+        restored.standings.map((standing) => standing.points),
+        projection.standings.map((standing) => standing.points),
+      );
+    },
+  );
 }
 
 GameDefinition _game() => GameDefinition(

@@ -6,10 +6,10 @@
 
 ## Активные задачи
 - ⛔ **101** — Провести MVP Host + Guests + Spectator integration и hardening — [детали](tasks/TH-20260830-101.md)
-- 🟢 **123** — Показать очки участников в Host Round Robin — [детали](tasks/TH-20260901-123.md)
 
 ## Завершённые задачи
 
+- ✅ **123** — Показать очки участников в Host Round Robin — [детали](tasks/TH-20260901-123.md)
 - ✅ **122** — Усилить линии Spectator bracket на больших экранах — [детали](tasks/TH-20260901-122.md)
 - ✅ **121** — Исправить fullscreen и канонизировать линии Spectator bracket — [детали](tasks/TH-20260831-121.md)
 - ✅ **120** — Исправить наложение участников в Spectator Current Match — [детали](tasks/TH-20260831-120.md)

@@ -8,6 +8,7 @@ void main() {
       placeLabel: '1',
       participant: previewIvan,
       resultLabel: 'Чемпион',
+      points: 7,
     ),
     StandingRowViewData(
       placeLabel: '3–4',
@@ -63,7 +64,26 @@ void main() {
         find.bySemanticsLabel(RegExp('Место 10–11.*Raiden.*Очень длинное')),
         findsOneWidget,
       );
+      expect(find.text(size.width >= 600 ? '7' : 'Очки: 7'), findsOneWidget);
+      expect(find.bySemanticsLabel(RegExp('Место 1.*Очки: 7')), findsOneWidget);
       expect(tester.takeException(), isNull);
     });
   }
+
+  testWidgets('не показывает колонку очков без RR projection', (tester) async {
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: TournamentTheme.dark,
+        home: const Scaffold(
+          body: SizedBox(
+            width: 1280,
+            child: TournamentStandings(rows: previewStandingsRows),
+          ),
+        ),
+      ),
+    );
+
+    expect(find.text('ОЧКИ'), findsNothing);
+    expect(find.textContaining('Очки:'), findsNothing);
+  });
 }

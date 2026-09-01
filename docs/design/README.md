@@ -99,7 +99,7 @@ Surface tone выражает роль, а не вложенность: `base` �
 - `ParticipantAssignmentGrid`: сохраняет порядок участников и полную fighter identity; использует 1/2/3 колонки на compact/medium/expanded ширине без `Wrap`, а высота строки адаптируется к длинному тексту.
 - `FighterAvatar`: stable crop variants, semantic label, fallback/placeholder.
 - `MatchCard/CurrentMatch`: stage, identities, score/result type, Current emphasis и разрешённые actions. В dominant `MatchupHero` обе identity сохраняют вертикальную ось и отдельные grid tracks; `reverse` меняет порядок только у horizontal compact variant и не может направить copy/artwork в центральный track `VS`. Длинные fighter/nickname переносятся внутри собственной identity.
-- `StandingsTable`: готовые place/result/tie-break labels и fighter identity; table на desktop, compact rows на mobile. Колонка place имеет отдельный semantic minimum и показывает точное место/диапазон одной строкой; widget не вычисляет очки, победы или места.
+- `StandingsTable`: готовые place/result/tie-break labels, optional authoritative RR points и fighter identity; table на desktop, compact rows на mobile. Колонка place имеет отдельный semantic minimum и показывает точное место/диапазон одной строкой. Колонка/label «Очки» появляется только при наличии RR points в application projection; widget не вычисляет очки, победы или места.
 - `Bracket`: связи первичны, затем identity/result/metadata; предусмотрены pan/zoom/keyboard alternatives.
 - Spectator `BracketView` выбирает композицию по authoritative `formatId`: DE разделяет winners/losers и финальную lane с Grand Final/Reset, SE показывает только последовательность elimination rounds, RR — rounds/pairings рядом с standings. Mapper переносит `stageId/round/order` без вычисления progression. В elimination lanes соседние match groups соединяются token-driven горизонтальными branches и вертикальными merge lines; на large/xlarge применяется emphasis border для чтения с расстояния, на меньших viewport — base border. Это presentation направления потока, а не вычисление dependency graph. RR не получает ложных elimination connectors. Canvas поддерживает drag/touch pan, wheel/buttons/keyboard zoom, fit/reset и fullscreen с постоянно доступным выходом. Fullscreen отдаёт полотну всё пространство под toolbar и после смены layout автоматически выполняет fit. Compact использует тот же семантический список rounds/matches внутри прокручиваемого viewport.
 - `StatusBadge`: text плюс icon/shape; значение не передаётся только цветом.
@@ -165,7 +165,7 @@ Header называет экран и роль, но не конкурирует
 | Host Draft | параметры и validation формы | открыть лобби | summary черновика |
 | Host Open | roster/readiness | начать раздачу | participant invite, connection status |
 | Host Distribution | fighter assignments | создать сетку и начать | compact assignment status |
-| Host Running | current matchup | ввести результат | bracket/progress |
+| Host Running | current matchup | ввести результат | bracket/progress; для RR — текущие authoritative points |
 | Host Result Entry | winner selection | подтвердить победителя | match metadata |
 | Host Finished | champion identity | на главную | ranking, structure, read-only status |
 | Host Cancelled | factual cancellation reason | на главную | immutable status, history link |

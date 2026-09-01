@@ -99,16 +99,60 @@ void main() {
       expect(await tournaments.loadActive(), isNotNull);
     },
   );
+
+  test('history восстанавливает RR points из результатов матчей', () async {
+    var session = await _runningTournament(
+      tournaments,
+      profile,
+      formatId: 'round-robin',
+    );
+    final match = session.engineState!.currentMatch!;
+    session = await tournaments.submitResult(
+      session,
+      result: NormalMatchResult(
+        winnerId: match.firstParticipantId,
+        loserId: match.secondParticipantId,
+        winnerScore: match.firstTo,
+        loserScore: 1,
+      ),
+    );
+    await tournaments.finish(session);
+
+    final tournament = (await history.read(localProfileId: profile.id))
+        .entries
+        .single
+        .tournament;
+    expect(tournament.standings, hasLength(2));
+    expect(
+      tournament.standings
+          .singleWhere(
+            (standing) =>
+                standing.participantId == match.firstParticipantId.value,
+          )
+          .points,
+      2,
+    );
+    expect(
+      tournament.standings
+          .singleWhere(
+            (standing) =>
+                standing.participantId == match.secondParticipantId.value,
+          )
+          .points,
+      1,
+    );
+  });
 }
 
 Future<HostTournamentSession> _runningTournament(
   HostTournamentService service,
-  LocalProfile profile,
-) async {
+  LocalProfile profile, {
+  String formatId = 'single-elimination',
+}) async {
   var session = await service.createDraft(
     profile: profile,
     title: 'Cup',
-    formatId: 'single-elimination',
+    formatId: formatId,
   );
   session = await service.open(session);
   session = await service.addLocalProfile(session, profile: profile);
