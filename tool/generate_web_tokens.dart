@@ -62,6 +62,7 @@ const _bindings = <String, List<String>>{
   'radius-xl': ['radius', 'xl'],
   'radius-full': ['radius', 'full'],
   'border': ['border', 'widthBase'],
+  'border-emphasis': ['border', 'widthEmphasis'],
   'control-min': ['control', 'touchTargetMin'],
   'artwork-compact': ['artwork', 'size', 'compact'],
   'artwork-standard': ['artwork', 'size', 'standard'],

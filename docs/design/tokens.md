@@ -11,7 +11,7 @@
 - `layout.*` — page padding, content-width limits и минимальные размеры структурных колонок.
 - `color.*` — semantic background/surface/text/accent/status colors.
 - `font.size.*`, `font.lineHeight.*`, `font.weight.*` — typography primitives.
-- `radius.*`, `border.*` — shape primitives.
+- `radius.*`, `border.*` — shape primitives; border scale различает обычную границу и emphasis для крупных/дистанционно читаемых связей.
 - `control.*` — targets и control heights.
 - `artwork.size.*` — semantic fighter-artwork hierarchy для compact, standard, matchup и hero representations.
 - `motion.*` — duration primitives.

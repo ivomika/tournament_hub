@@ -83,6 +83,7 @@ abstract final class TournamentTokens {
   static const double radiusXl = 20.0;
   static const double radiusFull = 999.0;
   static const double borderWidthBase = 1.0;
+  static const double borderWidthEmphasis = 2.0;
   static const double controlTouchTargetMin = 44.0;
   static const double controlTouchTargetPreferred = 48.0;
   static const double controlHeightCompactMin = 36.0;

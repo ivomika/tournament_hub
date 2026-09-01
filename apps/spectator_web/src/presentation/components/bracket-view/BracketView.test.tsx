@@ -11,6 +11,10 @@ const themeCss = readFileSync(
   "src/presentation/design-system/theme.css",
   "utf8",
 );
+const tokensCss = readFileSync(
+  "src/presentation/design-system/tokens.css",
+  "utf8",
+);
 
 describe("BracketView", () => {
   it("разделяет канонические DE lanes, Grand Final и Reset", () => {
@@ -145,6 +149,10 @@ describe("BracketView", () => {
     expect(themeCss).toMatch(/\.bracket-match\s*\{[^}]*overflow:\s*visible;/);
     expect(themeCss).toMatch(
       /\.bracket-viewport:fullscreen \.bracket-pan-area\s*\{[^}]*flex:\s*1;/,
+    );
+    expect(tokensCss).toContain("--ds-border-emphasis:");
+    expect(themeCss).toMatch(
+      /@media \(min-width: 1280px\)[\s\S]*--bracket-connector-width:\s*var\(--ds-border-emphasis\)/,
     );
 
     rerender(

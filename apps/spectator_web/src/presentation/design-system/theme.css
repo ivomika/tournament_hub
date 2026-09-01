@@ -450,6 +450,9 @@ button:focus-visible {
   padding-top: var(--ds-space-6);
   border-top: var(--ds-border) solid var(--ds-color-surface-tertiary);
 }
+.bracket-lane--connected {
+  --bracket-connector-width: var(--ds-border);
+}
 .bracket-lane__title {
   margin: var(--ds-space-0) var(--ds-space-0) var(--ds-space-4);
   color: var(--ds-color-text-primary);
@@ -506,7 +509,8 @@ button:focus-visible {
   top: 25%;
   right: calc(var(--ds-space-4) * -1);
   bottom: 25%;
-  border-right: var(--ds-border) solid var(--ds-color-text-tertiary);
+  border-right: var(--bracket-connector-width) solid
+    var(--ds-color-text-tertiary);
   pointer-events: none;
 }
 .bracket-lane--connected .bracket-round:not(:last-child) .bracket-pair::after {
@@ -515,7 +519,7 @@ button:focus-visible {
   top: 50%;
   right: calc(var(--ds-space-8) * -1);
   width: var(--ds-space-4);
-  border-top: var(--ds-border) solid var(--ds-color-text-tertiary);
+  border-top: var(--bracket-connector-width) solid var(--ds-color-text-tertiary);
   pointer-events: none;
 }
 .bracket-match {
@@ -534,7 +538,7 @@ button:focus-visible {
   position: absolute;
   top: 50%;
   width: var(--ds-space-4);
-  border-top: var(--ds-border) solid var(--ds-color-text-tertiary);
+  border-top: var(--bracket-connector-width) solid var(--ds-color-text-tertiary);
   pointer-events: none;
 }
 .bracket-lane--connected .bracket-round:not(:last-child) .bracket-match::after {
@@ -629,6 +633,11 @@ button:focus-visible {
   }
   .matchup {
     min-height: 430px;
+  }
+}
+@media (min-width: 1280px) {
+  .bracket-lane--connected {
+    --bracket-connector-width: var(--ds-border-emphasis);
   }
 }
 @media (max-width: 599px) {
