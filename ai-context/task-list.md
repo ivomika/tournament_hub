@@ -6,3 +6,4 @@
 - ✅ 2. Зафиксировать обязательное правило SOLID и router для чтения правил. [Детали](task-details/2-solid-rule.md)
 - ✅ 3. Добавить AGENTS.md с обязательным порядком чтения AI Context и правил. [Детали](task-details/3-agents-instructions.md)
 - ✅ 4. Добавить в шаблон задачи обязательный реестр применимых правил. [Детали](task-details/4-task-rules-roster.md)
+- ✅ 5. Ввести сквозную нумерацию проектных правил. [Детали](task-details/5-rule-numbering.md)
