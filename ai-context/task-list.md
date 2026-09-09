@@ -7,3 +7,4 @@
 - ✅ 3. Добавить AGENTS.md с обязательным порядком чтения AI Context и правил. [Детали](task-details/3-agents-instructions.md)
 - ✅ 4. Добавить в шаблон задачи обязательный реестр применимых правил. [Детали](task-details/4-task-rules-roster.md)
 - ✅ 5. Ввести сквозную нумерацию проектных правил. [Детали](task-details/5-rule-numbering.md)
+- ✅ 6. Добавить каноническую папку docs и правило документирования на русском. [Детали](task-details/6-documentation-rule.md)
