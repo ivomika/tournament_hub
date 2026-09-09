@@ -9,3 +9,5 @@
 - ✅ 5. Ввести сквозную нумерацию проектных правил. [Детали](task-details/5-rule-numbering.md)
 - ✅ 6. Добавить каноническую папку docs и правило документирования на русском. [Детали](task-details/6-documentation-rule.md)
 - ✅ 7. Создать пустое кроссплатформенное Flutter-приложение tournament_app. [Детали](task-details/7-flutter-app-bootstrap.md)
+- ✅ 8. Добавить папку tools и единые Make-команды для Flutter-приложения. [Детали](task-details/8-tools-and-makefile.md)
+- ✅ 9. Добавить нативные Make-цели сборки для macOS, Windows и Linux. [Детали](task-details/9-desktop-make-builds.md)
