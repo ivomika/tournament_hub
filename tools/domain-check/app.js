@@ -136,7 +136,8 @@ function renderEdges(nodes, edgeLayer) {
     const direction = state.selectedId === from ? ' is-outbound' : state.selectedId === to ? ' is-inbound' : '';
     const related = direction ? ' is-related' : '';
     const muted = state.relationshipFocus && state.selectedId && !direction ? ' is-muted' : '';
-    edgeLayer.insertAdjacentHTML('beforeend', `<path class="edge${related}${direction}${muted}" data-from="${from}" data-to="${to}" d="${geometry.path}" marker-end="url(#edge-arrow)"><title>${label}</title></path>`);
+    const interCluster = byId.get(from).area !== byId.get(to).area ? ' is-inter-cluster' : '';
+    edgeLayer.insertAdjacentHTML('beforeend', `<path class="edge${interCluster}${related}${direction}${muted}" data-from="${from}" data-to="${to}" d="${geometry.path}" marker-end="url(#edge-arrow)"><title>${label}</title></path>`);
     if (direction) {
       edgeLayer.insertAdjacentHTML('beforeend', `<text class="edge-label${direction}" x="${geometry.labelX}" y="${geometry.labelY}">${label}</text>`);
     }
