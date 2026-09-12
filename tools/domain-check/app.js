@@ -17,7 +17,8 @@ const graphLayout = {
   nodeColumns: 2,
   nodeGapX: 72,
   nodeGapY: 36,
-  nodeHeights: { prominent: 156, standard: 124, compact: 102 }
+  nodeHeights: { prominent: 156, standard: 124, compact: 102 },
+  edgePortOffset: 18
 };
 
 async function start() {
@@ -234,9 +235,9 @@ function edgeGeometry(source, target, canvas) {
   if (Math.abs(dx) >= Math.abs(dy)) {
     const direction = dx >= 0 ? 1 : -1;
     const x1 = (direction > 0 ? source.right : source.left) - canvas.left;
-    const y1 = sourceCenter.y - canvas.top;
+    const y1 = sourceCenter.y - canvas.top - graphLayout.edgePortOffset;
     const x2 = (direction > 0 ? target.left : target.right) - canvas.left;
-    const y2 = targetCenter.y - canvas.top;
+    const y2 = targetCenter.y - canvas.top + graphLayout.edgePortOffset;
     const bend = Math.max(56, Math.abs(x2 - x1) * .42);
     return {
       path: `M ${x1} ${y1} C ${x1 + direction * bend} ${y1}, ${x2 - direction * bend} ${y2}, ${x2} ${y2}`,
@@ -246,9 +247,9 @@ function edgeGeometry(source, target, canvas) {
   }
 
   const direction = dy >= 0 ? 1 : -1;
-  const x1 = sourceCenter.x - canvas.left;
+  const x1 = sourceCenter.x - canvas.left - graphLayout.edgePortOffset;
   const y1 = (direction > 0 ? source.bottom : source.top) - canvas.top;
-  const x2 = targetCenter.x - canvas.left;
+  const x2 = targetCenter.x - canvas.left + graphLayout.edgePortOffset;
   const y2 = (direction > 0 ? target.top : target.bottom) - canvas.top;
   const bend = Math.max(56, Math.abs(y2 - y1) * .42);
   return {
