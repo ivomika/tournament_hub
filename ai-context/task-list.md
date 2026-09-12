@@ -16,3 +16,4 @@
 - ✅ 12. Исправить запуск Domain architecture checker на Windows. [Детали](task-details/12-domain-check-windows-launch.md)
 - ✅ 13. Улучшить читаемость связей в Domain architecture checker. [Детали](task-details/13-domain-check-relationship-clarity.md)
 - ✅ 14. Сгруппировать Domain architecture checker по визуальным кластерам. [Детали](task-details/14-domain-check-area-clusters.md)
+- 🚧 15. Перестроить Domain architecture checker для многоуровневого чтения связей — этап 1 ждёт приёмки. [Детали](task-details/15-domain-check-progressive-architecture-map.md)

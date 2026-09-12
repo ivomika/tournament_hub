@@ -9,16 +9,15 @@ const byId = new Map();
 const $ = (selector) => document.querySelector(selector);
 const graphLayout = {
   columns: 3,
-  clusterWidth: 620,
-  clusterGap: 48,
-  outerGap: 32,
-  clusterHeaderHeight: 70,
-  clusterPadding: 22,
+  clusterWidth: 780,
+  clusterGap: 112,
+  outerGap: 56,
+  clusterHeaderHeight: 76,
+  clusterPadding: 32,
   nodeColumns: 2,
-  nodeWidth: 270,
-  nodeHeight: 118,
-  nodeGapX: 24,
-  nodeGapY: 24
+  nodeGapX: 72,
+  nodeGapY: 36,
+  nodeHeights: { prominent: 156, standard: 124, compact: 102 }
 };
 
 async function start() {
@@ -106,8 +105,12 @@ function renderGraph(nodes) {
     const element = template.querySelector('button');
     const position = layout.nodePositions.get(node.id);
     element.dataset.id = node.id;
+    element.dataset.tier = position.tier;
+    element.classList.add(`node-${position.tier}`);
     element.style.left = `${position.x}px`;
     element.style.top = `${position.y}px`;
+    element.style.width = `${position.width}px`;
+    element.style.height = `${position.height}px`;
     element.style.setProperty('--area-color', state.data.areas.find((area) => area.id === node.area).accent);
     element.querySelector('.node-kind').style.setProperty('--kind-color', kindColors[node.kind]);
     element.querySelector('.node-kind').textContent = node.kind;
@@ -151,9 +154,10 @@ function clusterLayout(nodes) {
 
   visibleAreas.forEach((area) => {
     const areaNodes = grouped.get(area.id);
-    const rows = Math.ceil(areaNodes.length / graphLayout.nodeColumns);
-    const height = graphLayout.clusterHeaderHeight + graphLayout.clusterPadding +
-      rows * graphLayout.nodeHeight + Math.max(0, rows - 1) * graphLayout.nodeGapY;
+    const rows = nodeRows(areaNodes);
+    const contentHeight = rows.reduce((total, row) => total + row.height, 0) +
+      Math.max(0, rows.length - 1) * graphLayout.nodeGapY;
+    const height = graphLayout.clusterHeaderHeight + graphLayout.clusterPadding * 2 + contentHeight;
     const column = columnHeights.indexOf(Math.min(...columnHeights));
     const x = graphLayout.outerGap + column * (graphLayout.clusterWidth + graphLayout.clusterGap);
     const y = columnHeights[column];
@@ -161,11 +165,20 @@ function clusterLayout(nodes) {
     clusters.push(cluster);
     columnHeights[column] += height + graphLayout.clusterGap;
 
-    areaNodes.forEach((node, index) => {
-      nodePositions.set(node.id, {
-        x: x + graphLayout.clusterPadding + (index % graphLayout.nodeColumns) * (graphLayout.nodeWidth + graphLayout.nodeGapX),
-        y: y + graphLayout.clusterHeaderHeight + Math.floor(index / graphLayout.nodeColumns) * (graphLayout.nodeHeight + graphLayout.nodeGapY)
+    const innerWidth = graphLayout.clusterWidth - graphLayout.clusterPadding * 2;
+    const columnWidth = (innerWidth - graphLayout.nodeGapX) / graphLayout.nodeColumns;
+    let rowY = y + graphLayout.clusterHeaderHeight + graphLayout.clusterPadding;
+    rows.forEach((row) => {
+      row.items.forEach((item, index) => {
+        nodePositions.set(item.node.id, {
+          x: x + graphLayout.clusterPadding + (item.span === graphLayout.nodeColumns ? 0 : index * (columnWidth + graphLayout.nodeGapX)),
+          y: rowY,
+          width: item.span === graphLayout.nodeColumns ? innerWidth : columnWidth,
+          height: graphLayout.nodeHeights[item.tier],
+          tier: item.tier
+        });
       });
+      rowY += row.height + graphLayout.nodeGapY;
     });
   });
 
@@ -175,6 +188,40 @@ function clusterLayout(nodes) {
     width: graphLayout.outerGap * 2 + columnCount * graphLayout.clusterWidth + Math.max(0, columnCount - 1) * graphLayout.clusterGap,
     height: Math.max(630, ...columnHeights) + graphLayout.outerGap - graphLayout.clusterGap
   };
+}
+
+function nodeRows(nodes) {
+  const rows = [];
+  let current = [];
+  const pushCurrent = () => {
+    if (!current.length) return;
+    rows.push({
+      items: current,
+      height: Math.max(...current.map((item) => graphLayout.nodeHeights[item.tier]))
+    });
+    current = [];
+  };
+
+  nodes.forEach((node) => {
+    const tier = nodeTier(node);
+    const span = tier === 'prominent' ? graphLayout.nodeColumns : 1;
+    if (span === graphLayout.nodeColumns) {
+      pushCurrent();
+      current.push({ node, tier, span });
+      pushCurrent();
+      return;
+    }
+    current.push({ node, tier, span });
+    if (current.length === graphLayout.nodeColumns) pushCurrent();
+  });
+  pushCurrent();
+  return rows;
+}
+
+function nodeTier(node) {
+  if (node.kind === 'aggregate') return 'prominent';
+  if (node.kind === 'value-object' || node.kind === 'failure') return 'compact';
+  return 'standard';
 }
 
 function edgeGeometry(source, target, canvas) {

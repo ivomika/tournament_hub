@@ -43,14 +43,14 @@ input, select, .controls button { height: 38px; border: 1px solid var(--line); b
 .panel-heading h2 { margin-top: 4px; }
 .panel-heading > p { max-width: 360px; font-size: .78rem; line-height: 1.45; text-align: right; }
 .graph-viewport { overflow: auto; min-height: 630px; background-image: radial-gradient(#2b3447 1px, transparent 1px); background-size: 18px 18px; outline: none; }
-.graph-canvas { position: relative; min-width: 684px; min-height: 630px; }
+.graph-canvas { position: relative; min-width: 892px; min-height: 630px; }
 #graph-clusters, #graph-nodes, #edges { position: absolute; inset: 0; }
 #graph-clusters { z-index: 0; }
 #edges { width: 100%; height: 100%; z-index: 1; pointer-events: none; overflow: visible; }
 #graph-nodes { z-index: 2; pointer-events: none; }
 .area-cluster { position: absolute; border: 1px solid color-mix(in srgb, var(--area-color) 48%, var(--line)); border-radius: 18px; background: linear-gradient(145deg, color-mix(in srgb, var(--area-color) 8%, var(--panel-raised)), color-mix(in srgb, var(--area-color) 2%, var(--panel))); box-shadow: inset 0 1px 0 color-mix(in srgb, var(--area-color) 18%, transparent), 0 18px 48px rgba(0, 0, 0, .2); transition: opacity .16s ease; }
 .area-cluster.is-muted { opacity: .18; }
-.cluster-heading { height: 70px; display: flex; align-items: center; justify-content: space-between; padding: 0 22px; border-bottom: 1px solid color-mix(in srgb, var(--area-color) 26%, var(--line)); color: var(--area-color); font-size: .76rem; font-weight: 900; letter-spacing: .09em; text-transform: uppercase; }
+.cluster-heading { height: 76px; display: flex; align-items: center; justify-content: space-between; padding: 0 28px; border-bottom: 1px solid color-mix(in srgb, var(--area-color) 26%, var(--line)); color: var(--area-color); font-size: .76rem; font-weight: 900; letter-spacing: .09em; text-transform: uppercase; }
 .cluster-heading strong { display: grid; place-items: center; min-width: 28px; height: 28px; padding: 0 8px; border: 1px solid color-mix(in srgb, var(--area-color) 40%, transparent); border-radius: 999px; background: color-mix(in srgb, var(--area-color) 10%, transparent); }
 .edge { fill: none; stroke: #53617b; stroke-width: 1.25; opacity: .56; }
 .edge.is-related { stroke: var(--accent); stroke-width: 2.5; opacity: 1; }
@@ -58,7 +58,13 @@ input, select, .controls button { height: 38px; border: 1px solid var(--line); b
 .edge.is-muted { opacity: .08; }
 .edge-label { fill: var(--text); font-size: 10px; font-weight: 700; paint-order: stroke; stroke: var(--page); stroke-width: 4px; stroke-linejoin: round; }
 .edge-label.is-inbound { fill: #8cd6ff; }
-.architecture-node { position: absolute; width: 270px; min-height: 118px; max-height: 118px; display: grid; gap: 8px; align-content: start; text-align: left; padding: 13px 14px; border: 1px solid var(--line); border-left: 3px solid var(--area-color); border-radius: 12px; background: #111722; color: var(--text); box-shadow: 0 8px 22px rgba(0,0,0,.17); overflow: hidden; pointer-events: auto; transition: transform .16s ease, border-color .16s ease, opacity .16s ease; }
+.architecture-node { position: absolute; display: grid; gap: 9px; align-content: start; text-align: left; padding: 14px 16px; border: 1px solid var(--line); border-left: 3px solid var(--area-color); border-radius: 12px; background: #111722; color: var(--text); box-shadow: 0 8px 22px rgba(0,0,0,.17); overflow: hidden; pointer-events: auto; transition: transform .16s ease, border-color .16s ease, opacity .16s ease; }
+.architecture-node.node-prominent { border-left-width: 6px; padding: 18px 20px; background: linear-gradient(135deg, color-mix(in srgb, var(--area-color) 12%, #111722), #111722 58%); box-shadow: 0 16px 36px rgba(0,0,0,.25); }
+.architecture-node.node-prominent strong { font-size: 1.12rem; }
+.architecture-node.node-prominent small { max-width: 72ch; font-size: .76rem; }
+.architecture-node.node-compact { gap: 6px; padding: 10px 13px; background: color-mix(in srgb, #111722 88%, var(--page)); }
+.architecture-node.node-compact strong { font-size: .76rem; }
+.architecture-node.node-compact small { font-size: .62rem; line-height: 1.3; }
 .architecture-node:hover, .architecture-node:focus-visible, .architecture-node.is-selected { transform: translateY(-3px); border-color: var(--area-color); outline: none; }
 .architecture-node.is-muted { opacity: .12; }
 .architecture-node strong { font-size: .83rem; line-height: 1.2; }
