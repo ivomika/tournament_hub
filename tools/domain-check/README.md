@@ -12,6 +12,10 @@ make domain-check
 
 Затем открой адрес, напечатанный сервером, обычно `http://localhost:8090`.
 
+На Windows Makefile запускает `py -3`; на macOS/Linux — `python3`. Если
+Python расположен нестандартно, передай команду интерпретатора через
+`PYTHON`, например `make domain-check PYTHON=python`.
+
 ## Состав
 
 - `domain-architecture.json` — единственный источник данных: области, объекты, contracts и связи.

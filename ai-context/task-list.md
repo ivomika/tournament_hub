@@ -13,3 +13,4 @@
 - ✅ 9. Добавить нативные Make-цели сборки для macOS, Windows и Linux. [Детали](task-details/9-desktop-make-builds.md)
 - ✅ 10. Добавить Domain layer TournamentHUB по спроектированной модели. [Детали](task-details/10-domain-layer-foundation.md)
 - ✅ 11. Создать интерактивный Domain architecture checker в tools/domain-check. [Детали](task-details/11-domain-architecture-checker.md)
+- ✅ 12. Исправить запуск Domain architecture checker на Windows. [Детали](task-details/12-domain-check-windows-launch.md)

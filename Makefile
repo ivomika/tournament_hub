@@ -5,8 +5,10 @@ DESKTOP_PLATFORMS := linux macos windows
 
 ifeq ($(OS),Windows_NT)
 HOST_PLATFORM := windows
+PYTHON ?= py -3
 else
 HOST_OS := $(shell uname -s)
+PYTHON ?= python3
 ifeq ($(HOST_OS),Darwin)
 HOST_PLATFORM := macos
 else ifeq ($(HOST_OS),Linux)
@@ -82,4 +84,4 @@ clean:
 	cd $(APP_DIR) && $(FLUTTER) clean
 
 domain-check:
-	python3 -m http.server $(DOMAIN_CHECK_PORT) --directory tools/domain-check
+	$(PYTHON) -m http.server $(DOMAIN_CHECK_PORT) --directory tools/domain-check

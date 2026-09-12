@@ -10,4 +10,11 @@
 make domain-check
 ```
 
+На Windows команда использует Python launcher `py -3`, на macOS/Linux —
+`python3`. При нестандартной установке интерпретатор можно задать явно:
+
+```sh
+make domain-check PYTHON=python
+```
+
 При изменении публичной Domain-архитектуры обновляется и JSON-инвентарь в той же задаче.
