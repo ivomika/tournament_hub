@@ -39,10 +39,12 @@ input, select, .controls button { height: 38px; border: 1px solid var(--line); b
 
 .workspace { display: grid; grid-template-columns: minmax(0, 1fr) 310px; gap: 16px; }
 .architecture-panel, .detail-panel, .inventory-panel { border: 1px solid var(--line); border-radius: 18px; background: var(--panel); overflow: hidden; }
+.architecture-panel { display: flex; min-height: 320px; flex-direction: column; }
 .panel-heading { display: flex; align-items: start; justify-content: space-between; gap: 16px; padding: 19px 20px 15px; border-bottom: 1px solid var(--line); }
 .panel-heading h2 { margin-top: 4px; }
 .panel-heading > p { max-width: 360px; font-size: .78rem; line-height: 1.45; text-align: right; }
-.graph-viewport { overflow: auto; min-height: 630px; background-image: radial-gradient(#2b3447 1px, transparent 1px); background-size: 18px 18px; outline: none; }
+.graph-viewport { flex: 1; min-height: 0; overflow: auto; cursor: grab; background-image: radial-gradient(#2b3447 1px, transparent 1px); background-size: 18px 18px; outline: none; overscroll-behavior: contain; }
+.graph-viewport.is-panning { cursor: grabbing; user-select: none; }
 .graph-canvas { position: relative; min-width: 892px; min-height: 630px; }
 #graph-clusters, #graph-nodes, #edges { position: absolute; inset: 0; }
 #graph-clusters { z-index: 0; }

@@ -5,6 +5,7 @@ const kindColors = {
 };
 
 const state = { data: null, selectedId: null, search: '', area: 'all', kind: 'all', relationshipFocus: false };
+const panState = { pointerId: null, startX: 0, startY: 0, scrollLeft: 0, scrollTop: 0 };
 const byId = new Map();
 const $ = (selector) => document.querySelector(selector);
 const graphLayout = {
@@ -28,7 +29,9 @@ async function start() {
     state.data = await response.json();
     state.data.nodes.forEach((node) => byId.set(node.id, node));
     setupControls();
+    setupViewportInteraction();
     render();
+    requestAnimationFrame(syncViewerHeight);
   } catch (error) {
     $('#subtitle').textContent = 'Не удалось загрузить JSON-инвентарь.';
     $('#inventory').innerHTML = `<p class="empty">Запусти viewer через <code>make domain-check</code>. ${error.message}</p>`;
@@ -83,6 +86,40 @@ function render() {
 function renderLegend() {
   const kinds = [...new Set(state.data.nodes.map((node) => node.kind))];
   $('.legend').innerHTML = kinds.map((kind) => `<span class="legend-item" style="--kind-color:${kindColors[kind]}">${kind}</span>`).join('');
+}
+
+function setupViewportInteraction() {
+  const viewport = $('#graph-viewport');
+  viewport.addEventListener('pointerdown', (event) => {
+    if (event.button !== 0 || event.target.closest('button, a, input, select')) return;
+    panState.pointerId = event.pointerId;
+    panState.startX = event.clientX;
+    panState.startY = event.clientY;
+    panState.scrollLeft = viewport.scrollLeft;
+    panState.scrollTop = viewport.scrollTop;
+    viewport.setPointerCapture(event.pointerId);
+    viewport.classList.add('is-panning');
+  });
+  viewport.addEventListener('pointermove', (event) => {
+    if (event.pointerId !== panState.pointerId) return;
+    viewport.scrollLeft = panState.scrollLeft - (event.clientX - panState.startX);
+    viewport.scrollTop = panState.scrollTop - (event.clientY - panState.startY);
+    event.preventDefault();
+  });
+  const stopPanning = (event) => {
+    if (event.pointerId !== panState.pointerId) return;
+    if (viewport.hasPointerCapture(event.pointerId)) viewport.releasePointerCapture(event.pointerId);
+    panState.pointerId = null;
+    viewport.classList.remove('is-panning');
+  };
+  viewport.addEventListener('pointerup', stopPanning);
+  viewport.addEventListener('pointercancel', stopPanning);
+}
+
+function syncViewerHeight() {
+  const panel = $('.architecture-panel');
+  const availableHeight = window.innerHeight - panel.getBoundingClientRect().top - 24;
+  panel.style.height = `${Math.max(320, availableHeight)}px`;
 }
 
 function renderGraph(nodes) {
@@ -321,5 +358,8 @@ function detailList(title, items = []) {
   return `<section class="detail-section"><h3>${title}</h3><ul>${items.map((item) => `<li>${item}</li>`).join('')}</ul></section>`;
 }
 
-window.addEventListener('resize', () => requestAnimationFrame(() => renderEdges(visibleNodes(), $('#edges'))));
+window.addEventListener('resize', () => requestAnimationFrame(() => {
+  syncViewerHeight();
+  renderEdges(visibleNodes(), $('#edges'));
+}));
 start();
