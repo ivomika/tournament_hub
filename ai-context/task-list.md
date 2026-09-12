@@ -14,3 +14,4 @@
 - ✅ 10. Добавить Domain layer TournamentHUB по спроектированной модели. [Детали](task-details/10-domain-layer-foundation.md)
 - ✅ 11. Создать интерактивный Domain architecture checker в tools/domain-check. [Детали](task-details/11-domain-architecture-checker.md)
 - ✅ 12. Исправить запуск Domain architecture checker на Windows. [Детали](task-details/12-domain-check-windows-launch.md)
+- ✅ 13. Улучшить читаемость связей в Domain architecture checker. [Детали](task-details/13-domain-check-relationship-clarity.md)
