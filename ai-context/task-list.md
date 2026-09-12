@@ -11,3 +11,5 @@
 - ✅ 7. Создать пустое кроссплатформенное Flutter-приложение tournament_app. [Детали](task-details/7-flutter-app-bootstrap.md)
 - ✅ 8. Добавить папку tools и единые Make-команды для Flutter-приложения. [Детали](task-details/8-tools-and-makefile.md)
 - ✅ 9. Добавить нативные Make-цели сборки для macOS, Windows и Linux. [Детали](task-details/9-desktop-make-builds.md)
+- ✅ 10. Добавить Domain layer TournamentHUB по спроектированной модели. [Детали](task-details/10-domain-layer-foundation.md)
+- ✅ 11. Создать интерактивный Domain architecture checker в tools/domain-check. [Детали](task-details/11-domain-architecture-checker.md)

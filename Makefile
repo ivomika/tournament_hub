@@ -17,11 +17,12 @@ endif
 endif
 
 PLATFORM ?= $(HOST_PLATFORM)
+DOMAIN_CHECK_PORT ?= 8090
 
 .DEFAULT_GOAL := help
 
 .PHONY: help bootstrap check-platform check-desktop-host run build build-host \
-	build-macos build-windows build-linux analyze clean
+	build-macos build-windows build-linux analyze clean domain-check
 
 help:
 	@printf '%s\n' \
@@ -34,6 +35,7 @@ help:
 		'  make build-windows            Собрать Windows-версию на Windows.' \
 		'  make build-linux              Собрать Linux-версию на Linux.' \
 		'  make analyze                  Запустить Flutter analyzer.' \
+		'  make domain-check             Запустить Web viewer Domain-архитектуры.' \
 		'  make clean                    Очистить Flutter-артефакты.' \
 		'' \
 		'Поддерживаемые PLATFORM: android, ios, linux, macos, web, windows.'
@@ -78,3 +80,6 @@ analyze:
 
 clean:
 	cd $(APP_DIR) && $(FLUTTER) clean
+
+domain-check:
+	python3 -m http.server $(DOMAIN_CHECK_PORT) --directory tools/domain-check

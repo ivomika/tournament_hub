@@ -1,0 +1,1 @@
+enum ParticipantType { profile, guest }

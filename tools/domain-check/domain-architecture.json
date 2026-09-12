@@ -1,0 +1,447 @@
+{
+  "title": "TournamentHUB Domain",
+  "version": 1,
+  "source": "apps/tournament_app/lib/domain/domain.dart",
+  "areas": [
+    { "id": "tournament", "title": "Tournament", "accent": "#ffb900" },
+    { "id": "format", "title": "Tournament Format", "accent": "#7f8cff" },
+    { "id": "assignment", "title": "Character Assignment", "accent": "#ff6e96" },
+    { "id": "profile", "title": "Profile", "accent": "#56d6a5" },
+    { "id": "game", "title": "Game", "accent": "#3fb7ff" },
+    { "id": "statistics", "title": "Statistics", "accent": "#c58cff" },
+    { "id": "history", "title": "History", "accent": "#f19962" }
+  ],
+  "nodes": [
+    {
+      "id": "tournament",
+      "area": "tournament",
+      "kind": "aggregate",
+      "title": "Tournament",
+      "summary": "Aggregate root активного турнира.",
+      "fields": ["id: TournamentId", "title: TournamentTitle", "lifecycle: TournamentLifecycle", "participants", "assignments", "formatState", "statistic", "revision"],
+      "methods": ["updateDraft", "open", "addParticipant", "beginDistribution", "acceptAssignments", "start", "applyFormatState", "finish", "cancel"]
+    },
+    {
+      "id": "participant",
+      "area": "tournament",
+      "kind": "entity",
+      "title": "Participant",
+      "summary": "Участник конкретного Tournament с frozen nickname.",
+      "fields": ["id: ParticipantId", "tournamentNickname", "type", "profileId?", "status", "statistic"],
+      "methods": ["withStatus"]
+    },
+    {
+      "id": "match",
+      "area": "tournament",
+      "kind": "entity",
+      "title": "Match",
+      "summary": "Одна format-specific встреча с двумя slot и typed result.",
+      "fields": ["id: MatchId", "order", "round", "stage", "slots", "firstTo", "state", "result?"],
+      "methods": ["start", "finish"]
+    },
+    {
+      "id": "tournament-values",
+      "area": "tournament",
+      "kind": "value-object",
+      "title": "Tournament value objects",
+      "summary": "Typed identity, lifecycle, slot и terminal state Tournament.",
+      "members": ["TournamentId", "TournamentTitle", "ParticipantId", "ParticipantType", "ParticipantStatus", "MatchId", "MatchState", "FirstTo", "TournamentPlacement", "TournamentOutcome", "TournamentCancellation"],
+      "fields": ["value / typed scope", "validated business state"],
+      "methods": ["equality through Equatable"]
+    },
+    {
+      "id": "match-results",
+      "area": "tournament",
+      "kind": "value-object",
+      "title": "MatchResult hierarchy",
+      "summary": "Typed исход встречи без fake score для technical result.",
+      "members": ["MatchResult", "NormalMatchResult", "TechnicalMatchResult", "TechnicalResultReason"],
+      "fields": ["winnerId", "loserId", "score или technical reason"],
+      "methods": ["validation by Match"]
+    },
+    {
+      "id": "match-slots",
+      "area": "tournament",
+      "kind": "value-object",
+      "title": "MatchSlot hierarchy",
+      "summary": "Источник Participant в Match без nullable identity и magic strings.",
+      "members": ["AssignedParticipantSlot", "WinnerOfMatchSlot", "LoserOfMatchSlot", "SeedPositionSlot", "ByeSlot"],
+      "fields": ["resolvedParticipantId?", "source MatchId / seed position"],
+      "methods": ["slot resolution by format"]
+    },
+    {
+      "id": "lifecycle-port",
+      "area": "tournament",
+      "kind": "port",
+      "title": "TournamentLifecyclePort",
+      "summary": "Application business logic contract lifecycle-операций.",
+      "fields": ["no state"],
+      "methods": ["createDraft", "updateDraft", "open", "addParticipant", "removeParticipant", "cancel"]
+    },
+    {
+      "id": "match-port",
+      "area": "tournament",
+      "kind": "port",
+      "title": "TournamentMatchPort",
+      "summary": "Контракт записи, correction и withdrawal Match.",
+      "fields": ["no state"],
+      "methods": ["recordResult", "correctResult", "withdraw"]
+    },
+    {
+      "id": "completion-port",
+      "area": "tournament",
+      "kind": "port",
+      "title": "TournamentCompletionPort",
+      "summary": "Контракт terminal completion Tournament.",
+      "fields": ["no state"],
+      "methods": ["finish"]
+    },
+    {
+      "id": "active-repository",
+      "area": "tournament",
+      "kind": "repository",
+      "title": "ActiveTournamentRepository",
+      "summary": "Authoritative access к единственному active Tournament.",
+      "fields": ["no persistence details"],
+      "methods": ["current", "save(expectedRevision)"]
+    },
+    {
+      "id": "completion-repository",
+      "area": "tournament",
+      "kind": "repository",
+      "title": "TournamentCompletionRepository",
+      "summary": "Atomic terminal consistency boundary.",
+      "fields": ["TournamentCompletionChange", "expectedRevision", "profileStatistics"],
+      "methods": ["commit"]
+    },
+    {
+      "id": "tournament-failure",
+      "area": "tournament",
+      "kind": "failure",
+      "title": "Tournament failures",
+      "summary": "Ошибки lifecycle и stale revision без UI/Infrastructure деталей.",
+      "members": ["TournamentFailure", "InvalidTournamentTransitionFailure", "StaleTournamentRevisionFailure"],
+      "fields": ["message"],
+      "methods": []
+    },
+    {
+      "id": "format-state",
+      "area": "format",
+      "kind": "model",
+      "title": "TournamentFormatState",
+      "summary": "Immutable authoritative состояние format-specific structure.",
+      "fields": ["tournamentId", "formatKey", "seed", "matches", "withdrawnParticipants", "outcome?"],
+      "methods": ["currentMatch"]
+    },
+    {
+      "id": "format-settings",
+      "area": "format",
+      "kind": "abstraction",
+      "title": "TournamentFormatSettings",
+      "summary": "Проверенные настройки concrete format без untyped map.",
+      "fields": ["formatId"],
+      "methods": ["equality through Equatable"]
+    },
+    {
+      "id": "format-values",
+      "area": "format",
+      "kind": "value-object",
+      "title": "Format identifiers",
+      "summary": "Versioned key конкретной implementation формата.",
+      "members": ["TournamentFormatId", "RulesetVersion", "TournamentFormatKey"],
+      "fields": ["stable id", "ruleset version"],
+      "methods": ["equality through Equatable"]
+    },
+    {
+      "id": "format-port",
+      "area": "format",
+      "kind": "port",
+      "title": "TournamentFormatPort",
+      "summary": "Polymorphic contract progression, correction, withdrawal и ranking.",
+      "fields": ["key: TournamentFormatKey"],
+      "methods": ["createInitialState", "applyResult", "withdraw", "correctResult", "outcomeFor"]
+    },
+    {
+      "id": "format-repository",
+      "area": "format",
+      "kind": "repository",
+      "title": "TournamentFormatRepository",
+      "summary": "Разрешает concrete format implementation по key без switch у consumer.",
+      "fields": ["no Tournament state"],
+      "methods": ["resolve"]
+    },
+    {
+      "id": "format-failure",
+      "area": "format",
+      "kind": "failure",
+      "title": "Tournament format failures",
+      "summary": "Ошибки format contract и несовместимости.",
+      "members": ["TournamentFormatFailure", "UnsupportedTournamentFormatFailure"],
+      "fields": ["message"],
+      "methods": []
+    },
+    {
+      "id": "assignment",
+      "area": "assignment",
+      "kind": "value-object",
+      "title": "CharacterAssignment",
+      "summary": "Tournament-scoped связь ParticipantId и CharacterId.",
+      "fields": ["tournamentId", "participantId", "characterId"],
+      "methods": ["equality through Equatable"]
+    },
+    {
+      "id": "assignment-set",
+      "area": "assignment",
+      "kind": "value-object",
+      "title": "CharacterAssignmentSet",
+      "summary": "Immutable collection, защищающая uniqueness assignments.",
+      "fields": ["tournamentId", "assignments", "enforceUniqueCharacters"],
+      "methods": ["forParticipant", "covers", "remove"]
+    },
+    {
+      "id": "distribution-port",
+      "area": "assignment",
+      "kind": "port",
+      "title": "CharacterDistributionPort",
+      "summary": "Алгоритмическая граница полного и individual distribution.",
+      "fields": ["no Tournament state"],
+      "methods": ["distribute", "redistributeOne"]
+    },
+    {
+      "id": "random-port",
+      "area": "assignment",
+      "kind": "port",
+      "title": "RandomPort",
+      "summary": "Контролируемая случайность для seeding и distribution.",
+      "fields": ["no state"],
+      "methods": ["shuffled"]
+    },
+    {
+      "id": "assignment-failure",
+      "area": "assignment",
+      "kind": "failure",
+      "title": "Character assignment failures",
+      "summary": "Ошибки capacity и отсутствия свободного Character.",
+      "members": ["CharacterAssignmentFailure", "InsufficientCharacterFailure", "NoFreeCharacterFailure"],
+      "fields": ["message"],
+      "methods": []
+    },
+    {
+      "id": "profile",
+      "area": "profile",
+      "kind": "aggregate",
+      "title": "Profile",
+      "summary": "Устойчивая identity пользователя вне конкретного Tournament.",
+      "fields": ["id: ProfileId", "nickname", "statistic"],
+      "methods": ["rename"]
+    },
+    {
+      "id": "profile-values",
+      "area": "profile",
+      "kind": "value-object",
+      "title": "Profile value objects",
+      "summary": "Typed identity и проверенный display nickname.",
+      "members": ["ProfileId", "Nickname"],
+      "fields": ["non-empty value"],
+      "methods": ["normalization", "equality through Equatable"]
+    },
+    {
+      "id": "profile-port",
+      "area": "profile",
+      "kind": "port",
+      "title": "ProfileManagementPort",
+      "summary": "Application business logic Profile lifecycle.",
+      "fields": ["no state"],
+      "methods": ["create", "current", "rename", "delete"]
+    },
+    {
+      "id": "profile-repository",
+      "area": "profile",
+      "kind": "repository",
+      "title": "ProfileRepository",
+      "summary": "Authoritative access к Profile и его statistic.",
+      "fields": ["no storage DTO"],
+      "methods": ["find", "save", "findStatistic"]
+    },
+    {
+      "id": "profile-failure",
+      "area": "profile",
+      "kind": "failure",
+      "title": "Profile failures",
+      "summary": "Ошибки поиска и stale revision Profile.",
+      "members": ["ProfileFailure", "ProfileNotFoundFailure", "StaleProfileRevisionFailure"],
+      "fields": ["message"],
+      "methods": []
+    },
+    {
+      "id": "game",
+      "area": "game",
+      "kind": "aggregate",
+      "title": "Game",
+      "summary": "Versioned roster доступных Character.",
+      "fields": ["id: GameId", "displayName", "rosterVersion", "characters"],
+      "methods": ["findCharacter", "containsCharacter"]
+    },
+    {
+      "id": "character",
+      "area": "game",
+      "kind": "entity",
+      "title": "Character",
+      "summary": "Character конкретного Game roster.",
+      "fields": ["id: CharacterId", "displayName", "gameId"],
+      "methods": []
+    },
+    {
+      "id": "game-values",
+      "area": "game",
+      "kind": "value-object",
+      "title": "Game value objects",
+      "summary": "Стабильные identity игры и Character.",
+      "members": ["GameId", "CharacterId"],
+      "fields": ["stable value", "Game scope for CharacterId"],
+      "methods": ["equality through Equatable"]
+    },
+    {
+      "id": "game-roster-port",
+      "area": "game",
+      "kind": "port",
+      "title": "GameRosterPort",
+      "summary": "Проверенный roster конкретной версии Game.",
+      "fields": ["no UI assets"],
+      "methods": ["rosterFor", "containsCharacter"]
+    },
+    {
+      "id": "game-repository",
+      "area": "game",
+      "kind": "repository",
+      "title": "GameRepository",
+      "summary": "Authoritative versioned Game definitions.",
+      "fields": ["no persistence DTO"],
+      "methods": ["find"]
+    },
+    {
+      "id": "game-failure",
+      "area": "game",
+      "kind": "failure",
+      "title": "Game failures",
+      "summary": "Ошибки поиска Game и Character.",
+      "members": ["GameFailure", "GameNotFoundFailure", "CharacterNotFoundFailure"],
+      "fields": ["message"],
+      "methods": []
+    },
+    {
+      "id": "statistic",
+      "area": "statistics",
+      "kind": "abstraction",
+      "title": "Statistic",
+      "summary": "Базовая authoritative abstraction статистики с набором метрик.",
+      "fields": ["values: Map<StatisticType, StatisticValue>"],
+      "methods": ["valueOf"]
+    },
+    {
+      "id": "statistic-variants",
+      "area": "statistics",
+      "kind": "entity",
+      "title": "Statistic variants",
+      "summary": "Статистика в трёх независимых business scopes.",
+      "members": ["ProfileStatistic", "ParticipantTournamentStatistic", "TournamentStatistic"],
+      "fields": ["owner identity", "applied facts", "values"],
+      "methods": ["idempotency queries"]
+    },
+    {
+      "id": "statistic-values",
+      "area": "statistics",
+      "kind": "value-object",
+      "title": "Statistic values",
+      "summary": "Тип метрики и безопасные варианты значения.",
+      "members": ["StatisticType", "StatisticValue", "CounterStatisticValue", "PlacementStatisticValue", "PointsStatisticValue"],
+      "fields": ["non-negative counter/points", "positive placement"],
+      "methods": ["equality through Equatable"]
+    },
+    {
+      "id": "shared-statistic",
+      "area": "statistics",
+      "kind": "model",
+      "title": "SharedStatistic",
+      "summary": "Read model разрешённой публичной projection, не source of truth.",
+      "fields": ["type", "value", "scopeIdentity", "revision"],
+      "methods": []
+    },
+    {
+      "id": "statistic-ports",
+      "area": "statistics",
+      "kind": "port",
+      "title": "Statistics ports",
+      "summary": "Накопление ProfileStatistic и controlled shared projection.",
+      "members": ["ProfileStatisticAccumulationPort", "StatisticAccessPort"],
+      "fields": ["no persistence"],
+      "methods": ["apply", "project"]
+    },
+    {
+      "id": "statistic-repository",
+      "area": "statistics",
+      "kind": "repository",
+      "title": "ProfileStatisticRepository",
+      "summary": "Отдельный access к ProfileStatistic вне terminal transaction.",
+      "fields": ["no storage DTO"],
+      "methods": ["find", "save"]
+    },
+    {
+      "id": "statistic-failure",
+      "area": "statistics",
+      "kind": "failure",
+      "title": "Statistic failures",
+      "summary": "Недопустимый StatisticType для scope.",
+      "members": ["StatisticFailure", "StatisticTypeNotAllowedFailure"],
+      "fields": ["message"],
+      "methods": []
+    },
+    {
+      "id": "snapshot",
+      "area": "history",
+      "kind": "model",
+      "title": "HistoricalTournamentSnapshot",
+      "summary": "Self-contained immutable terminal representation Tournament.",
+      "fields": ["tournamentId", "title", "lifecycle", "game/format references", "participants", "assignments", "formatState?", "outcome?", "cancellation?"],
+      "methods": []
+    },
+    {
+      "id": "history-port",
+      "area": "history",
+      "kind": "port",
+      "title": "TournamentHistoryPort",
+      "summary": "Application business logic immutable history.",
+      "fields": ["no active Tournament state"],
+      "methods": ["list", "get", "clear"]
+    },
+    {
+      "id": "history-repository",
+      "area": "history",
+      "kind": "repository",
+      "title": "TournamentHistoryRepository",
+      "summary": "Authoritative immutable snapshot collection.",
+      "fields": ["deduplicated TournamentId collection"],
+      "methods": ["append", "list", "find", "clear"]
+    },
+    {
+      "id": "history-failure",
+      "area": "history",
+      "kind": "failure",
+      "title": "History failures",
+      "summary": "Ошибки отсутствующей history snapshot.",
+      "members": ["HistoryFailure", "HistoricalTournamentNotFoundFailure"],
+      "fields": ["message"],
+      "methods": []
+    }
+  ],
+  "edges": [
+    ["tournament", "participant", "composition"], ["tournament", "match", "composition"], ["tournament", "assignment-set", "composition"], ["tournament", "format-state", "owns"], ["tournament", "statistic-variants", "owns"], ["tournament", "format-port", "delegates"], ["tournament", "distribution-port", "delegates"], ["tournament", "snapshot", "produces"],
+    ["participant", "profile", "references 0..1"], ["participant", "statistic-variants", "owns"], ["match", "match-slots", "uses"], ["match", "match-results", "uses"], ["match", "tournament-values", "uses"],
+    ["lifecycle-port", "active-repository", "uses"], ["match-port", "active-repository", "uses"], ["match-port", "format-repository", "uses"], ["completion-port", "completion-repository", "uses"], ["completion-port", "format-port", "uses"],
+    ["format-repository", "format-port", "resolves"], ["format-port", "format-state", "transforms"], ["format-port", "match", "controls"],
+    ["assignment-set", "assignment", "contains"], ["assignment", "participant", "references"], ["assignment", "character", "references"], ["distribution-port", "random-port", "uses"], ["distribution-port", "assignment-set", "produces"],
+    ["profile", "statistic-variants", "owns"], ["profile-port", "profile-repository", "uses"], ["game", "character", "owns"], ["game-roster-port", "game", "reads"], ["game-repository", "game", "loads"],
+    ["statistic-variants", "statistic", "extends"], ["statistic", "statistic-values", "uses"], ["statistic-ports", "statistic-variants", "updates"], ["statistic-ports", "shared-statistic", "projects"], ["statistic-repository", "statistic-variants", "loads"],
+    ["snapshot", "tournament", "captures"], ["history-port", "history-repository", "uses"], ["history-repository", "snapshot", "stores"]
+  ]
+}

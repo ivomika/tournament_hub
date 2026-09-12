@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TournamentHUB — Domain architecture</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">TOOLS / DOMAIN-CHECK</p>
+        <h1>Domain architecture</h1>
+        <p id="subtitle">Загрузка инвентаря…</p>
+      </div>
+      <div class="metrics" aria-label="Статистика архитектуры">
+        <div><strong id="node-count">—</strong><span>объектов</span></div>
+        <div><strong id="edge-count">—</strong><span>связей</span></div>
+        <div><strong id="area-count">—</strong><span>областей</span></div>
+      </div>
+    </header>
+
+    <main>
+      <section class="controls" aria-label="Фильтры архитектуры">
+        <label>
+          <span>Поиск</span>
+          <input id="search" type="search" placeholder="Tournament, Port, statistic…" />
+        </label>
+        <label>
+          <span>Область</span>
+          <select id="area-filter"><option value="all">Все области</option></select>
+        </label>
+        <label>
+          <span>Тип</span>
+          <select id="kind-filter"><option value="all">Все типы</option></select>
+        </label>
+        <button id="reset" type="button">Сбросить</button>
+      </section>
+
+      <section class="legend" aria-label="Легенда типов"></section>
+
+      <section class="workspace">
+        <div class="architecture-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">INTERACTIVE MAP</p>
+              <h2>Связи Domain</h2>
+            </div>
+            <p>Клик по карточке показывает поля, методы и прямые связи.</p>
+          </div>
+          <div id="graph-viewport" class="graph-viewport" tabindex="0">
+            <div id="graph-canvas" class="graph-canvas">
+              <svg id="edges" aria-hidden="true"></svg>
+              <div id="graph-nodes"></div>
+            </div>
+          </div>
+        </div>
+
+        <aside id="detail" class="detail-panel" aria-live="polite">
+          <p class="eyebrow">DETAILS</p>
+          <h2>Выбери объект</h2>
+          <p>Нажми на карточку на карте или в списке ниже.</p>
+        </aside>
+      </section>
+
+      <section class="inventory-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">INVENTORY</p>
+            <h2>Реестр объектов</h2>
+          </div>
+          <p id="inventory-count"></p>
+        </div>
+        <div id="inventory" class="inventory"></div>
+      </section>
+    </main>
+
+    <template id="node-template">
+      <button type="button" class="architecture-node">
+        <span class="node-kind"></span>
+        <strong></strong>
+        <small></small>
+      </button>
+    </template>
+    <script src="app.js"></script>
+  </body>
+</html>

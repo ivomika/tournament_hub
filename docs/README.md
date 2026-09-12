@@ -10,3 +10,12 @@
 - При изменении поведения, контракта, архитектуры, требований или существенного решения обновляется связанный документ либо создаётся новый.
 
 `ai-context` хранит процесс работы над задачами; `docs` хранит устойчивые знания о самом продукте и системе.
+
+## Архитектура
+
+- [Domain layer](architecture/domain-layer.md) — границы бизнес-логики и application business logic contracts.
+- [Расположение приложений](architecture/app-layout.md) — структура репозитория и Flutter-клиент.
+
+## Разработка
+
+- [Domain architecture checker](development/domain-check.md) — локальный viewer Domain-объектов и связей.
