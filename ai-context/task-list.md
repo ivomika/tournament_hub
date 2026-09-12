@@ -15,3 +15,4 @@
 - ✅ 11. Создать интерактивный Domain architecture checker в tools/domain-check. [Детали](task-details/11-domain-architecture-checker.md)
 - ✅ 12. Исправить запуск Domain architecture checker на Windows. [Детали](task-details/12-domain-check-windows-launch.md)
 - ✅ 13. Улучшить читаемость связей в Domain architecture checker. [Детали](task-details/13-domain-check-relationship-clarity.md)
+- ✅ 14. Сгруппировать Domain architecture checker по визуальным кластерам. [Детали](task-details/14-domain-check-area-clusters.md)

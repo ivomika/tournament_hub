@@ -7,6 +7,19 @@ const kindColors = {
 const state = { data: null, selectedId: null, search: '', area: 'all', kind: 'all', relationshipFocus: false };
 const byId = new Map();
 const $ = (selector) => document.querySelector(selector);
+const graphLayout = {
+  columns: 3,
+  clusterWidth: 620,
+  clusterGap: 48,
+  outerGap: 32,
+  clusterHeaderHeight: 70,
+  clusterPadding: 22,
+  nodeColumns: 2,
+  nodeWidth: 270,
+  nodeHeight: 118,
+  nodeGapX: 24,
+  nodeGapY: 24
+};
 
 async function start() {
   try {
@@ -74,21 +87,27 @@ function renderLegend() {
 
 function renderGraph(nodes) {
   const canvas = $('#graph-canvas');
+  const graphClusters = $('#graph-clusters');
   const graphNodes = $('#graph-nodes');
   const edgeLayer = $('#edges');
-  const areaIndex = new Map(state.data.areas.map((area, index) => [area.id, index]));
-  const grouped = new Map(state.data.areas.map((area) => [area.id, []]));
-  state.data.nodes.forEach((node) => grouped.get(node.area).push(node));
-  const maxRows = Math.max(...[...grouped.values()].map((items) => items.length));
-  canvas.style.minHeight = `${Math.max(860, maxRows * 138 + 100)}px`;
+  const layout = clusterLayout(nodes);
+  canvas.style.width = `${layout.width}px`;
+  canvas.style.height = `${layout.height}px`;
+  graphClusters.innerHTML = '';
   graphNodes.innerHTML = '';
+  layout.clusters.forEach((cluster) => {
+    graphClusters.insertAdjacentHTML('beforeend', `
+      <section class="area-cluster" data-area="${cluster.area.id}" style="left:${cluster.x}px;top:${cluster.y}px;width:${cluster.width}px;height:${cluster.height}px;--area-color:${cluster.area.accent}">
+        <div class="cluster-heading"><span>${cluster.area.title}</span><strong>${cluster.nodes.length}</strong></div>
+      </section>`);
+  });
   nodes.forEach((node) => {
     const template = $('#node-template').content.cloneNode(true);
     const element = template.querySelector('button');
-    const position = grouped.get(node.area).indexOf(node);
+    const position = layout.nodePositions.get(node.id);
     element.dataset.id = node.id;
-    element.style.left = `${20 + areaIndex.get(node.area) * 310}px`;
-    element.style.top = `${34 + position * 138}px`;
+    element.style.left = `${position.x}px`;
+    element.style.top = `${position.y}px`;
     element.style.setProperty('--area-color', state.data.areas.find((area) => area.id === node.area).accent);
     element.querySelector('.node-kind').style.setProperty('--kind-color', kindColors[node.kind]);
     element.querySelector('.node-kind').textContent = node.kind;
@@ -110,20 +129,85 @@ function renderEdges(nodes, edgeLayer) {
     const toElement = document.querySelector(`.architecture-node[data-id="${to}"]`);
     if (!fromElement || !toElement) return;
     const a = fromElement.getBoundingClientRect(); const b = toElement.getBoundingClientRect();
-    const x1 = a.right - canvasRect.left; const y1 = a.top + a.height / 2 - canvasRect.top;
-    const x2 = b.left - canvasRect.left; const y2 = b.top + b.height / 2 - canvasRect.top;
-    const bend = Math.max(50, Math.abs(x2 - x1) * .45);
+    const geometry = edgeGeometry(a, b, canvasRect);
     const direction = state.selectedId === from ? ' is-outbound' : state.selectedId === to ? ' is-inbound' : '';
     const related = direction ? ' is-related' : '';
     const muted = state.relationshipFocus && state.selectedId && !direction ? ' is-muted' : '';
-    const path = `M ${x1} ${y1} C ${x1 + bend} ${y1}, ${x2 - bend} ${y2}, ${x2} ${y2}`;
-    edgeLayer.insertAdjacentHTML('beforeend', `<path class="edge${related}${direction}${muted}" data-from="${from}" data-to="${to}" d="${path}" marker-end="url(#edge-arrow)"><title>${label}</title></path>`);
+    edgeLayer.insertAdjacentHTML('beforeend', `<path class="edge${related}${direction}${muted}" data-from="${from}" data-to="${to}" d="${geometry.path}" marker-end="url(#edge-arrow)"><title>${label}</title></path>`);
     if (direction) {
-      const labelX = (x1 + x2) / 2;
-      const labelY = (y1 + y2) / 2 - 8;
-      edgeLayer.insertAdjacentHTML('beforeend', `<text class="edge-label${direction}" x="${labelX}" y="${labelY}">${label}</text>`);
+      edgeLayer.insertAdjacentHTML('beforeend', `<text class="edge-label${direction}" x="${geometry.labelX}" y="${geometry.labelY}">${label}</text>`);
     }
   });
+}
+
+function clusterLayout(nodes) {
+  const grouped = new Map(state.data.areas.map((area) => [area.id, []]));
+  nodes.forEach((node) => grouped.get(node.area).push(node));
+  const visibleAreas = state.data.areas.filter((area) => grouped.get(area.id).length);
+  const columnCount = Math.min(graphLayout.columns, Math.max(1, visibleAreas.length));
+  const columnHeights = Array(columnCount).fill(graphLayout.outerGap);
+  const clusters = [];
+  const nodePositions = new Map();
+
+  visibleAreas.forEach((area) => {
+    const areaNodes = grouped.get(area.id);
+    const rows = Math.ceil(areaNodes.length / graphLayout.nodeColumns);
+    const height = graphLayout.clusterHeaderHeight + graphLayout.clusterPadding +
+      rows * graphLayout.nodeHeight + Math.max(0, rows - 1) * graphLayout.nodeGapY;
+    const column = columnHeights.indexOf(Math.min(...columnHeights));
+    const x = graphLayout.outerGap + column * (graphLayout.clusterWidth + graphLayout.clusterGap);
+    const y = columnHeights[column];
+    const cluster = { area, nodes: areaNodes, x, y, width: graphLayout.clusterWidth, height };
+    clusters.push(cluster);
+    columnHeights[column] += height + graphLayout.clusterGap;
+
+    areaNodes.forEach((node, index) => {
+      nodePositions.set(node.id, {
+        x: x + graphLayout.clusterPadding + (index % graphLayout.nodeColumns) * (graphLayout.nodeWidth + graphLayout.nodeGapX),
+        y: y + graphLayout.clusterHeaderHeight + Math.floor(index / graphLayout.nodeColumns) * (graphLayout.nodeHeight + graphLayout.nodeGapY)
+      });
+    });
+  });
+
+  return {
+    clusters,
+    nodePositions,
+    width: graphLayout.outerGap * 2 + columnCount * graphLayout.clusterWidth + Math.max(0, columnCount - 1) * graphLayout.clusterGap,
+    height: Math.max(630, ...columnHeights) + graphLayout.outerGap - graphLayout.clusterGap
+  };
+}
+
+function edgeGeometry(source, target, canvas) {
+  const sourceCenter = { x: source.left + source.width / 2, y: source.top + source.height / 2 };
+  const targetCenter = { x: target.left + target.width / 2, y: target.top + target.height / 2 };
+  const dx = targetCenter.x - sourceCenter.x;
+  const dy = targetCenter.y - sourceCenter.y;
+
+  if (Math.abs(dx) >= Math.abs(dy)) {
+    const direction = dx >= 0 ? 1 : -1;
+    const x1 = (direction > 0 ? source.right : source.left) - canvas.left;
+    const y1 = sourceCenter.y - canvas.top;
+    const x2 = (direction > 0 ? target.left : target.right) - canvas.left;
+    const y2 = targetCenter.y - canvas.top;
+    const bend = Math.max(56, Math.abs(x2 - x1) * .42);
+    return {
+      path: `M ${x1} ${y1} C ${x1 + direction * bend} ${y1}, ${x2 - direction * bend} ${y2}, ${x2} ${y2}`,
+      labelX: (x1 + x2) / 2,
+      labelY: (y1 + y2) / 2 - 9
+    };
+  }
+
+  const direction = dy >= 0 ? 1 : -1;
+  const x1 = sourceCenter.x - canvas.left;
+  const y1 = (direction > 0 ? source.bottom : source.top) - canvas.top;
+  const x2 = targetCenter.x - canvas.left;
+  const y2 = (direction > 0 ? target.top : target.bottom) - canvas.top;
+  const bend = Math.max(56, Math.abs(y2 - y1) * .42);
+  return {
+    path: `M ${x1} ${y1} C ${x1} ${y1 + direction * bend}, ${x2} ${y2 - direction * bend}, ${x2} ${y2}`,
+    labelX: (x1 + x2) / 2 + 10,
+    labelY: (y1 + y2) / 2
+  };
 }
 
 function renderInventory(nodes) {
@@ -146,6 +230,10 @@ function updateSelection() {
   document.querySelectorAll('.architecture-node, .inventory-card').forEach((item) => {
     item.classList.toggle('is-selected', item.dataset.id === state.selectedId);
     item.classList.toggle('is-muted', Boolean(state.relationshipFocus && state.selectedId && !context.neighborIds.has(item.dataset.id)));
+  });
+  const relatedAreas = new Set([...context.neighborIds].map((id) => byId.get(id)?.area));
+  document.querySelectorAll('.area-cluster').forEach((cluster) => {
+    cluster.classList.toggle('is-muted', Boolean(state.relationshipFocus && state.selectedId && !relatedAreas.has(cluster.dataset.area)));
   });
   const node = byId.get(state.selectedId);
   if (!node) {
