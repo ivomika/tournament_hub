@@ -24,3 +24,4 @@
 - ✅ 20. Добавить горячие клавиши масштаба и фокуса связей в Domain viewer. [Детали](task-details/20-domain-check-keyboard-shortcuts.md)
 - ✅ 21. Вернуть размеры карточек по структурной важности Domain-объектов. [Детали](task-details/21-domain-check-node-importance.md)
 - ✅ 22. Упростить содержимое карточек Domain viewer и уменьшить compact-tier. [Детали](task-details/22-domain-check-card-content.md)
+- ✅ 23. Зафиксировать продолжение задачи через changelog без создания задач на правки. [Детали](task-details/23-task-follow-up-changelog.md)
