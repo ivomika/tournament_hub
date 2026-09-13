@@ -1,11 +1,19 @@
 const kindColors = {
-  aggregate: '#ffb900', entity: '#5bc0ff', model: '#b789ff',
-  abstraction: '#e2e9ff', 'value-object': '#56d6a5', port: '#ff7a9e',
-  repository: '#70a6ff', failure: '#a5afc4'
+  class: '#5bc0ff', 'abstract-class': '#b789ff', 'sealed-class': '#ff7a9e',
+  interface: '#ffb900', enum: '#56d6a5'
 };
 
 const state = { data: null, selectedId: null, search: '', area: 'all', kind: 'all', relationshipFocus: false };
 const panState = { pointerId: null, startX: 0, startY: 0, scrollLeft: 0, scrollTop: 0 };
+const graphZoom = {
+  mode: 'manual',
+  scale: 1,
+  layout: null,
+  minScale: .1,
+  maxScale: 2,
+  buttonStep: .1,
+  storageKey: 'tournamentHub.domainCheck.graphScale'
+};
 const byId = new Map();
 const $ = (selector) => document.querySelector(selector);
 const graphLayout = {
@@ -18,7 +26,7 @@ const graphLayout = {
   nodeColumns: 2,
   nodeGapX: 72,
   nodeGapY: 36,
-  nodeHeights: { prominent: 156, standard: 124, compact: 102 },
+  nodeHeights: { prominent: 176, standard: 142, compact: 118 },
   edgePortOffset: 18
 };
 
@@ -30,8 +38,13 @@ async function start() {
     state.data.nodes.forEach((node) => byId.set(node.id, node));
     setupControls();
     setupViewportInteraction();
+    setupGraphZoom();
+    setupKeyboardShortcuts();
     render();
-    requestAnimationFrame(syncViewerHeight);
+    requestAnimationFrame(() => {
+      syncViewerHeight();
+      applyGraphZoom();
+    });
   } catch (error) {
     $('#subtitle').textContent = 'Не удалось загрузить JSON-инвентарь.';
     $('#inventory').innerHTML = `<p class="empty">Запусти viewer через <code>make domain-check</code>. ${error.message}</p>`;
@@ -43,6 +56,7 @@ function setupControls() {
   $('#node-count').textContent = state.data.nodes.length;
   $('#edge-count').textContent = state.data.edges.length;
   $('#area-count').textContent = state.data.areas.length;
+  $('#enum-count').textContent = state.data.nodes.filter((node) => node.kind === 'enum').length;
   state.data.areas.forEach((area) => $('#area-filter').append(new Option(area.title, area.id)));
   [...new Set(state.data.nodes.map((node) => node.kind))].sort().forEach((kind) => {
     $('#kind-filter').append(new Option(kind, kind));
@@ -50,23 +64,38 @@ function setupControls() {
   $('#search').addEventListener('input', (event) => { state.search = event.target.value.toLowerCase(); render(); });
   $('#area-filter').addEventListener('change', (event) => { state.area = event.target.value; render(); });
   $('#kind-filter').addEventListener('change', (event) => { state.kind = event.target.value; render(); });
-  $('#relationship-focus').addEventListener('click', () => {
-    state.relationshipFocus = !state.relationshipFocus;
-    $('#relationship-focus').setAttribute('aria-pressed', state.relationshipFocus);
-    $('#relationship-focus').classList.toggle('is-active', state.relationshipFocus);
-    render();
-  });
+  $('#relationship-focus').addEventListener('click', toggleRelationshipFocus);
   $('#reset').addEventListener('click', () => {
-    state.search = ''; state.area = 'all'; state.kind = 'all'; state.relationshipFocus = false;
+    state.search = ''; state.area = 'all'; state.kind = 'all';
+    setRelationshipFocus(false, false);
     $('#search').value = ''; $('#area-filter').value = 'all'; $('#kind-filter').value = 'all'; render();
-    $('#relationship-focus').setAttribute('aria-pressed', 'false');
-    $('#relationship-focus').classList.remove('is-active');
   });
+}
+
+function toggleRelationshipFocus() {
+  setRelationshipFocus(!state.relationshipFocus);
+}
+
+function setRelationshipFocus(enabled, renderView = true) {
+  state.relationshipFocus = enabled;
+  $('#relationship-focus').setAttribute('aria-pressed', String(enabled));
+  $('#relationship-focus').classList.toggle('is-active', enabled);
+  if (renderView) render();
 }
 
 function visibleNodes() {
   return state.data.nodes.filter((node) => {
-    const text = [node.title, node.summary, ...(node.members || [])].join(' ').toLowerCase();
+    const text = [
+      node.title,
+      node.signature,
+      node.description,
+      node.kind,
+      node.role,
+      node.importance,
+      ...(node.members || []),
+      ...(node.fields || []),
+      ...(node.methods || [])
+    ].join(' ').toLowerCase();
     return (state.area === 'all' || node.area === state.area) &&
       (state.kind === 'all' || node.kind === state.kind) && text.includes(state.search);
   });
@@ -116,10 +145,131 @@ function setupViewportInteraction() {
   viewport.addEventListener('pointercancel', stopPanning);
 }
 
+function setupGraphZoom() {
+  const savedScale = readSavedGraphScale();
+  if (savedScale !== null) {
+    graphZoom.scale = savedScale;
+  }
+
+  $('#zoom-out').addEventListener('click', () => {
+    setManualGraphScale(graphZoom.scale - graphZoom.buttonStep, true);
+  });
+  $('#zoom-in').addEventListener('click', () => {
+    setManualGraphScale(graphZoom.scale + graphZoom.buttonStep, true);
+  });
+  $('#zoom-range').addEventListener('input', (event) => {
+    setManualGraphScale(Number(event.target.value) / 100, true);
+  });
+  $('#zoom-reset').addEventListener('click', () => {
+    setManualGraphScale(1, true);
+  });
+  $('#zoom-fit').addEventListener('click', () => {
+    graphZoom.mode = 'fit';
+    clearSavedGraphScale();
+    applyGraphZoom();
+  });
+}
+
+function setupKeyboardShortcuts() {
+  document.addEventListener('keydown', (event) => {
+    if (event.ctrlKey || event.metaKey || event.altKey || isShortcutInput(event.target)) return;
+    if (event.code === 'Equal' || event.code === 'NumpadAdd') {
+      setManualGraphScale(graphZoom.scale + graphZoom.buttonStep, true);
+    } else if (event.code === 'Minus' || event.code === 'NumpadSubtract') {
+      setManualGraphScale(graphZoom.scale - graphZoom.buttonStep, true);
+    } else if (event.code === 'Digit0' || event.code === 'Numpad0') {
+      setManualGraphScale(1, true);
+    } else if (event.code === 'KeyF' && !event.repeat) {
+      toggleRelationshipFocus();
+    } else {
+      return;
+    }
+    event.preventDefault();
+  });
+}
+
+function isShortcutInput(target) {
+  return target instanceof Element && Boolean(target.closest(
+    'input, select, textarea, [contenteditable]:not([contenteditable="false"])'
+  ));
+}
+
+function setManualGraphScale(scale, preserveCenter = false) {
+  const viewport = $('#graph-viewport');
+  const center = preserveCenter ? {
+    x: (viewport.scrollLeft + viewport.clientWidth / 2) / graphZoom.scale,
+    y: (viewport.scrollTop + viewport.clientHeight / 2) / graphZoom.scale
+  } : null;
+  graphZoom.mode = 'manual';
+  graphZoom.scale = clampGraphScale(scale);
+  saveGraphScale(graphZoom.scale);
+  applyGraphZoom();
+  if (center) {
+    viewport.scrollLeft = center.x * graphZoom.scale - viewport.clientWidth / 2;
+    viewport.scrollTop = center.y * graphZoom.scale - viewport.clientHeight / 2;
+  }
+}
+
 function syncViewerHeight() {
   const panel = $('.architecture-panel');
-  const availableHeight = window.innerHeight - panel.getBoundingClientRect().top - 24;
-  panel.style.height = `${Math.max(320, availableHeight)}px`;
+  const viewport = $('#graph-viewport');
+  const headerHeight = panel.querySelector('.panel-heading').offsetHeight;
+  const minViewportHeight = Math.max(320, window.innerHeight - headerHeight);
+  viewport.style.minHeight = `${minViewportHeight}px`;
+  panel.style.height = `${headerHeight + minViewportHeight}px`;
+}
+
+function applyGraphZoom() {
+  if (!graphZoom.layout) return;
+  const viewport = $('#graph-viewport');
+  if (graphZoom.mode === 'fit') {
+    const horizontalScale = Math.max(0, viewport.clientWidth - 24) / graphZoom.layout.width;
+    const verticalScale = Math.max(0, viewport.clientHeight - 24) / graphZoom.layout.height;
+    graphZoom.scale = clampGraphScale(Math.min(horizontalScale, verticalScale));
+  }
+  const stage = $('#graph-stage');
+  const canvas = $('#graph-canvas');
+  const scaledWidth = graphZoom.layout.width * graphZoom.scale;
+  const scaledHeight = graphZoom.layout.height * graphZoom.scale;
+  stage.style.width = `${scaledWidth}px`;
+  stage.style.height = `${scaledHeight}px`;
+  stage.style.marginLeft = `${Math.max(0, (viewport.clientWidth - scaledWidth) / 2)}px`;
+  stage.style.marginTop = `${Math.max(0, (viewport.clientHeight - scaledHeight) / 2)}px`;
+  canvas.style.transform = `scale(${graphZoom.scale})`;
+  const percent = Math.round(graphZoom.scale * 100);
+  $('#zoom-range').value = String(percent);
+  $('#zoom-value').textContent = `${percent}%`;
+  $('#zoom-fit').classList.toggle('is-active', graphZoom.mode === 'fit');
+  $('#zoom-reset').classList.toggle('is-active', graphZoom.mode === 'manual' && graphZoom.scale === 1);
+}
+
+function clampGraphScale(scale) {
+  return Math.min(graphZoom.maxScale, Math.max(graphZoom.minScale, Math.round(scale * 100) / 100));
+}
+
+function readSavedGraphScale() {
+  try {
+    const value = Number.parseFloat(localStorage.getItem(graphZoom.storageKey));
+    return Number.isFinite(value) ? clampGraphScale(value) : null;
+  } catch (_) {
+    return null;
+  }
+}
+
+function saveGraphScale(scale) {
+  try {
+    localStorage.setItem(graphZoom.storageKey, String(scale));
+  } catch (_) {
+    // Viewer remains functional when persistent browser storage is unavailable.
+  }
+}
+
+function clearSavedGraphScale() {
+  try {
+    localStorage.removeItem(graphZoom.storageKey);
+  } catch (_) {
+    // Viewer remains functional when persistent browser storage is unavailable.
+  }
 }
 
 function renderGraph(nodes) {
@@ -128,6 +278,7 @@ function renderGraph(nodes) {
   const graphNodes = $('#graph-nodes');
   const edgeLayer = $('#edges');
   const layout = clusterLayout(nodes);
+  graphZoom.layout = layout;
   canvas.style.width = `${layout.width}px`;
   canvas.style.height = `${layout.height}px`;
   graphClusters.innerHTML = '';
@@ -144,6 +295,7 @@ function renderGraph(nodes) {
     const position = layout.nodePositions.get(node.id);
     element.dataset.id = node.id;
     element.dataset.tier = position.tier;
+    element.title = `${node.role} · ${node.importance}`;
     element.classList.add(`node-${position.tier}`);
     element.style.left = `${position.x}px`;
     element.style.top = `${position.y}px`;
@@ -153,24 +305,23 @@ function renderGraph(nodes) {
     element.querySelector('.node-kind').style.setProperty('--kind-color', kindColors[node.kind]);
     element.querySelector('.node-kind').textContent = node.kind;
     element.querySelector('strong').textContent = node.title;
-    element.querySelector('small').textContent = node.summary;
+    element.querySelector('.node-description').textContent = node.description;
     element.addEventListener('click', () => selectNode(node.id));
     graphNodes.append(element);
   });
-  requestAnimationFrame(() => renderEdges(nodes, edgeLayer));
+  renderEdges(nodes, edgeLayer, layout);
+  applyGraphZoom();
 }
 
-function renderEdges(nodes, edgeLayer) {
+function renderEdges(nodes, edgeLayer, layout = graphZoom.layout) {
   const visibleIds = new Set(nodes.map((node) => node.id));
-  const canvasRect = $('#graph-canvas').getBoundingClientRect();
   edgeLayer.innerHTML = '<defs><marker id="edge-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path fill="context-stroke" d="M 0 0 L 8 4 L 0 8 z" /></marker></defs>';
   state.data.edges.forEach(([from, to, label]) => {
     if (!visibleIds.has(from) || !visibleIds.has(to)) return;
-    const fromElement = document.querySelector(`.architecture-node[data-id="${from}"]`);
-    const toElement = document.querySelector(`.architecture-node[data-id="${to}"]`);
-    if (!fromElement || !toElement) return;
-    const a = fromElement.getBoundingClientRect(); const b = toElement.getBoundingClientRect();
-    const geometry = edgeGeometry(a, b, canvasRect);
+    const fromPosition = layout.nodePositions.get(from);
+    const toPosition = layout.nodePositions.get(to);
+    if (!fromPosition || !toPosition) return;
+    const geometry = edgeGeometry(positionRect(fromPosition), positionRect(toPosition));
     const direction = state.selectedId === from ? ' is-outbound' : state.selectedId === to ? ' is-inbound' : '';
     const related = direction ? ' is-related' : '';
     const muted = state.relationshipFocus && state.selectedId && !direction ? ' is-muted' : '';
@@ -180,6 +331,17 @@ function renderEdges(nodes, edgeLayer) {
       edgeLayer.insertAdjacentHTML('beforeend', `<text class="edge-label${direction}" x="${geometry.labelX}" y="${geometry.labelY}">${label}</text>`);
     }
   });
+}
+
+function positionRect(position) {
+  return {
+    left: position.x,
+    top: position.y,
+    right: position.x + position.width,
+    bottom: position.y + position.height,
+    width: position.width,
+    height: position.height
+  };
 }
 
 function clusterLayout(nodes) {
@@ -258,12 +420,10 @@ function nodeRows(nodes) {
 }
 
 function nodeTier(node) {
-  if (node.kind === 'aggregate') return 'prominent';
-  if (node.kind === 'value-object' || node.kind === 'failure') return 'compact';
-  return 'standard';
+  return node.importance;
 }
 
-function edgeGeometry(source, target, canvas) {
+function edgeGeometry(source, target) {
   const sourceCenter = { x: source.left + source.width / 2, y: source.top + source.height / 2 };
   const targetCenter = { x: target.left + target.width / 2, y: target.top + target.height / 2 };
   const dx = targetCenter.x - sourceCenter.x;
@@ -271,10 +431,10 @@ function edgeGeometry(source, target, canvas) {
 
   if (Math.abs(dx) >= Math.abs(dy)) {
     const direction = dx >= 0 ? 1 : -1;
-    const x1 = (direction > 0 ? source.right : source.left) - canvas.left;
-    const y1 = sourceCenter.y - canvas.top - graphLayout.edgePortOffset;
-    const x2 = (direction > 0 ? target.left : target.right) - canvas.left;
-    const y2 = targetCenter.y - canvas.top + graphLayout.edgePortOffset;
+    const x1 = direction > 0 ? source.right : source.left;
+    const y1 = sourceCenter.y - graphLayout.edgePortOffset;
+    const x2 = direction > 0 ? target.left : target.right;
+    const y2 = targetCenter.y + graphLayout.edgePortOffset;
     const bend = Math.max(56, Math.abs(x2 - x1) * .42);
     return {
       path: `M ${x1} ${y1} C ${x1 + direction * bend} ${y1}, ${x2 - direction * bend} ${y2}, ${x2} ${y2}`,
@@ -284,10 +444,10 @@ function edgeGeometry(source, target, canvas) {
   }
 
   const direction = dy >= 0 ? 1 : -1;
-  const x1 = sourceCenter.x - canvas.left - graphLayout.edgePortOffset;
-  const y1 = (direction > 0 ? source.bottom : source.top) - canvas.top;
-  const x2 = targetCenter.x - canvas.left + graphLayout.edgePortOffset;
-  const y2 = (direction > 0 ? target.top : target.bottom) - canvas.top;
+  const x1 = sourceCenter.x - graphLayout.edgePortOffset;
+  const y1 = direction > 0 ? source.bottom : source.top;
+  const x2 = targetCenter.x + graphLayout.edgePortOffset;
+  const y2 = direction > 0 ? target.top : target.bottom;
   const bend = Math.max(56, Math.abs(y2 - y1) * .42);
   return {
     path: `M ${x1} ${y1} C ${x1} ${y1 + direction * bend}, ${x2} ${y2 - direction * bend}, ${x2} ${y2}`,
@@ -301,7 +461,7 @@ function renderInventory(nodes) {
   $('#inventory').innerHTML = nodes.length ? nodes.map((node) => `
     <button class="inventory-card ${node.id === state.selectedId ? 'is-selected' : ''}" data-id="${node.id}" type="button">
       <span class="kind-badge" style="--kind-color:${kindColors[node.kind]}">${node.kind}</span>
-      <strong>${node.title}</strong><p>${node.summary}</p>
+      <strong>${escapeHtml(node.title)}</strong><p>${escapeHtml(node.description)}</p>
     </button>`).join('') : '<p class="empty">По фильтрам ничего не найдено.</p>';
   document.querySelectorAll('.inventory-card').forEach((card) => card.addEventListener('click', () => selectNode(card.dataset.id)));
 }
@@ -323,14 +483,17 @@ function updateSelection() {
   });
   const node = byId.get(state.selectedId);
   if (!node) {
-    $('#detail').innerHTML = '<p class="eyebrow">DETAILS</p><h2>Выбери объект</h2><p>Стрелки показывают направление связи: от использующего объекта к используемому.</p>';
+    $('#detail').innerHTML = '<p class="eyebrow">DETAILS</p><h2>Выбери declaration</h2><p>Стрелка идёт от declaration к другому Domain-типу, который упомянут в его коде.</p>';
     return;
   }
   $('#detail').innerHTML = `
-    <p class="eyebrow">${node.area.toUpperCase()} / ${node.kind.toUpperCase()}</p>
-    <h2>${node.title}</h2><p>${node.summary}</p>
-    ${detailList('Поля', node.fields)}${detailList('Методы', node.methods)}${detailList('Состав', node.members)}
-    ${relationList('Использует', context.outgoing, 'outgoing')}${relationList('Используется в', context.incoming, 'incoming')}`;
+    <p class="eyebrow">${node.area.toUpperCase()} / ${node.role.toUpperCase()} / ${node.kind.toUpperCase()} / ${node.importance.toUpperCase()}</p>
+    <h2>${node.title}</h2><p><code>${node.signature}</code></p>
+    <p class="detail-description">${escapeHtml(node.description)}</p>
+    ${detailList('Значения enum', node.members)}
+    ${detailList('Поля', node.fields)}
+    ${detailList('Методы и конструкторы', node.methods)}
+    ${relationList('Ссылается на', context.outgoing, 'outgoing')}${relationList('Упоминается в', context.incoming, 'incoming')}`;
   document.querySelectorAll('.relation[data-id]').forEach((button) => button.addEventListener('click', () => selectNode(button.dataset.id)));
 }
 
@@ -355,11 +518,20 @@ function relationList(title, items, direction) {
 
 function detailList(title, items = []) {
   if (!items.length) return '';
-  return `<section class="detail-section"><h3>${title}</h3><ul>${items.map((item) => `<li>${item}</li>`).join('')}</ul></section>`;
+  return `<section class="detail-section"><h3>${title}</h3><ul>${items.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul></section>`;
+}
+
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#039;');
 }
 
 window.addEventListener('resize', () => requestAnimationFrame(() => {
   syncViewerHeight();
-  renderEdges(visibleNodes(), $('#edges'));
+  applyGraphZoom();
 }));
 start();

@@ -1,447 +1,2532 @@
 {
   "title": "TournamentHUB Domain",
-  "version": 1,
-  "source": "apps/tournament_app/lib/domain/domain.dart",
+  "version": 5,
+  "source": "generated from Dart declarations",
   "areas": [
-    { "id": "tournament", "title": "Tournament", "accent": "#ffb900" },
-    { "id": "format", "title": "Tournament Format", "accent": "#7f8cff" },
-    { "id": "assignment", "title": "Character Assignment", "accent": "#ff6e96" },
-    { "id": "profile", "title": "Profile", "accent": "#56d6a5" },
-    { "id": "game", "title": "Game", "accent": "#3fb7ff" },
-    { "id": "statistics", "title": "Statistics", "accent": "#c58cff" },
-    { "id": "history", "title": "History", "accent": "#f19962" }
-  ],
-  "nodes": [
     {
-      "id": "tournament",
-      "area": "tournament",
-      "kind": "aggregate",
-      "title": "Tournament",
-      "summary": "Aggregate root активного турнира.",
-      "fields": ["id: TournamentId", "title: TournamentTitle", "lifecycle: TournamentLifecycle", "participants", "assignments", "formatState", "statistic", "revision"],
-      "methods": ["updateDraft", "open", "addParticipant", "beginDistribution", "acceptAssignments", "start", "applyFormatState", "finish", "cancel"]
-    },
-    {
-      "id": "participant",
-      "area": "tournament",
-      "kind": "entity",
-      "title": "Participant",
-      "summary": "Участник конкретного Tournament с frozen nickname.",
-      "fields": ["id: ParticipantId", "tournamentNickname", "type", "profileId?", "status", "statistic"],
-      "methods": ["withStatus"]
-    },
-    {
-      "id": "match",
-      "area": "tournament",
-      "kind": "entity",
-      "title": "Match",
-      "summary": "Одна format-specific встреча с двумя slot и typed result.",
-      "fields": ["id: MatchId", "order", "round", "stage", "slots", "firstTo", "state", "result?"],
-      "methods": ["start", "finish"]
-    },
-    {
-      "id": "tournament-values",
-      "area": "tournament",
-      "kind": "value-object",
-      "title": "Tournament value objects",
-      "summary": "Typed identity, lifecycle, slot и terminal state Tournament.",
-      "members": ["TournamentId", "TournamentTitle", "ParticipantId", "ParticipantType", "ParticipantStatus", "MatchId", "MatchState", "FirstTo", "TournamentPlacement", "TournamentOutcome", "TournamentCancellation"],
-      "fields": ["value / typed scope", "validated business state"],
-      "methods": ["equality through Equatable"]
-    },
-    {
-      "id": "match-results",
-      "area": "tournament",
-      "kind": "value-object",
-      "title": "MatchResult hierarchy",
-      "summary": "Typed исход встречи без fake score для technical result.",
-      "members": ["MatchResult", "NormalMatchResult", "TechnicalMatchResult", "TechnicalResultReason"],
-      "fields": ["winnerId", "loserId", "score или technical reason"],
-      "methods": ["validation by Match"]
-    },
-    {
-      "id": "match-slots",
-      "area": "tournament",
-      "kind": "value-object",
-      "title": "MatchSlot hierarchy",
-      "summary": "Источник Participant в Match без nullable identity и magic strings.",
-      "members": ["AssignedParticipantSlot", "WinnerOfMatchSlot", "LoserOfMatchSlot", "SeedPositionSlot", "ByeSlot"],
-      "fields": ["resolvedParticipantId?", "source MatchId / seed position"],
-      "methods": ["slot resolution by format"]
-    },
-    {
-      "id": "lifecycle-port",
-      "area": "tournament",
-      "kind": "port",
-      "title": "TournamentLifecyclePort",
-      "summary": "Application business logic contract lifecycle-операций.",
-      "fields": ["no state"],
-      "methods": ["createDraft", "updateDraft", "open", "addParticipant", "removeParticipant", "cancel"]
-    },
-    {
-      "id": "match-port",
-      "area": "tournament",
-      "kind": "port",
-      "title": "TournamentMatchPort",
-      "summary": "Контракт записи, correction и withdrawal Match.",
-      "fields": ["no state"],
-      "methods": ["recordResult", "correctResult", "withdraw"]
-    },
-    {
-      "id": "completion-port",
-      "area": "tournament",
-      "kind": "port",
-      "title": "TournamentCompletionPort",
-      "summary": "Контракт terminal completion Tournament.",
-      "fields": ["no state"],
-      "methods": ["finish"]
-    },
-    {
-      "id": "active-repository",
-      "area": "tournament",
-      "kind": "repository",
-      "title": "ActiveTournamentRepository",
-      "summary": "Authoritative access к единственному active Tournament.",
-      "fields": ["no persistence details"],
-      "methods": ["current", "save(expectedRevision)"]
-    },
-    {
-      "id": "completion-repository",
-      "area": "tournament",
-      "kind": "repository",
-      "title": "TournamentCompletionRepository",
-      "summary": "Atomic terminal consistency boundary.",
-      "fields": ["TournamentCompletionChange", "expectedRevision", "profileStatistics"],
-      "methods": ["commit"]
-    },
-    {
-      "id": "tournament-failure",
-      "area": "tournament",
-      "kind": "failure",
-      "title": "Tournament failures",
-      "summary": "Ошибки lifecycle и stale revision без UI/Infrastructure деталей.",
-      "members": ["TournamentFailure", "InvalidTournamentTransitionFailure", "StaleTournamentRevisionFailure"],
-      "fields": ["message"],
-      "methods": []
-    },
-    {
-      "id": "format-state",
-      "area": "format",
-      "kind": "model",
-      "title": "TournamentFormatState",
-      "summary": "Immutable authoritative состояние format-specific structure.",
-      "fields": ["tournamentId", "formatKey", "seed", "matches", "withdrawnParticipants", "outcome?"],
-      "methods": ["currentMatch"]
-    },
-    {
-      "id": "format-settings",
-      "area": "format",
-      "kind": "abstraction",
-      "title": "TournamentFormatSettings",
-      "summary": "Проверенные настройки concrete format без untyped map.",
-      "fields": ["formatId"],
-      "methods": ["equality through Equatable"]
-    },
-    {
-      "id": "format-values",
-      "area": "format",
-      "kind": "value-object",
-      "title": "Format identifiers",
-      "summary": "Versioned key конкретной implementation формата.",
-      "members": ["TournamentFormatId", "RulesetVersion", "TournamentFormatKey"],
-      "fields": ["stable id", "ruleset version"],
-      "methods": ["equality through Equatable"]
-    },
-    {
-      "id": "format-port",
-      "area": "format",
-      "kind": "port",
-      "title": "TournamentFormatPort",
-      "summary": "Polymorphic contract progression, correction, withdrawal и ranking.",
-      "fields": ["key: TournamentFormatKey"],
-      "methods": ["createInitialState", "applyResult", "withdraw", "correctResult", "outcomeFor"]
-    },
-    {
-      "id": "format-repository",
-      "area": "format",
-      "kind": "repository",
-      "title": "TournamentFormatRepository",
-      "summary": "Разрешает concrete format implementation по key без switch у consumer.",
-      "fields": ["no Tournament state"],
-      "methods": ["resolve"]
-    },
-    {
-      "id": "format-failure",
-      "area": "format",
-      "kind": "failure",
-      "title": "Tournament format failures",
-      "summary": "Ошибки format contract и несовместимости.",
-      "members": ["TournamentFormatFailure", "UnsupportedTournamentFormatFailure"],
-      "fields": ["message"],
-      "methods": []
-    },
-    {
-      "id": "assignment",
-      "area": "assignment",
-      "kind": "value-object",
-      "title": "CharacterAssignment",
-      "summary": "Tournament-scoped связь ParticipantId и CharacterId.",
-      "fields": ["tournamentId", "participantId", "characterId"],
-      "methods": ["equality through Equatable"]
-    },
-    {
-      "id": "assignment-set",
-      "area": "assignment",
-      "kind": "value-object",
-      "title": "CharacterAssignmentSet",
-      "summary": "Immutable collection, защищающая uniqueness assignments.",
-      "fields": ["tournamentId", "assignments", "enforceUniqueCharacters"],
-      "methods": ["forParticipant", "covers", "remove"]
-    },
-    {
-      "id": "distribution-port",
-      "area": "assignment",
-      "kind": "port",
-      "title": "CharacterDistributionPort",
-      "summary": "Алгоритмическая граница полного и individual distribution.",
-      "fields": ["no Tournament state"],
-      "methods": ["distribute", "redistributeOne"]
-    },
-    {
-      "id": "random-port",
-      "area": "assignment",
-      "kind": "port",
-      "title": "RandomPort",
-      "summary": "Контролируемая случайность для seeding и distribution.",
-      "fields": ["no state"],
-      "methods": ["shuffled"]
-    },
-    {
-      "id": "assignment-failure",
-      "area": "assignment",
-      "kind": "failure",
-      "title": "Character assignment failures",
-      "summary": "Ошибки capacity и отсутствия свободного Character.",
-      "members": ["CharacterAssignmentFailure", "InsufficientCharacterFailure", "NoFreeCharacterFailure"],
-      "fields": ["message"],
-      "methods": []
-    },
-    {
-      "id": "profile",
-      "area": "profile",
-      "kind": "aggregate",
-      "title": "Profile",
-      "summary": "Устойчивая identity пользователя вне конкретного Tournament.",
-      "fields": ["id: ProfileId", "nickname", "statistic"],
-      "methods": ["rename"]
-    },
-    {
-      "id": "profile-values",
-      "area": "profile",
-      "kind": "value-object",
-      "title": "Profile value objects",
-      "summary": "Typed identity и проверенный display nickname.",
-      "members": ["ProfileId", "Nickname"],
-      "fields": ["non-empty value"],
-      "methods": ["normalization", "equality through Equatable"]
-    },
-    {
-      "id": "profile-port",
-      "area": "profile",
-      "kind": "port",
-      "title": "ProfileManagementPort",
-      "summary": "Application business logic Profile lifecycle.",
-      "fields": ["no state"],
-      "methods": ["create", "current", "rename", "delete"]
-    },
-    {
-      "id": "profile-repository",
-      "area": "profile",
-      "kind": "repository",
-      "title": "ProfileRepository",
-      "summary": "Authoritative access к Profile и его statistic.",
-      "fields": ["no storage DTO"],
-      "methods": ["find", "save", "findStatistic"]
-    },
-    {
-      "id": "profile-failure",
-      "area": "profile",
-      "kind": "failure",
-      "title": "Profile failures",
-      "summary": "Ошибки поиска и stale revision Profile.",
-      "members": ["ProfileFailure", "ProfileNotFoundFailure", "StaleProfileRevisionFailure"],
-      "fields": ["message"],
-      "methods": []
+      "id": "character_assignment",
+      "title": "Character Assignment",
+      "accent": "#ffb900"
     },
     {
       "id": "game",
-      "area": "game",
-      "kind": "aggregate",
       "title": "Game",
-      "summary": "Versioned roster доступных Character.",
-      "fields": ["id: GameId", "displayName", "rosterVersion", "characters"],
-      "methods": ["findCharacter", "containsCharacter"]
+      "accent": "#7f8cff"
     },
     {
-      "id": "character",
+      "id": "history",
+      "title": "History",
+      "accent": "#ff6e96"
+    },
+    {
+      "id": "profile",
+      "title": "Profile",
+      "accent": "#56d6a5"
+    },
+    {
+      "id": "statistics",
+      "title": "Statistics",
+      "accent": "#3fb7ff"
+    },
+    {
+      "id": "tournament",
+      "title": "Tournament",
+      "accent": "#c58cff"
+    },
+    {
+      "id": "tournament_format",
+      "title": "Tournament Format",
+      "accent": "#f19962"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "CharacterAssignment",
+      "area": "character_assignment",
+      "kind": "class",
+      "role": "value-object",
+      "importance": "compact",
+      "title": "CharacterAssignment",
+      "signature": "final class CharacterAssignment extends Equatable",
+      "description": "Класс: 3 поля, 2 метода.",
+      "members": [],
+      "fields": [
+        "final TournamentId tournamentId",
+        "final ParticipantId participantId",
+        "final CharacterId characterId"
+      ],
+      "methods": [
+        "CharacterAssignment({ required this.tournamentId, required this.participantId, required this.characterId, })",
+        "List<Object> get props"
+      ]
+    },
+    {
+      "id": "CharacterAssignmentFailure",
+      "area": "character_assignment",
+      "kind": "sealed-class",
+      "role": "failure",
+      "importance": "compact",
+      "title": "CharacterAssignmentFailure",
+      "signature": "sealed class CharacterAssignmentFailure implements Exception",
+      "description": "Sealed class: 2 поля, 1 метод.",
+      "members": [],
+      "fields": [
+        "const CharacterAssignmentFailure(this.message)",
+        "final String message"
+      ],
+      "methods": [
+        "String toString()"
+      ]
+    },
+    {
+      "id": "CharacterAssignmentSet",
+      "area": "character_assignment",
+      "kind": "class",
+      "role": "value-object",
+      "importance": "compact",
+      "title": "CharacterAssignmentSet",
+      "signature": "final class CharacterAssignmentSet extends Equatable",
+      "description": "Класс: 3 поля, 6 методов.",
+      "members": [],
+      "fields": [
+        "final TournamentId tournamentId",
+        "final bool enforceUniqueCharacters",
+        "final UnmodifiableListView<CharacterAssignment> _assignments"
+      ],
+      "methods": [
+        "CharacterAssignmentSet({ required this.tournamentId, required Iterable<CharacterAssignment> assignments, this.enforceUniqueCharacters = true, })",
+        "List<CharacterAssignment> get assignments",
+        "CharacterAssignment? forParticipant(ParticipantId participantId)",
+        "bool covers(Iterable<ParticipantId> participantIds)",
+        "CharacterAssignmentSet remove(ParticipantId participantId)",
+        "List<Object> get props"
+      ]
+    },
+    {
+      "id": "CharacterDistributionPort",
+      "area": "character_assignment",
+      "kind": "interface",
+      "role": "port",
+      "importance": "standard",
+      "title": "CharacterDistributionPort",
+      "signature": "abstract interface class CharacterDistributionPort",
+      "description": "Интерфейс: 0 полей, 2 метода.",
+      "members": [],
+      "fields": [],
+      "methods": [
+        "CharacterAssignmentSet distribute({ required Iterable<Participant> participants, required Iterable<Character> roster, required RandomPort random, })",
+        "CharacterAssignmentSet redistributeOne({ required CharacterAssignmentSet assignments, required ParticipantId participantId, required Iterable<Character> roster, required RandomPort random, })"
+      ]
+    },
+    {
+      "id": "InsufficientCharacterFailure",
+      "area": "character_assignment",
+      "kind": "class",
+      "role": "failure",
+      "importance": "compact",
+      "title": "InsufficientCharacterFailure",
+      "signature": "final class InsufficientCharacterFailure extends CharacterAssignmentFailure",
+      "description": "Класс: 1 поле, 0 методов.",
+      "members": [],
+      "fields": [
+        "const InsufficientCharacterFailure() : super('Недостаточно Character для полного распределения.')"
+      ],
+      "methods": []
+    },
+    {
+      "id": "NoFreeCharacterFailure",
+      "area": "character_assignment",
+      "kind": "class",
+      "role": "failure",
+      "importance": "compact",
+      "title": "NoFreeCharacterFailure",
+      "signature": "final class NoFreeCharacterFailure extends CharacterAssignmentFailure",
+      "description": "Класс: 1 поле, 0 методов.",
+      "members": [],
+      "fields": [
+        "const NoFreeCharacterFailure() : super('Для Participant нет свободного Character.')"
+      ],
+      "methods": []
+    },
+    {
+      "id": "RandomPort",
+      "area": "character_assignment",
+      "kind": "interface",
+      "role": "port",
+      "importance": "standard",
+      "title": "RandomPort",
+      "signature": "abstract interface class RandomPort",
+      "description": "Интерфейс: 0 полей, 1 метод.",
+      "members": [],
+      "fields": [],
+      "methods": [
+        "List<T> shuffled<T>(Iterable<T> values)"
+      ]
+    },
+    {
+      "id": "Character",
       "area": "game",
-      "kind": "entity",
+      "kind": "class",
+      "role": "entity",
+      "importance": "standard",
       "title": "Character",
-      "summary": "Character конкретного Game roster.",
-      "fields": ["id: CharacterId", "displayName", "gameId"],
+      "signature": "final class Character extends Equatable",
+      "description": "Класс: 2 поля, 4 метода.",
+      "members": [],
+      "fields": [
+        "final CharacterId id",
+        "final String displayName"
+      ],
+      "methods": [
+        "Character({required this.id, required String displayName})",
+        "GameId get gameId",
+        "static String _requireDisplayName(String value)",
+        "List<Object> get props"
+      ]
+    },
+    {
+      "id": "CharacterId",
+      "area": "game",
+      "kind": "class",
+      "role": "value-object",
+      "importance": "compact",
+      "title": "CharacterId",
+      "signature": "final class CharacterId extends Equatable",
+      "description": "Класс: 2 поля, 3 метода.",
+      "members": [],
+      "fields": [
+        "final GameId gameId",
+        "final String value"
+      ],
+      "methods": [
+        "CharacterId({required this.gameId, required String value})",
+        "static String _requireValue(String value)",
+        "List<Object> get props"
+      ]
+    },
+    {
+      "id": "CharacterNotFoundFailure",
+      "area": "game",
+      "kind": "class",
+      "role": "failure",
+      "importance": "compact",
+      "title": "CharacterNotFoundFailure",
+      "signature": "final class CharacterNotFoundFailure extends GameFailure",
+      "description": "Класс: 1 поле, 0 методов.",
+      "members": [],
+      "fields": [
+        "const CharacterNotFoundFailure() : super('Character не найден в roster.')"
+      ],
       "methods": []
     },
     {
-      "id": "game-values",
+      "id": "Game",
       "area": "game",
-      "kind": "value-object",
-      "title": "Game value objects",
-      "summary": "Стабильные identity игры и Character.",
-      "members": ["GameId", "CharacterId"],
-      "fields": ["stable value", "Game scope for CharacterId"],
-      "methods": ["equality through Equatable"]
+      "kind": "class",
+      "role": "entity",
+      "importance": "prominent",
+      "title": "Game",
+      "signature": "final class Game extends Equatable",
+      "description": "Класс: 4 поля, 6 методов.",
+      "members": [],
+      "fields": [
+        "final GameId id",
+        "final String displayName",
+        "final String rosterVersion",
+        "final UnmodifiableListView<Character> _characters"
+      ],
+      "methods": [
+        "Game({ required this.id, required String displayName, required String rosterVersion, required Iterable<Character> characters, })",
+        "List<Character> get characters",
+        "Character? findCharacter(CharacterId id)",
+        "bool containsCharacter(CharacterId id)",
+        "static String _requireText(String value, String name)",
+        "List<Object> get props"
+      ]
     },
     {
-      "id": "game-roster-port",
+      "id": "GameFailure",
       "area": "game",
-      "kind": "port",
-      "title": "GameRosterPort",
-      "summary": "Проверенный roster конкретной версии Game.",
-      "fields": ["no UI assets"],
-      "methods": ["rosterFor", "containsCharacter"]
+      "kind": "sealed-class",
+      "role": "failure",
+      "importance": "compact",
+      "title": "GameFailure",
+      "signature": "sealed class GameFailure implements Exception",
+      "description": "Sealed class: 2 поля, 1 метод.",
+      "members": [],
+      "fields": [
+        "const GameFailure(this.message)",
+        "final String message"
+      ],
+      "methods": [
+        "String toString()"
+      ]
     },
     {
-      "id": "game-repository",
+      "id": "GameId",
       "area": "game",
-      "kind": "repository",
+      "kind": "class",
+      "role": "value-object",
+      "importance": "compact",
+      "title": "GameId",
+      "signature": "final class GameId extends Equatable",
+      "description": "Класс: 1 поле, 3 метода.",
+      "members": [],
+      "fields": [
+        "final String value"
+      ],
+      "methods": [
+        "GameId(String value)",
+        "static String _requireValue(String value)",
+        "List<Object> get props"
+      ]
+    },
+    {
+      "id": "GameNotFoundFailure",
+      "area": "game",
+      "kind": "class",
+      "role": "failure",
+      "importance": "compact",
+      "title": "GameNotFoundFailure",
+      "signature": "final class GameNotFoundFailure extends GameFailure",
+      "description": "Класс: 1 поле, 0 методов.",
+      "members": [],
+      "fields": [
+        "const GameNotFoundFailure() : super('Игра не найдена.')"
+      ],
+      "methods": []
+    },
+    {
+      "id": "GameRepository",
+      "area": "game",
+      "kind": "interface",
+      "role": "repository",
+      "importance": "standard",
       "title": "GameRepository",
-      "summary": "Authoritative versioned Game definitions.",
-      "fields": ["no persistence DTO"],
-      "methods": ["find"]
+      "signature": "abstract interface class GameRepository",
+      "description": "Интерфейс: 0 полей, 1 метод.",
+      "members": [],
+      "fields": [],
+      "methods": [
+        "Future<Game?> find(GameId id, {required String rosterVersion})"
+      ]
     },
     {
-      "id": "game-failure",
+      "id": "GameRosterPort",
       "area": "game",
-      "kind": "failure",
-      "title": "Game failures",
-      "summary": "Ошибки поиска Game и Character.",
-      "members": ["GameFailure", "GameNotFoundFailure", "CharacterNotFoundFailure"],
-      "fields": ["message"],
-      "methods": []
+      "kind": "interface",
+      "role": "port",
+      "importance": "standard",
+      "title": "GameRosterPort",
+      "signature": "abstract interface class GameRosterPort",
+      "description": "Интерфейс: 0 полей, 2 метода.",
+      "members": [],
+      "fields": [],
+      "methods": [
+        "Future<List<Character>> rosterFor(GameId gameId, String rosterVersion)",
+        "Future<bool> containsCharacter({ required GameId gameId, required String rosterVersion, required CharacterId characterId, })"
+      ]
     },
     {
-      "id": "statistic",
-      "area": "statistics",
-      "kind": "abstraction",
-      "title": "Statistic",
-      "summary": "Базовая authoritative abstraction статистики с набором метрик.",
-      "fields": ["values: Map<StatisticType, StatisticValue>"],
-      "methods": ["valueOf"]
-    },
-    {
-      "id": "statistic-variants",
-      "area": "statistics",
-      "kind": "entity",
-      "title": "Statistic variants",
-      "summary": "Статистика в трёх независимых business scopes.",
-      "members": ["ProfileStatistic", "ParticipantTournamentStatistic", "TournamentStatistic"],
-      "fields": ["owner identity", "applied facts", "values"],
-      "methods": ["idempotency queries"]
-    },
-    {
-      "id": "statistic-values",
-      "area": "statistics",
-      "kind": "value-object",
-      "title": "Statistic values",
-      "summary": "Тип метрики и безопасные варианты значения.",
-      "members": ["StatisticType", "StatisticValue", "CounterStatisticValue", "PlacementStatisticValue", "PointsStatisticValue"],
-      "fields": ["non-negative counter/points", "positive placement"],
-      "methods": ["equality through Equatable"]
-    },
-    {
-      "id": "shared-statistic",
-      "area": "statistics",
-      "kind": "model",
-      "title": "SharedStatistic",
-      "summary": "Read model разрешённой публичной projection, не source of truth.",
-      "fields": ["type", "value", "scopeIdentity", "revision"],
-      "methods": []
-    },
-    {
-      "id": "statistic-ports",
-      "area": "statistics",
-      "kind": "port",
-      "title": "Statistics ports",
-      "summary": "Накопление ProfileStatistic и controlled shared projection.",
-      "members": ["ProfileStatisticAccumulationPort", "StatisticAccessPort"],
-      "fields": ["no persistence"],
-      "methods": ["apply", "project"]
-    },
-    {
-      "id": "statistic-repository",
-      "area": "statistics",
-      "kind": "repository",
-      "title": "ProfileStatisticRepository",
-      "summary": "Отдельный access к ProfileStatistic вне terminal transaction.",
-      "fields": ["no storage DTO"],
-      "methods": ["find", "save"]
-    },
-    {
-      "id": "statistic-failure",
-      "area": "statistics",
-      "kind": "failure",
-      "title": "Statistic failures",
-      "summary": "Недопустимый StatisticType для scope.",
-      "members": ["StatisticFailure", "StatisticTypeNotAllowedFailure"],
-      "fields": ["message"],
-      "methods": []
-    },
-    {
-      "id": "snapshot",
+      "id": "HistoricalTournamentNotFoundFailure",
       "area": "history",
-      "kind": "model",
+      "kind": "class",
+      "role": "failure",
+      "importance": "compact",
+      "title": "HistoricalTournamentNotFoundFailure",
+      "signature": "final class HistoricalTournamentNotFoundFailure extends HistoryFailure",
+      "description": "Класс: 1 поле, 0 методов.",
+      "members": [],
+      "fields": [
+        "const HistoricalTournamentNotFoundFailure() : super('Tournament history не найдена.')"
+      ],
+      "methods": []
+    },
+    {
+      "id": "HistoricalTournamentSnapshot",
+      "area": "history",
+      "kind": "class",
+      "role": "model",
+      "importance": "standard",
       "title": "HistoricalTournamentSnapshot",
-      "summary": "Self-contained immutable terminal representation Tournament.",
-      "fields": ["tournamentId", "title", "lifecycle", "game/format references", "participants", "assignments", "formatState?", "outcome?", "cancellation?"],
+      "signature": "final class HistoricalTournamentSnapshot extends Equatable",
+      "description": "Класс: 14 полей, 4 метода.",
+      "members": [],
+      "fields": [
+        "final TournamentId tournamentId",
+        "final TournamentTitle title",
+        "final TournamentLifecycle lifecycle",
+        "final GameId gameId",
+        "final String rosterVersion",
+        "final TournamentFormatKey formatKey",
+        "final TournamentFormatSettings formatSettings",
+        "final UnmodifiableListView<Participant> _participants",
+        "final UnmodifiableListView<CharacterAssignment> _assignments",
+        "final TournamentFormatState? formatState",
+        "final TournamentOutcome? outcome",
+        "final TournamentCancellation? cancellation",
+        "final DateTime completedAtUtc",
+        "final int finalRevision"
+      ],
+      "methods": [
+        "HistoricalTournamentSnapshot({ required this.tournamentId, required this.title, required this.lifecycle, required this.gameId, required this.rosterVersion, required this.formatKey, required this.formatSettings, required Iterable<Participant> participants, required Iterable<CharacterAssignment> assignments, required this.formatState, required this.outcome, required this.cancellation, required this.completedAtUtc, required this.finalRevision, })",
+        "List<Participant> get participants",
+        "List<CharacterAssignment> get assignments",
+        "List<Object?> get props"
+      ]
+    },
+    {
+      "id": "HistoryFailure",
+      "area": "history",
+      "kind": "sealed-class",
+      "role": "failure",
+      "importance": "compact",
+      "title": "HistoryFailure",
+      "signature": "sealed class HistoryFailure implements Exception",
+      "description": "Sealed class: 2 поля, 1 метод.",
+      "members": [],
+      "fields": [
+        "const HistoryFailure(this.message)",
+        "final String message"
+      ],
+      "methods": [
+        "String toString()"
+      ]
+    },
+    {
+      "id": "TournamentHistoryPort",
+      "area": "history",
+      "kind": "interface",
+      "role": "port",
+      "importance": "standard",
+      "title": "TournamentHistoryPort",
+      "signature": "abstract interface class TournamentHistoryPort",
+      "description": "Интерфейс: 0 полей, 3 метода.",
+      "members": [],
+      "fields": [],
+      "methods": [
+        "Future<List<HistoricalTournamentSnapshot>> list()",
+        "Future<HistoricalTournamentSnapshot?> get(TournamentId tournamentId)",
+        "Future<void> clear()"
+      ]
+    },
+    {
+      "id": "TournamentHistoryRepository",
+      "area": "history",
+      "kind": "interface",
+      "role": "repository",
+      "importance": "standard",
+      "title": "TournamentHistoryRepository",
+      "signature": "abstract interface class TournamentHistoryRepository",
+      "description": "Интерфейс: 0 полей, 4 метода.",
+      "members": [],
+      "fields": [],
+      "methods": [
+        "Future<void> append(HistoricalTournamentSnapshot snapshot)",
+        "Future<List<HistoricalTournamentSnapshot>> list()",
+        "Future<HistoricalTournamentSnapshot?> find(TournamentId tournamentId)",
+        "Future<void> clear()"
+      ]
+    },
+    {
+      "id": "Nickname",
+      "area": "profile",
+      "kind": "class",
+      "role": "value-object",
+      "importance": "compact",
+      "title": "Nickname",
+      "signature": "final class Nickname extends Equatable",
+      "description": "Класс: 1 поле, 4 метода.",
+      "members": [],
+      "fields": [
+        "final String value"
+      ],
+      "methods": [
+        "Nickname(String value)",
+        "static String _normalize(String value)",
+        "List<Object> get props",
+        "String toString()"
+      ]
+    },
+    {
+      "id": "Profile",
+      "area": "profile",
+      "kind": "class",
+      "role": "entity",
+      "importance": "prominent",
+      "title": "Profile",
+      "signature": "final class Profile extends Equatable",
+      "description": "Класс: 3 поля, 3 метода.",
+      "members": [],
+      "fields": [
+        "final ProfileId id",
+        "final Nickname nickname",
+        "final ProfileStatistic statistic"
+      ],
+      "methods": [
+        "Profile({ required this.id, required this.nickname, ProfileStatistic? statistic, })",
+        "Profile rename(Nickname nextNickname)",
+        "List<Object> get props"
+      ]
+    },
+    {
+      "id": "ProfileFailure",
+      "area": "profile",
+      "kind": "sealed-class",
+      "role": "failure",
+      "importance": "compact",
+      "title": "ProfileFailure",
+      "signature": "sealed class ProfileFailure implements Exception",
+      "description": "Sealed class: 2 поля, 1 метод.",
+      "members": [],
+      "fields": [
+        "const ProfileFailure(this.message)",
+        "final String message"
+      ],
+      "methods": [
+        "String toString()"
+      ]
+    },
+    {
+      "id": "ProfileId",
+      "area": "profile",
+      "kind": "class",
+      "role": "value-object",
+      "importance": "compact",
+      "title": "ProfileId",
+      "signature": "final class ProfileId extends Equatable",
+      "description": "Класс: 1 поле, 3 метода.",
+      "members": [],
+      "fields": [
+        "final String value"
+      ],
+      "methods": [
+        "ProfileId(String value)",
+        "static String _requireValue(String value, String type)",
+        "List<Object> get props"
+      ]
+    },
+    {
+      "id": "ProfileManagementPort",
+      "area": "profile",
+      "kind": "interface",
+      "role": "port",
+      "importance": "standard",
+      "title": "ProfileManagementPort",
+      "signature": "abstract interface class ProfileManagementPort",
+      "description": "Интерфейс: 0 полей, 4 метода.",
+      "members": [],
+      "fields": [],
+      "methods": [
+        "Future<Profile> create({required ProfileId id, required Nickname nickname})",
+        "Future<Profile?> current(ProfileId id)",
+        "Future<Profile> rename({required ProfileId id, required Nickname nickname})",
+        "Future<void> delete(ProfileId id)"
+      ]
+    },
+    {
+      "id": "ProfileNotFoundFailure",
+      "area": "profile",
+      "kind": "class",
+      "role": "failure",
+      "importance": "compact",
+      "title": "ProfileNotFoundFailure",
+      "signature": "final class ProfileNotFoundFailure extends ProfileFailure",
+      "description": "Класс: 1 поле, 0 методов.",
+      "members": [],
+      "fields": [
+        "const ProfileNotFoundFailure() : super('Профиль не найден.')"
+      ],
       "methods": []
     },
     {
-      "id": "history-port",
-      "area": "history",
-      "kind": "port",
-      "title": "TournamentHistoryPort",
-      "summary": "Application business logic immutable history.",
-      "fields": ["no active Tournament state"],
-      "methods": ["list", "get", "clear"]
+      "id": "ProfileRepository",
+      "area": "profile",
+      "kind": "interface",
+      "role": "repository",
+      "importance": "standard",
+      "title": "ProfileRepository",
+      "signature": "abstract interface class ProfileRepository",
+      "description": "Интерфейс: 0 полей, 3 метода.",
+      "members": [],
+      "fields": [],
+      "methods": [
+        "Future<Profile?> find(ProfileId id)",
+        "Future<void> save(Profile profile)",
+        "Future<ProfileStatistic?> findStatistic(ProfileId profileId)"
+      ]
     },
     {
-      "id": "history-repository",
-      "area": "history",
-      "kind": "repository",
-      "title": "TournamentHistoryRepository",
-      "summary": "Authoritative immutable snapshot collection.",
-      "fields": ["deduplicated TournamentId collection"],
-      "methods": ["append", "list", "find", "clear"]
+      "id": "StaleProfileRevisionFailure",
+      "area": "profile",
+      "kind": "class",
+      "role": "failure",
+      "importance": "compact",
+      "title": "StaleProfileRevisionFailure",
+      "signature": "final class StaleProfileRevisionFailure extends ProfileFailure",
+      "description": "Класс: 1 поле, 0 методов.",
+      "members": [],
+      "fields": [
+        "const StaleProfileRevisionFailure() : super('Версия профиля устарела.')"
+      ],
+      "methods": []
     },
     {
-      "id": "history-failure",
-      "area": "history",
-      "kind": "failure",
-      "title": "History failures",
-      "summary": "Ошибки отсутствующей history snapshot.",
-      "members": ["HistoryFailure", "HistoricalTournamentNotFoundFailure"],
-      "fields": ["message"],
+      "id": "CounterStatisticValue",
+      "area": "statistics",
+      "kind": "class",
+      "role": "value-object",
+      "importance": "compact",
+      "title": "CounterStatisticValue",
+      "signature": "final class CounterStatisticValue extends StatisticValue",
+      "description": "Класс: 1 поле, 3 метода.",
+      "members": [],
+      "fields": [
+        "final int value"
+      ],
+      "methods": [
+        "CounterStatisticValue(int value)",
+        "static int _requireNonNegative(int value)",
+        "List<Object> get props"
+      ]
+    },
+    {
+      "id": "ParticipantTournamentStatistic",
+      "area": "statistics",
+      "kind": "class",
+      "role": "entity",
+      "importance": "standard",
+      "title": "ParticipantTournamentStatistic",
+      "signature": "final class ParticipantTournamentStatistic extends Statistic",
+      "description": "Класс: 3 поля, 3 метода.",
+      "members": [],
+      "fields": [
+        "final TournamentId tournamentId",
+        "final ParticipantId participantId",
+        "final Set<String> _appliedResultIds"
+      ],
+      "methods": [
+        "ParticipantTournamentStatistic({ required this.tournamentId, required this.participantId, Map<StatisticType, StatisticValue> values = const {}, Iterable<String> appliedResultIds = const [], })",
+        "Set<String> get appliedResultIds",
+        "List<Object> get props"
+      ]
+    },
+    {
+      "id": "PlacementStatisticValue",
+      "area": "statistics",
+      "kind": "class",
+      "role": "value-object",
+      "importance": "compact",
+      "title": "PlacementStatisticValue",
+      "signature": "final class PlacementStatisticValue extends StatisticValue",
+      "description": "Класс: 1 поле, 3 метода.",
+      "members": [],
+      "fields": [
+        "final int value"
+      ],
+      "methods": [
+        "PlacementStatisticValue(int value)",
+        "static int _requirePositive(int value)",
+        "List<Object> get props"
+      ]
+    },
+    {
+      "id": "PointsStatisticValue",
+      "area": "statistics",
+      "kind": "class",
+      "role": "value-object",
+      "importance": "compact",
+      "title": "PointsStatisticValue",
+      "signature": "final class PointsStatisticValue extends StatisticValue",
+      "description": "Класс: 1 поле, 3 метода.",
+      "members": [],
+      "fields": [
+        "final int value"
+      ],
+      "methods": [
+        "PointsStatisticValue(int value)",
+        "static int _requireNonNegative(int value)",
+        "List<Object> get props"
+      ]
+    },
+    {
+      "id": "ProfileStatistic",
+      "area": "statistics",
+      "kind": "class",
+      "role": "entity",
+      "importance": "standard",
+      "title": "ProfileStatistic",
+      "signature": "final class ProfileStatistic extends Statistic",
+      "description": "Класс: 2 поля, 4 метода.",
+      "members": [],
+      "fields": [
+        "final ProfileId profileId",
+        "final Set<TournamentId> _appliedTournamentIds"
+      ],
+      "methods": [
+        "ProfileStatistic({ required this.profileId, Map<StatisticType, StatisticValue> values = const {}, Iterable<TournamentId> appliedTournamentIds = const [], })",
+        "Set<TournamentId> get appliedTournamentIds",
+        "bool wasApplied(TournamentId tournamentId)",
+        "List<Object> get props"
+      ]
+    },
+    {
+      "id": "ProfileStatisticAccumulationPort",
+      "area": "statistics",
+      "kind": "interface",
+      "role": "port",
+      "importance": "standard",
+      "title": "ProfileStatisticAccumulationPort",
+      "signature": "abstract interface class ProfileStatisticAccumulationPort",
+      "description": "Интерфейс: 0 полей, 1 метод.",
+      "members": [],
+      "fields": [],
+      "methods": [
+        "ProfileStatistic apply({ required ProfileStatistic statistic, required HistoricalTournamentSnapshot snapshot, })"
+      ]
+    },
+    {
+      "id": "ProfileStatisticRepository",
+      "area": "statistics",
+      "kind": "interface",
+      "role": "repository",
+      "importance": "standard",
+      "title": "ProfileStatisticRepository",
+      "signature": "abstract interface class ProfileStatisticRepository",
+      "description": "Интерфейс: 0 полей, 2 метода.",
+      "members": [],
+      "fields": [],
+      "methods": [
+        "Future<ProfileStatistic?> find(ProfileId profileId)",
+        "Future<void> save(ProfileStatistic statistic)"
+      ]
+    },
+    {
+      "id": "SharedStatistic",
+      "area": "statistics",
+      "kind": "class",
+      "role": "model",
+      "importance": "standard",
+      "title": "SharedStatistic",
+      "signature": "final class SharedStatistic extends Equatable",
+      "description": "Класс: 5 полей, 1 метод.",
+      "members": [],
+      "fields": [
+        "const SharedStatistic({ required this.type, required this.value, required this.scopeIdentity, required this.revision, })",
+        "final StatisticType type",
+        "final StatisticValue value",
+        "final String scopeIdentity",
+        "final int revision"
+      ],
+      "methods": [
+        "List<Object> get props"
+      ]
+    },
+    {
+      "id": "Statistic",
+      "area": "statistics",
+      "kind": "abstract-class",
+      "role": "entity",
+      "importance": "standard",
+      "title": "Statistic",
+      "signature": "abstract base class Statistic extends Equatable",
+      "description": "Абстрактный класс: 1 поле, 4 метода.",
+      "members": [],
+      "fields": [
+        "final UnmodifiableMapView<StatisticType, StatisticValue> _values"
+      ],
+      "methods": [
+        "Statistic(Map<StatisticType, StatisticValue> values)",
+        "Map<StatisticType, StatisticValue> get values",
+        "StatisticValue? valueOf(StatisticType type)",
+        "List<Object> get props"
+      ]
+    },
+    {
+      "id": "StatisticAccessPort",
+      "area": "statistics",
+      "kind": "interface",
+      "role": "port",
+      "importance": "standard",
+      "title": "StatisticAccessPort",
+      "signature": "abstract interface class StatisticAccessPort",
+      "description": "Интерфейс: 0 полей, 1 метод.",
+      "members": [],
+      "fields": [],
+      "methods": [
+        "Iterable<SharedStatistic> project(Statistic statistic)"
+      ]
+    },
+    {
+      "id": "StatisticFailure",
+      "area": "statistics",
+      "kind": "sealed-class",
+      "role": "failure",
+      "importance": "compact",
+      "title": "StatisticFailure",
+      "signature": "sealed class StatisticFailure implements Exception",
+      "description": "Sealed class: 2 поля, 1 метод.",
+      "members": [],
+      "fields": [
+        "const StatisticFailure(this.message)",
+        "final String message"
+      ],
+      "methods": [
+        "String toString()"
+      ]
+    },
+    {
+      "id": "StatisticType",
+      "area": "statistics",
+      "kind": "enum",
+      "role": "value-object",
+      "importance": "compact",
+      "title": "StatisticType",
+      "signature": "enum StatisticType",
+      "description": "Enum: 7 значений.",
+      "members": [
+        "matchesPlayed",
+        "matchWins",
+        "matchLosses",
+        "tournamentsPlayed",
+        "tournamentWins",
+        "bestPlace",
+        "roundRobinPoints"
+      ],
+      "fields": [],
+      "methods": []
+    },
+    {
+      "id": "StatisticTypeNotAllowedFailure",
+      "area": "statistics",
+      "kind": "class",
+      "role": "failure",
+      "importance": "compact",
+      "title": "StatisticTypeNotAllowedFailure",
+      "signature": "final class StatisticTypeNotAllowedFailure extends StatisticFailure",
+      "description": "Класс: 1 поле, 0 методов.",
+      "members": [],
+      "fields": [
+        "const StatisticTypeNotAllowedFailure() : super('StatisticType не разрешён для этого scope.')"
+      ],
+      "methods": []
+    },
+    {
+      "id": "StatisticValue",
+      "area": "statistics",
+      "kind": "sealed-class",
+      "role": "value-object",
+      "importance": "compact",
+      "title": "StatisticValue",
+      "signature": "sealed class StatisticValue extends Equatable",
+      "description": "Sealed class: 1 поле, 0 методов.",
+      "members": [],
+      "fields": [
+        "const StatisticValue()"
+      ],
+      "methods": []
+    },
+    {
+      "id": "TournamentStatistic",
+      "area": "statistics",
+      "kind": "class",
+      "role": "entity",
+      "importance": "standard",
+      "title": "TournamentStatistic",
+      "signature": "final class TournamentStatistic extends Statistic",
+      "description": "Класс: 2 поля, 3 метода.",
+      "members": [],
+      "fields": [
+        "final TournamentId tournamentId",
+        "final Set<String> _appliedResultIds"
+      ],
+      "methods": [
+        "TournamentStatistic({ required this.tournamentId, Map<StatisticType, StatisticValue> values = const {}, Iterable<String> appliedResultIds = const [], })",
+        "Set<String> get appliedResultIds",
+        "List<Object> get props"
+      ]
+    },
+    {
+      "id": "ActiveTournamentRepository",
+      "area": "tournament",
+      "kind": "interface",
+      "role": "repository",
+      "importance": "standard",
+      "title": "ActiveTournamentRepository",
+      "signature": "abstract interface class ActiveTournamentRepository",
+      "description": "Интерфейс: 0 полей, 2 метода.",
+      "members": [],
+      "fields": [],
+      "methods": [
+        "Future<Tournament?> current()",
+        "Future<void> save(Tournament tournament, {required int expectedRevision})"
+      ]
+    },
+    {
+      "id": "AssignedParticipantSlot",
+      "area": "tournament",
+      "kind": "class",
+      "role": "value-object",
+      "importance": "compact",
+      "title": "AssignedParticipantSlot",
+      "signature": "final class AssignedParticipantSlot extends MatchSlot",
+      "description": "Класс: 2 поля, 2 метода.",
+      "members": [],
+      "fields": [
+        "const AssignedParticipantSlot(this.participantId)",
+        "final ParticipantId participantId"
+      ],
+      "methods": [
+        "ParticipantId get resolvedParticipantId",
+        "List<Object> get props"
+      ]
+    },
+    {
+      "id": "ByeSlot",
+      "area": "tournament",
+      "kind": "class",
+      "role": "value-object",
+      "importance": "compact",
+      "title": "ByeSlot",
+      "signature": "final class ByeSlot extends MatchSlot",
+      "description": "Класс: 1 поле, 2 метода.",
+      "members": [],
+      "fields": [
+        "const ByeSlot()"
+      ],
+      "methods": [
+        "ParticipantId? get resolvedParticipantId",
+        "List<Object> get props"
+      ]
+    },
+    {
+      "id": "FirstTo",
+      "area": "tournament",
+      "kind": "class",
+      "role": "value-object",
+      "importance": "compact",
+      "title": "FirstTo",
+      "signature": "final class FirstTo extends Equatable",
+      "description": "Класс: 1 поле, 3 метода.",
+      "members": [],
+      "fields": [
+        "final int winsRequired"
+      ],
+      "methods": [
+        "FirstTo(int winsRequired)",
+        "static int _requirePositive(int value)",
+        "List<Object> get props"
+      ]
+    },
+    {
+      "id": "InvalidTournamentTransitionFailure",
+      "area": "tournament",
+      "kind": "class",
+      "role": "failure",
+      "importance": "compact",
+      "title": "InvalidTournamentTransitionFailure",
+      "signature": "final class InvalidTournamentTransitionFailure extends TournamentFailure",
+      "description": "Класс: 1 поле, 0 методов.",
+      "members": [],
+      "fields": [
+        "const InvalidTournamentTransitionFailure(super.message)"
+      ],
+      "methods": []
+    },
+    {
+      "id": "LoserOfMatchSlot",
+      "area": "tournament",
+      "kind": "class",
+      "role": "value-object",
+      "importance": "compact",
+      "title": "LoserOfMatchSlot",
+      "signature": "final class LoserOfMatchSlot extends MatchSlot",
+      "description": "Класс: 2 поля, 2 метода.",
+      "members": [],
+      "fields": [
+        "const LoserOfMatchSlot(this.sourceMatchId)",
+        "final MatchId sourceMatchId"
+      ],
+      "methods": [
+        "ParticipantId? get resolvedParticipantId",
+        "List<Object> get props"
+      ]
+    },
+    {
+      "id": "Match",
+      "area": "tournament",
+      "kind": "class",
+      "role": "entity",
+      "importance": "standard",
+      "title": "Match",
+      "signature": "final class Match extends Equatable",
+      "description": "Класс: 8 полей, 10 методов.",
+      "members": [],
+      "fields": [
+        "final MatchId id",
+        "final int order",
+        "final int round",
+        "final String stage",
+        "final FirstTo firstTo",
+        "final MatchState state",
+        "final MatchResult? result",
+        "final UnmodifiableListView<MatchSlot> _slots"
+      ],
+      "methods": [
+        "Match({ required this.id, required this.order, required this.round, required String stage, required Iterable<MatchSlot> slots, required this.firstTo, this.state = MatchState.upcoming, this.result, })",
+        "TournamentId get tournamentId",
+        "List<MatchSlot> get slots",
+        "bool get hasTwoResolvedParticipants",
+        "Match start()",
+        "Match finish(MatchResult nextResult)",
+        "Match _copy({required MatchState state, MatchResult? result})",
+        "void _validateResult(MatchResult? candidate)",
+        "static String _requireStage(String value)",
+        "List<Object?> get props"
+      ]
+    },
+    {
+      "id": "MatchId",
+      "area": "tournament",
+      "kind": "class",
+      "role": "value-object",
+      "importance": "compact",
+      "title": "MatchId",
+      "signature": "final class MatchId extends Equatable",
+      "description": "Класс: 2 поля, 3 метода.",
+      "members": [],
+      "fields": [
+        "final TournamentId tournamentId",
+        "final String value"
+      ],
+      "methods": [
+        "MatchId({required this.tournamentId, required String value})",
+        "static String _requireValue(String value)",
+        "List<Object> get props"
+      ]
+    },
+    {
+      "id": "MatchResult",
+      "area": "tournament",
+      "kind": "abstract-class",
+      "role": "value-object",
+      "importance": "compact",
+      "title": "MatchResult",
+      "signature": "abstract base class MatchResult extends Equatable",
+      "description": "Абстрактный класс: 3 поля, 0 методов.",
+      "members": [],
+      "fields": [
+        "const MatchResult({required this.winnerId, required this.loserId}) : assert(winnerId != loserId, 'Winner и loser должны различаться.')",
+        "final ParticipantId winnerId",
+        "final ParticipantId loserId"
+      ],
+      "methods": []
+    },
+    {
+      "id": "MatchSlot",
+      "area": "tournament",
+      "kind": "sealed-class",
+      "role": "value-object",
+      "importance": "compact",
+      "title": "MatchSlot",
+      "signature": "sealed class MatchSlot extends Equatable",
+      "description": "Sealed class: 1 поле, 1 метод.",
+      "members": [],
+      "fields": [
+        "const MatchSlot()"
+      ],
+      "methods": [
+        "ParticipantId? get resolvedParticipantId"
+      ]
+    },
+    {
+      "id": "MatchState",
+      "area": "tournament",
+      "kind": "enum",
+      "role": "value-object",
+      "importance": "compact",
+      "title": "MatchState",
+      "signature": "enum MatchState",
+      "description": "Enum: 3 значения.",
+      "members": [
+        "upcoming",
+        "current",
+        "finished"
+      ],
+      "fields": [],
+      "methods": []
+    },
+    {
+      "id": "NormalMatchResult",
+      "area": "tournament",
+      "kind": "class",
+      "role": "value-object",
+      "importance": "compact",
+      "title": "NormalMatchResult",
+      "signature": "final class NormalMatchResult extends MatchResult",
+      "description": "Класс: 2 поля, 3 метода.",
+      "members": [],
+      "fields": [
+        "final int winnerScore",
+        "final int loserScore"
+      ],
+      "methods": [
+        "NormalMatchResult({ required super.winnerId, required super.loserId, required int winnerScore, required int loserScore, })",
+        "static int _requireNonNegative(int value, String name)",
+        "List<Object> get props"
+      ]
+    },
+    {
+      "id": "Participant",
+      "area": "tournament",
+      "kind": "class",
+      "role": "entity",
+      "importance": "standard",
+      "title": "Participant",
+      "signature": "final class Participant extends Equatable",
+      "description": "Класс: 6 полей, 5 методов.",
+      "members": [],
+      "fields": [
+        "final ParticipantId id",
+        "final Nickname tournamentNickname",
+        "final ParticipantType type",
+        "final ProfileId? profileId",
+        "final ParticipantStatus status",
+        "final ParticipantTournamentStatistic statistic"
+      ],
+      "methods": [
+        "Participant.profile({ required this.id, required this.tournamentNickname, required this.profileId, this.status = ParticipantStatus.active, ParticipantTournamentStatistic? statistic, })",
+        "Participant.guest({ required this.id, required this.tournamentNickname, this.status = ParticipantStatus.active, ParticipantTournamentStatistic? statistic, })",
+        "Participant withStatus(ParticipantStatus nextStatus)",
+        "Participant._copy(Participant source, {required this.status})",
+        "List<Object?> get props"
+      ]
+    },
+    {
+      "id": "ParticipantId",
+      "area": "tournament",
+      "kind": "class",
+      "role": "value-object",
+      "importance": "compact",
+      "title": "ParticipantId",
+      "signature": "final class ParticipantId extends Equatable",
+      "description": "Класс: 2 поля, 3 метода.",
+      "members": [],
+      "fields": [
+        "final TournamentId tournamentId",
+        "final String value"
+      ],
+      "methods": [
+        "ParticipantId({required this.tournamentId, required String value})",
+        "static String _requireValue(String value)",
+        "List<Object> get props"
+      ]
+    },
+    {
+      "id": "ParticipantStatus",
+      "area": "tournament",
+      "kind": "enum",
+      "role": "value-object",
+      "importance": "compact",
+      "title": "ParticipantStatus",
+      "signature": "enum ParticipantStatus",
+      "description": "Enum: 3 значения.",
+      "members": [
+        "active",
+        "eliminated",
+        "withdrawn"
+      ],
+      "fields": [],
+      "methods": []
+    },
+    {
+      "id": "ParticipantType",
+      "area": "tournament",
+      "kind": "enum",
+      "role": "value-object",
+      "importance": "compact",
+      "title": "ParticipantType",
+      "signature": "enum ParticipantType",
+      "description": "Enum: 2 значения.",
+      "members": [
+        "profile",
+        "guest"
+      ],
+      "fields": [],
+      "methods": []
+    },
+    {
+      "id": "SeedPositionSlot",
+      "area": "tournament",
+      "kind": "class",
+      "role": "value-object",
+      "importance": "compact",
+      "title": "SeedPositionSlot",
+      "signature": "final class SeedPositionSlot extends MatchSlot",
+      "description": "Класс: 1 поле, 4 метода.",
+      "members": [],
+      "fields": [
+        "final int position"
+      ],
+      "methods": [
+        "SeedPositionSlot(int position)",
+        "static int _requirePositive(int value)",
+        "ParticipantId? get resolvedParticipantId",
+        "List<Object> get props"
+      ]
+    },
+    {
+      "id": "StaleTournamentRevisionFailure",
+      "area": "tournament",
+      "kind": "class",
+      "role": "failure",
+      "importance": "compact",
+      "title": "StaleTournamentRevisionFailure",
+      "signature": "final class StaleTournamentRevisionFailure extends TournamentFailure",
+      "description": "Класс: 1 поле, 0 методов.",
+      "members": [],
+      "fields": [
+        "const StaleTournamentRevisionFailure() : super('Версия Tournament устарела.')"
+      ],
+      "methods": []
+    },
+    {
+      "id": "TechnicalMatchResult",
+      "area": "tournament",
+      "kind": "class",
+      "role": "value-object",
+      "importance": "compact",
+      "title": "TechnicalMatchResult",
+      "signature": "final class TechnicalMatchResult extends MatchResult",
+      "description": "Класс: 2 поля, 1 метод.",
+      "members": [],
+      "fields": [
+        "const TechnicalMatchResult({ required super.winnerId, required super.loserId, required this.reason, })",
+        "final TechnicalResultReason reason"
+      ],
+      "methods": [
+        "List<Object> get props"
+      ]
+    },
+    {
+      "id": "TechnicalResultReason",
+      "area": "tournament",
+      "kind": "enum",
+      "role": "value-object",
+      "importance": "compact",
+      "title": "TechnicalResultReason",
+      "signature": "enum TechnicalResultReason",
+      "description": "Enum: 2 значения.",
+      "members": [
+        "forfeit",
+        "withdrawal"
+      ],
+      "fields": [],
+      "methods": []
+    },
+    {
+      "id": "Tournament",
+      "area": "tournament",
+      "kind": "class",
+      "role": "entity",
+      "importance": "prominent",
+      "title": "Tournament",
+      "signature": "final class Tournament extends Equatable",
+      "description": "Класс: 16 полей, 22 метода.",
+      "members": [],
+      "fields": [
+        "final TournamentId id",
+        "final TournamentTitle title",
+        "final GameId gameId",
+        "final String rosterVersion",
+        "final TournamentFormatKey formatKey",
+        "final TournamentFormatSettings formatSettings",
+        "final TournamentLifecycle lifecycle",
+        "final UnmodifiableListView<Participant> _participants",
+        "final CharacterAssignmentSet assignments",
+        "final TournamentFormatState? formatState",
+        "final TournamentStatistic statistic",
+        "final TournamentOutcome? outcome",
+        "final TournamentCancellation? cancellation",
+        "final int revision",
+        "final DateTime createdAtUtc",
+        "final DateTime updatedAtUtc"
+      ],
+      "methods": [
+        "Tournament.draft({ required this.id, required this.title, required this.gameId, required this.rosterVersion, required this.formatKey, required this.formatSettings, required DateTime createdAtUtc, })",
+        "Tournament._({ required this.id, required this.title, required this.gameId, required this.rosterVersion, required this.formatKey, required this.formatSettings, required this.lifecycle, required Iterable<Participant> participants, required this.assignments, required this.formatState, required this.statistic, required this.outcome, required this.cancellation, required this.revision, required this.createdAtUtc, required this.updatedAtUtc, })",
+        "List<Participant> get participants",
+        "Tournament updateDraft({ TournamentTitle? title, GameId? gameId, String? rosterVersion, TournamentFormatKey? formatKey, TournamentFormatSettings? formatSettings, required DateTime changedAtUtc, })",
+        "Tournament open({required DateTime changedAtUtc})",
+        "Tournament addParticipant( Participant participant, { required DateTime changedAtUtc, })",
+        "Tournament removeParticipant( ParticipantId participantId, { required DateTime changedAtUtc, })",
+        "Tournament beginDistribution({required DateTime changedAtUtc})",
+        "Tournament returnToOpen({required DateTime changedAtUtc})",
+        "Tournament acceptAssignments( CharacterAssignmentSet nextAssignments, { required DateTime changedAtUtc, })",
+        "Tournament start({ required TournamentFormatState nextFormatState, required DateTime changedAtUtc, })",
+        "Tournament applyFormatState( TournamentFormatState nextFormatState, { required Iterable<Participant> participants, required DateTime changedAtUtc, })",
+        "Tournament finish({ required TournamentOutcome nextOutcome, required DateTime changedAtUtc, })",
+        "Tournament cancel({ required TournamentCancellation nextCancellation, required DateTime changedAtUtc, })",
+        "Tournament _copy({ TournamentTitle? title, GameId? gameId, String? rosterVersion, TournamentFormatKey? formatKey, TournamentFormatSettings? formatSettings, TournamentLifecycle? lifecycle, Iterable<Participant>? participants, CharacterAssignmentSet? assignments, TournamentFormatState? formatState, TournamentOutcome? outcome, TournamentCancellation? cancellation, required DateTime changedAtUtc, })",
+        "void _validate()",
+        "Iterable<ParticipantId> get _activeParticipantIds",
+        "void _requireAssignments(CharacterAssignmentSet candidate)",
+        "void _validateOutcome(TournamentOutcome candidate)",
+        "void _requireLifecycle(TournamentLifecycle expected)",
+        "static DateTime _requireUtc(DateTime value)",
+        "List<Object?> get props"
+      ]
+    },
+    {
+      "id": "TournamentCancellation",
+      "area": "tournament",
+      "kind": "class",
+      "role": "value-object",
+      "importance": "compact",
+      "title": "TournamentCancellation",
+      "signature": "final class TournamentCancellation extends Equatable",
+      "description": "Класс: 2 поля, 3 метода.",
+      "members": [],
+      "fields": [
+        "final String reason",
+        "final DateTime cancelledAtUtc"
+      ],
+      "methods": [
+        "TournamentCancellation({required String reason, required this.cancelledAtUtc})",
+        "static String _requireReason(String value)",
+        "List<Object> get props"
+      ]
+    },
+    {
+      "id": "TournamentCompletionChange",
+      "area": "tournament",
+      "kind": "class",
+      "role": "repository",
+      "importance": "standard",
+      "title": "TournamentCompletionChange",
+      "signature": "final class TournamentCompletionChange",
+      "description": "Класс: 4 поля, 1 метод.",
+      "members": [],
+      "fields": [
+        "const TournamentCompletionChange({ required this.expectedRevision, required this.snapshot, required this.profileStatistics, })",
+        "final int expectedRevision",
+        "final HistoricalTournamentSnapshot snapshot",
+        "final Iterable<ProfileStatistic> profileStatistics"
+      ],
+      "methods": [
+        "TournamentId get tournamentId"
+      ]
+    },
+    {
+      "id": "TournamentCompletionPort",
+      "area": "tournament",
+      "kind": "interface",
+      "role": "port",
+      "importance": "standard",
+      "title": "TournamentCompletionPort",
+      "signature": "abstract interface class TournamentCompletionPort",
+      "description": "Интерфейс: 0 полей, 1 метод.",
+      "members": [],
+      "fields": [],
+      "methods": [
+        "Future<Tournament> finish({ required TournamentId tournamentId, required int expectedRevision, })"
+      ]
+    },
+    {
+      "id": "TournamentCompletionRepository",
+      "area": "tournament",
+      "kind": "interface",
+      "role": "repository",
+      "importance": "standard",
+      "title": "TournamentCompletionRepository",
+      "signature": "abstract interface class TournamentCompletionRepository",
+      "description": "Интерфейс: 0 полей, 1 метод.",
+      "members": [],
+      "fields": [],
+      "methods": [
+        "Future<void> commit(TournamentCompletionChange change)"
+      ]
+    },
+    {
+      "id": "TournamentFailure",
+      "area": "tournament",
+      "kind": "sealed-class",
+      "role": "failure",
+      "importance": "compact",
+      "title": "TournamentFailure",
+      "signature": "sealed class TournamentFailure implements Exception",
+      "description": "Sealed class: 2 поля, 1 метод.",
+      "members": [],
+      "fields": [
+        "const TournamentFailure(this.message)",
+        "final String message"
+      ],
+      "methods": [
+        "String toString()"
+      ]
+    },
+    {
+      "id": "TournamentId",
+      "area": "tournament",
+      "kind": "class",
+      "role": "value-object",
+      "importance": "compact",
+      "title": "TournamentId",
+      "signature": "final class TournamentId extends Equatable",
+      "description": "Класс: 1 поле, 3 метода.",
+      "members": [],
+      "fields": [
+        "final String value"
+      ],
+      "methods": [
+        "TournamentId(String value)",
+        "static String _requireValue(String value)",
+        "List<Object> get props"
+      ]
+    },
+    {
+      "id": "TournamentLifecycle",
+      "area": "tournament",
+      "kind": "enum",
+      "role": "value-object",
+      "importance": "compact",
+      "title": "TournamentLifecycle",
+      "signature": "enum TournamentLifecycle",
+      "description": "Enum: 6 значений.",
+      "members": [
+        "draft",
+        "open",
+        "distribution",
+        "running",
+        "finished",
+        "cancelled"
+      ],
+      "fields": [],
+      "methods": []
+    },
+    {
+      "id": "TournamentLifecyclePort",
+      "area": "tournament",
+      "kind": "interface",
+      "role": "port",
+      "importance": "standard",
+      "title": "TournamentLifecyclePort",
+      "signature": "abstract interface class TournamentLifecyclePort",
+      "description": "Интерфейс: 0 полей, 6 методов.",
+      "members": [],
+      "fields": [],
+      "methods": [
+        "Future<Tournament> createDraft(Tournament draft)",
+        "Future<Tournament> updateDraft( Tournament tournament, { required int expectedRevision, })",
+        "Future<Tournament> open( TournamentId tournamentId, { required int expectedRevision, })",
+        "Future<Tournament> addParticipant({ required TournamentId tournamentId, required Participant participant, required int expectedRevision, })",
+        "Future<Tournament> removeParticipant({ required TournamentId tournamentId, required ParticipantId participantId, required int expectedRevision, })",
+        "Future<Tournament> cancel({ required TournamentId tournamentId, required TournamentCancellation cancellation, required int expectedRevision, })"
+      ]
+    },
+    {
+      "id": "TournamentMatchPort",
+      "area": "tournament",
+      "kind": "interface",
+      "role": "port",
+      "importance": "standard",
+      "title": "TournamentMatchPort",
+      "signature": "abstract interface class TournamentMatchPort",
+      "description": "Интерфейс: 0 полей, 3 метода.",
+      "members": [],
+      "fields": [],
+      "methods": [
+        "Future<Tournament> recordResult({ required TournamentId tournamentId, required MatchResult result, required int expectedRevision, })",
+        "Future<Tournament> correctResult({ required TournamentId tournamentId, required MatchResult replacement, required int expectedRevision, })",
+        "Future<Tournament> withdraw({ required TournamentId tournamentId, required ParticipantId participantId, required int expectedRevision, })"
+      ]
+    },
+    {
+      "id": "TournamentOutcome",
+      "area": "tournament",
+      "kind": "class",
+      "role": "value-object",
+      "importance": "compact",
+      "title": "TournamentOutcome",
+      "signature": "final class TournamentOutcome extends Equatable",
+      "description": "Класс: 2 поля, 3 метода.",
+      "members": [],
+      "fields": [
+        "final ParticipantId championId",
+        "final UnmodifiableListView<TournamentPlacement> _placements"
+      ],
+      "methods": [
+        "TournamentOutcome({ required this.championId, required Iterable<TournamentPlacement> placements, })",
+        "List<TournamentPlacement> get placements",
+        "List<Object> get props"
+      ]
+    },
+    {
+      "id": "TournamentPlacement",
+      "area": "tournament",
+      "kind": "class",
+      "role": "value-object",
+      "importance": "compact",
+      "title": "TournamentPlacement",
+      "signature": "final class TournamentPlacement extends Equatable",
+      "description": "Класс: 3 поля, 4 метода.",
+      "members": [],
+      "fields": [
+        "final ParticipantId participantId",
+        "final int from",
+        "final int to"
+      ],
+      "methods": [
+        "TournamentPlacement({ required this.participantId, required int from, required int to, })",
+        "bool get isExact",
+        "static int _requirePositive(int value, String name)",
+        "List<Object> get props"
+      ]
+    },
+    {
+      "id": "TournamentTitle",
+      "area": "tournament",
+      "kind": "class",
+      "role": "value-object",
+      "importance": "compact",
+      "title": "TournamentTitle",
+      "signature": "final class TournamentTitle extends Equatable",
+      "description": "Класс: 1 поле, 3 метода.",
+      "members": [],
+      "fields": [
+        "final String value"
+      ],
+      "methods": [
+        "TournamentTitle(String value)",
+        "static String _normalize(String value)",
+        "List<Object> get props"
+      ]
+    },
+    {
+      "id": "WinnerOfMatchSlot",
+      "area": "tournament",
+      "kind": "class",
+      "role": "value-object",
+      "importance": "compact",
+      "title": "WinnerOfMatchSlot",
+      "signature": "final class WinnerOfMatchSlot extends MatchSlot",
+      "description": "Класс: 2 поля, 2 метода.",
+      "members": [],
+      "fields": [
+        "const WinnerOfMatchSlot(this.sourceMatchId)",
+        "final MatchId sourceMatchId"
+      ],
+      "methods": [
+        "ParticipantId? get resolvedParticipantId",
+        "List<Object> get props"
+      ]
+    },
+    {
+      "id": "RulesetVersion",
+      "area": "tournament_format",
+      "kind": "class",
+      "role": "value-object",
+      "importance": "compact",
+      "title": "RulesetVersion",
+      "signature": "final class RulesetVersion extends Equatable",
+      "description": "Класс: 1 поле, 3 метода.",
+      "members": [],
+      "fields": [
+        "final String value"
+      ],
+      "methods": [
+        "RulesetVersion(String value)",
+        "static String _requireValue(String value)",
+        "List<Object> get props"
+      ]
+    },
+    {
+      "id": "TournamentFormatFailure",
+      "area": "tournament_format",
+      "kind": "sealed-class",
+      "role": "failure",
+      "importance": "compact",
+      "title": "TournamentFormatFailure",
+      "signature": "sealed class TournamentFormatFailure implements Exception",
+      "description": "Sealed class: 2 поля, 1 метод.",
+      "members": [],
+      "fields": [
+        "const TournamentFormatFailure(this.message)",
+        "final String message"
+      ],
+      "methods": [
+        "String toString()"
+      ]
+    },
+    {
+      "id": "TournamentFormatId",
+      "area": "tournament_format",
+      "kind": "class",
+      "role": "value-object",
+      "importance": "compact",
+      "title": "TournamentFormatId",
+      "signature": "final class TournamentFormatId extends Equatable",
+      "description": "Класс: 1 поле, 3 метода.",
+      "members": [],
+      "fields": [
+        "final String value"
+      ],
+      "methods": [
+        "TournamentFormatId(String value)",
+        "static String _requireValue(String value)",
+        "List<Object> get props"
+      ]
+    },
+    {
+      "id": "TournamentFormatKey",
+      "area": "tournament_format",
+      "kind": "class",
+      "role": "value-object",
+      "importance": "compact",
+      "title": "TournamentFormatKey",
+      "signature": "final class TournamentFormatKey extends Equatable",
+      "description": "Класс: 3 поля, 1 метод.",
+      "members": [],
+      "fields": [
+        "const TournamentFormatKey({required this.id, required this.rulesetVersion})",
+        "final TournamentFormatId id",
+        "final RulesetVersion rulesetVersion"
+      ],
+      "methods": [
+        "List<Object> get props"
+      ]
+    },
+    {
+      "id": "TournamentFormatPort",
+      "area": "tournament_format",
+      "kind": "interface",
+      "role": "port",
+      "importance": "standard",
+      "title": "TournamentFormatPort",
+      "signature": "abstract interface class TournamentFormatPort",
+      "description": "Интерфейс: 0 полей, 6 методов.",
+      "members": [],
+      "fields": [],
+      "methods": [
+        "TournamentFormatKey get key",
+        "TournamentFormatState createInitialState({ required Iterable<Participant> participants, required TournamentFormatSettings settings, required Iterable<ParticipantId> seed, })",
+        "TournamentFormatState applyResult({ required TournamentFormatState state, required MatchResult result, })",
+        "TournamentFormatState withdraw({ required TournamentFormatState state, required ParticipantId participantId, })",
+        "TournamentFormatState correctResult({ required TournamentFormatState state, required MatchResult replacement, })",
+        "TournamentOutcome outcomeFor(TournamentFormatState state)"
+      ]
+    },
+    {
+      "id": "TournamentFormatRepository",
+      "area": "tournament_format",
+      "kind": "interface",
+      "role": "repository",
+      "importance": "standard",
+      "title": "TournamentFormatRepository",
+      "signature": "abstract interface class TournamentFormatRepository",
+      "description": "Интерфейс: 0 полей, 1 метод.",
+      "members": [],
+      "fields": [],
+      "methods": [
+        "TournamentFormatPort resolve(TournamentFormatKey key)"
+      ]
+    },
+    {
+      "id": "TournamentFormatSettings",
+      "area": "tournament_format",
+      "kind": "abstract-class",
+      "role": "value-object",
+      "importance": "compact",
+      "title": "TournamentFormatSettings",
+      "signature": "abstract base class TournamentFormatSettings extends Equatable",
+      "description": "Абстрактный класс: 2 поля, 1 метод.",
+      "members": [],
+      "fields": [
+        "const TournamentFormatSettings(this.formatId)",
+        "final TournamentFormatId formatId"
+      ],
+      "methods": [
+        "List<Object> get props"
+      ]
+    },
+    {
+      "id": "TournamentFormatState",
+      "area": "tournament_format",
+      "kind": "class",
+      "role": "model",
+      "importance": "standard",
+      "title": "TournamentFormatState",
+      "signature": "final class TournamentFormatState extends Equatable",
+      "description": "Класс: 6 полей, 6 методов.",
+      "members": [],
+      "fields": [
+        "final TournamentId tournamentId",
+        "final TournamentFormatKey formatKey",
+        "final UnmodifiableListView<ParticipantId> _seed",
+        "final UnmodifiableListView<Match> _matches",
+        "final Set<ParticipantId> _withdrawnParticipants",
+        "final TournamentOutcome? outcome"
+      ],
+      "methods": [
+        "TournamentFormatState({ required this.tournamentId, required this.formatKey, required Iterable<ParticipantId> seed, required Iterable<Match> matches, Iterable<ParticipantId> withdrawnParticipants = const [], this.outcome, })",
+        "List<ParticipantId> get seed",
+        "List<Match> get matches",
+        "Set<ParticipantId> get withdrawnParticipants",
+        "Match? get currentMatch",
+        "List<Object?> get props"
+      ]
+    },
+    {
+      "id": "UnsupportedTournamentFormatFailure",
+      "area": "tournament_format",
+      "kind": "class",
+      "role": "failure",
+      "importance": "compact",
+      "title": "UnsupportedTournamentFormatFailure",
+      "signature": "final class UnsupportedTournamentFormatFailure extends TournamentFormatFailure",
+      "description": "Класс: 1 поле, 0 методов.",
+      "members": [],
+      "fields": [
+        "const UnsupportedTournamentFormatFailure() : super('Tournament format не поддерживается.')"
+      ],
       "methods": []
     }
   ],
   "edges": [
-    ["tournament", "participant", "composition"], ["tournament", "match", "composition"], ["tournament", "assignment-set", "composition"], ["tournament", "format-state", "owns"], ["tournament", "statistic-variants", "owns"], ["tournament", "format-port", "delegates"], ["tournament", "distribution-port", "delegates"], ["tournament", "snapshot", "produces"],
-    ["participant", "profile", "references 0..1"], ["participant", "statistic-variants", "owns"], ["match", "match-slots", "uses"], ["match", "match-results", "uses"], ["match", "tournament-values", "uses"],
-    ["lifecycle-port", "active-repository", "uses"], ["match-port", "active-repository", "uses"], ["match-port", "format-repository", "uses"], ["completion-port", "completion-repository", "uses"], ["completion-port", "format-port", "uses"],
-    ["format-repository", "format-port", "resolves"], ["format-port", "format-state", "transforms"], ["format-port", "match", "controls"],
-    ["assignment-set", "assignment", "contains"], ["assignment", "participant", "references"], ["assignment", "character", "references"], ["distribution-port", "random-port", "uses"], ["distribution-port", "assignment-set", "produces"],
-    ["profile", "statistic-variants", "owns"], ["profile-port", "profile-repository", "uses"], ["game", "character", "owns"], ["game-roster-port", "game", "reads"], ["game-repository", "game", "loads"],
-    ["statistic-variants", "statistic", "extends"], ["statistic", "statistic-values", "uses"], ["statistic-ports", "statistic-variants", "updates"], ["statistic-ports", "shared-statistic", "projects"], ["statistic-repository", "statistic-variants", "loads"],
-    ["snapshot", "tournament", "captures"], ["history-port", "history-repository", "uses"], ["history-repository", "snapshot", "stores"]
+    [
+      "ActiveTournamentRepository",
+      "Tournament",
+      "references"
+    ],
+    [
+      "AssignedParticipantSlot",
+      "MatchSlot",
+      "extends"
+    ],
+    [
+      "AssignedParticipantSlot",
+      "ParticipantId",
+      "references"
+    ],
+    [
+      "ByeSlot",
+      "MatchSlot",
+      "extends"
+    ],
+    [
+      "ByeSlot",
+      "ParticipantId",
+      "references"
+    ],
+    [
+      "Character",
+      "CharacterId",
+      "references"
+    ],
+    [
+      "Character",
+      "GameId",
+      "references"
+    ],
+    [
+      "CharacterAssignment",
+      "CharacterId",
+      "references"
+    ],
+    [
+      "CharacterAssignment",
+      "ParticipantId",
+      "references"
+    ],
+    [
+      "CharacterAssignment",
+      "TournamentId",
+      "references"
+    ],
+    [
+      "CharacterAssignmentSet",
+      "CharacterAssignment",
+      "references"
+    ],
+    [
+      "CharacterAssignmentSet",
+      "ParticipantId",
+      "references"
+    ],
+    [
+      "CharacterAssignmentSet",
+      "TournamentId",
+      "references"
+    ],
+    [
+      "CharacterDistributionPort",
+      "Character",
+      "references"
+    ],
+    [
+      "CharacterDistributionPort",
+      "CharacterAssignmentSet",
+      "references"
+    ],
+    [
+      "CharacterDistributionPort",
+      "Participant",
+      "references"
+    ],
+    [
+      "CharacterDistributionPort",
+      "ParticipantId",
+      "references"
+    ],
+    [
+      "CharacterDistributionPort",
+      "RandomPort",
+      "references"
+    ],
+    [
+      "CharacterId",
+      "GameId",
+      "references"
+    ],
+    [
+      "CharacterNotFoundFailure",
+      "GameFailure",
+      "extends"
+    ],
+    [
+      "CounterStatisticValue",
+      "StatisticValue",
+      "extends"
+    ],
+    [
+      "Game",
+      "Character",
+      "references"
+    ],
+    [
+      "Game",
+      "CharacterId",
+      "references"
+    ],
+    [
+      "Game",
+      "GameId",
+      "references"
+    ],
+    [
+      "GameNotFoundFailure",
+      "GameFailure",
+      "extends"
+    ],
+    [
+      "GameRepository",
+      "Game",
+      "references"
+    ],
+    [
+      "GameRepository",
+      "GameId",
+      "references"
+    ],
+    [
+      "GameRosterPort",
+      "Character",
+      "references"
+    ],
+    [
+      "GameRosterPort",
+      "CharacterId",
+      "references"
+    ],
+    [
+      "GameRosterPort",
+      "GameId",
+      "references"
+    ],
+    [
+      "HistoricalTournamentNotFoundFailure",
+      "HistoryFailure",
+      "extends"
+    ],
+    [
+      "HistoricalTournamentSnapshot",
+      "CharacterAssignment",
+      "references"
+    ],
+    [
+      "HistoricalTournamentSnapshot",
+      "GameId",
+      "references"
+    ],
+    [
+      "HistoricalTournamentSnapshot",
+      "Participant",
+      "references"
+    ],
+    [
+      "HistoricalTournamentSnapshot",
+      "TournamentCancellation",
+      "references"
+    ],
+    [
+      "HistoricalTournamentSnapshot",
+      "TournamentFormatKey",
+      "references"
+    ],
+    [
+      "HistoricalTournamentSnapshot",
+      "TournamentFormatSettings",
+      "references"
+    ],
+    [
+      "HistoricalTournamentSnapshot",
+      "TournamentFormatState",
+      "references"
+    ],
+    [
+      "HistoricalTournamentSnapshot",
+      "TournamentId",
+      "references"
+    ],
+    [
+      "HistoricalTournamentSnapshot",
+      "TournamentLifecycle",
+      "references"
+    ],
+    [
+      "HistoricalTournamentSnapshot",
+      "TournamentOutcome",
+      "references"
+    ],
+    [
+      "HistoricalTournamentSnapshot",
+      "TournamentTitle",
+      "references"
+    ],
+    [
+      "InsufficientCharacterFailure",
+      "CharacterAssignmentFailure",
+      "extends"
+    ],
+    [
+      "InvalidTournamentTransitionFailure",
+      "TournamentFailure",
+      "extends"
+    ],
+    [
+      "LoserOfMatchSlot",
+      "MatchId",
+      "references"
+    ],
+    [
+      "LoserOfMatchSlot",
+      "MatchSlot",
+      "extends"
+    ],
+    [
+      "LoserOfMatchSlot",
+      "ParticipantId",
+      "references"
+    ],
+    [
+      "Match",
+      "FirstTo",
+      "references"
+    ],
+    [
+      "Match",
+      "MatchId",
+      "references"
+    ],
+    [
+      "Match",
+      "MatchResult",
+      "references"
+    ],
+    [
+      "Match",
+      "MatchSlot",
+      "references"
+    ],
+    [
+      "Match",
+      "MatchState",
+      "references"
+    ],
+    [
+      "Match",
+      "NormalMatchResult",
+      "references"
+    ],
+    [
+      "Match",
+      "ParticipantId",
+      "references"
+    ],
+    [
+      "Match",
+      "TournamentId",
+      "references"
+    ],
+    [
+      "MatchId",
+      "TournamentId",
+      "references"
+    ],
+    [
+      "MatchResult",
+      "ParticipantId",
+      "references"
+    ],
+    [
+      "MatchSlot",
+      "ParticipantId",
+      "references"
+    ],
+    [
+      "NoFreeCharacterFailure",
+      "CharacterAssignmentFailure",
+      "extends"
+    ],
+    [
+      "NormalMatchResult",
+      "MatchResult",
+      "extends"
+    ],
+    [
+      "Participant",
+      "Nickname",
+      "references"
+    ],
+    [
+      "Participant",
+      "ParticipantId",
+      "references"
+    ],
+    [
+      "Participant",
+      "ParticipantStatus",
+      "references"
+    ],
+    [
+      "Participant",
+      "ParticipantTournamentStatistic",
+      "references"
+    ],
+    [
+      "Participant",
+      "ParticipantType",
+      "references"
+    ],
+    [
+      "Participant",
+      "ProfileId",
+      "references"
+    ],
+    [
+      "ParticipantId",
+      "TournamentId",
+      "references"
+    ],
+    [
+      "ParticipantTournamentStatistic",
+      "ParticipantId",
+      "references"
+    ],
+    [
+      "ParticipantTournamentStatistic",
+      "Statistic",
+      "extends"
+    ],
+    [
+      "ParticipantTournamentStatistic",
+      "StatisticType",
+      "references"
+    ],
+    [
+      "ParticipantTournamentStatistic",
+      "StatisticValue",
+      "references"
+    ],
+    [
+      "ParticipantTournamentStatistic",
+      "TournamentId",
+      "references"
+    ],
+    [
+      "PlacementStatisticValue",
+      "StatisticValue",
+      "extends"
+    ],
+    [
+      "PointsStatisticValue",
+      "StatisticValue",
+      "extends"
+    ],
+    [
+      "Profile",
+      "Nickname",
+      "references"
+    ],
+    [
+      "Profile",
+      "ProfileId",
+      "references"
+    ],
+    [
+      "Profile",
+      "ProfileStatistic",
+      "references"
+    ],
+    [
+      "ProfileManagementPort",
+      "Nickname",
+      "references"
+    ],
+    [
+      "ProfileManagementPort",
+      "Profile",
+      "references"
+    ],
+    [
+      "ProfileManagementPort",
+      "ProfileId",
+      "references"
+    ],
+    [
+      "ProfileNotFoundFailure",
+      "ProfileFailure",
+      "extends"
+    ],
+    [
+      "ProfileRepository",
+      "Profile",
+      "references"
+    ],
+    [
+      "ProfileRepository",
+      "ProfileId",
+      "references"
+    ],
+    [
+      "ProfileRepository",
+      "ProfileStatistic",
+      "references"
+    ],
+    [
+      "ProfileStatistic",
+      "ProfileId",
+      "references"
+    ],
+    [
+      "ProfileStatistic",
+      "Statistic",
+      "extends"
+    ],
+    [
+      "ProfileStatistic",
+      "StatisticType",
+      "references"
+    ],
+    [
+      "ProfileStatistic",
+      "StatisticValue",
+      "references"
+    ],
+    [
+      "ProfileStatistic",
+      "TournamentId",
+      "references"
+    ],
+    [
+      "ProfileStatisticAccumulationPort",
+      "HistoricalTournamentSnapshot",
+      "references"
+    ],
+    [
+      "ProfileStatisticAccumulationPort",
+      "ProfileStatistic",
+      "references"
+    ],
+    [
+      "ProfileStatisticRepository",
+      "ProfileId",
+      "references"
+    ],
+    [
+      "ProfileStatisticRepository",
+      "ProfileStatistic",
+      "references"
+    ],
+    [
+      "SeedPositionSlot",
+      "MatchSlot",
+      "extends"
+    ],
+    [
+      "SeedPositionSlot",
+      "ParticipantId",
+      "references"
+    ],
+    [
+      "SharedStatistic",
+      "StatisticType",
+      "references"
+    ],
+    [
+      "SharedStatistic",
+      "StatisticValue",
+      "references"
+    ],
+    [
+      "StaleProfileRevisionFailure",
+      "ProfileFailure",
+      "extends"
+    ],
+    [
+      "StaleTournamentRevisionFailure",
+      "TournamentFailure",
+      "extends"
+    ],
+    [
+      "Statistic",
+      "StatisticType",
+      "references"
+    ],
+    [
+      "Statistic",
+      "StatisticValue",
+      "references"
+    ],
+    [
+      "StatisticAccessPort",
+      "SharedStatistic",
+      "references"
+    ],
+    [
+      "StatisticAccessPort",
+      "Statistic",
+      "references"
+    ],
+    [
+      "StatisticTypeNotAllowedFailure",
+      "StatisticFailure",
+      "extends"
+    ],
+    [
+      "TechnicalMatchResult",
+      "MatchResult",
+      "extends"
+    ],
+    [
+      "TechnicalMatchResult",
+      "TechnicalResultReason",
+      "references"
+    ],
+    [
+      "Tournament",
+      "CharacterAssignmentSet",
+      "references"
+    ],
+    [
+      "Tournament",
+      "GameId",
+      "references"
+    ],
+    [
+      "Tournament",
+      "Participant",
+      "references"
+    ],
+    [
+      "Tournament",
+      "ParticipantId",
+      "references"
+    ],
+    [
+      "Tournament",
+      "ParticipantStatus",
+      "references"
+    ],
+    [
+      "Tournament",
+      "TournamentCancellation",
+      "references"
+    ],
+    [
+      "Tournament",
+      "TournamentFormatKey",
+      "references"
+    ],
+    [
+      "Tournament",
+      "TournamentFormatSettings",
+      "references"
+    ],
+    [
+      "Tournament",
+      "TournamentFormatState",
+      "references"
+    ],
+    [
+      "Tournament",
+      "TournamentId",
+      "references"
+    ],
+    [
+      "Tournament",
+      "TournamentLifecycle",
+      "references"
+    ],
+    [
+      "Tournament",
+      "TournamentOutcome",
+      "references"
+    ],
+    [
+      "Tournament",
+      "TournamentStatistic",
+      "references"
+    ],
+    [
+      "Tournament",
+      "TournamentTitle",
+      "references"
+    ],
+    [
+      "TournamentCompletionChange",
+      "HistoricalTournamentSnapshot",
+      "references"
+    ],
+    [
+      "TournamentCompletionChange",
+      "ProfileStatistic",
+      "references"
+    ],
+    [
+      "TournamentCompletionChange",
+      "TournamentId",
+      "references"
+    ],
+    [
+      "TournamentCompletionPort",
+      "Tournament",
+      "references"
+    ],
+    [
+      "TournamentCompletionPort",
+      "TournamentId",
+      "references"
+    ],
+    [
+      "TournamentCompletionRepository",
+      "TournamentCompletionChange",
+      "references"
+    ],
+    [
+      "TournamentFormatKey",
+      "RulesetVersion",
+      "references"
+    ],
+    [
+      "TournamentFormatKey",
+      "TournamentFormatId",
+      "references"
+    ],
+    [
+      "TournamentFormatPort",
+      "MatchResult",
+      "references"
+    ],
+    [
+      "TournamentFormatPort",
+      "Participant",
+      "references"
+    ],
+    [
+      "TournamentFormatPort",
+      "ParticipantId",
+      "references"
+    ],
+    [
+      "TournamentFormatPort",
+      "TournamentFormatKey",
+      "references"
+    ],
+    [
+      "TournamentFormatPort",
+      "TournamentFormatSettings",
+      "references"
+    ],
+    [
+      "TournamentFormatPort",
+      "TournamentFormatState",
+      "references"
+    ],
+    [
+      "TournamentFormatPort",
+      "TournamentOutcome",
+      "references"
+    ],
+    [
+      "TournamentFormatRepository",
+      "TournamentFormatKey",
+      "references"
+    ],
+    [
+      "TournamentFormatRepository",
+      "TournamentFormatPort",
+      "references"
+    ],
+    [
+      "TournamentFormatSettings",
+      "TournamentFormatId",
+      "references"
+    ],
+    [
+      "TournamentFormatState",
+      "Match",
+      "references"
+    ],
+    [
+      "TournamentFormatState",
+      "ParticipantId",
+      "references"
+    ],
+    [
+      "TournamentFormatState",
+      "TournamentFormatKey",
+      "references"
+    ],
+    [
+      "TournamentFormatState",
+      "TournamentId",
+      "references"
+    ],
+    [
+      "TournamentFormatState",
+      "TournamentOutcome",
+      "references"
+    ],
+    [
+      "TournamentHistoryPort",
+      "HistoricalTournamentSnapshot",
+      "references"
+    ],
+    [
+      "TournamentHistoryPort",
+      "TournamentId",
+      "references"
+    ],
+    [
+      "TournamentHistoryRepository",
+      "HistoricalTournamentSnapshot",
+      "references"
+    ],
+    [
+      "TournamentHistoryRepository",
+      "TournamentId",
+      "references"
+    ],
+    [
+      "TournamentLifecyclePort",
+      "Participant",
+      "references"
+    ],
+    [
+      "TournamentLifecyclePort",
+      "ParticipantId",
+      "references"
+    ],
+    [
+      "TournamentLifecyclePort",
+      "Tournament",
+      "references"
+    ],
+    [
+      "TournamentLifecyclePort",
+      "TournamentCancellation",
+      "references"
+    ],
+    [
+      "TournamentLifecyclePort",
+      "TournamentId",
+      "references"
+    ],
+    [
+      "TournamentMatchPort",
+      "MatchResult",
+      "references"
+    ],
+    [
+      "TournamentMatchPort",
+      "ParticipantId",
+      "references"
+    ],
+    [
+      "TournamentMatchPort",
+      "Tournament",
+      "references"
+    ],
+    [
+      "TournamentMatchPort",
+      "TournamentId",
+      "references"
+    ],
+    [
+      "TournamentOutcome",
+      "ParticipantId",
+      "references"
+    ],
+    [
+      "TournamentOutcome",
+      "TournamentPlacement",
+      "references"
+    ],
+    [
+      "TournamentPlacement",
+      "ParticipantId",
+      "references"
+    ],
+    [
+      "TournamentStatistic",
+      "Statistic",
+      "extends"
+    ],
+    [
+      "TournamentStatistic",
+      "StatisticType",
+      "references"
+    ],
+    [
+      "TournamentStatistic",
+      "StatisticValue",
+      "references"
+    ],
+    [
+      "TournamentStatistic",
+      "TournamentId",
+      "references"
+    ],
+    [
+      "UnsupportedTournamentFormatFailure",
+      "TournamentFormatFailure",
+      "extends"
+    ],
+    [
+      "WinnerOfMatchSlot",
+      "MatchId",
+      "references"
+    ],
+    [
+      "WinnerOfMatchSlot",
+      "MatchSlot",
+      "extends"
+    ],
+    [
+      "WinnerOfMatchSlot",
+      "ParticipantId",
+      "references"
+    ]
   ]
 }

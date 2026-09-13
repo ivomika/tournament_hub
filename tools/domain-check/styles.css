@@ -14,6 +14,7 @@
 body { margin: 0; min-width: 320px; background: radial-gradient(circle at 20% -10%, #182743 0, transparent 35%), var(--page); color: var(--text); }
 button, input, select { font: inherit; }
 button { cursor: pointer; }
+kbd { display: inline-grid; min-width: 18px; height: 18px; place-items: center; border: 1px solid currentColor; border-radius: 5px; font-family: "SFMono-Regular", Consolas, monospace; font-size: .62rem; line-height: 1; opacity: .7; }
 
 .topbar, main { width: min(1600px, calc(100% - 48px)); margin: 0 auto; }
 .topbar { display: flex; justify-content: space-between; gap: 32px; align-items: end; padding: 52px 0 30px; }
@@ -43,9 +44,18 @@ input, select, .controls button { height: 38px; border: 1px solid var(--line); b
 .panel-heading { display: flex; align-items: start; justify-content: space-between; gap: 16px; padding: 19px 20px 15px; border-bottom: 1px solid var(--line); }
 .panel-heading h2 { margin-top: 4px; }
 .panel-heading > p { max-width: 360px; font-size: .78rem; line-height: 1.45; text-align: right; }
+.panel-actions { display: grid; justify-items: end; gap: 10px; max-width: 430px; }
+.panel-actions > p { color: var(--muted); font-size: .78rem; line-height: 1.45; text-align: right; }
+.zoom-controls { display: flex; flex-wrap: wrap; align-items: center; justify-content: end; gap: 6px; }
+.zoom-controls button { min-width: 32px; height: 30px; border: 1px solid var(--line); border-radius: 8px; background: #0d111a; color: var(--text); padding: 0 9px; }
+.zoom-controls button:hover, .zoom-controls button:focus-visible, .zoom-controls button.is-active { border-color: var(--accent); outline: none; }
+.zoom-controls button.is-active { background: color-mix(in srgb, var(--accent) 12%, #0d111a); }
+.zoom-controls input { width: 128px; height: 30px; accent-color: var(--accent); padding: 0; }
+.zoom-controls output { min-width: 46px; color: var(--muted); font-family: "SFMono-Regular", Consolas, monospace; font-size: .68rem; text-align: center; }
 .graph-viewport { flex: 1; min-height: 0; overflow: auto; cursor: grab; background-image: radial-gradient(#2b3447 1px, transparent 1px); background-size: 18px 18px; outline: none; overscroll-behavior: contain; }
 .graph-viewport.is-panning { cursor: grabbing; user-select: none; }
-.graph-canvas { position: relative; min-width: 892px; min-height: 630px; }
+.graph-stage { position: relative; flex: none; }
+.graph-canvas { position: absolute; top: 0; left: 0; min-width: 892px; min-height: 630px; transform-origin: top left; }
 #graph-clusters, #graph-nodes, #edges { position: absolute; inset: 0; }
 #graph-clusters { z-index: 0; }
 #edges { width: 100%; height: 100%; z-index: 1; pointer-events: none; overflow: visible; }
@@ -64,17 +74,17 @@ input, select, .controls button { height: 38px; border: 1px solid var(--line); b
 .architecture-node { position: absolute; display: grid; gap: 9px; align-content: start; text-align: left; padding: 14px 16px; border: 1px solid var(--line); border-left: 3px solid var(--area-color); border-radius: 12px; background: #111722; color: var(--text); box-shadow: 0 8px 22px rgba(0,0,0,.17); overflow: hidden; pointer-events: auto; transition: transform .16s ease, border-color .16s ease, opacity .16s ease; }
 .architecture-node.node-prominent { border-left-width: 6px; padding: 18px 20px; background: linear-gradient(135deg, color-mix(in srgb, var(--area-color) 12%, #111722), #111722 58%); box-shadow: 0 16px 36px rgba(0,0,0,.25); }
 .architecture-node.node-prominent strong { font-size: 1.12rem; }
-.architecture-node.node-prominent small { max-width: 72ch; font-size: .76rem; }
+.architecture-node.node-prominent .node-description { max-width: 72ch; font-size: .76rem; }
 .architecture-node.node-compact { gap: 6px; padding: 10px 13px; background: color-mix(in srgb, #111722 88%, var(--page)); }
 .architecture-node.node-compact strong { font-size: .76rem; }
-.architecture-node.node-compact small { font-size: .62rem; line-height: 1.3; }
+.architecture-node.node-compact .node-description { font-size: .62rem; line-height: 1.3; }
 .architecture-node:hover, .architecture-node:focus-visible, .architecture-node.is-selected { transform: translateY(-3px); border-color: var(--area-color); outline: none; }
 .architecture-node.is-muted { opacity: .12; }
 .architecture-node strong { font-size: .83rem; line-height: 1.2; }
-.architecture-node small { color: var(--muted); font-size: .68rem; line-height: 1.35; }
+.node-description { display: -webkit-box; margin: 0; overflow: hidden; color: var(--muted); font-size: .68rem; line-height: 1.35; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
 .node-kind { justify-self: start; }
 
-.detail-panel { padding: 20px; min-height: 360px; }
+.detail-panel { min-height: 0; overflow: auto; padding: 20px; }
 .detail-panel h2 { margin: 5px 0 10px; font-size: 1.35rem; }
 .detail-panel > p:not(.eyebrow) { color: var(--muted); font-size: .82rem; line-height: 1.5; }
 .detail-section { margin-top: 20px; }
@@ -91,8 +101,10 @@ input, select, .controls button { height: 38px; border: 1px solid var(--line); b
 .inventory-card { min-height: 140px; border: 0; padding: 14px; background: var(--panel); color: var(--text); text-align: left; }
 .inventory-card:hover, .inventory-card.is-selected { background: var(--panel-raised); }
 .inventory-card strong { display: block; margin: 10px 0 6px; font-size: .86rem; }
-.inventory-card p { color: var(--muted); font-size: .7rem; line-height: 1.42; }
+.inventory-card p { display: -webkit-box; overflow: hidden; color: var(--muted); font-size: .7rem; line-height: 1.42; -webkit-box-orient: vertical; -webkit-line-clamp: 3; }
+.detail-description { color: var(--muted); line-height: 1.55; }
 .empty { padding: 24px; color: var(--muted); }
 
 @media (max-width: 900px) { .topbar { align-items: start; flex-direction: column; } .workspace { grid-template-columns: 1fr; } .detail-panel { min-height: 0; } .panel-heading > p { display: none; } }
+@media (max-width: 720px) { .architecture-panel .panel-heading { align-items: stretch; flex-direction: column; } .panel-actions { justify-items: start; max-width: none; } .panel-actions > p { text-align: left; } .zoom-controls { justify-content: start; } }
 @media (max-width: 600px) { .topbar, main { width: min(100% - 28px, 1600px); } .topbar { padding-top: 30px; } .metrics { width: 100%; } .metrics div { flex: 1; min-width: 0; } .controls label { flex: 1 1 100%; } .controls button { flex: 1; } }

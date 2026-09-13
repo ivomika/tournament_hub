@@ -1,5 +1,6 @@
 APP_DIR := apps/tournament_app
 FLUTTER ?= flutter
+NODE ?= node
 SUPPORTED_PLATFORMS := android ios linux macos web windows
 DESKTOP_PLATFORMS := linux macos windows
 
@@ -24,7 +25,7 @@ DOMAIN_CHECK_PORT ?= 8090
 .DEFAULT_GOAL := help
 
 .PHONY: help bootstrap check-platform check-desktop-host run build build-host \
-	build-macos build-windows build-linux analyze clean domain-check
+	build-macos build-windows build-linux analyze clean domain-check domain-check-generate domain-check-validate
 
 help:
 	@printf '%s\n' \
@@ -38,6 +39,8 @@ help:
 		'  make build-linux              Собрать Linux-версию на Linux.' \
 		'  make analyze                  Запустить Flutter analyzer.' \
 		'  make domain-check             Запустить Web viewer Domain-архитектуры.' \
+		'  make domain-check-generate    Пересобрать карту из Dart declarations.' \
+		'  make domain-check-validate    Проверить карту против Domain-кода.' \
 		'  make clean                    Очистить Flutter-артефакты.' \
 		'' \
 		'Поддерживаемые PLATFORM: android, ios, linux, macos, web, windows.'
@@ -85,3 +88,9 @@ clean:
 
 domain-check:
 	$(PYTHON) -m http.server $(DOMAIN_CHECK_PORT) --directory tools/domain-check
+
+domain-check-generate:
+	$(NODE) tools/domain-check/domain-structure.mjs
+
+domain-check-validate:
+	$(NODE) tools/domain-check/domain-structure.mjs --check
