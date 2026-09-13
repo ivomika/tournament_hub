@@ -23,6 +23,9 @@ const graphLayout = {
   outerGap: 56,
   clusterHeaderHeight: 76,
   clusterPadding: 32,
+  folderHeaderHeight: 38,
+  folderPadding: 18,
+  folderGap: 28,
   nodeColumns: 2,
   nodeGapX: 72,
   nodeGapY: 36,
@@ -287,6 +290,10 @@ function renderGraph(nodes) {
     graphClusters.insertAdjacentHTML('beforeend', `
       <section class="area-cluster" data-area="${cluster.area.id}" style="left:${cluster.x}px;top:${cluster.y}px;width:${cluster.width}px;height:${cluster.height}px;--area-color:${cluster.area.accent}">
         <div class="cluster-heading"><span>${cluster.area.title}</span><strong>${cluster.nodes.length}</strong></div>
+        ${cluster.folders.map((folder) => `
+          <section class="folder-cluster" data-folder="${folder.folder.id}" style="left:${folder.x - cluster.x}px;top:${folder.y - cluster.y}px;width:${folder.width}px;height:${folder.height}px">
+            <div class="folder-heading"><span>${escapeHtml(folder.folder.title)}</span><strong>${folder.nodes.length}</strong></div>
+          </section>`).join('')}
       </section>`);
   });
   nodes.forEach((node) => {
@@ -355,31 +362,55 @@ function clusterLayout(nodes) {
 
   visibleAreas.forEach((area) => {
     const areaNodes = grouped.get(area.id);
-    const rows = nodeRows(areaNodes);
-    const contentHeight = rows.reduce((total, row) => total + row.height, 0) +
-      Math.max(0, rows.length - 1) * graphLayout.nodeGapY;
+    const visibleIds = new Set(areaNodes.map((node) => node.id));
+    const folders = state.data.folders
+      .filter((folder) => folder.area === area.id)
+      .map((folder) => ({
+        folder,
+        nodes: state.data.nodes.filter((node) => node.folder === folder.id && visibleIds.has(node.id))
+      }))
+      .filter((folder) => folder.nodes.length)
+      .map((folder) => {
+        const rows = nodeRows(folder.nodes);
+        const nodesHeight = rows.reduce((total, row) => total + row.height, 0) +
+          Math.max(0, rows.length - 1) * graphLayout.nodeGapY;
+        return {
+          ...folder,
+          rows,
+          height: graphLayout.folderHeaderHeight + graphLayout.folderPadding * 2 + nodesHeight
+        };
+      });
+    const contentHeight = folders.reduce((total, folder) => total + folder.height, 0) +
+      Math.max(0, folders.length - 1) * graphLayout.folderGap;
     const height = graphLayout.clusterHeaderHeight + graphLayout.clusterPadding * 2 + contentHeight;
     const column = columnHeights.indexOf(Math.min(...columnHeights));
     const x = graphLayout.outerGap + column * (graphLayout.clusterWidth + graphLayout.clusterGap);
     const y = columnHeights[column];
-    const cluster = { area, nodes: areaNodes, x, y, width: graphLayout.clusterWidth, height };
+    const cluster = { area, nodes: areaNodes, folders: [], x, y, width: graphLayout.clusterWidth, height };
     clusters.push(cluster);
     columnHeights[column] += height + graphLayout.clusterGap;
 
-    const innerWidth = graphLayout.clusterWidth - graphLayout.clusterPadding * 2;
-    const columnWidth = (innerWidth - graphLayout.nodeGapX) / graphLayout.nodeColumns;
-    let rowY = y + graphLayout.clusterHeaderHeight + graphLayout.clusterPadding;
-    rows.forEach((row) => {
-      row.items.forEach((item, index) => {
-        nodePositions.set(item.node.id, {
-          x: x + graphLayout.clusterPadding + (item.span === graphLayout.nodeColumns ? 0 : index * (columnWidth + graphLayout.nodeGapX)),
-          y: rowY,
-          width: item.span === graphLayout.nodeColumns ? innerWidth : columnWidth,
-          height: graphLayout.nodeHeights[item.tier],
-          tier: item.tier
+    const folderWidth = graphLayout.clusterWidth - graphLayout.clusterPadding * 2;
+    let folderY = y + graphLayout.clusterHeaderHeight + graphLayout.clusterPadding;
+    folders.forEach((folder) => {
+      const folderX = x + graphLayout.clusterPadding;
+      const innerWidth = folderWidth - graphLayout.folderPadding * 2;
+      const columnWidth = (innerWidth - graphLayout.nodeGapX) / graphLayout.nodeColumns;
+      cluster.folders.push({ ...folder, x: folderX, y: folderY, width: folderWidth });
+      let rowY = folderY + graphLayout.folderHeaderHeight + graphLayout.folderPadding;
+      folder.rows.forEach((row) => {
+        row.items.forEach((item, index) => {
+          nodePositions.set(item.node.id, {
+            x: folderX + graphLayout.folderPadding + (item.span === graphLayout.nodeColumns ? 0 : index * (columnWidth + graphLayout.nodeGapX)),
+            y: rowY,
+            width: item.span === graphLayout.nodeColumns ? innerWidth : columnWidth,
+            height: graphLayout.nodeHeights[item.tier],
+            tier: item.tier
+          });
         });
+        rowY += row.height + graphLayout.nodeGapY;
       });
-      rowY += row.height + graphLayout.nodeGapY;
+      folderY += folder.height + graphLayout.folderGap;
     });
   });
 

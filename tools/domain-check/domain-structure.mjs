@@ -18,8 +18,10 @@ for (const filePath of files) {
   const relativePath = path.relative(domainRoot, filePath).replaceAll('\\', '/');
   const pathParts = relativePath.split('/');
   const area = pathParts[0];
+  const folderPath = pathParts.slice(1, -1).join('/') || '.';
+  const folder = `${area}/${folderPath}`;
   const role = declarationRole(pathParts[1]);
-  declarations.push(...extractDeclarations(content, area, role));
+  declarations.push(...extractDeclarations(content, area, folder, role));
 }
 
 const duplicateNames = [...new Set(declarations.map((item) => item.name)
@@ -31,6 +33,7 @@ const nodes = declarations
   .map(({ sourceText, codeText, ...declaration }) => ({
     id: declaration.name,
     area: declaration.area,
+    folder: declaration.folder,
     kind: declaration.kind,
     role: declaration.role,
     importance: declarationImportance(declaration.name, declaration.area, declaration.role, declaration.kind),
@@ -49,12 +52,22 @@ const areas = areaIds.map((id, index) => ({
   title: id.split('_').map(capitalize).join(' '),
   accent: areaColors[index % areaColors.length]
 }));
+const folderIds = [...new Set(nodes.map((node) => node.folder))].sort();
+const folders = folderIds.map((id) => {
+  const area = nodes.find((node) => node.folder === id).area;
+  return {
+    id,
+    area,
+    title: id.slice(area.length + 1)
+  };
+});
 
 const architecture = {
   title: 'TournamentHUB Domain',
-  version: 5,
+  version: 6,
   source: 'generated from Dart declarations',
   areas,
+  folders,
   nodes,
   edges
 };
@@ -81,7 +94,7 @@ async function collectDartFiles(directory) {
   return nested.flat();
 }
 
-function extractDeclarations(content, area, role) {
+function extractDeclarations(content, area, folder, role) {
   const code = maskNonCode(content);
   const pattern = /^(?:(abstract|base|final|interface|sealed)\s+)*(class)\s+([A-Za-z_]\w*)|^(enum)\s+([A-Za-z_]\w*)/gm;
   const result = [];
@@ -103,6 +116,7 @@ function extractDeclarations(content, area, role) {
     result.push({
       name,
       area,
+      folder,
       kind,
       role,
       signature: content.slice(match.index, openingBrace).replace(/\s+/g, ' ').trim(),
@@ -350,7 +364,9 @@ function maskNonCode(source) {
 }
 
 function compareNodes(left, right) {
-  return left.area.localeCompare(right.area) || left.title.localeCompare(right.title);
+  return left.area.localeCompare(right.area) ||
+    left.folder.localeCompare(right.folder) ||
+    left.title.localeCompare(right.title);
 }
 
 function capitalize(value) {
