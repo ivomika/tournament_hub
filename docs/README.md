@@ -19,3 +19,4 @@
 ## Разработка
 
 - [Domain architecture checker](development/domain-check.md) — локальный viewer Domain-объектов и связей.
+- [Аудит Domain viewer](development/domain-viewer-audit.md) — ограничения текущего анализа и планируемое представление структуры, взаимодействий и сценариев.
