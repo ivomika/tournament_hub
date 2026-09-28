@@ -70,6 +70,7 @@ $RECYCLE.BIN/
 .pub/
 /build/
 pubspec.lock
+!tools/domain-check/analyzer/pubspec.lock
 
 # Symbolication related
 app.*.symbols

@@ -14,9 +14,11 @@
 ## Архитектура
 
 - [Domain layer](architecture/domain-layer.md) — границы бизнес-логики и application business logic contracts.
+- [Контекст Domain viewer](architecture/domain-viewer-context.json) — канонические назначения областей и объектов, curated сценарий и проверяемые ссылки на AST-факты.
 - [Расположение приложений](architecture/app-layout.md) — структура репозитория и Flutter-клиент.
 
 ## Разработка
 
 - [Domain architecture checker](development/domain-check.md) — локальный viewer Domain-объектов и связей.
 - [Аудит Domain viewer](development/domain-viewer-audit.md) — ограничения текущего анализа и планируемое представление структуры, взаимодействий и сценариев.
+- [Реестр из resolved AST](development/domain-viewer-inventory.md) — текущий контракт объектов, members, типов, evidence и прямых ссылок.

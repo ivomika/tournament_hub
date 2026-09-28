@@ -22,6 +22,10 @@
     </header>
 
     <main>
+      <section class="analysis-report" aria-labelledby="analysis-heading">
+        <h2 id="analysis-heading">Границы и достоверность карты</h2>
+        <div id="analysis-summary"></div>
+      </section>
       <section class="controls" aria-label="Фильтры архитектуры">
         <label>
           <span>Поиск</span>
@@ -41,7 +45,33 @@
 
       <section class="legend" aria-label="Легенда типов"></section>
 
+      <nav class="viewer-modes" aria-label="Представление Domain">
+        <button id="show-overview" type="button" aria-pressed="true">Обзор</button>
+        <button id="show-object" type="button" aria-pressed="false">Объект</button>
+        <button id="show-scenario" type="button" aria-pressed="false">Сценарий</button>
+        <button id="show-map" type="button" aria-pressed="false">Техническая карта</button>
+      </nav>
+      <nav id="breadcrumbs" class="breadcrumbs" aria-label="Путь просмотра"></nav>
+      <p id="viewer-status" class="sr-only" role="status" aria-live="polite"></p>
+      <section id="area-overview" class="overview-panel">
+        <h2>Области Domain</h2>
+        <p>Группировка извлечена из расположения кода; назначения областей — проверяемые описания из docs/architecture. Публичная операция не обязательно является бизнес-сценарием.</p>
+        <div id="area-cards"></div>
+        <h2>Связи между областями</h2>
+        <p>Раскрой направление, затем выбери связь для просмотра всех оснований.</p>
+        <div id="area-connections"></div>
+      </section>
+
+      <section id="scenario-view" class="scenario-panel" hidden aria-labelledby="scenario-heading">
+        <h2 id="scenario-heading">Сценарий</h2>
+        <div id="scenario-content"></div>
+      </section>
+
       <section class="workspace">
+        <div class="mobile-workspace-tabs" role="group" aria-label="Панели технической карты">
+          <button id="mobile-show-map" type="button" aria-pressed="true">Карта</button>
+          <button id="mobile-show-detail" type="button" aria-pressed="false">Детали</button>
+        </div>
         <div class="architecture-panel">
           <div class="panel-heading">
             <div>
@@ -49,7 +79,7 @@
               <h2>Связи Domain</h2>
             </div>
             <div class="panel-actions">
-              <p>Каждая карточка — реальный Dart declaration. Стрелка показывает фактическое упоминание другого Domain-типа.</p>
+              <p>Стрелки получены из resolved AST. Тип и основания связи доступны в Details.</p>
               <div class="zoom-controls" aria-label="Масштаб карты">
                 <button id="zoom-out" type="button" title="Уменьшить карту (−)" aria-label="Уменьшить масштаб карты" aria-keyshortcuts="-">−</button>
                 <input id="zoom-range" type="range" min="10" max="200" step="5" value="100" aria-label="Масштаб карты в процентах" />
@@ -71,7 +101,7 @@
           </div>
         </div>
 
-        <aside id="detail" class="detail-panel" aria-live="polite">
+        <aside id="detail" class="detail-panel" aria-label="Состав и связи выбранного объекта">
           <p class="eyebrow">DETAILS</p>
           <h2>Выбери объект</h2>
           <p>Нажми на карточку на карте или в списке ниже.</p>
@@ -97,6 +127,7 @@
         <p class="node-description"></p>
       </button>
     </template>
+    <script src="relations-ui.js"></script>
     <script src="app.js"></script>
   </body>
 </html>

@@ -94,3 +94,26 @@ domain-check-generate:
 
 domain-check-validate:
 	$(NODE) tools/domain-check/domain-structure.mjs --check
+
+domain-check-analyzer-bootstrap:
+	cd tools/domain-check/analyzer && dart pub get
+
+domain-check-operation-generate:
+	cd tools/domain-check/analyzer && dart run bin/operation.dart
+
+domain-check-operation-validate:
+	cd tools/domain-check/analyzer && dart run bin/operation.dart --check
+
+domain-check-all-generate: domain-check-generate domain-check-operation-generate
+
+domain-check-all-validate: domain-check-validate domain-check-operation-validate
+	$(NODE) tools/domain-check/relations.test.mjs
+	$(NODE) tools/domain-check/operation-trace.test.mjs
+	$(NODE) tools/domain-check/context.test.mjs
+	$(NODE) tools/domain-check/validate.test.mjs
+	$(NODE) tools/domain-check/context-drift.test.mjs
+
+domain-check-test: domain-check-all-validate
+	cd tools/domain-check/analyzer && dart analyze
+	cd tools/domain-check/analyzer && dart run test/inventory_test.dart
+	$(NODE) tools/domain-check/determinism.test.mjs

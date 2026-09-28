@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TournamentHUB Domain viewer inventory",
+  "type": "object",
+  "required": ["version", "analysis", "areas", "nodes", "relations", "relationOccurrences", "semantic", "contextDiagnostics"],
+  "properties": {
+    "version": { "const": 9 },
+    "analysis": { "type": "object", "required": ["primaryRoot", "scannedFiles", "analyzer", "dart", "implementationScan", "diagnostics"] },
+    "areas": { "type": "array", "items": { "type": "object", "required": ["id", "title"] } },
+    "nodes": { "type": "array", "items": { "$ref": "#/$defs/node" } },
+    "relations": { "type": "array", "items": { "type": "object", "required": ["id", "sourceId", "kind", "occurrences"] } },
+    "relationOccurrences": { "type": "array", "items": { "type": "object", "required": ["id", "sourceId", "kind", "resolution", "evidence"] } },
+    "semantic": { "type": "object", "required": ["status", "areas", "objects", "scenarios", "coverage"] },
+    "contextDiagnostics": { "type": "array" }
+  },
+  "$defs": {
+    "node": {
+      "type": "object",
+      "required": ["id", "title", "kind", "area", "role", "signature", "memberFacts", "inheritedFacts", "apiFingerprint", "evidence"],
+      "properties": {
+        "memberFacts": { "type": "array", "items": { "type": "object", "required": ["id", "name", "kind", "signature", "evidence", "apiFingerprint", "implementationFingerprint"] } },
+        "inheritedFacts": { "type": "array" }
+      }
+    }
+  }
+}

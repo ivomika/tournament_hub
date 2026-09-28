@@ -1,0 +1,118 @@
+{
+  "version": 1,
+  "source": "docs/architecture/domain-layer.md",
+  "areas": {
+    "character_assignment": "Связывает участников с персонажами и задаёт контракт распределения. Стратегия случайности остаётся заменяемой.",
+    "game": "Хранит идентичность игры, персонажей и контракт доступа к версионированному составу.",
+    "history": "Описывает неизменяемые снимки завершённых турниров и доступ к истории.",
+    "profile": "Хранит долговременную идентичность и отображаемое имя профиля.",
+    "statistics": "Содержит типизированные показатели турнира и контролируемую общую проекцию статистики.",
+    "tournament": "Содержит активный агрегат турнира, его жизненный цикл, участников и матчи.",
+    "tournament_format": "Определяет версионированный контракт формата; конкретные алгоритмы форматов находятся вне этого слоя."
+  },
+  "objects": {
+    "package:tournament_app/domain/character_assignment/ports/character_distribution_port.dart#CharacterDistributionPort": "Контракт распределения персонажей между участниками; реализация выбирается вне Domain.",
+    "package:tournament_app/domain/character_assignment/ports/random_port.dart#RandomPort": "Источник перестановки для стратегии распределения; сам не назначает персонажей.",
+    "package:tournament_app/domain/game/entities/character.dart#Character": "Персонаж игры с собственной идентичностью и данными отображения.",
+    "package:tournament_app/domain/game/entities/game.dart#Game": "Игра и версия её набора персонажей.",
+    "package:tournament_app/domain/game/ports/game_roster_port.dart#GameRosterPort": "Контракт получения состава персонажей выбранной игры.",
+    "package:tournament_app/domain/game/repositories/game_repository.dart#GameRepository": "Контракт долговременного хранения и поиска игр.",
+    "package:tournament_app/domain/history/models/historical_tournament_snapshot.dart#HistoricalTournamentSnapshot": "Снимок терминального состояния турнира для истории.",
+    "package:tournament_app/domain/history/ports/tournament_history_port.dart#TournamentHistoryPort": "Входной контракт просмотра истории турниров.",
+    "package:tournament_app/domain/history/repositories/tournament_history_repository.dart#TournamentHistoryRepository": "Контракт чтения сохранённых исторических снимков.",
+    "package:tournament_app/domain/profile/entities/profile.dart#Profile": "Профиль с устойчивым ID, ником и ревизией.",
+    "package:tournament_app/domain/profile/ports/profile_management_port.dart#ProfileManagementPort": "Входной контракт изменения и получения профиля.",
+    "package:tournament_app/domain/profile/repositories/profile_repository.dart#ProfileRepository": "Контракт хранения и поиска профилей.",
+    "package:tournament_app/domain/statistics/entities/participant_tournament_statistic.dart#ParticipantTournamentStatistic": "Показатели конкретного участника в турнире.",
+    "package:tournament_app/domain/statistics/entities/profile_statistic.dart#ProfileStatistic": "Накопленные показатели профиля.",
+    "package:tournament_app/domain/statistics/entities/statistic.dart#Statistic": "Типизированный показатель со значением.",
+    "package:tournament_app/domain/statistics/entities/tournament_statistic.dart#TournamentStatistic": "Показатели турнира и его участников.",
+    "package:tournament_app/domain/statistics/models/shared_statistic.dart#SharedStatistic": "Контролируемая проекция статистики для общего просмотра.",
+    "package:tournament_app/domain/statistics/ports/profile_statistic_accumulation_port.dart#ProfileStatisticAccumulationPort": "Контракт накопления статистики профиля после турнира.",
+    "package:tournament_app/domain/statistics/ports/statistic_access_port.dart#StatisticAccessPort": "Контракт доступа к разрешённым статистическим данным.",
+    "package:tournament_app/domain/statistics/repositories/profile_statistic_repository.dart#ProfileStatisticRepository": "Контракт сохранения статистики профиля.",
+    "package:tournament_app/domain/tournament/entities/match.dart#Match": "Матч между слотами участников с состоянием и результатом.",
+    "package:tournament_app/domain/tournament/entities/participant.dart#Participant": "Участник конкретного турнира; его ID не является владением профилем.",
+    "package:tournament_app/domain/tournament/entities/tournament.dart#Tournament": "Активный агрегат турнира: жизненный цикл, состав, назначения, формат, результат и ревизия.",
+    "package:tournament_app/domain/tournament/ports/tournament_completion_port.dart#TournamentCompletionPort": "Входной контракт завершения турнира.",
+    "package:tournament_app/domain/tournament/ports/tournament_lifecycle_port.dart#TournamentLifecyclePort": "Входной контракт команд жизненного цикла турнира.",
+    "package:tournament_app/domain/tournament/ports/tournament_match_port.dart#TournamentMatchPort": "Входной контракт фиксации результата матча.",
+    "package:tournament_app/domain/tournament/repositories/active_tournament_repository.dart#ActiveTournamentRepository": "Контракт сохранения и получения активного турнира.",
+    "package:tournament_app/domain/tournament/repositories/tournament_completion_repository.dart#TournamentCompletionChange": "Данные атомарного изменения при завершении турнира.",
+    "package:tournament_app/domain/tournament/repositories/tournament_completion_repository.dart#TournamentCompletionRepository": "Контракт фиксации завершения турнира.",
+    "package:tournament_app/domain/tournament_format/models/tournament_format_state.dart#TournamentFormatState": "Состояние формата, которое хранит активный турнир.",
+    "package:tournament_app/domain/tournament_format/ports/tournament_format_port.dart#TournamentFormatPort": "Контракт правил формата турнира, не конкретный алгоритм сетки.",
+    "package:tournament_app/domain/tournament_format/repositories/tournament_format_repository.dart#TournamentFormatRepository": "Контракт доступа к зарегистрированным форматам турнира."
+  },
+  "scenarios": [
+    {
+      "id": "remove-participant",
+      "title": "Удаление участника из открытого турнира",
+      "status": "verified-code",
+      "provenance": "apps/tournament_app/lib/domain/tournament/entities/tournament.dart",
+      "member": "package:tournament_app/domain/tournament/entities/tournament.dart#Tournament/method:removeParticipant",
+      "summary": "Метод проверяет фазу турнира, удаляет участника из списка и создаёт обновлённый агрегат. Это статически проверенный Domain flow, не гарантированный UI/application маршрут.",
+      "steps": [
+        {
+          "label": "Проверка допустимой фазы",
+          "traceStep": "removeParticipant/call:0",
+          "member": "package:tournament_app/domain/tournament/entities/tournament.dart#Tournament/method:_requireLifecycle",
+          "implementationFingerprint": "d0ea91bb1fd4a3e9"
+        },
+        {
+          "label": "Удаление участника и проверка результата",
+          "traceStep": "removeParticipant/call:4",
+          "member": "package:tournament_app/domain/tournament/entities/tournament.dart#Tournament/method:removeParticipant",
+          "implementationFingerprint": "9f964f141dc18b5f"
+        },
+        {
+          "label": "Создание следующего состояния агрегата",
+          "traceStep": "_copy/constructor:0",
+          "member": "package:tournament_app/domain/tournament/entities/tournament.dart#Tournament/method:_copy",
+          "implementationFingerprint": "36fd5c414702b300"
+        },
+        {
+          "label": "Повышение ревизии в новом агрегате",
+          "traceStep": "_copy/argument:13",
+          "member": "package:tournament_app/domain/tournament/entities/tournament.dart#Tournament/method:_copy",
+          "implementationFingerprint": "36fd5c414702b300"
+        }
+      ],
+      "implementationFingerprint": "9f964f141dc18b5f"
+    }
+  ],
+  "fingerprints": {
+    "package:tournament_app/domain/character_assignment/ports/character_distribution_port.dart#CharacterDistributionPort": "1e526e67054768da",
+    "package:tournament_app/domain/character_assignment/ports/random_port.dart#RandomPort": "8f812ca57791917d",
+    "package:tournament_app/domain/game/entities/character.dart#Character": "1cba494d872f3057",
+    "package:tournament_app/domain/game/entities/game.dart#Game": "b81d7b88bb8e46ca",
+    "package:tournament_app/domain/game/ports/game_roster_port.dart#GameRosterPort": "ca9480d5440a81f0",
+    "package:tournament_app/domain/game/repositories/game_repository.dart#GameRepository": "d8896e596cac03e7",
+    "package:tournament_app/domain/history/models/historical_tournament_snapshot.dart#HistoricalTournamentSnapshot": "1b0861b4b2c2344d",
+    "package:tournament_app/domain/history/ports/tournament_history_port.dart#TournamentHistoryPort": "0388ae289360d889",
+    "package:tournament_app/domain/history/repositories/tournament_history_repository.dart#TournamentHistoryRepository": "7544417c0ac6efde",
+    "package:tournament_app/domain/profile/entities/profile.dart#Profile": "63cdba8bb8a5125d",
+    "package:tournament_app/domain/profile/ports/profile_management_port.dart#ProfileManagementPort": "d6d7245808df7114",
+    "package:tournament_app/domain/profile/repositories/profile_repository.dart#ProfileRepository": "e7dfd17054c5dbb0",
+    "package:tournament_app/domain/statistics/entities/participant_tournament_statistic.dart#ParticipantTournamentStatistic": "7d61c58ba735881e",
+    "package:tournament_app/domain/statistics/entities/profile_statistic.dart#ProfileStatistic": "96101c64e55e2367",
+    "package:tournament_app/domain/statistics/entities/statistic.dart#Statistic": "9b60c256b4d6b04d",
+    "package:tournament_app/domain/statistics/entities/tournament_statistic.dart#TournamentStatistic": "66f847dabde262f5",
+    "package:tournament_app/domain/statistics/models/shared_statistic.dart#SharedStatistic": "b435a7e405086929",
+    "package:tournament_app/domain/statistics/ports/profile_statistic_accumulation_port.dart#ProfileStatisticAccumulationPort": "37e3698d7f4b08db",
+    "package:tournament_app/domain/statistics/ports/statistic_access_port.dart#StatisticAccessPort": "18b5068d47e61f04",
+    "package:tournament_app/domain/statistics/repositories/profile_statistic_repository.dart#ProfileStatisticRepository": "0381ebac092790ee",
+    "package:tournament_app/domain/tournament/entities/match.dart#Match": "3ca482511ebc7567",
+    "package:tournament_app/domain/tournament/entities/participant.dart#Participant": "06600f390ab6f413",
+    "package:tournament_app/domain/tournament/entities/tournament.dart#Tournament": "d0d2f91033dbb624",
+    "package:tournament_app/domain/tournament/ports/tournament_completion_port.dart#TournamentCompletionPort": "a45f5276c19775f0",
+    "package:tournament_app/domain/tournament/ports/tournament_lifecycle_port.dart#TournamentLifecyclePort": "7c1a5994298dfc95",
+    "package:tournament_app/domain/tournament/ports/tournament_match_port.dart#TournamentMatchPort": "c3daa8368672dcbc",
+    "package:tournament_app/domain/tournament/repositories/active_tournament_repository.dart#ActiveTournamentRepository": "30fcd9f011553db3",
+    "package:tournament_app/domain/tournament/repositories/tournament_completion_repository.dart#TournamentCompletionChange": "60b589e858cffe9a",
+    "package:tournament_app/domain/tournament/repositories/tournament_completion_repository.dart#TournamentCompletionRepository": "79f3d390ddfc9380",
+    "package:tournament_app/domain/tournament_format/models/tournament_format_state.dart#TournamentFormatState": "d964481cbce8e8dc",
+    "package:tournament_app/domain/tournament_format/ports/tournament_format_port.dart#TournamentFormatPort": "86221013209dc855",
+    "package:tournament_app/domain/tournament_format/repositories/tournament_format_repository.dart#TournamentFormatRepository": "de8ea155f9a6d10e"
+  }
+}

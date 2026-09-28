@@ -38,12 +38,25 @@ async function start() {
     const response = await fetch('domain-architecture.json');
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     state.data = await response.json();
+    if (state.data.version !== 9) throw new Error('Несовместимая схема. Выполни make domain-check-generate.');
+    try {
+      const traceResponse = await fetch('operation-trace.json');
+      if (!traceResponse.ok) throw new Error(`HTTP ${traceResponse.status}`);
+      state.operationTrace = await traceResponse.json();
+      if (state.operationTrace.version !== 1) throw new Error('Несовместимая версия operation trace');
+    } catch (error) {
+      state.operationTrace = null;
+      state.traceError = error.message;
+    }
+    renderAnalysisReport();
     state.data.nodes.forEach((node) => byId.set(node.id, node));
+    setupRelations();
     setupControls();
     setupViewportInteraction();
     setupGraphZoom();
     setupKeyboardShortcuts();
     render();
+    restoreViewerLocation();
     requestAnimationFrame(() => {
       syncViewerHeight();
       applyGraphZoom();
@@ -52,6 +65,42 @@ async function start() {
     $('#subtitle').textContent = 'Не удалось загрузить JSON-инвентарь.';
     $('#inventory').innerHTML = `<p class="empty">Запусти viewer через <code>make domain-check</code>. ${error.message}</p>`;
   }
+}
+
+function renderAnalysisReport() {
+  const container = $('#analysis-summary');
+  const report = state.data.analysis;
+  if (!report) {
+    container.textContent = 'Отчёт отсутствует. Обнови данные через make domain-check-generate.';
+    return;
+  }
+  const paragraph = (label, value) => {
+    const element = document.createElement('p');
+    const title = document.createElement('strong');
+    title.textContent = `${label}: `;
+    element.append(title, document.createTextNode(value));
+    container.append(element);
+  };
+  paragraph('Проверенная область', report.primaryRoot);
+  paragraph('Источник', `${report.generator} · resolved AST · analyzer ${report.analyzer} · Dart ${report.dart} · schema ${state.data.version}`);
+  paragraph('Извлечено', `${report.scannedFiles} Dart-файлов, ${report.extractedDeclarations} объектов, ${state.data.edges.length} связей объектов, ${state.data.relationOccurrences.length} оснований связей`);
+  paragraph('Неизвестные вызовы/типы', `dynamic: ${state.data.relationOccurrences.filter((r) => r.resolution === 'dynamic').length}; unresolved: ${state.data.relationOccurrences.filter((r) => r.resolution === 'unresolved').length}. Статическая цель вызова не гарантирует runtime-реализацию.`);
+  paragraph('Исключено', report.excludedFiles.length ? report.excludedFiles.join(', ') : 'нет; barrel domain.dart тоже анализируется');
+  paragraph('Описания из ///', `${report.descriptions.documented} из ${report.descriptions.total}. Остальные описания — технические сводки, назначение не описано.`);
+  const coverage = state.data.semantic?.coverage;
+  paragraph('Смысловой контекст', coverage ? `${coverage.areas} областей, ${coverage.objects} из ${coverage.requiredObjects} ключевых объектов; ${state.data.contextDiagnostics.length} диагностик. Назначения взяты из docs/architecture, не из AST.` : 'Описания отсутствуют; технический реестр доступен.');
+  if (state.data.contextDiagnostics?.length) paragraph('Пробелы описаний', state.data.contextDiagnostics.map((d) => `${d.code}: ${d.target}`).join('; '));
+  for (const layer of report.layers) {
+    paragraph(layer.root, layer.present ? 'каталог существует; содержимое не анализировалось' : 'каталог отсутствует');
+  }
+  if (report.implementationScan) paragraph('Проверка контрактов', `${report.implementationScan.outsideDomainFiles.join(', ') || 'нет внешних Dart-файлов'}; найдено ${report.implementationScan.found.length} объявленных реализаций. Runtime DI не проверен.`);
+  const diagnostics = document.createElement('ul');
+  for (const diagnostic of report.diagnostics) {
+    const item = document.createElement('li');
+    item.textContent = diagnostic.message;
+    diagnostics.append(item);
+  }
+  container.append(diagnostics);
 }
 
 function setupControls() {
@@ -107,12 +156,12 @@ function visibleNodes() {
 function render() {
   const visible = visibleNodes();
   renderLegend();
-  renderGraph(visible);
+  if (state.viewerMode === 'map') renderGraph(visible);
   renderInventory(visible);
-  if (state.selectedId && !visible.some((node) => node.id === state.selectedId)) {
-    state.selectedId = null;
-  }
+  renderAreaOverview(visible);
   updateSelection();
+  renderScenarioView();
+  renderBreadcrumbs();
 }
 
 function renderLegend() {
@@ -220,6 +269,7 @@ function syncViewerHeight() {
   const minViewportHeight = Math.max(320, window.innerHeight - headerHeight);
   viewport.style.minHeight = `${minViewportHeight}px`;
   panel.style.height = `${headerHeight + minViewportHeight}px`;
+  $('#detail').style.height = `${headerHeight + minViewportHeight}px`;
 }
 
 function applyGraphZoom() {
@@ -333,7 +383,9 @@ function renderEdges(nodes, edgeLayer, layout = graphZoom.layout) {
     const related = direction ? ' is-related' : '';
     const muted = state.relationshipFocus && state.selectedId && !direction ? ' is-muted' : '';
     const interCluster = byId.get(from).area !== byId.get(to).area ? ' is-inter-cluster' : '';
-    edgeLayer.insertAdjacentHTML('beforeend', `<path class="edge${interCluster}${related}${direction}${muted}" data-from="${from}" data-to="${to}" d="${geometry.path}" marker-end="url(#edge-arrow)"><title>${label}</title></path>`);
+    const selectedRelation = relationsById.get(state.selectedRelationId);
+    const selected = selectedRelation?.sourceId === from && selectedRelation?.targetId === to ? ' is-selected-relation' : '';
+    edgeLayer.insertAdjacentHTML('beforeend', `<path class="edge${interCluster}${related}${direction}${muted}${selected}" data-from="${from}" data-to="${to}" d="${geometry.path}" marker-end="url(#edge-arrow)"><title>${label}</title></path>`);
     if (direction) {
       edgeLayer.insertAdjacentHTML('beforeend', `<text class="edge-label${direction}" x="${geometry.labelX}" y="${geometry.labelY}">${label}</text>`);
     }
@@ -497,9 +549,17 @@ function renderInventory(nodes) {
   document.querySelectorAll('.inventory-card').forEach((card) => card.addEventListener('click', () => selectNode(card.dataset.id)));
 }
 
-function selectNode(id) {
+function selectNode(id, relationId = null) {
   state.selectedId = id;
+  state.selectedRelationId = relationId;
   render();
+  setViewerMode(state.viewerMode === 'map' ? 'map' : 'object');
+  if (state.viewerMode === 'map' && matchMedia('(max-width: 900px)').matches) setMobilePane('detail');
+  $('#viewer-status').textContent = `Открыт объект ${byId.get(id)?.title || id}`;
+  requestAnimationFrame(() => {
+    const heading = $('#detail').querySelector(relationId ? '#relation-evidence h3' : 'h2');
+    if (heading) { heading.tabIndex = -1; heading.focus({ preventScroll: true }); }
+  });
 }
 
 function updateSelection() {
@@ -519,14 +579,126 @@ function updateSelection() {
   }
   $('#detail').innerHTML = `
     <p class="eyebrow">${node.area.toUpperCase()} / ${node.role.toUpperCase()} / ${node.kind.toUpperCase()} / ${node.importance.toUpperCase()}</p>
-    <h2>${node.title}</h2><p><code>${node.signature}</code></p>
-    <p class="detail-description">${escapeHtml(node.description)}</p>
-    ${detailList('Значения enum', node.members)}
-    ${detailList('Поля', node.fields)}
-    ${detailList('Методы и конструкторы', node.methods)}
-    ${relationList('Ссылается на', context.outgoing, 'outgoing')}${relationList('Упоминается в', context.incoming, 'incoming')}`;
+    <h2>${escapeHtml(node.title)}</h2><p><code>${escapeHtml(node.signature)}</code></p>
+    <p class="detail-description">${escapeHtml(state.data.semantic?.objects?.[node.id] || 'Назначение не описано.')}</p>
+    <p>Описание: ${state.data.semantic?.objects?.[node.id] ? 'курируемый контекст из docs/architecture' : 'отсутствует'} · API fingerprint <code>${escapeHtml(node.apiFingerprint)}</code>.</p>
+    ${state.data.contextDiagnostics.filter((d) => d.target === node.title || d.target === node.id).map((d) => `<p class="context-warning">${escapeHtml(d.severity)}: ${escapeHtml(d.code)}. Проверь docs/architecture/domain-viewer-context.json.</p>`).join('')}
+    <p>Роль ${escapeHtml(node.role)} определена по каталогу. Состав ниже — declared members из AST. Наследованные members не перечисляются.</p>
+    ${['port', 'repository'].includes(node.role) ? `<p>Поиск реализации: проверены ${escapeHtml(state.data.analysis.implementationScan?.outsideDomainFiles.join(', ') || 'внешние файлы не найдены')} в ${escapeHtml(state.data.analysis.implementationScan?.root || 'неизвестном scope')}; объявлено ${state.data.analysis.implementationScan?.found.filter((item) => item.contractId === node.id).length || 0} реализаций. Runtime DI не проверен.</p>` : ''}
+    ${(state.data.semantic?.scenarios || []).filter((scenario) => scenario.member.startsWith(node.id + '/')).map((scenario) => `<button class="scenario-link" type="button" data-scenario="${escapeHtml(scenario.id)}">Открыть сценарий: ${escapeHtml(scenario.title)}</button>`).join('')}
+    ${memberSections(node)}
+    ${inheritedSections(node)}
+    ${semanticRelationSections(node)}`;
   document.querySelectorAll('.relation[data-id]').forEach((button) => button.addEventListener('click', () => selectNode(button.dataset.id)));
+  if (state.viewerMode === 'map') renderOperationTrace(node);
+  $('#detail').querySelectorAll('[data-scenario]').forEach((button) => button.addEventListener('click', () => setViewerMode('scenario')));
+  wireRelationButtons($('#detail'));
+  renderSelectedRelation();
 }
+
+function renderOperationTrace(node) {
+  if (node.title !== 'Tournament') return;
+  const section = document.createElement('section');
+  section.className = 'detail-section operation-trace';
+  const trace = state.operationTrace;
+  if (!trace) {
+    section.textContent = `Трасса операции недоступна: ${state.traceError}. Выполни make domain-check-operation-generate.`;
+  } else {
+    const labels = { condition: 'Условие', call: 'Вызов', constructor: 'Создание', return: 'Возврат', throw: 'Исключение', local: 'Локальное значение', assignment: 'Присваивание', argument: 'Именованный аргумент' };
+    const steps = (operation) => `<ol class="trace-steps">${operation.steps.map((step) => `<li><strong>${labels[step.kind] || step.kind}</strong><span class="trace-location"> · строка ${step.line}</span>${step.context.length ? `<p>${escapeHtml(step.context.join(' → '))}</p>` : ''}<pre>${escapeHtml(step.code)}</pre>${step.target ? `<p>Цель объявления: <code>${escapeHtml(step.target)}</code></p>` : ''}</li>`).join('')}</ol>`;
+    section.innerHTML = `<h3>Операция: ${escapeHtml(trace.owner)}.${escapeHtml(trace.method)}</h3><p>Факты resolved AST · analyzer ${escapeHtml(trace.analyzer)}</p><p>Порядок ниже — обход структуры кода, не порядок выполнения.</p>${steps(trace.operation)}${trace.helpers.map((helper) => `<details><summary>Helper ${escapeHtml(helper.name)}</summary>${steps(helper)}</details>`).join('')}<p>${trace.limitations.map(escapeHtml).join(' ')}</p>`;
+  }
+  $('#detail').append(section);
+}
+
+function typeLabel(type) {
+  if (!type) return '';
+  const status = type.resolution === 'resolved' ? 'разрешён' : type.resolution === 'dynamic' ? 'dynamic' : 'не разрешён';
+  return `${escapeHtml(type.display)} · ${status}${type.nullable ? ' · nullable' : ''}`;
+}
+
+function memberSections(node) {
+  const groups = [
+    ['Поля', (m) => m.kind === 'field'],
+    ['Конструкторы', (m) => m.kind === 'constructor'],
+    ['Публичные операции и accessors', (m) => !['field', 'constructor', 'enum-value'].includes(m.kind) && m.visibility === 'public'],
+    ['Внутренние операции', (m) => !['field', 'constructor', 'enum-value'].includes(m.kind) && m.visibility === 'private'],
+    ['Значения enum', (m) => m.kind === 'enum-value']
+  ];
+  return groups.map(([title, predicate]) => {
+    const members = node.memberFacts.filter(predicate);
+    if (!members.length) return '';
+    return `<section class="detail-section"><h3>${title}</h3>${members.map((member) => `<details class="member-fact" id="${escapeHtml(member.id)}"><summary>${escapeHtml(member.signature)}</summary><p>${escapeHtml(member.kind)} · ${escapeHtml(member.visibility)}${member.hasBody === false ? (member.kind === 'constructor' ? ' · без блока тела' : ' · объявление без тела') : ''}</p>${member.type ? `<p>Тип: ${typeLabel(member.type)}</p>` : ''}${member.returnType ? `<p>Результат: ${typeLabel(member.returnType)}</p>` : ''}${(member.parameters || []).map((param) => `<p>Параметр ${escapeHtml(param.name)}: ${typeLabel(param.type)}${param.named ? ' · named' : ''}${param.required ? ' · required' : ''}</p>`).join('')}<a href="#view=object&object=${encodeURIComponent(node.id)}&member=${encodeURIComponent(member.id)}">Ссылка на ${escapeHtml(member.name)}</a><details><summary>Основание из исходника · строка ${member.evidence.line}</summary><pre>${escapeHtml(member.evidence.code)}</pre></details></details>`).join('')}</section>`;
+  }).join('');
+}
+
+function inheritedSections(node) {
+  const facts = node.inheritedFacts || [];
+  if (!facts.length) return '';
+  const domain = facts.filter((fact) => byId.has(fact.declaringTypeId));
+  const external = facts.filter((fact) => !byId.has(fact.declaringTypeId));
+  const list = (items) => `<ul>${items.map((fact) => `<li><code>${escapeHtml(fact.name)}</code> · объявлен в ${escapeHtml(fact.declaringType)}${fact.overriddenHere ? ' · переопределён здесь' : ' · не переопределён здесь'}</li>`).join('')}</ul>`;
+  return `<section class="detail-section inherited-members"><h3>Наследованные members</h3><p>Отдельно от declared members; declaring type определён analyzer.</p>${domain.length ? list(domain) : '<p>Наследованных Domain members нет.</p>'}${external.length ? `<details><summary>SDK и внешние типы · ${external.length}</summary>${list(external)}</details>` : ''}</section>`;
+}
+
+function viewerUrl() {
+  const params = new URLSearchParams();
+  params.set('view', state.viewerMode || 'overview');
+  if (state.selectedId) params.set('object', state.selectedId);
+  if (state.selectedRelationId) params.set('relation', state.selectedRelationId);
+  if (state.scenarioStep) params.set('step', state.scenarioStep);
+  if (state.area !== 'all') params.set('area', state.area);
+  if (state.kind !== 'all') params.set('kind', state.kind);
+  if (state.search) params.set('search', state.search);
+  if (graphZoom.scale !== 1) params.set('zoom', String(graphZoom.scale));
+  return '#' + params.toString();
+}
+
+function pushViewerHistory() {
+  const url = viewerUrl();
+  if (location.hash === url) return;
+  history.replaceState({ ...(history.state || {}), scrollX: scrollX, scrollY: scrollY, graphX: $('#graph-viewport').scrollLeft, graphY: $('#graph-viewport').scrollTop }, '');
+  history.pushState({}, '', url);
+}
+
+function restoreViewerLocation() {
+  if (!state.data) return;
+  const params = new URLSearchParams(location.hash.slice(1));
+  const memberId = params.get('member');
+  const owner = memberId && state.data.nodes.find((n) => n.memberFacts.some((m) => m.id === memberId));
+  state.selectedId = owner?.id || (byId.has(params.get('object')) ? params.get('object') : null);
+  state.selectedRelationId = params.get('relation');
+  state.scenarioStep = params.get('step');
+  state.area = params.get('area') || 'all'; state.kind = params.get('kind') || 'all'; state.search = params.get('search') || '';
+  $('#area-filter').value = state.area; $('#kind-filter').value = state.kind; $('#search').value = state.search;
+  const zoom = Number(params.get('zoom'));
+  if (zoom >= graphZoom.minScale && zoom <= graphZoom.maxScale) graphZoom.scale = zoom;
+  const view = params.get('view') || (memberId ? 'object' : 'overview');
+  setViewerMode(['overview', 'object', 'scenario', 'map'].includes(view) ? view : 'overview', false);
+  render();
+  if (memberId) requestAnimationFrame(() => { const element = document.getElementById(memberId); if (element) { element.open = true; element.scrollIntoView({ block: 'nearest' }); } });
+  if (history.state?.scrollY !== undefined) requestAnimationFrame(() => { scrollTo(history.state.scrollX || 0, history.state.scrollY); $('#graph-viewport').scrollLeft = history.state.graphX || 0; $('#graph-viewport').scrollTop = history.state.graphY || 0; });
+}
+
+function renderBreadcrumbs() {
+  const node = byId.get(state.selectedId);
+  $('#breadcrumbs').innerHTML = `<button type="button" data-view="overview">Обзор</button>${node ? ` <span aria-hidden="true">›</span> <button type="button" data-view="object">${escapeHtml(node.title)}</button>` : ''}${state.viewerMode === 'scenario' ? ' <span aria-hidden="true">›</span> <span>Сценарий</span>' : ''}`;
+  $('#breadcrumbs').querySelectorAll('[data-view]').forEach((button) => button.addEventListener('click', () => setViewerMode(button.dataset.view)));
+}
+
+function renderScenarioView() {
+  const target = $('#scenario-content');
+  const scenarios = state.data.semantic?.scenarios || [];
+  if (!scenarios.length) { target.textContent = 'Сценарии не описаны. Технический inventory остаётся доступен.'; return; }
+  const traceById = new Map(state.operationTrace ? [state.operationTrace.operation, ...state.operationTrace.helpers].flatMap((operation) => operation.steps.map((step) => [step.id, step])) : []);
+  target.innerHTML = scenarios.map((scenario) => `<article class="scenario-card"><h3>${escapeHtml(scenario.title)}</h3><p>${escapeHtml(scenario.summary)}</p><p>Курируемое описание · ${escapeHtml(scenario.status)} · ${escapeHtml(scenario.provenance)}</p><ol>${scenario.steps.map((step) => { const fact = traceById.get(step.traceStep); return `<li><details class="scenario-step" data-step="${escapeHtml(step.traceStep)}"><summary>${escapeHtml(step.label)}</summary><p>Факт из кода: ${fact ? `${escapeHtml(fact.kind)} · строка ${fact.line}` : 'основание не найдено'}</p>${fact ? `<pre>${escapeHtml(fact.code)}</pre>` : ''}<button type="button" data-member="${escapeHtml(step.member)}">Открыть member в объекте</button><small>Контекст: ${escapeHtml(step.member)}</small></details></li>`; }).join('')}</ol></article>`).join('') + (state.operationTrace ? `<details><summary>Техническая AST-трасса ${escapeHtml(state.operationTrace.owner)}.${escapeHtml(state.operationTrace.method)} — не runtime-порядок</summary><ol>${state.operationTrace.operation.steps.map((step) => `<li><strong>${escapeHtml(step.kind)}</strong> · строка ${step.line}<pre>${escapeHtml(step.code)}</pre></li>`).join('')}</ol></details>` : '<p>Техническая трасса недоступна.</p>');
+  target.querySelectorAll('.scenario-step').forEach((details) => details.addEventListener('toggle', () => { if (details.open) { state.scenarioStep = details.dataset.step; pushViewerHistory(); } }));
+  target.querySelectorAll('[data-member]').forEach((button) => button.addEventListener('click', () => { location.hash = `view=object&member=${encodeURIComponent(button.dataset.member)}`; restoreViewerLocation(); }));
+  if (state.scenarioStep) requestAnimationFrame(() => { const element = [...target.querySelectorAll('.scenario-step')].find((step) => step.dataset.step === state.scenarioStep); if (element) { element.open = true; element.scrollIntoView({ block: 'nearest' }); } });
+}
+
+window.addEventListener('popstate', restoreViewerLocation);
+window.addEventListener('hashchange', restoreViewerLocation);
 
 function relationshipContext(id) {
   const incoming = [];
@@ -538,18 +710,6 @@ function relationshipContext(id) {
     if (to === id) { incoming.push({ id: from, label }); neighborIds.add(from); }
   });
   return { incoming, outgoing, neighborIds };
-}
-
-function relationList(title, items, direction) {
-  const content = items.length
-    ? items.map((item) => `<button class="relation relation-${direction}" data-id="${item.id}">${direction === 'outgoing' ? `${item.label} → ${byId.get(item.id).title}` : `${byId.get(item.id).title} → ${item.label}`}</button>`).join('')
-    : '<span class="relation">Нет</span>';
-  return `<section class="detail-section"><h3>${title}</h3><div class="relations">${content}</div></section>`;
-}
-
-function detailList(title, items = []) {
-  if (!items.length) return '';
-  return `<section class="detail-section"><h3>${title}</h3><ul>${items.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul></section>`;
 }
 
 function escapeHtml(value) {

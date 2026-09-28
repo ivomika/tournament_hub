@@ -1,0 +1,390 @@
+{
+  "version": 1,
+  "owner": "Tournament",
+  "method": "removeParticipant",
+  "source": "apps/tournament_app/lib/domain/tournament/entities/tournament.dart",
+  "analyzer": "8.4.1",
+  "dart": "3.13.1",
+  "limitations": [
+    "Статическая структура одного метода; это не runtime-трасса.",
+    "Цель вызова — объявление контракта, а не выбранная runtime-реализация.",
+    "Helpers раскрываются на один уровень; callbacks помечены отдельно."
+  ],
+  "operation": {
+    "name": "removeParticipant",
+    "signature": "Tournament removeParticipant(ParticipantId participantId,",
+    "steps": [
+      {
+        "id": "removeParticipant/call:0",
+        "kind": "call",
+        "code": "_requireLifecycle(TournamentLifecycle.open)",
+        "line": 139,
+        "column": 5,
+        "offset": 5150,
+        "length": 43,
+        "context": [],
+        "target": "Tournament._requireLifecycle"
+      },
+      {
+        "id": "removeParticipant/local:0",
+        "kind": "local",
+        "code": "remaining = _participants\r\n        .where((item) => item.id != participantId)\r\n        .toList()",
+        "line": 140,
+        "column": 11,
+        "offset": 5206,
+        "length": 96,
+        "context": []
+      },
+      {
+        "id": "removeParticipant/call:1",
+        "kind": "call",
+        "code": "_participants\r\n        .where((item) => item.id != participantId)\r\n        .toList()",
+        "line": 140,
+        "column": 23,
+        "offset": 5218,
+        "length": 84,
+        "context": [],
+        "target": "Iterable.toList"
+      },
+      {
+        "id": "removeParticipant/call:2",
+        "kind": "call",
+        "code": "_participants\r\n        .where((item) => item.id != participantId)",
+        "line": 140,
+        "column": 23,
+        "offset": 5218,
+        "length": 65,
+        "context": [],
+        "target": "ListBase.where"
+      },
+      {
+        "id": "removeParticipant/condition:0",
+        "kind": "condition",
+        "code": "remaining.length == _participants.length",
+        "line": 143,
+        "column": 9,
+        "offset": 5313,
+        "length": 40,
+        "context": []
+      },
+      {
+        "id": "removeParticipant/throw:0",
+        "kind": "throw",
+        "code": "throw StateError('Participant не найден в Tournament.')",
+        "line": 144,
+        "column": 7,
+        "offset": 5364,
+        "length": 55,
+        "context": [
+          "if: remaining.length == _participants.length"
+        ]
+      },
+      {
+        "id": "removeParticipant/constructor:0",
+        "kind": "constructor",
+        "code": "StateError('Participant не найден в Tournament.')",
+        "line": 144,
+        "column": 13,
+        "offset": 5370,
+        "length": 49,
+        "context": [
+          "if: remaining.length == _participants.length"
+        ],
+        "target": "StateError"
+      },
+      {
+        "id": "removeParticipant/return:0",
+        "kind": "return",
+        "code": "return _copy(\r\n      participants: remaining,\r\n      assignments: assignments.remove(participantId),\r\n      changedAtUtc: changedAtUtc,\r\n    );",
+        "line": 146,
+        "column": 5,
+        "offset": 5433,
+        "length": 143,
+        "context": []
+      },
+      {
+        "id": "removeParticipant/call:3",
+        "kind": "call",
+        "code": "_copy(\r\n      participants: remaining,\r\n      assignments: assignments.remove(participantId),\r\n      changedAtUtc: changedAtUtc,\r\n    )",
+        "line": 146,
+        "column": 12,
+        "offset": 5440,
+        "length": 135,
+        "context": [],
+        "target": "Tournament._copy"
+      },
+      {
+        "id": "removeParticipant/argument:0",
+        "kind": "argument",
+        "code": "participants: remaining",
+        "line": 147,
+        "column": 7,
+        "offset": 5454,
+        "length": 23,
+        "context": []
+      },
+      {
+        "id": "removeParticipant/argument:1",
+        "kind": "argument",
+        "code": "assignments: assignments.remove(participantId)",
+        "line": 148,
+        "column": 7,
+        "offset": 5486,
+        "length": 46,
+        "context": []
+      },
+      {
+        "id": "removeParticipant/call:4",
+        "kind": "call",
+        "code": "assignments.remove(participantId)",
+        "line": 148,
+        "column": 20,
+        "offset": 5499,
+        "length": 33,
+        "context": [],
+        "target": "CharacterAssignmentSet.remove"
+      },
+      {
+        "id": "removeParticipant/argument:2",
+        "kind": "argument",
+        "code": "changedAtUtc: changedAtUtc",
+        "line": 149,
+        "column": 7,
+        "offset": 5541,
+        "length": 26,
+        "context": []
+      }
+    ]
+  },
+  "helpers": [
+    {
+      "name": "_copy",
+      "signature": "Tournament _copy(",
+      "steps": [
+        {
+          "id": "_copy/constructor:0",
+          "kind": "constructor",
+          "code": "Tournament._(\r\n    id: id,\r\n    title: title ?? this.title,\r\n    gameId: gameId ?? this.gameId,\r\n    rosterVersion: rosterVersion ?? this.rosterVersion,\r\n    formatKey: formatKey ?? this.formatKey,\r\n    formatSettings: formatSettings ?? this.formatSettings,\r\n    lifecycle: lifecycle ?? this.lifecycle,\r\n    participants: participants ?? _participants,\r\n    assignments: assignments ?? this.assignments,\r\n    formatState: formatState ?? this.formatState,\r\n    statistic: statistic,\r\n    outcome: outcome ?? this.outcome,\r\n    cancellation: cancellation ?? this.cancellation,\r\n    revision: revision + 1,\r\n    createdAtUtc: createdAtUtc,\r\n    updatedAtUtc: _requireUtc(changedAtUtc),\r\n  )",
+          "line": 255,
+          "column": 9,
+          "offset": 8803,
+          "length": 687,
+          "context": [],
+          "target": "Tournament"
+        },
+        {
+          "id": "_copy/argument:0",
+          "kind": "argument",
+          "code": "id: id",
+          "line": 256,
+          "column": 5,
+          "offset": 8822,
+          "length": 6,
+          "context": []
+        },
+        {
+          "id": "_copy/argument:1",
+          "kind": "argument",
+          "code": "title: title ?? this.title",
+          "line": 257,
+          "column": 5,
+          "offset": 8835,
+          "length": 26,
+          "context": []
+        },
+        {
+          "id": "_copy/argument:2",
+          "kind": "argument",
+          "code": "gameId: gameId ?? this.gameId",
+          "line": 258,
+          "column": 5,
+          "offset": 8868,
+          "length": 29,
+          "context": []
+        },
+        {
+          "id": "_copy/argument:3",
+          "kind": "argument",
+          "code": "rosterVersion: rosterVersion ?? this.rosterVersion",
+          "line": 259,
+          "column": 5,
+          "offset": 8904,
+          "length": 50,
+          "context": []
+        },
+        {
+          "id": "_copy/argument:4",
+          "kind": "argument",
+          "code": "formatKey: formatKey ?? this.formatKey",
+          "line": 260,
+          "column": 5,
+          "offset": 8961,
+          "length": 38,
+          "context": []
+        },
+        {
+          "id": "_copy/argument:5",
+          "kind": "argument",
+          "code": "formatSettings: formatSettings ?? this.formatSettings",
+          "line": 261,
+          "column": 5,
+          "offset": 9006,
+          "length": 53,
+          "context": []
+        },
+        {
+          "id": "_copy/argument:6",
+          "kind": "argument",
+          "code": "lifecycle: lifecycle ?? this.lifecycle",
+          "line": 262,
+          "column": 5,
+          "offset": 9066,
+          "length": 38,
+          "context": []
+        },
+        {
+          "id": "_copy/argument:7",
+          "kind": "argument",
+          "code": "participants: participants ?? _participants",
+          "line": 263,
+          "column": 5,
+          "offset": 9111,
+          "length": 43,
+          "context": []
+        },
+        {
+          "id": "_copy/argument:8",
+          "kind": "argument",
+          "code": "assignments: assignments ?? this.assignments",
+          "line": 264,
+          "column": 5,
+          "offset": 9161,
+          "length": 44,
+          "context": []
+        },
+        {
+          "id": "_copy/argument:9",
+          "kind": "argument",
+          "code": "formatState: formatState ?? this.formatState",
+          "line": 265,
+          "column": 5,
+          "offset": 9212,
+          "length": 44,
+          "context": []
+        },
+        {
+          "id": "_copy/argument:10",
+          "kind": "argument",
+          "code": "statistic: statistic",
+          "line": 266,
+          "column": 5,
+          "offset": 9263,
+          "length": 20,
+          "context": []
+        },
+        {
+          "id": "_copy/argument:11",
+          "kind": "argument",
+          "code": "outcome: outcome ?? this.outcome",
+          "line": 267,
+          "column": 5,
+          "offset": 9290,
+          "length": 32,
+          "context": []
+        },
+        {
+          "id": "_copy/argument:12",
+          "kind": "argument",
+          "code": "cancellation: cancellation ?? this.cancellation",
+          "line": 268,
+          "column": 5,
+          "offset": 9329,
+          "length": 47,
+          "context": []
+        },
+        {
+          "id": "_copy/argument:13",
+          "kind": "argument",
+          "code": "revision: revision + 1",
+          "line": 269,
+          "column": 5,
+          "offset": 9383,
+          "length": 22,
+          "context": []
+        },
+        {
+          "id": "_copy/argument:14",
+          "kind": "argument",
+          "code": "createdAtUtc: createdAtUtc",
+          "line": 270,
+          "column": 5,
+          "offset": 9412,
+          "length": 26,
+          "context": []
+        },
+        {
+          "id": "_copy/argument:15",
+          "kind": "argument",
+          "code": "updatedAtUtc: _requireUtc(changedAtUtc)",
+          "line": 271,
+          "column": 5,
+          "offset": 9445,
+          "length": 39,
+          "context": []
+        },
+        {
+          "id": "_copy/call:0",
+          "kind": "call",
+          "code": "_requireUtc(changedAtUtc)",
+          "line": 271,
+          "column": 19,
+          "offset": 9459,
+          "length": 25,
+          "context": [],
+          "target": "Tournament._requireUtc"
+        }
+      ]
+    },
+    {
+      "name": "_requireLifecycle",
+      "signature": "void _requireLifecycle(TournamentLifecycle expected)",
+      "steps": [
+        {
+          "id": "_requireLifecycle/condition:0",
+          "kind": "condition",
+          "code": "lifecycle != expected",
+          "line": 338,
+          "column": 9,
+          "offset": 12084,
+          "length": 21,
+          "context": []
+        },
+        {
+          "id": "_requireLifecycle/throw:0",
+          "kind": "throw",
+          "code": "throw StateError(\r\n        'Операция доступна только в lifecycle ${expected.name}.',\r\n      )",
+          "line": 339,
+          "column": 7,
+          "offset": 12116,
+          "length": 93,
+          "context": [
+            "if: lifecycle != expected"
+          ]
+        },
+        {
+          "id": "_requireLifecycle/constructor:0",
+          "kind": "constructor",
+          "code": "StateError(\r\n        'Операция доступна только в lifecycle ${expected.name}.',\r\n      )",
+          "line": 339,
+          "column": 13,
+          "offset": 12122,
+          "length": 87,
+          "context": [
+            "if: lifecycle != expected"
+          ],
+          "target": "StateError"
+        }
+      ]
+    }
+  ]
+}
