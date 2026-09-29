@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Domain Constellation · TournamentHUB</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="graph-layout.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="app-header">
+    <div><span class="overline">TournamentHUB</span><h1>Domain Constellation</h1></div>
+    <div class="header-actions">
+      <nav id="breadcrumbs" aria-label="Уровень карты"></nav>
+      <button id="collapse" type="button" hidden>Свернуть область</button>
+    </div>
+  </header>
+  <main>
+    <div class="graph-column">
+      <div class="graph-toolbar">
+        <span id="graph-status" aria-live="polite">Загрузка карты…</span>
+        <div class="zoom-controls" aria-label="Масштаб">
+          <button id="zoom-out" type="button" aria-label="Уменьшить">−</button>
+          <span id="zoom-value">100%</span>
+          <button id="zoom-in" type="button" aria-label="Увеличить">+</button>
+          <button id="zoom-fit" type="button">Вписать</button>
+        </div>
+      </div>
+      <div id="viewport" class="viewport" aria-label="Карта слоя domain">
+        <div id="stage-shell"><div id="stage">
+          <svg id="edges" aria-hidden="true"></svg>
+          <div id="cluster"></div>
+          <div id="branch-hulls"></div>
+          <div id="nodes"></div>
+        </div></div>
+      </div>
+      <div class="legend"><span><i class="type"></i>зависимость типа</span><span><i class="call"></i>прямой вызов</span><span><i class="throw"></i>исключение</span><span><i class="unknown"></i>переход не разрешён</span></div>
+    </div>
+    <aside id="details" aria-live="polite"><span class="overline">Детали</span><h2>Выберите область</h2><p>Карта построена из объявлений в слое domain.</p></aside>
+  </main>
+  <footer>Факты извлечены из Dart AST. Граф не восстанавливает реализацию интерфейса по предположению.</footer>
+</body>
+</html>

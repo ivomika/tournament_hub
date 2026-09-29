@@ -1,0 +1,7 @@
+name: tournament_domain_check
+publish_to: none
+environment:
+  sdk: ^3.11.0
+dependencies:
+  analyzer: 13.3.0
+

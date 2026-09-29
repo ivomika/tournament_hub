@@ -25,3 +25,4 @@
 - ✅ 21. Вернуть размеры карточек по структурной важности Domain-объектов. [Детали](task-details/21-domain-check-node-importance.md)
 - ✅ 22. Упростить содержимое карточек Domain viewer и уменьшить compact-tier. [Детали](task-details/22-domain-check-card-content.md)
 - ✅ 23. Зафиксировать продолжение задачи через changelog без создания задач на правки. [Детали](task-details/23-task-follow-up-changelog.md)
+- ✅ 24. Построить новый Domain Constellation viewer с раскрытием областей и цепочек методов на одной карте. [Детали](task-details/24-domain-constellation.md)

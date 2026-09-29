@@ -1,0 +1,4266 @@
+{
+  "schemaVersion": 1,
+  "areas": [
+    "character_assignment",
+    "game",
+    "history",
+    "profile",
+    "statistics",
+    "tournament",
+    "tournament_format"
+  ],
+  "nodes": [
+    {
+      "id": "character_assignment.CharacterAssignment",
+      "area": "character_assignment",
+      "name": "CharacterAssignment",
+      "file": "character_assignment/value_objects/character_assignment.dart",
+      "kind": "class",
+      "description": null,
+      "fields": [
+        "final TournamentId tournamentId;",
+        "final ParticipantId participantId;",
+        "final CharacterId characterId;"
+      ],
+      "methods": [
+        {
+          "id": "character_assignment.CharacterAssignment::CharacterAssignment",
+          "name": "CharacterAssignment",
+          "signature": "CharacterAssignment({\r\n    required this.tournamentId,\r\n    required this.participantId,\r\n    required this.characterId,\r\n  })",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "character_assignment.CharacterAssignment::props",
+          "name": "props",
+          "signature": "@override\r\n  List<Object> get props",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "character_assignment.CharacterAssignmentFailure",
+      "area": "character_assignment",
+      "name": "CharacterAssignmentFailure",
+      "file": "character_assignment/failures/character_assignment_failure.dart",
+      "kind": "sealed class",
+      "description": null,
+      "fields": [
+        "final String message;"
+      ],
+      "methods": [
+        {
+          "id": "character_assignment.CharacterAssignmentFailure::CharacterAssignmentFailure",
+          "name": "CharacterAssignmentFailure",
+          "signature": "const CharacterAssignmentFailure(this.message)",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "character_assignment.CharacterAssignmentFailure::toString",
+          "name": "toString",
+          "signature": "@override\r\n  String toString()",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "character_assignment.CharacterAssignmentSet",
+      "area": "character_assignment",
+      "name": "CharacterAssignmentSet",
+      "file": "character_assignment/value_objects/character_assignment_set.dart",
+      "kind": "class",
+      "description": null,
+      "fields": [
+        "final TournamentId tournamentId;",
+        "final bool enforceUniqueCharacters;",
+        "final UnmodifiableListView<CharacterAssignment> _assignments;"
+      ],
+      "methods": [
+        {
+          "id": "character_assignment.CharacterAssignmentSet::CharacterAssignmentSet",
+          "name": "CharacterAssignmentSet",
+          "signature": "CharacterAssignmentSet({\r\n    required this.tournamentId,\r\n    required Iterable<CharacterAssignment> assignments,\r\n    this.enforceUniqueCharacters = true,\r\n  }) : _assignments = UnmodifiableListView(List.of(assignments))",
+          "unresolvedCalls": [
+            "_assignments.any((assignment) => assignment.tournamentId != tournamentId)",
+            "_assignments.map((assignment) => assignment.characterId)",
+            "_assignments.map((assignment) => assignment.characterId).toSet()",
+            "_assignments.map((assignment) => assignment.participantId)",
+            "_assignments.map((assignment) => assignment.participantId).toSet()"
+          ]
+        },
+        {
+          "id": "character_assignment.CharacterAssignmentSet::assignments",
+          "name": "assignments",
+          "signature": "List<CharacterAssignment> get assignments",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "character_assignment.CharacterAssignmentSet::forParticipant",
+          "name": "forParticipant",
+          "signature": "CharacterAssignment? forParticipant(ParticipantId participantId)",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "character_assignment.CharacterAssignmentSet::covers",
+          "name": "covers",
+          "signature": "bool covers(Iterable<ParticipantId> participantIds)",
+          "unresolvedCalls": [
+            "_assignments.map((item) => item.participantId)",
+            "participantIds.toSet()",
+            "participantIds.toSet().containsAll(_assignments.map((item) => item.participantId))"
+          ]
+        },
+        {
+          "id": "character_assignment.CharacterAssignmentSet::remove",
+          "name": "remove",
+          "signature": "CharacterAssignmentSet remove(ParticipantId participantId)",
+          "unresolvedCalls": [
+            "_assignments.where((assignment) => assignment.participantId != participantId)"
+          ]
+        },
+        {
+          "id": "character_assignment.CharacterAssignmentSet::props",
+          "name": "props",
+          "signature": "@override\r\n  List<Object> get props",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "character_assignment.CharacterDistributionPort",
+      "area": "character_assignment",
+      "name": "CharacterDistributionPort",
+      "file": "character_assignment/ports/character_distribution_port.dart",
+      "kind": "interface",
+      "description": null,
+      "fields": [],
+      "methods": [
+        {
+          "id": "character_assignment.CharacterDistributionPort::distribute",
+          "name": "distribute",
+          "signature": "CharacterAssignmentSet distribute({\r\n    required Iterable<Participant> participants,\r\n    required Iterable<Character> roster,\r\n    required RandomPort random,\r\n  })",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "character_assignment.CharacterDistributionPort::redistributeOne",
+          "name": "redistributeOne",
+          "signature": "CharacterAssignmentSet redistributeOne({\r\n    required CharacterAssignmentSet assignments,\r\n    required ParticipantId participantId,\r\n    required Iterable<Character> roster,\r\n    required RandomPort random,\r\n  })",
+          "unresolvedCalls": []
+        }
+      ],
+      "implementedBy": []
+    },
+    {
+      "id": "character_assignment.InsufficientCharacterFailure",
+      "area": "character_assignment",
+      "name": "InsufficientCharacterFailure",
+      "file": "character_assignment/failures/character_assignment_failure.dart",
+      "kind": "class",
+      "description": null,
+      "fields": [],
+      "methods": [
+        {
+          "id": "character_assignment.InsufficientCharacterFailure::InsufficientCharacterFailure",
+          "name": "InsufficientCharacterFailure",
+          "signature": "const InsufficientCharacterFailure()\r\n    : super('Недостаточно Character для полного распределения.')",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "character_assignment.NoFreeCharacterFailure",
+      "area": "character_assignment",
+      "name": "NoFreeCharacterFailure",
+      "file": "character_assignment/failures/character_assignment_failure.dart",
+      "kind": "class",
+      "description": null,
+      "fields": [],
+      "methods": [
+        {
+          "id": "character_assignment.NoFreeCharacterFailure::NoFreeCharacterFailure",
+          "name": "NoFreeCharacterFailure",
+          "signature": "const NoFreeCharacterFailure()\r\n    : super('Для Participant нет свободного Character.')",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "character_assignment.RandomPort",
+      "area": "character_assignment",
+      "name": "RandomPort",
+      "file": "character_assignment/ports/random_port.dart",
+      "kind": "interface",
+      "description": null,
+      "fields": [],
+      "methods": [
+        {
+          "id": "character_assignment.RandomPort::shuffled",
+          "name": "shuffled",
+          "signature": "List<T> shuffled<T>(Iterable<T> values)",
+          "unresolvedCalls": []
+        }
+      ],
+      "implementedBy": []
+    },
+    {
+      "id": "game.Character",
+      "area": "game",
+      "name": "Character",
+      "file": "game/entities/character.dart",
+      "kind": "class",
+      "description": null,
+      "fields": [
+        "final CharacterId id;",
+        "final String displayName;"
+      ],
+      "methods": [
+        {
+          "id": "game.Character::Character",
+          "name": "Character",
+          "signature": "Character({required this.id, required String displayName})\r\n    : displayName = _requireDisplayName(displayName)",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "game.Character::gameId",
+          "name": "gameId",
+          "signature": "GameId get gameId",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "game.Character::_requireDisplayName",
+          "name": "_requireDisplayName",
+          "signature": "static String _requireDisplayName(String value)",
+          "unresolvedCalls": [
+            "value.trim()"
+          ]
+        },
+        {
+          "id": "game.Character::props",
+          "name": "props",
+          "signature": "@override\r\n  List<Object> get props",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "game.CharacterId",
+      "area": "game",
+      "name": "CharacterId",
+      "file": "game/value_objects/character_id.dart",
+      "kind": "class",
+      "description": null,
+      "fields": [
+        "final GameId gameId;",
+        "final String value;"
+      ],
+      "methods": [
+        {
+          "id": "game.CharacterId::CharacterId",
+          "name": "CharacterId",
+          "signature": "CharacterId({required this.gameId, required String value})\r\n    : value = _requireValue(value)",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "game.CharacterId::_requireValue",
+          "name": "_requireValue",
+          "signature": "static String _requireValue(String value)",
+          "unresolvedCalls": [
+            "value.trim()"
+          ]
+        },
+        {
+          "id": "game.CharacterId::props",
+          "name": "props",
+          "signature": "@override\r\n  List<Object> get props",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "game.CharacterNotFoundFailure",
+      "area": "game",
+      "name": "CharacterNotFoundFailure",
+      "file": "game/failures/game_failure.dart",
+      "kind": "class",
+      "description": null,
+      "fields": [],
+      "methods": [
+        {
+          "id": "game.CharacterNotFoundFailure::CharacterNotFoundFailure",
+          "name": "CharacterNotFoundFailure",
+          "signature": "const CharacterNotFoundFailure() : super('Character не найден в roster.')",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "game.Game",
+      "area": "game",
+      "name": "Game",
+      "file": "game/entities/game.dart",
+      "kind": "class",
+      "description": null,
+      "fields": [
+        "final GameId id;",
+        "final String displayName;",
+        "final String rosterVersion;",
+        "final UnmodifiableListView<Character> _characters;"
+      ],
+      "methods": [
+        {
+          "id": "game.Game::Game",
+          "name": "Game",
+          "signature": "Game({\r\n    required this.id,\r\n    required String displayName,\r\n    required String rosterVersion,\r\n    required Iterable<Character> characters,\r\n  }) : displayName = _requireText(displayName, 'displayName'),\r\n       rosterVersion = _requireText(rosterVersion, 'rosterVersion'),\r\n       _characters = UnmodifiableListView(List.of(characters))",
+          "unresolvedCalls": [
+            "_characters.any((character) => character.gameId != id)",
+            "_characters.map((character) => character.id)",
+            "_characters.map((character) => character.id).toSet()"
+          ]
+        },
+        {
+          "id": "game.Game::characters",
+          "name": "characters",
+          "signature": "List<Character> get characters",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "game.Game::findCharacter",
+          "name": "findCharacter",
+          "signature": "Character? findCharacter(CharacterId id)",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "game.Game::containsCharacter",
+          "name": "containsCharacter",
+          "signature": "bool containsCharacter(CharacterId id)",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "game.Game::_requireText",
+          "name": "_requireText",
+          "signature": "static String _requireText(String value, String name)",
+          "unresolvedCalls": [
+            "value.trim()"
+          ]
+        },
+        {
+          "id": "game.Game::props",
+          "name": "props",
+          "signature": "@override\r\n  List<Object> get props",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "game.GameFailure",
+      "area": "game",
+      "name": "GameFailure",
+      "file": "game/failures/game_failure.dart",
+      "kind": "sealed class",
+      "description": null,
+      "fields": [
+        "final String message;"
+      ],
+      "methods": [
+        {
+          "id": "game.GameFailure::GameFailure",
+          "name": "GameFailure",
+          "signature": "const GameFailure(this.message)",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "game.GameFailure::toString",
+          "name": "toString",
+          "signature": "@override\r\n  String toString()",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "game.GameId",
+      "area": "game",
+      "name": "GameId",
+      "file": "game/value_objects/game_id.dart",
+      "kind": "class",
+      "description": null,
+      "fields": [
+        "final String value;"
+      ],
+      "methods": [
+        {
+          "id": "game.GameId::GameId",
+          "name": "GameId",
+          "signature": "GameId(String value) : value = _requireValue(value)",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "game.GameId::_requireValue",
+          "name": "_requireValue",
+          "signature": "static String _requireValue(String value)",
+          "unresolvedCalls": [
+            "value.trim()"
+          ]
+        },
+        {
+          "id": "game.GameId::props",
+          "name": "props",
+          "signature": "@override\r\n  List<Object> get props",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "game.GameNotFoundFailure",
+      "area": "game",
+      "name": "GameNotFoundFailure",
+      "file": "game/failures/game_failure.dart",
+      "kind": "class",
+      "description": null,
+      "fields": [],
+      "methods": [
+        {
+          "id": "game.GameNotFoundFailure::GameNotFoundFailure",
+          "name": "GameNotFoundFailure",
+          "signature": "const GameNotFoundFailure() : super('Игра не найдена.')",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "game.GameRepository",
+      "area": "game",
+      "name": "GameRepository",
+      "file": "game/repositories/game_repository.dart",
+      "kind": "interface",
+      "description": null,
+      "fields": [],
+      "methods": [
+        {
+          "id": "game.GameRepository::find",
+          "name": "find",
+          "signature": "Future<Game?> find(GameId id, {required String rosterVersion})",
+          "unresolvedCalls": []
+        }
+      ],
+      "implementedBy": []
+    },
+    {
+      "id": "game.GameRosterPort",
+      "area": "game",
+      "name": "GameRosterPort",
+      "file": "game/ports/game_roster_port.dart",
+      "kind": "interface",
+      "description": null,
+      "fields": [],
+      "methods": [
+        {
+          "id": "game.GameRosterPort::rosterFor",
+          "name": "rosterFor",
+          "signature": "Future<List<Character>> rosterFor(GameId gameId, String rosterVersion)",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "game.GameRosterPort::containsCharacter",
+          "name": "containsCharacter",
+          "signature": "Future<bool> containsCharacter({\r\n    required GameId gameId,\r\n    required String rosterVersion,\r\n    required CharacterId characterId,\r\n  })",
+          "unresolvedCalls": []
+        }
+      ],
+      "implementedBy": []
+    },
+    {
+      "id": "history.HistoricalTournamentNotFoundFailure",
+      "area": "history",
+      "name": "HistoricalTournamentNotFoundFailure",
+      "file": "history/failures/history_failure.dart",
+      "kind": "class",
+      "description": null,
+      "fields": [],
+      "methods": [
+        {
+          "id": "history.HistoricalTournamentNotFoundFailure::HistoricalTournamentNotFoundFailure",
+          "name": "HistoricalTournamentNotFoundFailure",
+          "signature": "const HistoricalTournamentNotFoundFailure()\r\n    : super('Tournament history не найдена.')",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "history.HistoricalTournamentSnapshot",
+      "area": "history",
+      "name": "HistoricalTournamentSnapshot",
+      "file": "history/models/historical_tournament_snapshot.dart",
+      "kind": "class",
+      "description": null,
+      "fields": [
+        "final TournamentId tournamentId;",
+        "final TournamentTitle title;",
+        "final TournamentLifecycle lifecycle;",
+        "final GameId gameId;",
+        "final String rosterVersion;",
+        "final TournamentFormatKey formatKey;",
+        "final TournamentFormatSettings formatSettings;",
+        "final UnmodifiableListView<Participant> _participants;",
+        "final UnmodifiableListView<CharacterAssignment> _assignments;",
+        "final TournamentFormatState? formatState;",
+        "final TournamentOutcome? outcome;",
+        "final TournamentCancellation? cancellation;",
+        "final DateTime completedAtUtc;",
+        "final int finalRevision;"
+      ],
+      "methods": [
+        {
+          "id": "history.HistoricalTournamentSnapshot::HistoricalTournamentSnapshot",
+          "name": "HistoricalTournamentSnapshot",
+          "signature": "HistoricalTournamentSnapshot({\r\n    required this.tournamentId,\r\n    required this.title,\r\n    required this.lifecycle,\r\n    required this.gameId,\r\n    required this.rosterVersion,\r\n    required this.formatKey,\r\n    required this.formatSettings,\r\n    required Iterable<Participant> participants,\r\n    required Iterable<CharacterAssignment> assignments,\r\n    required this.formatState,\r\n    required this.outcome,\r\n    required this.cancellation,\r\n    required this.completedAtUtc,\r\n    required this.finalRevision,\r\n  }) : _participants = UnmodifiableListView(List.of(participants)),\r\n       _assignments = UnmodifiableListView(List.of(assignments))",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "history.HistoricalTournamentSnapshot::participants",
+          "name": "participants",
+          "signature": "List<Participant> get participants",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "history.HistoricalTournamentSnapshot::assignments",
+          "name": "assignments",
+          "signature": "List<CharacterAssignment> get assignments",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "history.HistoricalTournamentSnapshot::props",
+          "name": "props",
+          "signature": "@override\r\n  List<Object?> get props",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "history.HistoryFailure",
+      "area": "history",
+      "name": "HistoryFailure",
+      "file": "history/failures/history_failure.dart",
+      "kind": "sealed class",
+      "description": null,
+      "fields": [
+        "final String message;"
+      ],
+      "methods": [
+        {
+          "id": "history.HistoryFailure::HistoryFailure",
+          "name": "HistoryFailure",
+          "signature": "const HistoryFailure(this.message)",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "history.HistoryFailure::toString",
+          "name": "toString",
+          "signature": "@override\r\n  String toString()",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "history.TournamentHistoryPort",
+      "area": "history",
+      "name": "TournamentHistoryPort",
+      "file": "history/ports/tournament_history_port.dart",
+      "kind": "interface",
+      "description": null,
+      "fields": [],
+      "methods": [
+        {
+          "id": "history.TournamentHistoryPort::list",
+          "name": "list",
+          "signature": "Future<List<HistoricalTournamentSnapshot>> list()",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "history.TournamentHistoryPort::get",
+          "name": "get",
+          "signature": "Future<HistoricalTournamentSnapshot?> get(TournamentId tournamentId)",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "history.TournamentHistoryPort::clear",
+          "name": "clear",
+          "signature": "Future<void> clear()",
+          "unresolvedCalls": []
+        }
+      ],
+      "implementedBy": []
+    },
+    {
+      "id": "history.TournamentHistoryRepository",
+      "area": "history",
+      "name": "TournamentHistoryRepository",
+      "file": "history/repositories/tournament_history_repository.dart",
+      "kind": "interface",
+      "description": null,
+      "fields": [],
+      "methods": [
+        {
+          "id": "history.TournamentHistoryRepository::append",
+          "name": "append",
+          "signature": "Future<void> append(HistoricalTournamentSnapshot snapshot)",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "history.TournamentHistoryRepository::list",
+          "name": "list",
+          "signature": "Future<List<HistoricalTournamentSnapshot>> list()",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "history.TournamentHistoryRepository::find",
+          "name": "find",
+          "signature": "Future<HistoricalTournamentSnapshot?> find(TournamentId tournamentId)",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "history.TournamentHistoryRepository::clear",
+          "name": "clear",
+          "signature": "Future<void> clear()",
+          "unresolvedCalls": []
+        }
+      ],
+      "implementedBy": []
+    },
+    {
+      "id": "profile.Nickname",
+      "area": "profile",
+      "name": "Nickname",
+      "file": "profile/value_objects/nickname.dart",
+      "kind": "class",
+      "description": null,
+      "fields": [
+        "final String value;"
+      ],
+      "methods": [
+        {
+          "id": "profile.Nickname::Nickname",
+          "name": "Nickname",
+          "signature": "Nickname(String value) : value = _normalize(value)",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "profile.Nickname::_normalize",
+          "name": "_normalize",
+          "signature": "static String _normalize(String value)",
+          "unresolvedCalls": [
+            "value.trim()"
+          ]
+        },
+        {
+          "id": "profile.Nickname::props",
+          "name": "props",
+          "signature": "@override\r\n  List<Object> get props",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "profile.Nickname::toString",
+          "name": "toString",
+          "signature": "@override\r\n  String toString()",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "profile.Profile",
+      "area": "profile",
+      "name": "Profile",
+      "file": "profile/entities/profile.dart",
+      "kind": "class",
+      "description": null,
+      "fields": [
+        "final ProfileId id;",
+        "final Nickname nickname;",
+        "final ProfileStatistic statistic;"
+      ],
+      "methods": [
+        {
+          "id": "profile.Profile::Profile",
+          "name": "Profile",
+          "signature": "Profile({\r\n    required this.id,\r\n    required this.nickname,\r\n    ProfileStatistic? statistic,\r\n  }) : statistic = statistic ?? ProfileStatistic(profileId: id)",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "profile.Profile::rename",
+          "name": "rename",
+          "signature": "Profile rename(Nickname nextNickname)",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "profile.Profile::props",
+          "name": "props",
+          "signature": "@override\r\n  List<Object> get props",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "profile.ProfileFailure",
+      "area": "profile",
+      "name": "ProfileFailure",
+      "file": "profile/failures/profile_failure.dart",
+      "kind": "sealed class",
+      "description": null,
+      "fields": [
+        "final String message;"
+      ],
+      "methods": [
+        {
+          "id": "profile.ProfileFailure::ProfileFailure",
+          "name": "ProfileFailure",
+          "signature": "const ProfileFailure(this.message)",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "profile.ProfileFailure::toString",
+          "name": "toString",
+          "signature": "@override\r\n  String toString()",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "profile.ProfileId",
+      "area": "profile",
+      "name": "ProfileId",
+      "file": "profile/value_objects/profile_id.dart",
+      "kind": "class",
+      "description": null,
+      "fields": [
+        "final String value;"
+      ],
+      "methods": [
+        {
+          "id": "profile.ProfileId::ProfileId",
+          "name": "ProfileId",
+          "signature": "ProfileId(String value) : value = _requireValue(value, 'ProfileId')",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "profile.ProfileId::_requireValue",
+          "name": "_requireValue",
+          "signature": "static String _requireValue(String value, String type)",
+          "unresolvedCalls": [
+            "value.trim()"
+          ]
+        },
+        {
+          "id": "profile.ProfileId::props",
+          "name": "props",
+          "signature": "@override\r\n  List<Object> get props",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "profile.ProfileManagementPort",
+      "area": "profile",
+      "name": "ProfileManagementPort",
+      "file": "profile/ports/profile_management_port.dart",
+      "kind": "interface",
+      "description": null,
+      "fields": [],
+      "methods": [
+        {
+          "id": "profile.ProfileManagementPort::create",
+          "name": "create",
+          "signature": "Future<Profile> create({required ProfileId id, required Nickname nickname})",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "profile.ProfileManagementPort::current",
+          "name": "current",
+          "signature": "Future<Profile?> current(ProfileId id)",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "profile.ProfileManagementPort::rename",
+          "name": "rename",
+          "signature": "Future<Profile> rename({required ProfileId id, required Nickname nickname})",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "profile.ProfileManagementPort::delete",
+          "name": "delete",
+          "signature": "Future<void> delete(ProfileId id)",
+          "unresolvedCalls": []
+        }
+      ],
+      "implementedBy": []
+    },
+    {
+      "id": "profile.ProfileNotFoundFailure",
+      "area": "profile",
+      "name": "ProfileNotFoundFailure",
+      "file": "profile/failures/profile_failure.dart",
+      "kind": "class",
+      "description": null,
+      "fields": [],
+      "methods": [
+        {
+          "id": "profile.ProfileNotFoundFailure::ProfileNotFoundFailure",
+          "name": "ProfileNotFoundFailure",
+          "signature": "const ProfileNotFoundFailure() : super('Профиль не найден.')",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "profile.ProfileRepository",
+      "area": "profile",
+      "name": "ProfileRepository",
+      "file": "profile/repositories/profile_repository.dart",
+      "kind": "interface",
+      "description": null,
+      "fields": [],
+      "methods": [
+        {
+          "id": "profile.ProfileRepository::find",
+          "name": "find",
+          "signature": "Future<Profile?> find(ProfileId id)",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "profile.ProfileRepository::save",
+          "name": "save",
+          "signature": "Future<void> save(Profile profile)",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "profile.ProfileRepository::findStatistic",
+          "name": "findStatistic",
+          "signature": "Future<ProfileStatistic?> findStatistic(ProfileId profileId)",
+          "unresolvedCalls": []
+        }
+      ],
+      "implementedBy": []
+    },
+    {
+      "id": "profile.StaleProfileRevisionFailure",
+      "area": "profile",
+      "name": "StaleProfileRevisionFailure",
+      "file": "profile/failures/profile_failure.dart",
+      "kind": "class",
+      "description": null,
+      "fields": [],
+      "methods": [
+        {
+          "id": "profile.StaleProfileRevisionFailure::StaleProfileRevisionFailure",
+          "name": "StaleProfileRevisionFailure",
+          "signature": "const StaleProfileRevisionFailure() : super('Версия профиля устарела.')",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "statistics.CounterStatisticValue",
+      "area": "statistics",
+      "name": "CounterStatisticValue",
+      "file": "statistics/value_objects/statistic_value.dart",
+      "kind": "class",
+      "description": null,
+      "fields": [
+        "final int value;"
+      ],
+      "methods": [
+        {
+          "id": "statistics.CounterStatisticValue::CounterStatisticValue",
+          "name": "CounterStatisticValue",
+          "signature": "CounterStatisticValue(int value) : value = _requireNonNegative(value)",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "statistics.CounterStatisticValue::_requireNonNegative",
+          "name": "_requireNonNegative",
+          "signature": "static int _requireNonNegative(int value)",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "statistics.CounterStatisticValue::props",
+          "name": "props",
+          "signature": "@override\r\n  List<Object> get props",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "statistics.ParticipantTournamentStatistic",
+      "area": "statistics",
+      "name": "ParticipantTournamentStatistic",
+      "file": "statistics/entities/participant_tournament_statistic.dart",
+      "kind": "class",
+      "description": null,
+      "fields": [
+        "final TournamentId tournamentId;",
+        "final ParticipantId participantId;",
+        "final Set<String> _appliedResultIds;"
+      ],
+      "methods": [
+        {
+          "id": "statistics.ParticipantTournamentStatistic::ParticipantTournamentStatistic",
+          "name": "ParticipantTournamentStatistic",
+          "signature": "ParticipantTournamentStatistic({\r\n    required this.tournamentId,\r\n    required this.participantId,\r\n    Map<StatisticType, StatisticValue> values = const {},\r\n    Iterable<String> appliedResultIds = const [],\r\n  }) : _appliedResultIds = Set.unmodifiable(appliedResultIds),\r\n       super(values)",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "statistics.ParticipantTournamentStatistic::appliedResultIds",
+          "name": "appliedResultIds",
+          "signature": "Set<String> get appliedResultIds",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "statistics.ParticipantTournamentStatistic::props",
+          "name": "props",
+          "signature": "@override\r\n  List<Object> get props",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "statistics.PlacementStatisticValue",
+      "area": "statistics",
+      "name": "PlacementStatisticValue",
+      "file": "statistics/value_objects/statistic_value.dart",
+      "kind": "class",
+      "description": null,
+      "fields": [
+        "final int value;"
+      ],
+      "methods": [
+        {
+          "id": "statistics.PlacementStatisticValue::PlacementStatisticValue",
+          "name": "PlacementStatisticValue",
+          "signature": "PlacementStatisticValue(int value) : value = _requirePositive(value)",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "statistics.PlacementStatisticValue::_requirePositive",
+          "name": "_requirePositive",
+          "signature": "static int _requirePositive(int value)",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "statistics.PlacementStatisticValue::props",
+          "name": "props",
+          "signature": "@override\r\n  List<Object> get props",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "statistics.PointsStatisticValue",
+      "area": "statistics",
+      "name": "PointsStatisticValue",
+      "file": "statistics/value_objects/statistic_value.dart",
+      "kind": "class",
+      "description": null,
+      "fields": [
+        "final int value;"
+      ],
+      "methods": [
+        {
+          "id": "statistics.PointsStatisticValue::PointsStatisticValue",
+          "name": "PointsStatisticValue",
+          "signature": "PointsStatisticValue(int value) : value = _requireNonNegative(value)",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "statistics.PointsStatisticValue::_requireNonNegative",
+          "name": "_requireNonNegative",
+          "signature": "static int _requireNonNegative(int value)",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "statistics.PointsStatisticValue::props",
+          "name": "props",
+          "signature": "@override\r\n  List<Object> get props",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "statistics.ProfileStatistic",
+      "area": "statistics",
+      "name": "ProfileStatistic",
+      "file": "statistics/entities/profile_statistic.dart",
+      "kind": "class",
+      "description": null,
+      "fields": [
+        "final ProfileId profileId;",
+        "final Set<TournamentId> _appliedTournamentIds;"
+      ],
+      "methods": [
+        {
+          "id": "statistics.ProfileStatistic::ProfileStatistic",
+          "name": "ProfileStatistic",
+          "signature": "ProfileStatistic({\r\n    required this.profileId,\r\n    Map<StatisticType, StatisticValue> values = const {},\r\n    Iterable<TournamentId> appliedTournamentIds = const [],\r\n  }) : _appliedTournamentIds = Set.unmodifiable(appliedTournamentIds),\r\n       super(values)",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "statistics.ProfileStatistic::appliedTournamentIds",
+          "name": "appliedTournamentIds",
+          "signature": "Set<TournamentId> get appliedTournamentIds",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "statistics.ProfileStatistic::wasApplied",
+          "name": "wasApplied",
+          "signature": "bool wasApplied(TournamentId tournamentId)",
+          "unresolvedCalls": [
+            "_appliedTournamentIds.contains(tournamentId)"
+          ]
+        },
+        {
+          "id": "statistics.ProfileStatistic::props",
+          "name": "props",
+          "signature": "@override\r\n  List<Object> get props",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "statistics.ProfileStatisticAccumulationPort",
+      "area": "statistics",
+      "name": "ProfileStatisticAccumulationPort",
+      "file": "statistics/ports/profile_statistic_accumulation_port.dart",
+      "kind": "interface",
+      "description": null,
+      "fields": [],
+      "methods": [
+        {
+          "id": "statistics.ProfileStatisticAccumulationPort::apply",
+          "name": "apply",
+          "signature": "ProfileStatistic apply({\r\n    required ProfileStatistic statistic,\r\n    required HistoricalTournamentSnapshot snapshot,\r\n  })",
+          "unresolvedCalls": []
+        }
+      ],
+      "implementedBy": []
+    },
+    {
+      "id": "statistics.ProfileStatisticRepository",
+      "area": "statistics",
+      "name": "ProfileStatisticRepository",
+      "file": "statistics/repositories/profile_statistic_repository.dart",
+      "kind": "interface",
+      "description": null,
+      "fields": [],
+      "methods": [
+        {
+          "id": "statistics.ProfileStatisticRepository::find",
+          "name": "find",
+          "signature": "Future<ProfileStatistic?> find(ProfileId profileId)",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "statistics.ProfileStatisticRepository::save",
+          "name": "save",
+          "signature": "Future<void> save(ProfileStatistic statistic)",
+          "unresolvedCalls": []
+        }
+      ],
+      "implementedBy": []
+    },
+    {
+      "id": "statistics.SharedStatistic",
+      "area": "statistics",
+      "name": "SharedStatistic",
+      "file": "statistics/models/shared_statistic.dart",
+      "kind": "class",
+      "description": null,
+      "fields": [
+        "final StatisticType type;",
+        "final StatisticValue value;",
+        "final String scopeIdentity;",
+        "final int revision;"
+      ],
+      "methods": [
+        {
+          "id": "statistics.SharedStatistic::SharedStatistic",
+          "name": "SharedStatistic",
+          "signature": "const SharedStatistic({\r\n    required this.type,\r\n    required this.value,\r\n    required this.scopeIdentity,\r\n    required this.revision,\r\n  })",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "statistics.SharedStatistic::props",
+          "name": "props",
+          "signature": "@override\r\n  List<Object> get props",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "statistics.Statistic",
+      "area": "statistics",
+      "name": "Statistic",
+      "file": "statistics/entities/statistic.dart",
+      "kind": "abstract class",
+      "description": null,
+      "fields": [
+        "final UnmodifiableMapView<StatisticType, StatisticValue> _values;"
+      ],
+      "methods": [
+        {
+          "id": "statistics.Statistic::Statistic",
+          "name": "Statistic",
+          "signature": "Statistic(Map<StatisticType, StatisticValue> values)\r\n    : _values = UnmodifiableMapView(Map.of(values))",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "statistics.Statistic::values",
+          "name": "values",
+          "signature": "Map<StatisticType, StatisticValue> get values",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "statistics.Statistic::valueOf",
+          "name": "valueOf",
+          "signature": "StatisticValue? valueOf(StatisticType type)",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "statistics.Statistic::props",
+          "name": "props",
+          "signature": "@override\r\n  List<Object> get props",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "statistics.StatisticAccessPort",
+      "area": "statistics",
+      "name": "StatisticAccessPort",
+      "file": "statistics/ports/statistic_access_port.dart",
+      "kind": "interface",
+      "description": null,
+      "fields": [],
+      "methods": [
+        {
+          "id": "statistics.StatisticAccessPort::project",
+          "name": "project",
+          "signature": "Iterable<SharedStatistic> project(Statistic statistic)",
+          "unresolvedCalls": []
+        }
+      ],
+      "implementedBy": []
+    },
+    {
+      "id": "statistics.StatisticFailure",
+      "area": "statistics",
+      "name": "StatisticFailure",
+      "file": "statistics/failures/statistic_failure.dart",
+      "kind": "sealed class",
+      "description": null,
+      "fields": [
+        "final String message;"
+      ],
+      "methods": [
+        {
+          "id": "statistics.StatisticFailure::StatisticFailure",
+          "name": "StatisticFailure",
+          "signature": "const StatisticFailure(this.message)",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "statistics.StatisticFailure::toString",
+          "name": "toString",
+          "signature": "@override\r\n  String toString()",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "statistics.StatisticType",
+      "area": "statistics",
+      "name": "StatisticType",
+      "file": "statistics/value_objects/statistic_type.dart",
+      "kind": "enum",
+      "description": null,
+      "fields": [
+        "matchesPlayed",
+        "matchWins",
+        "matchLosses",
+        "tournamentsPlayed",
+        "tournamentWins",
+        "bestPlace",
+        "roundRobinPoints"
+      ],
+      "methods": []
+    },
+    {
+      "id": "statistics.StatisticTypeNotAllowedFailure",
+      "area": "statistics",
+      "name": "StatisticTypeNotAllowedFailure",
+      "file": "statistics/failures/statistic_failure.dart",
+      "kind": "class",
+      "description": null,
+      "fields": [],
+      "methods": [
+        {
+          "id": "statistics.StatisticTypeNotAllowedFailure::StatisticTypeNotAllowedFailure",
+          "name": "StatisticTypeNotAllowedFailure",
+          "signature": "const StatisticTypeNotAllowedFailure()\r\n    : super('StatisticType не разрешён для этого scope.')",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "statistics.StatisticValue",
+      "area": "statistics",
+      "name": "StatisticValue",
+      "file": "statistics/value_objects/statistic_value.dart",
+      "kind": "sealed class",
+      "description": null,
+      "fields": [],
+      "methods": [
+        {
+          "id": "statistics.StatisticValue::StatisticValue",
+          "name": "StatisticValue",
+          "signature": "const StatisticValue()",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "statistics.TournamentStatistic",
+      "area": "statistics",
+      "name": "TournamentStatistic",
+      "file": "statistics/entities/tournament_statistic.dart",
+      "kind": "class",
+      "description": null,
+      "fields": [
+        "final TournamentId tournamentId;",
+        "final Set<String> _appliedResultIds;"
+      ],
+      "methods": [
+        {
+          "id": "statistics.TournamentStatistic::TournamentStatistic",
+          "name": "TournamentStatistic",
+          "signature": "TournamentStatistic({\r\n    required this.tournamentId,\r\n    Map<StatisticType, StatisticValue> values = const {},\r\n    Iterable<String> appliedResultIds = const [],\r\n  }) : _appliedResultIds = Set.unmodifiable(appliedResultIds),\r\n       super(values)",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "statistics.TournamentStatistic::appliedResultIds",
+          "name": "appliedResultIds",
+          "signature": "Set<String> get appliedResultIds",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "statistics.TournamentStatistic::props",
+          "name": "props",
+          "signature": "@override\r\n  List<Object> get props",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "tournament.ActiveTournamentRepository",
+      "area": "tournament",
+      "name": "ActiveTournamentRepository",
+      "file": "tournament/repositories/active_tournament_repository.dart",
+      "kind": "interface",
+      "description": null,
+      "fields": [],
+      "methods": [
+        {
+          "id": "tournament.ActiveTournamentRepository::current",
+          "name": "current",
+          "signature": "Future<Tournament?> current()",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.ActiveTournamentRepository::save",
+          "name": "save",
+          "signature": "Future<void> save(Tournament tournament, {required int expectedRevision})",
+          "unresolvedCalls": []
+        }
+      ],
+      "implementedBy": []
+    },
+    {
+      "id": "tournament.AssignedParticipantSlot",
+      "area": "tournament",
+      "name": "AssignedParticipantSlot",
+      "file": "tournament/value_objects/match_slot.dart",
+      "kind": "class",
+      "description": null,
+      "fields": [
+        "final ParticipantId participantId;"
+      ],
+      "methods": [
+        {
+          "id": "tournament.AssignedParticipantSlot::AssignedParticipantSlot",
+          "name": "AssignedParticipantSlot",
+          "signature": "const AssignedParticipantSlot(this.participantId)",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.AssignedParticipantSlot::resolvedParticipantId",
+          "name": "resolvedParticipantId",
+          "signature": "@override\r\n  ParticipantId get resolvedParticipantId",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.AssignedParticipantSlot::props",
+          "name": "props",
+          "signature": "@override\r\n  List<Object> get props",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "tournament.ByeSlot",
+      "area": "tournament",
+      "name": "ByeSlot",
+      "file": "tournament/value_objects/match_slot.dart",
+      "kind": "class",
+      "description": null,
+      "fields": [],
+      "methods": [
+        {
+          "id": "tournament.ByeSlot::ByeSlot",
+          "name": "ByeSlot",
+          "signature": "const ByeSlot()",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.ByeSlot::resolvedParticipantId",
+          "name": "resolvedParticipantId",
+          "signature": "@override\r\n  ParticipantId? get resolvedParticipantId",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.ByeSlot::props",
+          "name": "props",
+          "signature": "@override\r\n  List<Object> get props",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "tournament.FirstTo",
+      "area": "tournament",
+      "name": "FirstTo",
+      "file": "tournament/value_objects/first_to.dart",
+      "kind": "class",
+      "description": null,
+      "fields": [
+        "final int winsRequired;"
+      ],
+      "methods": [
+        {
+          "id": "tournament.FirstTo::FirstTo",
+          "name": "FirstTo",
+          "signature": "FirstTo(int winsRequired) : winsRequired = _requirePositive(winsRequired)",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.FirstTo::_requirePositive",
+          "name": "_requirePositive",
+          "signature": "static int _requirePositive(int value)",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.FirstTo::props",
+          "name": "props",
+          "signature": "@override\r\n  List<Object> get props",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "tournament.InvalidTournamentTransitionFailure",
+      "area": "tournament",
+      "name": "InvalidTournamentTransitionFailure",
+      "file": "tournament/failures/tournament_failure.dart",
+      "kind": "class",
+      "description": null,
+      "fields": [],
+      "methods": [
+        {
+          "id": "tournament.InvalidTournamentTransitionFailure::InvalidTournamentTransitionFailure",
+          "name": "InvalidTournamentTransitionFailure",
+          "signature": "const InvalidTournamentTransitionFailure(super.message)",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "tournament.LoserOfMatchSlot",
+      "area": "tournament",
+      "name": "LoserOfMatchSlot",
+      "file": "tournament/value_objects/match_slot.dart",
+      "kind": "class",
+      "description": null,
+      "fields": [
+        "final MatchId sourceMatchId;"
+      ],
+      "methods": [
+        {
+          "id": "tournament.LoserOfMatchSlot::LoserOfMatchSlot",
+          "name": "LoserOfMatchSlot",
+          "signature": "const LoserOfMatchSlot(this.sourceMatchId)",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.LoserOfMatchSlot::resolvedParticipantId",
+          "name": "resolvedParticipantId",
+          "signature": "@override\r\n  ParticipantId? get resolvedParticipantId",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.LoserOfMatchSlot::props",
+          "name": "props",
+          "signature": "@override\r\n  List<Object> get props",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "tournament.Match",
+      "area": "tournament",
+      "name": "Match",
+      "file": "tournament/entities/match.dart",
+      "kind": "class",
+      "description": null,
+      "fields": [
+        "final MatchId id;",
+        "final int order;",
+        "final int round;",
+        "final String stage;",
+        "final FirstTo firstTo;",
+        "final MatchState state;",
+        "final MatchResult? result;",
+        "final UnmodifiableListView<MatchSlot> _slots;"
+      ],
+      "methods": [
+        {
+          "id": "tournament.Match::Match",
+          "name": "Match",
+          "signature": "Match({\r\n    required this.id,\r\n    required this.order,\r\n    required this.round,\r\n    required String stage,\r\n    required Iterable<MatchSlot> slots,\r\n    required this.firstTo,\r\n    this.state = MatchState.upcoming,\r\n    this.result,\r\n  }) : stage = _requireStage(stage),\r\n       _slots = UnmodifiableListView(List.of(slots))",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.Match::tournamentId",
+          "name": "tournamentId",
+          "signature": "TournamentId get tournamentId",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.Match::slots",
+          "name": "slots",
+          "signature": "List<MatchSlot> get slots",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.Match::hasTwoResolvedParticipants",
+          "name": "hasTwoResolvedParticipants",
+          "signature": "bool get hasTwoResolvedParticipants",
+          "unresolvedCalls": [
+            "_slots.every((slot) => slot.resolvedParticipantId != null)"
+          ]
+        },
+        {
+          "id": "tournament.Match::start",
+          "name": "start",
+          "signature": "Match start()",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.Match::finish",
+          "name": "finish",
+          "signature": "Match finish(MatchResult nextResult)",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.Match::_copy",
+          "name": "_copy",
+          "signature": "Match _copy({required MatchState state, MatchResult? result})",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.Match::_validateResult",
+          "name": "_validateResult",
+          "signature": "void _validateResult(MatchResult? candidate)",
+          "unresolvedCalls": [
+            "_slots.map((slot) => slot.resolvedParticipantId)",
+            "_slots.map((slot) => slot.resolvedParticipantId).whereType<ParticipantId>()",
+            "_slots.map((slot) => slot.resolvedParticipantId).whereType<ParticipantId>().toSet()",
+            "participantIds.contains(candidate.loserId)",
+            "participantIds.contains(candidate.winnerId)"
+          ]
+        },
+        {
+          "id": "tournament.Match::_requireStage",
+          "name": "_requireStage",
+          "signature": "static String _requireStage(String value)",
+          "unresolvedCalls": [
+            "value.trim()"
+          ]
+        },
+        {
+          "id": "tournament.Match::props",
+          "name": "props",
+          "signature": "@override\r\n  List<Object?> get props",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "tournament.MatchId",
+      "area": "tournament",
+      "name": "MatchId",
+      "file": "tournament/value_objects/match_id.dart",
+      "kind": "class",
+      "description": null,
+      "fields": [
+        "final TournamentId tournamentId;",
+        "final String value;"
+      ],
+      "methods": [
+        {
+          "id": "tournament.MatchId::MatchId",
+          "name": "MatchId",
+          "signature": "MatchId({required this.tournamentId, required String value})\r\n    : value = _requireValue(value)",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.MatchId::_requireValue",
+          "name": "_requireValue",
+          "signature": "static String _requireValue(String value)",
+          "unresolvedCalls": [
+            "value.trim()"
+          ]
+        },
+        {
+          "id": "tournament.MatchId::props",
+          "name": "props",
+          "signature": "@override\r\n  List<Object> get props",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "tournament.MatchResult",
+      "area": "tournament",
+      "name": "MatchResult",
+      "file": "tournament/value_objects/match_result.dart",
+      "kind": "abstract class",
+      "description": null,
+      "fields": [
+        "final ParticipantId winnerId;",
+        "final ParticipantId loserId;"
+      ],
+      "methods": [
+        {
+          "id": "tournament.MatchResult::MatchResult",
+          "name": "MatchResult",
+          "signature": "const MatchResult({required this.winnerId, required this.loserId})\r\n    : assert(winnerId != loserId, 'Winner и loser должны различаться.')",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "tournament.MatchSlot",
+      "area": "tournament",
+      "name": "MatchSlot",
+      "file": "tournament/value_objects/match_slot.dart",
+      "kind": "sealed class",
+      "description": null,
+      "fields": [],
+      "methods": [
+        {
+          "id": "tournament.MatchSlot::MatchSlot",
+          "name": "MatchSlot",
+          "signature": "const MatchSlot()",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.MatchSlot::resolvedParticipantId",
+          "name": "resolvedParticipantId",
+          "signature": "ParticipantId? get resolvedParticipantId",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "tournament.MatchState",
+      "area": "tournament",
+      "name": "MatchState",
+      "file": "tournament/value_objects/match_state.dart",
+      "kind": "enum",
+      "description": null,
+      "fields": [
+        "upcoming",
+        "current",
+        "finished"
+      ],
+      "methods": []
+    },
+    {
+      "id": "tournament.NormalMatchResult",
+      "area": "tournament",
+      "name": "NormalMatchResult",
+      "file": "tournament/value_objects/normal_match_result.dart",
+      "kind": "class",
+      "description": null,
+      "fields": [
+        "final int winnerScore;",
+        "final int loserScore;"
+      ],
+      "methods": [
+        {
+          "id": "tournament.NormalMatchResult::NormalMatchResult",
+          "name": "NormalMatchResult",
+          "signature": "NormalMatchResult({\r\n    required super.winnerId,\r\n    required super.loserId,\r\n    required int winnerScore,\r\n    required int loserScore,\r\n  }) : winnerScore = _requireNonNegative(winnerScore, 'winnerScore'),\r\n       loserScore = _requireNonNegative(loserScore, 'loserScore')",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.NormalMatchResult::_requireNonNegative",
+          "name": "_requireNonNegative",
+          "signature": "static int _requireNonNegative(int value, String name)",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.NormalMatchResult::props",
+          "name": "props",
+          "signature": "@override\r\n  List<Object> get props",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "tournament.Participant",
+      "area": "tournament",
+      "name": "Participant",
+      "file": "tournament/entities/participant.dart",
+      "kind": "class",
+      "description": null,
+      "fields": [
+        "final ParticipantId id;",
+        "final Nickname tournamentNickname;",
+        "final ParticipantType type;",
+        "final ProfileId? profileId;",
+        "final ParticipantStatus status;",
+        "final ParticipantTournamentStatistic statistic;"
+      ],
+      "methods": [
+        {
+          "id": "tournament.Participant::Participant.profile",
+          "name": "Participant.profile",
+          "signature": "Participant.profile({\r\n    required this.id,\r\n    required this.tournamentNickname,\r\n    required this.profileId,\r\n    this.status = ParticipantStatus.active,\r\n    ParticipantTournamentStatistic? statistic,\r\n  }) : type = ParticipantType.profile,\r\n       statistic =\r\n           statistic ??\r\n           ParticipantTournamentStatistic(\r\n             tournamentId: id.tournamentId,\r\n             participantId: id,\r\n           )",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.Participant::Participant.guest",
+          "name": "Participant.guest",
+          "signature": "Participant.guest({\r\n    required this.id,\r\n    required this.tournamentNickname,\r\n    this.status = ParticipantStatus.active,\r\n    ParticipantTournamentStatistic? statistic,\r\n  }) : type = ParticipantType.guest,\r\n       profileId = null,\r\n       statistic =\r\n           statistic ??\r\n           ParticipantTournamentStatistic(\r\n             tournamentId: id.tournamentId,\r\n             participantId: id,\r\n           )",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.Participant::withStatus",
+          "name": "withStatus",
+          "signature": "Participant withStatus(ParticipantStatus nextStatus)",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.Participant::Participant._copy",
+          "name": "Participant._copy",
+          "signature": "Participant._copy(Participant source, {required this.status})\r\n    : id = source.id,\r\n      tournamentNickname = source.tournamentNickname,\r\n      type = source.type,\r\n      profileId = source.profileId,\r\n      statistic = source.statistic",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.Participant::props",
+          "name": "props",
+          "signature": "@override\r\n  List<Object?> get props",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "tournament.ParticipantId",
+      "area": "tournament",
+      "name": "ParticipantId",
+      "file": "tournament/value_objects/participant_id.dart",
+      "kind": "class",
+      "description": null,
+      "fields": [
+        "final TournamentId tournamentId;",
+        "final String value;"
+      ],
+      "methods": [
+        {
+          "id": "tournament.ParticipantId::ParticipantId",
+          "name": "ParticipantId",
+          "signature": "ParticipantId({required this.tournamentId, required String value})\r\n    : value = _requireValue(value)",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.ParticipantId::_requireValue",
+          "name": "_requireValue",
+          "signature": "static String _requireValue(String value)",
+          "unresolvedCalls": [
+            "value.trim()"
+          ]
+        },
+        {
+          "id": "tournament.ParticipantId::props",
+          "name": "props",
+          "signature": "@override\r\n  List<Object> get props",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "tournament.ParticipantStatus",
+      "area": "tournament",
+      "name": "ParticipantStatus",
+      "file": "tournament/value_objects/participant_status.dart",
+      "kind": "enum",
+      "description": null,
+      "fields": [
+        "active",
+        "eliminated",
+        "withdrawn"
+      ],
+      "methods": []
+    },
+    {
+      "id": "tournament.ParticipantType",
+      "area": "tournament",
+      "name": "ParticipantType",
+      "file": "tournament/value_objects/participant_type.dart",
+      "kind": "enum",
+      "description": null,
+      "fields": [
+        "profile",
+        "guest"
+      ],
+      "methods": []
+    },
+    {
+      "id": "tournament.SeedPositionSlot",
+      "area": "tournament",
+      "name": "SeedPositionSlot",
+      "file": "tournament/value_objects/match_slot.dart",
+      "kind": "class",
+      "description": null,
+      "fields": [
+        "final int position;"
+      ],
+      "methods": [
+        {
+          "id": "tournament.SeedPositionSlot::SeedPositionSlot",
+          "name": "SeedPositionSlot",
+          "signature": "SeedPositionSlot(int position) : position = _requirePositive(position)",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.SeedPositionSlot::_requirePositive",
+          "name": "_requirePositive",
+          "signature": "static int _requirePositive(int value)",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.SeedPositionSlot::resolvedParticipantId",
+          "name": "resolvedParticipantId",
+          "signature": "@override\r\n  ParticipantId? get resolvedParticipantId",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.SeedPositionSlot::props",
+          "name": "props",
+          "signature": "@override\r\n  List<Object> get props",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "tournament.StaleTournamentRevisionFailure",
+      "area": "tournament",
+      "name": "StaleTournamentRevisionFailure",
+      "file": "tournament/failures/tournament_failure.dart",
+      "kind": "class",
+      "description": null,
+      "fields": [],
+      "methods": [
+        {
+          "id": "tournament.StaleTournamentRevisionFailure::StaleTournamentRevisionFailure",
+          "name": "StaleTournamentRevisionFailure",
+          "signature": "const StaleTournamentRevisionFailure() : super('Версия Tournament устарела.')",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "tournament.TechnicalMatchResult",
+      "area": "tournament",
+      "name": "TechnicalMatchResult",
+      "file": "tournament/value_objects/technical_match_result.dart",
+      "kind": "class",
+      "description": null,
+      "fields": [
+        "final TechnicalResultReason reason;"
+      ],
+      "methods": [
+        {
+          "id": "tournament.TechnicalMatchResult::TechnicalMatchResult",
+          "name": "TechnicalMatchResult",
+          "signature": "const TechnicalMatchResult({\r\n    required super.winnerId,\r\n    required super.loserId,\r\n    required this.reason,\r\n  })",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.TechnicalMatchResult::props",
+          "name": "props",
+          "signature": "@override\r\n  List<Object> get props",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "tournament.TechnicalResultReason",
+      "area": "tournament",
+      "name": "TechnicalResultReason",
+      "file": "tournament/value_objects/technical_result_reason.dart",
+      "kind": "enum",
+      "description": null,
+      "fields": [
+        "forfeit",
+        "withdrawal"
+      ],
+      "methods": []
+    },
+    {
+      "id": "tournament.Tournament",
+      "area": "tournament",
+      "name": "Tournament",
+      "file": "tournament/entities/tournament.dart",
+      "kind": "class",
+      "description": null,
+      "fields": [
+        "final TournamentId id;",
+        "final TournamentTitle title;",
+        "final GameId gameId;",
+        "final String rosterVersion;",
+        "final TournamentFormatKey formatKey;",
+        "final TournamentFormatSettings formatSettings;",
+        "final TournamentLifecycle lifecycle;",
+        "final UnmodifiableListView<Participant> _participants;",
+        "final CharacterAssignmentSet assignments;",
+        "final TournamentFormatState? formatState;",
+        "final TournamentStatistic statistic;",
+        "final TournamentOutcome? outcome;",
+        "final TournamentCancellation? cancellation;",
+        "final int revision;",
+        "final DateTime createdAtUtc;",
+        "final DateTime updatedAtUtc;"
+      ],
+      "methods": [
+        {
+          "id": "tournament.Tournament::Tournament.draft",
+          "name": "Tournament.draft",
+          "signature": "Tournament.draft({\r\n    required this.id,\r\n    required this.title,\r\n    required this.gameId,\r\n    required this.rosterVersion,\r\n    required this.formatKey,\r\n    required this.formatSettings,\r\n    required DateTime createdAtUtc,\r\n  }) : lifecycle = TournamentLifecycle.draft,\r\n       assignments = CharacterAssignmentSet(\r\n         tournamentId: id,\r\n         assignments: const [],\r\n       ),\r\n       statistic = TournamentStatistic(tournamentId: id),\r\n       formatState = null,\r\n       outcome = null,\r\n       cancellation = null,\r\n       revision = 0,\r\n       createdAtUtc = _requireUtc(createdAtUtc),\r\n       updatedAtUtc = _requireUtc(createdAtUtc),\r\n       _participants = UnmodifiableListView(const [])",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.Tournament::Tournament._",
+          "name": "Tournament._",
+          "signature": "Tournament._({\r\n    required this.id,\r\n    required this.title,\r\n    required this.gameId,\r\n    required this.rosterVersion,\r\n    required this.formatKey,\r\n    required this.formatSettings,\r\n    required this.lifecycle,\r\n    required Iterable<Participant> participants,\r\n    required this.assignments,\r\n    required this.formatState,\r\n    required this.statistic,\r\n    required this.outcome,\r\n    required this.cancellation,\r\n    required this.revision,\r\n    required this.createdAtUtc,\r\n    required this.updatedAtUtc,\r\n  }) : _participants = UnmodifiableListView(List.of(participants))",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.Tournament::participants",
+          "name": "participants",
+          "signature": "List<Participant> get participants",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.Tournament::updateDraft",
+          "name": "updateDraft",
+          "signature": "Tournament updateDraft({\r\n    TournamentTitle? title,\r\n    GameId? gameId,\r\n    String? rosterVersion,\r\n    TournamentFormatKey? formatKey,\r\n    TournamentFormatSettings? formatSettings,\r\n    required DateTime changedAtUtc,\r\n  })",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.Tournament::open",
+          "name": "open",
+          "signature": "Tournament open({required DateTime changedAtUtc})",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.Tournament::addParticipant",
+          "name": "addParticipant",
+          "signature": "Tournament addParticipant(\r\n    Participant participant, {\r\n    required DateTime changedAtUtc,\r\n  })",
+          "unresolvedCalls": [
+            "_participants.any((item) => item.id == participant.id)"
+          ]
+        },
+        {
+          "id": "tournament.Tournament::removeParticipant",
+          "name": "removeParticipant",
+          "signature": "Tournament removeParticipant(\r\n    ParticipantId participantId, {\r\n    required DateTime changedAtUtc,\r\n  })",
+          "unresolvedCalls": [
+            "_participants.where((item) => item.id != participantId)",
+            "_participants.where((item) => item.id != participantId).toList()",
+            "assignments.remove(participantId)"
+          ]
+        },
+        {
+          "id": "tournament.Tournament::beginDistribution",
+          "name": "beginDistribution",
+          "signature": "Tournament beginDistribution({required DateTime changedAtUtc})",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.Tournament::returnToOpen",
+          "name": "returnToOpen",
+          "signature": "Tournament returnToOpen({required DateTime changedAtUtc})",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.Tournament::acceptAssignments",
+          "name": "acceptAssignments",
+          "signature": "Tournament acceptAssignments(\r\n    CharacterAssignmentSet nextAssignments, {\r\n    required DateTime changedAtUtc,\r\n  })",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.Tournament::start",
+          "name": "start",
+          "signature": "Tournament start({\r\n    required TournamentFormatState nextFormatState,\r\n    required DateTime changedAtUtc,\r\n  })",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.Tournament::applyFormatState",
+          "name": "applyFormatState",
+          "signature": "Tournament applyFormatState(\r\n    TournamentFormatState nextFormatState, {\r\n    required Iterable<Participant> participants,\r\n    required DateTime changedAtUtc,\r\n  })",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.Tournament::finish",
+          "name": "finish",
+          "signature": "Tournament finish({\r\n    required TournamentOutcome nextOutcome,\r\n    required DateTime changedAtUtc,\r\n  })",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.Tournament::cancel",
+          "name": "cancel",
+          "signature": "Tournament cancel({\r\n    required TournamentCancellation nextCancellation,\r\n    required DateTime changedAtUtc,\r\n  })",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.Tournament::_copy",
+          "name": "_copy",
+          "signature": "Tournament _copy({\r\n    TournamentTitle? title,\r\n    GameId? gameId,\r\n    String? rosterVersion,\r\n    TournamentFormatKey? formatKey,\r\n    TournamentFormatSettings? formatSettings,\r\n    TournamentLifecycle? lifecycle,\r\n    Iterable<Participant>? participants,\r\n    CharacterAssignmentSet? assignments,\r\n    TournamentFormatState? formatState,\r\n    TournamentOutcome? outcome,\r\n    TournamentCancellation? cancellation,\r\n    required DateTime changedAtUtc,\r\n  })",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.Tournament::_validate",
+          "name": "_validate",
+          "signature": "void _validate()",
+          "unresolvedCalls": [
+            "_participants.any((participant) => participant.id.tournamentId != id)",
+            "_participants.map((participant) => participant.id)",
+            "_participants.map((participant) => participant.id).toSet()",
+            "assignments.covers(_activeParticipantIds)",
+            "rosterVersion.trim()"
+          ]
+        },
+        {
+          "id": "tournament.Tournament::_activeParticipantIds",
+          "name": "_activeParticipantIds",
+          "signature": "Iterable<ParticipantId> get _activeParticipantIds",
+          "unresolvedCalls": [
+            "_participants.where((participant) => participant.status == ParticipantStatus.active)",
+            "_participants.where((participant) => participant.status == ParticipantStatus.active).map((participant) => participant.id)"
+          ]
+        },
+        {
+          "id": "tournament.Tournament::_requireAssignments",
+          "name": "_requireAssignments",
+          "signature": "void _requireAssignments(CharacterAssignmentSet candidate)",
+          "unresolvedCalls": [
+            "candidate.covers(_activeParticipantIds)"
+          ]
+        },
+        {
+          "id": "tournament.Tournament::_validateOutcome",
+          "name": "_validateOutcome",
+          "signature": "void _validateOutcome(TournamentOutcome candidate)",
+          "unresolvedCalls": [
+            "_participants.map((participant) => participant.id)",
+            "_participants.map((participant) => participant.id).toSet()",
+            "candidate.placements.map((placement) => placement.participantId)",
+            "candidate.placements.map((placement) => placement.participantId).toSet()",
+            "candidate.placements.map((placement) => placement.participantId).toSet().containsAll(participantIds)",
+            "participantIds.contains(candidate.championId)"
+          ]
+        },
+        {
+          "id": "tournament.Tournament::_requireLifecycle",
+          "name": "_requireLifecycle",
+          "signature": "void _requireLifecycle(TournamentLifecycle expected)",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.Tournament::_requireUtc",
+          "name": "_requireUtc",
+          "signature": "static DateTime _requireUtc(DateTime value)",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.Tournament::props",
+          "name": "props",
+          "signature": "@override\r\n  List<Object?> get props",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "tournament.TournamentCancellation",
+      "area": "tournament",
+      "name": "TournamentCancellation",
+      "file": "tournament/value_objects/tournament_cancellation.dart",
+      "kind": "class",
+      "description": null,
+      "fields": [
+        "final String reason;",
+        "final DateTime cancelledAtUtc;"
+      ],
+      "methods": [
+        {
+          "id": "tournament.TournamentCancellation::TournamentCancellation",
+          "name": "TournamentCancellation",
+          "signature": "TournamentCancellation({required String reason, required this.cancelledAtUtc})\r\n    : reason = _requireReason(reason)",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.TournamentCancellation::_requireReason",
+          "name": "_requireReason",
+          "signature": "static String _requireReason(String value)",
+          "unresolvedCalls": [
+            "value.trim()"
+          ]
+        },
+        {
+          "id": "tournament.TournamentCancellation::props",
+          "name": "props",
+          "signature": "@override\r\n  List<Object> get props",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "tournament.TournamentCompletionChange",
+      "area": "tournament",
+      "name": "TournamentCompletionChange",
+      "file": "tournament/repositories/tournament_completion_repository.dart",
+      "kind": "class",
+      "description": null,
+      "fields": [
+        "final int expectedRevision;",
+        "final HistoricalTournamentSnapshot snapshot;",
+        "final Iterable<ProfileStatistic> profileStatistics;"
+      ],
+      "methods": [
+        {
+          "id": "tournament.TournamentCompletionChange::TournamentCompletionChange",
+          "name": "TournamentCompletionChange",
+          "signature": "const TournamentCompletionChange({\r\n    required this.expectedRevision,\r\n    required this.snapshot,\r\n    required this.profileStatistics,\r\n  })",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.TournamentCompletionChange::tournamentId",
+          "name": "tournamentId",
+          "signature": "TournamentId get tournamentId",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "tournament.TournamentCompletionPort",
+      "area": "tournament",
+      "name": "TournamentCompletionPort",
+      "file": "tournament/ports/tournament_completion_port.dart",
+      "kind": "interface",
+      "description": null,
+      "fields": [],
+      "methods": [
+        {
+          "id": "tournament.TournamentCompletionPort::finish",
+          "name": "finish",
+          "signature": "Future<Tournament> finish({\r\n    required TournamentId tournamentId,\r\n    required int expectedRevision,\r\n  })",
+          "unresolvedCalls": []
+        }
+      ],
+      "implementedBy": []
+    },
+    {
+      "id": "tournament.TournamentCompletionRepository",
+      "area": "tournament",
+      "name": "TournamentCompletionRepository",
+      "file": "tournament/repositories/tournament_completion_repository.dart",
+      "kind": "interface",
+      "description": null,
+      "fields": [],
+      "methods": [
+        {
+          "id": "tournament.TournamentCompletionRepository::commit",
+          "name": "commit",
+          "signature": "Future<void> commit(TournamentCompletionChange change)",
+          "unresolvedCalls": []
+        }
+      ],
+      "implementedBy": []
+    },
+    {
+      "id": "tournament.TournamentFailure",
+      "area": "tournament",
+      "name": "TournamentFailure",
+      "file": "tournament/failures/tournament_failure.dart",
+      "kind": "sealed class",
+      "description": null,
+      "fields": [
+        "final String message;"
+      ],
+      "methods": [
+        {
+          "id": "tournament.TournamentFailure::TournamentFailure",
+          "name": "TournamentFailure",
+          "signature": "const TournamentFailure(this.message)",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.TournamentFailure::toString",
+          "name": "toString",
+          "signature": "@override\r\n  String toString()",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "tournament.TournamentId",
+      "area": "tournament",
+      "name": "TournamentId",
+      "file": "tournament/value_objects/tournament_id.dart",
+      "kind": "class",
+      "description": null,
+      "fields": [
+        "final String value;"
+      ],
+      "methods": [
+        {
+          "id": "tournament.TournamentId::TournamentId",
+          "name": "TournamentId",
+          "signature": "TournamentId(String value) : value = _requireValue(value)",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.TournamentId::_requireValue",
+          "name": "_requireValue",
+          "signature": "static String _requireValue(String value)",
+          "unresolvedCalls": [
+            "value.trim()"
+          ]
+        },
+        {
+          "id": "tournament.TournamentId::props",
+          "name": "props",
+          "signature": "@override\r\n  List<Object> get props",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "tournament.TournamentLifecycle",
+      "area": "tournament",
+      "name": "TournamentLifecycle",
+      "file": "tournament/value_objects/tournament_lifecycle.dart",
+      "kind": "enum",
+      "description": null,
+      "fields": [
+        "draft",
+        "open",
+        "distribution",
+        "running",
+        "finished",
+        "cancelled"
+      ],
+      "methods": [
+        {
+          "id": "tournament.TournamentLifecycle::isTerminal",
+          "name": "isTerminal",
+          "signature": "bool get isTerminal",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "tournament.TournamentLifecyclePort",
+      "area": "tournament",
+      "name": "TournamentLifecyclePort",
+      "file": "tournament/ports/tournament_lifecycle_port.dart",
+      "kind": "interface",
+      "description": null,
+      "fields": [],
+      "methods": [
+        {
+          "id": "tournament.TournamentLifecyclePort::createDraft",
+          "name": "createDraft",
+          "signature": "Future<Tournament> createDraft(Tournament draft)",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.TournamentLifecyclePort::updateDraft",
+          "name": "updateDraft",
+          "signature": "Future<Tournament> updateDraft(\r\n    Tournament tournament, {\r\n    required int expectedRevision,\r\n  })",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.TournamentLifecyclePort::open",
+          "name": "open",
+          "signature": "Future<Tournament> open(\r\n    TournamentId tournamentId, {\r\n    required int expectedRevision,\r\n  })",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.TournamentLifecyclePort::addParticipant",
+          "name": "addParticipant",
+          "signature": "Future<Tournament> addParticipant({\r\n    required TournamentId tournamentId,\r\n    required Participant participant,\r\n    required int expectedRevision,\r\n  })",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.TournamentLifecyclePort::removeParticipant",
+          "name": "removeParticipant",
+          "signature": "Future<Tournament> removeParticipant({\r\n    required TournamentId tournamentId,\r\n    required ParticipantId participantId,\r\n    required int expectedRevision,\r\n  })",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.TournamentLifecyclePort::cancel",
+          "name": "cancel",
+          "signature": "Future<Tournament> cancel({\r\n    required TournamentId tournamentId,\r\n    required TournamentCancellation cancellation,\r\n    required int expectedRevision,\r\n  })",
+          "unresolvedCalls": []
+        }
+      ],
+      "implementedBy": []
+    },
+    {
+      "id": "tournament.TournamentMatchPort",
+      "area": "tournament",
+      "name": "TournamentMatchPort",
+      "file": "tournament/ports/tournament_match_port.dart",
+      "kind": "interface",
+      "description": null,
+      "fields": [],
+      "methods": [
+        {
+          "id": "tournament.TournamentMatchPort::recordResult",
+          "name": "recordResult",
+          "signature": "Future<Tournament> recordResult({\r\n    required TournamentId tournamentId,\r\n    required MatchResult result,\r\n    required int expectedRevision,\r\n  })",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.TournamentMatchPort::correctResult",
+          "name": "correctResult",
+          "signature": "Future<Tournament> correctResult({\r\n    required TournamentId tournamentId,\r\n    required MatchResult replacement,\r\n    required int expectedRevision,\r\n  })",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.TournamentMatchPort::withdraw",
+          "name": "withdraw",
+          "signature": "Future<Tournament> withdraw({\r\n    required TournamentId tournamentId,\r\n    required ParticipantId participantId,\r\n    required int expectedRevision,\r\n  })",
+          "unresolvedCalls": []
+        }
+      ],
+      "implementedBy": []
+    },
+    {
+      "id": "tournament.TournamentOutcome",
+      "area": "tournament",
+      "name": "TournamentOutcome",
+      "file": "tournament/value_objects/tournament_outcome.dart",
+      "kind": "class",
+      "description": null,
+      "fields": [
+        "final ParticipantId championId;",
+        "final UnmodifiableListView<TournamentPlacement> _placements;"
+      ],
+      "methods": [
+        {
+          "id": "tournament.TournamentOutcome::TournamentOutcome",
+          "name": "TournamentOutcome",
+          "signature": "TournamentOutcome({\r\n    required this.championId,\r\n    required Iterable<TournamentPlacement> placements,\r\n  }) : _placements = UnmodifiableListView(List.of(placements))",
+          "unresolvedCalls": [
+            "_placements.map((placement) => placement.participantId)",
+            "_placements.map((placement) => placement.participantId).toSet()",
+            "_placements.where((placement) => placement.isExact)",
+            "_placements.where((placement) => placement.isExact).map((placement) => placement.from)",
+            "_placements.where((placement) => placement.participantId == championId)",
+            "exactPlaces.toSet()"
+          ]
+        },
+        {
+          "id": "tournament.TournamentOutcome::placements",
+          "name": "placements",
+          "signature": "List<TournamentPlacement> get placements",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.TournamentOutcome::props",
+          "name": "props",
+          "signature": "@override\r\n  List<Object> get props",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "tournament.TournamentPlacement",
+      "area": "tournament",
+      "name": "TournamentPlacement",
+      "file": "tournament/value_objects/tournament_placement.dart",
+      "kind": "class",
+      "description": null,
+      "fields": [
+        "final ParticipantId participantId;",
+        "final int from;",
+        "final int to;"
+      ],
+      "methods": [
+        {
+          "id": "tournament.TournamentPlacement::TournamentPlacement",
+          "name": "TournamentPlacement",
+          "signature": "TournamentPlacement({\r\n    required this.participantId,\r\n    required int from,\r\n    required int to,\r\n  }) : from = _requirePositive(from, 'from'),\r\n       to = _requirePositive(to, 'to')",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.TournamentPlacement::isExact",
+          "name": "isExact",
+          "signature": "bool get isExact",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.TournamentPlacement::_requirePositive",
+          "name": "_requirePositive",
+          "signature": "static int _requirePositive(int value, String name)",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.TournamentPlacement::props",
+          "name": "props",
+          "signature": "@override\r\n  List<Object> get props",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "tournament.TournamentTitle",
+      "area": "tournament",
+      "name": "TournamentTitle",
+      "file": "tournament/value_objects/tournament_title.dart",
+      "kind": "class",
+      "description": null,
+      "fields": [
+        "final String value;"
+      ],
+      "methods": [
+        {
+          "id": "tournament.TournamentTitle::TournamentTitle",
+          "name": "TournamentTitle",
+          "signature": "TournamentTitle(String value) : value = _normalize(value)",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.TournamentTitle::_normalize",
+          "name": "_normalize",
+          "signature": "static String _normalize(String value)",
+          "unresolvedCalls": [
+            "value.trim()"
+          ]
+        },
+        {
+          "id": "tournament.TournamentTitle::props",
+          "name": "props",
+          "signature": "@override\r\n  List<Object> get props",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "tournament.WinnerOfMatchSlot",
+      "area": "tournament",
+      "name": "WinnerOfMatchSlot",
+      "file": "tournament/value_objects/match_slot.dart",
+      "kind": "class",
+      "description": null,
+      "fields": [
+        "final MatchId sourceMatchId;"
+      ],
+      "methods": [
+        {
+          "id": "tournament.WinnerOfMatchSlot::WinnerOfMatchSlot",
+          "name": "WinnerOfMatchSlot",
+          "signature": "const WinnerOfMatchSlot(this.sourceMatchId)",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.WinnerOfMatchSlot::resolvedParticipantId",
+          "name": "resolvedParticipantId",
+          "signature": "@override\r\n  ParticipantId? get resolvedParticipantId",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament.WinnerOfMatchSlot::props",
+          "name": "props",
+          "signature": "@override\r\n  List<Object> get props",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "tournament_format.RulesetVersion",
+      "area": "tournament_format",
+      "name": "RulesetVersion",
+      "file": "tournament_format/value_objects/ruleset_version.dart",
+      "kind": "class",
+      "description": null,
+      "fields": [
+        "final String value;"
+      ],
+      "methods": [
+        {
+          "id": "tournament_format.RulesetVersion::RulesetVersion",
+          "name": "RulesetVersion",
+          "signature": "RulesetVersion(String value) : value = _requireValue(value)",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament_format.RulesetVersion::_requireValue",
+          "name": "_requireValue",
+          "signature": "static String _requireValue(String value)",
+          "unresolvedCalls": [
+            "value.trim()"
+          ]
+        },
+        {
+          "id": "tournament_format.RulesetVersion::props",
+          "name": "props",
+          "signature": "@override\r\n  List<Object> get props",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "tournament_format.TournamentFormatFailure",
+      "area": "tournament_format",
+      "name": "TournamentFormatFailure",
+      "file": "tournament_format/failures/tournament_format_failure.dart",
+      "kind": "sealed class",
+      "description": null,
+      "fields": [
+        "final String message;"
+      ],
+      "methods": [
+        {
+          "id": "tournament_format.TournamentFormatFailure::TournamentFormatFailure",
+          "name": "TournamentFormatFailure",
+          "signature": "const TournamentFormatFailure(this.message)",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament_format.TournamentFormatFailure::toString",
+          "name": "toString",
+          "signature": "@override\r\n  String toString()",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "tournament_format.TournamentFormatId",
+      "area": "tournament_format",
+      "name": "TournamentFormatId",
+      "file": "tournament_format/value_objects/tournament_format_id.dart",
+      "kind": "class",
+      "description": null,
+      "fields": [
+        "final String value;"
+      ],
+      "methods": [
+        {
+          "id": "tournament_format.TournamentFormatId::TournamentFormatId",
+          "name": "TournamentFormatId",
+          "signature": "TournamentFormatId(String value) : value = _requireValue(value)",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament_format.TournamentFormatId::_requireValue",
+          "name": "_requireValue",
+          "signature": "static String _requireValue(String value)",
+          "unresolvedCalls": [
+            "value.trim()"
+          ]
+        },
+        {
+          "id": "tournament_format.TournamentFormatId::props",
+          "name": "props",
+          "signature": "@override\r\n  List<Object> get props",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "tournament_format.TournamentFormatKey",
+      "area": "tournament_format",
+      "name": "TournamentFormatKey",
+      "file": "tournament_format/value_objects/tournament_format_key.dart",
+      "kind": "class",
+      "description": null,
+      "fields": [
+        "final TournamentFormatId id;",
+        "final RulesetVersion rulesetVersion;"
+      ],
+      "methods": [
+        {
+          "id": "tournament_format.TournamentFormatKey::TournamentFormatKey",
+          "name": "TournamentFormatKey",
+          "signature": "const TournamentFormatKey({required this.id, required this.rulesetVersion})",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament_format.TournamentFormatKey::props",
+          "name": "props",
+          "signature": "@override\r\n  List<Object> get props",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "tournament_format.TournamentFormatPort",
+      "area": "tournament_format",
+      "name": "TournamentFormatPort",
+      "file": "tournament_format/ports/tournament_format_port.dart",
+      "kind": "interface",
+      "description": null,
+      "fields": [],
+      "methods": [
+        {
+          "id": "tournament_format.TournamentFormatPort::key",
+          "name": "key",
+          "signature": "TournamentFormatKey get key",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament_format.TournamentFormatPort::createInitialState",
+          "name": "createInitialState",
+          "signature": "TournamentFormatState createInitialState({\r\n    required Iterable<Participant> participants,\r\n    required TournamentFormatSettings settings,\r\n    required Iterable<ParticipantId> seed,\r\n  })",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament_format.TournamentFormatPort::applyResult",
+          "name": "applyResult",
+          "signature": "TournamentFormatState applyResult({\r\n    required TournamentFormatState state,\r\n    required MatchResult result,\r\n  })",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament_format.TournamentFormatPort::withdraw",
+          "name": "withdraw",
+          "signature": "TournamentFormatState withdraw({\r\n    required TournamentFormatState state,\r\n    required ParticipantId participantId,\r\n  })",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament_format.TournamentFormatPort::correctResult",
+          "name": "correctResult",
+          "signature": "TournamentFormatState correctResult({\r\n    required TournamentFormatState state,\r\n    required MatchResult replacement,\r\n  })",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament_format.TournamentFormatPort::outcomeFor",
+          "name": "outcomeFor",
+          "signature": "TournamentOutcome outcomeFor(TournamentFormatState state)",
+          "unresolvedCalls": []
+        }
+      ],
+      "implementedBy": []
+    },
+    {
+      "id": "tournament_format.TournamentFormatRepository",
+      "area": "tournament_format",
+      "name": "TournamentFormatRepository",
+      "file": "tournament_format/repositories/tournament_format_repository.dart",
+      "kind": "interface",
+      "description": null,
+      "fields": [],
+      "methods": [
+        {
+          "id": "tournament_format.TournamentFormatRepository::resolve",
+          "name": "resolve",
+          "signature": "TournamentFormatPort resolve(TournamentFormatKey key)",
+          "unresolvedCalls": []
+        }
+      ],
+      "implementedBy": []
+    },
+    {
+      "id": "tournament_format.TournamentFormatSettings",
+      "area": "tournament_format",
+      "name": "TournamentFormatSettings",
+      "file": "tournament_format/value_objects/tournament_format_settings.dart",
+      "kind": "abstract class",
+      "description": null,
+      "fields": [
+        "final TournamentFormatId formatId;"
+      ],
+      "methods": [
+        {
+          "id": "tournament_format.TournamentFormatSettings::TournamentFormatSettings",
+          "name": "TournamentFormatSettings",
+          "signature": "const TournamentFormatSettings(this.formatId)",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament_format.TournamentFormatSettings::props",
+          "name": "props",
+          "signature": "@override\r\n  List<Object> get props",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "tournament_format.TournamentFormatState",
+      "area": "tournament_format",
+      "name": "TournamentFormatState",
+      "file": "tournament_format/models/tournament_format_state.dart",
+      "kind": "class",
+      "description": null,
+      "fields": [
+        "final TournamentId tournamentId;",
+        "final TournamentFormatKey formatKey;",
+        "final UnmodifiableListView<ParticipantId> _seed;",
+        "final UnmodifiableListView<Match> _matches;",
+        "final Set<ParticipantId> _withdrawnParticipants;",
+        "final TournamentOutcome? outcome;"
+      ],
+      "methods": [
+        {
+          "id": "tournament_format.TournamentFormatState::TournamentFormatState",
+          "name": "TournamentFormatState",
+          "signature": "TournamentFormatState({\r\n    required this.tournamentId,\r\n    required this.formatKey,\r\n    required Iterable<ParticipantId> seed,\r\n    required Iterable<Match> matches,\r\n    Iterable<ParticipantId> withdrawnParticipants = const [],\r\n    this.outcome,\r\n  }) : _seed = UnmodifiableListView(List.of(seed)),\r\n       _matches = UnmodifiableListView(List.of(matches)),\r\n       _withdrawnParticipants = Set.unmodifiable(withdrawnParticipants)",
+          "unresolvedCalls": [
+            "_matches.any((match) => match.tournamentId != tournamentId)",
+            "_matches.map((match) => match.id)",
+            "_matches.map((match) => match.id).toSet()",
+            "_matches.where((match) => match.state.name == 'current')"
+          ]
+        },
+        {
+          "id": "tournament_format.TournamentFormatState::seed",
+          "name": "seed",
+          "signature": "List<ParticipantId> get seed",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament_format.TournamentFormatState::matches",
+          "name": "matches",
+          "signature": "List<Match> get matches",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament_format.TournamentFormatState::withdrawnParticipants",
+          "name": "withdrawnParticipants",
+          "signature": "Set<ParticipantId> get withdrawnParticipants",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament_format.TournamentFormatState::currentMatch",
+          "name": "currentMatch",
+          "signature": "Match? get currentMatch",
+          "unresolvedCalls": []
+        },
+        {
+          "id": "tournament_format.TournamentFormatState::props",
+          "name": "props",
+          "signature": "@override\r\n  List<Object?> get props",
+          "unresolvedCalls": []
+        }
+      ]
+    },
+    {
+      "id": "tournament_format.UnsupportedTournamentFormatFailure",
+      "area": "tournament_format",
+      "name": "UnsupportedTournamentFormatFailure",
+      "file": "tournament_format/failures/tournament_format_failure.dart",
+      "kind": "class",
+      "description": null,
+      "fields": [],
+      "methods": [
+        {
+          "id": "tournament_format.UnsupportedTournamentFormatFailure::UnsupportedTournamentFormatFailure",
+          "name": "UnsupportedTournamentFormatFailure",
+          "signature": "const UnsupportedTournamentFormatFailure()\r\n    : super('Tournament format не поддерживается.')",
+          "unresolvedCalls": []
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "character_assignment.CharacterAssignment::CharacterAssignment",
+      "to": null,
+      "kind": "throw",
+      "evidence": "ArgumentError",
+      "externalName": "ArgumentError"
+    },
+    {
+      "from": "character_assignment.CharacterAssignmentSet::CharacterAssignmentSet",
+      "to": null,
+      "kind": "throw",
+      "evidence": "ArgumentError",
+      "externalName": "ArgumentError"
+    },
+    {
+      "from": "character_assignment.CharacterAssignmentSet::remove",
+      "to": "character_assignment.CharacterAssignmentSet::CharacterAssignmentSet",
+      "kind": "call",
+      "evidence": "CharacterAssignmentSet(tournamentId: tournamentId, assignments: _assignments.where((assignment) => assignment.participantId != participantId), enforceUniqueCharacters: enforceUniqueCharacters)"
+    },
+    {
+      "from": "character_assignment.CharacterAssignmentSet",
+      "to": "character_assignment.CharacterAssignment",
+      "kind": "type",
+      "evidence": "CharacterAssignment"
+    },
+    {
+      "from": "character_assignment.CharacterAssignmentSet",
+      "to": "tournament.ParticipantId",
+      "kind": "type",
+      "evidence": "ParticipantId"
+    },
+    {
+      "from": "character_assignment.CharacterAssignmentSet",
+      "to": "tournament.TournamentId",
+      "kind": "type",
+      "evidence": "TournamentId"
+    },
+    {
+      "from": "character_assignment.CharacterAssignment",
+      "to": "game.CharacterId",
+      "kind": "type",
+      "evidence": "CharacterId"
+    },
+    {
+      "from": "character_assignment.CharacterAssignment",
+      "to": "tournament.ParticipantId",
+      "kind": "type",
+      "evidence": "ParticipantId"
+    },
+    {
+      "from": "character_assignment.CharacterAssignment",
+      "to": "tournament.TournamentId",
+      "kind": "type",
+      "evidence": "TournamentId"
+    },
+    {
+      "from": "character_assignment.CharacterDistributionPort",
+      "to": "character_assignment.CharacterAssignmentSet",
+      "kind": "type",
+      "evidence": "CharacterAssignmentSet"
+    },
+    {
+      "from": "character_assignment.CharacterDistributionPort",
+      "to": "character_assignment.RandomPort",
+      "kind": "type",
+      "evidence": "RandomPort"
+    },
+    {
+      "from": "character_assignment.CharacterDistributionPort",
+      "to": "game.Character",
+      "kind": "type",
+      "evidence": "Character"
+    },
+    {
+      "from": "character_assignment.CharacterDistributionPort",
+      "to": "tournament.ParticipantId",
+      "kind": "type",
+      "evidence": "ParticipantId"
+    },
+    {
+      "from": "character_assignment.CharacterDistributionPort",
+      "to": "tournament.Participant",
+      "kind": "type",
+      "evidence": "Participant"
+    },
+    {
+      "from": "character_assignment.InsufficientCharacterFailure",
+      "to": "character_assignment.CharacterAssignmentFailure",
+      "kind": "type",
+      "evidence": "CharacterAssignmentFailure"
+    },
+    {
+      "from": "character_assignment.NoFreeCharacterFailure",
+      "to": "character_assignment.CharacterAssignmentFailure",
+      "kind": "type",
+      "evidence": "CharacterAssignmentFailure"
+    },
+    {
+      "from": "game.Character::_requireDisplayName",
+      "to": null,
+      "kind": "throw",
+      "evidence": "ArgumentError",
+      "externalName": "ArgumentError"
+    },
+    {
+      "from": "game.CharacterId::_requireValue",
+      "to": null,
+      "kind": "throw",
+      "evidence": "ArgumentError",
+      "externalName": "ArgumentError"
+    },
+    {
+      "from": "game.CharacterId",
+      "to": "game.GameId",
+      "kind": "type",
+      "evidence": "GameId"
+    },
+    {
+      "from": "game.CharacterNotFoundFailure",
+      "to": "game.GameFailure",
+      "kind": "type",
+      "evidence": "GameFailure"
+    },
+    {
+      "from": "game.Character",
+      "to": "game.CharacterId",
+      "kind": "type",
+      "evidence": "CharacterId"
+    },
+    {
+      "from": "game.Character",
+      "to": "game.GameId",
+      "kind": "type",
+      "evidence": "GameId"
+    },
+    {
+      "from": "game.Game::Game",
+      "to": null,
+      "kind": "throw",
+      "evidence": "ArgumentError",
+      "externalName": "ArgumentError"
+    },
+    {
+      "from": "game.Game::_requireText",
+      "to": null,
+      "kind": "throw",
+      "evidence": "ArgumentError",
+      "externalName": "ArgumentError"
+    },
+    {
+      "from": "game.Game::containsCharacter",
+      "to": "game.Game::findCharacter",
+      "kind": "call",
+      "evidence": "findCharacter(id)"
+    },
+    {
+      "from": "game.GameId::_requireValue",
+      "to": null,
+      "kind": "throw",
+      "evidence": "ArgumentError",
+      "externalName": "ArgumentError"
+    },
+    {
+      "from": "game.GameNotFoundFailure",
+      "to": "game.GameFailure",
+      "kind": "type",
+      "evidence": "GameFailure"
+    },
+    {
+      "from": "game.GameRepository",
+      "to": "game.GameId",
+      "kind": "type",
+      "evidence": "GameId"
+    },
+    {
+      "from": "game.GameRepository",
+      "to": "game.Game",
+      "kind": "type",
+      "evidence": "Game"
+    },
+    {
+      "from": "game.GameRosterPort",
+      "to": "game.CharacterId",
+      "kind": "type",
+      "evidence": "CharacterId"
+    },
+    {
+      "from": "game.GameRosterPort",
+      "to": "game.Character",
+      "kind": "type",
+      "evidence": "Character"
+    },
+    {
+      "from": "game.GameRosterPort",
+      "to": "game.GameId",
+      "kind": "type",
+      "evidence": "GameId"
+    },
+    {
+      "from": "game.Game",
+      "to": "game.CharacterId",
+      "kind": "type",
+      "evidence": "CharacterId"
+    },
+    {
+      "from": "game.Game",
+      "to": "game.Character",
+      "kind": "type",
+      "evidence": "Character"
+    },
+    {
+      "from": "game.Game",
+      "to": "game.GameId",
+      "kind": "type",
+      "evidence": "GameId"
+    },
+    {
+      "from": "history.HistoricalTournamentNotFoundFailure",
+      "to": "history.HistoryFailure",
+      "kind": "type",
+      "evidence": "HistoryFailure"
+    },
+    {
+      "from": "history.HistoricalTournamentSnapshot::HistoricalTournamentSnapshot",
+      "to": null,
+      "kind": "throw",
+      "evidence": "ArgumentError",
+      "externalName": "ArgumentError"
+    },
+    {
+      "from": "history.HistoricalTournamentSnapshot",
+      "to": "character_assignment.CharacterAssignment",
+      "kind": "type",
+      "evidence": "CharacterAssignment"
+    },
+    {
+      "from": "history.HistoricalTournamentSnapshot",
+      "to": "game.GameId",
+      "kind": "type",
+      "evidence": "GameId"
+    },
+    {
+      "from": "history.HistoricalTournamentSnapshot",
+      "to": "tournament.Participant",
+      "kind": "type",
+      "evidence": "Participant"
+    },
+    {
+      "from": "history.HistoricalTournamentSnapshot",
+      "to": "tournament.TournamentCancellation",
+      "kind": "type",
+      "evidence": "TournamentCancellation"
+    },
+    {
+      "from": "history.HistoricalTournamentSnapshot",
+      "to": "tournament.TournamentId",
+      "kind": "type",
+      "evidence": "TournamentId"
+    },
+    {
+      "from": "history.HistoricalTournamentSnapshot",
+      "to": "tournament.TournamentLifecycle",
+      "kind": "type",
+      "evidence": "TournamentLifecycle"
+    },
+    {
+      "from": "history.HistoricalTournamentSnapshot",
+      "to": "tournament.TournamentOutcome",
+      "kind": "type",
+      "evidence": "TournamentOutcome"
+    },
+    {
+      "from": "history.HistoricalTournamentSnapshot",
+      "to": "tournament.TournamentTitle",
+      "kind": "type",
+      "evidence": "TournamentTitle"
+    },
+    {
+      "from": "history.HistoricalTournamentSnapshot",
+      "to": "tournament_format.TournamentFormatKey",
+      "kind": "type",
+      "evidence": "TournamentFormatKey"
+    },
+    {
+      "from": "history.HistoricalTournamentSnapshot",
+      "to": "tournament_format.TournamentFormatSettings",
+      "kind": "type",
+      "evidence": "TournamentFormatSettings"
+    },
+    {
+      "from": "history.HistoricalTournamentSnapshot",
+      "to": "tournament_format.TournamentFormatState",
+      "kind": "type",
+      "evidence": "TournamentFormatState"
+    },
+    {
+      "from": "history.TournamentHistoryPort",
+      "to": "history.HistoricalTournamentSnapshot",
+      "kind": "type",
+      "evidence": "HistoricalTournamentSnapshot"
+    },
+    {
+      "from": "history.TournamentHistoryPort",
+      "to": "tournament.TournamentId",
+      "kind": "type",
+      "evidence": "TournamentId"
+    },
+    {
+      "from": "history.TournamentHistoryRepository",
+      "to": "history.HistoricalTournamentSnapshot",
+      "kind": "type",
+      "evidence": "HistoricalTournamentSnapshot"
+    },
+    {
+      "from": "history.TournamentHistoryRepository",
+      "to": "tournament.TournamentId",
+      "kind": "type",
+      "evidence": "TournamentId"
+    },
+    {
+      "from": "profile.Nickname::_normalize",
+      "to": null,
+      "kind": "throw",
+      "evidence": "ArgumentError",
+      "externalName": "ArgumentError"
+    },
+    {
+      "from": "profile.Profile::Profile",
+      "to": null,
+      "kind": "throw",
+      "evidence": "ArgumentError",
+      "externalName": "ArgumentError"
+    },
+    {
+      "from": "profile.Profile::rename",
+      "to": "profile.Profile::Profile",
+      "kind": "call",
+      "evidence": "Profile(id: id, nickname: nextNickname, statistic: statistic)"
+    },
+    {
+      "from": "profile.ProfileId::_requireValue",
+      "to": null,
+      "kind": "throw",
+      "evidence": "ArgumentError",
+      "externalName": "ArgumentError"
+    },
+    {
+      "from": "profile.ProfileManagementPort",
+      "to": "profile.Nickname",
+      "kind": "type",
+      "evidence": "Nickname"
+    },
+    {
+      "from": "profile.ProfileManagementPort",
+      "to": "profile.ProfileId",
+      "kind": "type",
+      "evidence": "ProfileId"
+    },
+    {
+      "from": "profile.ProfileManagementPort",
+      "to": "profile.Profile",
+      "kind": "type",
+      "evidence": "Profile"
+    },
+    {
+      "from": "profile.ProfileNotFoundFailure",
+      "to": "profile.ProfileFailure",
+      "kind": "type",
+      "evidence": "ProfileFailure"
+    },
+    {
+      "from": "profile.ProfileRepository",
+      "to": "profile.ProfileId",
+      "kind": "type",
+      "evidence": "ProfileId"
+    },
+    {
+      "from": "profile.ProfileRepository",
+      "to": "profile.Profile",
+      "kind": "type",
+      "evidence": "Profile"
+    },
+    {
+      "from": "profile.ProfileRepository",
+      "to": "statistics.ProfileStatistic",
+      "kind": "type",
+      "evidence": "ProfileStatistic"
+    },
+    {
+      "from": "profile.Profile",
+      "to": "profile.Nickname",
+      "kind": "type",
+      "evidence": "Nickname"
+    },
+    {
+      "from": "profile.Profile",
+      "to": "profile.ProfileId",
+      "kind": "type",
+      "evidence": "ProfileId"
+    },
+    {
+      "from": "profile.Profile",
+      "to": "statistics.ProfileStatistic",
+      "kind": "type",
+      "evidence": "ProfileStatistic"
+    },
+    {
+      "from": "profile.StaleProfileRevisionFailure",
+      "to": "profile.ProfileFailure",
+      "kind": "type",
+      "evidence": "ProfileFailure"
+    },
+    {
+      "from": "statistics.CounterStatisticValue::_requireNonNegative",
+      "to": null,
+      "kind": "throw",
+      "evidence": "ArgumentError",
+      "externalName": "ArgumentError"
+    },
+    {
+      "from": "statistics.CounterStatisticValue",
+      "to": "statistics.StatisticValue",
+      "kind": "type",
+      "evidence": "StatisticValue"
+    },
+    {
+      "from": "statistics.ParticipantTournamentStatistic::ParticipantTournamentStatistic",
+      "to": null,
+      "kind": "throw",
+      "evidence": "ArgumentError",
+      "externalName": "ArgumentError"
+    },
+    {
+      "from": "statistics.ParticipantTournamentStatistic",
+      "to": "statistics.StatisticType",
+      "kind": "type",
+      "evidence": "StatisticType"
+    },
+    {
+      "from": "statistics.ParticipantTournamentStatistic",
+      "to": "statistics.StatisticValue",
+      "kind": "type",
+      "evidence": "StatisticValue"
+    },
+    {
+      "from": "statistics.ParticipantTournamentStatistic",
+      "to": "statistics.Statistic",
+      "kind": "type",
+      "evidence": "Statistic"
+    },
+    {
+      "from": "statistics.ParticipantTournamentStatistic",
+      "to": "tournament.ParticipantId",
+      "kind": "type",
+      "evidence": "ParticipantId"
+    },
+    {
+      "from": "statistics.ParticipantTournamentStatistic",
+      "to": "tournament.TournamentId",
+      "kind": "type",
+      "evidence": "TournamentId"
+    },
+    {
+      "from": "statistics.PlacementStatisticValue::_requirePositive",
+      "to": null,
+      "kind": "throw",
+      "evidence": "ArgumentError",
+      "externalName": "ArgumentError"
+    },
+    {
+      "from": "statistics.PlacementStatisticValue",
+      "to": "statistics.StatisticValue",
+      "kind": "type",
+      "evidence": "StatisticValue"
+    },
+    {
+      "from": "statistics.PointsStatisticValue::_requireNonNegative",
+      "to": null,
+      "kind": "throw",
+      "evidence": "ArgumentError",
+      "externalName": "ArgumentError"
+    },
+    {
+      "from": "statistics.PointsStatisticValue",
+      "to": "statistics.StatisticValue",
+      "kind": "type",
+      "evidence": "StatisticValue"
+    },
+    {
+      "from": "statistics.ProfileStatisticAccumulationPort",
+      "to": "history.HistoricalTournamentSnapshot",
+      "kind": "type",
+      "evidence": "HistoricalTournamentSnapshot"
+    },
+    {
+      "from": "statistics.ProfileStatisticAccumulationPort",
+      "to": "statistics.ProfileStatistic",
+      "kind": "type",
+      "evidence": "ProfileStatistic"
+    },
+    {
+      "from": "statistics.ProfileStatisticRepository",
+      "to": "profile.ProfileId",
+      "kind": "type",
+      "evidence": "ProfileId"
+    },
+    {
+      "from": "statistics.ProfileStatisticRepository",
+      "to": "statistics.ProfileStatistic",
+      "kind": "type",
+      "evidence": "ProfileStatistic"
+    },
+    {
+      "from": "statistics.ProfileStatistic",
+      "to": "profile.ProfileId",
+      "kind": "type",
+      "evidence": "ProfileId"
+    },
+    {
+      "from": "statistics.ProfileStatistic",
+      "to": "statistics.StatisticType",
+      "kind": "type",
+      "evidence": "StatisticType"
+    },
+    {
+      "from": "statistics.ProfileStatistic",
+      "to": "statistics.StatisticValue",
+      "kind": "type",
+      "evidence": "StatisticValue"
+    },
+    {
+      "from": "statistics.ProfileStatistic",
+      "to": "statistics.Statistic",
+      "kind": "type",
+      "evidence": "Statistic"
+    },
+    {
+      "from": "statistics.ProfileStatistic",
+      "to": "tournament.TournamentId",
+      "kind": "type",
+      "evidence": "TournamentId"
+    },
+    {
+      "from": "statistics.SharedStatistic",
+      "to": "statistics.StatisticType",
+      "kind": "type",
+      "evidence": "StatisticType"
+    },
+    {
+      "from": "statistics.SharedStatistic",
+      "to": "statistics.StatisticValue",
+      "kind": "type",
+      "evidence": "StatisticValue"
+    },
+    {
+      "from": "statistics.StatisticAccessPort",
+      "to": "statistics.SharedStatistic",
+      "kind": "type",
+      "evidence": "SharedStatistic"
+    },
+    {
+      "from": "statistics.StatisticAccessPort",
+      "to": "statistics.Statistic",
+      "kind": "type",
+      "evidence": "Statistic"
+    },
+    {
+      "from": "statistics.StatisticTypeNotAllowedFailure",
+      "to": "statistics.StatisticFailure",
+      "kind": "type",
+      "evidence": "StatisticFailure"
+    },
+    {
+      "from": "statistics.Statistic",
+      "to": "statistics.StatisticType",
+      "kind": "type",
+      "evidence": "StatisticType"
+    },
+    {
+      "from": "statistics.Statistic",
+      "to": "statistics.StatisticValue",
+      "kind": "type",
+      "evidence": "StatisticValue"
+    },
+    {
+      "from": "statistics.TournamentStatistic",
+      "to": "statistics.StatisticType",
+      "kind": "type",
+      "evidence": "StatisticType"
+    },
+    {
+      "from": "statistics.TournamentStatistic",
+      "to": "statistics.StatisticValue",
+      "kind": "type",
+      "evidence": "StatisticValue"
+    },
+    {
+      "from": "statistics.TournamentStatistic",
+      "to": "statistics.Statistic",
+      "kind": "type",
+      "evidence": "Statistic"
+    },
+    {
+      "from": "statistics.TournamentStatistic",
+      "to": "tournament.TournamentId",
+      "kind": "type",
+      "evidence": "TournamentId"
+    },
+    {
+      "from": "tournament.ActiveTournamentRepository",
+      "to": "tournament.Tournament",
+      "kind": "type",
+      "evidence": "Tournament"
+    },
+    {
+      "from": "tournament.AssignedParticipantSlot",
+      "to": "tournament.MatchSlot",
+      "kind": "type",
+      "evidence": "MatchSlot"
+    },
+    {
+      "from": "tournament.AssignedParticipantSlot",
+      "to": "tournament.ParticipantId",
+      "kind": "type",
+      "evidence": "ParticipantId"
+    },
+    {
+      "from": "tournament.ByeSlot",
+      "to": "tournament.MatchSlot",
+      "kind": "type",
+      "evidence": "MatchSlot"
+    },
+    {
+      "from": "tournament.ByeSlot",
+      "to": "tournament.ParticipantId",
+      "kind": "type",
+      "evidence": "ParticipantId"
+    },
+    {
+      "from": "tournament.FirstTo::_requirePositive",
+      "to": null,
+      "kind": "throw",
+      "evidence": "ArgumentError",
+      "externalName": "ArgumentError"
+    },
+    {
+      "from": "tournament.InvalidTournamentTransitionFailure",
+      "to": "tournament.TournamentFailure",
+      "kind": "type",
+      "evidence": "TournamentFailure"
+    },
+    {
+      "from": "tournament.LoserOfMatchSlot",
+      "to": "tournament.MatchId",
+      "kind": "type",
+      "evidence": "MatchId"
+    },
+    {
+      "from": "tournament.LoserOfMatchSlot",
+      "to": "tournament.MatchSlot",
+      "kind": "type",
+      "evidence": "MatchSlot"
+    },
+    {
+      "from": "tournament.LoserOfMatchSlot",
+      "to": "tournament.ParticipantId",
+      "kind": "type",
+      "evidence": "ParticipantId"
+    },
+    {
+      "from": "tournament.Match::Match",
+      "to": "tournament.Match::_validateResult",
+      "kind": "call",
+      "evidence": "_validateResult(result)"
+    },
+    {
+      "from": "tournament.Match::Match",
+      "to": null,
+      "kind": "throw",
+      "evidence": "ArgumentError",
+      "externalName": "ArgumentError"
+    },
+    {
+      "from": "tournament.Match::_copy",
+      "to": "tournament.Match::Match",
+      "kind": "call",
+      "evidence": "Match(id: id, order: order, round: round, stage: stage, slots: _slots, firstTo: firstTo, state: state, result: result)"
+    },
+    {
+      "from": "tournament.Match::_requireStage",
+      "to": null,
+      "kind": "throw",
+      "evidence": "ArgumentError",
+      "externalName": "ArgumentError"
+    },
+    {
+      "from": "tournament.Match::_validateResult",
+      "to": null,
+      "kind": "throw",
+      "evidence": "ArgumentError",
+      "externalName": "ArgumentError"
+    },
+    {
+      "from": "tournament.Match::finish",
+      "to": "tournament.Match::_copy",
+      "kind": "call",
+      "evidence": "_copy(state: MatchState.finished, result: nextResult)"
+    },
+    {
+      "from": "tournament.Match::finish",
+      "to": "tournament.Match::_validateResult",
+      "kind": "call",
+      "evidence": "_validateResult(nextResult)"
+    },
+    {
+      "from": "tournament.Match::finish",
+      "to": null,
+      "kind": "throw",
+      "evidence": "ArgumentError",
+      "externalName": "ArgumentError"
+    },
+    {
+      "from": "tournament.Match::finish",
+      "to": null,
+      "kind": "throw",
+      "evidence": "StateError",
+      "externalName": "StateError"
+    },
+    {
+      "from": "tournament.Match::start",
+      "to": "tournament.Match::_copy",
+      "kind": "call",
+      "evidence": "_copy(state: MatchState.current)"
+    },
+    {
+      "from": "tournament.Match::start",
+      "to": null,
+      "kind": "throw",
+      "evidence": "StateError",
+      "externalName": "StateError"
+    },
+    {
+      "from": "tournament.MatchId::_requireValue",
+      "to": null,
+      "kind": "throw",
+      "evidence": "ArgumentError",
+      "externalName": "ArgumentError"
+    },
+    {
+      "from": "tournament.MatchId",
+      "to": "tournament.TournamentId",
+      "kind": "type",
+      "evidence": "TournamentId"
+    },
+    {
+      "from": "tournament.MatchResult",
+      "to": "tournament.ParticipantId",
+      "kind": "type",
+      "evidence": "ParticipantId"
+    },
+    {
+      "from": "tournament.MatchSlot",
+      "to": "tournament.ParticipantId",
+      "kind": "type",
+      "evidence": "ParticipantId"
+    },
+    {
+      "from": "tournament.Match",
+      "to": "tournament.FirstTo",
+      "kind": "type",
+      "evidence": "FirstTo"
+    },
+    {
+      "from": "tournament.Match",
+      "to": "tournament.MatchId",
+      "kind": "type",
+      "evidence": "MatchId"
+    },
+    {
+      "from": "tournament.Match",
+      "to": "tournament.MatchResult",
+      "kind": "type",
+      "evidence": "MatchResult"
+    },
+    {
+      "from": "tournament.Match",
+      "to": "tournament.MatchSlot",
+      "kind": "type",
+      "evidence": "MatchSlot"
+    },
+    {
+      "from": "tournament.Match",
+      "to": "tournament.MatchState",
+      "kind": "type",
+      "evidence": "MatchState"
+    },
+    {
+      "from": "tournament.Match",
+      "to": "tournament.NormalMatchResult",
+      "kind": "type",
+      "evidence": "NormalMatchResult"
+    },
+    {
+      "from": "tournament.Match",
+      "to": "tournament.ParticipantId",
+      "kind": "type",
+      "evidence": "ParticipantId"
+    },
+    {
+      "from": "tournament.Match",
+      "to": "tournament.TournamentId",
+      "kind": "type",
+      "evidence": "TournamentId"
+    },
+    {
+      "from": "tournament.NormalMatchResult::_requireNonNegative",
+      "to": null,
+      "kind": "throw",
+      "evidence": "ArgumentError",
+      "externalName": "ArgumentError"
+    },
+    {
+      "from": "tournament.NormalMatchResult",
+      "to": "tournament.MatchResult",
+      "kind": "type",
+      "evidence": "MatchResult"
+    },
+    {
+      "from": "tournament.Participant::withStatus",
+      "to": "tournament.Participant::Participant._copy",
+      "kind": "call",
+      "evidence": "Participant._copy(this, status: nextStatus)"
+    },
+    {
+      "from": "tournament.Participant::withStatus",
+      "to": null,
+      "kind": "throw",
+      "evidence": "StateError",
+      "externalName": "StateError"
+    },
+    {
+      "from": "tournament.ParticipantId::_requireValue",
+      "to": null,
+      "kind": "throw",
+      "evidence": "ArgumentError",
+      "externalName": "ArgumentError"
+    },
+    {
+      "from": "tournament.ParticipantId",
+      "to": "tournament.TournamentId",
+      "kind": "type",
+      "evidence": "TournamentId"
+    },
+    {
+      "from": "tournament.Participant",
+      "to": "profile.Nickname",
+      "kind": "type",
+      "evidence": "Nickname"
+    },
+    {
+      "from": "tournament.Participant",
+      "to": "profile.ProfileId",
+      "kind": "type",
+      "evidence": "ProfileId"
+    },
+    {
+      "from": "tournament.Participant",
+      "to": "statistics.ParticipantTournamentStatistic",
+      "kind": "type",
+      "evidence": "ParticipantTournamentStatistic"
+    },
+    {
+      "from": "tournament.Participant",
+      "to": "tournament.ParticipantId",
+      "kind": "type",
+      "evidence": "ParticipantId"
+    },
+    {
+      "from": "tournament.Participant",
+      "to": "tournament.ParticipantStatus",
+      "kind": "type",
+      "evidence": "ParticipantStatus"
+    },
+    {
+      "from": "tournament.Participant",
+      "to": "tournament.ParticipantType",
+      "kind": "type",
+      "evidence": "ParticipantType"
+    },
+    {
+      "from": "tournament.SeedPositionSlot::_requirePositive",
+      "to": null,
+      "kind": "throw",
+      "evidence": "ArgumentError",
+      "externalName": "ArgumentError"
+    },
+    {
+      "from": "tournament.SeedPositionSlot",
+      "to": "tournament.MatchSlot",
+      "kind": "type",
+      "evidence": "MatchSlot"
+    },
+    {
+      "from": "tournament.SeedPositionSlot",
+      "to": "tournament.ParticipantId",
+      "kind": "type",
+      "evidence": "ParticipantId"
+    },
+    {
+      "from": "tournament.StaleTournamentRevisionFailure",
+      "to": "tournament.TournamentFailure",
+      "kind": "type",
+      "evidence": "TournamentFailure"
+    },
+    {
+      "from": "tournament.TechnicalMatchResult",
+      "to": "tournament.MatchResult",
+      "kind": "type",
+      "evidence": "MatchResult"
+    },
+    {
+      "from": "tournament.TechnicalMatchResult",
+      "to": "tournament.TechnicalResultReason",
+      "kind": "type",
+      "evidence": "TechnicalResultReason"
+    },
+    {
+      "from": "tournament.Tournament::Tournament._",
+      "to": "tournament.Tournament::_validate",
+      "kind": "call",
+      "evidence": "_validate()"
+    },
+    {
+      "from": "tournament.Tournament::Tournament.draft",
+      "to": "tournament.Tournament::_validate",
+      "kind": "call",
+      "evidence": "_validate()"
+    },
+    {
+      "from": "tournament.Tournament::_copy",
+      "to": "tournament.Tournament::Tournament._",
+      "kind": "call",
+      "evidence": "Tournament._(id: id, title: title ?? this.title, gameId: gameId ?? this.gameId, rosterVersion: rosterVersion ?? this.rosterVersion, formatKey: formatKey ?? this.formatKey, formatSettings: formatSettings ?? this.formatSettings, lifecycle: lifecycle ?? this.lifecycle, participants: participants ?? _participants, assignments: assignments ?? this.assignments, formatState: formatState ?? this.formatState, statistic: statistic, outcome: outcome ?? this.outcome, cancellation: cancellation ?? this.cancellation, revision: revision + 1, createdAtUtc: createdAtUtc, updatedAtUtc: _requireUtc(changedAtUtc))"
+    },
+    {
+      "from": "tournament.Tournament::_copy",
+      "to": "tournament.Tournament::_requireUtc",
+      "kind": "call",
+      "evidence": "_requireUtc(changedAtUtc)"
+    },
+    {
+      "from": "tournament.Tournament::_requireAssignments",
+      "to": null,
+      "kind": "throw",
+      "evidence": "ArgumentError",
+      "externalName": "ArgumentError"
+    },
+    {
+      "from": "tournament.Tournament::_requireLifecycle",
+      "to": null,
+      "kind": "throw",
+      "evidence": "StateError",
+      "externalName": "StateError"
+    },
+    {
+      "from": "tournament.Tournament::_requireUtc",
+      "to": null,
+      "kind": "throw",
+      "evidence": "ArgumentError",
+      "externalName": "ArgumentError"
+    },
+    {
+      "from": "tournament.Tournament::_validateOutcome",
+      "to": null,
+      "kind": "throw",
+      "evidence": "ArgumentError",
+      "externalName": "ArgumentError"
+    },
+    {
+      "from": "tournament.Tournament::_validate",
+      "to": null,
+      "kind": "throw",
+      "evidence": "ArgumentError",
+      "externalName": "ArgumentError"
+    },
+    {
+      "from": "tournament.Tournament::acceptAssignments",
+      "to": "tournament.Tournament::_copy",
+      "kind": "call",
+      "evidence": "_copy(assignments: nextAssignments, changedAtUtc: changedAtUtc)"
+    },
+    {
+      "from": "tournament.Tournament::acceptAssignments",
+      "to": "tournament.Tournament::_requireAssignments",
+      "kind": "call",
+      "evidence": "_requireAssignments(nextAssignments)"
+    },
+    {
+      "from": "tournament.Tournament::acceptAssignments",
+      "to": "tournament.Tournament::_requireLifecycle",
+      "kind": "call",
+      "evidence": "_requireLifecycle(TournamentLifecycle.distribution)"
+    },
+    {
+      "from": "tournament.Tournament::addParticipant",
+      "to": "tournament.Tournament::_copy",
+      "kind": "call",
+      "evidence": "_copy(participants: [..._participants, participant], changedAtUtc: changedAtUtc)"
+    },
+    {
+      "from": "tournament.Tournament::addParticipant",
+      "to": "tournament.Tournament::_requireLifecycle",
+      "kind": "call",
+      "evidence": "_requireLifecycle(TournamentLifecycle.open)"
+    },
+    {
+      "from": "tournament.Tournament::addParticipant",
+      "to": null,
+      "kind": "throw",
+      "evidence": "ArgumentError",
+      "externalName": "ArgumentError"
+    },
+    {
+      "from": "tournament.Tournament::applyFormatState",
+      "to": "tournament.Tournament::_copy",
+      "kind": "call",
+      "evidence": "_copy(formatState: nextFormatState, participants: participants, changedAtUtc: changedAtUtc)"
+    },
+    {
+      "from": "tournament.Tournament::applyFormatState",
+      "to": "tournament.Tournament::_requireLifecycle",
+      "kind": "call",
+      "evidence": "_requireLifecycle(TournamentLifecycle.running)"
+    },
+    {
+      "from": "tournament.Tournament::applyFormatState",
+      "to": null,
+      "kind": "throw",
+      "evidence": "ArgumentError",
+      "externalName": "ArgumentError"
+    },
+    {
+      "from": "tournament.Tournament::beginDistribution",
+      "to": "tournament.Tournament::_copy",
+      "kind": "call",
+      "evidence": "_copy(lifecycle: TournamentLifecycle.distribution, changedAtUtc: changedAtUtc)"
+    },
+    {
+      "from": "tournament.Tournament::beginDistribution",
+      "to": "tournament.Tournament::_requireLifecycle",
+      "kind": "call",
+      "evidence": "_requireLifecycle(TournamentLifecycle.open)"
+    },
+    {
+      "from": "tournament.Tournament::beginDistribution",
+      "to": null,
+      "kind": "throw",
+      "evidence": "StateError",
+      "externalName": "StateError"
+    },
+    {
+      "from": "tournament.Tournament::cancel",
+      "to": "tournament.Tournament::_copy",
+      "kind": "call",
+      "evidence": "_copy(lifecycle: TournamentLifecycle.cancelled, cancellation: nextCancellation, changedAtUtc: changedAtUtc)"
+    },
+    {
+      "from": "tournament.Tournament::cancel",
+      "to": null,
+      "kind": "throw",
+      "evidence": "StateError",
+      "externalName": "StateError"
+    },
+    {
+      "from": "tournament.Tournament::finish",
+      "to": "tournament.Tournament::_copy",
+      "kind": "call",
+      "evidence": "_copy(lifecycle: TournamentLifecycle.finished, outcome: nextOutcome, changedAtUtc: changedAtUtc)"
+    },
+    {
+      "from": "tournament.Tournament::finish",
+      "to": "tournament.Tournament::_requireLifecycle",
+      "kind": "call",
+      "evidence": "_requireLifecycle(TournamentLifecycle.running)"
+    },
+    {
+      "from": "tournament.Tournament::finish",
+      "to": "tournament.Tournament::_validateOutcome",
+      "kind": "call",
+      "evidence": "_validateOutcome(nextOutcome)"
+    },
+    {
+      "from": "tournament.Tournament::open",
+      "to": "tournament.Tournament::_copy",
+      "kind": "call",
+      "evidence": "_copy(lifecycle: TournamentLifecycle.open, changedAtUtc: changedAtUtc)"
+    },
+    {
+      "from": "tournament.Tournament::open",
+      "to": "tournament.Tournament::_requireLifecycle",
+      "kind": "call",
+      "evidence": "_requireLifecycle(TournamentLifecycle.draft)"
+    },
+    {
+      "from": "tournament.Tournament::removeParticipant",
+      "to": "tournament.Tournament::_copy",
+      "kind": "call",
+      "evidence": "_copy(participants: remaining, assignments: assignments.remove(participantId), changedAtUtc: changedAtUtc)"
+    },
+    {
+      "from": "tournament.Tournament::removeParticipant",
+      "to": "tournament.Tournament::_requireLifecycle",
+      "kind": "call",
+      "evidence": "_requireLifecycle(TournamentLifecycle.open)"
+    },
+    {
+      "from": "tournament.Tournament::removeParticipant",
+      "to": null,
+      "kind": "throw",
+      "evidence": "StateError",
+      "externalName": "StateError"
+    },
+    {
+      "from": "tournament.Tournament::returnToOpen",
+      "to": "tournament.Tournament::_copy",
+      "kind": "call",
+      "evidence": "_copy(lifecycle: TournamentLifecycle.open, changedAtUtc: changedAtUtc)"
+    },
+    {
+      "from": "tournament.Tournament::returnToOpen",
+      "to": "tournament.Tournament::_requireLifecycle",
+      "kind": "call",
+      "evidence": "_requireLifecycle(TournamentLifecycle.distribution)"
+    },
+    {
+      "from": "tournament.Tournament::start",
+      "to": "tournament.Tournament::_copy",
+      "kind": "call",
+      "evidence": "_copy(lifecycle: TournamentLifecycle.running, formatState: nextFormatState, changedAtUtc: changedAtUtc)"
+    },
+    {
+      "from": "tournament.Tournament::start",
+      "to": "tournament.Tournament::_requireAssignments",
+      "kind": "call",
+      "evidence": "_requireAssignments(assignments)"
+    },
+    {
+      "from": "tournament.Tournament::start",
+      "to": "tournament.Tournament::_requireLifecycle",
+      "kind": "call",
+      "evidence": "_requireLifecycle(TournamentLifecycle.distribution)"
+    },
+    {
+      "from": "tournament.Tournament::start",
+      "to": null,
+      "kind": "throw",
+      "evidence": "ArgumentError",
+      "externalName": "ArgumentError"
+    },
+    {
+      "from": "tournament.Tournament::updateDraft",
+      "to": "tournament.Tournament::_copy",
+      "kind": "call",
+      "evidence": "_copy(title: title ?? this.title, gameId: gameId ?? this.gameId, rosterVersion: rosterVersion ?? this.rosterVersion, formatKey: nextFormatKey, formatSettings: nextSettings, changedAtUtc: changedAtUtc)"
+    },
+    {
+      "from": "tournament.Tournament::updateDraft",
+      "to": "tournament.Tournament::_requireLifecycle",
+      "kind": "call",
+      "evidence": "_requireLifecycle(TournamentLifecycle.draft)"
+    },
+    {
+      "from": "tournament.Tournament::updateDraft",
+      "to": null,
+      "kind": "throw",
+      "evidence": "ArgumentError",
+      "externalName": "ArgumentError"
+    },
+    {
+      "from": "tournament.TournamentCancellation::TournamentCancellation",
+      "to": null,
+      "kind": "throw",
+      "evidence": "ArgumentError",
+      "externalName": "ArgumentError"
+    },
+    {
+      "from": "tournament.TournamentCancellation::_requireReason",
+      "to": null,
+      "kind": "throw",
+      "evidence": "ArgumentError",
+      "externalName": "ArgumentError"
+    },
+    {
+      "from": "tournament.TournamentCompletionChange",
+      "to": "history.HistoricalTournamentSnapshot",
+      "kind": "type",
+      "evidence": "HistoricalTournamentSnapshot"
+    },
+    {
+      "from": "tournament.TournamentCompletionChange",
+      "to": "statistics.ProfileStatistic",
+      "kind": "type",
+      "evidence": "ProfileStatistic"
+    },
+    {
+      "from": "tournament.TournamentCompletionChange",
+      "to": "tournament.TournamentId",
+      "kind": "type",
+      "evidence": "TournamentId"
+    },
+    {
+      "from": "tournament.TournamentCompletionPort",
+      "to": "tournament.TournamentId",
+      "kind": "type",
+      "evidence": "TournamentId"
+    },
+    {
+      "from": "tournament.TournamentCompletionPort",
+      "to": "tournament.Tournament",
+      "kind": "type",
+      "evidence": "Tournament"
+    },
+    {
+      "from": "tournament.TournamentCompletionRepository",
+      "to": "tournament.TournamentCompletionChange",
+      "kind": "type",
+      "evidence": "TournamentCompletionChange"
+    },
+    {
+      "from": "tournament.TournamentId::_requireValue",
+      "to": null,
+      "kind": "throw",
+      "evidence": "ArgumentError",
+      "externalName": "ArgumentError"
+    },
+    {
+      "from": "tournament.TournamentLifecyclePort",
+      "to": "tournament.ParticipantId",
+      "kind": "type",
+      "evidence": "ParticipantId"
+    },
+    {
+      "from": "tournament.TournamentLifecyclePort",
+      "to": "tournament.Participant",
+      "kind": "type",
+      "evidence": "Participant"
+    },
+    {
+      "from": "tournament.TournamentLifecyclePort",
+      "to": "tournament.TournamentCancellation",
+      "kind": "type",
+      "evidence": "TournamentCancellation"
+    },
+    {
+      "from": "tournament.TournamentLifecyclePort",
+      "to": "tournament.TournamentId",
+      "kind": "type",
+      "evidence": "TournamentId"
+    },
+    {
+      "from": "tournament.TournamentLifecyclePort",
+      "to": "tournament.Tournament",
+      "kind": "type",
+      "evidence": "Tournament"
+    },
+    {
+      "from": "tournament.TournamentMatchPort",
+      "to": "tournament.MatchResult",
+      "kind": "type",
+      "evidence": "MatchResult"
+    },
+    {
+      "from": "tournament.TournamentMatchPort",
+      "to": "tournament.ParticipantId",
+      "kind": "type",
+      "evidence": "ParticipantId"
+    },
+    {
+      "from": "tournament.TournamentMatchPort",
+      "to": "tournament.TournamentId",
+      "kind": "type",
+      "evidence": "TournamentId"
+    },
+    {
+      "from": "tournament.TournamentMatchPort",
+      "to": "tournament.Tournament",
+      "kind": "type",
+      "evidence": "Tournament"
+    },
+    {
+      "from": "tournament.TournamentOutcome::TournamentOutcome",
+      "to": null,
+      "kind": "throw",
+      "evidence": "ArgumentError",
+      "externalName": "ArgumentError"
+    },
+    {
+      "from": "tournament.TournamentOutcome",
+      "to": "tournament.ParticipantId",
+      "kind": "type",
+      "evidence": "ParticipantId"
+    },
+    {
+      "from": "tournament.TournamentOutcome",
+      "to": "tournament.TournamentPlacement",
+      "kind": "type",
+      "evidence": "TournamentPlacement"
+    },
+    {
+      "from": "tournament.TournamentPlacement::TournamentPlacement",
+      "to": null,
+      "kind": "throw",
+      "evidence": "ArgumentError",
+      "externalName": "ArgumentError"
+    },
+    {
+      "from": "tournament.TournamentPlacement::_requirePositive",
+      "to": null,
+      "kind": "throw",
+      "evidence": "ArgumentError",
+      "externalName": "ArgumentError"
+    },
+    {
+      "from": "tournament.TournamentPlacement",
+      "to": "tournament.ParticipantId",
+      "kind": "type",
+      "evidence": "ParticipantId"
+    },
+    {
+      "from": "tournament.TournamentTitle::_normalize",
+      "to": null,
+      "kind": "throw",
+      "evidence": "ArgumentError",
+      "externalName": "ArgumentError"
+    },
+    {
+      "from": "tournament.Tournament",
+      "to": "character_assignment.CharacterAssignmentSet",
+      "kind": "type",
+      "evidence": "CharacterAssignmentSet"
+    },
+    {
+      "from": "tournament.Tournament",
+      "to": "game.GameId",
+      "kind": "type",
+      "evidence": "GameId"
+    },
+    {
+      "from": "tournament.Tournament",
+      "to": "statistics.TournamentStatistic",
+      "kind": "type",
+      "evidence": "TournamentStatistic"
+    },
+    {
+      "from": "tournament.Tournament",
+      "to": "tournament.ParticipantId",
+      "kind": "type",
+      "evidence": "ParticipantId"
+    },
+    {
+      "from": "tournament.Tournament",
+      "to": "tournament.Participant",
+      "kind": "type",
+      "evidence": "Participant"
+    },
+    {
+      "from": "tournament.Tournament",
+      "to": "tournament.TournamentCancellation",
+      "kind": "type",
+      "evidence": "TournamentCancellation"
+    },
+    {
+      "from": "tournament.Tournament",
+      "to": "tournament.TournamentId",
+      "kind": "type",
+      "evidence": "TournamentId"
+    },
+    {
+      "from": "tournament.Tournament",
+      "to": "tournament.TournamentLifecycle",
+      "kind": "type",
+      "evidence": "TournamentLifecycle"
+    },
+    {
+      "from": "tournament.Tournament",
+      "to": "tournament.TournamentOutcome",
+      "kind": "type",
+      "evidence": "TournamentOutcome"
+    },
+    {
+      "from": "tournament.Tournament",
+      "to": "tournament.TournamentTitle",
+      "kind": "type",
+      "evidence": "TournamentTitle"
+    },
+    {
+      "from": "tournament.Tournament",
+      "to": "tournament_format.TournamentFormatKey",
+      "kind": "type",
+      "evidence": "TournamentFormatKey"
+    },
+    {
+      "from": "tournament.Tournament",
+      "to": "tournament_format.TournamentFormatSettings",
+      "kind": "type",
+      "evidence": "TournamentFormatSettings"
+    },
+    {
+      "from": "tournament.Tournament",
+      "to": "tournament_format.TournamentFormatState",
+      "kind": "type",
+      "evidence": "TournamentFormatState"
+    },
+    {
+      "from": "tournament.WinnerOfMatchSlot",
+      "to": "tournament.MatchId",
+      "kind": "type",
+      "evidence": "MatchId"
+    },
+    {
+      "from": "tournament.WinnerOfMatchSlot",
+      "to": "tournament.MatchSlot",
+      "kind": "type",
+      "evidence": "MatchSlot"
+    },
+    {
+      "from": "tournament.WinnerOfMatchSlot",
+      "to": "tournament.ParticipantId",
+      "kind": "type",
+      "evidence": "ParticipantId"
+    },
+    {
+      "from": "tournament_format.RulesetVersion::_requireValue",
+      "to": null,
+      "kind": "throw",
+      "evidence": "ArgumentError",
+      "externalName": "ArgumentError"
+    },
+    {
+      "from": "tournament_format.TournamentFormatId::_requireValue",
+      "to": null,
+      "kind": "throw",
+      "evidence": "ArgumentError",
+      "externalName": "ArgumentError"
+    },
+    {
+      "from": "tournament_format.TournamentFormatKey",
+      "to": "tournament_format.RulesetVersion",
+      "kind": "type",
+      "evidence": "RulesetVersion"
+    },
+    {
+      "from": "tournament_format.TournamentFormatKey",
+      "to": "tournament_format.TournamentFormatId",
+      "kind": "type",
+      "evidence": "TournamentFormatId"
+    },
+    {
+      "from": "tournament_format.TournamentFormatPort",
+      "to": "tournament.MatchResult",
+      "kind": "type",
+      "evidence": "MatchResult"
+    },
+    {
+      "from": "tournament_format.TournamentFormatPort",
+      "to": "tournament.ParticipantId",
+      "kind": "type",
+      "evidence": "ParticipantId"
+    },
+    {
+      "from": "tournament_format.TournamentFormatPort",
+      "to": "tournament.Participant",
+      "kind": "type",
+      "evidence": "Participant"
+    },
+    {
+      "from": "tournament_format.TournamentFormatPort",
+      "to": "tournament.TournamentOutcome",
+      "kind": "type",
+      "evidence": "TournamentOutcome"
+    },
+    {
+      "from": "tournament_format.TournamentFormatPort",
+      "to": "tournament_format.TournamentFormatKey",
+      "kind": "type",
+      "evidence": "TournamentFormatKey"
+    },
+    {
+      "from": "tournament_format.TournamentFormatPort",
+      "to": "tournament_format.TournamentFormatSettings",
+      "kind": "type",
+      "evidence": "TournamentFormatSettings"
+    },
+    {
+      "from": "tournament_format.TournamentFormatPort",
+      "to": "tournament_format.TournamentFormatState",
+      "kind": "type",
+      "evidence": "TournamentFormatState"
+    },
+    {
+      "from": "tournament_format.TournamentFormatRepository",
+      "to": "tournament_format.TournamentFormatKey",
+      "kind": "type",
+      "evidence": "TournamentFormatKey"
+    },
+    {
+      "from": "tournament_format.TournamentFormatRepository",
+      "to": "tournament_format.TournamentFormatPort",
+      "kind": "type",
+      "evidence": "TournamentFormatPort"
+    },
+    {
+      "from": "tournament_format.TournamentFormatSettings",
+      "to": "tournament_format.TournamentFormatId",
+      "kind": "type",
+      "evidence": "TournamentFormatId"
+    },
+    {
+      "from": "tournament_format.TournamentFormatState::TournamentFormatState",
+      "to": null,
+      "kind": "throw",
+      "evidence": "ArgumentError",
+      "externalName": "ArgumentError"
+    },
+    {
+      "from": "tournament_format.TournamentFormatState",
+      "to": "tournament.Match",
+      "kind": "type",
+      "evidence": "Match"
+    },
+    {
+      "from": "tournament_format.TournamentFormatState",
+      "to": "tournament.ParticipantId",
+      "kind": "type",
+      "evidence": "ParticipantId"
+    },
+    {
+      "from": "tournament_format.TournamentFormatState",
+      "to": "tournament.TournamentId",
+      "kind": "type",
+      "evidence": "TournamentId"
+    },
+    {
+      "from": "tournament_format.TournamentFormatState",
+      "to": "tournament.TournamentOutcome",
+      "kind": "type",
+      "evidence": "TournamentOutcome"
+    },
+    {
+      "from": "tournament_format.TournamentFormatState",
+      "to": "tournament_format.TournamentFormatKey",
+      "kind": "type",
+      "evidence": "TournamentFormatKey"
+    },
+    {
+      "from": "tournament_format.UnsupportedTournamentFormatFailure",
+      "to": "tournament_format.TournamentFormatFailure",
+      "kind": "type",
+      "evidence": "TournamentFormatFailure"
+    }
+  ]
+}

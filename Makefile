@@ -1,6 +1,7 @@
 APP_DIR := apps/tournament_app
 FLUTTER ?= flutter
 NODE ?= node
+DART ?= dart
 SUPPORTED_PLATFORMS := android ios linux macos web windows
 DESKTOP_PLATFORMS := linux macos windows
 
@@ -25,7 +26,7 @@ DOMAIN_CHECK_PORT ?= 8090
 .DEFAULT_GOAL := help
 
 .PHONY: help bootstrap check-platform check-desktop-host run build build-host \
-	build-macos build-windows build-linux analyze clean domain-check domain-check-generate domain-check-validate
+	build-macos build-windows build-linux analyze clean domain-check domain-check-generate domain-check-validate domain-check-test
 
 help:
 	@printf '%s\n' \
@@ -41,6 +42,7 @@ help:
 		'  make domain-check             Запустить Web viewer Domain-архитектуры.' \
 		'  make domain-check-generate    Пересобрать карту из Dart declarations.' \
 		'  make domain-check-validate    Проверить карту против Domain-кода.' \
+		'  make domain-check-test        Проверить структуру и цепочку Tournament.finish().' \
 		'  make clean                    Очистить Flutter-артефакты.' \
 		'' \
 		'Поддерживаемые PLATFORM: android, ios, linux, macos, web, windows.'
@@ -90,7 +92,10 @@ domain-check:
 	$(PYTHON) -m http.server $(DOMAIN_CHECK_PORT) --directory tools/domain-check
 
 domain-check-generate:
-	$(NODE) tools/domain-check/domain-structure.mjs
+	cd tools/domain-check && $(DART) run bin/generate.dart
 
 domain-check-validate:
-	$(NODE) tools/domain-check/domain-structure.mjs --check
+	cd tools/domain-check && $(DART) run bin/generate.dart --check
+
+domain-check-test: domain-check-validate
+	$(NODE) --test tools/domain-check/test/graph.test.cjs
