@@ -15,7 +15,6 @@
     const hub = known.has(preferredRoot) ? preferredRoot : [...ids].sort(rank)[0];
     const positions = new Map();
     const treePairs = new Set();
-    const clusters = [];
     const visited = new Set();
     const componentRoots = hub ? [hub, ...ids.filter(id => id !== hub).sort(rank)] : [];
     let island = 0;
@@ -25,7 +24,6 @@
       if (visited.has(start)) continue;
       island++;
       const children = new Map();
-      const parent = new Map([[start, null]]);
       const depth = new Map([[start, 0]]);
       const queue = [start];
       visited.add(start);
@@ -36,7 +34,6 @@
         for (const neighbor of next) {
           if (visited.has(neighbor)) continue;
           visited.add(neighbor);
-          parent.set(neighbor, current);
           depth.set(neighbor, depth.get(current) + 1);
           children.get(current).push(neighbor);
           treePairs.add([current, neighbor].sort().join('|'));
@@ -84,15 +81,6 @@
         });
       }
       distribute(children.get(start) || [], -Math.PI / 2, Math.PI * 1.5);
-      for (const branch of children.get(start) || []) {
-        const members = queue.filter(id => {
-          let cursor = id;
-          while (parent.get(cursor) && parent.get(cursor) !== start) cursor = parent.get(cursor);
-          return cursor === branch;
-        });
-        if (members.length >= 3) clusters.push({id:branch, members});
-      }
-      if (island > 1 && queue.length > 1) clusters.push({id:`island-${island}`, members:queue});
     }
 
     // Separate labels without changing graph topology or the chosen central object.
@@ -119,9 +107,55 @@
       position.x += width / 2;
       position.y += (height - 130) / 2 + 130;
     }
-    return {hub, outgoingCount:outgoing.get(hub) || 0, positions, treePairs, clusters, width, height, edgeCount:realEdges.length};
+    return {hub, outgoingCount:outgoing.get(hub) || 0, positions, treePairs, width, height, edgeCount:realEdges.length};
   }
-  const api = {layoutGraph};
+  function layoutOverview(data) {
+    const nodeById = new Map(data.nodes.map(node => [node.id, node]));
+    const orderedAreas = [...data.areas].sort((a, b) =>
+      data.nodes.filter(node => node.area === b).length - data.nodes.filter(node => node.area === a).length
+      || a.localeCompare(b));
+    const centerArea = orderedAreas[0];
+    const areaCenters = new Map([[centerArea, {x:0, y:0}]]);
+    const others = orderedAreas.slice(1);
+    others.forEach((area, index) => {
+      const angle = -Math.PI / 2 + index * Math.PI * 2 / others.length;
+      areaCenters.set(area, {x:Math.cos(angle) * 2800, y:Math.sin(angle) * 1700});
+    });
+    const positions = new Map();
+    const treePairs = new Set();
+    const areaRadius = new Map();
+    for (const area of orderedAreas) {
+      const entries = data.nodes.filter(node => node.area === area);
+      const ids = new Set(entries.map(node => node.id));
+      const edges = data.edges.filter(edge => edge.kind === 'type' && ids.has(edge.from) && ids.has(edge.to));
+      const local = layoutGraph(entries, edges);
+      const origin = local.positions.get(local.hub);
+      const maxDistance = Math.max(1, ...[...local.positions.values()].map(p =>
+        Math.hypot(p.x - origin.x, p.y - origin.y)));
+      const radius = area === centerArea ? 840 : 540;
+      const scale = radius / maxDistance;
+      const center = areaCenters.get(area);
+      areaRadius.set(area, radius);
+      for (const entry of entries) {
+        const p = local.positions.get(entry.id);
+        positions.set(entry.id, {
+          x:center.x + (p.x - origin.x) * scale,
+          y:center.y + (p.y - origin.y) * scale,
+        });
+      }
+      for (const pair of local.treePairs) treePairs.add(pair);
+    }
+    const maxX = Math.max(3200, ...[...positions.values()].map(p => Math.abs(p.x)));
+    const maxY = Math.max(2200, ...[...positions.values()].map(p => Math.abs(p.y)));
+    const width = Math.ceil((maxX + 300) * 2);
+    const height = Math.ceil((maxY + 300) * 2);
+    for (const p of positions.values()) { p.x += width / 2; p.y += height / 2; }
+    for (const center of areaCenters.values()) { center.x += width / 2; center.y += height / 2; }
+    return {positions, areaCenters, areaRadius, treePairs, centerArea, width, height,
+      edgeCount:data.edges.filter(edge => edge.kind === 'type'
+        && nodeById.has(edge.from) && nodeById.has(edge.to)).length};
+  }
+  const api = {layoutGraph, layoutOverview};
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   root.DomainGraphLayout = api;
 })(typeof globalThis !== 'undefined' ? globalThis : this);

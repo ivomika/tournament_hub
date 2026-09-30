@@ -2,7 +2,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const test = require('node:test');
-const { layoutGraph } = require('../graph-layout.js');
+const { layoutGraph, layoutOverview } = require('../graph-layout.js');
 
 const graph = JSON.parse(fs.readFileSync(
   path.join(__dirname, '..', 'domain-architecture.json'), 'utf8'));
@@ -109,4 +109,22 @@ test('центр выбирается по исходящим, а не по вх
   const layout = layoutGraph(entries, edges);
   assert.equal(layout.hub, 'consumer');
   assert.equal(layout.outgoingCount, 2);
+});
+
+test('общий граф содержит каждый объект и разносит области', () => {
+  const layout = layoutOverview(graph);
+  assert.equal(layout.positions.size, graph.nodes.length);
+  assert.equal(layout.areaCenters.size, graph.areas.length);
+  assert.equal(layout.centerArea, 'tournament');
+  for (const node of graph.nodes) assert.ok(layout.positions.has(node.id));
+  for (const first of graph.areas) {
+    for (const second of graph.areas) {
+      if (first >= second) continue;
+      const a = layout.areaCenters.get(first), b = layout.areaCenters.get(second);
+      const gap = Math.hypot(a.x - b.x, a.y - b.y)
+        - layout.areaRadius.get(first) - layout.areaRadius.get(second);
+      assert.ok(gap >= 300);
+    }
+  }
+  assert.equal(layout.edgeCount, graph.edges.filter(edge => edge.kind === 'type').length);
 });

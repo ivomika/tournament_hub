@@ -89,7 +89,7 @@ clean:
 	cd $(APP_DIR) && $(FLUTTER) clean
 
 domain-check:
-	$(PYTHON) -m http.server $(DOMAIN_CHECK_PORT) --directory tools/domain-check
+	$(PYTHON) tools/domain-check/serve.py $(DOMAIN_CHECK_PORT)
 
 domain-check-generate:
 	cd tools/domain-check && $(DART) run bin/generate.dart
