@@ -13,7 +13,6 @@
 
 ## Архитектура
 
-- [Domain layer](architecture/domain-layer.md) — границы бизнес-логики и application business logic contracts.
 - [Расположение приложений](architecture/app-layout.md) — структура репозитория и Flutter-клиент.
 
 ## Разработка
