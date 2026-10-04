@@ -1,1 +1,0 @@
-enum TechnicalResultReason { forfeit, withdrawal }
