@@ -27,3 +27,4 @@
 - ✅ 23. Зафиксировать продолжение задачи через changelog без создания задач на правки. [Детали](task-details/23-task-follow-up-changelog.md)
 - ✅ 24. Построить новый Domain Constellation viewer с раскрытием областей и цепочек методов на одной карте. [Детали](task-details/24-domain-constellation.md)
 - ✅ 25. Зафиксировать архитектурные границы слоёв, вызовы use cases через state и изоляцию библиотек. [Детали](task-details/25-layer-boundaries.md)
+- ✅ 26. Ввести обязательные правила типизации, локализации intl и токенизированных тем виджетов. [Детали](task-details/26-typed-localized-themed-ui.md)

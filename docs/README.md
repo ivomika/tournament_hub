@@ -15,6 +15,7 @@
 
 - [Расположение приложений](architecture/app-layout.md) — структура репозитория и Flutter-клиент.
 - [Границы слоёв](architecture/layer-boundaries.md) — ответственности app/domain/infrastructure/presentation, DI, вызовы use cases и изоляция библиотек.
+- [Типизация, локализация и темы](architecture/typed-localized-themed-ui.md) — типизированные значения, intl и обязательная токенизация компонентов.
 
 ## Разработка
 
