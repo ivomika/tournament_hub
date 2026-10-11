@@ -24,4 +24,5 @@
 - [task-list.md](task-list.md) — состояние всех задач.
 - `task-details/` — детализация конкретных задач.
 - [rules/README.md](rules/README.md) — router обязательных правил.
+- [.agents/skills](../.agents/skills) — единственный каталог локальных skills проекта; [назначение навыков](../docs/development/repository-skills.md).
 - Файлы вне `ai-context` не заменяют эти записи.

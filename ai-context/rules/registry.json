@@ -56,6 +56,10 @@
     {
       "id": "R-006.b",
       "path": "flutter/006-b-named-widget-callbacks.md"
+    },
+    {
+      "id": "R-007",
+      "path": "core/007-code-testing.md"
     }
   ]
 }

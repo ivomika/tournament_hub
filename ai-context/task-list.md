@@ -31,3 +31,4 @@
 - ✅ 27. Закрепить правила композиции widgets и создать локальный skill аудита кода по правилам проекта. [Детали](task-details/27-widget-rules-code-audit.md)
 - ✅ 28. Организовать правила по scope core/flutter и проверить применение агентом без контекста. [Детали](task-details/28-rule-organization.md)
 - ✅ 29. Запретить относительные Dart-импорты и закрепить зависимости Flutter-слоёв архитектурным тестом. [Детали](task-details/29-flutter-architecture-check.md)
+- ✅ 30. Объединить локальные skills в .agents и закрепить обязательное тестирование кода. [Детали](task-details/30-skills-and-testing.md)
