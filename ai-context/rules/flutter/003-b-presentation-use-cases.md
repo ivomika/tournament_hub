@@ -1,6 +1,8 @@
-# R-004. Вызовы use cases через state
+# R-003.b. Вызовы use cases через state
 
 ## Применение
+
+Scope: Flutter-клиент `apps/tournament_app` и его тесты, включая app/domain/infrastructure/presentation. К другим приложениям и инструментам проекта это правило не применяется; их архитектура определяется отдельно.
 
 Обязательное правило. Проверяется при изменении widgets, экранов, UI-state/controllers и пользовательских сценариев.
 

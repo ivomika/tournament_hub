@@ -16,7 +16,10 @@
 - [Расположение приложений](architecture/app-layout.md) — структура репозитория и Flutter-клиент.
 - [Границы слоёв](architecture/layer-boundaries.md) — ответственности app/domain/infrastructure/presentation, DI, вызовы use cases и изоляция библиотек.
 - [Типизация, локализация и темы](architecture/typed-localized-themed-ui.md) — типизированные значения, intl и обязательная токенизация компонентов.
+- [Композиция widgets и callbacks](architecture/widget-composition.md) — приватные widgets, const и именованные обработчики.
 
 ## Разработка
 
 - [Domain architecture checker](development/domain-check.md) — локальный viewer Domain-объектов и связей.
+- [Аудит правил кода](development/code-rules-audit.md) — локальный skill с scope diff, весь код или задача.
+- [Организация правил](development/rule-organization.md) — scope core/flutter, именованные подправила и сопровождение.

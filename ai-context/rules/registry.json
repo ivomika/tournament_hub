@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "groups": [
+    {
+      "id": "R-003",
+      "name": "Архитектура Flutter",
+      "folder": "flutter"
+    },
+    {
+      "id": "R-006",
+      "name": "Композиция Flutter UI",
+      "folder": "flutter"
+    }
+  ],
+  "rules": [
+    {
+      "id": "R-001",
+      "path": "core/001-solid.md"
+    },
+    {
+      "id": "R-002",
+      "path": "core/002-documentation-russian.md"
+    },
+    {
+      "id": "R-003.a",
+      "path": "flutter/003-a-layer-boundaries.md"
+    },
+    {
+      "id": "R-003.b",
+      "path": "flutter/003-b-presentation-use-cases.md"
+    },
+    {
+      "id": "R-003.c",
+      "path": "flutter/003-c-library-isolation.md"
+    },
+    {
+      "id": "R-003.d",
+      "path": "flutter/003-d-tokenized-widget-themes.md"
+    },
+    {
+      "id": "R-004",
+      "path": "core/004-typed-values.md"
+    },
+    {
+      "id": "R-005",
+      "path": "flutter/005-intl-localization.md"
+    },
+    {
+      "id": "R-006.a",
+      "path": "flutter/006-a-widget-composition.md"
+    },
+    {
+      "id": "R-006.b",
+      "path": "flutter/006-b-named-widget-callbacks.md"
+    }
+  ]
+}

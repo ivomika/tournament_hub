@@ -4,9 +4,9 @@
 
 1. [ai-context/README.md](ai-context/README.md).
 2. [ai-context/rules/README.md](ai-context/rules/README.md).
-3. Все обязательные правила, перечисленные в router.
+3. Все обязательные core rules, перечисленные в router.
 4. [ai-context/task-list.md](ai-context/task-list.md) и связанную карточку задачи, если она есть.
-5. Conditional rules, чей trigger соответствует scope задачи.
+5. Все flutter rules для Flutter scope и conditional rules, чей trigger соответствует scope задачи.
 
 Любое изменение репозитория выполняется через задачу в едином `task-list.md`. До первого изменения переведи её в `🚧 В работе`; после завершения честно заполни критерии, проверки, ключевые решения и итог, затем поставь `✅`.
 

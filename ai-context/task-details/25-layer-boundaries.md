@@ -20,9 +20,9 @@
 
 - [x] [R-001 · SOLID](../rules/core/001-solid.md) — фиксируем направление зависимостей и ответственность слоёв; абстракции вводятся для реально используемых механизмов.
 - [x] [R-002 · Документирование на русском](../rules/core/002-documentation-russian.md) — решение и последствия описываются в `docs/architecture/layer-boundaries.md` на русском.
-- [x] [R-003 · Границы слоёв](../rules/core/003-layer-boundaries.md) — создано в задаче; фиксирует матрицу импортов и единственное место wiring в app.
-- [x] [R-004 · Вызовы use cases через state](../rules/core/004-presentation-use-cases.md) — создано в задаче; запрещает прямые вызовы из widgets и перенос бизнес-правил в presentation.
-- [x] [R-005 · Изоляция библиотек](../rules/core/005-library-isolation.md) — создано в задаче; разделяет предметные ports и технические абстракции, требует решения для пакетов domain.
+- [x] [R-003.a · Границы слоёв](../rules/flutter/003-a-layer-boundaries.md) — создано в задаче; фиксирует матрицу импортов и единственное место wiring в app.
+- [x] [R-003.b · Вызовы use cases через state](../rules/flutter/003-b-presentation-use-cases.md) — создано в задаче; запрещает прямые вызовы из widgets и перенос бизнес-правил в presentation.
+- [x] [R-003.c · Изоляция библиотек](../rules/flutter/003-c-library-isolation.md) — создано в задаче; разделяет предметные ports и технические абстракции, требует решения для пакетов domain.
 
 ### Conditional rules
 

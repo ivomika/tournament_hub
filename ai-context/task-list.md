@@ -28,3 +28,5 @@
 - ✅ 24. Построить новый Domain Constellation viewer с раскрытием областей и цепочек методов на одной карте. [Детали](task-details/24-domain-constellation.md)
 - ✅ 25. Зафиксировать архитектурные границы слоёв, вызовы use cases через state и изоляцию библиотек. [Детали](task-details/25-layer-boundaries.md)
 - ✅ 26. Ввести обязательные правила типизации, локализации intl и токенизированных тем виджетов. [Детали](task-details/26-typed-localized-themed-ui.md)
+- ✅ 27. Закрепить правила композиции widgets и создать локальный skill аудита кода по правилам проекта. [Детали](task-details/27-widget-rules-code-audit.md)
+- ✅ 28. Организовать правила по scope core/flutter и проверить применение агентом без контекста. [Детали](task-details/28-rule-organization.md)
