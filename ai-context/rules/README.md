@@ -14,6 +14,7 @@
 - [R-003.b · Use cases через state](flutter/003-b-presentation-use-cases.md) — входы пользовательских сценариев.
 - [R-003.c · Изоляция библиотек](flutter/003-c-library-isolation.md) — ports и технические адаптеры.
 - [R-003.d · Архитектура дизайн-системы](flutter/003-d-tokenized-widget-themes.md) — токены и темы компонентов.
+- [R-003.e · Абсолютные Dart-импорты](flutter/003-e-package-imports.md) — package/dart URI и архитектурный тест зависимостей.
 
 ## Обязательные правила flutter: локализация
 

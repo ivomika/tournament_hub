@@ -26,7 +26,7 @@ DOMAIN_CHECK_PORT ?= 8090
 .DEFAULT_GOAL := help
 
 .PHONY: help bootstrap check-platform check-desktop-host run build build-host \
-	build-macos build-windows build-linux analyze clean domain-check domain-check-generate domain-check-validate domain-check-test
+	build-macos build-windows build-linux analyze clean domain-check domain-check-generate domain-check-validate domain-check-test architecture-check architecture-test
 
 help:
 	@printf '%s\n' \
@@ -39,6 +39,8 @@ help:
 		'  make build-windows            Собрать Windows-версию на Windows.' \
 		'  make build-linux              Собрать Linux-версию на Linux.' \
 		'  make analyze                  Запустить Flutter analyzer.' \
+		'  make architecture-check       Проверить импорты и границы Flutter-слоёв.' \
+		'  make architecture-test        Проверить checker и архитектуру приложения.' \
 		'  make domain-check             Запустить Web viewer Domain-архитектуры.' \
 		'  make domain-check-generate    Пересобрать карту из Dart declarations.' \
 		'  make domain-check-validate    Проверить карту против Domain-кода.' \
@@ -99,3 +101,10 @@ domain-check-validate:
 
 domain-check-test: domain-check-validate
 	$(NODE) --test tools/domain-check/test/graph.test.cjs
+
+architecture-check:
+	cd tools/domain-check && $(DART) run bin/check_flutter_architecture.dart
+
+architecture-test:
+	cd tools/domain-check && $(DART) run bin/check_flutter_architecture.dart --self-test
+	$(MAKE) architecture-check

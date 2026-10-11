@@ -38,6 +38,10 @@
       "path": "flutter/003-d-tokenized-widget-themes.md"
     },
     {
+      "id": "R-003.e",
+      "path": "flutter/003-e-package-imports.md"
+    },
+    {
       "id": "R-004",
       "path": "core/004-typed-values.md"
     },

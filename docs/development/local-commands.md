@@ -12,6 +12,8 @@
 - `make build-linux` — сборка Linux на Linux.
 - `make build PLATFORM=android` — сборка Android-версии.
 - `make analyze` — статический анализ Dart-кода.
+- `make architecture-check` — AST-проверка импортов и зависимостей Flutter-слоёв без сборки приложения.
+- `make architecture-test` — регрессионные сценарии checker и проверка текущего клиента.
 - `make clean` — очистка артефактов Flutter.
 - `make help` — справка по всем командам.
 

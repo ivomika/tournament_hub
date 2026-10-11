@@ -23,3 +23,4 @@
 - [Domain architecture checker](development/domain-check.md) — локальный viewer Domain-объектов и связей.
 - [Аудит правил кода](development/code-rules-audit.md) — локальный skill с scope diff, весь код или задача.
 - [Организация правил](development/rule-organization.md) — scope core/flutter, именованные подправила и сопровождение.
+- [Архитектурный тест Flutter](development/flutter-architecture-check.md) — package-импорты и проверка зависимостей слоёв.
