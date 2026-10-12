@@ -33,3 +33,4 @@
 - ✅ 29. Запретить относительные Dart-импорты и закрепить зависимости Flutter-слоёв архитектурным тестом. [Детали](task-details/29-flutter-architecture-check.md)
 - ✅ 30. Объединить локальные skills в .agents и закрепить обязательное тестирование кода. [Детали](task-details/30-skills-and-testing.md)
 - ✅ 31. Встроить экспериментальный test-first workflow с approval-gate в существующие инструкции и карточки задач. [Детали](task-details/31-development-workflow.md)
+- 🚧 32. Подключить пустой Widgetbook с отдельным main_widgetbook и профилем запуска VS Code. [Детали](task-details/32-empty-widgetbook.md)

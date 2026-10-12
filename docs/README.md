@@ -27,3 +27,4 @@
 - [Тестирование кода](development/code-testing.md) — выбор тестов и фактическая проверка изменений.
 - [Локальные skills](development/repository-skills.md) — единое расположение навыков проекта.
 - [AI development workflow](development/ai-development-workflow.md) — экспериментальный процесс, walkthrough и точки подключения.
+- [Widgetbook](development/widgetbook.md) — отдельный пустой каталог и запуск VS Code.

@@ -12,3 +12,5 @@
 - `make domain-check` — открыть интерактивную карту Domain-архитектуры.
 
 Полный перечень команд: `make help`.
+
+В VS Code доступны профили **TournamentHUB** и **Widgetbook**. Настройка отдельного каталога описана в [руководстве Widgetbook](docs/development/widgetbook.md).

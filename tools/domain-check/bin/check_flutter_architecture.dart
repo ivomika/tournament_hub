@@ -69,7 +69,7 @@ List<String> inspect(Map<String, String> sources, String packageName) {
         report(error.offset, 'Синтаксическая ошибка: ${error.message}');
       continue;
     }
-    void checkUri(String? raw, int offset) {
+    void checkUri(String? raw, int offset, {bool isImport = false}) {
       final uri = raw == null ? null : Uri.tryParse(raw);
       if (uri == null ||
           !{'package', 'dart'}.contains(uri.scheme) ||
@@ -106,11 +106,16 @@ List<String> inspect(Map<String, String> sources, String packageName) {
       }
       final target = 'lib/${segments.skip(1).join('/')}';
       final targetLayer = layerOf(target);
+      final testWidgetbookEntry =
+          isImport &&
+          sourceLayer == Layer.test &&
+          target == 'lib/main_widgetbook.dart';
       if (!sources.containsKey(target))
         report(offset, 'Не существует package-цель: $target');
       if (targetLayer == null)
         report(offset, 'Неизвестный слой package-цели: $target');
       else if (sourceLayer != null &&
+          !testWidgetbookEntry &&
           !(allowed[sourceLayer]?.contains(targetLayer) ?? false))
         report(
           offset,
@@ -120,14 +125,22 @@ List<String> inspect(Map<String, String> sources, String packageName) {
 
     for (final directive in parsed.unit.directives) {
       if (directive is UriBasedDirective) {
-        checkUri(directive.uri.stringValue, directive.offset);
+        checkUri(
+          directive.uri.stringValue,
+          directive.offset,
+          isImport: directive is ImportDirective,
+        );
         final configurations = switch (directive) {
           ImportDirective() => directive.configurations,
           ExportDirective() => directive.configurations,
           _ => <Configuration>[],
         };
         for (final configuration in configurations)
-          checkUri(configuration.uri.stringValue, configuration.offset);
+          checkUri(
+            configuration.uri.stringValue,
+            configuration.offset,
+            isImport: directive is ImportDirective,
+          );
       } else if (directive is PartOfDirective) {
         checkUri(directive.uri?.stringValue, directive.offset);
       }
@@ -303,7 +316,77 @@ void selfTest() {
       source: {'lib/domain/model.dart': 'class {'},
       pass: false,
     ),
+    (
+      name: 'test imports Widgetbook entry',
+      source: {
+        'lib/main_widgetbook.dart': 'void main() {}',
+        'test/widgetbook_test.dart':
+            "import 'package:fixture/main_widgetbook.dart';",
+      },
+      pass: true,
+    ),
+    (
+      name: 'conditional test imports Widgetbook entry',
+      source: {
+        'lib/main_widgetbook.dart': 'void main() {}',
+        'test/widgetbook_test.dart':
+            "import 'dart:math' if (dart.library.io) 'package:fixture/main_widgetbook.dart';",
+      },
+      pass: true,
+    ),
+    (
+      name: 'test cannot import other entry',
+      source: {
+        'lib/main.dart': 'void main() {}',
+        'test/main_test.dart': "import 'package:fixture/main.dart';",
+      },
+      pass: false,
+    ),
+    (
+      name: 'test cannot export Widgetbook entry',
+      source: {
+        'lib/main_widgetbook.dart': 'void main() {}',
+        'test/widgetbook_test.dart':
+            "export 'package:fixture/main_widgetbook.dart';",
+      },
+      pass: false,
+    ),
+    (
+      name: 'test cannot part Widgetbook entry',
+      source: {
+        'lib/main_widgetbook.dart': 'void main() {}',
+        'test/widgetbook_test.dart':
+            "part 'package:fixture/main_widgetbook.dart';",
+      },
+      pass: false,
+    ),
+    (
+      name: 'test cannot use missing Widgetbook entry',
+      source: {
+        'test/widgetbook_test.dart':
+            "import 'package:fixture/main_widgetbook.dart';",
+      },
+      pass: false,
+    ),
   ];
+  for (final layer in [
+    Layer.app,
+    Layer.domain,
+    Layer.infrastructure,
+    Layer.presentation,
+  ]) {
+    final file = base.keys.singleWhere(
+      (file) => file.startsWith('lib/${layer.name}/'),
+    );
+    cases.add((
+      name: '${layer.name} cannot import Widgetbook entry',
+      source: {
+        'lib/main_widgetbook.dart': 'void main() {}',
+        file: "import 'package:fixture/main_widgetbook.dart';",
+      },
+      pass: false,
+    ));
+  }
   for (final scenario in cases) {
     final findings = inspect({...base, ...scenario.source}, 'fixture');
     if (findings.isEmpty != scenario.pass)

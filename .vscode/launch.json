@@ -1,0 +1,24 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "TournamentHUB",
+      "type": "dart",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/apps/tournament_app",
+      "program": "${workspaceFolder}/apps/tournament_app/lib/main.dart",
+      "flutterMode": "debug"
+    },
+    {
+      "name": "Widgetbook",
+      "type": "dart",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/apps/tournament_app",
+      "program": "${workspaceFolder}/apps/tournament_app/lib/main_widgetbook.dart",
+      "flutterMode": "debug",
+      "env": {
+        "__COMPAT_LAYER": ""
+      }
+    }
+  ]
+}

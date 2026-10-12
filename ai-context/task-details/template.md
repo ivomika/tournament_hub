@@ -5,6 +5,7 @@
 🟣 Запланирована
 
 - Mode: CODE / DOCUMENTATION / PLANNING_ONLY.
+- TestGate: REQUIRED / NOT_REQUIRED — причина по scope; для смешанной задачи перечислить логическую часть.
 - Stage: DISCOVERY.
 - Версии: specification 1, plan 1, test set 1.
 - Предыдущий этап и причина BLOCKED: при необходимости.
@@ -61,7 +62,7 @@
 
 ## Test Evidence
 
-Для CODE — baseline и подтверждение до human gate; для DOCUMENTATION — обоснование структурных/сценарных проверок.
+Для TestGate REQUIRED — baseline и подтверждение до human gate; для NOT_REQUIRED — выбранные по риску проверки и их результаты. Для DOCUMENTATION — структурные/сценарные проверки.
 
 | Дата | Version/test paths | Команда и cwd | Результат/exit | Причина и связь с критериями |
 | --- | --- | --- | --- | --- |
@@ -71,7 +72,7 @@ RED, BASELINE_GREEN, GREEN и невыполненные проверки раз
 
 ## Approval
 
-Согласований пока нет. При получении заполнить:
+Для TestGate NOT_REQUIRED указать «не требуется» с причиной. Для REQUIRED при получении согласования заполнить:
 
 | Дата | Кто | Дословный текст | Контекст/task | Spec/plan/test versions и evidence |
 | --- | --- | --- | --- | --- |

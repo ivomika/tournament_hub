@@ -10,6 +10,8 @@ Import, export, part, part of и conditional-ветви допускают то�
 
 Test может использовать все runtime-слои через package URI. Package URI всегда относится к lib, а не к test. Относительные импорты между тестовыми helpers также запрещены: для общих тестовых helpers нужен самостоятельный Dart-пакет либо отдельное документированное решение; checker не придумывает несуществующий package-путь к test.
 
+Задача 32 определяет узкое тестовое исключение: import из test в lib/main_widgetbook.dart разрешён для проверки самостоятельного Widgetbook entrypoint. Другие entrypoints, export/part и runtime-зависимости такого разрешения не получают. Временная организация самого Widgetbook описана в [руководстве](widgetbook.md).
+
 Domain допускает dart:core, async, collection, convert, math и typed_data. Допущенных внешних domain-пакетов пока нет. Добавление требует решения по R-003.c и изменения allowlist checker с regression case. Остальные слои могут использовать внешние пакеты; библиотечные типы в публичных контрактах всё равно проверяются при review.
 
 ## Границы
