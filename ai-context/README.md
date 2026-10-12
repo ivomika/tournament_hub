@@ -2,6 +2,8 @@
 
 `ai-context` — рабочая память проекта для задач, решений и проверок. Перед любым изменением репозитория исполнитель читает [rules/README.md](rules/README.md), затем сверяется с [task-list.md](task-list.md).
 
+Постановка и реализация задач следуют [экспериментальному workflow](workflow.md). Это единственный канонический текст этапов, test-first gate и approval; он применяется и без вызова skill.
+
 ## Правила работы
 
 - Любое изменение репозитория начинается с задачи в едином списке.
@@ -24,5 +26,6 @@
 - [task-list.md](task-list.md) — состояние всех задач.
 - `task-details/` — детализация конкретных задач.
 - [rules/README.md](rules/README.md) — router обязательных правил.
+- [workflow.md](workflow.md) — процесс задач; текущий Stage и evidence хранятся в карточке, статус — в task-list.
 - [.agents/skills](../.agents/skills) — единственный каталог локальных skills проекта; [назначение навыков](../docs/development/repository-skills.md).
 - Файлы вне `ai-context` не заменяют эти записи.

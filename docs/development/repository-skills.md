@@ -6,3 +6,5 @@
 - [code-rules-audit](../../.agents/skills/code-rules-audit/SKILL.md) — аудит актуальных правил и соответствия кода, scope diff по умолчанию.
 
 Оба skills вызываются явно пользователем. Изменения сохраняют их назначение и ограничения и проверяются соответствующим workflow. `.agents` хранит инструкции навыков, `ai-context` — правила и процесс задач, `docs` — канонические решения проекта.
+
+Skills используют [канонический workflow](../../ai-context/workflow.md). Task работает в planning-only, audit остаётся read-only; обычные feature-запросы следуют процессу через AGENTS, без обязательного вызова skill.
