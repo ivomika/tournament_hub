@@ -1,4 +1,5 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
+import 'package:tournament_app/presentation/design_system/foundation/app_foundation.dart';
 import 'package:tournament_app/presentation/widgetbook/widgetbook_catalog.dart';
 import 'package:widgetbook/widgetbook.dart';
 
@@ -8,6 +9,11 @@ class TournamentWidgetbookApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Widgetbook.material(directories: widgetbookCatalog);
+    const foundation = AppFoundation.dark();
+    return Widgetbook.material(
+      directories: widgetbookCatalog,
+      themeMode: ThemeMode.dark,
+      darkTheme: foundation.materialTheme,
+    );
   }
 }

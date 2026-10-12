@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:flutter/widgets.dart';
@@ -7,16 +6,9 @@ import 'package:tournament_app/presentation/widgetbook/visual_viewport.dart';
 
 void main() {
   testWidgets('Visual capture environment is deterministic', _fixedEnvironment);
-  test(
-    'Non-Linux golden comparison is rejected',
-    _rejectComparison,
-    skip: Platform.isLinux,
-  );
-  test(
-    'Non-Linux golden update is rejected',
-    _rejectUpdate,
-    skip: Platform.isLinux,
-  );
+  test('Cross-platform golden comparison is rejected', _rejectComparison);
+  test('Cross-platform golden update is rejected', _rejectUpdate);
+  test('Missing platform folder is rejected', _rejectMissingPlatform);
 }
 
 Future<void> _fixedEnvironment(WidgetTester tester) async {
@@ -39,15 +31,26 @@ Future<void> _fixedEnvironment(WidgetTester tester) async {
 }
 
 void _rejectComparison() {
-  expect(_compare, throwsUnsupportedError);
+  expect(_compare, throwsArgumentError);
 }
 
-Future<bool> _compare() =>
-    goldenFileComparator.compare(Uint8List(0), Uri.parse('unused.png'));
+Future<bool> _compare() => goldenFileComparator.compare(
+  Uint8List(0),
+  Uri.parse('golden/not-current-platform/unused.png'),
+);
 
 void _rejectUpdate() {
-  expect(_update, throwsUnsupportedError);
+  expect(_update, throwsArgumentError);
 }
 
-Future<void> _update() =>
-    goldenFileComparator.update(Uri.parse('unused.png'), Uint8List(0));
+Future<void> _update() => goldenFileComparator.update(
+  Uri.parse('golden/not-current-platform/unused.png'),
+  Uint8List(0),
+);
+
+void _rejectMissingPlatform() {
+  expect(_compareWithoutPlatform, throwsArgumentError);
+}
+
+Future<bool> _compareWithoutPlatform() =>
+    goldenFileComparator.compare(Uint8List(0), Uri.parse('unused.png'));

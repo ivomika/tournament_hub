@@ -26,7 +26,7 @@
 
 - [R-006.a · Композиция widgets](flutter/006-a-widget-composition.md) — private widgets вместо helpers.
 - [R-006.b · Именованные callbacks](flutter/006-b-named-widget-callbacks.md) — callbacks и builder-исключение.
-- [R-006.c · Визуальные goldens](flutter/006-c-visual-goldens.md) — обязательные PNG/тесты, Linux comparison и обновление.
+- [R-006.c · Визуальные goldens](flutter/006-c-visual-goldens.md) — обязательные нативные PNG/тесты по платформам, comparison и обновление.
 - [R-006.d · Scoped Widgetbook](flutter/006-d-scoped-widgetbook.md) — независимые use cases и общие deterministic scenarios.
 
 Flutter scope охватывает весь клиент `apps/tournament_app` и его тесты, включая независимый domain внутри этого приложения. R-003 не задаёт архитектуру spectator web, JS-инструментов или других приложений. Для них архитектурные правила определяются отдельно, когда появится соответствующая задача. Core действует во всех scopes. Других conditional rules сейчас нет.

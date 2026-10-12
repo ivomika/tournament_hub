@@ -7,8 +7,8 @@ import 'package:widgetbook/widgetbook.dart';
 
 void main() {
   testWidgets(
-    'Widgetbook starts with an empty catalogue',
-    _startsEmptyCatalogue,
+    'Widgetbook starts with foundation catalogue',
+    _startsFoundationCatalogue,
   );
   test(
     'VS Code launches app and Widgetbook independently',
@@ -16,14 +16,15 @@ void main() {
   );
 }
 
-Future<void> _startsEmptyCatalogue(WidgetTester tester) async {
+Future<void> _startsFoundationCatalogue(WidgetTester tester) async {
   widgetbook_entrypoint.main();
   await tester.pumpAndSettle();
 
   final rootFinder = find.byType(Widgetbook);
   expect(rootFinder, findsOneWidget);
   final root = tester.widget<Widgetbook>(rootFinder);
-  expect(root.directories, isEmpty);
+  expect(root.directories, hasLength(1));
+  expect(root.directories.single.children, hasLength(2));
   expect(root.addons, anyOf(isNull, isEmpty));
   expect(root.integrations, anyOf(isNull, isEmpty));
   expect(tester.takeException(), isNull);

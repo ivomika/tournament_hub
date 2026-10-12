@@ -1,0 +1,6 @@
+arb-dir: lib/presentation/l10n/arb
+template-arb-file: foundation_ru.arb
+output-dir: lib/presentation/l10n/generated
+output-localization-file: foundation_localizations.dart
+output-class: FoundationLocalizations
+nullable-getter: false

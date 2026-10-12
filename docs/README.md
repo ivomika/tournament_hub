@@ -26,6 +26,11 @@
 - [Композиция widgets и callbacks](architecture/widget-composition.md) — приватные widgets, const и именованные обработчики.
 - [Архитектура presentation](architecture/presentation-ui.md) — foundation/components/widgets, обособленные screens и presentation-контракты.
 
+## Дизайн
+
+- [Базовый foundation](design/foundation.md) — тёмная палитра, шрифты, Widgetbook и происхождение assets.
+- [Manifest токенов](design/tokens-manifest.md) — семантические цвета, текстовые роли и используемые layout-параметры.
+
 ## Разработка
 
 - [Domain architecture checker](development/domain-check.md) — локальный viewer Domain-объектов и связей.
@@ -36,4 +41,4 @@
 - [Локальные skills](development/repository-skills.md) — единое расположение навыков проекта.
 - [AI development workflow](development/ai-development-workflow.md) — экспериментальный процесс, walkthrough и точки подключения.
 - [Widgetbook](development/widgetbook.md) — отдельный пустой каталог и запуск VS Code.
-- [Визуальный workflow](development/visual-workflow.md) — scoped Widgetbook, общие сценарии и обязательные Linux goldens.
+- [Визуальный workflow](development/visual-workflow.md) — scoped Widgetbook, общие сценарии и обязательные нативные goldens по платформам.

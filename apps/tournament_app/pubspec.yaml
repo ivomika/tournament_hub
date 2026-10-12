@@ -10,6 +10,9 @@ dependencies:
   equatable: ^2.0.7
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.20.3
   widgetbook: ^3.25.0
 
 dev_dependencies:
@@ -19,3 +22,11 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  generate: true
+  fonts:
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/inter/Inter-Variable.ttf
+    - family: RobotoCondensed
+      fonts:
+        - asset: assets/fonts/roboto_condensed/RobotoCondensed-Variable.ttf

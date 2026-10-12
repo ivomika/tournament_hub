@@ -16,7 +16,7 @@ Knobs помогают исследовать варианты, но не зам
 
 ## Эталон и тест
 
-- PNG находится в `golden/` рядом с компонентом/экраном. Это baseline, коммитируемый вместе с согласованным визуальным изменением.
+- PNG находится в `golden/<native-os>/` рядом с компонентом/экраном. Сейчас используется `golden/windows/`; будущие наборы — `golden/linux/` и `golden/macos/`. Это baseline, коммитируемый вместе с согласованным визуальным изменением.
 - Тест расположен в `test/presentation/` с зеркальной структурой. `flutter_test`, сравнение файлов и test harness не попадают в lib.
 - Новый элемент: основной вид + значимые состояния. Screen дополнительно фиксирует mobile и desktop. Точные размеры принадлежат versioned render-профилю и не выбираются случайно каждым тестом.
 - Темы/value objects без UI не получают бессмысленных PNG. Визуальные foundation-примитивы получают golden как остальные компоненты.
@@ -24,20 +24,20 @@ Knobs помогают исследовать варианты, но не зам
 
 PNG без теста, который реально сравнивает рендер с ним, — не golden-покрытие. Тест должен падать при отсутствии baseline и неожиданном diff, а не молча его создавать. Обычная проверка никогда не использует `--update-goldens`.
 
-## Каноническая среда Linux
+## Нативная среда и отдельные наборы платформ
 
-Генерация и comparison эталонов выполняются на единой Linux CI-среде. Зафиксировать Ubuntu/image, точную Flutter/Dart версию и шрифты в репозитории/CI; не использовать плавающий stable для обновления baselines. Обновление SDK/шрифтов/renderer — отдельное явно описанное визуальное изменение.
+По решению пользователя от 12 октября 2026 генерация и comparison выполняются на текущей ОС разработки, без обязательного Docker. Для текущих эталонов зафиксированы Windows x64, Flutter 3.47.1 / Dart 3.13.1 и font assets из foundation manifest. Не использовать плавающий stable для обновления baselines. Обновление SDK/шрифтов/renderer — отдельное явно описанное визуальное изменение.
 
 Harness фиксирует размер поверхности, DPR, locale, direction, text scaling, тему, шрифты и animation state. Product typography использует реальные bundled fonts; тестовый Ahem не выдаётся за корректный product font. Шрифты загружаются до capture, сеть запрещена. Время/данные стабилизируются fixture; нельзя полагаться на локальную ОС, timezone, случайность или системные fallback fonts для поддерживаемых символов.
 
-На Windows разрешены Widgetbook, analyzer и не-golden widget tests. PNG, полученные там, не заменяют Linux-эталоны. При отсутствии Linux runner агент фиксирует NOT_RUN и не утверждает, что golden comparison прошёл. В минимальном пустом каркасе нет production PNG; конкретные font assets и render-профили необходимы до первого реального визуального компонента.
+Windows сравнивается только с Windows, Linux с Linux, macOS с macOS. Новый platform set создаётся нативно и просматривается отдельно; нельзя копировать PNG другой ОС или использовать fallback. Отсутствующий baseline вызывает ошибку comparison, не silent skip. Текущая задача не требует прогона всех ОС, но успешный Windows suite не означает проверку Linux/macOS. Если нужную проверку выполнить нельзя, записать NOT_RUN и причину.
 
 ## Изменение UI
 
 1. Найти компонент/тему и все затронутые screens/scenarios; новый элемент разместить в DS, не копировать его в screens.
 2. Изменить UI/тему и сценарии в пределах запроса; logic changes отдельно проходят TestGate.
-3. Выполнить comparison существующих Linux goldens. Визуальный mismatch при намеренном изменении не означает ошибку реализации, но каждый diff должен иметь объяснение.
-4. Агент обновляет **только затронутые** эталоны в Linux, затем повторяет comparison без update. Массовое обновление без просмотра не допускается.
+3. Выполнить comparison существующих goldens текущей ОС. Визуальный mismatch при намеренном изменении не означает ошибку реализации, но каждый diff должен иметь объяснение.
+4. Агент обновляет **только затронутые** эталоны текущей ОС, затем повторяет comparison без update. Массовое обновление без просмотра не допускается; эталоны остальных ОС не переписываются.
 5. Показать пользователю результат: новые/изменённые PNG и существенные различия, желательно before/after. Отдельного approval для обновления baseline не требуется; это не разрешает unrelated визуальные изменения.
 6. В карточке: сценарии, environment/SDK/fonts, update и compare команды, результаты, scope изменений и неисполненные проверки. Сохранить golden рядом с элементом, тест/fixture и docs одним изменением.
 
@@ -45,12 +45,12 @@ Harness фиксирует размер поверхности, DPR, locale, dir
 
 ## Команды и пределы каркаса
 
-В минимальной обвязке `test/flutter_test_config.dart` автоматически устанавливает locale ru, text scale 1 и DPR 1 с reset после теста. Comparator делегирует штатному Flutter comparison/update и сохранению versioned URI, но отвергает оба режима вне Linux. Он не подменяет SDK comparator и не создаёт PNG сам. В `test/presentation/golden_environment_test.dart` проверяются фиксированная среда, mobile/desktop и запрет Windows compare/update, без fake product baselines.
+`test/flutter_test_config.dart` автоматически устанавливает locale ru, text scale 1 и DPR 1 с reset после теста. Comparator делегирует штатному Flutter comparison/update и versioned URI, но принимает только путь `golden/<текущая-os>/<snapshot>.png`. Он не подменяет SDK pixel comparison и не создаёт PNG сам. `golden_environment_test.dart` проверяет фиксированную среду, оба viewport и запрет другой/отсутствующей platform folder.
 
 Общие render-профили в `presentation/widgetbook/visual_viewport.dart`: mobile 390×844 и desktop 1440×900 логических пикселей при DPR 1. Это размеры тестового контекста, не дизайн-токены размеров UI. Будущий use case и его тест выбирают один профиль; theme/localization/animation fixture задаются самим сценарием. Before capture тест устанавливает physicalSize = profile.size при DPR 1 и регистрирует reset. Изменение этих профилей требует пересмотра соответствующих screen goldens.
 
-Test hook не загружает отсутствующие product fonts и не называет Ahem готовой типографикой. До первого component golden нужно добавить реальные font assets/loader и pinned Linux image/SDK. Удалённый CI пока не создан и не запущен; пустой каркас не выдаёт успешный golden suite без baseline.
+Test hook загружает bundled Inter и Roboto Condensed перед тестами. Общие foundation builders используются в Widgetbook и tests; PNG снимаются нативно. Ahem не подменяет выбранные семейства. Удалённый CI пока не создан; при его подключении platform set и SDK фиксируются отдельно.
 
-Используются штатные `flutter test` / `flutter test --update-goldens` для конкретных test paths на Linux. Будущая CI обвязка обязана отделять compare от update и сохранять failure artifacts для просмотра. Сейчас не объявляются существующими удалённый CI runner, font assets или component goldens, пока они реально не добавлены и проверены.
+Из apps/tournament_app: `flutter test --no-pub --update-goldens test/presentation/foundation_preview_test.dart`, затем `flutter test --no-pub`. Первая команда — намеренное обновление, вторая — обычный comparison и остальные tests. Будущая CI обвязка отделяет compare от update и сохраняет failure artifacts. Docker не нужен для локального цикла.
 
 Добавление большого визуального testing framework, генератора Widgetbook и собственного анализатора не требуется для минимального каталога. Golden pipeline не является способом выполнять бизнес-правила или обходить обязательные архитектурные тесты.
