@@ -16,6 +16,7 @@
 - [R-003.c · Изоляция библиотек](flutter/003-c-library-isolation.md) — ports и технические адаптеры.
 - [R-003.d · Архитектура дизайн-системы](flutter/003-d-tokenized-widget-themes.md) — токены и темы компонентов.
 - [R-003.e · Абсолютные Dart-импорты](flutter/003-e-package-imports.md) — package/dart URI и архитектурный тест зависимостей.
+- [R-003.f · Детерминированные screens](flutter/003-f-deterministic-screens.md) — presentation-контракты, независимый preview и композиция DS.
 
 ## Обязательные правила flutter: локализация
 
@@ -25,6 +26,8 @@
 
 - [R-006.a · Композиция widgets](flutter/006-a-widget-composition.md) — private widgets вместо helpers.
 - [R-006.b · Именованные callbacks](flutter/006-b-named-widget-callbacks.md) — callbacks и builder-исключение.
+- [R-006.c · Визуальные goldens](flutter/006-c-visual-goldens.md) — обязательные PNG/тесты, Linux comparison и обновление.
+- [R-006.d · Scoped Widgetbook](flutter/006-d-scoped-widgetbook.md) — независимые use cases и общие deterministic scenarios.
 
 Flutter scope охватывает весь клиент `apps/tournament_app` и его тесты, включая независимый domain внутри этого приложения. R-003 не задаёт архитектуру spectator web, JS-инструментов или других приложений. Для них архитектурные правила определяются отдельно, когда появится соответствующая задача. Core действует во всех scopes. Других conditional rules сейчас нет.
 

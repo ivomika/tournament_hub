@@ -1,6 +1,5 @@
-import 'package:flutter/widgets.dart';
-import 'package:widgetbook/widgetbook.dart';
+import 'package:tournament_app/app/widgetbook_bootstrap.dart';
 
 void main() {
-  runApp(const Widgetbook.material(directories: []));
+  bootstrapWidgetbook();
 }

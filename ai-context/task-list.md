@@ -34,3 +34,4 @@
 - ✅ 30. Объединить локальные skills в .agents и закрепить обязательное тестирование кода. [Детали](task-details/30-skills-and-testing.md)
 - ✅ 31. Встроить экспериментальный test-first workflow с approval-gate в существующие инструкции и карточки задач. [Детали](task-details/31-development-workflow.md)
 - 🚧 32. Подключить пустой Widgetbook с отдельным main_widgetbook и профилем запуска VS Code. [Детали](task-details/32-empty-widgetbook.md)
+- ✅ 33. Закрепить архитектуру presentation, scoped Widgetbook и обязательные Linux goldens; добавить минимальную обвязку без примеров UI. [Детали](task-details/33-presentation-visual-workflow.md)

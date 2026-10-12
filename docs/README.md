@@ -17,6 +17,7 @@
 - [Границы слоёв](architecture/layer-boundaries.md) — ответственности app/domain/infrastructure/presentation, DI, вызовы use cases и изоляция библиотек.
 - [Типизация, локализация и темы](architecture/typed-localized-themed-ui.md) — типизированные значения, intl и обязательная токенизация компонентов.
 - [Композиция widgets и callbacks](architecture/widget-composition.md) — приватные widgets, const и именованные обработчики.
+- [Архитектура presentation](architecture/presentation-ui.md) — foundation/components/widgets, обособленные screens и presentation-контракты.
 
 ## Разработка
 
@@ -28,3 +29,4 @@
 - [Локальные skills](development/repository-skills.md) — единое расположение навыков проекта.
 - [AI development workflow](development/ai-development-workflow.md) — экспериментальный процесс, walkthrough и точки подключения.
 - [Widgetbook](development/widgetbook.md) — отдельный пустой каталог и запуск VS Code.
+- [Визуальный workflow](development/visual-workflow.md) — scoped Widgetbook, общие сценарии и обязательные Linux goldens.

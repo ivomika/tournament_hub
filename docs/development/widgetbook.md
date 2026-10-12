@@ -16,14 +16,15 @@ Widgetbook подключён в существующий Flutter-клиент �
 
 ## Структура
 
-- `lib/main_widgetbook.dart` непосредственно выполняет `runApp` стандартного `Widgetbook.material` с пустым `directories`.
-- По прямому решению пользователя в задаче 32 Widgetbook пока самостоятельный entrypoint, без отдельного app bootstrap. Организация его интеграции будет определена позже; структура обычного приложения не меняется.
+- `lib/main_widgetbook.dart` вызывает `app/widgetbook_bootstrap.dart`; bootstrap только выполняет `runApp` оболочки `TournamentWidgetbookApp`.
+- Оболочка находится в `presentation/widgetbook/widgetbook_app.dart`, пустой registry — в `widgetbook_catalog.dart`. По решению задачи 33 это заменяет временный standalone main задачи 32; основной main.dart и launcher не менялись.
+- Будущие use cases располагаются в собственных папках scopes foundation/components/widgets/screens и используют общие с golden сценарии. [Визуальный workflow](visual-workflow.md) описывает добавление и проверку.
 - Нет проектных showcase widgets, компонентов, экранов, use cases, addons, собственных тем или Cloud integration. UI оболочки предоставляется самим пакетом.
 - Generator, build_runner и отдельный Widgetbook-проект не добавлены. Транзитивные зависимости пакета, включая widgetbook_annotation, устанавливаются pub resolver, но аннотации и генерация в проекте не используются.
 
 ## Проверка
 
-Из `apps/tournament_app`: `flutter test --no-pub test/widgetbook_bootstrap_test.dart` и `flutter analyze --no-pub`. Из корня: `make architecture-test`.
+Из `apps/tournament_app`: `flutter test --no-pub` и `flutter analyze --no-pub`. Из корня: `make architecture-test`.
 
 Widget-тест вызывает main_widgetbook.main через package import и проверяет реальный Widgetbook-root, пустой каталог и отсутствие exceptions/addons/integrations. Для этого checker допускает только import из test в main_widgetbook.dart; runtime-слоям импорт entrypoints не разрешён. Конфигурационный тест проверяет разделение entrypoints, cwd и существование target files. Фактический старт F5 на выбранном устройстве этим тестом не подтверждается.
 
