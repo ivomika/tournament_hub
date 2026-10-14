@@ -38,3 +38,4 @@
 - ✅ 34. Указать документ базовых правил MK11 как источник турнирного поведения приложения. [Детали](task-details/34-tournament-rules-source.md)
 - ✅ 35. Описать назначение TournamentHUB, решаемую проблему и роли пользователей без сценариев и границ MVP. [Детали](task-details/35-product-overview.md)
 - ✅ 36. Выбрать и реализовать базовые цвета и типографику приложения с foundation-сценариями Widgetbook и нативными golden по платформам. [Детали](task-details/36-foundation-colors-typography.md)
+- ✅ 37. Создать mobile-first HTML-прототип внешних экранов и состояний приложения без редактора. [Детали](task-details/37-html-screen-prototype.md)

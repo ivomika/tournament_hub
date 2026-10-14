@@ -1,0 +1,20 @@
+@font-face{font-family:Inter;src:url('../../../apps/tournament_app/assets/fonts/inter/Inter-Variable.ttf') format('truetype');font-weight:100 900;font-display:swap}
+@font-face{font-family:Condensed;src:url('../../../apps/tournament_app/assets/fonts/roboto_condensed/RobotoCondensed-Variable.ttf') format('truetype');font-weight:100 900;font-display:swap}
+:root{
+  color-scheme:dark;
+  --background:#0e1014;--surface:#171a20;--raised:#232730;--border:#3a414e;
+  --ink:#f4f2ee;--secondary:#b8bec9;--muted:#969eac;--gold:#f1c75b;--on-gold:#19150b;--pressed:#dca82f;--focus:#ffe199;--danger:#ff968e;--danger-surface:#632a2a;
+  --font-ui:Inter,system-ui,sans-serif;--font-display:Condensed,system-ui,sans-serif;
+  --display:60px;--heading:40px;--title:26px;--body:18px;--label:16px;--caption:14px;
+  --s1:8px;--s2:16px;--s3:24px;--s4:32px;--s5:48px;--s6:64px;
+  --pill:999px;--panel-radius:32px;--inner-radius:24px;--phone-radius:48px;
+  --control:56px;--large-control:64px;--phone-width:390px;--phone-height:844px;
+  --float-shadow:0 8px 24px #07080b80;--phone-shadow:0 24px 56px #07080b80;
+  --boot-brand-top:144px;--boot-brand-height:160px;
+  --boot-cue-height:48px;--boot-error-size:40px;
+  --boot-progress-width:160px;--boot-progress-height:24px;--boot-progress-stroke:4px;
+  --boot-wave-phase:-32px;--boot-wave-duration:1.2s;--boot-segment-duration:2.4s;
+  --home-type-min-height:360px;--home-type-size:60px;
+  --profile-stat-label-height:60px;
+  --profile-avatar-size:96px;
+}
