@@ -26,3 +26,11 @@ h2,h3,p{margin:0}h2{font:700 var(--heading)/1.15 var(--font-display);letter-spac
 .field input{min-width:0;width:100%;height:var(--large-control);border:1px solid var(--border);border-radius:var(--inner-radius);padding:0 var(--s3);background:var(--surface);color:var(--ink);font-size:var(--body)}
 .field input[aria-invalid=true]{border-color:var(--danger)}
 .error-copy{color:var(--danger);font-size:var(--caption);display:flex;gap:var(--s1);align-items:flex-start}.error-copy .icon{width:20px;height:20px}
+.profile-menu{display:flex;flex-direction:column;flex-shrink:0;background:var(--surface);border-radius:var(--inner-radius);overflow:hidden}
+.profile-menu-item{display:flex;align-items:center;gap:var(--s2);width:100%;min-height:var(--large-control);padding:var(--s2) var(--s3);border:0;background:transparent;color:var(--ink);text-align:left;font-size:var(--label)}
+.profile-menu-item+ .profile-menu-item{border-top:1px solid var(--border)}
+.profile-menu-item>span{flex:1;min-width:0}
+.profile-menu-item>.icon{color:var(--secondary)}
+.profile-menu-item>.profile-menu-chevron{width:var(--s2);height:var(--s2);color:var(--muted)}
+.profile-menu-item:hover,.profile-menu-item:active{background:var(--raised)}
+.profile-menu-item:focus-visible{outline-offset:-4px}
