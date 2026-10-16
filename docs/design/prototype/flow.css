@@ -14,6 +14,10 @@
 .flow-empty{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:var(--s3);min-height:var(--flow-empty-height);padding:var(--s3) 0}
 .flow-empty>.icon,.flow-empty-inline>.icon{width:var(--s5);height:var(--s5);color:var(--gold)}
 .flow-error-icon .icon{width:var(--s5);height:var(--s5);color:var(--danger)}
+#tournament-opening .screen-content>.flow-empty{flex:0 0 auto;display:grid;align-content:start;justify-content:stretch;min-height:0;padding-top:calc(var(--s6) + var(--s6))}
+#tournament-opening .flow-opening-cue{display:flex;align-items:center;height:var(--boot-cue-height)}
+#tournament-opening .flow-empty>h2{min-block-size:2lh}
+@container(max-width:330px){#tournament-opening .flow-empty>h2{min-block-size:3lh}}
 .flow-empty-inline{display:flex;flex-direction:column;gap:var(--s2);padding:var(--s3);border-radius:var(--inner-radius);background:var(--surface)}
 .flow-empty-inline .primary-action{margin-top:var(--s2)}
 .flow-profile-identity{display:flex;flex-direction:column;align-items:center;gap:var(--s2);padding-bottom:var(--s2)}
