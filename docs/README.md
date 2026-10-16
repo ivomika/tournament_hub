@@ -31,6 +31,7 @@
 - [Базовый foundation](design/foundation.md) — тёмная палитра, шрифты, Widgetbook и происхождение assets.
 - [Manifest токенов](design/tokens-manifest.md) — семантические цвета, текстовые роли и используемые layout-параметры.
 - [HTML-прототип экранов](design/html-prototype.md) — обсуждаемые mobile-first макеты и состояния, без редактора и бизнес-логики.
+- [Полный набор HTML-макетов](design/full-flow-prototype.md) — карта экранов турнирного flow, источники Apple/NNG по состояниям и ограничения fixtures.
 
 ## Разработка
 

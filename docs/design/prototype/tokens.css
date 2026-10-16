@@ -17,4 +17,11 @@
   --home-type-min-height:360px;--home-type-size:60px;
   --profile-stat-label-height:60px;
   --profile-avatar-size:96px;
+  --flow-empty-height:320px;--flow-avatar-size:64px;--flow-portrait-size:112px;
+  --character-ice:#92c9ed;--character-fan:#c6b4ee;--character-storm:#a7d6d1;
+  --flow-scrim:#07080bb8;--flow-sheet-shadow:0 -16px 48px #07080b60;
+  --flow-bracket-width:600px;--flow-bracket-height:440px;--flow-match-width:244px;
+  --flow-spectator-width:1000px;--flow-spectator-height:720px;
+  --flow-champion-portrait:160px;
+  --flow-message-height:192px;--flow-spectator-pair-width:520px;
 }
