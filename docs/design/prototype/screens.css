@@ -30,7 +30,7 @@
 .profile-form{display:flex;flex-direction:column;gap:var(--s2)}
 .about{margin-top:auto;padding-top:var(--s3);border-top:1px solid var(--border);display:flex;flex-direction:column;gap:var(--s1)}
 .about .about-version{font-size:var(--caption);color:var(--muted)}
-.home-new-action{display:flex;align-items:center;gap:var(--s1);min-height:48px;border:0;background:none;color:var(--secondary);font-size:var(--label);padding:0}
+.home-new-action{display:flex;align-items:center;gap:var(--s1);min-height:var(--control);border:0;background:none;color:var(--secondary);font-size:var(--label);padding:0}
 .home-stage-visual{display:flex;gap:var(--s1);height:var(--s1)}.home-stage-visual span{flex:1;background:var(--raised);border-radius:var(--pill)}.home-stage-visual .current{background:var(--gold)}
 .home-empty .screen-content,.home-active .screen-content{gap:var(--s3)}
 .home-active .screen-content>.top-controls:nth-child(2){min-height:var(--s5);display:flex;align-items:center;flex-shrink:0}
@@ -48,10 +48,10 @@
 .profile-current .screen-content{gap:var(--s3)}
 .profile-current-view .screen-content{gap:var(--s2)}
 .profile-current .top-controls{flex-shrink:0}
-.profile-current:not(.profile-current-view) .top-controls{display:grid;grid-template-columns:var(--control) minmax(0,1fr) var(--control);gap:var(--s1)}
+.profile-current .top-controls{display:grid;grid-template-columns:var(--control) minmax(0,1fr) var(--control);gap:var(--s1)}
 .profile-current .action-dock{padding:0;height:var(--s4)}
 .profile-current-identity{display:flex;flex-direction:column;align-items:center;gap:var(--s2);padding:0 0 var(--s2);text-align:center;flex-shrink:0}
-.profile-current-title{font:600 var(--body)/1.4 var(--font-ui);letter-spacing:normal;text-align:center;min-width:0;overflow-wrap:anywhere}
+.profile-current-title{font:600 var(--label)/1.4 var(--font-ui);letter-spacing:normal;text-align:center;min-width:0;overflow-wrap:anywhere}
 .profile-current-identity .profile-monogram{width:var(--profile-avatar-size);height:var(--profile-avatar-size);border-radius:50%;color:var(--secondary)}
 .profile-current-identity>div:last-child{min-width:0;max-width:100%;overflow-wrap:anywhere}
 .profile-current-identity h3{font:700 var(--heading)/1.1 var(--font-display)}

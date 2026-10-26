@@ -8,7 +8,9 @@
   --display:60px;--heading:40px;--title:26px;--body:18px;--label:16px;--caption:14px;
   --s1:8px;--s2:16px;--s3:24px;--s4:32px;--s5:48px;--s6:64px;
   --pill:999px;--panel-radius:32px;--inner-radius:24px;--phone-radius:48px;
-  --control:56px;--large-control:64px;--phone-width:390px;--phone-height:844px;
+  --control:56px;--large-control:var(--control);--phone-width:390px;--phone-height:844px;
+  --format-control-height:var(--s6);
+  --field-label-size:var(--caption);--field-label-color:var(--secondary);--field-label-weight:400;--field-label-line-height:1.5;
   --float-shadow:0 8px 24px #07080b80;--phone-shadow:0 24px 56px #07080b80;
   --boot-brand-top:144px;--boot-brand-height:160px;
   --boot-cue-height:48px;--boot-error-size:40px;
@@ -18,6 +20,9 @@
   --profile-stat-label-height:60px;
   --profile-avatar-size:96px;
   --flow-empty-height:320px;--flow-avatar-size:64px;--flow-portrait-size:112px;
+  --flow-ready-identity-gap:4px;
+  --flow-roster-avatar-size:48px;--flow-roster-row-height:72px;--flow-qr-preview-size:288px;
+  --flow-roster-action-width:88px;--flow-roster-reveal-duration:160ms;
   --character-ice:#92c9ed;--character-fan:#c6b4ee;--character-storm:#a7d6d1;
   --flow-scrim:#07080bb8;--flow-sheet-shadow:0 -16px 48px #07080b60;
   --flow-bracket-width:600px;--flow-bracket-height:440px;--flow-match-width:244px;
