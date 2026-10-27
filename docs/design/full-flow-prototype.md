@@ -49,16 +49,18 @@
 
 ### Турнир и результат схватки
 
+Переработка27.10.2026: [отдельное исследование09–12](research-screens-09-12.md), Apple/NNG и практики Challonge/Toornament. Источники задают UX-паттерны, не турнирные правила. Внешний вид16 существующих previews изменён без добавления новых бизнес-сценариев.
+
 | Preview / назначение | Применённое решение | Apple | NN/G |
 |---|---|---|---|
-| `tournament-live` — DE | Текущая пара доминирует, далее следующий матч и вторичное управление | [Designing for games][apple-games] | [Hierarchy][nng-hierarchy] |
-| `tournament-rr` — RR | Схватка и таблица очков рядом по смыслу, вторичные действия раскрываются | [Lists][apple-lists] | [Progressive disclosure][nng-disclosure] |
+| `tournament-live` — DE | Одна крупная текущая пара/счёт, короткий контекст, следующая пара спокойнее; управление раскрывается | [Designing for games][apple-games] | [Hierarchy][nng-hierarchy] |
+| `tournament-rr` — RR | Очки текущих игроков рядом с ними; полная таблица, правила начисления и исправление доступны через disclosure | [Lists][apple-lists] | [Progressive disclosure][nng-disclosure] |
 | `rr-tie` — равенство | Отдельный этап, без произвольного выбора чемпиона | [UI design tips][apple-tips] | [System status][nng-status] |
 | `rr-tiebreak-live` — miniRR | Явная подпись переигровки; основной счёт не подменяется | [Designing for games][apple-games] | [System status][nng-status] |
-| `bracket-de` — двойная сетка | Направляющие линии, ограниченная горизонтальная прокрутка внутри сетки | [Scroll views][apple-scroll] | [Hierarchy][nng-hierarchy] |
+| `bracket-de` — двойная сетка | Верхняя ветка с линиями/горизонтальным scroll; нижняя/Grand Final раскрываются; будущие участники названы источниками | [Scroll views][apple-scroll] | [Hierarchy][nng-hierarchy] |
 | `bracket-se` — одиночная сетка | Та же визуальная грамматика, без нижней сетки и матча за3-е | [Scroll views][apple-scroll] | [Hierarchy][nng-hierarchy] |
 | `match-result-de` — результат FT1 | Большой sheet над контекстом; результаты1:0/0:1 | [Sheets][apple-sheets] | [Forms][nng-forms] |
-| `match-result` — результат RR FT2 | Sheet, выбранные победитель и счёт различимы; без ничьей | [Sheets][apple-sheets] | [Forms][nng-forms] |
+| `match-result` — результат RR FT2 | Одна пара в sheet,4 исхода, check/aria-pressed выбора; отмена слева, одно сохранение справа; без ничьей | [Sheets][apple-sheets] | [Forms][nng-forms] |
 | `match-correct` — исправление | Та же форма и сохранённый контекст вместо нового паттерна | [Sheets][apple-sheets] | [Forms][nng-forms] |
 | `match-save-error` — ошибка записи | Введённый результат остаётся, ошибка у действия | [Sheets][apple-sheets] | [Errors][nng-errors] |
 | `match-technical` — технический RR | Отдельный вид результата, без искусственного2:0 | [Sheets][apple-sheets] | [Forms][nng-forms] |
@@ -68,7 +70,7 @@
 
 | Preview / назначение | Применённое решение | Apple | NN/G |
 |---|---|---|---|
-| `tournament-champion` — чемпион | Крупный персонаж и имя, переход к полным итогам | [Designing for games][apple-games] | [Hierarchy][nng-hierarchy] |
+| `tournament-champion` — чемпион | Персонаж/имя доминируют над короткой меткой «Чемпион»; один переход к полным итогам | [Designing for games][apple-games] | [Hierarchy][nng-hierarchy] |
 | `tournament-results` — рейтинг DE | Полный список мест, возвращение домой | [Lists][apple-lists] | [Hierarchy][nng-hierarchy] |
 | `tournament-results-se` — рейтинг SE | Совместные3–4 вместо вымышленного отдельного победителя | [Lists][apple-lists] | [Hierarchy][nng-hierarchy] |
 | `tournament-results-rr` — рейтинг RR | Места с очками, отдельный завершённый fixture | [Lists][apple-lists] | [Hierarchy][nng-hierarchy] |
@@ -99,7 +101,7 @@
 2. Поля имени и сообщения readonly; FT-степперы локально переключают демонстрационные FT1/FT2/FT3, но не обновляют другие previews и не сохраняются. Кнопки счёта, сохранения и подтверждения показывают внешний вид, не обработчики. Нет проверки валидности, генератора сетки, вычислений, persistence, реального удаления или отправки.
 3. Буквенные SZ/SC/KT/RD — временные avatar-placeholders, не финальная идентификация персонажей. Имя персонажа и игрока уже присутствуют; реальные портреты нужно подставить до принятия production UI. Широкий Spectator также адаптируется в одну колонку.
 4. Сетка — предложение композиции и линий на4 участниках, не полный граф переходов DE/Bye/reset для всех размеров. Ссылка из итогов ведёт к общему макету сетки, не к восстановленному архивному состоянию. Reset пока обозначен пояснением. Полный сценарий Bye не нарисован отдельно.
-5. `host.local/spectator` — демонстрационный адрес, не утверждённый URL/протокол. Нет WebSocket-соединения, QR/copy и работающей формы обратной связи. Канал поддержки и версия не утверждены.
+5. `host.local/spectator` — демонстрационный адрес, не утверждённый URL/протокол. Статичные QR-fixtures существуют, но не создают сетевую сессию. Нет WebSocket-соединения, copy или работающей формы обратной связи. Канал поддержки и версия не утверждены.
 6. Не проверены native safe areas, Dynamic Type, screen-reader поведение нативных sheets или масштабируемость реального турнира. HTML QA не заменяет Flutter goldens.
 
 Эти ограничения запрещают воспринимать галерею как готовое приложение; конкретный Flutter screen будет реализовываться и проверяться отдельно после согласования дизайна.

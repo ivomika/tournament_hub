@@ -29,4 +29,7 @@
   --flow-spectator-width:1000px;--flow-spectator-height:720px;
   --flow-champion-portrait:160px;
   --flow-message-height:192px;--flow-spectator-pair-width:520px;
+  --competition-hero-portrait:128px;--competition-sheet-portrait:96px;--competition-champion-portrait:176px;
+  --competition-small-avatar:40px;--competition-identity-gap:4px;--competition-bracket-height:360px;
+  --competition-result-score-size:32px;--competition-champion-name-size:48px;
 }
