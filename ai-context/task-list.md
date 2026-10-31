@@ -39,3 +39,6 @@
 - ✅ 35. Описать назначение TournamentHUB, решаемую проблему и роли пользователей без сценариев и границ MVP. [Детали](task-details/35-product-overview.md)
 - ✅ 36. Выбрать и реализовать базовые цвета и типографику приложения с foundation-сценариями Widgetbook и нативными golden по платформам. [Детали](task-details/36-foundation-colors-typography.md)
 - ✅ 37. Создать mobile-first HTML-прототип внешних экранов и состояний приложения без редактора. [Детали](task-details/37-html-screen-prototype.md)
+- ✅ 38. Создать отдельный desktop bento-прототип всех экранов и состояний. [Детали](task-details/38-desktop-bento-prototype.md)
+
+- ✅ 39. Эксперимент UI kit завершён; UI kit удалён по запросу пользователя, оставлены mobile/desktop прототипы. [Детали](task-details/39-ui-kit.md)

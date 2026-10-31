@@ -1,6 +1,304 @@
 # Задача 37. HTML-прототип экранов
 
+## Changelog — итерация69, 2026-10-31
+
+**Prompt пользователя**
+
+> текста не выровняны по высоте
+
+**Изменения и проверки**
+
+- Продолжение37 CODE/NOT_REQUIRED: utility loading/error получили одинаковую content-height и зарезервированную dock-зону независимо от кнопки повтора. Двухстрочный title/caption имеют одинаковые min-height, cue высотой progress сохраняется.
+- Scoped CSS, core applicability прежняя; косметическое выравнивание R-002 без отдельного docs, Flutter/conditional нет. Diff-check PASS; точная browser geometry NOT_RUN (file:// policy). Без build/commit, Stage DONE.
+
+## Changelog — итерация68, 2026-10-31
+
+**Prompt пользователя**
+
+> утилитарные экраны не совподают по лейаутам. Посмотри первый экран распределение. Один в один должен быть утилитарный
+
+**Изменения и проверки**
+
+- Продолжение37 CODE/NOT_REQUIRED: loading скопирован из distribution-working с заменой только fixture labels/back. Возвращён header, убрана opening-cue обёртка. Error на той же композиции, с символом вместо progress/повтором в dock.
+- Core применимость прежняя: общий layout/docs/без business logic/source verification. Flutter/conditional нет. Source structure и diff-check; browser geometry NOT_RUN (file:// policy). Без build/commit, Stage DONE.
+
+## Changelog — итерация67, 2026-10-31
+
+**Prompt пользователя**
+
+> давай выделим утилитарные экраны. Например загрузка явлется общей для всех экранов и становится между экранами. Не будем ее присваевать какомоу конкретному flow
+
+**Изменения и проверки**
+
+- Продолжение37 CODE/NOT_REQUIRED: прежнее открытие турнира стало00 utility-loading/error без tournament copy/header; группа перед Bootstrap. Все старые ссылки заменены. Bootstrap и distribution progress остаются предметными состояниями запуска/раздачи. Runtime lifecycle не меняется.
+- Core R-001/002/004/007: общая композиция/docs/статичные anchors/structural verification; Flutter/conditional нет. IDs/anchors/utility group и diff-check PASS. Browser screenshot NOT_RUN (file:// policy). Без build/commit, Stage DONE.
+
+## Changelog — итерация66, 2026-10-31
+
+**Prompt пользователя**
+
+> так теперь сделай экраны близкие по смыслу рядом, а то профиль у нас раскидан по всему прототипу по немного
+
+**Изменения и проверки**
+
+- Продолжение37 CODE/NOT_REQUIRED: порядок галереи по смыслу. Profile sections рядом с profile; access рядом с distribution; withdraw/locked рядом с running; forfeit рядом с result. Группа общих dialogs убрана, IDs figures сохранены. Подписи групп профиля/access согласованы с соседями.
+- Core R-001/002/004/007: композиция/docs/HTML anchors/structural checks; Flutter/conditional неприменимы. IDs/anchors и diff-check PASS. Визуальные компоненты не менялись, browser render не выполнялся. Без build/commit, Stage DONE.
+
+## Changelog — итерация65, 2026-10-31
+
+**Prompt пользователя**
+
+> убери из прототта экран спектатор
+
+**Изменения и проверки**
+
+- Продолжение37 CODE/NOT_REQUIRED: удалена группа16 с2 screens spectator-live/offline; Host QR access и кнопки сохранены. Удаление восстановимо через Git. Core applicability прежняя: scoped composition/docs/без business logic/structural checks; Flutter/conditional нет.
+- Node: spectator IDs отсутствуют, tournament-share сохранён, anchors PASS; diff-check PASS. Визуальный render не требуется для удаления целых figures, остальные не менялись. Без build/commit, Stage DONE.
+
+## Changelog — итерация64, 2026-10-31
+
+**Prompt пользователя**
+
+> делаем
+
+**Контекст, план и изменения**
+
+- Подтверждён аудит dialogs в чате: компактные alerts, единый порядок, inline-причина blocked correction; result entry остаётся sheet. Продолжение37 CODE/NOT_REQUIRED: визуальный HTML без новой предметной логики.
+- Core/router/workflow прочитаны; R-001 общая alert-композиция, R-002 docs с первичными Apple/W3C sources, R-004 причины/fixtures без новых бизнес-правил, R-007 структурные проверки. Flutter/conditional неприменимы.
+-3 alerts: короткие вопросы, action выше Cancel, без icons в кнопках; спокойные общие размеры/радиусы без floating shadows. Guest-remove получил dialog semantics. Result-locked стал обычным screen с disabled correction и причиной.
+
+**Проверки и границы**
+
+- Node:3 confirmations action order/no SVG/roles PASS; restriction не modal, disabled PASS; unique IDs/anchors PASS. Rules15 leaf2 группы и diff-check PASS.
+- Browser screenshot NOT_RUN: file:// observation ранее отклонена политикой браузера; геометрия не заявляется проверенной. Focus trap/Escape/return focus не добавлены в статичную галерею; production-модальность не заявляется. Без Flutter/build/commit.
+- Stage IMPLEMENTING → VERIFYING → DONE, визуальный scope завершён.
+
+## Changelog — итерация63, 2026-10-31
+
+**Prompt пользователя**
+
+> иконка не shared
+
+**Изменения и проверки**
+
+- Косметическое продолжение37 CODE/NOT_REQUIRED: share-link заменён с export-arrow на три соединённые точки (share). Путь/контракт кнопки не менялся. Core scope прежний; по исключению R-002 отдельный docs-update не нужен. Flutter/conditional нет.
+- SVG source и diff-check PASS. Browser NOT_RUN (file:// policy), без build/commit. Stage DONE.
+
+## Changelog — итерация62, 2026-10-31
+
+**Prompt пользователя**
+
+> на экране зрительского просмотра должна быть ссылка которую можно будет скопировать кнопкой shared и qr как для подключения участников а кнопки предосмотр не должно быть
+
+**Изменения и проверки**
+
+- Визуальное продолжение37 CODE/NOT_REQUIRED: tournament-share получил существующий spectator QR в общем оформлении participant QR, прямую ссылку и copy affordance с share-icon; предпросмотр удалён. Encoded QR fixture и адрес совпадают (host.local/spectator). Copy пока visual-only по scope prototype, Clipboard/Share logic не добавлялась.
+- Core R-001/002/004/007: reuse QR, docs, без новых предметных данных, structural checks. Flutter/conditional нет. Node QR/link/button/no-preview/unique IDs/anchors и diff-check PASS; browser NOT_RUN (file:// policy). Без build/commit, Stage DONE.
+
+## Changelog — итерация61, 2026-10-31
+
+**Prompt пользователя**
+
+> неправильно. Номер мест убераем. А очки оставляем просто без подписи
+
+**Изменения и проверки**
+
+- Исправление итерации60 в37: удалены видимые place1/2/3, восстановлены score6/3/0 без очк.; RR row grid теперь identity+score без пустой колонки места. Docs синхронизирован.
+- CODE/NOT_REQUIRED, core применимость прежняя; Flutter/conditional нет. Scoped source/diff-check; browser NOT_RUN (file:// policy). Без build/commit, Stage DONE.
+
+## Changelog — итерация60, 2026-10-31
+
+**Prompt пользователя**
+
+> давай на итогах RR уберем цифры победителей и подписи "очк."
+
+**Изменения и проверки**
+
+- Визуальное продолжение37 CODE/NOT_REQUIRED: из tournament-results-rr удалены3 score-блока6/3/0 и подписи очк.; места/участники сохранены. Таблица проведения не менялась.
+- Core R-001/002/004/007: scoped HTML, docs, без изменения расчётов, source/diff-check PASS. Flutter/conditional неприменимы. Browser screenshot NOT_RUN (file:// policy). Без build/commit, Stage DONE.
+
+## Changelog — итерация59, 2026-10-31
+
+**Prompt пользователя**
+
+> FT2 тоже будет выбираться таким же способом. Только FT1 будет выбираться нашими селекторами
+
+**Изменения и проверки**
+
+- Продолжение37 CODE/NOT_REQUIRED: FT2 normal/correction/error приведены к общему визуальному вводу FT3/10. Победитель слева,2:1, numeric range0–1; FT1 selectors сохранены. Это fixtures без новой логики выбора/валидации.
+- Core R-001/002/004/007: переиспользование разметки/styles, docs, данные без business logic, structural verification. Flutter/conditional неприменимы.
+- Node:3 FT2 cases имеют stepper/max1 без score-options; FT1 selectors сохранены PASS. Diff-check PASS. Browser screenshot NOT_RUN (file:// policy). Без build/commit, Stage DONE.
+
+## Changelog — итерация58, 2026-10-31
+
+**Prompt пользователя**
+
+> нормально размести рядом с основным экрано, остальные эксперементы убери
+
+**Изменения и проверки**
+
+- Продолжение37, визуальная CODE/NOT_REQUIRED: FT3/FT10 перемещены непосредственно после основного result в группе11; отдельные экспериментальные группы удалены вместе с4 выбор/confirmation-копиями. Другие действия ведут к прежним technical/withdraw fixtures. Core R-001/002/004/007 — композиция/docs/без business logic/structural; Flutter/conditional неприменимы.
+- Node: adjacency, unique IDs, anchors PASS; diff-check PASS. Browser screenshot NOT_RUN (file:// policy). Удалённые варианты восстановимы из Git/истории задачи. Без build/commit, Stage DONE.
+
+## Changelog — итерация57, 2026-10-31
+
+**Prompt пользователя**
+
+> че то селекторы выглядят не так
+
+**Изменения и проверки**
+
+- Продолжение37, CODE/NOT_REQUIRED. У score-stepper оставались текстовые +/- и уменьшенные кнопки: заменены на те же SVG minus/plus и control-size, что FT-компонент. Общая капсула/фон/font сохранены. Core применимы как в56; косметическое уточнение R-002 без нового контракта, Flutter/conditional нет.
+- Diff-check PASS, наличие общих SVG проверено по source. Browser geometry NOT_RUN (file:// policy); узкая ширина остаётся ограничением проверки. Без build/commit, Stage DONE.
+
+## Changelog — итерация56, 2026-10-31
+
+**Prompt пользователя**
+
+> Слово победитель точно лишнее. Персонажи должны быть на одном уровне. А для +- у нас был класный компонент
+
+**Изменения и проверки**
+
+- CODE/NOT_REQUIRED, continuation37: удалена winner-label из2 examples, выравнивание пары восстановлено одинаковым составом карточек. Степпер переиспользует CSS существующего FT-компонента (единая капсула/кнопки), без подключения FT-JS к score.
+- Core R-001/002/004/007: общие styles, docs, fixture без логики, scoped checks. Flutter/conditional неприменимы. Diff-check/rules15 leaf2 группы PASS; browser geometry NOT_RUN (file:// restriction). Без build/commit, Stage DONE.
+
+## Changelog — итерация55, 2026-10-31
+
+**Prompt пользователя**
+
+> покажи пример
+
+**Изменения и проверки**
+
+- Визуальное продолжение предложения FT3/FT10:2 статичных макета3:1/10:7, победитель слева отмечен, под проигравшим numeric field/stepper. Без JS/изменения результатов; readonly честно фиксирует визуальный scope. Основные sheets сохранены.
+- CODE/NOT_REQUIRED; core R-001/002/004/007 текущего scope: общая композиция, docs, fixture-данные, structural checks. Flutter/conditional неприменимы.
+- Node:2 examples, winner/stepper/actions, unique IDs и anchors PASS; diff-check PASS. Browser screenshot NOT_RUN (file:// policy). Stage DONE, без build/commit.
+
+## Changelog — итерация54, 2026-10-31
+
+**Prompt пользователя**
+
+> ладно оставляем другие действия как сейчас есть. Давай лучше уберем определение FT А еще нужно подумать как отображать счет при разном FT. на FT2 выглядит норм, но что делать при FT3 или вообще FT10
+
+**Изменения и проверки**
+
+- CODE/NOT_REQUIRED: только убрать FT-caption из4 result sheets. «Другие действия» и score choices сохранены. Большие FT обсуждаются, реализации нового ввода пока нет.
+- Core/router/workflow прочитаны; R-001 scoped HTML, R-002 docs, R-004 без новых данных/логики, R-007 структурная проверка4 sheets, наличия действий/IDs/anchors и diff-check PASS. Flutter/conditional неприменимы.
+- Browser render NOT_RUN (file:// policy). Без build/commit. Stage IMPLEMENTING → VERIFYING → DONE.
+
+## Changelog — итерация53, 2026-10-31
+
+**Prompts пользователя**
+
+> работаем над вводом результата. Убераем режим, надпись vs , подпись счет и галочку рядом с счетом, еще надо определиться как по другому вводить рещультат формата "Исключить игрока"
+
+> не понимаю как это покажи
+
+**Изменения и проверки**
+
+- CODE/NOT_REQUIRED, визуальное продолжение37. Core R-001/002/004/007: scoped общие styles, docs, статичные typed-by-markup fixtures, structural verification. Flutter/conditional неприменимы.
+- Из result sheets убраны режим/VS/«Счёт»/check у score; сохранение в header осталось. Другие действия ведут к2 новым selection-макетам. Оба игрока ведут к соответствующему подтверждению снятия или сдачи; добавлены2 confirmation-fixtures для Ивана, существующие для Алексея сохранены.
+- ID/anchors, rules checker15 leaf/2 группы и diff-check PASS. Browser screenshot NOT_RUN из-за file:// policy. Никакой реальной result/domain логики, build/commit нет. Stage DONE.
+
+## Changelog — итерация52, 2026-10-31
+
+**Prompt пользователя**
+
+> выровней цвет контейнера для заголовка с кнопками
+
+**Изменения и проверки**
+
+- Продолжение37, CODE/NOT_REQUIRED, косметическая CSS-правка: фон header-title surface → raised, как у orb. Core rules сохраняют применимость; Flutter/conditional неприменимы. По исключению R-002 отдельный docs-update не требуется для выравнивания цвета без нового контракта.
+- Проверено соответствие CSS token фону orb; git diff --check PASS. Browser screenshot NOT_RUN (file:// policy). Без build/commit; Stage DONE.
+
+## Changelog — итерация51, 2026-10-31
+
+**Prompt пользователя**
+
+> кнопка настроек снизу выбивается из стиля приложения. А еще давай турнирная сетка будет под хеадером и тд. Просто названию в header дадим свой ливитирующий контейнер
+
+**Изменения и проверки**
+
+- Продолжение37, CODE/NOT_REQUIRED, scoped CSS карты. Core R-001/002/004/007 применены: общие визуальные tokens/orb, docs, без предметных данных, структурная проверка. Flutter/conditional неприменимы.
+- Header absolute над картой; название в непрозрачной pill, ограничено средней колонкой с ellipsis. Back/QR сохранены, пустое пространство header пропускает pointer events. Нижняя кнопка имеет тот же control-size/raised/circle/shadow, что orb; panel radius/spacing из общих tokens.
+- JS syntax и diff-check PASS. Browser geometry NOT_RUN: ранее установлен запрет observation file://. Без Flutter/build/commit. Stage IMPLEMENTING → VERIFYING → DONE.
+
+## Changelog — итерация50, 2026-10-31
+
+**Prompt пользователя**
+
+> давай не контейнер, а весь экран отдадим сетке
+
+**Изменения и проверки**
+
+- Продолжение37, CODE/NOT_REQUIRED: только scoped CSS обоих map-экранов. Core R-001/002/004/007 из текущей работы: единая map-композиция, docs обновлён, данных/логики нет, проверки по визуальному scope; Flutter/conditional неприменимы.
+- Убраны padding/gap content, рамка/радиус карты, пустой dock; карта заполняет всё пространство под header. Сохранены header/back/QR, плавающее управление поднято над home-indicator.
+- JS syntax и git diff --check PASS; browser geometry NOT_RUN из-за ранее установленного запрета file:// observation. Без Flutter/build/commit. Stage IMPLEMENTING → VERIFYING → DONE.
+
+## Changelog — итерация49, 2026-10-31
+
+**Prompt пользователя**
+
+> кнопки управления и подсказки мешают
+
+**Изменения и проверки**
+
+- Продолжение37, CODE/NOT_REQUIRED, core/router/workflow из текущей итерации применены: R-001 scoped map, R-002 docs, R-004 без предметной логики, R-007 syntax/structure. Flutter/conditional неприменимы.
+- Управление обоих полотен в native details с одной плавающей кнопкой. Панель раскрывается по нажатию; обзор/переход/выбор закрывают её. Видимая нижняя подсказка убрана, aria-live остаётся для выбранного матча. Карта не резервирует место под панель.
+- JS syntax, rules15 leaf/2 группы и diff-check PASS. Browser render NOT_RUN: ранее file:// observation запрещена политикой браузера. Без build/commit. Stage IMPLEMENTING → VERIFYING → DONE.
+
+## Changelog — итерация48, 2026-10-31
+
+**Prompts пользователя**
+
+> нравится все кроме SE - оно должно отображаться так же, просто у него не будет нижней сетки
+
+> делаем
+
+**План и изменения**
+
+- CODE / TestGate NOT_REQUIRED: визуальная карта, zoom/scroll/selection без предметных изменений. Core R-001/002/004/007 и workflow прочитаны; Flutter/conditional неприменимы. Отдельные map CSS/JS, общий подход SE/DE, docs и проверки связей.
+- Группа10 заменена полотном8 участников:7 верхних матчей, DE плюс6 нижних, Grand Final/условный Reset. Current выделен золотой рамкой. Scroll по двум осям, zoom buttons, fit/current, native fullscreen и выбор матча с подробностью. QR и back сохранены.
+- Старт current, SE использует ту же карту без нижней ветки. Pinch, поиск и трассировка полного пути игрока остаются дальнейшей доработкой.
+
+**Проверки и ограничения**
+
+- JS syntax, rules checker15 leaf/2 группы и diff-check PASS. Структурно:2 карты, IDs уникальны, anchors существуют. Scope только2 figures и новые map assets/docs/task.
+- Browser screenshot и проверка реальных жестов NOT_RUN: file:// observation ранее отклонена browser policy. Fit/zoom/fullscreen пока не подтверждены браузерным прогоном; успех runtime не заявляется. Без Flutter/build/commit.
+- Stage IMPLEMENTING → VERIFYING → DONE; поставлен визуальный prototype с указанными ограничениями проверки.
+
+## Changelog — итерация47, 2026-10-31
+
+**Prompt пользователя**
+
+> на всех экранах турнрина (кроме экранов ввода данных) начиная с 09 должен быть qr для spectator
+
+**План и изменения**
+
+- CODE, TestGate NOT_REQUIRED: визуальные HTML-ссылки. Core/router/workflow перечитаны, Flutter/conditional неприменимы. R-001: существующая orb/QR-композиция; R-002: docs обновлён; R-004: HTML-якоря без предметной логики; R-007: проверка охвата и ссылок.
+- В11 Host-headers проведения, сеток, переигровки, чемпиона/рейтингов — одна QR-кнопка на существующий tournament-share. Result entry/correction и диалоги без дополнительных действий. Профиль/read-only Spectator не менялись. Экран доступа уже содержит сам QR.
+- Stage IMPLEMENTING → VERIFYING → DONE, задача переоткрыта и закрыта в реестре.
+
+**Проверки**
+
+- Node:11 headers имеют ровно одну ссылку Spectator и QR-icon; unique IDs и anchors PASS. Rules checker15 leaf/2 группы и git diff --check PASS.
+- Screenshot не выполнялся из-за ранее установленного запрета browser observation file://. Обновить открытую вкладку вручную. Без Flutter/build/commit.
+
 ## Статус и этап
+
+### Итерация46 — 2026-10-31
+
+**Prompt пользователя**
+
+> 09 - давай подписи "Пятничный турнир · DE" и тд вынесем в заголовок, DE не будем указывать. Уберем "vs" это и так понятно. Кто далее должно быть сразу под теми кто сейчас и должно быть на всех режимах, а не только DE
+
+**Изменения и проверки**
+
+- CODE, TestGate NOT_REQUIRED; визуальная правка группы09, Stage IMPLEMENTING → VERIFYING → DONE. Core/router/workflow перечитаны; Flutter/conditional неприменимы. R-001: scoped styles; R-002: docs обновлён; R-004: статичные fixtures; R-007: structural checks.
+- Название перенесено в header без режима; VS удалён, пара имеет две колонки. «Кто далее» непосредственно после текущего матча во всех DE/SE/RR/miniRR. Добавлен SE preview; FT/стадия сохранены.
+- Node: четыре текущих матча PASS (header/noVS/next order),49 figures, unique IDs и anchors PASS. Rules15 leaf/2 группы и diff-check PASS.
+- Screenshot не выполнялся: file:// observation ранее заблокирована URL policy. Геометрия новой композиции не подтверждена. Без Flutter/build/commit; обновить открытую вкладку вручную.
+
 
 ✅ Завершена
 

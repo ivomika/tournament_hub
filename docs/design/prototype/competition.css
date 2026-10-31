@@ -11,6 +11,8 @@
 .competition-intro{display:flex;flex-direction:column;gap:var(--s1)}
 .competition-intro>h2{font-size:var(--title)}
 .competition-current{display:flex;flex-direction:column;gap:var(--s3);padding:var(--s2) 0}
+.competition-live .competition-current .flow-pair{grid-template-columns:repeat(2,minmax(0,1fr))}
+.competition-live .flow-header>h2{min-width:0;overflow-wrap:anywhere;font-size:var(--body);line-height:1.3}
 .competition-versus{font:600 var(--caption)/1 var(--font-ui);color:var(--muted)}
 .competition-score{display:flex;align-items:center;justify-content:center;gap:var(--s3);font:700 var(--display)/1 var(--font-display);font-variant-numeric:tabular-nums}
 .competition-score>span{font:400 var(--title)/1 var(--font-ui);color:var(--muted)}
@@ -44,6 +46,19 @@
 .competition-lower{display:flex;flex-direction:column;align-items:center;gap:var(--s1)}
 .competition-stage-arrow{color:var(--muted);font-size:var(--title)}
 .competition-result .flow-underlay{opacity:.5}
+.competition-result .flow-sheet .flow-pair{grid-template-columns:repeat(2,minmax(0,1fr))}
+.result-player-choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s2)}
+.result-player-choice{display:flex;flex-direction:column;align-items:center;gap:var(--s1);padding:var(--s3) var(--s1);background:var(--surface);border:1px solid var(--border);border-radius:var(--inner-radius);text-align:center;min-width:0}
+.result-player-choice:hover{background:var(--raised);border-color:var(--gold)}
+.result-player-choice strong{font:700 var(--title)/1.2 var(--font-display)}
+.result-player-choice>span:last-child{color:var(--secondary);font-size:var(--caption)}
+.competition-result .result-winner .portrait{outline:2px solid var(--gold);outline-offset:4px}
+.result-score-inputs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s1);align-items:center}
+.result-fixed-score{text-align:center;color:var(--gold);font:700 var(--display)/1 var(--font-display);font-variant-numeric:tabular-nums}
+.result-score-stepper{justify-content:center;min-width:0;gap:0}
+.result-score-stepper>button{width:var(--control)}
+.result-score-stepper input{width:var(--s4);min-width:0;padding:0;text-align:center;border:0;background:transparent;color:var(--ink);font:600 var(--label)/1.5 var(--font-ui);font-variant-numeric:tabular-nums;appearance:textfield;-moz-appearance:textfield}
+.result-score-stepper input::-webkit-inner-spin-button,.result-score-stepper input::-webkit-outer-spin-button{appearance:none;margin:0}
 .competition-result .flow-sheet{gap:var(--s3);padding:var(--s3) var(--s3) var(--s4)}
 .competition-result .flow-sheet .flow-fighter .portrait{width:var(--competition-sheet-portrait)}
 .competition .competition-save{background:var(--gold);color:var(--on-gold)}
@@ -73,5 +88,6 @@
 .competition-results .flow-person{gap:var(--s1)}
 .competition-rank-points{display:flex;flex-direction:column;align-items:flex-end;gap:var(--competition-identity-gap);font-variant-numeric:tabular-nums}
 .competition-rank-points>strong{font:700 var(--title)/1 var(--font-display)}
+.competition-results-points .flow-ranking>li{grid-template-columns:minmax(0,1fr) auto}
 .competition-rank-points>small{font:400 var(--caption)/1 var(--font-ui);color:var(--secondary)}
 @container(max-width:330px){.competition-results .flow-ranking>li{gap:var(--s1)}.competition .flow-sheet{padding-inline:var(--s2)}}

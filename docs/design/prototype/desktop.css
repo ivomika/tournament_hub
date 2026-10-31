@@ -1,0 +1,539 @@
+/* Desktop-композиции используют общие foundation, а не размеры phone-layout. */
+html:has(.desktop-gallery){scroll-behavior:auto}
+.desktop-gallery{--desktop-gap:20px;--desktop-padding:32px;--desktop-radius:24px;--desktop-screen-height:800px}
+.desktop-gallery .gallery{max-width:1480px;padding:40px 32px 80px}
+.desktop-gallery .gallery-header{padding:12px 0 28px;border-bottom:1px solid var(--border)}
+.desktop-gallery .gallery-header h1{font:700 32px/1.2 var(--font-display)}
+.desktop-gallery .gallery-links{gap:16px;max-width:100%;font-size:13px}
+.desktop-gallery .gallery-section{margin-bottom:72px}
+.desktop-gallery .section-heading{margin-bottom:24px}
+.desktop-gallery .variants{display:grid;grid-template-columns:minmax(0,1fr);gap:40px}
+.desktop-gallery figure{min-width:0;scroll-margin-top:24px}
+.desktop-gallery figcaption{padding:0 4px;margin-bottom:12px}
+.desktop-gallery .phone.desktop-screen{width:100%;max-width:none;height:var(--desktop-screen-height);min-width:0;border-radius:var(--desktop-radius);border:1px solid var(--border);box-shadow:0 20px 64px #07080b55;isolation:isolate}
+.desktop-screen>.status,.desktop-screen>.home-indicator{display:none}
+.desktop-chrome{height:72px;flex-shrink:0;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:0 var(--desktop-padding);border-bottom:1px solid var(--border);background:var(--background);z-index:1}
+.desktop-chrome .brand-small{font-size:24px}
+.desktop-context{color:var(--muted);font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.desktop-screen .screen-content{flex:1!important;height:auto!important;min-height:0;padding:var(--desktop-padding)!important;gap:24px!important;display:flex;flex-direction:column;overflow:auto}
+.desktop-page-header{flex-shrink:0}
+.desktop-page-header:empty{display:none}
+.desktop-screen .flow-header,.desktop-screen .top-controls{min-height:48px}
+.desktop-screen .orb{width:48px;height:48px;box-shadow:none}
+.desktop-screen .flow-header{grid-template-columns:48px minmax(0,1fr) 48px;gap:16px}
+.desktop-screen .flow-header>h2{font:600 20px/1.3 var(--font-ui);text-align:left}
+.desktop-screen .top-controls:has(>.profile-current-title){display:grid;grid-template-columns:48px minmax(0,1fr) 48px}
+.desktop-screen .profile-current-title{text-align:left!important;font-size:20px}
+.desktop-grid{display:grid;gap:var(--desktop-gap);align-content:stretch;align-items:stretch;flex:1;min-height:0}
+.desktop-grid-split{grid-template-columns:minmax(0,1.65fr) minmax(300px,1fr)}
+.desktop-grid-profile{grid-template-columns:minmax(220px,.9fr) minmax(0,1.45fr) minmax(250px,1fr)}
+.desktop-grid-single{grid-template-columns:minmax(0,1fr)}
+.desktop-tile{padding:32px;border-radius:var(--desktop-radius);background:var(--surface);min-width:0;display:flex;flex-direction:column;align-items:stretch;gap:24px;overflow:auto}
+.desktop-secondary{background:var(--surface)}
+.desktop-tertiary{align-self:stretch}
+.desktop-command{margin-top:auto;padding-top:20px;display:flex;flex-direction:column;gap:12px;flex-shrink:0}
+.desktop-screen .primary-action{min-height:52px;box-shadow:none;max-width:100%;font-size:16px}
+.desktop-screen .secondary-action{box-shadow:none;min-height:48px}
+.desktop-screen .flow-panel,.desktop-screen .active-tournament,.desktop-screen .profile-achievement,.desktop-screen .flow-last-result,.desktop-screen .profile-menu,.desktop-screen .flow-history-row{background:var(--raised);border-radius:20px}
+.desktop-screen .flow-panel{padding:24px}
+.desktop-screen .desktop-tile>.flow-panel{background:transparent;padding:0;border:0}
+.desktop-screen .flow-caption,.desktop-screen .flow-notice{font-size:14px;max-width:60ch}
+.desktop-screen h2{font-size:44px}
+.desktop-screen .field input,.desktop-screen .field textarea{background:var(--background)}
+.desktop-screen .field textarea{min-height:220px}
+.desktop-screen .flow-format-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.desktop-screen .flow-format-options>*{min-width:0;white-space:normal}
+.desktop-screen .flow-ft-stepper{background:var(--background)}
+.desktop-screen .flow-ft-field{flex-wrap:wrap;gap:16px}
+.desktop-screen .flow-empty{padding:0;min-height:0;flex:1;justify-content:center;align-items:flex-start;gap:24px}
+.desktop-screen .flow-empty>.flow-caption{min-height:0}
+.desktop-screen .action-dock:empty{display:none}
+.desktop-screen .type-composition{padding:0;min-height:0;flex:1;justify-content:center;align-items:flex-start}
+.desktop-screen .type-title{font-size:80px;line-height:1.02}
+.desktop-screen .type-accent{width:240px}
+.desktop-screen.home-empty .desktop-grid{grid-template-columns:minmax(0,1.8fr) minmax(300px,1fr)}
+.desktop-screen.home-empty .desktop-secondary{justify-content:flex-end;gap:24px;background:var(--raised)}
+.desktop-screen.home-empty .desktop-secondary>.primary-action{min-height:64px}
+.desktop-screen.home-active .desktop-primary{justify-content:center;padding:48px}
+.desktop-screen.home-active .active-tournament{max-width:720px;width:100%;align-self:center;background:transparent;padding:0}
+.desktop-screen.home-active .active-tournament>h3{font:700 56px/1.1 var(--font-display)}
+.desktop-screen.home-active .active-tournament .primary-action{align-self:flex-start;min-width:240px}
+.desktop-screen .desktop-page-header>.top-controls+.top-controls{margin-top:12px}
+.desktop-screen .profile-current-identity,.desktop-screen .flow-profile-identity{padding:24px 0!important;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;flex:1;text-align:center}
+.desktop-screen .profile-monogram{width:128px;height:128px;font-size:56px;border-radius:40px}
+.desktop-screen .profile-current-identity h3,.desktop-screen .flow-profile-identity h2{font:700 48px/1.1 var(--font-display)}
+.desktop-screen .profile-achievement{padding:24px;gap:24px}
+.desktop-screen .profile-achievement dd{font-size:72px}
+.desktop-screen .profile-stats-achievement{gap:24px}
+.desktop-screen .profile-menu{overflow:hidden}
+.desktop-screen .profile-menu-item{min-height:72px;padding:20px}
+.desktop-screen .flow-last-result{padding:24px;min-height:128px}
+.desktop-screen .flow-profile-identity+.flow-empty-inline{margin-top:0}
+.desktop-screen[data-desktop-screen^="profile-refined-e"] .desktop-grid{grid-template-columns:minmax(0,1fr)}
+.desktop-screen[data-desktop-screen^="profile-refined-e"] .desktop-primary{justify-content:center}
+.desktop-screen .profile-form{width:min(100%,560px);align-self:center}
+.desktop-screen[data-desktop-screen="history-list"] .desktop-grid{grid-template-columns:minmax(240px,.7fr) minmax(0,2fr)}
+.desktop-screen[data-desktop-screen="history-list"] .desktop-primary{justify-content:center}
+.desktop-screen .flow-history-row{padding:24px;border:0;min-height:112px}
+.desktop-screen[data-desktop-screen="lobby-roster"] .flow-header-fixed{padding:24px 32px 0}
+.desktop-screen .flow-roster{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;list-style:none}
+.desktop-screen .flow-roster>li{background:var(--raised);border:0;border-radius:16px;overflow:hidden}
+.desktop-screen .flow-roster .flow-roster-row{min-height:96px;padding:20px}
+.desktop-screen[data-desktop-screen="distribution-ready"] .desktop-primary>.flow-panel{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-content:start;gap:20px}
+.desktop-screen[data-desktop-screen="distribution-ready"] .flow-player-row{padding:20px;border:0;background:var(--raised);border-radius:16px;min-height:140px;align-items:center}
+.desktop-screen[data-desktop-screen="distribution-ready"] .flow-avatar{width:72px;height:72px}
+.desktop-screen:has(.flow-qr-preview) .desktop-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.desktop-screen:has(.flow-qr-preview) .desktop-primary{justify-content:center;padding:48px}
+.desktop-screen:has(.flow-qr-preview) .desktop-primary>h2{font-size:64px}
+.desktop-screen:has(.flow-qr-preview) .desktop-secondary{align-items:center;justify-content:center}
+.desktop-screen .flow-qr-preview{width:320px;max-width:100%;flex-shrink:0}
+.desktop-screen .spectator-link{background:var(--background);padding:16px;width:100%;max-width:480px}
+.desktop-screen.competition-live .desktop-grid{grid-template-columns:minmax(0,1.8fr) minmax(300px,1fr)}
+.desktop-screen .competition-current{flex:1;justify-content:center;padding:0;gap:32px}
+.desktop-screen .competition-current .flow-pair{gap:32px}
+.desktop-screen .competition-current .portrait{width:144px}
+.desktop-screen .competition-current .flow-fighter>strong{font-size:36px}
+.desktop-screen .competition-score{font-size:80px}
+.desktop-screen .competition-next{background:var(--raised);padding:24px;border-radius:20px}
+.desktop-screen .competition-next-players{grid-template-columns:1fr;gap:20px}
+.desktop-screen .competition-next .flow-avatar{width:48px;height:48px}
+.desktop-screen .competition-next .flow-person strong{font-size:18px}
+.desktop-screen .competition-disclosure{padding:0 4px}
+.desktop-screen .competition-disclosure-body{max-width:none}
+.desktop-screen .flow-standings th,.desktop-screen .flow-standings td{padding:16px 8px}
+.desktop-screen .competition-results .flow-ranking{width:100%}
+.desktop-screen.competition-results .desktop-grid{grid-template-columns:minmax(0,1.7fr) minmax(280px,1fr)}
+.desktop-screen.competition-results .desktop-primary{padding:32px}
+.desktop-screen .flow-ranking{gap:12px}
+.desktop-screen .flow-ranking>li{padding:16px!important;border-radius:16px;background:var(--raised);min-height:88px!important}
+.desktop-screen .flow-ranking>li:first-child{min-height:128px!important;background:var(--accent-container,var(--raised));border:1px solid var(--gold)}
+.desktop-screen .flow-ranking>li .flow-person strong{font-size:22px}
+.desktop-screen .competition-champion{padding:0;gap:24px}
+.desktop-screen .competition-champion .portrait{width:240px;font-size:80px}
+.desktop-screen .competition-champion .flow-fighter>strong{font-size:64px}
+.desktop-screen .flow-underlay{inset:72px 0 0}
+.desktop-screen .flow-underlay .screen-content{padding:40px!important}
+.desktop-screen .flow-scrim{z-index:2}
+.desktop-screen .flow-alert{z-index:3;width:420px;max-width:calc(100% - 64px);left:50%;right:auto;transform:translate(-50%,-50%);border:1px solid var(--border);box-shadow:0 24px 80px #0008;border-radius:24px;padding:28px;gap:16px;max-height:calc(100% - 120px)}
+.desktop-screen .flow-alert>h2{font:600 22px/1.3 var(--font-ui)}
+.desktop-screen.competition-result .flow-sheet{z-index:3;top:50%;bottom:auto;left:50%;right:auto;transform:translate(-50%,-50%);width:760px;max-width:calc(100% - 96px);max-height:calc(100% - 120px);padding:32px;border-radius:24px;border:1px solid var(--border);box-shadow:0 24px 80px #0008;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px}
+.desktop-screen .flow-sheet>.flow-header,.desktop-screen .flow-sheet>.competition-meta,.desktop-screen .flow-sheet>.competition-disclosure,.desktop-screen .flow-sheet>.error-copy,.desktop-screen .flow-sheet>.competition-note{grid-column:1/-1}
+.desktop-screen .flow-sheet>.flow-pair{grid-column:1/-1;grid-row:auto;padding:24px 12px;background:var(--raised);border-radius:20px;gap:16px;max-width:600px;width:100%;justify-self:center}
+.desktop-screen .flow-sheet .flow-fighter .portrait{width:104px}
+.desktop-screen .flow-sheet>.competition-score-field,.desktop-screen .flow-sheet>.result-score-inputs{grid-column:1/-1;width:100%;max-width:600px;justify-self:center;align-self:center}
+.desktop-screen .flow-sheet .result-score-stepper{background:var(--background)}
+.desktop-screen .flow-sheet .flow-score-options{gap:12px}
+.desktop-screen .flow-sheet .flow-score-options>button{min-height:64px}
+.desktop-screen .flow-sheet:not(:has(.competition-score-field,.result-score-inputs))>.flow-pair{grid-column:1/-1;max-width:500px;justify-self:center;width:100%}
+.desktop-screen.bootstrap .screen-content{padding:32px!important;gap:24px!important;align-items:stretch}
+.desktop-screen.bootstrap .desktop-primary{justify-content:center;padding:56px;background:var(--raised)}
+.desktop-screen.bootstrap .bootstrap-logo{font-size:96px}
+.desktop-screen.bootstrap .desktop-secondary{justify-content:center;position:relative}
+.desktop-screen.bootstrap .boot-state{gap:24px}
+.desktop-screen.bootstrap .desktop-command{margin-top:32px;width:100%;max-width:280px;align-self:center}
+.desktop-screen.bootstrap>.action-dock{display:none}
+.desktop-screen[data-desktop-screen^="utility-"] .desktop-primary,.desktop-screen[data-desktop-screen="distribution-working"] .desktop-primary{align-items:center}
+.desktop-screen[data-desktop-screen^="utility-"] .flow-empty,.desktop-screen[data-desktop-screen="distribution-working"] .flow-empty{width:min(100%,560px)}
+.desktop-screen[data-desktop-screen^="utility-"] .flow-empty>h2{min-height:2.3em}
+.desktop-screen[data-desktop-screen^="utility-"] .flow-empty>.flow-caption{min-height:3em}
+.desktop-screen[data-desktop-screen="utility-error"] .desktop-grid{grid-template-columns:minmax(0,1fr)}
+.desktop-screen[data-desktop-screen="utility-error"] .desktop-secondary{padding:0;background:none;position:absolute;right:64px;bottom:48px;max-width:280px}
+.desktop-screen[data-desktop-screen="utility-error"] .desktop-command{padding:0}
+.desktop-screen.bracket-map-screen .screen-content{padding:0!important;gap:0!important;position:relative;overflow:hidden}
+.desktop-screen.bracket-map-screen .flow-header{position:absolute;inset:24px 32px auto;z-index:3;grid-template-columns:48px minmax(0,1fr) 48px}
+.desktop-screen.bracket-map-screen .flow-header>h2{font-size:18px;max-width:480px;text-align:center}
+.desktop-screen .bracket-map-controls{bottom:24px;right:32px}
+@media(max-width:1000px){.desktop-gallery{--desktop-padding:24px}.desktop-gallery .gallery{padding:24px 16px}.desktop-grid-profile{grid-template-columns:minmax(180px,.8fr) minmax(0,1.3fr)}.desktop-tertiary{grid-column:1/-1}.desktop-screen .profile-menu{display:flex;flex-direction:row}.desktop-screen .profile-menu-item{flex:1}.desktop-tile{padding:24px}.desktop-screen .type-title{font-size:64px}.desktop-screen .flow-format-options{grid-template-columns:1fr}.desktop-screen .flow-roster{grid-template-columns:1fr}}
+@media(max-width:740px){.desktop-gallery{--desktop-screen-height:900px;--desktop-padding:20px}.desktop-grid-split,.desktop-grid-profile,.desktop-screen.home-empty .desktop-grid,.desktop-screen.competition-live .desktop-grid,.desktop-screen:has(.flow-qr-preview) .desktop-grid,.desktop-screen.competition-results .desktop-grid,.desktop-screen[data-desktop-screen="history-list"] .desktop-grid{grid-template-columns:1fr}.desktop-grid{min-height:min-content}.desktop-tile{overflow:visible}.desktop-screen .desktop-primary{min-height:260px}.desktop-screen .profile-menu{flex-direction:column}.desktop-context{display:none}.desktop-screen .flow-sheet{display:flex!important;width:560px!important;max-width:calc(100% - 32px)!important}.desktop-screen .flow-sheet>.flow-pair{grid-column:auto}.desktop-screen .competition-current .portrait{width:112px}.desktop-screen .type-title{font-size:60px}.desktop-screen.bootstrap .bootstrap-logo{font-size:72px}}
+
+/* Bento v2: самостоятельные смысловые плитки вместо трёх контейнеров. */
+.profile-bento-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));grid-template-rows:minmax(200px,1fr) minmax(220px,1fr) 112px;gap:20px;flex:1;min-height:540px}
+.profile-bento-identity,.profile-bento-achievement,.profile-bento-metric,.desktop-screen .profile-bento-recent,.desktop-screen .profile-bento-link,.desktop-screen .profile-bento-empty{border-radius:24px;background:var(--surface);padding:28px;min-width:0;margin:0;overflow:hidden}
+.profile-bento-identity{grid-column:1/5;grid-row:1/3;display:flex;align-items:stretch}
+.desktop-screen .profile-bento-identity .profile-current-identity,.desktop-screen .profile-bento-identity .flow-profile-identity{align-items:flex-start;justify-content:space-between;text-align:left;padding:0!important;width:100%;gap:32px}
+.desktop-screen .profile-bento-identity .profile-monogram{width:96px;height:96px;border-radius:32px;font-size:44px;background:var(--raised)}
+.desktop-screen .profile-bento-identity h3,.desktop-screen .profile-bento-identity h2{font-size:64px}
+.profile-bento-achievement{grid-column:5/9;grid-row:1;background:var(--gold)!important;color:var(--on-gold)}
+.desktop-screen .profile-bento-achievement .profile-achievement{height:100%;padding:0;border-radius:0;background:none;display:flex;flex-direction:row-reverse;align-items:center;justify-content:space-between;gap:12px}
+.desktop-screen .profile-bento-achievement .profile-achievement>.icon{width:64px;height:64px;color:var(--on-gold);opacity:.65}
+.desktop-screen .profile-bento-achievement .profile-achievement dd{font-size:88px;line-height:.95;color:var(--on-gold)}
+.desktop-screen .profile-bento-achievement .profile-achievement dt{color:var(--on-gold);font-size:14px;max-width:13ch}
+.profile-bento-metric{display:flex;align-items:stretch;grid-row:1}
+.profile-bento-metric-0{grid-column:9/11}
+.profile-bento-metric-1{grid-column:11/13}
+.profile-bento-metric>div{display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;width:100%;gap:24px}
+.profile-bento-metric dd{order:-1;margin:0;font:700 64px/1 var(--font-display);color:var(--ink)}
+.profile-bento-metric dt{font:400 14px/1.4 var(--font-ui);color:var(--secondary);overflow-wrap:anywhere}
+.desktop-screen .profile-bento-recent{grid-column:5/13;grid-row:2;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 24px;align-content:center;position:relative;border:1px solid var(--border);padding-right:140px}
+.profile-bento-recent>.flow-kicker,.profile-bento-recent>h3,.profile-bento-recent>.flow-person,.profile-bento-recent>.flow-caption{grid-column:1}
+.profile-bento-recent>.flow-result-place{position:absolute;right:32px;top:50%;transform:translateY(-50%);font-size:80px}
+.profile-bento-recent>.flow-result-place>span{font-size:14px}
+.desktop-screen .profile-bento-recent h3{font:600 28px/1.2 var(--font-ui)}
+.desktop-screen .profile-bento-recent .flow-avatar{width:36px;height:36px;font-size:14px}
+.desktop-screen .profile-bento-recent .flow-person strong{font-size:16px}
+.desktop-screen .profile-bento-recent .flow-person small{font-size:12px}
+.profile-bento-links{display:contents}
+.desktop-screen .profile-bento-link{grid-row:3;display:flex;align-items:center;gap:16px;border:0;min-height:112px;font-size:18px}
+.profile-bento-link-0{grid-column:1/5}
+.profile-bento-link-1{grid-column:5/9}
+.profile-bento-link-2{grid-column:9/13}
+.desktop-screen .profile-bento-link>span{flex:1}
+.desktop-screen .profile-bento-link>.icon:first-child{width:32px;height:32px;color:var(--secondary)}
+.desktop-screen .profile-bento-link:hover{background:var(--raised)}
+.profile-bento-grid-new{grid-template-rows:minmax(200px,1fr) minmax(220px,1fr) 112px}
+.desktop-screen .profile-bento-empty{grid-column:5/13;grid-row:1/3;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:24px;padding:40px}
+.desktop-screen .profile-bento-empty>.icon{width:64px;height:64px;color:var(--gold)}
+.desktop-screen .profile-bento-empty>h3{font:700 44px/1.1 var(--font-display)}
+.desktop-screen .profile-bento-empty>.primary-action{align-self:flex-start}
+.home-bento-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));grid-template-rows:1fr 1fr auto;gap:20px;flex:1;min-height:480px}
+.home-bento-hero,.home-bento-meta,.home-bento-stage,.home-bento-command{background:var(--surface);border-radius:24px;padding:32px;display:flex;flex-direction:column;gap:24px;min-width:0}
+.home-bento-hero{grid-column:1/9;grid-row:1/4;justify-content:space-between;padding:48px}
+.home-bento-hero>h3{font:700 clamp(48px,6cqw,80px)/1.04 var(--font-display);max-width:12ch}
+.home-bento-hero .eyebrow{display:flex;align-items:center;gap:8px;color:var(--gold)}
+.home-bento-meta{grid-column:9/13;grid-row:1;justify-content:center;background:var(--raised)}
+.home-bento-meta .tournament-meta{flex-direction:column;align-items:flex-start;gap:16px;font-size:22px;color:var(--ink)}
+.home-bento-stage{grid-column:9/13;grid-row:2;justify-content:space-between}
+.home-bento-stage .tournament-stage{border:0;padding:0;font-size:20px}
+.home-bento-command{grid-column:9/13;grid-row:3;padding:0;background:transparent}
+.home-bento-command .primary-action{min-height:80px}
+.desktop-screen.competition-live .desktop-grid{grid-template-columns:repeat(12,minmax(0,1fr));grid-template-rows:minmax(0,1fr);align-content:stretch}
+.desktop-screen.competition-live .desktop-primary{grid-column:1/9;grid-row:1}
+.desktop-screen.competition-live .desktop-secondary{grid-column:9/13;grid-row:1;display:flex;flex-direction:column;gap:var(--desktop-gap);min-height:0;padding:0;background:none}
+.desktop-screen.competition-live .desktop-secondary>*{margin:0;flex-shrink:0}
+.desktop-screen.competition-live .desktop-secondary>.competition-next{background:var(--surface);border-radius:24px;padding:24px}
+.desktop-screen.competition-live .desktop-secondary>.competition-disclosure,.desktop-screen.competition-live .desktop-secondary>.flow-text-link{background:var(--surface);border-radius:24px;padding:16px 24px}
+.desktop-screen.competition-live .desktop-secondary>.desktop-command{padding:0;align-self:stretch;margin-top:auto}
+.desktop-screen[data-desktop-screen="history-list"] .desktop-grid{grid-template-columns:repeat(12,minmax(0,1fr));grid-auto-rows:minmax(72px,auto)}
+.desktop-screen[data-desktop-screen="history-list"] .desktop-primary{grid-column:1/5;grid-row:1/span 4}
+.desktop-screen[data-desktop-screen="history-list"] .desktop-secondary{display:contents}
+.desktop-screen[data-desktop-screen="history-list"] .desktop-secondary>*{grid-column:5/13;margin:0}
+.desktop-screen[data-desktop-screen="history-list"] .flow-history-row{background:var(--surface);padding:24px 32px}
+.desktop-screen[data-desktop-screen="history-list"] .flow-section-label{align-self:end;padding-left:8px}
+@media(max-width:1100px){
+.profile-bento-grid{gap:16px;grid-template-columns:repeat(8,minmax(0,1fr));grid-template-rows:minmax(200px,auto) minmax(140px,auto) minmax(220px,auto) 80px;min-height:0}
+.profile-bento-identity{grid-column:1/4;grid-row:1/3}
+.profile-bento-achievement{grid-column:4/9;grid-row:1}
+.profile-bento-metric-0{grid-column:4/6;grid-row:2}
+.profile-bento-metric-1{grid-column:6/9;grid-row:2}
+.desktop-screen .profile-bento-recent{grid-column:1/9;grid-row:3;min-height:220px}
+.desktop-screen .profile-bento-link{grid-row:4;min-height:80px;padding:20px}
+.profile-bento-link-0{grid-column:1/4}.profile-bento-link-1{grid-column:4/7}.profile-bento-link-2{grid-column:7/9}
+.desktop-screen .profile-bento-empty{grid-column:4/9;grid-row:1/4}
+.profile-bento-grid-new .profile-bento-identity{grid-row:1/4}
+.desktop-screen .profile-bento-link{font-size:15px;gap:8px}
+}
+@media(max-width:740px){
+.profile-bento-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:none;grid-auto-rows:auto;min-height:0}
+.profile-bento-grid>*{grid-column:1/-1!important;grid-row:auto!important}
+.profile-bento-metric-0{grid-column:1!important}.profile-bento-metric-1{grid-column:2!important}
+.profile-bento-identity{min-height:220px}
+.profile-bento-achievement{min-height:200px}
+.desktop-screen .profile-bento-identity .profile-current-identity,.desktop-screen .profile-bento-identity .flow-profile-identity{flex-direction:row;align-items:center;gap:20px}
+.desktop-screen .profile-bento-identity h3,.desktop-screen .profile-bento-identity h2{font-size:40px}
+.desktop-screen .profile-bento-link{grid-column:1/-1!important;grid-row:auto!important;min-height:80px}
+.desktop-screen .profile-bento-empty{min-height:280px}
+.profile-bento-metric{min-height:150px}
+.home-bento-grid{grid-template-columns:1fr;grid-template-rows:none;min-height:0}
+.home-bento-grid>*{grid-column:1!important;grid-row:auto!important;min-height:100px}
+.home-bento-hero{min-height:300px}
+.desktop-screen.competition-live .desktop-grid,.desktop-screen[data-desktop-screen="history-list"] .desktop-grid{grid-template-columns:1fr}
+.desktop-screen.competition-live .desktop-primary,.desktop-screen.competition-live .desktop-secondary>*,.desktop-screen[data-desktop-screen="history-list"] .desktop-primary,.desktop-screen[data-desktop-screen="history-list"] .desktop-secondary>*{grid-column:1;grid-row:auto}
+}
+
+/* Композиции по назначению: общая сетка, разный вес содержимого. */
+.desktop-screen{container-type:inline-size}
+.desktop-screen .screen-content{gap:20px!important}
+.desktop-screen .desktop-tile{overflow:visible}
+.desktop-screen :is(.bento-setup,.bento-settings,.bento-about,.bento-roster,.bento-distribution,.bento-access,.bento-results,.bento-champion){display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:20px;flex:1;min-height:0;align-content:start}
+.desktop-screen :is(.bento-setup,.bento-roster,.bento-distribution,.bento-access,.bento-results,.bento-champion)>.desktop-command{margin:0;padding:0}
+.desktop-screen :is(.flow-header,.top-controls) h2{font-size:20px}
+.desktop-screen :is(.bento-setup,.bento-settings,.bento-about,.bento-access,.bento-results,.bento-champion) h2{font-size:40px;line-height:1.1}
+.desktop-screen .primary-action{padding:16px 24px}
+.desktop-screen .flow-text-link{min-height:56px}
+.desktop-screen a:is(.desktop-tile,.profile-bento-link,.flow-history-row):hover{background:var(--raised);outline:1px solid var(--border)}
+.desktop-screen :is(a,button,input,textarea,summary):focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+
+/* Название занимает одну строку сетки; формат и FT — отдельные смысловые блоки. */
+.bento-setup{grid-template-rows:auto auto auto auto auto}
+.bento-setup-name{grid-column:1/13;padding:20px 28px}
+.bento-setup-name .field{display:grid;grid-template-columns:160px minmax(0,1fr);align-items:center;gap:20px}
+.bento-setup-format{grid-column:1/8;grid-row:2/6;min-height:360px;justify-content:center}
+.bento-setup-format .flow-format-field{height:100%;justify-content:space-between;gap:24px}
+.bento-setup-format .flow-options{max-width:400px}
+.desktop-screen .bento-setup-format h2{font-size:clamp(32px,4.4cqw,60px);max-width:15ch}
+.bento-setup-ft{grid-column:8/13;padding:20px 24px;justify-content:center}
+.bento-setup-ft .flow-ft-field{justify-content:space-between;gap:12px}
+.bento-setup>.flow-notice{grid-column:8/13;align-self:center;margin:0;padding:0 8px}
+.bento-setup>.desktop-command{grid-column:8/13;align-self:end}
+.bento-setup:has(.bento-setup-ft)>.desktop-command{grid-row:5}
+.bento-setup:not(:has(.bento-setup-ft))>.flow-notice{padding:28px;background:var(--surface);border-radius:24px;align-self:stretch}
+
+/* Простая форма остаётся одной формой, без пустой декоративной колонки. */
+.desktop-simple{width:min(100%,880px);align-self:center;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:40px;padding:40px;background:var(--surface);border-radius:24px;margin:auto 0}
+.simple-intro h2{font-size:40px;line-height:1.1}
+.simple-form{display:flex;flex-direction:column;gap:24px;min-width:0}
+.simple-form .desktop-command{margin:0;padding:0;align-items:flex-end}
+.simple-form .primary-action{width:100%}
+.desktop-screen[data-desktop-screen^="profile-refined-e"] .desktop-grid{flex:0;width:min(100%,640px);margin:80px auto 0}
+.desktop-screen[data-desktop-screen^="profile-refined-e"] .desktop-primary{padding:32px}
+
+/* У каждого параметра собственная плитка. Подсказки не конкурируют с ними. */
+.bento-settings-hero{grid-column:1/7;grid-row:1/3;justify-content:center;min-height:340px}
+.desktop-screen .bento-settings-hero h2{font-size:64px}
+.bento-setting{grid-column:7/13;justify-content:center;min-height:160px}
+.bento-setting .flow-setting-row{display:flex;flex-direction:column;align-items:flex-start;gap:24px;border:0;padding:0}
+.bento-setting .flow-setting-row strong{font:600 28px/1.2 var(--font-ui)}
+.bento-settings-note{grid-column:1/13;flex-direction:row;justify-content:space-between;gap:32px;padding:24px 32px}
+.bento-settings-note>*{flex:1;margin:0}
+.bento-about-hero{grid-column:1/8;grid-row:1/3;min-height:460px;justify-content:center}
+.bento-about-detail{grid-column:8/13;justify-content:center;min-height:140px;align-self:start}
+.bento-about-detail:has(details){min-height:280px}
+.bento-about-detail summary{cursor:pointer;font-size:18px}
+.bento-about-detail .flow-stack{padding-top:24px}
+
+/* Участники сами являются плитками; оболочки-карточки здесь не нужны. */
+.desktop-screen .bento-roster>.flow-roster,.bento-assigned{grid-column:1/9;grid-row:1/4;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;padding:0;background:none;align-self:start}
+.desktop-screen .bento-roster>.flow-roster>li,.desktop-screen .bento-assigned>.flow-player-row{background:var(--surface);border:0;border-radius:24px;min-height:180px;padding:28px;display:flex;align-items:center}
+.bento-roster .flow-person,.bento-assigned .flow-person{display:flex;flex-direction:column;align-items:flex-start;gap:24px}
+.bento-roster .flow-person>strong,.bento-assigned .flow-person strong{font-size:22px}
+.bento-roster .flow-avatar,.bento-assigned .flow-avatar{width:64px;height:64px;border-radius:22px;font-size:24px}
+.bento-roster-context{grid-column:9/13;grid-row:1/3;justify-content:space-between;min-height:300px}
+.desktop-screen .bento-roster-context h2{font-size:40px;line-height:1.1}
+.bento-roster>.desktop-command,.bento-distribution>.desktop-command{grid-column:9/13;grid-row:3;align-self:end}
+.bento-roster>.desktop-command{flex-direction:row;align-items:center}
+.bento-roster .desktop-command .primary-action{flex:1;min-width:0}
+.desktop-screen .bento-roster .flow-roster>li{position:relative;overflow:hidden}
+.desktop-screen .bento-roster .flow-roster-remove{right:16px}
+
+/* QR остаётся цельным и читаемым; адрес не теряется в текстовом блоке. */
+.bento-access{grid-template-rows:minmax(300px,1fr) auto}
+.bento-access-intro{grid-column:1/7;grid-row:1;justify-content:space-between}
+.desktop-screen .bento-access-intro h2{font-size:clamp(40px,5cqw,64px)}
+.bento-access-code{grid-column:7/13;grid-row:1/3;align-items:center;justify-content:center;min-height:480px}
+.bento-access-code .flow-qr-preview{width:min(100%,340px)}
+.bento-access-address{grid-column:1/7;grid-row:2;padding:16px 24px}
+.desktop-screen .bento-access-address .spectator-link{padding:0;background:none;border:0;max-width:none}
+.desktop-screen .flow-address{overflow-wrap:anywhere;white-space:normal}
+
+/* Результат — крупная первая строка и компактные остальные, без card-in-card. */
+.bento-results>.flow-ranking{grid-column:1/9;grid-row:1/5;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-content:start;gap:20px}
+.desktop-screen .bento-results .flow-ranking>li{margin:0;min-height:116px!important;background:var(--surface);border:0;padding:24px!important}
+.desktop-screen .bento-results .flow-ranking>li:first-child{grid-column:1/-1;min-height:220px!important;background:var(--raised);border:1px solid var(--gold)}
+.bento-results .flow-ranking>li:last-child:nth-child(even){grid-column:1/-1}
+.bento-results .flow-ranking>li:first-child .flow-avatar{width:96px;height:96px;font-size:36px}
+.bento-results .flow-ranking>li:first-child .flow-person strong{font-size:36px}
+.bento-results .flow-ranking>li:first-child .flow-place{font-size:56px}
+.bento-results-context{grid-column:9/13;grid-row:1;min-height:220px;justify-content:space-between}
+.desktop-screen .bento-results-context h2{font-size:32px}
+.bento-results>.flow-text-link,.bento-results>.competition-disclosure{grid-column:9/13;background:var(--surface);padding:20px 24px;border-radius:24px}
+.bento-results>.desktop-command{grid-column:9/13;grid-row:4;align-self:end}
+.bento-champion-hero{grid-column:1/9;grid-row:1/4;min-height:500px;align-items:center;justify-content:center;background:var(--raised)}
+.bento-champion-hero .competition-award{margin:0;color:var(--gold)}
+.bento-champion-hero .flow-fighter{gap:16px}
+.bento-champion-hero .portrait{width:180px;font-size:56px}
+.bento-champion-hero .flow-fighter>strong{font-size:56px}
+.bento-champion-context{grid-column:9/13;grid-row:1/3;justify-content:flex-end}
+.bento-champion-context .competition-context{font:600 32px/1.2 var(--font-ui);color:var(--ink)}
+.bento-champion>.desktop-command{grid-column:9/13;grid-row:3;align-self:end}
+
+/* Переходные/пустые состояния не изображают dashboard без данных. */
+.desktop-screen:is([data-desktop-screen^="utility-"],[data-desktop-screen="distribution-working"],[data-desktop-screen="history-empty"]) .desktop-grid{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px}
+.desktop-screen:is([data-desktop-screen^="utility-"],[data-desktop-screen="distribution-working"],[data-desktop-screen="history-empty"]) .desktop-primary{width:min(100%,640px);flex:0;min-height:360px;padding:40px}
+.desktop-screen:is([data-desktop-screen="utility-error"],[data-desktop-screen="history-empty"]) .desktop-secondary{position:static;background:none;padding:0;width:min(100%,640px);max-width:none}
+.desktop-screen:is([data-desktop-screen="utility-error"],[data-desktop-screen="history-empty"]) .desktop-command{padding:0;margin:0;align-items:flex-end}
+.desktop-screen:is([data-desktop-screen="utility-error"],[data-desktop-screen="history-empty"]) .primary-action{width:260px}
+.desktop-screen.home-empty .desktop-grid{grid-template-columns:repeat(12,minmax(0,1fr));grid-template-rows:1fr auto}
+.desktop-screen.home-empty .desktop-primary{grid-column:1/13;grid-row:1/3}
+.desktop-screen.home-empty .desktop-secondary{grid-column:8/13;grid-row:2;background:none;padding:0 32px 32px;z-index:1}
+.desktop-screen.home-empty .type-composition{padding:16px;max-width:70%}
+.desktop-screen.home-empty .type-title{font-size:clamp(48px,6.5cqw,80px)}
+.desktop-screen.competition-live .desktop-secondary>.competition-next{min-height:220px}
+.desktop-screen.competition-live .desktop-secondary>.competition-disclosure{align-self:stretch;min-height:88px;flex:0 1 auto;overflow:auto;scrollbar-width:thin}
+.desktop-screen .competition-current{gap:28px}
+.desktop-screen .competition-current .flow-pair{gap:24px;justify-content:center}
+.desktop-screen .competition-current .flow-fighter{min-width:0;flex:1}
+.desktop-screen .competition-current .flow-fighter>strong{font-size:clamp(24px,3cqw,36px)}
+.desktop-screen[data-desktop-screen="history-list"] .desktop-grid{grid-template-rows:auto auto auto 1fr;align-content:start}
+.desktop-screen[data-desktop-screen="history-list"] .desktop-primary{justify-content:flex-end;padding-bottom:40px}
+.desktop-screen[data-desktop-screen="history-list"] .flow-history-row{min-height:132px;align-self:start}
+
+/* Результат визуального прохода: убираем overflow и случайные пустые полосы. */
+.desktop-screen.bootstrap .desktop-grid{align-items:center;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr)}
+.desktop-screen.bootstrap .desktop-primary{background:transparent;padding:32px;min-width:0}
+.desktop-screen.bootstrap .bootstrap-logo{font-size:clamp(32px,4.4cqw,56px);line-height:1.05}
+.desktop-screen.bootstrap .desktop-secondary{min-height:360px;align-self:center;padding:40px 32px}
+.desktop-screen.bootstrap .boot-state h2{font-size:28px}
+.desktop-screen.bootstrap .desktop-command{margin-top:28px;max-width:none}
+.desktop-screen:is([data-desktop-screen^="utility-"],[data-desktop-screen="distribution-working"]) .desktop-grid{justify-content:flex-start;padding-top:64px}
+.desktop-screen:is([data-desktop-screen^="utility-"],[data-desktop-screen="distribution-working"]) .desktop-primary{height:360px;flex:none}
+.desktop-screen[data-desktop-screen^="profile-refined-e"] .desktop-page-header{width:min(100%,640px);align-self:center}
+.desktop-screen[data-desktop-screen^="profile-refined-e"] .desktop-grid{margin:20px auto 0}
+.bento-setup>.desktop-command{grid-row:5}
+.bento-setup:not(:has(.bento-setup-ft))>.flow-notice{grid-row:2/5}
+.desktop-screen.competition-live .desktop-secondary>.competition-intro{background:var(--surface);border-radius:24px;padding:24px}
+.desktop-screen.competition-live .desktop-secondary>.competition-intro h2{font-size:36px}
+.desktop-screen[data-desktop-screen="result-locked"] .desktop-grid{flex:0;width:min(100%,880px);align-self:center}
+.desktop-screen[data-desktop-screen="result-locked"] .primary-action{max-width:320px;align-self:flex-start}
+.desktop-screen[data-desktop-screen="history-list"] .desktop-grid{grid-template-rows:auto auto auto;align-content:start;flex:0}
+.desktop-screen[data-desktop-screen="history-list"] .desktop-primary{grid-column:1/5;grid-row:1/3;justify-content:flex-end}
+.desktop-screen[data-desktop-screen="history-list"] .flow-section-label{grid-column:5/13;grid-row:1;margin:0}
+.desktop-screen[data-desktop-screen="history-list"] .flow-history-row{display:flex;flex-direction:column;align-items:stretch;gap:16px;padding:24px 32px;min-height:172px;grid-row:3}
+.desktop-screen[data-desktop-screen="history-list"] .flow-history-row:nth-child(2){grid-column:5/13;grid-row:2;min-height:220px}
+.desktop-screen[data-desktop-screen="history-list"] .flow-history-row:nth-child(3){grid-column:1/7}
+.desktop-screen[data-desktop-screen="history-list"] .flow-history-row:nth-child(4){grid-column:7/13}
+.desktop-screen .flow-history-row h3{margin:0;font-size:26px}
+.desktop-screen .flow-history-row .flow-avatar{width:48px;height:48px;font-size:20px}
+.desktop-screen .flow-history-row .flow-person strong{font-size:22px}
+.desktop-screen .bento-results .flow-ranking>li{grid-template-columns:40px minmax(0,1fr);gap:16px}
+.desktop-screen.competition-results-points .bento-results .flow-ranking>li{grid-template-columns:minmax(0,1fr) auto}
+.bento-results .competition-rank-points{padding:0}
+.desktop-screen .bento-results .flow-ranking>li:first-child .flow-place{width:100%;font-size:48px}
+
+@media(max-width:1000px){
+ .desktop-screen .bento-results .flow-ranking>li{grid-template-columns:32px minmax(0,1fr);padding:20px!important;gap:12px}
+ .desktop-screen .bento-results .flow-ranking .flow-person strong{font-size:18px}
+ .desktop-screen .bento-results .flow-ranking>li:first-child .flow-person strong{font-size:28px}
+ .bento-results .flow-ranking>li:first-child .flow-avatar{width:72px;height:72px;font-size:28px}
+}
+
+@media(max-width:1000px){
+ .desktop-screen :is(.bento-setup,.bento-settings,.bento-about,.bento-roster,.bento-distribution,.bento-access,.bento-results,.bento-champion){gap:16px}
+ .desktop-screen .desktop-tile{padding:24px}
+ .bento-setup-name .field{grid-template-columns:100px minmax(0,1fr)}
+ .bento-setup-format{grid-column:1/7}.bento-setup-ft,.bento-setup>.flow-notice,.bento-setup>.desktop-command{grid-column:7/13}
+ .desktop-screen .bento-setup-format h2{font-size:36px}
+ .desktop-screen .bento-roster>.flow-roster,.bento-assigned,.bento-results>.flow-ranking,.bento-champion-hero{grid-column:1/8}
+ .bento-roster-context,.bento-roster>.desktop-command,.bento-distribution>.desktop-command,.bento-results-context,.bento-results>.flow-text-link,.bento-results>.competition-disclosure,.bento-results>.desktop-command,.bento-champion-context,.bento-champion>.desktop-command{grid-column:8/13}
+ .desktop-screen .bento-roster .flow-roster>li,.desktop-screen .bento-assigned>.flow-player-row{padding:20px}
+ .bento-results .flow-ranking>li:first-child .flow-person strong{font-size:28px}
+ .desktop-simple{padding:32px;gap:24px}
+ .desktop-screen .competition-current .portrait{width:112px}
+}
+@media(max-width:740px){
+ .desktop-screen :is(.bento-setup,.bento-settings,.bento-about,.bento-roster,.bento-distribution,.bento-access,.bento-results,.bento-champion){grid-template-columns:1fr;flex:0}
+ .desktop-screen :is(.bento-setup,.bento-settings,.bento-about,.bento-roster,.bento-distribution,.bento-access,.bento-results,.bento-champion)>*{grid-column:1!important;grid-row:auto!important}
+ .bento-setup-name .field{display:flex;align-items:stretch}
+ .bento-setup-format{min-height:300px}
+ .desktop-simple{display:flex;flex-direction:column;margin:0}
+ .bento-settings-note{flex-direction:column}
+ .desktop-screen .bento-roster>.flow-roster,.bento-assigned{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .bento-roster-context{min-height:200px}
+ .bento-access-code{min-height:380px;order:1}.bento-access-address{order:2}
+ .bento-results>.flow-ranking{grid-template-columns:1fr}
+ .desktop-screen .bento-results .flow-ranking>li{grid-column:1}
+ .bento-champion-hero{min-height:420px}
+ .desktop-screen.home-empty .desktop-grid{display:flex;flex-direction:column}
+ .desktop-screen.home-empty .type-composition{max-width:100%;padding:0}
+ .desktop-screen.home-empty .desktop-secondary{padding:0}
+ .desktop-screen.competition-live .desktop-grid{grid-template-rows:none}
+ .desktop-screen.competition-live .desktop-secondary{grid-column:1;grid-row:auto;min-height:min-content}
+ .desktop-screen.competition-live .desktop-secondary>.competition-disclosure{flex-shrink:0}
+ .desktop-screen.competition-live .desktop-primary{min-height:400px}
+ .desktop-screen.bootstrap .desktop-grid{grid-template-columns:1fr;align-content:start}
+ .desktop-screen.bootstrap .desktop-secondary{min-height:260px}
+ .desktop-screen[data-desktop-screen="history-list"] .desktop-grid{grid-template-columns:1fr;grid-template-rows:none}
+ .desktop-screen[data-desktop-screen="history-list"] .desktop-primary,.desktop-screen[data-desktop-screen="history-list"] .desktop-secondary>*{grid-column:1;grid-row:auto;min-height:0}
+ .desktop-screen[data-desktop-screen="history-list"] .flow-history-row{grid-column:1!important;grid-row:auto!important}
+ .desktop-screen.competition-live .desktop-secondary>.desktop-command{grid-row:auto}
+}
+
+/* Внутренний ритм одинаковых компонентов не зависит от размера bento-плитки. */
+.desktop-screen{--tile-inset:24px;--tile-gap:16px;--flow-roster-action-width:112px}
+.desktop-screen .desktop-tile,.desktop-screen :is(.profile-bento-identity,.profile-bento-achievement,.profile-bento-metric,.profile-bento-recent,.profile-bento-link,.profile-bento-empty,.home-bento-meta,.home-bento-stage){padding:var(--tile-inset);gap:var(--tile-gap)}
+.desktop-screen :is(.bento-roster-context,.bento-access-intro,.bento-results-context,.bento-settings-hero,.bento-about-detail){justify-content:flex-start;gap:16px}
+.desktop-screen :is(.competition-intro,.flow-about-hero){display:flex;flex-direction:column;gap:8px}
+.desktop-screen .flow-about-hero>.flow-app-mark{margin:0 0 16px}
+.desktop-screen .bento-setup-name .field{display:flex;flex-direction:column;align-items:stretch;gap:8px}
+.desktop-screen .bento-setup-format .flow-format-field{justify-content:flex-start;gap:16px}
+.desktop-screen .bento-setup-format .flow-format-field>div:last-child{margin-top:auto;display:flex;flex-direction:column;gap:8px}
+.desktop-screen .bento-setup-format .flow-options{padding:0;max-width:none}
+.desktop-screen .flow-ft-field{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:16px}
+.desktop-screen .flow-ft-stepper{width:160px;justify-content:space-between}
+.desktop-screen .flow-ft-stepper>button{width:48px}
+.desktop-screen .flow-ft-stepper>output{min-width:48px}
+.desktop-screen .profile-bento-recent{padding-right:140px}
+.desktop-screen .profile-bento-achievement .profile-achievement{padding:0;gap:16px}
+.desktop-screen .profile-bento-link{gap:16px}
+.desktop-screen .profile-bento-identity .profile-current-identity,.desktop-screen .profile-bento-identity .flow-profile-identity{padding:0!important}
+.desktop-screen .home-bento-meta .tournament-meta{gap:8px}
+.desktop-screen .home-bento-stage{justify-content:flex-start}
+.desktop-screen .home-bento-stage .tournament-stage{margin-top:auto}
+.desktop-screen .bento-access-intro>.flow-caption{max-width:48ch}
+.desktop-screen .bento-access-address .spectator-link{gap:16px}
+.desktop-screen .bento-access-code{padding:32px}
+.desktop-screen .flow-sheet>.flow-pair{padding:24px;gap:16px}
+.desktop-screen .flow-sheet .flow-fighter{gap:8px}
+.desktop-screen .flow-sheet .flow-fighter>.portrait{flex:none}
+.desktop-screen .flow-sheet .competition-outcome{min-height:2.8em}
+.desktop-screen .bento-results .flow-ranking>li{padding:24px!important;gap:16px}
+.desktop-screen .bento-results .flow-ranking .flow-person{gap:16px}
+.desktop-screen .bento-results .flow-ranking .flow-person>span:last-child{gap:4px}
+.desktop-screen .bento-assigned>.flow-player-row{padding:24px}
+.desktop-screen .bento-assigned .flow-person{gap:16px;align-items:flex-start}
+.desktop-screen .bento-assigned .flow-person>span:last-child{gap:4px}
+
+/* Desktop reveal: компактное действие, без мобильного сдвига padded-карточки. */
+.desktop-screen .bento-roster>.flow-roster>li{padding:0;display:grid;min-height:208px;background:var(--surface);isolation:isolate}
+.desktop-screen .bento-roster .flow-roster .flow-person{display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:16px;width:100%;height:auto;min-height:208px;padding:24px;margin:0;background:var(--surface);border-radius:24px;overflow-wrap:anywhere;transform:none!important}
+.desktop-screen .bento-roster .flow-roster .flow-roster-remove{inset:24px 24px auto auto;width:96px;height:48px;padding:0;justify-content:center;border-radius:999px;z-index:2}
+
+/* Длинные списки имеют собственную прокрутку; соседние действия остаются видимы. */
+.desktop-screen :is(.bento-roster,.bento-distribution,.bento-results){grid-template-rows:minmax(0,1fr) auto;align-content:stretch;flex:1;min-height:0}
+.desktop-screen .bento-roster>.flow-roster,.desktop-screen .bento-assigned,.desktop-screen .bento-results>.flow-ranking{grid-row:1/3;align-self:stretch;align-content:start;overflow:auto;min-height:0;min-width:0;scrollbar-width:thin;scrollbar-gutter:stable;overscroll-behavior:contain;padding:2px 8px 2px 2px}
+.desktop-screen .bento-roster-context{grid-row:1;min-height:0;align-self:start}
+.desktop-screen :is(.bento-roster,.bento-distribution)>.desktop-command{grid-row:2;align-self:end}
+.desktop-screen .bento-assigned{grid-auto-rows:minmax(208px,auto)}
+.desktop-screen .bento-assigned>.flow-player-row{align-items:flex-start}
+.desktop-screen .bento-results{grid-template-rows:auto auto minmax(0,1fr) auto}
+.desktop-screen .bento-results>.flow-ranking{grid-row:1/5}
+.desktop-screen .bento-results>.desktop-command{grid-row:4}
+.desktop-screen .flow-table-wrap{min-height:0;overflow:auto;scrollbar-width:thin;scrollbar-gutter:stable}
+.desktop-screen .flow-standings thead{position:sticky;top:0;background:var(--surface);z-index:1}
+.desktop-screen .flow-standings caption{padding:0 0 16px}
+.desktop-screen.competition-live .desktop-primary:has(.flow-table-wrap){overflow:auto}
+.desktop-screen .competition-disclosure[open]{max-height:320px;overflow:auto;scrollbar-width:thin}
+.desktop-screen .flow-sheet .competition-disclosure[open]{max-height:220px}
+
+.desktop-gallery .density-controls{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-top:20px;font-size:14px;color:var(--secondary)}
+.density-controls a{padding:8px 16px;border-radius:999px;background:var(--surface)}
+.density-controls a[aria-current=page]{background:var(--raised);color:var(--gold)}
+.density-controls output{margin-left:8px}
+.desktop-gallery .density-preview-label{color:var(--gold)}
+.desktop-gallery.is-density-preview #history-list .desktop-grid{flex:1;min-height:0;grid-template-rows:auto minmax(0,1fr)}
+.desktop-gallery.is-density-preview #history-list .desktop-primary{grid-column:1/5;grid-row:1/3;align-self:start;min-height:220px}
+.desktop-gallery.is-density-preview #history-list .desktop-secondary{display:flex;flex-direction:column;gap:16px;grid-column:5/13;grid-row:1/3;overflow:auto;min-height:0;padding:0 8px 0 0;background:none;scrollbar-width:thin;overscroll-behavior:contain}
+.desktop-gallery.is-density-preview #history-list .flow-history-row{flex:none;min-height:172px;width:100%;align-self:stretch}
+.desktop-gallery.is-density-preview #history-list .flow-section-label{align-self:stretch;text-align:left;padding:0 8px}
+
+/* Настройки: видимые native select вместо неинтерактивных значений. */
+.desktop-screen .bento-setting .flow-setting-row{width:100%;gap:16px}
+.desktop-screen .bento-setting .flow-setting-row>label{font:400 14px/1.5 var(--font-ui);color:var(--secondary)}
+.settings-select-shell{position:relative;width:100%;min-width:0}
+.desktop-screen .settings-select-shell select{appearance:none;display:block;width:100%;min-width:0;min-height:56px;padding:12px 56px 12px 20px;border:1px solid var(--border);border-radius:16px;background:var(--raised);color:var(--ink);font:500 18px/1.4 var(--font-ui);cursor:pointer}
+.desktop-screen .settings-select-shell select:hover{border-color:var(--secondary)}
+.desktop-screen .settings-select-shell select:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+.settings-select-shell>.icon{position:absolute;right:16px;top:50%;transform:translateY(-50%) rotate(90deg);pointer-events:none;color:var(--secondary)}
+
+@media(max-width:1000px){
+ .desktop-screen{--tile-inset:20px}
+ .desktop-screen .flow-ft-field{grid-template-columns:1fr;gap:8px}
+ .desktop-screen .bento-roster .flow-roster .flow-person{padding:20px}
+ .desktop-screen .bento-results .flow-ranking>li{padding:20px!important;gap:12px}
+}
+@media(max-width:740px){
+ .desktop-screen :is(.bento-roster,.bento-distribution,.bento-results){flex:1;min-height:0;grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr) auto}
+ .desktop-screen :is(.bento-roster,.bento-distribution){grid-template-rows:auto minmax(0,1fr) auto}
+ .desktop-screen .bento-roster-context{display:flex;grid-row:1!important;padding:16px 20px;gap:8px}
+ .desktop-screen .bento-roster-context h2{font-size:26px}
+ .desktop-screen .bento-roster>.flow-roster,.desktop-screen .bento-assigned,.desktop-screen .bento-results>.flow-ranking{grid-column:1!important;grid-row:2!important;min-height:200px}
+ .desktop-screen :is(.bento-roster,.bento-distribution)>.desktop-command{grid-column:1!important;grid-row:3!important}
+ .desktop-screen .bento-results{grid-template-rows:auto minmax(0,1fr) auto auto auto}
+ .desktop-screen .bento-results-context{grid-row:1!important}
+ .desktop-screen .bento-results>.flow-ranking{grid-row:2!important}
+ .desktop-screen .bento-results>.desktop-command{grid-row:5!important}
+ .desktop-screen .bento-results>.flow-text-link,.desktop-screen .bento-results>.competition-disclosure{grid-row:3!important}
+ .desktop-gallery.is-density-preview #history-list .desktop-grid{grid-template-rows:auto minmax(0,1fr)}
+ .desktop-gallery.is-density-preview #history-list .desktop-primary{grid-column:1;grid-row:1;min-height:0;padding:20px}
+ .desktop-gallery.is-density-preview #history-list .desktop-primary h2{font-size:32px}
+ .desktop-gallery.is-density-preview #history-list .desktop-secondary{grid-column:1;grid-row:2}
+}
