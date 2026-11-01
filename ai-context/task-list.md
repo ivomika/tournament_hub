@@ -41,4 +41,4 @@
 - ✅ 37. Создать mobile-first HTML-прототип внешних экранов и состояний приложения без редактора. [Детали](task-details/37-html-screen-prototype.md)
 - ✅ 38. Создать отдельный desktop bento-прототип всех экранов и состояний. [Детали](task-details/38-desktop-bento-prototype.md)
 
-- ✅ 39. Эксперимент UI kit завершён; UI kit удалён по запросу пользователя, оставлены mobile/desktop прототипы. [Детали](task-details/39-ui-kit.md)
+- ✅ 39. Восстановить единый визуальный UI kit из mobile/desktop по уточнённому ТЗ. [Детали](task-details/39-ui-kit.md)

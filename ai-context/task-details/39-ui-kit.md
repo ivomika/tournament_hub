@@ -92,3 +92,35 @@ Prompt пользователя (дословно):
 
 
 Итерация6 завершена: удалены design-system.html, design-system-model.json, design-system-tokens.json, ui-kit.html, ui-kit-components.css, ui-kit-sources.json и docs/design/ui-kit.md. В prototype осталось ровно2 HTML: index.html и desktop.html. Все остальные13 файлов прототипов сохранены с идентичными SHA256. Удалённые артефакты перемещены в локальный временный backup вне проекта. История задачи сохранена; результат UI kit отменён пользователем.
+
+
+## Итерация7 — визуальный UI kit по новому ТЗ и референсам
+
+Prompts пользователя (дословно):
+
+> Так же прочитай гайдлайны формирования ui- kit
+
+Приложено полное ТЗ «Задача: восстановление единой дизайн-системы из Desktop и Mobile прототипов» и3 визуальных референса. ТЗ прочитано полностью; каноническая копия сохраняется в docs/design/ui-kit-brief.md.
+
+> погнали к реализации
+
+Spec/Plan v7. Mode CODE, TestGate NOT_REQUIRED: визуальная библиотека/токены/layout и статическая документация; никаких domain/state/сохранения данных. R-001: переиспользуемые шаблоны компонентов вместо копий экранов; R-002: русская документация; R-004: не вводятся app models; R-007: проверка структуры, source mapping, browser визуальная сверка и обратная сборка. Flutter scope отсутствует; других conditional rules нет.
+
+План: (1) аудит всех49+49 figure и computed styles обеих платформ; (2) единый визуальный лист с7 разделами Colors/Typography/Icons/Foundations/Components/Layouts/Mapping; компоненты сгруппированы семантически, observed/reconstructed/proposed явно различаются; (3) единая анатомия через свойства и состав, без дублирования на каждый экран, без device chrome и сотен iframe; (4) обратная сборка выбранных экранов из той же библиотеки; (5) визуальная проверка секций, responsive и long-content, ссылки/IDs/assets/rules/diff. Исходные2 прототипа сохраняются эталонами. Статический одноразовый генератор в scratch — способ подготовки HTML, не новый production tooling/checker.
+
+Критерии v7: AC7.1 семь визуальных разделов; AC7.2 все98 макетов имеют mapping компонентов/layout/исключений; AC7.3 повторяемые токены с ролями и evidence, полный типографический состав и SVG icons; AC7.4 компактные семейства со state matrices и адаптацией; AC7.5 обратная сборка desktop/mobile выбранных сценариев из общих шаблонов компонентов; AC7.6 исходные файлы не меняются, visual/structural проверки проведены.
+
+
+Итерация7 завершена, проверка1 ноября2026 (Europe/Moscow). Дополнительный prompt пользователя (дословно):
+
+> продолжи
+
+Результат: один ui-kit.html с7 визуальными разделами и23 семантическими семействами, без iframe/device chrome. Общие ui-kit-library.js шаблоны используются листом и четырьмя обратными сборками Setup/Profile × Mobile/Desktop. Native/source CSS сохранён; aliases в ui-kit-tokens.css; display/layout/state оформление стенда в ui-kit.css; mapping в ui-kit-mapping.json. Owning docs: docs/design/ui-kit.md, полное ТЗ в ui-kit-brief.md.
+
+AC7.1–7.6 выполнены в заявленных границах визуального scope:98 исходных макетов/222 наблюдаемых класса классифицированы;21 color literal/59 type signatures/18 SVG icons; повторяемость spacing и локальные исключения отражены; исходные, CSS, восстановленные и proposed состояния различаются;2 выбранных сценария собраны общими шаблонами на двух платформах. Runtime сценарии и полная обратная сборка всех98 макетов не заявляются.
+
+Проверки: все23 семейства и7 разделов — screenshot-проход/contact sheets, повторные screenshots полей, рейтинга, desktop/mobile Profile и Setup. Найдены и исправлены first-child emphasis обычной строки рейтинга; intrinsic width density span; попадание profile-bento-recent в mobile; gap профиля; тесный Score на1000px; наследование font стенда вместо source body. Повтор на1280/1000/390px: body/family/rebuild overflow отсутствует; duplicate IDs0, iframe0, missing icon targets0, console errors/warnings0. Native Disclosure раскрывается.
+
+Сравнение4 компонентов (Button/Field/NumberStepper/mobile Achievement) с исходником по13 computed параметрам: различий0. Временная token-probe проверка: palette-gold-400→green обновил Button и Metric accent; space-md→30px обновил padding Button/Field/Metric. Probe удалён.1443 локальные ссылки/ресурса проверены на существование файлов/anchors.98 scenario mappings,222 class mappings,13 исходных файлов SHA256 неизменны. В финальном JSON удалены5 неиспользуемых definitions, чтобы реестр содержал только222 наблюдаемых класса.
+
+Команды: node --check ui-kit-library.js/ui-kit.js; node tools/check_rules.cjs; git diff --check — PASS. Проверки DOM/source hashes/links/computed evidence выполнены Python и CUA. Screenshot результата: outputs/tournament-ui-kit.jpg текущего чата. Полный pixel diff, production accessibility/modal focus/clipboard и Flutter/build/commit/push не выполнялись. Изменения source prototypes/shared CSS не вносились.

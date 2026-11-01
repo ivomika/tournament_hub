@@ -1,0 +1,23 @@
+/* Восстановленная foundation-палитра. Имена source CSS — совместимые алиасы. */
+:root{
+ --palette-neutral-950:#0e1014;--palette-neutral-900:#171a20;--palette-neutral-800:#232730;--palette-neutral-700:#3a414e;
+ --palette-neutral-50:#f4f2ee;--palette-neutral-200:#b8bec9;--palette-neutral-400:#969eac;
+ --palette-gold-400:#f1c75b;--palette-gold-500:#dca82f;--palette-gold-200:#ffe199;--palette-gold-950:#19150b;
+ --palette-red-300:#ff968e;--palette-red-900:#632a2a;
+ --color-background-primary:var(--palette-neutral-950);--color-background-surface:var(--palette-neutral-900);--color-background-raised:var(--palette-neutral-800);
+ --color-text-primary:var(--palette-neutral-50);--color-text-secondary:var(--palette-neutral-200);--color-text-muted:var(--palette-neutral-400);--color-border-default:var(--palette-neutral-700);
+ --color-accent:var(--palette-gold-400);--color-on-accent:var(--palette-gold-950);--color-action-primary:var(--color-accent);--color-action-pressed:var(--palette-gold-500);--color-focus:var(--palette-gold-200);
+ --color-status-error:var(--palette-red-300);--color-status-error-surface:var(--palette-red-900);
+ --background:var(--color-background-primary);--surface:var(--color-background-surface);--raised:var(--color-background-raised);--border:var(--color-border-default);
+ --ink:var(--color-text-primary);--secondary:var(--color-text-secondary);--muted:var(--color-text-muted);--gold:var(--color-accent);--on-gold:var(--color-on-accent);--pressed:var(--color-action-pressed);--focus:var(--color-focus);--danger:var(--color-status-error);--danger-surface:var(--color-status-error-surface);
+ --space-micro:4px;--space-xs:8px;--space-sm:16px;--space-md:24px;--space-lg:32px;--space-xl:48px;--space-2xl:64px;
+ --space-desktop-compact:12px;--space-desktop-grid:20px;
+ --s1:var(--space-xs);--s2:var(--space-sm);--s3:var(--space-md);--s4:var(--space-lg);--s5:var(--space-xl);--s6:var(--space-2xl);
+ --shape-control-pill:999px;--shape-surface:24px;--shape-panel-mobile:32px;--border-width:1px;
+ --pill:var(--shape-control-pill);--inner-radius:var(--shape-surface);--panel-radius:var(--shape-panel-mobile);
+ --size-control-touch:56px;--size-control-compact:48px;--size-icon-default:24px;
+ --control:var(--size-control-touch);--large-control:var(--size-control-touch);
+ --type-display:700 60px/1.05 var(--font-display);--type-heading:700 40px/1.15 var(--font-display);--type-title:600 26px/1.25 var(--font-ui);
+ --type-body:400 18px/1.5 var(--font-ui);--type-label:600 16px/1.5 var(--font-ui);--type-caption:400 14px/1.5 var(--font-ui);
+ --tracking-display:-.04em;--tracking-heading:-.025em;--tracking-title:-.035em;
+}

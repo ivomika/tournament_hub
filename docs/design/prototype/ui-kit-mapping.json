@@ -1,0 +1,7237 @@
+{
+  "scope": "Source HTML class mapping and visual component coverage; not production behavioral certification",
+  "sources": {
+    "desktop.html": "99487dab957f8a57f1ece22a1cf7e08c110394bf23db4a67ec4a9672ca1b91da",
+    "bracket-map.js": "48d0184337762c5674530d55d0d33686b19401d9452da37578cd484476a8487d",
+    "index.html": "c304ad4bb496187ae8837d07885e30436c5b0437f432ec5d0d7f49be1ddb2c92",
+    "desktop-density.js": "440ba8257d863ab91720327433e236025d60a00a840d3a07a59f5fb8eec5a61f",
+    "bracket-map.css": "ad7e3c9169d58efa9627ae63e60fab3421fdc4e60ee157eab248cd37036d4009",
+    "gallery.css": "771090c08365c09e90fd99e99a7d1c10dbb1e5d4812e09a92b7bc7827572d771",
+    "desktop.css": "791e07336bd93ca535ba8514e2aafc3396e46cea6141eafa70ede1b2ab0d6e00",
+    "tokens.css": "8790d4e8336be823c78a8580312e9516eac7f49edfebe2696c61a8ce3a93f978",
+    "screens.css": "269c698560f4db5e76d7e1541459e76749165de527aa0bbe058fd009f0ba10b8",
+    "roster-gestures.js": "00d288047215b7fcfc914a8bcd2f791e7fb4cb87270e51af3dce088f4694830d",
+    "flow.css": "f6394e2df0e4a0c684084f2e2570739f5bf861d4b7b98cf73b037cbaba262052",
+    "components.css": "0a718fcaec799c329936e19f61233815e0dc62b03d60753c4a13a8c790392837",
+    "competition.css": "c4bb3a9bab89fef391f3652715129d3c70ca9478bd1919c7f3419adcc79e76c7"
+  },
+  "components": {
+    "progress": {
+      "Mobile": [
+        {
+          "figure": "boot-error",
+          "selector": ".boot-cue"
+        },
+        {
+          "figure": "boot-error",
+          "selector": ".boot-error-symbol"
+        },
+        {
+          "figure": "boot-loading",
+          "selector": ".boot-cue"
+        },
+        {
+          "figure": "boot-loading",
+          "selector": ".boot-progress"
+        },
+        {
+          "figure": "boot-loading",
+          "selector": ".boot-track"
+        },
+        {
+          "figure": "boot-loading",
+          "selector": ".boot-wave-phase"
+        },
+        {
+          "figure": "boot-loading",
+          "selector": ".boot-wave-window"
+        },
+        {
+          "figure": "boot-retry",
+          "selector": ".boot-cue"
+        },
+        {
+          "figure": "boot-retry",
+          "selector": ".boot-progress"
+        },
+        {
+          "figure": "boot-retry",
+          "selector": ".boot-track"
+        },
+        {
+          "figure": "boot-retry",
+          "selector": ".boot-wave-phase"
+        },
+        {
+          "figure": "boot-retry",
+          "selector": ".boot-wave-window"
+        },
+        {
+          "figure": "distribution-working",
+          "selector": ".boot-progress"
+        },
+        {
+          "figure": "distribution-working",
+          "selector": ".boot-track"
+        },
+        {
+          "figure": "distribution-working",
+          "selector": ".boot-wave-phase"
+        },
+        {
+          "figure": "distribution-working",
+          "selector": ".boot-wave-window"
+        },
+        {
+          "figure": "utility-error",
+          "selector": ".utility-error-cue"
+        },
+        {
+          "figure": "utility-loading",
+          "selector": ".boot-progress"
+        },
+        {
+          "figure": "utility-loading",
+          "selector": ".boot-track"
+        },
+        {
+          "figure": "utility-loading",
+          "selector": ".boot-wave-phase"
+        },
+        {
+          "figure": "utility-loading",
+          "selector": ".boot-wave-window"
+        }
+      ],
+      "Desktop": [
+        {
+          "figure": "boot-error",
+          "selector": ".boot-cue"
+        },
+        {
+          "figure": "boot-error",
+          "selector": ".boot-error-symbol"
+        },
+        {
+          "figure": "boot-loading",
+          "selector": ".boot-cue"
+        },
+        {
+          "figure": "boot-loading",
+          "selector": ".boot-progress"
+        },
+        {
+          "figure": "boot-loading",
+          "selector": ".boot-track"
+        },
+        {
+          "figure": "boot-loading",
+          "selector": ".boot-wave-phase"
+        },
+        {
+          "figure": "boot-loading",
+          "selector": ".boot-wave-window"
+        },
+        {
+          "figure": "boot-retry",
+          "selector": ".boot-cue"
+        },
+        {
+          "figure": "boot-retry",
+          "selector": ".boot-progress"
+        },
+        {
+          "figure": "boot-retry",
+          "selector": ".boot-track"
+        },
+        {
+          "figure": "boot-retry",
+          "selector": ".boot-wave-phase"
+        },
+        {
+          "figure": "boot-retry",
+          "selector": ".boot-wave-window"
+        },
+        {
+          "figure": "distribution-working",
+          "selector": ".boot-progress"
+        },
+        {
+          "figure": "distribution-working",
+          "selector": ".boot-track"
+        },
+        {
+          "figure": "distribution-working",
+          "selector": ".boot-wave-phase"
+        },
+        {
+          "figure": "distribution-working",
+          "selector": ".boot-wave-window"
+        },
+        {
+          "figure": "utility-error",
+          "selector": ".utility-error-cue"
+        },
+        {
+          "figure": "utility-loading",
+          "selector": ".boot-progress"
+        },
+        {
+          "figure": "utility-loading",
+          "selector": ".boot-track"
+        },
+        {
+          "figure": "utility-loading",
+          "selector": ".boot-wave-phase"
+        },
+        {
+          "figure": "utility-loading",
+          "selector": ".boot-wave-window"
+        }
+      ]
+    },
+    "button": {
+      "Mobile": [
+        {
+          "figure": "about-view",
+          "selector": ".orb"
+        },
+        {
+          "figure": "boot-error",
+          "selector": ".primary-action"
+        },
+        {
+          "figure": "boot-retry",
+          "selector": ".primary-action"
+        },
+        {
+          "figure": "bracket-de",
+          "selector": ".orb"
+        },
+        {
+          "figure": "bracket-se",
+          "selector": ".orb"
+        },
+        {
+          "figure": "contact-view",
+          "selector": ".orb"
+        },
+        {
+          "figure": "contact-view",
+          "selector": ".primary-action"
+        },
+        {
+          "figure": "distribution-ready",
+          "selector": ".orb"
+        },
+        {
+          "figure": "distribution-ready",
+          "selector": ".primary-action"
+        },
+        {
+          "figure": "distribution-share",
+          "selector": ".orb"
+        },
+        {
+          "figure": "distribution-working",
+          "selector": ".orb"
+        },
+        {
+          "figure": "forfeit-confirm",
+          "selector": ".flow-danger-action"
+        },
+        {
+          "figure": "forfeit-confirm",
+          "selector": ".orb"
+        },
+        {
+          "figure": "forfeit-confirm",
+          "selector": ".secondary-action"
+        },
+        {
+          "figure": "guest-add",
+          "selector": ".orb"
+        },
+        {
+          "figure": "guest-add",
+          "selector": ".primary-action"
+        },
+        {
+          "figure": "guest-remove",
+          "selector": ".flow-danger-action"
+        },
+        {
+          "figure": "guest-remove",
+          "selector": ".secondary-action"
+        },
+        {
+          "figure": "history-empty",
+          "selector": ".orb"
+        },
+        {
+          "figure": "history-empty",
+          "selector": ".primary-action"
+        },
+        {
+          "figure": "history-list",
+          "selector": ".orb"
+        },
+        {
+          "figure": "home-active",
+          "selector": ".home-new-action"
+        },
+        {
+          "figure": "home-active",
+          "selector": ".orb"
+        },
+        {
+          "figure": "home-active",
+          "selector": ".primary-action"
+        },
+        {
+          "figure": "home-active",
+          "selector": ".secondary-action"
+        },
+        {
+          "figure": "home-empty",
+          "selector": ".orb"
+        },
+        {
+          "figure": "home-empty",
+          "selector": ".primary-action"
+        },
+        {
+          "figure": "home-empty",
+          "selector": ".secondary-action"
+        },
+        {
+          "figure": "lobby-roster",
+          "selector": ".orb"
+        },
+        {
+          "figure": "lobby-roster",
+          "selector": ".primary-action"
+        },
+        {
+          "figure": "match-correct",
+          "selector": ".competition-save"
+        },
+        {
+          "figure": "match-correct",
+          "selector": ".flow-text-link"
+        },
+        {
+          "figure": "match-correct",
+          "selector": ".orb"
+        },
+        {
+          "figure": "match-result",
+          "selector": ".competition-save"
+        },
+        {
+          "figure": "match-result",
+          "selector": ".flow-text-link"
+        },
+        {
+          "figure": "match-result",
+          "selector": ".orb"
+        },
+        {
+          "figure": "match-result-de",
+          "selector": ".competition-save"
+        },
+        {
+          "figure": "match-result-de",
+          "selector": ".flow-text-link"
+        },
+        {
+          "figure": "match-result-de",
+          "selector": ".orb"
+        },
+        {
+          "figure": "match-result-ft10",
+          "selector": ".competition-save"
+        },
+        {
+          "figure": "match-result-ft10",
+          "selector": ".flow-text-link"
+        },
+        {
+          "figure": "match-result-ft10",
+          "selector": ".orb"
+        },
+        {
+          "figure": "match-result-ft3",
+          "selector": ".competition-save"
+        },
+        {
+          "figure": "match-result-ft3",
+          "selector": ".flow-text-link"
+        },
+        {
+          "figure": "match-result-ft3",
+          "selector": ".orb"
+        },
+        {
+          "figure": "match-save-error",
+          "selector": ".competition-save"
+        },
+        {
+          "figure": "match-save-error",
+          "selector": ".flow-text-link"
+        },
+        {
+          "figure": "match-save-error",
+          "selector": ".orb"
+        },
+        {
+          "figure": "match-technical",
+          "selector": ".competition-save"
+        },
+        {
+          "figure": "match-technical",
+          "selector": ".orb"
+        },
+        {
+          "figure": "match-technical-de",
+          "selector": ".competition-save"
+        },
+        {
+          "figure": "match-technical-de",
+          "selector": ".orb"
+        },
+        {
+          "figure": "participant-access",
+          "selector": ".orb"
+        },
+        {
+          "figure": "profile-new",
+          "selector": ".orb"
+        },
+        {
+          "figure": "profile-new",
+          "selector": ".primary-action"
+        },
+        {
+          "figure": "profile-refined-edit",
+          "selector": ".orb"
+        },
+        {
+          "figure": "profile-refined-edit",
+          "selector": ".profile-save"
+        },
+        {
+          "figure": "profile-refined-error",
+          "selector": ".orb"
+        },
+        {
+          "figure": "profile-refined-error",
+          "selector": ".profile-save"
+        },
+        {
+          "figure": "profile-refined-view",
+          "selector": ".orb"
+        },
+        {
+          "figure": "result-locked",
+          "selector": ".orb"
+        },
+        {
+          "figure": "result-locked",
+          "selector": ".secondary-action"
+        },
+        {
+          "figure": "rr-tie",
+          "selector": ".orb"
+        },
+        {
+          "figure": "rr-tie",
+          "selector": ".primary-action"
+        },
+        {
+          "figure": "rr-tiebreak-live",
+          "selector": ".orb"
+        },
+        {
+          "figure": "rr-tiebreak-live",
+          "selector": ".primary-action"
+        },
+        {
+          "figure": "settings-view",
+          "selector": ".orb"
+        },
+        {
+          "figure": "setup-de",
+          "selector": ".orb"
+        },
+        {
+          "figure": "setup-de",
+          "selector": ".primary-action"
+        },
+        {
+          "figure": "setup-rr",
+          "selector": ".orb"
+        },
+        {
+          "figure": "setup-rr",
+          "selector": ".primary-action"
+        },
+        {
+          "figure": "setup-se",
+          "selector": ".orb"
+        },
+        {
+          "figure": "setup-se",
+          "selector": ".primary-action"
+        },
+        {
+          "figure": "tournament-champion",
+          "selector": ".orb"
+        },
+        {
+          "figure": "tournament-champion",
+          "selector": ".primary-action"
+        },
+        {
+          "figure": "tournament-live",
+          "selector": ".flow-text-link"
+        },
+        {
+          "figure": "tournament-live",
+          "selector": ".orb"
+        },
+        {
+          "figure": "tournament-live",
+          "selector": ".primary-action"
+        },
+        {
+          "figure": "tournament-results",
+          "selector": ".flow-text-link"
+        },
+        {
+          "figure": "tournament-results",
+          "selector": ".orb"
+        },
+        {
+          "figure": "tournament-results",
+          "selector": ".primary-action"
+        },
+        {
+          "figure": "tournament-results-rr",
+          "selector": ".orb"
+        },
+        {
+          "figure": "tournament-results-rr",
+          "selector": ".primary-action"
+        },
+        {
+          "figure": "tournament-results-se",
+          "selector": ".orb"
+        },
+        {
+          "figure": "tournament-results-se",
+          "selector": ".primary-action"
+        },
+        {
+          "figure": "tournament-rr",
+          "selector": ".flow-text-link"
+        },
+        {
+          "figure": "tournament-rr",
+          "selector": ".orb"
+        },
+        {
+          "figure": "tournament-rr",
+          "selector": ".primary-action"
+        },
+        {
+          "figure": "tournament-se",
+          "selector": ".flow-text-link"
+        },
+        {
+          "figure": "tournament-se",
+          "selector": ".orb"
+        },
+        {
+          "figure": "tournament-se",
+          "selector": ".primary-action"
+        },
+        {
+          "figure": "tournament-share",
+          "selector": ".orb"
+        },
+        {
+          "figure": "utility-error",
+          "selector": ".orb"
+        },
+        {
+          "figure": "utility-error",
+          "selector": ".primary-action"
+        },
+        {
+          "figure": "utility-loading",
+          "selector": ".orb"
+        },
+        {
+          "figure": "withdraw-player",
+          "selector": ".flow-danger-action"
+        },
+        {
+          "figure": "withdraw-player",
+          "selector": ".orb"
+        },
+        {
+          "figure": "withdraw-player",
+          "selector": ".secondary-action"
+        }
+      ],
+      "Desktop": [
+        {
+          "figure": "about-view",
+          "selector": ".orb"
+        },
+        {
+          "figure": "boot-error",
+          "selector": ".primary-action"
+        },
+        {
+          "figure": "boot-retry",
+          "selector": ".primary-action"
+        },
+        {
+          "figure": "bracket-de",
+          "selector": ".orb"
+        },
+        {
+          "figure": "bracket-se",
+          "selector": ".orb"
+        },
+        {
+          "figure": "contact-view",
+          "selector": ".orb"
+        },
+        {
+          "figure": "contact-view",
+          "selector": ".primary-action"
+        },
+        {
+          "figure": "distribution-ready",
+          "selector": ".orb"
+        },
+        {
+          "figure": "distribution-ready",
+          "selector": ".primary-action"
+        },
+        {
+          "figure": "distribution-share",
+          "selector": ".orb"
+        },
+        {
+          "figure": "distribution-working",
+          "selector": ".orb"
+        },
+        {
+          "figure": "forfeit-confirm",
+          "selector": ".flow-danger-action"
+        },
+        {
+          "figure": "forfeit-confirm",
+          "selector": ".orb"
+        },
+        {
+          "figure": "forfeit-confirm",
+          "selector": ".secondary-action"
+        },
+        {
+          "figure": "guest-add",
+          "selector": ".orb"
+        },
+        {
+          "figure": "guest-add",
+          "selector": ".primary-action"
+        },
+        {
+          "figure": "guest-remove",
+          "selector": ".flow-danger-action"
+        },
+        {
+          "figure": "guest-remove",
+          "selector": ".secondary-action"
+        },
+        {
+          "figure": "history-empty",
+          "selector": ".orb"
+        },
+        {
+          "figure": "history-empty",
+          "selector": ".primary-action"
+        },
+        {
+          "figure": "history-list",
+          "selector": ".orb"
+        },
+        {
+          "figure": "home-active",
+          "selector": ".home-new-action"
+        },
+        {
+          "figure": "home-active",
+          "selector": ".orb"
+        },
+        {
+          "figure": "home-active",
+          "selector": ".primary-action"
+        },
+        {
+          "figure": "home-active",
+          "selector": ".secondary-action"
+        },
+        {
+          "figure": "home-empty",
+          "selector": ".orb"
+        },
+        {
+          "figure": "home-empty",
+          "selector": ".primary-action"
+        },
+        {
+          "figure": "home-empty",
+          "selector": ".secondary-action"
+        },
+        {
+          "figure": "lobby-roster",
+          "selector": ".orb"
+        },
+        {
+          "figure": "lobby-roster",
+          "selector": ".primary-action"
+        },
+        {
+          "figure": "match-correct",
+          "selector": ".competition-save"
+        },
+        {
+          "figure": "match-correct",
+          "selector": ".flow-text-link"
+        },
+        {
+          "figure": "match-correct",
+          "selector": ".orb"
+        },
+        {
+          "figure": "match-result",
+          "selector": ".competition-save"
+        },
+        {
+          "figure": "match-result",
+          "selector": ".flow-text-link"
+        },
+        {
+          "figure": "match-result",
+          "selector": ".orb"
+        },
+        {
+          "figure": "match-result-de",
+          "selector": ".competition-save"
+        },
+        {
+          "figure": "match-result-de",
+          "selector": ".flow-text-link"
+        },
+        {
+          "figure": "match-result-de",
+          "selector": ".orb"
+        },
+        {
+          "figure": "match-result-ft10",
+          "selector": ".competition-save"
+        },
+        {
+          "figure": "match-result-ft10",
+          "selector": ".flow-text-link"
+        },
+        {
+          "figure": "match-result-ft10",
+          "selector": ".orb"
+        },
+        {
+          "figure": "match-result-ft3",
+          "selector": ".competition-save"
+        },
+        {
+          "figure": "match-result-ft3",
+          "selector": ".flow-text-link"
+        },
+        {
+          "figure": "match-result-ft3",
+          "selector": ".orb"
+        },
+        {
+          "figure": "match-save-error",
+          "selector": ".competition-save"
+        },
+        {
+          "figure": "match-save-error",
+          "selector": ".flow-text-link"
+        },
+        {
+          "figure": "match-save-error",
+          "selector": ".orb"
+        },
+        {
+          "figure": "match-technical",
+          "selector": ".competition-save"
+        },
+        {
+          "figure": "match-technical",
+          "selector": ".orb"
+        },
+        {
+          "figure": "match-technical-de",
+          "selector": ".competition-save"
+        },
+        {
+          "figure": "match-technical-de",
+          "selector": ".orb"
+        },
+        {
+          "figure": "participant-access",
+          "selector": ".orb"
+        },
+        {
+          "figure": "profile-new",
+          "selector": ".orb"
+        },
+        {
+          "figure": "profile-new",
+          "selector": ".primary-action"
+        },
+        {
+          "figure": "profile-refined-edit",
+          "selector": ".orb"
+        },
+        {
+          "figure": "profile-refined-edit",
+          "selector": ".profile-save"
+        },
+        {
+          "figure": "profile-refined-error",
+          "selector": ".orb"
+        },
+        {
+          "figure": "profile-refined-error",
+          "selector": ".profile-save"
+        },
+        {
+          "figure": "profile-refined-view",
+          "selector": ".orb"
+        },
+        {
+          "figure": "result-locked",
+          "selector": ".orb"
+        },
+        {
+          "figure": "result-locked",
+          "selector": ".secondary-action"
+        },
+        {
+          "figure": "rr-tie",
+          "selector": ".orb"
+        },
+        {
+          "figure": "rr-tie",
+          "selector": ".primary-action"
+        },
+        {
+          "figure": "rr-tiebreak-live",
+          "selector": ".orb"
+        },
+        {
+          "figure": "rr-tiebreak-live",
+          "selector": ".primary-action"
+        },
+        {
+          "figure": "settings-view",
+          "selector": ".orb"
+        },
+        {
+          "figure": "setup-de",
+          "selector": ".orb"
+        },
+        {
+          "figure": "setup-de",
+          "selector": ".primary-action"
+        },
+        {
+          "figure": "setup-rr",
+          "selector": ".orb"
+        },
+        {
+          "figure": "setup-rr",
+          "selector": ".primary-action"
+        },
+        {
+          "figure": "setup-se",
+          "selector": ".orb"
+        },
+        {
+          "figure": "setup-se",
+          "selector": ".primary-action"
+        },
+        {
+          "figure": "tournament-champion",
+          "selector": ".orb"
+        },
+        {
+          "figure": "tournament-champion",
+          "selector": ".primary-action"
+        },
+        {
+          "figure": "tournament-live",
+          "selector": ".flow-text-link"
+        },
+        {
+          "figure": "tournament-live",
+          "selector": ".orb"
+        },
+        {
+          "figure": "tournament-live",
+          "selector": ".primary-action"
+        },
+        {
+          "figure": "tournament-results",
+          "selector": ".flow-text-link"
+        },
+        {
+          "figure": "tournament-results",
+          "selector": ".orb"
+        },
+        {
+          "figure": "tournament-results",
+          "selector": ".primary-action"
+        },
+        {
+          "figure": "tournament-results-rr",
+          "selector": ".orb"
+        },
+        {
+          "figure": "tournament-results-rr",
+          "selector": ".primary-action"
+        },
+        {
+          "figure": "tournament-results-se",
+          "selector": ".orb"
+        },
+        {
+          "figure": "tournament-results-se",
+          "selector": ".primary-action"
+        },
+        {
+          "figure": "tournament-rr",
+          "selector": ".flow-text-link"
+        },
+        {
+          "figure": "tournament-rr",
+          "selector": ".orb"
+        },
+        {
+          "figure": "tournament-rr",
+          "selector": ".primary-action"
+        },
+        {
+          "figure": "tournament-se",
+          "selector": ".flow-text-link"
+        },
+        {
+          "figure": "tournament-se",
+          "selector": ".orb"
+        },
+        {
+          "figure": "tournament-se",
+          "selector": ".primary-action"
+        },
+        {
+          "figure": "tournament-share",
+          "selector": ".orb"
+        },
+        {
+          "figure": "utility-error",
+          "selector": ".orb"
+        },
+        {
+          "figure": "utility-error",
+          "selector": ".primary-action"
+        },
+        {
+          "figure": "utility-loading",
+          "selector": ".orb"
+        },
+        {
+          "figure": "withdraw-player",
+          "selector": ".flow-danger-action"
+        },
+        {
+          "figure": "withdraw-player",
+          "selector": ".orb"
+        },
+        {
+          "figure": "withdraw-player",
+          "selector": ".secondary-action"
+        }
+      ]
+    },
+    "header": {
+      "Mobile": [
+        {
+          "figure": "about-view",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "bracket-de",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "bracket-se",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "contact-view",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "distribution-ready",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "distribution-share",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "distribution-working",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "forfeit-confirm",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "guest-add",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "history-empty",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "history-list",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "home-active",
+          "selector": ".top-controls"
+        },
+        {
+          "figure": "home-empty",
+          "selector": ".top-controls"
+        },
+        {
+          "figure": "lobby-roster",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "lobby-roster",
+          "selector": ".flow-header-fixed"
+        },
+        {
+          "figure": "match-correct",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "match-result",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "match-result-de",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "match-result-ft10",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "match-result-ft3",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "match-save-error",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "match-technical",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "match-technical-de",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "participant-access",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "profile-new",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "profile-refined-edit",
+          "selector": ".profile-current-title"
+        },
+        {
+          "figure": "profile-refined-edit",
+          "selector": ".top-controls"
+        },
+        {
+          "figure": "profile-refined-error",
+          "selector": ".profile-current-title"
+        },
+        {
+          "figure": "profile-refined-error",
+          "selector": ".top-controls"
+        },
+        {
+          "figure": "profile-refined-view",
+          "selector": ".profile-current-title"
+        },
+        {
+          "figure": "profile-refined-view",
+          "selector": ".top-controls"
+        },
+        {
+          "figure": "result-locked",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "rr-tie",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "rr-tiebreak-live",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "settings-view",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "setup-de",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "setup-rr",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "setup-se",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "tournament-champion",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "tournament-live",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "tournament-results",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "tournament-results-rr",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "tournament-results-se",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "tournament-rr",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "tournament-se",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "tournament-share",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "utility-error",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "utility-loading",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "withdraw-player",
+          "selector": ".flow-header"
+        }
+      ],
+      "Desktop": [
+        {
+          "figure": "about-view",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "bracket-de",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "bracket-se",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "contact-view",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "distribution-ready",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "distribution-share",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "distribution-working",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "forfeit-confirm",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "guest-add",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "history-empty",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "history-list",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "home-active",
+          "selector": ".top-controls"
+        },
+        {
+          "figure": "home-empty",
+          "selector": ".top-controls"
+        },
+        {
+          "figure": "lobby-roster",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "match-correct",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "match-result",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "match-result-de",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "match-result-ft10",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "match-result-ft3",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "match-save-error",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "match-technical",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "match-technical-de",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "participant-access",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "profile-new",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "profile-refined-edit",
+          "selector": ".profile-current-title"
+        },
+        {
+          "figure": "profile-refined-edit",
+          "selector": ".top-controls"
+        },
+        {
+          "figure": "profile-refined-error",
+          "selector": ".profile-current-title"
+        },
+        {
+          "figure": "profile-refined-error",
+          "selector": ".top-controls"
+        },
+        {
+          "figure": "profile-refined-view",
+          "selector": ".profile-current-title"
+        },
+        {
+          "figure": "profile-refined-view",
+          "selector": ".top-controls"
+        },
+        {
+          "figure": "result-locked",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "rr-tie",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "rr-tiebreak-live",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "settings-view",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "setup-de",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "setup-rr",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "setup-se",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "tournament-champion",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "tournament-live",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "tournament-results",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "tournament-results-rr",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "tournament-results-se",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "tournament-rr",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "tournament-se",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "tournament-share",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "utility-error",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "utility-loading",
+          "selector": ".flow-header"
+        },
+        {
+          "figure": "withdraw-player",
+          "selector": ".flow-header"
+        }
+      ]
+    },
+    "status": {
+      "Mobile": [
+        {
+          "figure": "home-active",
+          "selector": ".current"
+        },
+        {
+          "figure": "home-active",
+          "selector": ".eyebrow"
+        },
+        {
+          "figure": "home-active",
+          "selector": ".live-dot"
+        },
+        {
+          "figure": "match-technical",
+          "selector": ".competition-outcome"
+        },
+        {
+          "figure": "match-technical",
+          "selector": ".is-loss"
+        },
+        {
+          "figure": "match-technical-de",
+          "selector": ".competition-outcome"
+        },
+        {
+          "figure": "match-technical-de",
+          "selector": ".is-loss"
+        },
+        {
+          "figure": "tournament-champion",
+          "selector": ".competition-award"
+        },
+        {
+          "figure": "tournament-rr",
+          "selector": ".competition-points-badge"
+        }
+      ],
+      "Desktop": [
+        {
+          "figure": "home-active",
+          "selector": ".current"
+        },
+        {
+          "figure": "home-active",
+          "selector": ".eyebrow"
+        },
+        {
+          "figure": "home-active",
+          "selector": ".live-dot"
+        },
+        {
+          "figure": "match-technical",
+          "selector": ".competition-outcome"
+        },
+        {
+          "figure": "match-technical",
+          "selector": ".is-loss"
+        },
+        {
+          "figure": "match-technical-de",
+          "selector": ".competition-outcome"
+        },
+        {
+          "figure": "match-technical-de",
+          "selector": ".is-loss"
+        },
+        {
+          "figure": "tournament-champion",
+          "selector": ".competition-award"
+        },
+        {
+          "figure": "tournament-rr",
+          "selector": ".competition-points-badge"
+        }
+      ]
+    },
+    "navigation": {
+      "Mobile": [
+        {
+          "figure": "profile-new",
+          "selector": ".profile-menu-chevron"
+        },
+        {
+          "figure": "profile-new",
+          "selector": ".profile-menu-item"
+        },
+        {
+          "figure": "profile-refined-view",
+          "selector": ".profile-menu-chevron"
+        },
+        {
+          "figure": "profile-refined-view",
+          "selector": ".profile-menu-item"
+        }
+      ],
+      "Desktop": [
+        {
+          "figure": "profile-new",
+          "selector": ".profile-bento-link"
+        },
+        {
+          "figure": "profile-new",
+          "selector": ".profile-bento-link-0"
+        },
+        {
+          "figure": "profile-new",
+          "selector": ".profile-bento-link-1"
+        },
+        {
+          "figure": "profile-new",
+          "selector": ".profile-bento-link-2"
+        },
+        {
+          "figure": "profile-new",
+          "selector": ".profile-menu-chevron"
+        },
+        {
+          "figure": "profile-new",
+          "selector": ".profile-menu-item"
+        },
+        {
+          "figure": "profile-refined-view",
+          "selector": ".profile-bento-link"
+        },
+        {
+          "figure": "profile-refined-view",
+          "selector": ".profile-bento-link-0"
+        },
+        {
+          "figure": "profile-refined-view",
+          "selector": ".profile-bento-link-1"
+        },
+        {
+          "figure": "profile-refined-view",
+          "selector": ".profile-bento-link-2"
+        },
+        {
+          "figure": "profile-refined-view",
+          "selector": ".profile-menu-chevron"
+        },
+        {
+          "figure": "profile-refined-view",
+          "selector": ".profile-menu-item"
+        }
+      ]
+    },
+    "metric": {
+      "Mobile": [
+        {
+          "figure": "profile-refined-view",
+          "selector": ".profile-achievement"
+        },
+        {
+          "figure": "profile-refined-view",
+          "selector": ".profile-achievement-secondary"
+        }
+      ],
+      "Desktop": [
+        {
+          "figure": "profile-refined-view",
+          "selector": ".profile-achievement"
+        },
+        {
+          "figure": "profile-refined-view",
+          "selector": ".profile-bento-achievement"
+        },
+        {
+          "figure": "profile-refined-view",
+          "selector": ".profile-bento-metric"
+        },
+        {
+          "figure": "profile-refined-view",
+          "selector": ".profile-bento-metric-0"
+        },
+        {
+          "figure": "profile-refined-view",
+          "selector": ".profile-bento-metric-1"
+        }
+      ]
+    },
+    "avatar": {
+      "Mobile": [
+        {
+          "figure": "bracket-de",
+          "selector": ".bracket-map-avatar"
+        },
+        {
+          "figure": "bracket-se",
+          "selector": ".bracket-map-avatar"
+        },
+        {
+          "figure": "distribution-ready",
+          "selector": ".fan"
+        },
+        {
+          "figure": "distribution-ready",
+          "selector": ".fire"
+        },
+        {
+          "figure": "distribution-ready",
+          "selector": ".flow-avatar"
+        },
+        {
+          "figure": "distribution-ready",
+          "selector": ".ice"
+        },
+        {
+          "figure": "distribution-ready",
+          "selector": ".storm"
+        },
+        {
+          "figure": "forfeit-confirm",
+          "selector": ".fire"
+        },
+        {
+          "figure": "forfeit-confirm",
+          "selector": ".flow-avatar"
+        },
+        {
+          "figure": "forfeit-confirm",
+          "selector": ".ice"
+        },
+        {
+          "figure": "forfeit-confirm",
+          "selector": ".portrait"
+        },
+        {
+          "figure": "history-list",
+          "selector": ".fan"
+        },
+        {
+          "figure": "history-list",
+          "selector": ".flow-avatar"
+        },
+        {
+          "figure": "history-list",
+          "selector": ".ice"
+        },
+        {
+          "figure": "lobby-roster",
+          "selector": ".flow-avatar"
+        },
+        {
+          "figure": "lobby-roster",
+          "selector": ".unassigned"
+        },
+        {
+          "figure": "match-correct",
+          "selector": ".fire"
+        },
+        {
+          "figure": "match-correct",
+          "selector": ".flow-avatar"
+        },
+        {
+          "figure": "match-correct",
+          "selector": ".ice"
+        },
+        {
+          "figure": "match-correct",
+          "selector": ".portrait"
+        },
+        {
+          "figure": "match-result",
+          "selector": ".fire"
+        },
+        {
+          "figure": "match-result",
+          "selector": ".flow-avatar"
+        },
+        {
+          "figure": "match-result",
+          "selector": ".ice"
+        },
+        {
+          "figure": "match-result",
+          "selector": ".portrait"
+        },
+        {
+          "figure": "match-result-de",
+          "selector": ".fire"
+        },
+        {
+          "figure": "match-result-de",
+          "selector": ".flow-avatar"
+        },
+        {
+          "figure": "match-result-de",
+          "selector": ".ice"
+        },
+        {
+          "figure": "match-result-de",
+          "selector": ".portrait"
+        },
+        {
+          "figure": "match-result-ft10",
+          "selector": ".fire"
+        },
+        {
+          "figure": "match-result-ft10",
+          "selector": ".flow-avatar"
+        },
+        {
+          "figure": "match-result-ft10",
+          "selector": ".ice"
+        },
+        {
+          "figure": "match-result-ft10",
+          "selector": ".portrait"
+        },
+        {
+          "figure": "match-result-ft3",
+          "selector": ".fire"
+        },
+        {
+          "figure": "match-result-ft3",
+          "selector": ".flow-avatar"
+        },
+        {
+          "figure": "match-result-ft3",
+          "selector": ".ice"
+        },
+        {
+          "figure": "match-result-ft3",
+          "selector": ".portrait"
+        },
+        {
+          "figure": "match-save-error",
+          "selector": ".fire"
+        },
+        {
+          "figure": "match-save-error",
+          "selector": ".flow-avatar"
+        },
+        {
+          "figure": "match-save-error",
+          "selector": ".ice"
+        },
+        {
+          "figure": "match-save-error",
+          "selector": ".portrait"
+        },
+        {
+          "figure": "match-technical",
+          "selector": ".fire"
+        },
+        {
+          "figure": "match-technical",
+          "selector": ".flow-avatar"
+        },
+        {
+          "figure": "match-technical",
+          "selector": ".ice"
+        },
+        {
+          "figure": "match-technical",
+          "selector": ".portrait"
+        },
+        {
+          "figure": "match-technical-de",
+          "selector": ".fire"
+        },
+        {
+          "figure": "match-technical-de",
+          "selector": ".flow-avatar"
+        },
+        {
+          "figure": "match-technical-de",
+          "selector": ".ice"
+        },
+        {
+          "figure": "match-technical-de",
+          "selector": ".portrait"
+        },
+        {
+          "figure": "profile-new",
+          "selector": ".profile-monogram"
+        },
+        {
+          "figure": "profile-refined-view",
+          "selector": ".flow-avatar"
+        },
+        {
+          "figure": "profile-refined-view",
+          "selector": ".ice"
+        },
+        {
+          "figure": "profile-refined-view",
+          "selector": ".profile-monogram"
+        },
+        {
+          "figure": "rr-tie",
+          "selector": ".fan"
+        },
+        {
+          "figure": "rr-tie",
+          "selector": ".fire"
+        },
+        {
+          "figure": "rr-tie",
+          "selector": ".flow-avatar"
+        },
+        {
+          "figure": "rr-tie",
+          "selector": ".ice"
+        },
+        {
+          "figure": "rr-tiebreak-live",
+          "selector": ".fan"
+        },
+        {
+          "figure": "rr-tiebreak-live",
+          "selector": ".fire"
+        },
+        {
+          "figure": "rr-tiebreak-live",
+          "selector": ".flow-avatar"
+        },
+        {
+          "figure": "rr-tiebreak-live",
+          "selector": ".ice"
+        },
+        {
+          "figure": "rr-tiebreak-live",
+          "selector": ".portrait"
+        },
+        {
+          "figure": "tournament-champion",
+          "selector": ".fan"
+        },
+        {
+          "figure": "tournament-champion",
+          "selector": ".flow-avatar"
+        },
+        {
+          "figure": "tournament-champion",
+          "selector": ".portrait"
+        },
+        {
+          "figure": "tournament-live",
+          "selector": ".fan"
+        },
+        {
+          "figure": "tournament-live",
+          "selector": ".fire"
+        },
+        {
+          "figure": "tournament-live",
+          "selector": ".flow-avatar"
+        },
+        {
+          "figure": "tournament-live",
+          "selector": ".ice"
+        },
+        {
+          "figure": "tournament-live",
+          "selector": ".portrait"
+        },
+        {
+          "figure": "tournament-live",
+          "selector": ".storm"
+        },
+        {
+          "figure": "tournament-results",
+          "selector": ".fan"
+        },
+        {
+          "figure": "tournament-results",
+          "selector": ".fire"
+        },
+        {
+          "figure": "tournament-results",
+          "selector": ".flow-avatar"
+        },
+        {
+          "figure": "tournament-results",
+          "selector": ".ice"
+        },
+        {
+          "figure": "tournament-results",
+          "selector": ".storm"
+        },
+        {
+          "figure": "tournament-results-rr",
+          "selector": ".fan"
+        },
+        {
+          "figure": "tournament-results-rr",
+          "selector": ".fire"
+        },
+        {
+          "figure": "tournament-results-rr",
+          "selector": ".flow-avatar"
+        },
+        {
+          "figure": "tournament-results-rr",
+          "selector": ".ice"
+        },
+        {
+          "figure": "tournament-results-se",
+          "selector": ".fan"
+        },
+        {
+          "figure": "tournament-results-se",
+          "selector": ".fire"
+        },
+        {
+          "figure": "tournament-results-se",
+          "selector": ".flow-avatar"
+        },
+        {
+          "figure": "tournament-results-se",
+          "selector": ".ice"
+        },
+        {
+          "figure": "tournament-results-se",
+          "selector": ".storm"
+        },
+        {
+          "figure": "tournament-rr",
+          "selector": ".fan"
+        },
+        {
+          "figure": "tournament-rr",
+          "selector": ".fire"
+        },
+        {
+          "figure": "tournament-rr",
+          "selector": ".flow-avatar"
+        },
+        {
+          "figure": "tournament-rr",
+          "selector": ".ice"
+        },
+        {
+          "figure": "tournament-rr",
+          "selector": ".portrait"
+        },
+        {
+          "figure": "tournament-se",
+          "selector": ".fan"
+        },
+        {
+          "figure": "tournament-se",
+          "selector": ".fire"
+        },
+        {
+          "figure": "tournament-se",
+          "selector": ".flow-avatar"
+        },
+        {
+          "figure": "tournament-se",
+          "selector": ".ice"
+        },
+        {
+          "figure": "tournament-se",
+          "selector": ".portrait"
+        },
+        {
+          "figure": "tournament-se",
+          "selector": ".storm"
+        },
+        {
+          "figure": "withdraw-player",
+          "selector": ".fire"
+        },
+        {
+          "figure": "withdraw-player",
+          "selector": ".flow-avatar"
+        },
+        {
+          "figure": "withdraw-player",
+          "selector": ".ice"
+        },
+        {
+          "figure": "withdraw-player",
+          "selector": ".portrait"
+        }
+      ],
+      "Desktop": [
+        {
+          "figure": "bracket-de",
+          "selector": ".bracket-map-avatar"
+        },
+        {
+          "figure": "bracket-se",
+          "selector": ".bracket-map-avatar"
+        },
+        {
+          "figure": "distribution-ready",
+          "selector": ".fan"
+        },
+        {
+          "figure": "distribution-ready",
+          "selector": ".fire"
+        },
+        {
+          "figure": "distribution-ready",
+          "selector": ".flow-avatar"
+        },
+        {
+          "figure": "distribution-ready",
+          "selector": ".ice"
+        },
+        {
+          "figure": "distribution-ready",
+          "selector": ".storm"
+        },
+        {
+          "figure": "forfeit-confirm",
+          "selector": ".fire"
+        },
+        {
+          "figure": "forfeit-confirm",
+          "selector": ".flow-avatar"
+        },
+        {
+          "figure": "forfeit-confirm",
+          "selector": ".ice"
+        },
+        {
+          "figure": "forfeit-confirm",
+          "selector": ".portrait"
+        },
+        {
+          "figure": "history-list",
+          "selector": ".fan"
+        },
+        {
+          "figure": "history-list",
+          "selector": ".flow-avatar"
+        },
+        {
+          "figure": "history-list",
+          "selector": ".ice"
+        },
+        {
+          "figure": "lobby-roster",
+          "selector": ".flow-avatar"
+        },
+        {
+          "figure": "lobby-roster",
+          "selector": ".unassigned"
+        },
+        {
+          "figure": "match-correct",
+          "selector": ".fire"
+        },
+        {
+          "figure": "match-correct",
+          "selector": ".flow-avatar"
+        },
+        {
+          "figure": "match-correct",
+          "selector": ".ice"
+        },
+        {
+          "figure": "match-correct",
+          "selector": ".portrait"
+        },
+        {
+          "figure": "match-result",
+          "selector": ".fire"
+        },
+        {
+          "figure": "match-result",
+          "selector": ".flow-avatar"
+        },
+        {
+          "figure": "match-result",
+          "selector": ".ice"
+        },
+        {
+          "figure": "match-result",
+          "selector": ".portrait"
+        },
+        {
+          "figure": "match-result-de",
+          "selector": ".fire"
+        },
+        {
+          "figure": "match-result-de",
+          "selector": ".flow-avatar"
+        },
+        {
+          "figure": "match-result-de",
+          "selector": ".ice"
+        },
+        {
+          "figure": "match-result-de",
+          "selector": ".portrait"
+        },
+        {
+          "figure": "match-result-ft10",
+          "selector": ".fire"
+        },
+        {
+          "figure": "match-result-ft10",
+          "selector": ".flow-avatar"
+        },
+        {
+          "figure": "match-result-ft10",
+          "selector": ".ice"
+        },
+        {
+          "figure": "match-result-ft10",
+          "selector": ".portrait"
+        },
+        {
+          "figure": "match-result-ft3",
+          "selector": ".fire"
+        },
+        {
+          "figure": "match-result-ft3",
+          "selector": ".flow-avatar"
+        },
+        {
+          "figure": "match-result-ft3",
+          "selector": ".ice"
+        },
+        {
+          "figure": "match-result-ft3",
+          "selector": ".portrait"
+        },
+        {
+          "figure": "match-save-error",
+          "selector": ".fire"
+        },
+        {
+          "figure": "match-save-error",
+          "selector": ".flow-avatar"
+        },
+        {
+          "figure": "match-save-error",
+          "selector": ".ice"
+        },
+        {
+          "figure": "match-save-error",
+          "selector": ".portrait"
+        },
+        {
+          "figure": "match-technical",
+          "selector": ".fire"
+        },
+        {
+          "figure": "match-technical",
+          "selector": ".flow-avatar"
+        },
+        {
+          "figure": "match-technical",
+          "selector": ".ice"
+        },
+        {
+          "figure": "match-technical",
+          "selector": ".portrait"
+        },
+        {
+          "figure": "match-technical-de",
+          "selector": ".fire"
+        },
+        {
+          "figure": "match-technical-de",
+          "selector": ".flow-avatar"
+        },
+        {
+          "figure": "match-technical-de",
+          "selector": ".ice"
+        },
+        {
+          "figure": "match-technical-de",
+          "selector": ".portrait"
+        },
+        {
+          "figure": "profile-new",
+          "selector": ".profile-monogram"
+        },
+        {
+          "figure": "profile-refined-view",
+          "selector": ".flow-avatar"
+        },
+        {
+          "figure": "profile-refined-view",
+          "selector": ".ice"
+        },
+        {
+          "figure": "profile-refined-view",
+          "selector": ".profile-monogram"
+        },
+        {
+          "figure": "rr-tie",
+          "selector": ".fan"
+        },
+        {
+          "figure": "rr-tie",
+          "selector": ".fire"
+        },
+        {
+          "figure": "rr-tie",
+          "selector": ".flow-avatar"
+        },
+        {
+          "figure": "rr-tie",
+          "selector": ".ice"
+        },
+        {
+          "figure": "rr-tiebreak-live",
+          "selector": ".fan"
+        },
+        {
+          "figure": "rr-tiebreak-live",
+          "selector": ".fire"
+        },
+        {
+          "figure": "rr-tiebreak-live",
+          "selector": ".flow-avatar"
+        },
+        {
+          "figure": "rr-tiebreak-live",
+          "selector": ".ice"
+        },
+        {
+          "figure": "rr-tiebreak-live",
+          "selector": ".portrait"
+        },
+        {
+          "figure": "tournament-champion",
+          "selector": ".fan"
+        },
+        {
+          "figure": "tournament-champion",
+          "selector": ".flow-avatar"
+        },
+        {
+          "figure": "tournament-champion",
+          "selector": ".portrait"
+        },
+        {
+          "figure": "tournament-live",
+          "selector": ".fan"
+        },
+        {
+          "figure": "tournament-live",
+          "selector": ".fire"
+        },
+        {
+          "figure": "tournament-live",
+          "selector": ".flow-avatar"
+        },
+        {
+          "figure": "tournament-live",
+          "selector": ".ice"
+        },
+        {
+          "figure": "tournament-live",
+          "selector": ".portrait"
+        },
+        {
+          "figure": "tournament-live",
+          "selector": ".storm"
+        },
+        {
+          "figure": "tournament-results",
+          "selector": ".fan"
+        },
+        {
+          "figure": "tournament-results",
+          "selector": ".fire"
+        },
+        {
+          "figure": "tournament-results",
+          "selector": ".flow-avatar"
+        },
+        {
+          "figure": "tournament-results",
+          "selector": ".ice"
+        },
+        {
+          "figure": "tournament-results",
+          "selector": ".storm"
+        },
+        {
+          "figure": "tournament-results-rr",
+          "selector": ".fan"
+        },
+        {
+          "figure": "tournament-results-rr",
+          "selector": ".fire"
+        },
+        {
+          "figure": "tournament-results-rr",
+          "selector": ".flow-avatar"
+        },
+        {
+          "figure": "tournament-results-rr",
+          "selector": ".ice"
+        },
+        {
+          "figure": "tournament-results-se",
+          "selector": ".fan"
+        },
+        {
+          "figure": "tournament-results-se",
+          "selector": ".fire"
+        },
+        {
+          "figure": "tournament-results-se",
+          "selector": ".flow-avatar"
+        },
+        {
+          "figure": "tournament-results-se",
+          "selector": ".ice"
+        },
+        {
+          "figure": "tournament-results-se",
+          "selector": ".storm"
+        },
+        {
+          "figure": "tournament-rr",
+          "selector": ".fan"
+        },
+        {
+          "figure": "tournament-rr",
+          "selector": ".fire"
+        },
+        {
+          "figure": "tournament-rr",
+          "selector": ".flow-avatar"
+        },
+        {
+          "figure": "tournament-rr",
+          "selector": ".ice"
+        },
+        {
+          "figure": "tournament-rr",
+          "selector": ".portrait"
+        },
+        {
+          "figure": "tournament-se",
+          "selector": ".fan"
+        },
+        {
+          "figure": "tournament-se",
+          "selector": ".fire"
+        },
+        {
+          "figure": "tournament-se",
+          "selector": ".flow-avatar"
+        },
+        {
+          "figure": "tournament-se",
+          "selector": ".ice"
+        },
+        {
+          "figure": "tournament-se",
+          "selector": ".portrait"
+        },
+        {
+          "figure": "tournament-se",
+          "selector": ".storm"
+        },
+        {
+          "figure": "withdraw-player",
+          "selector": ".fire"
+        },
+        {
+          "figure": "withdraw-player",
+          "selector": ".flow-avatar"
+        },
+        {
+          "figure": "withdraw-player",
+          "selector": ".ice"
+        },
+        {
+          "figure": "withdraw-player",
+          "selector": ".portrait"
+        }
+      ]
+    },
+    "score": {
+      "Mobile": [
+        {
+          "figure": "forfeit-confirm",
+          "selector": ".flow-vs"
+        },
+        {
+          "figure": "match-correct",
+          "selector": ".result-fixed-score"
+        },
+        {
+          "figure": "match-correct",
+          "selector": ".result-score-inputs"
+        },
+        {
+          "figure": "match-result",
+          "selector": ".result-fixed-score"
+        },
+        {
+          "figure": "match-result",
+          "selector": ".result-score-inputs"
+        },
+        {
+          "figure": "match-result-ft10",
+          "selector": ".result-fixed-score"
+        },
+        {
+          "figure": "match-result-ft10",
+          "selector": ".result-score-inputs"
+        },
+        {
+          "figure": "match-result-ft3",
+          "selector": ".result-fixed-score"
+        },
+        {
+          "figure": "match-result-ft3",
+          "selector": ".result-score-inputs"
+        },
+        {
+          "figure": "match-save-error",
+          "selector": ".result-fixed-score"
+        },
+        {
+          "figure": "match-save-error",
+          "selector": ".result-score-inputs"
+        },
+        {
+          "figure": "profile-refined-view",
+          "selector": ".flow-result-place"
+        },
+        {
+          "figure": "rr-tiebreak-live",
+          "selector": ".competition-score"
+        },
+        {
+          "figure": "tournament-live",
+          "selector": ".competition-score"
+        },
+        {
+          "figure": "tournament-results",
+          "selector": ".flow-place"
+        },
+        {
+          "figure": "tournament-results-rr",
+          "selector": ".competition-rank-points"
+        },
+        {
+          "figure": "tournament-results-se",
+          "selector": ".flow-place"
+        },
+        {
+          "figure": "tournament-rr",
+          "selector": ".competition-score"
+        },
+        {
+          "figure": "tournament-se",
+          "selector": ".competition-score"
+        },
+        {
+          "figure": "withdraw-player",
+          "selector": ".flow-vs"
+        }
+      ],
+      "Desktop": [
+        {
+          "figure": "forfeit-confirm",
+          "selector": ".flow-vs"
+        },
+        {
+          "figure": "match-correct",
+          "selector": ".result-fixed-score"
+        },
+        {
+          "figure": "match-correct",
+          "selector": ".result-score-inputs"
+        },
+        {
+          "figure": "match-result",
+          "selector": ".result-fixed-score"
+        },
+        {
+          "figure": "match-result",
+          "selector": ".result-score-inputs"
+        },
+        {
+          "figure": "match-result-ft10",
+          "selector": ".result-fixed-score"
+        },
+        {
+          "figure": "match-result-ft10",
+          "selector": ".result-score-inputs"
+        },
+        {
+          "figure": "match-result-ft3",
+          "selector": ".result-fixed-score"
+        },
+        {
+          "figure": "match-result-ft3",
+          "selector": ".result-score-inputs"
+        },
+        {
+          "figure": "match-save-error",
+          "selector": ".result-fixed-score"
+        },
+        {
+          "figure": "match-save-error",
+          "selector": ".result-score-inputs"
+        },
+        {
+          "figure": "profile-refined-view",
+          "selector": ".flow-result-place"
+        },
+        {
+          "figure": "rr-tiebreak-live",
+          "selector": ".competition-score"
+        },
+        {
+          "figure": "tournament-live",
+          "selector": ".competition-score"
+        },
+        {
+          "figure": "tournament-results",
+          "selector": ".flow-place"
+        },
+        {
+          "figure": "tournament-results-rr",
+          "selector": ".competition-rank-points"
+        },
+        {
+          "figure": "tournament-results-se",
+          "selector": ".flow-place"
+        },
+        {
+          "figure": "tournament-rr",
+          "selector": ".competition-score"
+        },
+        {
+          "figure": "tournament-se",
+          "selector": ".competition-score"
+        },
+        {
+          "figure": "withdraw-player",
+          "selector": ".flow-vs"
+        }
+      ]
+    },
+    "row": {
+      "Mobile": [
+        {
+          "figure": "distribution-ready",
+          "selector": ".flow-player-row"
+        },
+        {
+          "figure": "history-list",
+          "selector": ".flow-history-row"
+        },
+        {
+          "figure": "history-list",
+          "selector": ".flow-history-winner"
+        },
+        {
+          "figure": "lobby-roster",
+          "selector": ".flow-player-row"
+        },
+        {
+          "figure": "lobby-roster",
+          "selector": ".flow-roster-gesture"
+        },
+        {
+          "figure": "lobby-roster",
+          "selector": ".flow-roster-remove"
+        },
+        {
+          "figure": "profile-refined-view",
+          "selector": ".flow-last-result"
+        },
+        {
+          "figure": "tournament-results",
+          "selector": ".flow-ranking"
+        },
+        {
+          "figure": "tournament-results-rr",
+          "selector": ".flow-ranking"
+        },
+        {
+          "figure": "tournament-results-se",
+          "selector": ".flow-ranking"
+        }
+      ],
+      "Desktop": [
+        {
+          "figure": "distribution-ready",
+          "selector": ".flow-player-row"
+        },
+        {
+          "figure": "history-list",
+          "selector": ".flow-history-row"
+        },
+        {
+          "figure": "history-list",
+          "selector": ".flow-history-winner"
+        },
+        {
+          "figure": "lobby-roster",
+          "selector": ".flow-player-row"
+        },
+        {
+          "figure": "lobby-roster",
+          "selector": ".flow-roster-gesture"
+        },
+        {
+          "figure": "lobby-roster",
+          "selector": ".flow-roster-remove"
+        },
+        {
+          "figure": "profile-refined-view",
+          "selector": ".flow-last-result"
+        },
+        {
+          "figure": "profile-refined-view",
+          "selector": ".profile-bento-recent"
+        },
+        {
+          "figure": "tournament-results",
+          "selector": ".flow-ranking"
+        },
+        {
+          "figure": "tournament-results-rr",
+          "selector": ".flow-ranking"
+        },
+        {
+          "figure": "tournament-results-se",
+          "selector": ".flow-ranking"
+        }
+      ]
+    },
+    "identity": {
+      "Mobile": [
+        {
+          "figure": "bracket-de",
+          "selector": ".bracket-map-player"
+        },
+        {
+          "figure": "bracket-se",
+          "selector": ".bracket-map-player"
+        },
+        {
+          "figure": "distribution-ready",
+          "selector": ".flow-person"
+        },
+        {
+          "figure": "forfeit-confirm",
+          "selector": ".flow-fighter"
+        },
+        {
+          "figure": "forfeit-confirm",
+          "selector": ".flow-person"
+        },
+        {
+          "figure": "history-list",
+          "selector": ".flow-person"
+        },
+        {
+          "figure": "lobby-roster",
+          "selector": ".flow-person"
+        },
+        {
+          "figure": "match-correct",
+          "selector": ".flow-fighter"
+        },
+        {
+          "figure": "match-correct",
+          "selector": ".result-winner"
+        },
+        {
+          "figure": "match-result",
+          "selector": ".flow-fighter"
+        },
+        {
+          "figure": "match-result",
+          "selector": ".result-winner"
+        },
+        {
+          "figure": "match-result-de",
+          "selector": ".flow-fighter"
+        },
+        {
+          "figure": "match-result-ft10",
+          "selector": ".flow-fighter"
+        },
+        {
+          "figure": "match-result-ft10",
+          "selector": ".result-winner"
+        },
+        {
+          "figure": "match-result-ft3",
+          "selector": ".flow-fighter"
+        },
+        {
+          "figure": "match-result-ft3",
+          "selector": ".result-winner"
+        },
+        {
+          "figure": "match-save-error",
+          "selector": ".flow-fighter"
+        },
+        {
+          "figure": "match-save-error",
+          "selector": ".result-winner"
+        },
+        {
+          "figure": "match-technical",
+          "selector": ".flow-fighter"
+        },
+        {
+          "figure": "match-technical-de",
+          "selector": ".flow-fighter"
+        },
+        {
+          "figure": "profile-new",
+          "selector": ".flow-profile-identity"
+        },
+        {
+          "figure": "profile-refined-view",
+          "selector": ".flow-person"
+        },
+        {
+          "figure": "profile-refined-view",
+          "selector": ".profile-current-identity"
+        },
+        {
+          "figure": "rr-tie",
+          "selector": ".flow-person"
+        },
+        {
+          "figure": "rr-tiebreak-live",
+          "selector": ".flow-fighter"
+        },
+        {
+          "figure": "rr-tiebreak-live",
+          "selector": ".flow-person"
+        },
+        {
+          "figure": "tournament-champion",
+          "selector": ".flow-fighter"
+        },
+        {
+          "figure": "tournament-live",
+          "selector": ".flow-fighter"
+        },
+        {
+          "figure": "tournament-live",
+          "selector": ".flow-person"
+        },
+        {
+          "figure": "tournament-results",
+          "selector": ".flow-person"
+        },
+        {
+          "figure": "tournament-results-rr",
+          "selector": ".flow-person"
+        },
+        {
+          "figure": "tournament-results-se",
+          "selector": ".flow-person"
+        },
+        {
+          "figure": "tournament-rr",
+          "selector": ".flow-fighter"
+        },
+        {
+          "figure": "tournament-rr",
+          "selector": ".flow-person"
+        },
+        {
+          "figure": "tournament-se",
+          "selector": ".flow-fighter"
+        },
+        {
+          "figure": "tournament-se",
+          "selector": ".flow-person"
+        },
+        {
+          "figure": "withdraw-player",
+          "selector": ".flow-fighter"
+        },
+        {
+          "figure": "withdraw-player",
+          "selector": ".flow-person"
+        }
+      ],
+      "Desktop": [
+        {
+          "figure": "bracket-de",
+          "selector": ".bracket-map-player"
+        },
+        {
+          "figure": "bracket-se",
+          "selector": ".bracket-map-player"
+        },
+        {
+          "figure": "distribution-ready",
+          "selector": ".flow-person"
+        },
+        {
+          "figure": "forfeit-confirm",
+          "selector": ".flow-fighter"
+        },
+        {
+          "figure": "forfeit-confirm",
+          "selector": ".flow-person"
+        },
+        {
+          "figure": "history-list",
+          "selector": ".flow-person"
+        },
+        {
+          "figure": "lobby-roster",
+          "selector": ".flow-person"
+        },
+        {
+          "figure": "match-correct",
+          "selector": ".flow-fighter"
+        },
+        {
+          "figure": "match-correct",
+          "selector": ".result-winner"
+        },
+        {
+          "figure": "match-result",
+          "selector": ".flow-fighter"
+        },
+        {
+          "figure": "match-result",
+          "selector": ".result-winner"
+        },
+        {
+          "figure": "match-result-de",
+          "selector": ".flow-fighter"
+        },
+        {
+          "figure": "match-result-ft10",
+          "selector": ".flow-fighter"
+        },
+        {
+          "figure": "match-result-ft10",
+          "selector": ".result-winner"
+        },
+        {
+          "figure": "match-result-ft3",
+          "selector": ".flow-fighter"
+        },
+        {
+          "figure": "match-result-ft3",
+          "selector": ".result-winner"
+        },
+        {
+          "figure": "match-save-error",
+          "selector": ".flow-fighter"
+        },
+        {
+          "figure": "match-save-error",
+          "selector": ".result-winner"
+        },
+        {
+          "figure": "match-technical",
+          "selector": ".flow-fighter"
+        },
+        {
+          "figure": "match-technical-de",
+          "selector": ".flow-fighter"
+        },
+        {
+          "figure": "profile-new",
+          "selector": ".flow-profile-identity"
+        },
+        {
+          "figure": "profile-refined-view",
+          "selector": ".flow-person"
+        },
+        {
+          "figure": "profile-refined-view",
+          "selector": ".profile-current-identity"
+        },
+        {
+          "figure": "rr-tie",
+          "selector": ".flow-person"
+        },
+        {
+          "figure": "rr-tiebreak-live",
+          "selector": ".flow-fighter"
+        },
+        {
+          "figure": "rr-tiebreak-live",
+          "selector": ".flow-person"
+        },
+        {
+          "figure": "tournament-champion",
+          "selector": ".flow-fighter"
+        },
+        {
+          "figure": "tournament-live",
+          "selector": ".flow-fighter"
+        },
+        {
+          "figure": "tournament-live",
+          "selector": ".flow-person"
+        },
+        {
+          "figure": "tournament-results",
+          "selector": ".flow-person"
+        },
+        {
+          "figure": "tournament-results-rr",
+          "selector": ".flow-person"
+        },
+        {
+          "figure": "tournament-results-se",
+          "selector": ".flow-person"
+        },
+        {
+          "figure": "tournament-rr",
+          "selector": ".flow-fighter"
+        },
+        {
+          "figure": "tournament-rr",
+          "selector": ".flow-person"
+        },
+        {
+          "figure": "tournament-se",
+          "selector": ".flow-fighter"
+        },
+        {
+          "figure": "tournament-se",
+          "selector": ".flow-person"
+        },
+        {
+          "figure": "withdraw-player",
+          "selector": ".flow-fighter"
+        },
+        {
+          "figure": "withdraw-player",
+          "selector": ".flow-person"
+        }
+      ]
+    },
+    "field": {
+      "Mobile": [
+        {
+          "figure": "contact-view",
+          "selector": ".field"
+        },
+        {
+          "figure": "guest-add",
+          "selector": ".field"
+        },
+        {
+          "figure": "profile-refined-edit",
+          "selector": ".field"
+        },
+        {
+          "figure": "profile-refined-error",
+          "selector": ".field"
+        },
+        {
+          "figure": "setup-de",
+          "selector": ".field"
+        },
+        {
+          "figure": "setup-rr",
+          "selector": ".field"
+        },
+        {
+          "figure": "setup-se",
+          "selector": ".field"
+        }
+      ],
+      "Desktop": [
+        {
+          "figure": "contact-view",
+          "selector": ".field"
+        },
+        {
+          "figure": "guest-add",
+          "selector": ".field"
+        },
+        {
+          "figure": "profile-refined-edit",
+          "selector": ".field"
+        },
+        {
+          "figure": "profile-refined-error",
+          "selector": ".field"
+        },
+        {
+          "figure": "setup-de",
+          "selector": ".field"
+        },
+        {
+          "figure": "setup-rr",
+          "selector": ".field"
+        },
+        {
+          "figure": "setup-se",
+          "selector": ".field"
+        }
+      ]
+    },
+    "notice": {
+      "Mobile": [
+        {
+          "figure": "contact-view",
+          "selector": ".flow-notice"
+        },
+        {
+          "figure": "match-save-error",
+          "selector": ".error-copy"
+        },
+        {
+          "figure": "match-technical",
+          "selector": ".competition-note"
+        },
+        {
+          "figure": "match-technical-de",
+          "selector": ".competition-note"
+        },
+        {
+          "figure": "profile-refined-error",
+          "selector": ".error-copy"
+        },
+        {
+          "figure": "settings-view",
+          "selector": ".flow-notice"
+        },
+        {
+          "figure": "setup-de",
+          "selector": ".flow-notice"
+        },
+        {
+          "figure": "setup-rr",
+          "selector": ".flow-notice"
+        }
+      ],
+      "Desktop": [
+        {
+          "figure": "contact-view",
+          "selector": ".flow-notice"
+        },
+        {
+          "figure": "match-save-error",
+          "selector": ".error-copy"
+        },
+        {
+          "figure": "match-technical",
+          "selector": ".competition-note"
+        },
+        {
+          "figure": "match-technical-de",
+          "selector": ".competition-note"
+        },
+        {
+          "figure": "profile-refined-error",
+          "selector": ".error-copy"
+        },
+        {
+          "figure": "settings-view",
+          "selector": ".flow-notice"
+        },
+        {
+          "figure": "setup-de",
+          "selector": ".flow-notice"
+        },
+        {
+          "figure": "setup-rr",
+          "selector": ".flow-notice"
+        }
+      ]
+    },
+    "surface": {
+      "Mobile": [
+        {
+          "figure": "about-view",
+          "selector": ".flow-panel"
+        },
+        {
+          "figure": "distribution-ready",
+          "selector": ".flow-panel"
+        },
+        {
+          "figure": "lobby-roster",
+          "selector": ".flow-panel"
+        },
+        {
+          "figure": "result-locked",
+          "selector": ".flow-panel"
+        },
+        {
+          "figure": "settings-view",
+          "selector": ".flow-panel"
+        },
+        {
+          "figure": "setup-de",
+          "selector": ".flow-panel"
+        },
+        {
+          "figure": "setup-se",
+          "selector": ".flow-panel"
+        }
+      ],
+      "Desktop": [
+        {
+          "figure": "about-view",
+          "selector": ".desktop-tile"
+        },
+        {
+          "figure": "boot-error",
+          "selector": ".desktop-tile"
+        },
+        {
+          "figure": "boot-loading",
+          "selector": ".desktop-tile"
+        },
+        {
+          "figure": "boot-retry",
+          "selector": ".desktop-tile"
+        },
+        {
+          "figure": "distribution-ready",
+          "selector": ".desktop-tile"
+        },
+        {
+          "figure": "distribution-share",
+          "selector": ".desktop-tile"
+        },
+        {
+          "figure": "distribution-working",
+          "selector": ".desktop-tile"
+        },
+        {
+          "figure": "history-empty",
+          "selector": ".desktop-tile"
+        },
+        {
+          "figure": "history-list",
+          "selector": ".desktop-tile"
+        },
+        {
+          "figure": "home-empty",
+          "selector": ".desktop-tile"
+        },
+        {
+          "figure": "lobby-roster",
+          "selector": ".desktop-tile"
+        },
+        {
+          "figure": "lobby-roster",
+          "selector": ".flow-panel"
+        },
+        {
+          "figure": "participant-access",
+          "selector": ".desktop-tile"
+        },
+        {
+          "figure": "profile-refined-edit",
+          "selector": ".desktop-tile"
+        },
+        {
+          "figure": "profile-refined-error",
+          "selector": ".desktop-tile"
+        },
+        {
+          "figure": "result-locked",
+          "selector": ".desktop-tile"
+        },
+        {
+          "figure": "result-locked",
+          "selector": ".flow-panel"
+        },
+        {
+          "figure": "rr-tie",
+          "selector": ".desktop-tile"
+        },
+        {
+          "figure": "rr-tiebreak-live",
+          "selector": ".desktop-tile"
+        },
+        {
+          "figure": "settings-view",
+          "selector": ".desktop-tile"
+        },
+        {
+          "figure": "setup-de",
+          "selector": ".desktop-tile"
+        },
+        {
+          "figure": "setup-rr",
+          "selector": ".desktop-tile"
+        },
+        {
+          "figure": "setup-se",
+          "selector": ".desktop-tile"
+        },
+        {
+          "figure": "tournament-champion",
+          "selector": ".desktop-tile"
+        },
+        {
+          "figure": "tournament-live",
+          "selector": ".desktop-tile"
+        },
+        {
+          "figure": "tournament-results",
+          "selector": ".desktop-tile"
+        },
+        {
+          "figure": "tournament-results-rr",
+          "selector": ".desktop-tile"
+        },
+        {
+          "figure": "tournament-results-se",
+          "selector": ".desktop-tile"
+        },
+        {
+          "figure": "tournament-rr",
+          "selector": ".desktop-tile"
+        },
+        {
+          "figure": "tournament-se",
+          "selector": ".desktop-tile"
+        },
+        {
+          "figure": "tournament-share",
+          "selector": ".desktop-tile"
+        },
+        {
+          "figure": "utility-error",
+          "selector": ".desktop-tile"
+        },
+        {
+          "figure": "utility-loading",
+          "selector": ".desktop-tile"
+        }
+      ]
+    },
+    "stepper": {
+      "Mobile": [
+        {
+          "figure": "match-correct",
+          "selector": ".result-score-stepper"
+        },
+        {
+          "figure": "match-result",
+          "selector": ".result-score-stepper"
+        },
+        {
+          "figure": "match-result-ft10",
+          "selector": ".result-score-stepper"
+        },
+        {
+          "figure": "match-result-ft3",
+          "selector": ".result-score-stepper"
+        },
+        {
+          "figure": "match-save-error",
+          "selector": ".result-score-stepper"
+        },
+        {
+          "figure": "setup-de",
+          "selector": ".flow-ft-field"
+        },
+        {
+          "figure": "setup-de",
+          "selector": ".flow-ft-stepper"
+        },
+        {
+          "figure": "setup-se",
+          "selector": ".flow-ft-field"
+        },
+        {
+          "figure": "setup-se",
+          "selector": ".flow-ft-stepper"
+        }
+      ],
+      "Desktop": [
+        {
+          "figure": "match-correct",
+          "selector": ".result-score-stepper"
+        },
+        {
+          "figure": "match-result",
+          "selector": ".result-score-stepper"
+        },
+        {
+          "figure": "match-result-ft10",
+          "selector": ".result-score-stepper"
+        },
+        {
+          "figure": "match-result-ft3",
+          "selector": ".result-score-stepper"
+        },
+        {
+          "figure": "match-save-error",
+          "selector": ".result-score-stepper"
+        },
+        {
+          "figure": "setup-de",
+          "selector": ".flow-ft-field"
+        },
+        {
+          "figure": "setup-de",
+          "selector": ".flow-ft-stepper"
+        },
+        {
+          "figure": "setup-se",
+          "selector": ".flow-ft-field"
+        },
+        {
+          "figure": "setup-se",
+          "selector": ".flow-ft-stepper"
+        }
+      ]
+    },
+    "segmented": {
+      "Mobile": [
+        {
+          "figure": "setup-de",
+          "selector": ".flow-format-field"
+        },
+        {
+          "figure": "setup-de",
+          "selector": ".flow-options"
+        },
+        {
+          "figure": "setup-rr",
+          "selector": ".flow-format-field"
+        },
+        {
+          "figure": "setup-rr",
+          "selector": ".flow-options"
+        },
+        {
+          "figure": "setup-se",
+          "selector": ".flow-format-field"
+        },
+        {
+          "figure": "setup-se",
+          "selector": ".flow-options"
+        }
+      ],
+      "Desktop": [
+        {
+          "figure": "setup-de",
+          "selector": ".flow-format-field"
+        },
+        {
+          "figure": "setup-de",
+          "selector": ".flow-options"
+        },
+        {
+          "figure": "setup-rr",
+          "selector": ".flow-format-field"
+        },
+        {
+          "figure": "setup-rr",
+          "selector": ".flow-options"
+        },
+        {
+          "figure": "setup-se",
+          "selector": ".flow-format-field"
+        },
+        {
+          "figure": "setup-se",
+          "selector": ".flow-options"
+        }
+      ]
+    },
+    "qr": {
+      "Mobile": [
+        {
+          "figure": "distribution-share",
+          "selector": ".flow-qr-code"
+        },
+        {
+          "figure": "distribution-share",
+          "selector": ".flow-qr-preview"
+        },
+        {
+          "figure": "distribution-share",
+          "selector": ".flow-qr-session"
+        },
+        {
+          "figure": "distribution-share",
+          "selector": ".qr-light"
+        },
+        {
+          "figure": "distribution-share",
+          "selector": ".qr-module"
+        },
+        {
+          "figure": "participant-access",
+          "selector": ".flow-qr-code"
+        },
+        {
+          "figure": "participant-access",
+          "selector": ".flow-qr-preview"
+        },
+        {
+          "figure": "participant-access",
+          "selector": ".flow-qr-session"
+        },
+        {
+          "figure": "participant-access",
+          "selector": ".qr-light"
+        },
+        {
+          "figure": "participant-access",
+          "selector": ".qr-module"
+        },
+        {
+          "figure": "tournament-share",
+          "selector": ".flow-qr-code"
+        },
+        {
+          "figure": "tournament-share",
+          "selector": ".flow-qr-preview"
+        },
+        {
+          "figure": "tournament-share",
+          "selector": ".flow-qr-session"
+        },
+        {
+          "figure": "tournament-share",
+          "selector": ".qr-light"
+        },
+        {
+          "figure": "tournament-share",
+          "selector": ".qr-module"
+        }
+      ],
+      "Desktop": [
+        {
+          "figure": "distribution-share",
+          "selector": ".flow-qr-code"
+        },
+        {
+          "figure": "distribution-share",
+          "selector": ".flow-qr-preview"
+        },
+        {
+          "figure": "distribution-share",
+          "selector": ".flow-qr-session"
+        },
+        {
+          "figure": "distribution-share",
+          "selector": ".qr-light"
+        },
+        {
+          "figure": "distribution-share",
+          "selector": ".qr-module"
+        },
+        {
+          "figure": "participant-access",
+          "selector": ".flow-qr-code"
+        },
+        {
+          "figure": "participant-access",
+          "selector": ".flow-qr-preview"
+        },
+        {
+          "figure": "participant-access",
+          "selector": ".flow-qr-session"
+        },
+        {
+          "figure": "participant-access",
+          "selector": ".qr-light"
+        },
+        {
+          "figure": "participant-access",
+          "selector": ".qr-module"
+        },
+        {
+          "figure": "tournament-share",
+          "selector": ".flow-qr-code"
+        },
+        {
+          "figure": "tournament-share",
+          "selector": ".flow-qr-preview"
+        },
+        {
+          "figure": "tournament-share",
+          "selector": ".flow-qr-session"
+        },
+        {
+          "figure": "tournament-share",
+          "selector": ".qr-light"
+        },
+        {
+          "figure": "tournament-share",
+          "selector": ".qr-module"
+        }
+      ]
+    },
+    "dialog": {
+      "Mobile": [
+        {
+          "figure": "forfeit-confirm",
+          "selector": ".flow-alert"
+        },
+        {
+          "figure": "forfeit-confirm",
+          "selector": ".flow-alert-actions"
+        },
+        {
+          "figure": "forfeit-confirm",
+          "selector": ".flow-dialog-person"
+        },
+        {
+          "figure": "forfeit-confirm",
+          "selector": ".flow-scrim"
+        },
+        {
+          "figure": "forfeit-confirm",
+          "selector": ".flow-underlay"
+        },
+        {
+          "figure": "guest-remove",
+          "selector": ".flow-alert"
+        },
+        {
+          "figure": "guest-remove",
+          "selector": ".flow-alert-actions"
+        },
+        {
+          "figure": "guest-remove",
+          "selector": ".flow-scrim"
+        },
+        {
+          "figure": "match-correct",
+          "selector": ".flow-scrim"
+        },
+        {
+          "figure": "match-correct",
+          "selector": ".flow-sheet"
+        },
+        {
+          "figure": "match-correct",
+          "selector": ".flow-underlay"
+        },
+        {
+          "figure": "match-result",
+          "selector": ".flow-scrim"
+        },
+        {
+          "figure": "match-result",
+          "selector": ".flow-sheet"
+        },
+        {
+          "figure": "match-result",
+          "selector": ".flow-underlay"
+        },
+        {
+          "figure": "match-result-de",
+          "selector": ".flow-scrim"
+        },
+        {
+          "figure": "match-result-de",
+          "selector": ".flow-sheet"
+        },
+        {
+          "figure": "match-result-de",
+          "selector": ".flow-underlay"
+        },
+        {
+          "figure": "match-result-ft10",
+          "selector": ".flow-scrim"
+        },
+        {
+          "figure": "match-result-ft10",
+          "selector": ".flow-sheet"
+        },
+        {
+          "figure": "match-result-ft10",
+          "selector": ".flow-underlay"
+        },
+        {
+          "figure": "match-result-ft3",
+          "selector": ".flow-scrim"
+        },
+        {
+          "figure": "match-result-ft3",
+          "selector": ".flow-sheet"
+        },
+        {
+          "figure": "match-result-ft3",
+          "selector": ".flow-underlay"
+        },
+        {
+          "figure": "match-save-error",
+          "selector": ".flow-scrim"
+        },
+        {
+          "figure": "match-save-error",
+          "selector": ".flow-sheet"
+        },
+        {
+          "figure": "match-save-error",
+          "selector": ".flow-underlay"
+        },
+        {
+          "figure": "match-technical",
+          "selector": ".flow-scrim"
+        },
+        {
+          "figure": "match-technical",
+          "selector": ".flow-sheet"
+        },
+        {
+          "figure": "match-technical",
+          "selector": ".flow-underlay"
+        },
+        {
+          "figure": "match-technical-de",
+          "selector": ".flow-scrim"
+        },
+        {
+          "figure": "match-technical-de",
+          "selector": ".flow-sheet"
+        },
+        {
+          "figure": "match-technical-de",
+          "selector": ".flow-underlay"
+        },
+        {
+          "figure": "withdraw-player",
+          "selector": ".flow-alert"
+        },
+        {
+          "figure": "withdraw-player",
+          "selector": ".flow-alert-actions"
+        },
+        {
+          "figure": "withdraw-player",
+          "selector": ".flow-dialog-person"
+        },
+        {
+          "figure": "withdraw-player",
+          "selector": ".flow-scrim"
+        },
+        {
+          "figure": "withdraw-player",
+          "selector": ".flow-underlay"
+        }
+      ],
+      "Desktop": [
+        {
+          "figure": "forfeit-confirm",
+          "selector": ".flow-alert"
+        },
+        {
+          "figure": "forfeit-confirm",
+          "selector": ".flow-alert-actions"
+        },
+        {
+          "figure": "forfeit-confirm",
+          "selector": ".flow-dialog-person"
+        },
+        {
+          "figure": "forfeit-confirm",
+          "selector": ".flow-scrim"
+        },
+        {
+          "figure": "forfeit-confirm",
+          "selector": ".flow-underlay"
+        },
+        {
+          "figure": "guest-remove",
+          "selector": ".flow-alert"
+        },
+        {
+          "figure": "guest-remove",
+          "selector": ".flow-alert-actions"
+        },
+        {
+          "figure": "guest-remove",
+          "selector": ".flow-scrim"
+        },
+        {
+          "figure": "match-correct",
+          "selector": ".flow-scrim"
+        },
+        {
+          "figure": "match-correct",
+          "selector": ".flow-sheet"
+        },
+        {
+          "figure": "match-correct",
+          "selector": ".flow-underlay"
+        },
+        {
+          "figure": "match-result",
+          "selector": ".flow-scrim"
+        },
+        {
+          "figure": "match-result",
+          "selector": ".flow-sheet"
+        },
+        {
+          "figure": "match-result",
+          "selector": ".flow-underlay"
+        },
+        {
+          "figure": "match-result-de",
+          "selector": ".flow-scrim"
+        },
+        {
+          "figure": "match-result-de",
+          "selector": ".flow-sheet"
+        },
+        {
+          "figure": "match-result-de",
+          "selector": ".flow-underlay"
+        },
+        {
+          "figure": "match-result-ft10",
+          "selector": ".flow-scrim"
+        },
+        {
+          "figure": "match-result-ft10",
+          "selector": ".flow-sheet"
+        },
+        {
+          "figure": "match-result-ft10",
+          "selector": ".flow-underlay"
+        },
+        {
+          "figure": "match-result-ft3",
+          "selector": ".flow-scrim"
+        },
+        {
+          "figure": "match-result-ft3",
+          "selector": ".flow-sheet"
+        },
+        {
+          "figure": "match-result-ft3",
+          "selector": ".flow-underlay"
+        },
+        {
+          "figure": "match-save-error",
+          "selector": ".flow-scrim"
+        },
+        {
+          "figure": "match-save-error",
+          "selector": ".flow-sheet"
+        },
+        {
+          "figure": "match-save-error",
+          "selector": ".flow-underlay"
+        },
+        {
+          "figure": "match-technical",
+          "selector": ".flow-scrim"
+        },
+        {
+          "figure": "match-technical",
+          "selector": ".flow-sheet"
+        },
+        {
+          "figure": "match-technical",
+          "selector": ".flow-underlay"
+        },
+        {
+          "figure": "match-technical-de",
+          "selector": ".flow-scrim"
+        },
+        {
+          "figure": "match-technical-de",
+          "selector": ".flow-sheet"
+        },
+        {
+          "figure": "match-technical-de",
+          "selector": ".flow-underlay"
+        },
+        {
+          "figure": "withdraw-player",
+          "selector": ".flow-alert"
+        },
+        {
+          "figure": "withdraw-player",
+          "selector": ".flow-alert-actions"
+        },
+        {
+          "figure": "withdraw-player",
+          "selector": ".flow-dialog-person"
+        },
+        {
+          "figure": "withdraw-player",
+          "selector": ".flow-scrim"
+        },
+        {
+          "figure": "withdraw-player",
+          "selector": ".flow-underlay"
+        }
+      ]
+    },
+    "share": {
+      "Mobile": [
+        {
+          "figure": "tournament-share",
+          "selector": ".flow-address"
+        },
+        {
+          "figure": "tournament-share",
+          "selector": ".spectator-link"
+        }
+      ],
+      "Desktop": [
+        {
+          "figure": "tournament-share",
+          "selector": ".flow-address"
+        },
+        {
+          "figure": "tournament-share",
+          "selector": ".spectator-link"
+        }
+      ]
+    },
+    "disclosure": {
+      "Mobile": [
+        {
+          "figure": "match-correct",
+          "selector": ".competition-disclosure"
+        },
+        {
+          "figure": "match-correct",
+          "selector": ".competition-disclosure-body"
+        },
+        {
+          "figure": "match-result",
+          "selector": ".competition-disclosure"
+        },
+        {
+          "figure": "match-result",
+          "selector": ".competition-disclosure-body"
+        },
+        {
+          "figure": "match-result-de",
+          "selector": ".competition-disclosure"
+        },
+        {
+          "figure": "match-result-de",
+          "selector": ".competition-disclosure-body"
+        },
+        {
+          "figure": "match-result-ft10",
+          "selector": ".competition-disclosure"
+        },
+        {
+          "figure": "match-result-ft10",
+          "selector": ".competition-disclosure-body"
+        },
+        {
+          "figure": "match-result-ft3",
+          "selector": ".competition-disclosure"
+        },
+        {
+          "figure": "match-result-ft3",
+          "selector": ".competition-disclosure-body"
+        },
+        {
+          "figure": "match-save-error",
+          "selector": ".competition-disclosure"
+        },
+        {
+          "figure": "match-save-error",
+          "selector": ".competition-disclosure-body"
+        },
+        {
+          "figure": "rr-tie",
+          "selector": ".competition-disclosure"
+        },
+        {
+          "figure": "rr-tie",
+          "selector": ".competition-disclosure-body"
+        },
+        {
+          "figure": "rr-tiebreak-live",
+          "selector": ".competition-disclosure"
+        },
+        {
+          "figure": "rr-tiebreak-live",
+          "selector": ".competition-disclosure-body"
+        },
+        {
+          "figure": "tournament-live",
+          "selector": ".competition-disclosure"
+        },
+        {
+          "figure": "tournament-live",
+          "selector": ".competition-disclosure-body"
+        },
+        {
+          "figure": "tournament-results-se",
+          "selector": ".competition-disclosure"
+        },
+        {
+          "figure": "tournament-results-se",
+          "selector": ".competition-disclosure-body"
+        },
+        {
+          "figure": "tournament-rr",
+          "selector": ".competition-disclosure"
+        },
+        {
+          "figure": "tournament-rr",
+          "selector": ".competition-disclosure-body"
+        },
+        {
+          "figure": "tournament-se",
+          "selector": ".competition-disclosure"
+        },
+        {
+          "figure": "tournament-se",
+          "selector": ".competition-disclosure-body"
+        }
+      ],
+      "Desktop": [
+        {
+          "figure": "match-correct",
+          "selector": ".competition-disclosure"
+        },
+        {
+          "figure": "match-correct",
+          "selector": ".competition-disclosure-body"
+        },
+        {
+          "figure": "match-result",
+          "selector": ".competition-disclosure"
+        },
+        {
+          "figure": "match-result",
+          "selector": ".competition-disclosure-body"
+        },
+        {
+          "figure": "match-result-de",
+          "selector": ".competition-disclosure"
+        },
+        {
+          "figure": "match-result-de",
+          "selector": ".competition-disclosure-body"
+        },
+        {
+          "figure": "match-result-ft10",
+          "selector": ".competition-disclosure"
+        },
+        {
+          "figure": "match-result-ft10",
+          "selector": ".competition-disclosure-body"
+        },
+        {
+          "figure": "match-result-ft3",
+          "selector": ".competition-disclosure"
+        },
+        {
+          "figure": "match-result-ft3",
+          "selector": ".competition-disclosure-body"
+        },
+        {
+          "figure": "match-save-error",
+          "selector": ".competition-disclosure"
+        },
+        {
+          "figure": "match-save-error",
+          "selector": ".competition-disclosure-body"
+        },
+        {
+          "figure": "rr-tie",
+          "selector": ".competition-disclosure"
+        },
+        {
+          "figure": "rr-tie",
+          "selector": ".competition-disclosure-body"
+        },
+        {
+          "figure": "rr-tiebreak-live",
+          "selector": ".competition-disclosure"
+        },
+        {
+          "figure": "rr-tiebreak-live",
+          "selector": ".competition-disclosure-body"
+        },
+        {
+          "figure": "tournament-live",
+          "selector": ".competition-disclosure"
+        },
+        {
+          "figure": "tournament-live",
+          "selector": ".competition-disclosure-body"
+        },
+        {
+          "figure": "tournament-results-se",
+          "selector": ".competition-disclosure"
+        },
+        {
+          "figure": "tournament-results-se",
+          "selector": ".competition-disclosure-body"
+        },
+        {
+          "figure": "tournament-rr",
+          "selector": ".competition-disclosure"
+        },
+        {
+          "figure": "tournament-rr",
+          "selector": ".competition-disclosure-body"
+        },
+        {
+          "figure": "tournament-se",
+          "selector": ".competition-disclosure"
+        },
+        {
+          "figure": "tournament-se",
+          "selector": ".competition-disclosure-body"
+        }
+      ]
+    },
+    "table": {
+      "Mobile": [
+        {
+          "figure": "rr-tie",
+          "selector": ".flow-standings"
+        },
+        {
+          "figure": "rr-tie",
+          "selector": ".flow-table-wrap"
+        },
+        {
+          "figure": "tournament-rr",
+          "selector": ".flow-standings"
+        },
+        {
+          "figure": "tournament-rr",
+          "selector": ".flow-table-wrap"
+        }
+      ],
+      "Desktop": [
+        {
+          "figure": "rr-tie",
+          "selector": ".flow-standings"
+        },
+        {
+          "figure": "rr-tie",
+          "selector": ".flow-table-wrap"
+        },
+        {
+          "figure": "tournament-rr",
+          "selector": ".flow-standings"
+        },
+        {
+          "figure": "tournament-rr",
+          "selector": ".flow-table-wrap"
+        }
+      ]
+    },
+    "bracket": {
+      "Mobile": [
+        {
+          "figure": "bracket-de",
+          "selector": ".bracket-map-label"
+        },
+        {
+          "figure": "bracket-de",
+          "selector": ".bracket-map-match"
+        },
+        {
+          "figure": "bracket-de",
+          "selector": ".bracket-map-match-label"
+        },
+        {
+          "figure": "bracket-de",
+          "selector": ".bracket-map-unknown"
+        },
+        {
+          "figure": "bracket-de",
+          "selector": ".is-current"
+        },
+        {
+          "figure": "bracket-se",
+          "selector": ".bracket-map-label"
+        },
+        {
+          "figure": "bracket-se",
+          "selector": ".bracket-map-match"
+        },
+        {
+          "figure": "bracket-se",
+          "selector": ".bracket-map-match-label"
+        },
+        {
+          "figure": "bracket-se",
+          "selector": ".bracket-map-unknown"
+        },
+        {
+          "figure": "bracket-se",
+          "selector": ".is-current"
+        }
+      ],
+      "Desktop": [
+        {
+          "figure": "bracket-de",
+          "selector": ".bracket-map-label"
+        },
+        {
+          "figure": "bracket-de",
+          "selector": ".bracket-map-match"
+        },
+        {
+          "figure": "bracket-de",
+          "selector": ".bracket-map-match-label"
+        },
+        {
+          "figure": "bracket-de",
+          "selector": ".bracket-map-unknown"
+        },
+        {
+          "figure": "bracket-de",
+          "selector": ".is-current"
+        },
+        {
+          "figure": "bracket-se",
+          "selector": ".bracket-map-label"
+        },
+        {
+          "figure": "bracket-se",
+          "selector": ".bracket-map-match"
+        },
+        {
+          "figure": "bracket-se",
+          "selector": ".bracket-map-match-label"
+        },
+        {
+          "figure": "bracket-se",
+          "selector": ".bracket-map-unknown"
+        },
+        {
+          "figure": "bracket-se",
+          "selector": ".is-current"
+        }
+      ]
+    },
+    "score-choice": {
+      "Mobile": [
+        {
+          "figure": "match-result-de",
+          "selector": ".competition-score-field"
+        },
+        {
+          "figure": "match-result-de",
+          "selector": ".flow-score-options"
+        },
+        {
+          "figure": "match-result-de",
+          "selector": ".is-selected"
+        }
+      ],
+      "Desktop": [
+        {
+          "figure": "match-result-de",
+          "selector": ".competition-score-field"
+        },
+        {
+          "figure": "match-result-de",
+          "selector": ".flow-score-options"
+        },
+        {
+          "figure": "match-result-de",
+          "selector": ".is-selected"
+        }
+      ]
+    },
+    "select": {
+      "Desktop": [
+        {
+          "figure": "settings-view",
+          "selector": ".settings-select-shell"
+        }
+      ],
+      "Mobile": []
+    }
+  },
+  "classMapping": {
+    "primary-action": [
+      "component",
+      "button"
+    ],
+    "secondary-action": [
+      "component",
+      "button"
+    ],
+    "flow-danger-action": [
+      "component",
+      "button"
+    ],
+    "orb": [
+      "component",
+      "button"
+    ],
+    "profile-save": [
+      "component",
+      "button"
+    ],
+    "competition-save": [
+      "component",
+      "button"
+    ],
+    "home-new-action": [
+      "component",
+      "button"
+    ],
+    "flow-text-link": [
+      "component",
+      "button"
+    ],
+    "field": [
+      "component",
+      "field"
+    ],
+    "settings-select-shell": [
+      "component",
+      "select"
+    ],
+    "flow-options": [
+      "component",
+      "segmented"
+    ],
+    "flow-format-field": [
+      "component",
+      "segmented"
+    ],
+    "flow-ft-field": [
+      "component",
+      "stepper"
+    ],
+    "flow-ft-stepper": [
+      "component",
+      "stepper"
+    ],
+    "result-score-stepper": [
+      "component",
+      "stepper"
+    ],
+    "flow-score-options": [
+      "component",
+      "score-choice"
+    ],
+    "is-selected": [
+      "component",
+      "score-choice"
+    ],
+    "competition-score-field": [
+      "component",
+      "score-choice"
+    ],
+    "competition-score": [
+      "component",
+      "score"
+    ],
+    "result-fixed-score": [
+      "component",
+      "score"
+    ],
+    "result-score-inputs": [
+      "component",
+      "score"
+    ],
+    "flow-vs": [
+      "component",
+      "score"
+    ],
+    "flow-result-place": [
+      "component",
+      "score"
+    ],
+    "flow-place": [
+      "component",
+      "score"
+    ],
+    "competition-rank-points": [
+      "component",
+      "score"
+    ],
+    "flow-avatar": [
+      "component",
+      "avatar"
+    ],
+    "portrait": [
+      "component",
+      "avatar"
+    ],
+    "profile-monogram": [
+      "component",
+      "avatar"
+    ],
+    "bracket-map-avatar": [
+      "component",
+      "avatar"
+    ],
+    "ice": [
+      "component",
+      "avatar"
+    ],
+    "fire": [
+      "component",
+      "avatar"
+    ],
+    "fan": [
+      "component",
+      "avatar"
+    ],
+    "storm": [
+      "component",
+      "avatar"
+    ],
+    "unassigned": [
+      "component",
+      "avatar"
+    ],
+    "flow-person": [
+      "component",
+      "identity"
+    ],
+    "flow-fighter": [
+      "component",
+      "identity"
+    ],
+    "flow-profile-identity": [
+      "component",
+      "identity"
+    ],
+    "profile-current-identity": [
+      "component",
+      "identity"
+    ],
+    "result-winner": [
+      "component",
+      "identity"
+    ],
+    "bracket-map-player": [
+      "component",
+      "identity"
+    ],
+    "profile-achievement": [
+      "component",
+      "metric"
+    ],
+    "profile-achievement-secondary": [
+      "component",
+      "metric"
+    ],
+    "profile-bento-achievement": [
+      "component",
+      "metric"
+    ],
+    "profile-bento-metric": [
+      "component",
+      "metric"
+    ],
+    "profile-bento-metric-0": [
+      "component",
+      "metric"
+    ],
+    "profile-bento-metric-1": [
+      "component",
+      "metric"
+    ],
+    "profile-menu-item": [
+      "component",
+      "navigation"
+    ],
+    "profile-menu-chevron": [
+      "component",
+      "navigation"
+    ],
+    "profile-bento-link": [
+      "component",
+      "navigation"
+    ],
+    "profile-bento-link-0": [
+      "component",
+      "navigation"
+    ],
+    "profile-bento-link-1": [
+      "component",
+      "navigation"
+    ],
+    "profile-bento-link-2": [
+      "component",
+      "navigation"
+    ],
+    "flow-header": [
+      "component",
+      "header"
+    ],
+    "flow-header-fixed": [
+      "component",
+      "header"
+    ],
+    "top-controls": [
+      "component",
+      "header"
+    ],
+    "profile-current-title": [
+      "component",
+      "header"
+    ],
+    "flow-player-row": [
+      "component",
+      "row"
+    ],
+    "flow-roster-gesture": [
+      "component",
+      "row"
+    ],
+    "flow-roster-remove": [
+      "component",
+      "row"
+    ],
+    "flow-history-row": [
+      "component",
+      "row"
+    ],
+    "flow-history-winner": [
+      "component",
+      "row"
+    ],
+    "flow-ranking": [
+      "component",
+      "row"
+    ],
+    "flow-last-result": [
+      "component",
+      "row"
+    ],
+    "profile-bento-recent": [
+      "component",
+      "row"
+    ],
+    "eyebrow": [
+      "component",
+      "status"
+    ],
+    "live-dot": [
+      "component",
+      "status"
+    ],
+    "competition-outcome": [
+      "component",
+      "status"
+    ],
+    "competition-points-badge": [
+      "component",
+      "status"
+    ],
+    "competition-award": [
+      "component",
+      "status"
+    ],
+    "is-loss": [
+      "component",
+      "status"
+    ],
+    "current": [
+      "component",
+      "status"
+    ],
+    "competition-disclosure": [
+      "component",
+      "disclosure"
+    ],
+    "competition-disclosure-body": [
+      "component",
+      "disclosure"
+    ],
+    "flow-notice": [
+      "component",
+      "notice"
+    ],
+    "competition-note": [
+      "component",
+      "notice"
+    ],
+    "error-copy": [
+      "component",
+      "notice"
+    ],
+    "boot-progress": [
+      "component",
+      "progress"
+    ],
+    "boot-track": [
+      "component",
+      "progress"
+    ],
+    "boot-wave-phase": [
+      "component",
+      "progress"
+    ],
+    "boot-wave-window": [
+      "component",
+      "progress"
+    ],
+    "boot-cue": [
+      "component",
+      "progress"
+    ],
+    "boot-error-symbol": [
+      "component",
+      "progress"
+    ],
+    "utility-error-cue": [
+      "component",
+      "progress"
+    ],
+    "flow-panel": [
+      "component",
+      "surface"
+    ],
+    "desktop-tile": [
+      "component",
+      "surface"
+    ],
+    "flow-table-wrap": [
+      "component",
+      "table"
+    ],
+    "flow-standings": [
+      "component",
+      "table"
+    ],
+    "bracket-map-match": [
+      "component",
+      "bracket"
+    ],
+    "bracket-map-match-label": [
+      "component",
+      "bracket"
+    ],
+    "bracket-map-label": [
+      "component",
+      "bracket"
+    ],
+    "bracket-map-unknown": [
+      "component",
+      "bracket"
+    ],
+    "is-current": [
+      "component",
+      "bracket"
+    ],
+    "flow-alert": [
+      "component",
+      "dialog"
+    ],
+    "flow-alert-actions": [
+      "component",
+      "dialog"
+    ],
+    "flow-sheet": [
+      "component",
+      "dialog"
+    ],
+    "flow-scrim": [
+      "component",
+      "dialog"
+    ],
+    "flow-underlay": [
+      "component",
+      "dialog"
+    ],
+    "flow-dialog-person": [
+      "component",
+      "dialog"
+    ],
+    "flow-qr-preview": [
+      "component",
+      "qr"
+    ],
+    "flow-qr-code": [
+      "component",
+      "qr"
+    ],
+    "flow-qr-session": [
+      "component",
+      "qr"
+    ],
+    "qr-light": [
+      "component",
+      "qr"
+    ],
+    "qr-module": [
+      "component",
+      "qr"
+    ],
+    "spectator-link": [
+      "component",
+      "share"
+    ],
+    "flow-address": [
+      "component",
+      "share"
+    ],
+    "icon": [
+      "foundation",
+      "icons"
+    ],
+    "flow-caption": [
+      "foundation",
+      "typography"
+    ],
+    "flow-field-label": [
+      "foundation",
+      "typography"
+    ],
+    "flow-kicker": [
+      "foundation",
+      "typography"
+    ],
+    "flow-section-label": [
+      "foundation",
+      "typography"
+    ],
+    "competition-context": [
+      "foundation",
+      "typography"
+    ],
+    "competition-meta": [
+      "foundation",
+      "typography"
+    ],
+    "competition-intro": [
+      "foundation",
+      "typography"
+    ],
+    "helper": [
+      "foundation",
+      "typography"
+    ],
+    "subtle": [
+      "foundation",
+      "typography"
+    ],
+    "flow-gold": [
+      "foundation",
+      "typography"
+    ],
+    "brand-small": [
+      "foundation",
+      "typography"
+    ],
+    "bootstrap-logo": [
+      "foundation",
+      "typography"
+    ],
+    "wordmark-line": [
+      "foundation",
+      "typography"
+    ],
+    "flow-app-mark": [
+      "foundation",
+      "typography"
+    ],
+    "type-title": [
+      "foundation",
+      "typography"
+    ],
+    "type-accent": [
+      "foundation",
+      "typography"
+    ],
+    "status": [
+      "excluded",
+      "Обвязка стенда/устройства; не компонент приложения"
+    ],
+    "status-right": [
+      "excluded",
+      "Обвязка стенда/устройства; не компонент приложения"
+    ],
+    "battery": [
+      "excluded",
+      "Обвязка стенда/устройства; не компонент приложения"
+    ],
+    "home-indicator": [
+      "excluded",
+      "Обвязка стенда/устройства; не компонент приложения"
+    ],
+    "desktop-chrome": [
+      "excluded",
+      "Обвязка стенда/устройства; не компонент приложения"
+    ],
+    "desktop-context": [
+      "excluded",
+      "Обвязка стенда/устройства; не компонент приложения"
+    ],
+    "phone": [
+      "excluded",
+      "Обвязка стенда/устройства; не компонент приложения"
+    ],
+    "profile-form": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "simple-form": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "action-dock": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "screen-content": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "flow-screen": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "flow-stack": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "flow-empty": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "flow-empty-inline": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "flow-pair": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "flow-roster": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "flow-roster-guests": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "flow-lobby-actions": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "flow-setting-row": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "flow-about-hero": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "competition-current": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "competition-next": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "competition-next-players": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "competition-champion": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "competition": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "competition-live": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "competition-finish": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "competition-result": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "competition-results": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "competition-results-points": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "bootstrap": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "boot-state": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "boot-state--error": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "home-empty": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "home-active": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "home-type": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "active-tournament": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "tournament-meta": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "tournament-stage": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "home-stage-visual": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "type-composition": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "profile-current": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "profile-current-view": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "profile-stats-achievement": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "profile-menu": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "profile-bento-identity": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "profile-bento-links": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "profile-bento-grid": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "profile-bento-grid-new": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "profile-bento-empty": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "desktop-screen": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "desktop-grid": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "desktop-grid-single": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "desktop-grid-split": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "desktop-page-header": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "desktop-primary": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "desktop-secondary": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "desktop-simple": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "desktop-command": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "simple-intro": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "bracket-map": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "bracket-map-canvas": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "bracket-map-controls": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "bracket-map-detail": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "bracket-map-lines": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "bracket-map-screen": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "bracket-map-space": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "bracket-map-toolbar": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "bracket-map-viewport": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "is-se": [
+      "layout",
+      "Композиция/контекст: общий набор primitives, слоты и правила размещения"
+    ],
+    "home-bento-grid": [
+      "layout",
+      "Desktop recipe: перестройка общих компонентов в Bento slots"
+    ],
+    "home-bento-hero": [
+      "layout",
+      "Desktop recipe: перестройка общих компонентов в Bento slots"
+    ],
+    "home-bento-meta": [
+      "layout",
+      "Desktop recipe: перестройка общих компонентов в Bento slots"
+    ],
+    "home-bento-stage": [
+      "layout",
+      "Desktop recipe: перестройка общих компонентов в Bento slots"
+    ],
+    "home-bento-command": [
+      "layout",
+      "Desktop recipe: перестройка общих компонентов в Bento slots"
+    ],
+    "bento-settings": [
+      "layout",
+      "Desktop recipe: перестройка общих компонентов в Bento slots"
+    ],
+    "bento-settings-hero": [
+      "layout",
+      "Desktop recipe: перестройка общих компонентов в Bento slots"
+    ],
+    "bento-setting": [
+      "layout",
+      "Desktop recipe: перестройка общих компонентов в Bento slots"
+    ],
+    "bento-settings-note": [
+      "layout",
+      "Desktop recipe: перестройка общих компонентов в Bento slots"
+    ],
+    "bento-about": [
+      "layout",
+      "Desktop recipe: перестройка общих компонентов в Bento slots"
+    ],
+    "bento-about-hero": [
+      "layout",
+      "Desktop recipe: перестройка общих компонентов в Bento slots"
+    ],
+    "bento-about-detail": [
+      "layout",
+      "Desktop recipe: перестройка общих компонентов в Bento slots"
+    ],
+    "bento-setup": [
+      "layout",
+      "Desktop recipe: перестройка общих компонентов в Bento slots"
+    ],
+    "bento-setup-name": [
+      "layout",
+      "Desktop recipe: перестройка общих компонентов в Bento slots"
+    ],
+    "bento-setup-format": [
+      "layout",
+      "Desktop recipe: перестройка общих компонентов в Bento slots"
+    ],
+    "bento-setup-ft": [
+      "layout",
+      "Desktop recipe: перестройка общих компонентов в Bento slots"
+    ],
+    "bento-roster": [
+      "layout",
+      "Desktop recipe: перестройка общих компонентов в Bento slots"
+    ],
+    "bento-roster-context": [
+      "layout",
+      "Desktop recipe: перестройка общих компонентов в Bento slots"
+    ],
+    "bento-access": [
+      "layout",
+      "Desktop recipe: перестройка общих компонентов в Bento slots"
+    ],
+    "bento-access-intro": [
+      "layout",
+      "Desktop recipe: перестройка общих компонентов в Bento slots"
+    ],
+    "bento-access-code": [
+      "layout",
+      "Desktop recipe: перестройка общих компонентов в Bento slots"
+    ],
+    "bento-distribution": [
+      "layout",
+      "Desktop recipe: перестройка общих компонентов в Bento slots"
+    ],
+    "bento-assigned": [
+      "layout",
+      "Desktop recipe: перестройка общих компонентов в Bento slots"
+    ],
+    "bento-access-address": [
+      "layout",
+      "Desktop recipe: перестройка общих компонентов в Bento slots"
+    ],
+    "bento-champion": [
+      "layout",
+      "Desktop recipe: перестройка общих компонентов в Bento slots"
+    ],
+    "bento-champion-hero": [
+      "layout",
+      "Desktop recipe: перестройка общих компонентов в Bento slots"
+    ],
+    "bento-champion-context": [
+      "layout",
+      "Desktop recipe: перестройка общих компонентов в Bento slots"
+    ],
+    "bento-results": [
+      "layout",
+      "Desktop recipe: перестройка общих компонентов в Bento slots"
+    ],
+    "bento-results-context": [
+      "layout",
+      "Desktop recipe: перестройка общих компонентов в Bento slots"
+    ]
+  },
+  "screens": [
+    {
+      "platform": "Mobile",
+      "figure": "utility-loading",
+      "components": [
+        "button",
+        "header",
+        "progress"
+      ],
+      "layouts": [
+        "action-dock",
+        "flow-empty",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 17
+    },
+    {
+      "platform": "Mobile",
+      "figure": "utility-error",
+      "components": [
+        "button",
+        "header",
+        "progress"
+      ],
+      "layouts": [
+        "action-dock",
+        "flow-empty",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 15
+    },
+    {
+      "platform": "Mobile",
+      "figure": "boot-loading",
+      "components": [
+        "progress"
+      ],
+      "layouts": [
+        "action-dock",
+        "boot-state",
+        "bootstrap",
+        "screen-content"
+      ],
+      "classifiedClasses": 16
+    },
+    {
+      "platform": "Mobile",
+      "figure": "boot-error",
+      "components": [
+        "button",
+        "progress"
+      ],
+      "layouts": [
+        "action-dock",
+        "boot-state",
+        "boot-state--error",
+        "bootstrap",
+        "screen-content"
+      ],
+      "classifiedClasses": 16
+    },
+    {
+      "platform": "Mobile",
+      "figure": "boot-retry",
+      "components": [
+        "button",
+        "progress"
+      ],
+      "layouts": [
+        "action-dock",
+        "boot-state",
+        "bootstrap",
+        "screen-content"
+      ],
+      "classifiedClasses": 17
+    },
+    {
+      "platform": "Mobile",
+      "figure": "home-empty",
+      "components": [
+        "button",
+        "header"
+      ],
+      "layouts": [
+        "action-dock",
+        "home-empty",
+        "home-type",
+        "screen-content",
+        "type-composition"
+      ],
+      "classifiedClasses": 18
+    },
+    {
+      "platform": "Mobile",
+      "figure": "home-active",
+      "components": [
+        "button",
+        "header",
+        "status"
+      ],
+      "layouts": [
+        "action-dock",
+        "active-tournament",
+        "home-active",
+        "home-stage-visual",
+        "screen-content",
+        "tournament-meta",
+        "tournament-stage"
+      ],
+      "classifiedClasses": 23
+    },
+    {
+      "platform": "Mobile",
+      "figure": "profile-refined-view",
+      "components": [
+        "avatar",
+        "button",
+        "header",
+        "identity",
+        "metric",
+        "navigation",
+        "row",
+        "score"
+      ],
+      "layouts": [
+        "action-dock",
+        "profile-current",
+        "profile-current-view",
+        "profile-menu",
+        "profile-stats-achievement",
+        "screen-content"
+      ],
+      "classifiedClasses": 28
+    },
+    {
+      "platform": "Mobile",
+      "figure": "profile-new",
+      "components": [
+        "avatar",
+        "button",
+        "header",
+        "identity",
+        "navigation"
+      ],
+      "layouts": [
+        "action-dock",
+        "flow-empty-inline",
+        "flow-screen",
+        "profile-menu",
+        "screen-content"
+      ],
+      "classifiedClasses": 19
+    },
+    {
+      "platform": "Mobile",
+      "figure": "profile-refined-edit",
+      "components": [
+        "button",
+        "field",
+        "header"
+      ],
+      "layouts": [
+        "action-dock",
+        "profile-current",
+        "profile-form",
+        "screen-content"
+      ],
+      "classifiedClasses": 15
+    },
+    {
+      "platform": "Mobile",
+      "figure": "profile-refined-error",
+      "components": [
+        "button",
+        "field",
+        "header",
+        "notice"
+      ],
+      "layouts": [
+        "action-dock",
+        "profile-current",
+        "profile-form",
+        "screen-content"
+      ],
+      "classifiedClasses": 16
+    },
+    {
+      "platform": "Mobile",
+      "figure": "settings-view",
+      "components": [
+        "button",
+        "header",
+        "notice",
+        "surface"
+      ],
+      "layouts": [
+        "action-dock",
+        "flow-screen",
+        "flow-setting-row",
+        "screen-content"
+      ],
+      "classifiedClasses": 15
+    },
+    {
+      "platform": "Mobile",
+      "figure": "about-view",
+      "components": [
+        "button",
+        "header",
+        "surface"
+      ],
+      "layouts": [
+        "action-dock",
+        "flow-about-hero",
+        "flow-screen",
+        "flow-stack",
+        "screen-content"
+      ],
+      "classifiedClasses": 18
+    },
+    {
+      "platform": "Mobile",
+      "figure": "contact-view",
+      "components": [
+        "button",
+        "field",
+        "header",
+        "notice"
+      ],
+      "layouts": [
+        "action-dock",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 14
+    },
+    {
+      "platform": "Mobile",
+      "figure": "history-list",
+      "components": [
+        "avatar",
+        "button",
+        "header",
+        "identity",
+        "row"
+      ],
+      "layouts": [
+        "action-dock",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 19
+    },
+    {
+      "platform": "Mobile",
+      "figure": "history-empty",
+      "components": [
+        "button",
+        "header"
+      ],
+      "layouts": [
+        "action-dock",
+        "flow-empty",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 14
+    },
+    {
+      "platform": "Mobile",
+      "figure": "setup-de",
+      "components": [
+        "button",
+        "field",
+        "header",
+        "notice",
+        "segmented",
+        "stepper",
+        "surface"
+      ],
+      "layouts": [
+        "action-dock",
+        "flow-screen",
+        "flow-stack",
+        "screen-content"
+      ],
+      "classifiedClasses": 22
+    },
+    {
+      "platform": "Mobile",
+      "figure": "setup-se",
+      "components": [
+        "button",
+        "field",
+        "header",
+        "segmented",
+        "stepper",
+        "surface"
+      ],
+      "layouts": [
+        "action-dock",
+        "flow-screen",
+        "flow-stack",
+        "screen-content"
+      ],
+      "classifiedClasses": 21
+    },
+    {
+      "platform": "Mobile",
+      "figure": "setup-rr",
+      "components": [
+        "button",
+        "field",
+        "header",
+        "notice",
+        "segmented"
+      ],
+      "layouts": [
+        "action-dock",
+        "flow-screen",
+        "flow-stack",
+        "screen-content"
+      ],
+      "classifiedClasses": 19
+    },
+    {
+      "platform": "Mobile",
+      "figure": "lobby-roster",
+      "components": [
+        "avatar",
+        "button",
+        "header",
+        "identity",
+        "row",
+        "surface"
+      ],
+      "layouts": [
+        "action-dock",
+        "flow-lobby-actions",
+        "flow-roster",
+        "flow-roster-guests",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 24
+    },
+    {
+      "platform": "Mobile",
+      "figure": "participant-access",
+      "components": [
+        "button",
+        "header",
+        "qr"
+      ],
+      "layouts": [
+        "action-dock",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 17
+    },
+    {
+      "platform": "Mobile",
+      "figure": "guest-remove",
+      "components": [
+        "button",
+        "dialog"
+      ],
+      "layouts": [
+        "flow-screen"
+      ],
+      "classifiedClasses": 11
+    },
+    {
+      "platform": "Mobile",
+      "figure": "guest-add",
+      "components": [
+        "button",
+        "field",
+        "header"
+      ],
+      "layouts": [
+        "action-dock",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 14
+    },
+    {
+      "platform": "Mobile",
+      "figure": "distribution-working",
+      "components": [
+        "button",
+        "header",
+        "progress"
+      ],
+      "layouts": [
+        "action-dock",
+        "flow-empty",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 17
+    },
+    {
+      "platform": "Mobile",
+      "figure": "distribution-ready",
+      "components": [
+        "avatar",
+        "button",
+        "header",
+        "identity",
+        "row",
+        "surface"
+      ],
+      "layouts": [
+        "action-dock",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 21
+    },
+    {
+      "platform": "Mobile",
+      "figure": "distribution-share",
+      "components": [
+        "button",
+        "header",
+        "qr"
+      ],
+      "layouts": [
+        "action-dock",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 17
+    },
+    {
+      "platform": "Mobile",
+      "figure": "tournament-share",
+      "components": [
+        "button",
+        "header",
+        "qr",
+        "share"
+      ],
+      "layouts": [
+        "action-dock",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 19
+    },
+    {
+      "platform": "Mobile",
+      "figure": "tournament-live",
+      "components": [
+        "avatar",
+        "button",
+        "disclosure",
+        "header",
+        "identity",
+        "score"
+      ],
+      "layouts": [
+        "action-dock",
+        "competition",
+        "competition-current",
+        "competition-live",
+        "competition-next",
+        "competition-next-players",
+        "flow-pair",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 31
+    },
+    {
+      "platform": "Mobile",
+      "figure": "tournament-se",
+      "components": [
+        "avatar",
+        "button",
+        "disclosure",
+        "header",
+        "identity",
+        "score"
+      ],
+      "layouts": [
+        "action-dock",
+        "competition",
+        "competition-current",
+        "competition-live",
+        "competition-next",
+        "competition-next-players",
+        "flow-pair",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 31
+    },
+    {
+      "platform": "Mobile",
+      "figure": "tournament-rr",
+      "components": [
+        "avatar",
+        "button",
+        "disclosure",
+        "header",
+        "identity",
+        "score",
+        "status",
+        "table"
+      ],
+      "layouts": [
+        "action-dock",
+        "competition",
+        "competition-current",
+        "competition-live",
+        "competition-next",
+        "competition-next-players",
+        "flow-pair",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 33
+    },
+    {
+      "platform": "Mobile",
+      "figure": "rr-tie",
+      "components": [
+        "avatar",
+        "button",
+        "disclosure",
+        "header",
+        "identity",
+        "table"
+      ],
+      "layouts": [
+        "action-dock",
+        "competition",
+        "competition-live",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 26
+    },
+    {
+      "platform": "Mobile",
+      "figure": "rr-tiebreak-live",
+      "components": [
+        "avatar",
+        "button",
+        "disclosure",
+        "header",
+        "identity",
+        "score"
+      ],
+      "layouts": [
+        "action-dock",
+        "competition",
+        "competition-current",
+        "competition-live",
+        "competition-next",
+        "competition-next-players",
+        "flow-pair",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 29
+    },
+    {
+      "platform": "Mobile",
+      "figure": "withdraw-player",
+      "components": [
+        "avatar",
+        "button",
+        "dialog",
+        "header",
+        "identity",
+        "score"
+      ],
+      "layouts": [
+        "action-dock",
+        "flow-pair",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 26
+    },
+    {
+      "platform": "Mobile",
+      "figure": "result-locked",
+      "components": [
+        "button",
+        "header",
+        "surface"
+      ],
+      "layouts": [
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 12
+    },
+    {
+      "platform": "Mobile",
+      "figure": "bracket-de",
+      "components": [
+        "avatar",
+        "bracket",
+        "button",
+        "header",
+        "identity"
+      ],
+      "layouts": [
+        "action-dock",
+        "bracket-map",
+        "bracket-map-canvas",
+        "bracket-map-controls",
+        "bracket-map-detail",
+        "bracket-map-lines",
+        "bracket-map-screen",
+        "bracket-map-space",
+        "bracket-map-toolbar",
+        "bracket-map-viewport",
+        "competition",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 28
+    },
+    {
+      "platform": "Mobile",
+      "figure": "bracket-se",
+      "components": [
+        "avatar",
+        "bracket",
+        "button",
+        "header",
+        "identity"
+      ],
+      "layouts": [
+        "action-dock",
+        "bracket-map",
+        "bracket-map-canvas",
+        "bracket-map-controls",
+        "bracket-map-detail",
+        "bracket-map-lines",
+        "bracket-map-screen",
+        "bracket-map-space",
+        "bracket-map-toolbar",
+        "bracket-map-viewport",
+        "competition",
+        "flow-screen",
+        "is-se",
+        "screen-content"
+      ],
+      "classifiedClasses": 29
+    },
+    {
+      "platform": "Mobile",
+      "figure": "match-result-de",
+      "components": [
+        "avatar",
+        "button",
+        "dialog",
+        "disclosure",
+        "header",
+        "identity",
+        "score-choice"
+      ],
+      "layouts": [
+        "action-dock",
+        "competition",
+        "competition-result",
+        "flow-pair",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 30
+    },
+    {
+      "platform": "Mobile",
+      "figure": "match-result",
+      "components": [
+        "avatar",
+        "button",
+        "dialog",
+        "disclosure",
+        "header",
+        "identity",
+        "score",
+        "stepper"
+      ],
+      "layouts": [
+        "action-dock",
+        "competition",
+        "competition-result",
+        "flow-pair",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 31
+    },
+    {
+      "platform": "Mobile",
+      "figure": "match-result-ft3",
+      "components": [
+        "avatar",
+        "button",
+        "dialog",
+        "disclosure",
+        "header",
+        "identity",
+        "score",
+        "stepper"
+      ],
+      "layouts": [
+        "action-dock",
+        "competition",
+        "competition-result",
+        "flow-pair",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 31
+    },
+    {
+      "platform": "Mobile",
+      "figure": "match-result-ft10",
+      "components": [
+        "avatar",
+        "button",
+        "dialog",
+        "disclosure",
+        "header",
+        "identity",
+        "score",
+        "stepper"
+      ],
+      "layouts": [
+        "action-dock",
+        "competition",
+        "competition-result",
+        "flow-pair",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 31
+    },
+    {
+      "platform": "Mobile",
+      "figure": "match-correct",
+      "components": [
+        "avatar",
+        "button",
+        "dialog",
+        "disclosure",
+        "header",
+        "identity",
+        "score",
+        "stepper"
+      ],
+      "layouts": [
+        "action-dock",
+        "competition",
+        "competition-result",
+        "flow-pair",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 31
+    },
+    {
+      "platform": "Mobile",
+      "figure": "match-save-error",
+      "components": [
+        "avatar",
+        "button",
+        "dialog",
+        "disclosure",
+        "header",
+        "identity",
+        "notice",
+        "score",
+        "stepper"
+      ],
+      "layouts": [
+        "action-dock",
+        "competition",
+        "competition-result",
+        "flow-pair",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 32
+    },
+    {
+      "platform": "Mobile",
+      "figure": "match-technical",
+      "components": [
+        "avatar",
+        "button",
+        "dialog",
+        "header",
+        "identity",
+        "notice",
+        "status"
+      ],
+      "layouts": [
+        "action-dock",
+        "competition",
+        "competition-result",
+        "flow-pair",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 28
+    },
+    {
+      "platform": "Mobile",
+      "figure": "match-technical-de",
+      "components": [
+        "avatar",
+        "button",
+        "dialog",
+        "header",
+        "identity",
+        "notice",
+        "status"
+      ],
+      "layouts": [
+        "action-dock",
+        "competition",
+        "competition-result",
+        "flow-pair",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 28
+    },
+    {
+      "platform": "Mobile",
+      "figure": "forfeit-confirm",
+      "components": [
+        "avatar",
+        "button",
+        "dialog",
+        "header",
+        "identity",
+        "score"
+      ],
+      "layouts": [
+        "action-dock",
+        "flow-pair",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 26
+    },
+    {
+      "platform": "Mobile",
+      "figure": "tournament-champion",
+      "components": [
+        "avatar",
+        "button",
+        "header",
+        "identity",
+        "status"
+      ],
+      "layouts": [
+        "action-dock",
+        "competition",
+        "competition-champion",
+        "competition-finish",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 21
+    },
+    {
+      "platform": "Mobile",
+      "figure": "tournament-results",
+      "components": [
+        "avatar",
+        "button",
+        "header",
+        "identity",
+        "row",
+        "score"
+      ],
+      "layouts": [
+        "action-dock",
+        "competition",
+        "competition-finish",
+        "competition-results",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 26
+    },
+    {
+      "platform": "Mobile",
+      "figure": "tournament-results-se",
+      "components": [
+        "avatar",
+        "button",
+        "disclosure",
+        "header",
+        "identity",
+        "row",
+        "score"
+      ],
+      "layouts": [
+        "action-dock",
+        "competition",
+        "competition-finish",
+        "competition-results",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 27
+    },
+    {
+      "platform": "Mobile",
+      "figure": "tournament-results-rr",
+      "components": [
+        "avatar",
+        "button",
+        "header",
+        "identity",
+        "row",
+        "score"
+      ],
+      "layouts": [
+        "action-dock",
+        "competition",
+        "competition-finish",
+        "competition-results",
+        "competition-results-points",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 25
+    },
+    {
+      "platform": "Desktop",
+      "figure": "utility-loading",
+      "components": [
+        "button",
+        "header",
+        "progress",
+        "surface"
+      ],
+      "layouts": [
+        "desktop-grid",
+        "desktop-grid-single",
+        "desktop-page-header",
+        "desktop-primary",
+        "desktop-screen",
+        "flow-empty",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 25
+    },
+    {
+      "platform": "Desktop",
+      "figure": "utility-error",
+      "components": [
+        "button",
+        "header",
+        "progress",
+        "surface"
+      ],
+      "layouts": [
+        "desktop-command",
+        "desktop-grid",
+        "desktop-grid-split",
+        "desktop-page-header",
+        "desktop-primary",
+        "desktop-screen",
+        "desktop-secondary",
+        "flow-empty",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 25
+    },
+    {
+      "platform": "Desktop",
+      "figure": "boot-loading",
+      "components": [
+        "progress",
+        "surface"
+      ],
+      "layouts": [
+        "boot-state",
+        "bootstrap",
+        "desktop-grid",
+        "desktop-grid-split",
+        "desktop-page-header",
+        "desktop-primary",
+        "desktop-screen",
+        "desktop-secondary",
+        "screen-content"
+      ],
+      "classifiedClasses": 25
+    },
+    {
+      "platform": "Desktop",
+      "figure": "boot-error",
+      "components": [
+        "button",
+        "progress",
+        "surface"
+      ],
+      "layouts": [
+        "boot-state",
+        "boot-state--error",
+        "bootstrap",
+        "desktop-command",
+        "desktop-grid",
+        "desktop-grid-split",
+        "desktop-page-header",
+        "desktop-primary",
+        "desktop-screen",
+        "desktop-secondary",
+        "screen-content"
+      ],
+      "classifiedClasses": 26
+    },
+    {
+      "platform": "Desktop",
+      "figure": "boot-retry",
+      "components": [
+        "button",
+        "progress",
+        "surface"
+      ],
+      "layouts": [
+        "boot-state",
+        "bootstrap",
+        "desktop-command",
+        "desktop-grid",
+        "desktop-grid-split",
+        "desktop-page-header",
+        "desktop-primary",
+        "desktop-screen",
+        "desktop-secondary",
+        "screen-content"
+      ],
+      "classifiedClasses": 27
+    },
+    {
+      "platform": "Desktop",
+      "figure": "home-empty",
+      "components": [
+        "button",
+        "header",
+        "surface"
+      ],
+      "layouts": [
+        "desktop-grid",
+        "desktop-grid-split",
+        "desktop-page-header",
+        "desktop-primary",
+        "desktop-screen",
+        "desktop-secondary",
+        "home-empty",
+        "home-type",
+        "screen-content",
+        "type-composition"
+      ],
+      "classifiedClasses": 27
+    },
+    {
+      "platform": "Desktop",
+      "figure": "home-active",
+      "components": [
+        "button",
+        "header",
+        "status"
+      ],
+      "layouts": [
+        "desktop-page-header",
+        "desktop-screen",
+        "home-active",
+        "home-bento-command",
+        "home-bento-grid",
+        "home-bento-hero",
+        "home-bento-meta",
+        "home-bento-stage",
+        "home-stage-visual",
+        "screen-content",
+        "tournament-meta",
+        "tournament-stage"
+      ],
+      "classifiedClasses": 31
+    },
+    {
+      "platform": "Desktop",
+      "figure": "profile-refined-view",
+      "components": [
+        "avatar",
+        "button",
+        "header",
+        "identity",
+        "metric",
+        "navigation",
+        "row",
+        "score"
+      ],
+      "layouts": [
+        "desktop-page-header",
+        "desktop-screen",
+        "profile-bento-grid",
+        "profile-bento-identity",
+        "profile-bento-links",
+        "profile-current",
+        "profile-current-view",
+        "screen-content"
+      ],
+      "classifiedClasses": 41
+    },
+    {
+      "platform": "Desktop",
+      "figure": "profile-new",
+      "components": [
+        "avatar",
+        "button",
+        "header",
+        "identity",
+        "navigation"
+      ],
+      "layouts": [
+        "desktop-page-header",
+        "desktop-screen",
+        "flow-empty-inline",
+        "flow-screen",
+        "profile-bento-empty",
+        "profile-bento-grid",
+        "profile-bento-grid-new",
+        "profile-bento-identity",
+        "profile-bento-links",
+        "screen-content"
+      ],
+      "classifiedClasses": 31
+    },
+    {
+      "platform": "Desktop",
+      "figure": "profile-refined-edit",
+      "components": [
+        "button",
+        "field",
+        "header",
+        "surface"
+      ],
+      "layouts": [
+        "desktop-grid",
+        "desktop-grid-single",
+        "desktop-page-header",
+        "desktop-primary",
+        "desktop-screen",
+        "profile-current",
+        "profile-form",
+        "screen-content"
+      ],
+      "classifiedClasses": 23
+    },
+    {
+      "platform": "Desktop",
+      "figure": "profile-refined-error",
+      "components": [
+        "button",
+        "field",
+        "header",
+        "notice",
+        "surface"
+      ],
+      "layouts": [
+        "desktop-grid",
+        "desktop-grid-single",
+        "desktop-page-header",
+        "desktop-primary",
+        "desktop-screen",
+        "profile-current",
+        "profile-form",
+        "screen-content"
+      ],
+      "classifiedClasses": 24
+    },
+    {
+      "platform": "Desktop",
+      "figure": "settings-view",
+      "components": [
+        "button",
+        "header",
+        "notice",
+        "select",
+        "surface"
+      ],
+      "layouts": [
+        "bento-setting",
+        "bento-settings",
+        "bento-settings-hero",
+        "bento-settings-note",
+        "desktop-page-header",
+        "desktop-screen",
+        "flow-screen",
+        "flow-setting-row",
+        "screen-content"
+      ],
+      "classifiedClasses": 24
+    },
+    {
+      "platform": "Desktop",
+      "figure": "about-view",
+      "components": [
+        "button",
+        "header",
+        "surface"
+      ],
+      "layouts": [
+        "bento-about",
+        "bento-about-detail",
+        "bento-about-hero",
+        "desktop-page-header",
+        "desktop-screen",
+        "flow-about-hero",
+        "flow-screen",
+        "flow-stack",
+        "screen-content"
+      ],
+      "classifiedClasses": 25
+    },
+    {
+      "platform": "Desktop",
+      "figure": "contact-view",
+      "components": [
+        "button",
+        "field",
+        "header",
+        "notice"
+      ],
+      "layouts": [
+        "desktop-command",
+        "desktop-page-header",
+        "desktop-screen",
+        "desktop-simple",
+        "flow-screen",
+        "screen-content",
+        "simple-form",
+        "simple-intro"
+      ],
+      "classifiedClasses": 22
+    },
+    {
+      "platform": "Desktop",
+      "figure": "history-list",
+      "components": [
+        "avatar",
+        "button",
+        "header",
+        "identity",
+        "row",
+        "surface"
+      ],
+      "layouts": [
+        "desktop-grid",
+        "desktop-grid-split",
+        "desktop-page-header",
+        "desktop-primary",
+        "desktop-screen",
+        "desktop-secondary",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 28
+    },
+    {
+      "platform": "Desktop",
+      "figure": "history-empty",
+      "components": [
+        "button",
+        "header",
+        "surface"
+      ],
+      "layouts": [
+        "desktop-command",
+        "desktop-grid",
+        "desktop-grid-split",
+        "desktop-page-header",
+        "desktop-primary",
+        "desktop-screen",
+        "desktop-secondary",
+        "flow-empty",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 24
+    },
+    {
+      "platform": "Desktop",
+      "figure": "setup-de",
+      "components": [
+        "button",
+        "field",
+        "header",
+        "notice",
+        "segmented",
+        "stepper",
+        "surface"
+      ],
+      "layouts": [
+        "bento-setup",
+        "bento-setup-format",
+        "bento-setup-ft",
+        "bento-setup-name",
+        "desktop-command",
+        "desktop-page-header",
+        "desktop-screen",
+        "flow-screen",
+        "flow-stack",
+        "screen-content"
+      ],
+      "classifiedClasses": 31
+    },
+    {
+      "platform": "Desktop",
+      "figure": "setup-se",
+      "components": [
+        "button",
+        "field",
+        "header",
+        "segmented",
+        "stepper",
+        "surface"
+      ],
+      "layouts": [
+        "bento-setup",
+        "bento-setup-format",
+        "bento-setup-ft",
+        "bento-setup-name",
+        "desktop-command",
+        "desktop-page-header",
+        "desktop-screen",
+        "flow-screen",
+        "flow-stack",
+        "screen-content"
+      ],
+      "classifiedClasses": 30
+    },
+    {
+      "platform": "Desktop",
+      "figure": "setup-rr",
+      "components": [
+        "button",
+        "field",
+        "header",
+        "notice",
+        "segmented",
+        "surface"
+      ],
+      "layouts": [
+        "bento-setup",
+        "bento-setup-format",
+        "bento-setup-name",
+        "desktop-command",
+        "desktop-page-header",
+        "desktop-screen",
+        "flow-screen",
+        "flow-stack",
+        "screen-content"
+      ],
+      "classifiedClasses": 28
+    },
+    {
+      "platform": "Desktop",
+      "figure": "lobby-roster",
+      "components": [
+        "avatar",
+        "button",
+        "header",
+        "identity",
+        "row",
+        "surface"
+      ],
+      "layouts": [
+        "bento-roster",
+        "bento-roster-context",
+        "desktop-command",
+        "desktop-page-header",
+        "desktop-screen",
+        "flow-roster",
+        "flow-roster-guests",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 30
+    },
+    {
+      "platform": "Desktop",
+      "figure": "participant-access",
+      "components": [
+        "button",
+        "header",
+        "qr",
+        "surface"
+      ],
+      "layouts": [
+        "bento-access",
+        "bento-access-code",
+        "bento-access-intro",
+        "desktop-page-header",
+        "desktop-screen",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 25
+    },
+    {
+      "platform": "Desktop",
+      "figure": "guest-remove",
+      "components": [
+        "button",
+        "dialog"
+      ],
+      "layouts": [
+        "desktop-screen",
+        "flow-screen"
+      ],
+      "classifiedClasses": 15
+    },
+    {
+      "platform": "Desktop",
+      "figure": "guest-add",
+      "components": [
+        "button",
+        "field",
+        "header"
+      ],
+      "layouts": [
+        "desktop-command",
+        "desktop-page-header",
+        "desktop-screen",
+        "desktop-simple",
+        "flow-screen",
+        "screen-content",
+        "simple-form",
+        "simple-intro"
+      ],
+      "classifiedClasses": 22
+    },
+    {
+      "platform": "Desktop",
+      "figure": "distribution-working",
+      "components": [
+        "button",
+        "header",
+        "progress",
+        "surface"
+      ],
+      "layouts": [
+        "desktop-grid",
+        "desktop-grid-single",
+        "desktop-page-header",
+        "desktop-primary",
+        "desktop-screen",
+        "flow-empty",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 25
+    },
+    {
+      "platform": "Desktop",
+      "figure": "distribution-ready",
+      "components": [
+        "avatar",
+        "button",
+        "header",
+        "identity",
+        "row",
+        "surface"
+      ],
+      "layouts": [
+        "bento-assigned",
+        "bento-distribution",
+        "bento-roster-context",
+        "desktop-command",
+        "desktop-page-header",
+        "desktop-screen",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 29
+    },
+    {
+      "platform": "Desktop",
+      "figure": "distribution-share",
+      "components": [
+        "button",
+        "header",
+        "qr",
+        "surface"
+      ],
+      "layouts": [
+        "bento-access",
+        "bento-access-code",
+        "bento-access-intro",
+        "desktop-page-header",
+        "desktop-screen",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 25
+    },
+    {
+      "platform": "Desktop",
+      "figure": "tournament-share",
+      "components": [
+        "button",
+        "header",
+        "qr",
+        "share",
+        "surface"
+      ],
+      "layouts": [
+        "bento-access",
+        "bento-access-address",
+        "bento-access-code",
+        "bento-access-intro",
+        "desktop-page-header",
+        "desktop-screen",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 28
+    },
+    {
+      "platform": "Desktop",
+      "figure": "tournament-live",
+      "components": [
+        "avatar",
+        "button",
+        "disclosure",
+        "header",
+        "identity",
+        "score",
+        "surface"
+      ],
+      "layouts": [
+        "competition",
+        "competition-current",
+        "competition-live",
+        "competition-next",
+        "competition-next-players",
+        "desktop-command",
+        "desktop-grid",
+        "desktop-grid-split",
+        "desktop-page-header",
+        "desktop-primary",
+        "desktop-screen",
+        "desktop-secondary",
+        "flow-pair",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 41
+    },
+    {
+      "platform": "Desktop",
+      "figure": "tournament-se",
+      "components": [
+        "avatar",
+        "button",
+        "disclosure",
+        "header",
+        "identity",
+        "score",
+        "surface"
+      ],
+      "layouts": [
+        "competition",
+        "competition-current",
+        "competition-live",
+        "competition-next",
+        "competition-next-players",
+        "desktop-command",
+        "desktop-grid",
+        "desktop-grid-split",
+        "desktop-page-header",
+        "desktop-primary",
+        "desktop-screen",
+        "desktop-secondary",
+        "flow-pair",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 41
+    },
+    {
+      "platform": "Desktop",
+      "figure": "tournament-rr",
+      "components": [
+        "avatar",
+        "button",
+        "disclosure",
+        "header",
+        "identity",
+        "score",
+        "status",
+        "surface",
+        "table"
+      ],
+      "layouts": [
+        "competition",
+        "competition-current",
+        "competition-live",
+        "competition-next",
+        "competition-next-players",
+        "desktop-command",
+        "desktop-grid",
+        "desktop-grid-split",
+        "desktop-page-header",
+        "desktop-primary",
+        "desktop-screen",
+        "desktop-secondary",
+        "flow-pair",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 43
+    },
+    {
+      "platform": "Desktop",
+      "figure": "rr-tie",
+      "components": [
+        "avatar",
+        "button",
+        "disclosure",
+        "header",
+        "identity",
+        "surface",
+        "table"
+      ],
+      "layouts": [
+        "competition",
+        "competition-live",
+        "desktop-command",
+        "desktop-grid",
+        "desktop-grid-split",
+        "desktop-page-header",
+        "desktop-primary",
+        "desktop-screen",
+        "desktop-secondary",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 36
+    },
+    {
+      "platform": "Desktop",
+      "figure": "rr-tiebreak-live",
+      "components": [
+        "avatar",
+        "button",
+        "disclosure",
+        "header",
+        "identity",
+        "score",
+        "surface"
+      ],
+      "layouts": [
+        "competition",
+        "competition-current",
+        "competition-live",
+        "competition-next",
+        "competition-next-players",
+        "desktop-command",
+        "desktop-grid",
+        "desktop-grid-split",
+        "desktop-page-header",
+        "desktop-primary",
+        "desktop-screen",
+        "desktop-secondary",
+        "flow-pair",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 39
+    },
+    {
+      "platform": "Desktop",
+      "figure": "withdraw-player",
+      "components": [
+        "avatar",
+        "button",
+        "dialog",
+        "header",
+        "identity",
+        "score"
+      ],
+      "layouts": [
+        "action-dock",
+        "desktop-screen",
+        "flow-pair",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 30
+    },
+    {
+      "platform": "Desktop",
+      "figure": "result-locked",
+      "components": [
+        "button",
+        "header",
+        "surface"
+      ],
+      "layouts": [
+        "desktop-grid",
+        "desktop-grid-single",
+        "desktop-page-header",
+        "desktop-primary",
+        "desktop-screen",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 21
+    },
+    {
+      "platform": "Desktop",
+      "figure": "bracket-de",
+      "components": [
+        "avatar",
+        "bracket",
+        "button",
+        "header",
+        "identity"
+      ],
+      "layouts": [
+        "action-dock",
+        "bracket-map",
+        "bracket-map-canvas",
+        "bracket-map-controls",
+        "bracket-map-detail",
+        "bracket-map-lines",
+        "bracket-map-screen",
+        "bracket-map-space",
+        "bracket-map-toolbar",
+        "bracket-map-viewport",
+        "competition",
+        "desktop-screen",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 32
+    },
+    {
+      "platform": "Desktop",
+      "figure": "bracket-se",
+      "components": [
+        "avatar",
+        "bracket",
+        "button",
+        "header",
+        "identity"
+      ],
+      "layouts": [
+        "action-dock",
+        "bracket-map",
+        "bracket-map-canvas",
+        "bracket-map-controls",
+        "bracket-map-detail",
+        "bracket-map-lines",
+        "bracket-map-screen",
+        "bracket-map-space",
+        "bracket-map-toolbar",
+        "bracket-map-viewport",
+        "competition",
+        "desktop-screen",
+        "flow-screen",
+        "is-se",
+        "screen-content"
+      ],
+      "classifiedClasses": 33
+    },
+    {
+      "platform": "Desktop",
+      "figure": "match-result-de",
+      "components": [
+        "avatar",
+        "button",
+        "dialog",
+        "disclosure",
+        "header",
+        "identity",
+        "score-choice"
+      ],
+      "layouts": [
+        "action-dock",
+        "competition",
+        "competition-result",
+        "desktop-screen",
+        "flow-pair",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 34
+    },
+    {
+      "platform": "Desktop",
+      "figure": "match-result",
+      "components": [
+        "avatar",
+        "button",
+        "dialog",
+        "disclosure",
+        "header",
+        "identity",
+        "score",
+        "stepper"
+      ],
+      "layouts": [
+        "action-dock",
+        "competition",
+        "competition-result",
+        "desktop-screen",
+        "flow-pair",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 35
+    },
+    {
+      "platform": "Desktop",
+      "figure": "match-result-ft3",
+      "components": [
+        "avatar",
+        "button",
+        "dialog",
+        "disclosure",
+        "header",
+        "identity",
+        "score",
+        "stepper"
+      ],
+      "layouts": [
+        "action-dock",
+        "competition",
+        "competition-result",
+        "desktop-screen",
+        "flow-pair",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 35
+    },
+    {
+      "platform": "Desktop",
+      "figure": "match-result-ft10",
+      "components": [
+        "avatar",
+        "button",
+        "dialog",
+        "disclosure",
+        "header",
+        "identity",
+        "score",
+        "stepper"
+      ],
+      "layouts": [
+        "action-dock",
+        "competition",
+        "competition-result",
+        "desktop-screen",
+        "flow-pair",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 35
+    },
+    {
+      "platform": "Desktop",
+      "figure": "match-correct",
+      "components": [
+        "avatar",
+        "button",
+        "dialog",
+        "disclosure",
+        "header",
+        "identity",
+        "score",
+        "stepper"
+      ],
+      "layouts": [
+        "action-dock",
+        "competition",
+        "competition-result",
+        "desktop-screen",
+        "flow-pair",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 35
+    },
+    {
+      "platform": "Desktop",
+      "figure": "match-save-error",
+      "components": [
+        "avatar",
+        "button",
+        "dialog",
+        "disclosure",
+        "header",
+        "identity",
+        "notice",
+        "score",
+        "stepper"
+      ],
+      "layouts": [
+        "action-dock",
+        "competition",
+        "competition-result",
+        "desktop-screen",
+        "flow-pair",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 36
+    },
+    {
+      "platform": "Desktop",
+      "figure": "match-technical",
+      "components": [
+        "avatar",
+        "button",
+        "dialog",
+        "header",
+        "identity",
+        "notice",
+        "status"
+      ],
+      "layouts": [
+        "action-dock",
+        "competition",
+        "competition-result",
+        "desktop-screen",
+        "flow-pair",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 32
+    },
+    {
+      "platform": "Desktop",
+      "figure": "match-technical-de",
+      "components": [
+        "avatar",
+        "button",
+        "dialog",
+        "header",
+        "identity",
+        "notice",
+        "status"
+      ],
+      "layouts": [
+        "action-dock",
+        "competition",
+        "competition-result",
+        "desktop-screen",
+        "flow-pair",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 32
+    },
+    {
+      "platform": "Desktop",
+      "figure": "forfeit-confirm",
+      "components": [
+        "avatar",
+        "button",
+        "dialog",
+        "header",
+        "identity",
+        "score"
+      ],
+      "layouts": [
+        "action-dock",
+        "desktop-screen",
+        "flow-pair",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 30
+    },
+    {
+      "platform": "Desktop",
+      "figure": "tournament-champion",
+      "components": [
+        "avatar",
+        "button",
+        "header",
+        "identity",
+        "status",
+        "surface"
+      ],
+      "layouts": [
+        "bento-champion",
+        "bento-champion-context",
+        "bento-champion-hero",
+        "competition",
+        "competition-finish",
+        "desktop-command",
+        "desktop-page-header",
+        "desktop-screen",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 29
+    },
+    {
+      "platform": "Desktop",
+      "figure": "tournament-results",
+      "components": [
+        "avatar",
+        "button",
+        "header",
+        "identity",
+        "row",
+        "score",
+        "surface"
+      ],
+      "layouts": [
+        "bento-results",
+        "bento-results-context",
+        "competition",
+        "competition-finish",
+        "competition-results",
+        "desktop-command",
+        "desktop-page-header",
+        "desktop-screen",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 34
+    },
+    {
+      "platform": "Desktop",
+      "figure": "tournament-results-se",
+      "components": [
+        "avatar",
+        "button",
+        "disclosure",
+        "header",
+        "identity",
+        "row",
+        "score",
+        "surface"
+      ],
+      "layouts": [
+        "bento-results",
+        "bento-results-context",
+        "competition",
+        "competition-finish",
+        "competition-results",
+        "desktop-command",
+        "desktop-page-header",
+        "desktop-screen",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 35
+    },
+    {
+      "platform": "Desktop",
+      "figure": "tournament-results-rr",
+      "components": [
+        "avatar",
+        "button",
+        "header",
+        "identity",
+        "row",
+        "score",
+        "surface"
+      ],
+      "layouts": [
+        "bento-results",
+        "bento-results-context",
+        "competition",
+        "competition-finish",
+        "competition-results",
+        "competition-results-points",
+        "desktop-command",
+        "desktop-page-header",
+        "desktop-screen",
+        "flow-screen",
+        "screen-content"
+      ],
+      "classifiedClasses": 33
+    }
+  ],
+  "decisions": [
+    [
+      "Settings",
+      "Desktop native select; Mobile статичные значения",
+      "Функциональное расхождение, не готовый mobile-вариант Select."
+    ],
+    [
+      "Achievement",
+      "Тёмная mobile-поверхность ↔ золотая desktop-плитка",
+      "Зафиксированный emphasis variant; не исправлен молча."
+    ],
+    [
+      "Identity font",
+      "flow-person использует разные font в distribution/competition",
+      "Контекстные typography overrides. Кандидат на уточнение body/display роли; одинаковая анатомия."
+    ],
+    [
+      "Control surfaces",
+      "Desktop FT canvas, Mobile FT raised; Input также меняет fill",
+      "Подтверждённые роли подложки в разных поверхностях. Показаны парно, сохраняются как адаптация."
+    ],
+    [
+      "Spacing",
+      "Desktop20/12 встречаются систематически;28/9 и дробные значения локальны",
+      "20/12 — плотность/композиция; остальные локальные либо clamp-результат. Не добавлены автоматически в глобальную шкалу."
+    ],
+    [
+      "Choice / modal",
+      "Визуальная выборка selected и dialog не доказывает keyboard contract",
+      "AT/keyboard semantics и modal focus ещё требуют production-реализации. Kit — визуальная библиотека."
+    ],
+    [
+      "Missing states",
+      "Нет рабочего copied/loading-button/success/error-selection эталона",
+      "Не добавлены как обнаруженные состояния. Proposed примеры отдельно помечены. Test statuses не означают production-ready."
+    ]
+  ],
+  "observedSpacingScreens": {
+    "4": {
+      "Mobile": 9,
+      "Desktop": 15
+    },
+    "8": {
+      "Mobile": 46,
+      "Desktop": 38
+    },
+    "12": {
+      "Mobile": 2,
+      "Desktop": 24
+    },
+    "16": {
+      "Mobile": 49,
+      "Desktop": 49
+    },
+    "20": {
+      "Mobile": 0,
+      "Desktop": 46
+    },
+    "24": {
+      "Mobile": 47,
+      "Desktop": 44
+    },
+    "32": {
+      "Mobile": 30,
+      "Desktop": 44
+    },
+    "48": {
+      "Mobile": 3,
+      "Desktop": 1
+    },
+    "64": {
+      "Mobile": 0,
+      "Desktop": 3
+    }
+  }
+}
