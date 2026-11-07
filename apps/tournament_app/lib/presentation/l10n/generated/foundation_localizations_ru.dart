@@ -433,4 +433,19 @@ class FoundationLocalizationsRu extends FoundationLocalizations {
 
   @override
   String get tableMatchesFull => 'Сыграно матчей';
+
+  @override
+  String get bracketReady => 'W1 · Раунд 1';
+
+  @override
+  String get bracketCurrent => 'W5 · Сейчас';
+
+  @override
+  String get bracketPending => 'W6 · Полуфинал';
+
+  @override
+  String get bracketUnknownFirst => 'Победитель W3';
+
+  @override
+  String get bracketUnknownSecond => 'Победитель W4';
 }

@@ -882,6 +882,36 @@ abstract class FoundationLocalizations {
   /// In ru, this message translates to:
   /// **'Сыграно матчей'**
   String get tableMatchesFull;
+
+  /// No description provided for @bracketReady.
+  ///
+  /// In ru, this message translates to:
+  /// **'W1 · Раунд 1'**
+  String get bracketReady;
+
+  /// No description provided for @bracketCurrent.
+  ///
+  /// In ru, this message translates to:
+  /// **'W5 · Сейчас'**
+  String get bracketCurrent;
+
+  /// No description provided for @bracketPending.
+  ///
+  /// In ru, this message translates to:
+  /// **'W6 · Полуфинал'**
+  String get bracketPending;
+
+  /// No description provided for @bracketUnknownFirst.
+  ///
+  /// In ru, this message translates to:
+  /// **'Победитель W3'**
+  String get bracketUnknownFirst;
+
+  /// No description provided for @bracketUnknownSecond.
+  ///
+  /// In ru, this message translates to:
+  /// **'Победитель W4'**
+  String get bracketUnknownSecond;
 }
 
 class _FoundationLocalizationsDelegate

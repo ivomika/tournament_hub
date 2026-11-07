@@ -232,3 +232,9 @@ AppProgressIndicator — только стандартный CircularProgressInd
 ## DataTable — реализация67
 
 AppDataTable typed columns/rows/text-or-identity cells; caption/headers, числовые ячейки выравниваются справа. Расчёта рейтинга/сортировки нет. AppIdentity принимает явную WidgetTheme: avatar40, primary16/600/1.3, secondary14/700/1.5, avatar gap8/text gap4. Это переиспользование Identity, не второй компонент. Column shares измеряются текущим шрифтом, numeric min32 включает padding (border-box). Mobile cell padding8/0, desktop16/8. Дробные CSS45.796px/native46px на3 строках дают0.609px, comparison геометрический допуск.75px. Числовые cell widths/centers проверяются отдельно от содержимого.
+
+## BracketNode — реализация68
+
+AppBracketNode ready/current/pending, готовые label и2 typed participant/placeholder slots, nullable intent. Width220/min116, surface/radius16/border1 outlineVariant/current2 primary; inset12+border/gap8. Compact AppIdentity переиспользует AppAvatar28/radius8/Inter11bold, primary14bold/secondary11regular; text column занимает остаток строки. Label12medium/1.3, unknown13/28min. AppBracketMetrics собирается основной темой.
+
+Compact Identity exactLineBoxes сохраняет дробную высоту runtime style.fontSize×height×textScaler (15.6/16.5px), убирая накопление1.406px округления; не вводятся pixel offsets или фиксированные raster высоты. Геометрия сравнивается с.5px, baseline estimate1.25px. Старые Identity/Table fixtures остаются без exactLineBoxes и проверяются регрессией.

@@ -25,6 +25,8 @@ class AppIdentityTheme {
     required this.stretch,
     required this.center,
     required this.textAlign,
+    this.fillText = false,
+    this.exactLineBoxes = false,
   });
   factory AppIdentityTheme.of(
     BuildContext context,
@@ -123,4 +125,6 @@ class AppIdentityTheme {
   final double gap, textGap;
   final CrossAxisAlignment leading, stretch, center;
   final TextAlign textAlign;
+  final bool fillText;
+  final bool exactLineBoxes;
 }

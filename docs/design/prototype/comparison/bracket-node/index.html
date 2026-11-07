@@ -1,0 +1,1941 @@
+<!doctype html><html lang="ru"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AppBracketNode · Web ↔ Flutter</title><style>
+ :root{color-scheme:dark;font-family:system-ui;background:#0e1014;color:#f4f2ee}*{box-sizing:border-box}body{max-width:1600px;margin:auto;padding:32px}h1{font-size:36px}a{color:#f1c75b}p{color:#b8bec9;line-height:1.5}.stats,nav{display:flex;gap:20px;flex-wrap:wrap}nav{position:sticky;top:0;background:#0e1014ee;padding:16px 0;z-index:1}.stats>div{border:1px solid #3a414e;border-radius:12px;padding:16px}.stats strong{display:block;font-size:28px}.case{padding:20px;margin:24px 0;background:#171a20;border:1px solid #3a414e;border-radius:16px}.case header{display:flex;justify-content:space-between;gap:16px}.pass{color:#78d7a5}.fail{color:#ff968e}.shots{display:grid;grid-template-columns:repeat(4,minmax(180px,1fr));gap:12px;overflow:auto}figure{margin:0;background:#0e1014;padding:12px;display:flex;flex-direction:column;align-items:center;gap:20px;min-height:200px}figcaption{color:#b8bec9;font-size:13px}img{max-width:100%;height:auto;image-rendering:pixelated}figure a{margin:auto}table{border-collapse:collapse;width:100%;font-size:12px}th,td{text-align:left;padding:9px;border-bottom:1px solid #3a414e}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px;color:#b8bec9}.table{overflow:auto}.finding{color:#ff968e}small{color:#969eac}@media(max-width:800px){body{padding:16px}.shots{grid-template-columns:repeat(4,280px)}}
+ </style><header><small>TOURNAMENT HUB / ОБЩЕЕ ВИЗУАЛЬНОЕ СРАВНЕНИЕ</small><h1>AppBracketNode · Web ↔ Flutter</h1><p>Сценарии и контрольные элементы заданы декларацией компонента. Геометрия, типографика и цвета проверяются отдельно; diff показывает остаточную разницу рендереров. Нажмите PNG, чтобы открыть исходное разрешение.</p></header>
+ <div class="stats"><div><strong>6</strong>сценариев</div><div><strong class="pass">6/6</strong>прошли контракт контролей</div><div><strong>48</strong>контрольных элементов</div></div>
+ <nav><a href="#mobile-ready">mobile · ready</a><a href="#mobile-current">mobile · current</a><a href="#mobile-pending">mobile · pending</a><a href="#desktop-ready">desktop · ready</a><a href="#desktop-current">desktop · current</a><a href="#desktop-pending">desktop · pending</a><a href="http://127.0.0.1:8094/ui-kit.html">Web-эталон ↗</a></nav>
+ <article class="case" id="mobile-ready"><header><h2>mobile · ready</h2><b class="pass">pass</b></header><p>Compact line boxes сохраняют CSS дробные15.6/16.5px через runtime style×textScaler; без ручных offsets. Baseline estimate допускает1.25px.</p><div class="shots"><figure><figcaption>Web</figcaption><a href="web/mobile-ready.png"><img alt="mobile-ready Web" src="web/mobile-ready.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/mobile-ready.png"><img alt="mobile-ready Flutter" src="flutter/mobile-ready.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/mobile-ready.png"><img alt="mobile-ready Наложение 50/50" src="overlay/mobile-ready.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/mobile-ready.png"><img alt="mobile-ready Diff ×4" src="diff/mobile-ready.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 714 изменённых пикселей; mean channel delta 0.8316/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;mobile-ready&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 220,
+      &quot;height&quot;: 132.59375
+    },
+    &quot;controls&quot;: {
+      &quot;surface&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 220,
+          &quot;height&quot;: 132.59375
+        },
+        &quot;width&quot;: 220,
+        &quot;height&quot;: 132.59375,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 16,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;,
+        &quot;baseline&quot;: 30,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 13,
+          &quot;y&quot;: 13,
+          &quot;width&quot;: 194,
+          &quot;height&quot;: 15.59375
+        },
+        &quot;width&quot;: 194,
+        &quot;height&quot;: 15.59375,
+        &quot;fontSize&quot;: 12,
+        &quot;fontWeight&quot;: 500,
+        &quot;lineHeight&quot;: 1.3,
+        &quot;color&quot;: &quot;#969eacff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#969eacff&quot;,
+        &quot;baseline&quot;: 25,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;avatar-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 13,
+          &quot;y&quot;: 41.34375,
+          &quot;width&quot;: 28,
+          &quot;height&quot;: 28
+        },
+        &quot;width&quot;: 28,
+        &quot;height&quot;: 28,
+        &quot;fontSize&quot;: 11,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#f1c75bff&quot;,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 8,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f1c75bff&quot;,
+        &quot;baseline&quot;: 58.84375,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;initials-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 13,
+          &quot;y&quot;: 41.34375,
+          &quot;width&quot;: 28,
+          &quot;height&quot;: 28
+        },
+        &quot;width&quot;: 28,
+        &quot;height&quot;: 28,
+        &quot;fontSize&quot;: 11,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#f1c75bff&quot;,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 8,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f1c75bff&quot;,
+        &quot;baseline&quot;: 58.84375,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;secondary-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 49,
+          &quot;y&quot;: 57.59375,
+          &quot;width&quot;: 158,
+          &quot;height&quot;: 16.5
+        },
+        &quot;width&quot;: 158,
+        &quot;height&quot;: 16.5,
+        &quot;fontSize&quot;: 11,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 69.59375,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;name-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 49,
+          &quot;y&quot;: 36.59375,
+          &quot;width&quot;: 158,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 158,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 52.59375,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;avatar-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 13,
+          &quot;y&quot;: 86.84375,
+          &quot;width&quot;: 28,
+          &quot;height&quot;: 28
+        },
+        &quot;width&quot;: 28,
+        &quot;height&quot;: 28,
+        &quot;fontSize&quot;: 11,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#f1c75bff&quot;,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 8,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f1c75bff&quot;,
+        &quot;baseline&quot;: 104.34375,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;initials-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 13,
+          &quot;y&quot;: 86.84375,
+          &quot;width&quot;: 28,
+          &quot;height&quot;: 28
+        },
+        &quot;width&quot;: 28,
+        &quot;height&quot;: 28,
+        &quot;fontSize&quot;: 11,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#f1c75bff&quot;,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 8,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f1c75bff&quot;,
+        &quot;baseline&quot;: 104.34375,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;secondary-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 49,
+          &quot;y&quot;: 103.09375,
+          &quot;width&quot;: 158,
+          &quot;height&quot;: 16.5
+        },
+        &quot;width&quot;: 158,
+        &quot;height&quot;: 16.5,
+        &quot;fontSize&quot;: 11,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 115.09375,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;name-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 49,
+          &quot;y&quot;: 82.09375,
+          &quot;width&quot;: 158,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 158,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 98.09375,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 220,
+      &quot;height&quot;: 132.59375
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/mobile-ready.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;mobile-ready&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 220,
+      &quot;height&quot;: 132.6
+    },
+    &quot;controls&quot;: {
+      &quot;surface&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 220,
+          &quot;height&quot;: 132.6
+        },
+        &quot;width&quot;: 220,
+        &quot;height&quot;: 132.6,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 16,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;
+      },
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 13,
+          &quot;y&quot;: 13,
+          &quot;width&quot;: 194,
+          &quot;height&quot;: 15.600000000000001
+        },
+        &quot;width&quot;: 194,
+        &quot;height&quot;: 15.600000000000001,
+        &quot;fontSize&quot;: 12,
+        &quot;fontWeight&quot;: 500,
+        &quot;lineHeight&quot;: 1.3,
+        &quot;color&quot;: &quot;#969eacff&quot;,
+        &quot;baseline&quot;: 25.565235137939453
+      },
+      &quot;avatar-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 13,
+          &quot;y&quot;: 41.35,
+          &quot;width&quot;: 28,
+          &quot;height&quot;: 27.999999999999993
+        },
+        &quot;width&quot;: 28,
+        &quot;height&quot;: 27.999999999999993
+      },
+      &quot;initials-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 19.745376586914062,
+          &quot;y&quot;: 49.85,
+          &quot;width&quot;: 14.509246826171875,
+          &quot;height&quot;: 11
+        },
+        &quot;width&quot;: 14.509246826171875,
+        &quot;height&quot;: 11,
+        &quot;fontSize&quot;: 11,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#f1c75bff&quot;,
+        &quot;baseline&quot;: 59.35146484375
+      },
+      &quot;secondary-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 49,
+          &quot;y&quot;: 57.6,
+          &quot;width&quot;: 158,
+          &quot;height&quot;: 16.499999999999993
+        },
+        &quot;width&quot;: 158,
+        &quot;height&quot;: 16.499999999999993,
+        &quot;fontSize&quot;: 11,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 70.35146484375
+      },
+      &quot;name-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 49,
+          &quot;y&quot;: 36.6,
+          &quot;width&quot;: 158,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 158,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 52.1927734375
+      },
+      &quot;avatar-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 13,
+          &quot;y&quot;: 86.85,
+          &quot;width&quot;: 28,
+          &quot;height&quot;: 28
+        },
+        &quot;width&quot;: 28,
+        &quot;height&quot;: 28
+      },
+      &quot;initials-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 19.330345153808594,
+          &quot;y&quot;: 95.35,
+          &quot;width&quot;: 15.339309692382812,
+          &quot;height&quot;: 11
+        },
+        &quot;width&quot;: 15.339309692382812,
+        &quot;height&quot;: 11,
+        &quot;fontSize&quot;: 11,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#f1c75bff&quot;,
+        &quot;baseline&quot;: 104.85146484375
+      },
+      &quot;secondary-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 49,
+          &quot;y&quot;: 103.1,
+          &quot;width&quot;: 158,
+          &quot;height&quot;: 16.5
+        },
+        &quot;width&quot;: 158,
+        &quot;height&quot;: 16.5,
+        &quot;fontSize&quot;: 11,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 115.85146484375
+      },
+      &quot;name-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 49,
+          &quot;y&quot;: 82.1,
+          &quot;width&quot;: 158,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 158,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 97.6927734375
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 714,
+      &quot;meanChannelDelta&quot;: 0.8316131237183869
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/mobile-ready.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="mobile-current"><header><h2>mobile · current</h2><b class="pass">pass</b></header><p>Compact line boxes сохраняют CSS дробные15.6/16.5px через runtime style×textScaler; без ручных offsets. Baseline estimate допускает1.25px.</p><div class="shots"><figure><figcaption>Web</figcaption><a href="web/mobile-current.png"><img alt="mobile-current Web" src="web/mobile-current.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/mobile-current.png"><img alt="mobile-current Flutter" src="flutter/mobile-current.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/mobile-current.png"><img alt="mobile-current Наложение 50/50" src="overlay/mobile-current.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/mobile-current.png"><img alt="mobile-current Diff ×4" src="diff/mobile-current.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 751 изменённых пикселей; mean channel delta 1.6619/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;mobile-current&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 220,
+      &quot;height&quot;: 134.59375
+    },
+    &quot;controls&quot;: {
+      &quot;surface&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 220,
+          &quot;height&quot;: 134.59375
+        },
+        &quot;width&quot;: 220,
+        &quot;height&quot;: 134.59375,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 16,
+        &quot;borderWidth&quot;: 2,
+        &quot;borderColor&quot;: &quot;#f1c75bff&quot;,
+        &quot;baseline&quot;: 31,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 14,
+          &quot;y&quot;: 14,
+          &quot;width&quot;: 192,
+          &quot;height&quot;: 15.59375
+        },
+        &quot;width&quot;: 192,
+        &quot;height&quot;: 15.59375,
+        &quot;fontSize&quot;: 12,
+        &quot;fontWeight&quot;: 500,
+        &quot;lineHeight&quot;: 1.3,
+        &quot;color&quot;: &quot;#f1c75bff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f1c75bff&quot;,
+        &quot;baseline&quot;: 26,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;avatar-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 14,
+          &quot;y&quot;: 42.34375,
+          &quot;width&quot;: 28,
+          &quot;height&quot;: 28
+        },
+        &quot;width&quot;: 28,
+        &quot;height&quot;: 28,
+        &quot;fontSize&quot;: 11,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#f1c75bff&quot;,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 8,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f1c75bff&quot;,
+        &quot;baseline&quot;: 59.84375,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;initials-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 14,
+          &quot;y&quot;: 42.34375,
+          &quot;width&quot;: 28,
+          &quot;height&quot;: 28
+        },
+        &quot;width&quot;: 28,
+        &quot;height&quot;: 28,
+        &quot;fontSize&quot;: 11,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#f1c75bff&quot;,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 8,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f1c75bff&quot;,
+        &quot;baseline&quot;: 59.84375,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;secondary-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 50,
+          &quot;y&quot;: 58.59375,
+          &quot;width&quot;: 156,
+          &quot;height&quot;: 16.5
+        },
+        &quot;width&quot;: 156,
+        &quot;height&quot;: 16.5,
+        &quot;fontSize&quot;: 11,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 70.59375,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;name-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 50,
+          &quot;y&quot;: 37.59375,
+          &quot;width&quot;: 156,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 156,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 53.59375,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;avatar-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 14,
+          &quot;y&quot;: 87.84375,
+          &quot;width&quot;: 28,
+          &quot;height&quot;: 28
+        },
+        &quot;width&quot;: 28,
+        &quot;height&quot;: 28,
+        &quot;fontSize&quot;: 11,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#f1c75bff&quot;,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 8,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f1c75bff&quot;,
+        &quot;baseline&quot;: 105.34375,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;initials-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 14,
+          &quot;y&quot;: 87.84375,
+          &quot;width&quot;: 28,
+          &quot;height&quot;: 28
+        },
+        &quot;width&quot;: 28,
+        &quot;height&quot;: 28,
+        &quot;fontSize&quot;: 11,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#f1c75bff&quot;,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 8,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f1c75bff&quot;,
+        &quot;baseline&quot;: 105.34375,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;secondary-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 50,
+          &quot;y&quot;: 104.09375,
+          &quot;width&quot;: 156,
+          &quot;height&quot;: 16.5
+        },
+        &quot;width&quot;: 156,
+        &quot;height&quot;: 16.5,
+        &quot;fontSize&quot;: 11,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 116.09375,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;name-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 50,
+          &quot;y&quot;: 83.09375,
+          &quot;width&quot;: 156,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 156,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 99.09375,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 220,
+      &quot;height&quot;: 134.59375
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/mobile-current.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;mobile-current&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 220,
+      &quot;height&quot;: 134.6
+    },
+    &quot;controls&quot;: {
+      &quot;surface&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 220,
+          &quot;height&quot;: 134.6
+        },
+        &quot;width&quot;: 220,
+        &quot;height&quot;: 134.6,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 16,
+        &quot;borderWidth&quot;: 2,
+        &quot;borderColor&quot;: &quot;#f1c75bff&quot;
+      },
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 14,
+          &quot;y&quot;: 14,
+          &quot;width&quot;: 192,
+          &quot;height&quot;: 15.600000000000001
+        },
+        &quot;width&quot;: 192,
+        &quot;height&quot;: 15.600000000000001,
+        &quot;fontSize&quot;: 12,
+        &quot;fontWeight&quot;: 500,
+        &quot;lineHeight&quot;: 1.3,
+        &quot;color&quot;: &quot;#f1c75bff&quot;,
+        &quot;baseline&quot;: 26.565235137939453
+      },
+      &quot;avatar-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 14,
+          &quot;y&quot;: 42.35,
+          &quot;width&quot;: 28,
+          &quot;height&quot;: 27.999999999999993
+        },
+        &quot;width&quot;: 28,
+        &quot;height&quot;: 27.999999999999993
+      },
+      &quot;initials-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 20.745376586914062,
+          &quot;y&quot;: 50.85,
+          &quot;width&quot;: 14.509246826171875,
+          &quot;height&quot;: 11
+        },
+        &quot;width&quot;: 14.509246826171875,
+        &quot;height&quot;: 11,
+        &quot;fontSize&quot;: 11,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#f1c75bff&quot;,
+        &quot;baseline&quot;: 60.35146484375
+      },
+      &quot;secondary-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 50,
+          &quot;y&quot;: 58.6,
+          &quot;width&quot;: 156,
+          &quot;height&quot;: 16.499999999999993
+        },
+        &quot;width&quot;: 156,
+        &quot;height&quot;: 16.499999999999993,
+        &quot;fontSize&quot;: 11,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 71.35146484375
+      },
+      &quot;name-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 50,
+          &quot;y&quot;: 37.6,
+          &quot;width&quot;: 156,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 156,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 53.1927734375
+      },
+      &quot;avatar-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 14,
+          &quot;y&quot;: 87.85,
+          &quot;width&quot;: 28,
+          &quot;height&quot;: 28
+        },
+        &quot;width&quot;: 28,
+        &quot;height&quot;: 28
+      },
+      &quot;initials-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 20.330345153808594,
+          &quot;y&quot;: 96.35,
+          &quot;width&quot;: 15.339309692382812,
+          &quot;height&quot;: 11
+        },
+        &quot;width&quot;: 15.339309692382812,
+        &quot;height&quot;: 11,
+        &quot;fontSize&quot;: 11,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#f1c75bff&quot;,
+        &quot;baseline&quot;: 105.85146484375
+      },
+      &quot;secondary-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 50,
+          &quot;y&quot;: 104.1,
+          &quot;width&quot;: 156,
+          &quot;height&quot;: 16.5
+        },
+        &quot;width&quot;: 156,
+        &quot;height&quot;: 16.5,
+        &quot;fontSize&quot;: 11,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 116.85146484375
+      },
+      &quot;name-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 50,
+          &quot;y&quot;: 83.1,
+          &quot;width&quot;: 156,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 156,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 98.6927734375
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 751,
+      &quot;meanChannelDelta&quot;: 1.6619079685746352
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/mobile-current.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="mobile-pending"><header><h2>mobile · pending</h2><b class="pass">pass</b></header><p>Compact line boxes сохраняют CSS дробные15.6/16.5px через runtime style×textScaler; без ручных offsets. Baseline estimate допускает1.25px.</p><div class="shots"><figure><figcaption>Web</figcaption><a href="web/mobile-pending.png"><img alt="mobile-pending Web" src="web/mobile-pending.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/mobile-pending.png"><img alt="mobile-pending Flutter" src="flutter/mobile-pending.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/mobile-pending.png"><img alt="mobile-pending Наложение 50/50" src="overlay/mobile-pending.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/mobile-pending.png"><img alt="mobile-pending Diff ×4" src="diff/mobile-pending.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 0 изменённых пикселей; mean channel delta 0.0403/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;mobile-pending&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 220,
+      &quot;height&quot;: 116
+    },
+    &quot;controls&quot;: {
+      &quot;surface&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 220,
+          &quot;height&quot;: 116
+        },
+        &quot;width&quot;: 220,
+        &quot;height&quot;: 116,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 16,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;,
+        &quot;baseline&quot;: 30,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 13,
+          &quot;y&quot;: 13,
+          &quot;width&quot;: 194,
+          &quot;height&quot;: 15.59375
+        },
+        &quot;width&quot;: 194,
+        &quot;height&quot;: 15.59375,
+        &quot;fontSize&quot;: 12,
+        &quot;fontWeight&quot;: 500,
+        &quot;lineHeight&quot;: 1.3,
+        &quot;color&quot;: &quot;#969eacff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#969eacff&quot;,
+        &quot;baseline&quot;: 25,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;pending-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 13,
+          &quot;y&quot;: 41.84375,
+          &quot;width&quot;: 101.078125,
+          &quot;height&quot;: 16
+        },
+        &quot;width&quot;: 101.078125,
+        &quot;height&quot;: 16,
+        &quot;fontSize&quot;: 13,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 54.84375,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;pending-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 13,
+          &quot;y&quot;: 77.84375,
+          &quot;width&quot;: 101,
+          &quot;height&quot;: 16
+        },
+        &quot;width&quot;: 101,
+        &quot;height&quot;: 16,
+        &quot;fontSize&quot;: 13,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 90.84375,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 220,
+      &quot;height&quot;: 116
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/mobile-pending.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;mobile-pending&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 220,
+      &quot;height&quot;: 116
+    },
+    &quot;controls&quot;: {
+      &quot;surface&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 220,
+          &quot;height&quot;: 116
+        },
+        &quot;width&quot;: 220,
+        &quot;height&quot;: 116,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 16,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;
+      },
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 13,
+          &quot;y&quot;: 13,
+          &quot;width&quot;: 194,
+          &quot;height&quot;: 15.600000000000001
+        },
+        &quot;width&quot;: 194,
+        &quot;height&quot;: 15.600000000000001,
+        &quot;fontSize&quot;: 12,
+        &quot;fontWeight&quot;: 500,
+        &quot;lineHeight&quot;: 1.3,
+        &quot;color&quot;: &quot;#969eacff&quot;,
+        &quot;baseline&quot;: 25.565235137939453
+      },
+      &quot;pending-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 13,
+          &quot;y&quot;: 40.6,
+          &quot;width&quot;: 101.0673828125,
+          &quot;height&quot;: 20
+        },
+        &quot;width&quot;: 101.0673828125,
+        &quot;height&quot;: 20,
+        &quot;fontSize&quot;: 13,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 55.57900390625
+      },
+      &quot;pending-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 13,
+          &quot;y&quot;: 76.6,
+          &quot;width&quot;: 100.99755859375,
+          &quot;height&quot;: 20
+        },
+        &quot;width&quot;: 100.99755859375,
+        &quot;height&quot;: 20,
+        &quot;fontSize&quot;: 13,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 91.57900390625
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 0,
+      &quot;meanChannelDelta&quot;: 0.04029519331243469
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/mobile-pending.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="desktop-ready"><header><h2>desktop · ready</h2><b class="pass">pass</b></header><p>Compact line boxes сохраняют CSS дробные15.6/16.5px через runtime style×textScaler; без ручных offsets. Baseline estimate допускает1.25px.</p><div class="shots"><figure><figcaption>Web</figcaption><a href="web/desktop-ready.png"><img alt="desktop-ready Web" src="web/desktop-ready.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/desktop-ready.png"><img alt="desktop-ready Flutter" src="flutter/desktop-ready.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/desktop-ready.png"><img alt="desktop-ready Наложение 50/50" src="overlay/desktop-ready.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/desktop-ready.png"><img alt="desktop-ready Diff ×4" src="diff/desktop-ready.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 714 изменённых пикселей; mean channel delta 0.8316/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;desktop-ready&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 220,
+      &quot;height&quot;: 132.59375
+    },
+    &quot;controls&quot;: {
+      &quot;surface&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 220,
+          &quot;height&quot;: 132.59375
+        },
+        &quot;width&quot;: 220,
+        &quot;height&quot;: 132.59375,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 16,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;,
+        &quot;baseline&quot;: 30,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 13,
+          &quot;y&quot;: 13,
+          &quot;width&quot;: 194,
+          &quot;height&quot;: 15.59375
+        },
+        &quot;width&quot;: 194,
+        &quot;height&quot;: 15.59375,
+        &quot;fontSize&quot;: 12,
+        &quot;fontWeight&quot;: 500,
+        &quot;lineHeight&quot;: 1.3,
+        &quot;color&quot;: &quot;#969eacff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#969eacff&quot;,
+        &quot;baseline&quot;: 25,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;avatar-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 13,
+          &quot;y&quot;: 41.34375,
+          &quot;width&quot;: 28,
+          &quot;height&quot;: 28
+        },
+        &quot;width&quot;: 28,
+        &quot;height&quot;: 28,
+        &quot;fontSize&quot;: 11,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#f1c75bff&quot;,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 8,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f1c75bff&quot;,
+        &quot;baseline&quot;: 58.84375,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;initials-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 13,
+          &quot;y&quot;: 41.34375,
+          &quot;width&quot;: 28,
+          &quot;height&quot;: 28
+        },
+        &quot;width&quot;: 28,
+        &quot;height&quot;: 28,
+        &quot;fontSize&quot;: 11,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#f1c75bff&quot;,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 8,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f1c75bff&quot;,
+        &quot;baseline&quot;: 58.84375,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;secondary-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 49,
+          &quot;y&quot;: 57.59375,
+          &quot;width&quot;: 158,
+          &quot;height&quot;: 16.5
+        },
+        &quot;width&quot;: 158,
+        &quot;height&quot;: 16.5,
+        &quot;fontSize&quot;: 11,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 69.59375,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;name-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 49,
+          &quot;y&quot;: 36.59375,
+          &quot;width&quot;: 158,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 158,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 52.59375,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;avatar-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 13,
+          &quot;y&quot;: 86.84375,
+          &quot;width&quot;: 28,
+          &quot;height&quot;: 28
+        },
+        &quot;width&quot;: 28,
+        &quot;height&quot;: 28,
+        &quot;fontSize&quot;: 11,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#f1c75bff&quot;,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 8,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f1c75bff&quot;,
+        &quot;baseline&quot;: 104.34375,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;initials-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 13,
+          &quot;y&quot;: 86.84375,
+          &quot;width&quot;: 28,
+          &quot;height&quot;: 28
+        },
+        &quot;width&quot;: 28,
+        &quot;height&quot;: 28,
+        &quot;fontSize&quot;: 11,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#f1c75bff&quot;,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 8,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f1c75bff&quot;,
+        &quot;baseline&quot;: 104.34375,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;secondary-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 49,
+          &quot;y&quot;: 103.09375,
+          &quot;width&quot;: 158,
+          &quot;height&quot;: 16.5
+        },
+        &quot;width&quot;: 158,
+        &quot;height&quot;: 16.5,
+        &quot;fontSize&quot;: 11,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 115.09375,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;name-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 49,
+          &quot;y&quot;: 82.09375,
+          &quot;width&quot;: 158,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 158,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 98.09375,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 220,
+      &quot;height&quot;: 132.59375
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/desktop-ready.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;desktop-ready&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 220,
+      &quot;height&quot;: 132.6
+    },
+    &quot;controls&quot;: {
+      &quot;surface&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 220,
+          &quot;height&quot;: 132.6
+        },
+        &quot;width&quot;: 220,
+        &quot;height&quot;: 132.6,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 16,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;
+      },
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 13,
+          &quot;y&quot;: 13,
+          &quot;width&quot;: 194,
+          &quot;height&quot;: 15.600000000000001
+        },
+        &quot;width&quot;: 194,
+        &quot;height&quot;: 15.600000000000001,
+        &quot;fontSize&quot;: 12,
+        &quot;fontWeight&quot;: 500,
+        &quot;lineHeight&quot;: 1.3,
+        &quot;color&quot;: &quot;#969eacff&quot;,
+        &quot;baseline&quot;: 25.565235137939453
+      },
+      &quot;avatar-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 13,
+          &quot;y&quot;: 41.35,
+          &quot;width&quot;: 28,
+          &quot;height&quot;: 27.999999999999993
+        },
+        &quot;width&quot;: 28,
+        &quot;height&quot;: 27.999999999999993
+      },
+      &quot;initials-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 19.745376586914062,
+          &quot;y&quot;: 49.85,
+          &quot;width&quot;: 14.509246826171875,
+          &quot;height&quot;: 11
+        },
+        &quot;width&quot;: 14.509246826171875,
+        &quot;height&quot;: 11,
+        &quot;fontSize&quot;: 11,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#f1c75bff&quot;,
+        &quot;baseline&quot;: 59.35146484375
+      },
+      &quot;secondary-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 49,
+          &quot;y&quot;: 57.6,
+          &quot;width&quot;: 158,
+          &quot;height&quot;: 16.499999999999993
+        },
+        &quot;width&quot;: 158,
+        &quot;height&quot;: 16.499999999999993,
+        &quot;fontSize&quot;: 11,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 70.35146484375
+      },
+      &quot;name-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 49,
+          &quot;y&quot;: 36.6,
+          &quot;width&quot;: 158,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 158,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 52.1927734375
+      },
+      &quot;avatar-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 13,
+          &quot;y&quot;: 86.85,
+          &quot;width&quot;: 28,
+          &quot;height&quot;: 28
+        },
+        &quot;width&quot;: 28,
+        &quot;height&quot;: 28
+      },
+      &quot;initials-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 19.330345153808594,
+          &quot;y&quot;: 95.35,
+          &quot;width&quot;: 15.339309692382812,
+          &quot;height&quot;: 11
+        },
+        &quot;width&quot;: 15.339309692382812,
+        &quot;height&quot;: 11,
+        &quot;fontSize&quot;: 11,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#f1c75bff&quot;,
+        &quot;baseline&quot;: 104.85146484375
+      },
+      &quot;secondary-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 49,
+          &quot;y&quot;: 103.1,
+          &quot;width&quot;: 158,
+          &quot;height&quot;: 16.5
+        },
+        &quot;width&quot;: 158,
+        &quot;height&quot;: 16.5,
+        &quot;fontSize&quot;: 11,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 115.85146484375
+      },
+      &quot;name-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 49,
+          &quot;y&quot;: 82.1,
+          &quot;width&quot;: 158,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 158,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 97.6927734375
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 714,
+      &quot;meanChannelDelta&quot;: 0.8316131237183869
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/desktop-ready.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="desktop-current"><header><h2>desktop · current</h2><b class="pass">pass</b></header><p>Compact line boxes сохраняют CSS дробные15.6/16.5px через runtime style×textScaler; без ручных offsets. Baseline estimate допускает1.25px.</p><div class="shots"><figure><figcaption>Web</figcaption><a href="web/desktop-current.png"><img alt="desktop-current Web" src="web/desktop-current.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/desktop-current.png"><img alt="desktop-current Flutter" src="flutter/desktop-current.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/desktop-current.png"><img alt="desktop-current Наложение 50/50" src="overlay/desktop-current.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/desktop-current.png"><img alt="desktop-current Diff ×4" src="diff/desktop-current.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 751 изменённых пикселей; mean channel delta 1.6619/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;desktop-current&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 220,
+      &quot;height&quot;: 134.59375
+    },
+    &quot;controls&quot;: {
+      &quot;surface&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 220,
+          &quot;height&quot;: 134.59375
+        },
+        &quot;width&quot;: 220,
+        &quot;height&quot;: 134.59375,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 16,
+        &quot;borderWidth&quot;: 2,
+        &quot;borderColor&quot;: &quot;#f1c75bff&quot;,
+        &quot;baseline&quot;: 31,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 14,
+          &quot;y&quot;: 14,
+          &quot;width&quot;: 192,
+          &quot;height&quot;: 15.59375
+        },
+        &quot;width&quot;: 192,
+        &quot;height&quot;: 15.59375,
+        &quot;fontSize&quot;: 12,
+        &quot;fontWeight&quot;: 500,
+        &quot;lineHeight&quot;: 1.3,
+        &quot;color&quot;: &quot;#f1c75bff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f1c75bff&quot;,
+        &quot;baseline&quot;: 26,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;avatar-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 14,
+          &quot;y&quot;: 42.34375,
+          &quot;width&quot;: 28,
+          &quot;height&quot;: 28
+        },
+        &quot;width&quot;: 28,
+        &quot;height&quot;: 28,
+        &quot;fontSize&quot;: 11,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#f1c75bff&quot;,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 8,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f1c75bff&quot;,
+        &quot;baseline&quot;: 59.84375,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;initials-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 14,
+          &quot;y&quot;: 42.34375,
+          &quot;width&quot;: 28,
+          &quot;height&quot;: 28
+        },
+        &quot;width&quot;: 28,
+        &quot;height&quot;: 28,
+        &quot;fontSize&quot;: 11,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#f1c75bff&quot;,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 8,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f1c75bff&quot;,
+        &quot;baseline&quot;: 59.84375,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;secondary-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 50,
+          &quot;y&quot;: 58.59375,
+          &quot;width&quot;: 156,
+          &quot;height&quot;: 16.5
+        },
+        &quot;width&quot;: 156,
+        &quot;height&quot;: 16.5,
+        &quot;fontSize&quot;: 11,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 70.59375,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;name-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 50,
+          &quot;y&quot;: 37.59375,
+          &quot;width&quot;: 156,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 156,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 53.59375,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;avatar-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 14,
+          &quot;y&quot;: 87.84375,
+          &quot;width&quot;: 28,
+          &quot;height&quot;: 28
+        },
+        &quot;width&quot;: 28,
+        &quot;height&quot;: 28,
+        &quot;fontSize&quot;: 11,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#f1c75bff&quot;,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 8,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f1c75bff&quot;,
+        &quot;baseline&quot;: 105.34375,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;initials-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 14,
+          &quot;y&quot;: 87.84375,
+          &quot;width&quot;: 28,
+          &quot;height&quot;: 28
+        },
+        &quot;width&quot;: 28,
+        &quot;height&quot;: 28,
+        &quot;fontSize&quot;: 11,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#f1c75bff&quot;,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 8,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f1c75bff&quot;,
+        &quot;baseline&quot;: 105.34375,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;secondary-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 50,
+          &quot;y&quot;: 104.09375,
+          &quot;width&quot;: 156,
+          &quot;height&quot;: 16.5
+        },
+        &quot;width&quot;: 156,
+        &quot;height&quot;: 16.5,
+        &quot;fontSize&quot;: 11,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 116.09375,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;name-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 50,
+          &quot;y&quot;: 83.09375,
+          &quot;width&quot;: 156,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 156,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 99.09375,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 220,
+      &quot;height&quot;: 134.59375
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/desktop-current.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;desktop-current&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 220,
+      &quot;height&quot;: 134.6
+    },
+    &quot;controls&quot;: {
+      &quot;surface&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 220,
+          &quot;height&quot;: 134.6
+        },
+        &quot;width&quot;: 220,
+        &quot;height&quot;: 134.6,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 16,
+        &quot;borderWidth&quot;: 2,
+        &quot;borderColor&quot;: &quot;#f1c75bff&quot;
+      },
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 14,
+          &quot;y&quot;: 14,
+          &quot;width&quot;: 192,
+          &quot;height&quot;: 15.600000000000001
+        },
+        &quot;width&quot;: 192,
+        &quot;height&quot;: 15.600000000000001,
+        &quot;fontSize&quot;: 12,
+        &quot;fontWeight&quot;: 500,
+        &quot;lineHeight&quot;: 1.3,
+        &quot;color&quot;: &quot;#f1c75bff&quot;,
+        &quot;baseline&quot;: 26.565235137939453
+      },
+      &quot;avatar-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 14,
+          &quot;y&quot;: 42.35,
+          &quot;width&quot;: 28,
+          &quot;height&quot;: 27.999999999999993
+        },
+        &quot;width&quot;: 28,
+        &quot;height&quot;: 27.999999999999993
+      },
+      &quot;initials-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 20.745376586914062,
+          &quot;y&quot;: 50.85,
+          &quot;width&quot;: 14.509246826171875,
+          &quot;height&quot;: 11
+        },
+        &quot;width&quot;: 14.509246826171875,
+        &quot;height&quot;: 11,
+        &quot;fontSize&quot;: 11,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#f1c75bff&quot;,
+        &quot;baseline&quot;: 60.35146484375
+      },
+      &quot;secondary-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 50,
+          &quot;y&quot;: 58.6,
+          &quot;width&quot;: 156,
+          &quot;height&quot;: 16.499999999999993
+        },
+        &quot;width&quot;: 156,
+        &quot;height&quot;: 16.499999999999993,
+        &quot;fontSize&quot;: 11,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 71.35146484375
+      },
+      &quot;name-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 50,
+          &quot;y&quot;: 37.6,
+          &quot;width&quot;: 156,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 156,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 53.1927734375
+      },
+      &quot;avatar-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 14,
+          &quot;y&quot;: 87.85,
+          &quot;width&quot;: 28,
+          &quot;height&quot;: 28
+        },
+        &quot;width&quot;: 28,
+        &quot;height&quot;: 28
+      },
+      &quot;initials-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 20.330345153808594,
+          &quot;y&quot;: 96.35,
+          &quot;width&quot;: 15.339309692382812,
+          &quot;height&quot;: 11
+        },
+        &quot;width&quot;: 15.339309692382812,
+        &quot;height&quot;: 11,
+        &quot;fontSize&quot;: 11,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#f1c75bff&quot;,
+        &quot;baseline&quot;: 105.85146484375
+      },
+      &quot;secondary-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 50,
+          &quot;y&quot;: 104.1,
+          &quot;width&quot;: 156,
+          &quot;height&quot;: 16.5
+        },
+        &quot;width&quot;: 156,
+        &quot;height&quot;: 16.5,
+        &quot;fontSize&quot;: 11,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 116.85146484375
+      },
+      &quot;name-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 50,
+          &quot;y&quot;: 83.1,
+          &quot;width&quot;: 156,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 156,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 98.6927734375
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 751,
+      &quot;meanChannelDelta&quot;: 1.6619079685746352
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/desktop-current.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="desktop-pending"><header><h2>desktop · pending</h2><b class="pass">pass</b></header><p>Compact line boxes сохраняют CSS дробные15.6/16.5px через runtime style×textScaler; без ручных offsets. Baseline estimate допускает1.25px.</p><div class="shots"><figure><figcaption>Web</figcaption><a href="web/desktop-pending.png"><img alt="desktop-pending Web" src="web/desktop-pending.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/desktop-pending.png"><img alt="desktop-pending Flutter" src="flutter/desktop-pending.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/desktop-pending.png"><img alt="desktop-pending Наложение 50/50" src="overlay/desktop-pending.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/desktop-pending.png"><img alt="desktop-pending Diff ×4" src="diff/desktop-pending.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 0 изменённых пикселей; mean channel delta 0.0403/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;desktop-pending&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 220,
+      &quot;height&quot;: 116
+    },
+    &quot;controls&quot;: {
+      &quot;surface&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 220,
+          &quot;height&quot;: 116
+        },
+        &quot;width&quot;: 220,
+        &quot;height&quot;: 116,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 16,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;,
+        &quot;baseline&quot;: 30,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 13,
+          &quot;y&quot;: 13,
+          &quot;width&quot;: 194,
+          &quot;height&quot;: 15.59375
+        },
+        &quot;width&quot;: 194,
+        &quot;height&quot;: 15.59375,
+        &quot;fontSize&quot;: 12,
+        &quot;fontWeight&quot;: 500,
+        &quot;lineHeight&quot;: 1.3,
+        &quot;color&quot;: &quot;#969eacff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#969eacff&quot;,
+        &quot;baseline&quot;: 25,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;pending-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 13,
+          &quot;y&quot;: 41.84375,
+          &quot;width&quot;: 101.078125,
+          &quot;height&quot;: 16
+        },
+        &quot;width&quot;: 101.078125,
+        &quot;height&quot;: 16,
+        &quot;fontSize&quot;: 13,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 54.84375,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;pending-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 13,
+          &quot;y&quot;: 77.84375,
+          &quot;width&quot;: 101,
+          &quot;height&quot;: 16
+        },
+        &quot;width&quot;: 101,
+        &quot;height&quot;: 16,
+        &quot;fontSize&quot;: 13,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 90.84375,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 220,
+      &quot;height&quot;: 116
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/desktop-pending.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;desktop-pending&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 220,
+      &quot;height&quot;: 116
+    },
+    &quot;controls&quot;: {
+      &quot;surface&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 220,
+          &quot;height&quot;: 116
+        },
+        &quot;width&quot;: 220,
+        &quot;height&quot;: 116,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 16,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;
+      },
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 13,
+          &quot;y&quot;: 13,
+          &quot;width&quot;: 194,
+          &quot;height&quot;: 15.600000000000001
+        },
+        &quot;width&quot;: 194,
+        &quot;height&quot;: 15.600000000000001,
+        &quot;fontSize&quot;: 12,
+        &quot;fontWeight&quot;: 500,
+        &quot;lineHeight&quot;: 1.3,
+        &quot;color&quot;: &quot;#969eacff&quot;,
+        &quot;baseline&quot;: 25.565235137939453
+      },
+      &quot;pending-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 13,
+          &quot;y&quot;: 40.6,
+          &quot;width&quot;: 101.0673828125,
+          &quot;height&quot;: 20
+        },
+        &quot;width&quot;: 101.0673828125,
+        &quot;height&quot;: 20,
+        &quot;fontSize&quot;: 13,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 55.57900390625
+      },
+      &quot;pending-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 13,
+          &quot;y&quot;: 76.6,
+          &quot;width&quot;: 100.99755859375,
+          &quot;height&quot;: 20
+        },
+        &quot;width&quot;: 100.99755859375,
+        &quot;height&quot;: 20,
+        &quot;fontSize&quot;: 13,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 91.57900390625
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 0,
+      &quot;meanChannelDelta&quot;: 0.04029519331243469
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/desktop-pending.png&quot;
+    }
+  }
+}</pre></details></article>
+ <footer><small>Run 2026-11-07T20:41:47.308Z. <a href="results.json">Полный JSON</a> · <a href="spec.json">Декларация</a>. Native goldens проверяются отдельно; отчёт не объявляет pixel-perfect при остаточной raster-разнице.</small></footer></html>

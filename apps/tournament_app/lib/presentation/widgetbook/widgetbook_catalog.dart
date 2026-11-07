@@ -1,3 +1,6 @@
+import 'package:tournament_app/presentation/widgetbook/widgets/bracket_node/ready/ready_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/widgets/bracket_node/current/current_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/widgets/bracket_node/pending/pending_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/widgets/data_table/standings/standings_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/components/progress_indicator/animated/animated_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/components/progress_indicator/reduced/reduced_use_case.dart';
@@ -271,6 +274,14 @@ final widgetbookCatalog = <WidgetbookNode>[
       WidgetbookComponent(
         name: 'Data table',
         useCases: [tableStandingsUseCase],
+      ),
+      WidgetbookComponent(
+        name: 'Bracket node',
+        useCases: [
+          bracketReadyUseCase,
+          bracketCurrentUseCase,
+          bracketPendingUseCase,
+        ],
       ),
       WidgetbookComponent(
         name: 'Roster row',

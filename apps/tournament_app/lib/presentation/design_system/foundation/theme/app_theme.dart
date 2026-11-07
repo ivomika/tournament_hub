@@ -1,3 +1,5 @@
+import 'package:tournament_app/presentation/design_system/foundation/primitives/bracket_primitives.dart';
+import 'package:tournament_app/presentation/design_system/foundation/responsive/app_bracket_metrics.dart';
 import 'package:tournament_app/presentation/design_system/foundation/primitives/table_primitives.dart';
 import 'package:tournament_app/presentation/design_system/foundation/responsive/app_table_metrics.dart';
 import 'package:tournament_app/presentation/design_system/foundation/primitives/status_primitives.dart';
@@ -121,6 +123,13 @@ abstract final class AppTheme {
         const AppTextMetrics(
           compactHeaderLine: TypographyPrimitives.compactHeaderLine,
           comfortableHeaderLine: TypographyPrimitives.comfortableHeaderLine,
+        ),
+        const AppBracketMetrics(
+          width: BracketPrimitives.width,
+          minHeight: BracketPrimitives.minHeight,
+          labelSize: BracketPrimitives.labelSize,
+          smallSize: BracketPrimitives.smallSize,
+          unknownSize: BracketPrimitives.unknownSize,
         ),
         const AppTableMetrics(
           trailing: TablePrimitives.trailing,

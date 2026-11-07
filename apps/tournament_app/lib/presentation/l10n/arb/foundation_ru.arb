@@ -213,5 +213,10 @@
   "tableParticipant": "Участник",
   "tablePoints": "Очки",
   "tableMatches": "М",
-  "tableMatchesFull": "Сыграно матчей"
+  "tableMatchesFull": "Сыграно матчей",
+  "bracketReady": "W1 · Раунд 1",
+  "bracketCurrent": "W5 · Сейчас",
+  "bracketPending": "W6 · Полуфинал",
+  "bracketUnknownFirst": "Победитель W3",
+  "bracketUnknownSecond": "Победитель W4"
 }

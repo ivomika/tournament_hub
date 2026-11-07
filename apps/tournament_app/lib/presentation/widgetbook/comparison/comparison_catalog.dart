@@ -1,3 +1,4 @@
+import 'package:tournament_app/presentation/widgetbook/widgets/bracket_node/bracket_comparison.dart';
 import 'package:tournament_app/presentation/widgetbook/widgets/data_table/table_comparison.dart';
 import 'package:tournament_app/presentation/widgetbook/components/progress_indicator/progress_comparison.dart';
 import 'package:tournament_app/presentation/widgetbook/components/notice/notice_comparison.dart';
@@ -30,6 +31,7 @@ import 'package:tournament_app/presentation/widgetbook/components/avatar/avatar_
 
 abstract final class ComparisonCatalog {
   static final List<ComparisonSpec> components = [
+    BracketComparison.spec,
     TableComparison.spec,
     ProgressComparison.spec,
     NoticeComparison.spec,

@@ -40,15 +40,24 @@ class AppIdentity extends StatelessWidget {
                     foreground: avatarForeground,
                   ),
                   SizedBox(width: theme.gap),
-                  Flexible(
-                    child: IntrinsicWidth(
+                  if (theme.fillText)
+                    Expanded(
                       child: _IdentityText(
                         primary: primary,
                         secondary: secondary,
                         theme: theme,
                       ),
+                    )
+                  else
+                    Flexible(
+                      child: IntrinsicWidth(
+                        child: _IdentityText(
+                          primary: primary,
+                          secondary: secondary,
+                          theme: theme,
+                        ),
+                      ),
                     ),
-                  ),
                 ],
               )
             : Column(
@@ -97,11 +106,30 @@ class _IdentityText extends StatelessWidget {
     mainAxisSize: MainAxisSize.min,
     crossAxisAlignment: theme.stretch,
     children: [
-      Text(primary, style: theme.primary, textAlign: theme.textAlign),
+      _IdentityLine(text: primary, style: theme.primary, theme: theme),
       if (secondary != null) ...[
         SizedBox(height: theme.textGap),
-        Text(secondary!, style: theme.secondary, textAlign: theme.textAlign),
+        _IdentityLine(text: secondary!, style: theme.secondary, theme: theme),
       ],
     ],
+  );
+}
+
+class _IdentityLine extends StatelessWidget {
+  const _IdentityLine({
+    required this.text,
+    required this.style,
+    required this.theme,
+  });
+  final String text;
+  final TextStyle style;
+  final AppIdentityTheme theme;
+  @override
+  Widget build(BuildContext context) => SizedBox(
+    height: theme.exactLineBoxes
+        ? MediaQuery.textScalerOf(context).scale(style.fontSize!) *
+              style.height!
+        : null,
+    child: Text(text, style: style, textAlign: theme.textAlign),
   );
 }
