@@ -1,3 +1,4 @@
+import 'package:tournament_app/presentation/widgetbook/components/qr_code/qr_comparison.dart';
 import 'package:tournament_app/presentation/widgetbook/widgets/dialog/dialog_comparison.dart';
 import 'package:tournament_app/presentation/widgetbook/widgets/bracket_node/bracket_comparison.dart';
 import 'package:tournament_app/presentation/widgetbook/widgets/data_table/table_comparison.dart';
@@ -32,6 +33,7 @@ import 'package:tournament_app/presentation/widgetbook/components/avatar/avatar_
 
 abstract final class ComparisonCatalog {
   static final List<ComparisonSpec> components = [
+    QrComparison.spec,
     DialogComparison.spec,
     BracketComparison.spec,
     TableComparison.spec,

@@ -23,6 +23,8 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   generate: true
+  assets:
+    - assets/fixtures/qr_demo_mask.png
   fonts:
     - family: Inter
       fonts:

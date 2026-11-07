@@ -111,6 +111,26 @@ abstract final class _ComparisonDriver {
         EnginePhase.sendSemanticsUpdate,
         const Duration(seconds: 5),
       );
+      for (final picture in tester.widgetList<Image>(find.byType(Image))) {
+        await tester.runAsync(
+          () => precacheImage(
+            picture.image,
+            tester.element(find.byWidget(picture)),
+          ),
+        );
+      }
+      await tester.pumpAndSettle();
+      for (final picture in tester.widgetList<Image>(find.byType(Image))) {
+        final raw = find.descendant(
+          of: find.byWidget(picture),
+          matching: find.byType(RawImage),
+        );
+        expect(
+          tester.widget<RawImage>(raw).image,
+          isNotNull,
+          reason: 'Image fixture must decode before capture: ${scenario.id}',
+        );
+      }
       expect(tester.takeException(), isNull);
       final rootFinder = find.byWidget(actualRoot!);
       final rootRect = tester.getRect(rootFinder);

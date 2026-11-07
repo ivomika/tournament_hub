@@ -244,3 +244,9 @@ Compact Identity exactLineBoxes сохраняет дробную высоту r
 AppDialog: mobile radius32/inset24/title18/1.35, desktop radius24/inset28+border1/title22/1.3. Body16 regular/24, gap16, action gap8 и дополнительные8 перед действиями. Реальные AppButton contextual dialogDestructive/dialogCancel сохраняют radius16/no shadow/center16semibold, danger surface/error и transparent/secondary. Внешние callbacks не удаляют участника.
 
 Source CSS уточнил AppElevation.dialog: offset24/blur80/#0008; исправлены единственные primitives и обновлён owning native shadows showcase. Реальный Widgetbook showDialog использует cancel initial focus/closed-loop Tab/Escape/return focus, семантику route. Source-компонент без device/overlay chrome сравнивается отдельно, настоящая modal проверяется native interaction test.
+
+## QR code — реализация70
+
+AppQrCode принимает готовую AppQrGraphic module alpha-mask ImageProvider, semanticLabel и optional code. Encoder/session/network отсутствуют. Module mask включает quiet zone/finder geometry; runtime theme задаёт foreground=scaffoldBackgroundColor/background=onSurface, radius32, preferred288 mobile/320 desktop. UI kit ограничивает preview220, comparison сохраняет это внешнее constraint. Code condensed26/700/1.2 и padding horizontal16/bottom24; FittedBox.scaleDown поддерживает увеличенный текст без обрезания.
+
+Fixture qr_demo_mask.png880×880 экспортирован из исходного SVG UI kit, source SVG SHA256 fc443865687060b0a68f2ca61a4afefd3141e307228fafc2116daf91441bfa88. Это графические данные, не screenshot surface/code: маска перекрашивается через текущую тему. На production можно передавать другую готовую mask с quiet zone.

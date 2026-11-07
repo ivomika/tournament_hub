@@ -32,3 +32,5 @@ ComparisonControl.webPseudo — typed before/after; browser читает ори�
 Для исходного display:inline capture использует relative positioning, сохраняя inline formatting и glyph box. Fixed превратил бы span в block и изменил высоту; прежняя проверка isolation dimensions это обнаруживает. Прочие roots остаются fixed.
 
 Служебные capture position/left/top/margin/width/z-index применяются с important: CSS source .kit-dialog содержит !important, который иначе оставлял root под capture mask. Layout/style компонента не переписываются; isolation dimension guard остаётся. Native image driver отбрасывает source PNG, полностью совпадающий с фоном: пустой снимок не может дать ложный PASS по одним DOM metrics.
+
+Для fixtures с Image driver ждёт precacheImage в real async context, затем проверяет RawImage.image!=null до capture. Геометрия Image не доказывает загрузку данных; QR выявил пустой первый baseline, который был отклонён ordinary golden после decode. Для загрузки не используются фиксированные sleep/timers.

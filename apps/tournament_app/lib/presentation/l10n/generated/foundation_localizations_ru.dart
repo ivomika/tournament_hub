@@ -464,4 +464,7 @@ class FoundationLocalizationsRu extends FoundationLocalizations {
 
   @override
   String get dialogOpen => 'Открыть диалог';
+
+  @override
+  String get qrDescription => 'Демонстрационный QR подключения участников';
 }

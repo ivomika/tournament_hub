@@ -1,3 +1,5 @@
+import 'package:tournament_app/presentation/widgetbook/components/qr_code/access/access_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/components/qr_code/graphic/graphic_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/widgets/dialog/default/default_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/widgets/dialog/disabled/disabled_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/widgets/dialog/overlay/overlay_use_case.dart';
@@ -149,6 +151,10 @@ final widgetbookCatalog = <WidgetbookNode>[
     name: 'Components',
     isInitiallyExpanded: true,
     children: [
+      WidgetbookComponent(
+        name: 'QR code',
+        useCases: [qrAccessUseCase, qrGraphicUseCase],
+      ),
       WidgetbookComponent(
         name: 'Progress indicator',
         useCases: [

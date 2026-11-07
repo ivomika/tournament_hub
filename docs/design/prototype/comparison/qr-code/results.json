@@ -1,0 +1,715 @@
+{
+  "spec": {
+    "version": 1,
+    "component": "qr-code",
+    "title": "AppQrCode",
+    "source": {
+      "url": "http://127.0.0.1:8094/ui-kit.html"
+    },
+    "tolerances": {
+      "geometry": 0.5,
+      "typography": 0.05,
+      "baseline": 1
+    },
+    "scenarios": [
+      {
+        "id": "mobile-access",
+        "title": "mobile · access",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#c-qr .kit-component:nth-child(1) .kit-adaptation .kit-specimen:nth-of-type(1) .flow-qr-preview",
+        "controls": [
+          {
+            "id": "surface",
+            "webSelector": ":scope",
+            "properties": [
+              "rect",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "graphic",
+            "webSelector": "svg",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "code",
+            "webSelector": ".flow-qr-session",
+            "properties": [
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          }
+        ],
+        "capturePadding": 0,
+        "note": "Реальный Flutter surface/code; graphic — готовая alpha-mask исходного SVG fixture. Encoder/создание сессии не входят в DS.",
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "mobile-graphic",
+        "title": "mobile · graphic",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#c-qr .kit-component:nth-child(2) .kit-adaptation .kit-specimen:nth-of-type(1) .flow-qr-preview",
+        "controls": [
+          {
+            "id": "surface",
+            "webSelector": ":scope",
+            "properties": [
+              "rect",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "graphic",
+            "webSelector": "svg",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 0,
+        "note": "Реальный Flutter surface/code; graphic — готовая alpha-mask исходного SVG fixture. Encoder/создание сессии не входят в DS.",
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "desktop-access",
+        "title": "desktop · access",
+        "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1
+        },
+        "webSelector": "#c-qr .kit-component:nth-child(1) .kit-adaptation .kit-specimen:nth-of-type(2) .flow-qr-preview",
+        "controls": [
+          {
+            "id": "surface",
+            "webSelector": ":scope",
+            "properties": [
+              "rect",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "graphic",
+            "webSelector": "svg",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "code",
+            "webSelector": ".flow-qr-session",
+            "properties": [
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          }
+        ],
+        "capturePadding": 0,
+        "note": "Реальный Flutter surface/code; graphic — готовая alpha-mask исходного SVG fixture. Encoder/создание сессии не входят в DS.",
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "desktop-graphic",
+        "title": "desktop · graphic",
+        "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1
+        },
+        "webSelector": "#c-qr .kit-component:nth-child(2) .kit-adaptation .kit-specimen:nth-of-type(2) .flow-qr-preview",
+        "controls": [
+          {
+            "id": "surface",
+            "webSelector": ":scope",
+            "properties": [
+              "rect",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "graphic",
+            "webSelector": "svg",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 0,
+        "note": "Реальный Flutter surface/code; graphic — готовая alpha-mask исходного SVG fixture. Encoder/создание сессии не входят в DS.",
+        "freezeMilliseconds": 0
+      }
+    ]
+  },
+  "results": [
+    {
+      "id": "mobile-access",
+      "title": "mobile · access",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "mobile-access",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 220,
+          "height": 275.1875
+        },
+        "controls": {
+          "surface": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 220,
+              "height": 275.1875
+            },
+            "width": 220,
+            "height": 275.1875,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#0e1014ff",
+            "background": "#f4f2eeff",
+            "radius": 32,
+            "borderWidth": 0,
+            "borderColor": "#0e1014ff",
+            "baseline": 17,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "graphic": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 220,
+              "height": 220
+            },
+            "width": 220,
+            "height": 220,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#0e1014ff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#0e1014ff",
+            "baseline": 17,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "code": {
+            "rect": {
+              "x": 31.703125,
+              "y": 220,
+              "width": 156.59375,
+              "height": 30
+            },
+            "width": 156.59375,
+            "height": 30,
+            "fontSize": 26,
+            "fontWeight": 700,
+            "lineHeight": 1.2,
+            "color": "#0e1014ff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#0e1014ff",
+            "baseline": 244,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 220,
+          "height": 275.1875
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/mobile-access.png"
+        }
+      },
+      "native": {
+        "id": "mobile-access",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 220,
+          "height": 275
+        },
+        "controls": {
+          "surface": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 220,
+              "height": 275
+            },
+            "width": 220,
+            "height": 275,
+            "radius": 32
+          },
+          "graphic": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 220,
+              "height": 220
+            },
+            "width": 220,
+            "height": 220
+          },
+          "code": {
+            "rect": {
+              "x": 31.708175659179688,
+              "y": 220,
+              "width": 156.58364868164062,
+              "height": 31
+            },
+            "width": 156.58364868164062,
+            "height": 31,
+            "fontSize": 26,
+            "fontWeight": 700,
+            "lineHeight": 1.2,
+            "color": "#0e1014ff",
+            "baseline": 244.28671836853027
+          }
+        },
+        "raster": {
+          "changedPixels": 3354,
+          "meanChannelDelta": 1.0545015371102329
+        },
+        "artifacts": {
+          "image": "flutter/mobile-access.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/mobile-access.png",
+        "flutter": "flutter/mobile-access.png",
+        "overlay": "overlay/mobile-access.png",
+        "diff": "diff/mobile-access.png"
+      },
+      "raster": {
+        "changedPixels": 3354,
+        "meanChannelDelta": 1.0545015371102329
+      }
+    },
+    {
+      "id": "mobile-graphic",
+      "title": "mobile · graphic",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "mobile-graphic",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 220,
+          "height": 220
+        },
+        "controls": {
+          "surface": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 220,
+              "height": 220
+            },
+            "width": 220,
+            "height": 220,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#0e1014ff",
+            "background": "#f4f2eeff",
+            "radius": 32,
+            "borderWidth": 0,
+            "borderColor": "#0e1014ff",
+            "baseline": 17,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "graphic": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 220,
+              "height": 220
+            },
+            "width": 220,
+            "height": 220,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#0e1014ff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#0e1014ff",
+            "baseline": 17,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 220,
+          "height": 220
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/mobile-graphic.png"
+        }
+      },
+      "native": {
+        "id": "mobile-graphic",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 220,
+          "height": 220
+        },
+        "controls": {
+          "surface": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 220,
+              "height": 220
+            },
+            "width": 220,
+            "height": 220,
+            "radius": 32
+          },
+          "graphic": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 220,
+              "height": 220
+            },
+            "width": 220,
+            "height": 220
+          }
+        },
+        "raster": {
+          "changedPixels": 3460,
+          "meanChannelDelta": 1.389862258953168
+        },
+        "artifacts": {
+          "image": "flutter/mobile-graphic.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/mobile-graphic.png",
+        "flutter": "flutter/mobile-graphic.png",
+        "overlay": "overlay/mobile-graphic.png",
+        "diff": "diff/mobile-graphic.png"
+      },
+      "raster": {
+        "changedPixels": 3460,
+        "meanChannelDelta": 1.389862258953168
+      }
+    },
+    {
+      "id": "desktop-access",
+      "title": "desktop · access",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "desktop-access",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 220,
+          "height": 275.1875
+        },
+        "controls": {
+          "surface": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 220,
+              "height": 275.1875
+            },
+            "width": 220,
+            "height": 275.1875,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#0e1014ff",
+            "background": "#f4f2eeff",
+            "radius": 32,
+            "borderWidth": 0,
+            "borderColor": "#0e1014ff",
+            "baseline": 17,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "graphic": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 220,
+              "height": 220
+            },
+            "width": 220,
+            "height": 220,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#0e1014ff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#0e1014ff",
+            "baseline": 17,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "code": {
+            "rect": {
+              "x": 31.703125,
+              "y": 220,
+              "width": 156.59375,
+              "height": 30
+            },
+            "width": 156.59375,
+            "height": 30,
+            "fontSize": 26,
+            "fontWeight": 700,
+            "lineHeight": 1.2,
+            "color": "#0e1014ff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#0e1014ff",
+            "baseline": 244,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 220,
+          "height": 275.1875
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/desktop-access.png"
+        }
+      },
+      "native": {
+        "id": "desktop-access",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 220,
+          "height": 275
+        },
+        "controls": {
+          "surface": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 220,
+              "height": 275
+            },
+            "width": 220,
+            "height": 275,
+            "radius": 32
+          },
+          "graphic": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 220,
+              "height": 220
+            },
+            "width": 220,
+            "height": 220
+          },
+          "code": {
+            "rect": {
+              "x": 31.708175659179688,
+              "y": 220,
+              "width": 156.58364868164062,
+              "height": 31
+            },
+            "width": 156.58364868164062,
+            "height": 31,
+            "fontSize": 26,
+            "fontWeight": 700,
+            "lineHeight": 1.2,
+            "color": "#0e1014ff",
+            "baseline": 244.28671836853027
+          }
+        },
+        "raster": {
+          "changedPixels": 3354,
+          "meanChannelDelta": 1.0545015371102329
+        },
+        "artifacts": {
+          "image": "flutter/desktop-access.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/desktop-access.png",
+        "flutter": "flutter/desktop-access.png",
+        "overlay": "overlay/desktop-access.png",
+        "diff": "diff/desktop-access.png"
+      },
+      "raster": {
+        "changedPixels": 3354,
+        "meanChannelDelta": 1.0545015371102329
+      }
+    },
+    {
+      "id": "desktop-graphic",
+      "title": "desktop · graphic",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "desktop-graphic",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 220,
+          "height": 220
+        },
+        "controls": {
+          "surface": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 220,
+              "height": 220
+            },
+            "width": 220,
+            "height": 220,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#0e1014ff",
+            "background": "#f4f2eeff",
+            "radius": 32,
+            "borderWidth": 0,
+            "borderColor": "#0e1014ff",
+            "baseline": 17,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "graphic": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 220,
+              "height": 220
+            },
+            "width": 220,
+            "height": 220,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#0e1014ff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#0e1014ff",
+            "baseline": 17,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 220,
+          "height": 220
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/desktop-graphic.png"
+        }
+      },
+      "native": {
+        "id": "desktop-graphic",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 220,
+          "height": 220
+        },
+        "controls": {
+          "surface": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 220,
+              "height": 220
+            },
+            "width": 220,
+            "height": 220,
+            "radius": 32
+          },
+          "graphic": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 220,
+              "height": 220
+            },
+            "width": 220,
+            "height": 220
+          }
+        },
+        "raster": {
+          "changedPixels": 3460,
+          "meanChannelDelta": 1.389862258953168
+        },
+        "artifacts": {
+          "image": "flutter/desktop-graphic.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/desktop-graphic.png",
+        "flutter": "flutter/desktop-graphic.png",
+        "overlay": "overlay/desktop-graphic.png",
+        "diff": "diff/desktop-graphic.png"
+      },
+      "raster": {
+        "changedPixels": 3460,
+        "meanChannelDelta": 1.389862258953168
+      }
+    }
+  ],
+  "error": null,
+  "runId": "2026-11-07T20:55:11.830Z"
+}

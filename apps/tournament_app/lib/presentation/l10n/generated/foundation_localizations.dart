@@ -942,6 +942,12 @@ abstract class FoundationLocalizations {
   /// In ru, this message translates to:
   /// **'Открыть диалог'**
   String get dialogOpen;
+
+  /// No description provided for @qrDescription.
+  ///
+  /// In ru, this message translates to:
+  /// **'Демонстрационный QR подключения участников'**
+  String get qrDescription;
 }
 
 class _FoundationLocalizationsDelegate
