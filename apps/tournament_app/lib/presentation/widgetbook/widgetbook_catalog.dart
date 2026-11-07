@@ -1,3 +1,6 @@
+import 'package:tournament_app/presentation/widgetbook/components/progress_indicator/animated/animated_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/components/progress_indicator/reduced/reduced_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/components/progress_indicator/fixed_phase/fixed_phase_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/components/notice/information/information_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/components/notice/operation_error/operation_error_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/components/notice/inline_error/inline_error_use_case.dart';
@@ -139,6 +142,14 @@ final widgetbookCatalog = <WidgetbookNode>[
     name: 'Components',
     isInitiallyExpanded: true,
     children: [
+      WidgetbookComponent(
+        name: 'Progress indicator',
+        useCases: [
+          progressAnimatedUseCase,
+          progressReducedUseCase,
+          progressFixedPhaseUseCase,
+        ],
+      ),
       WidgetbookComponent(
         name: 'Notice',
         useCases: [

@@ -224,3 +224,7 @@ AppDisclosure controlled expanded/onToggle/body slot, без app state. Summary5
 ## Notice — реализация65
 
 AppNotice information/operationError/inlineError использует caption14/21, gap8, top alignment и AppIcon.standard24 во всех вариантах. Information secondary/info, error error/alert. Текст и liveRegion передаются снаружи; сохранения/валидации нет. Flexible сохраняет естественную ширину source span, длинный текст переносится в доступных constraints.
+
+## ProgressIndicator — реализация66
+
+AppProgressIndicator — только стандартный CircularProgressIndicator с semantics label; никакого собственного painter или geometry. Основной AppTheme уже задаёт ProgressIndicatorThemeData(color:ColorScheme.primary, year2023:false) и M3. Параметры/animation SDK, replacement основной ProgressIndicatorThemeData распространяется на существующий widget. HTML waveform признан неверным пользователем: comparison сохраняет обе картинки и явно ожидаемый root.width mismatch; PASS pipeline означает подтверждение утверждённого различия, не visual match. Native start/mid/reduced/replacement snapshots — принимаемый baseline, expected mismatch source-сценарии не подменяют native golden tests.

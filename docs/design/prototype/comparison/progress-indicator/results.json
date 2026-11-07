@@ -1,0 +1,205 @@
+{
+  "spec": {
+    "version": 1,
+    "component": "progress-indicator",
+    "title": "Material3 ProgressIndicator · утверждённое отличие от HTML",
+    "source": {
+      "url": "http://127.0.0.1:8094/ui-kit.html"
+    },
+    "tolerances": {
+      "geometry": 0.25,
+      "typography": 0.05,
+      "baseline": 0.5
+    },
+    "scenarios": [
+      {
+        "id": "mobile-material3",
+        "title": "mobile · Material3",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#c-progress .kit-component-states .kit-specimen:first-child .boot-progress",
+        "controls": [],
+        "capturePadding": 0,
+        "note": "Утверждённое пользователем отличие: ошибочный HTML waveform не переносится. Справа штатный Material3 CircularProgressIndicator из текущей ProgressIndicatorThemeData. Expected mismatch подтверждает различие, не совпадение. Фазы start/mid проверяются native golden.",
+        "expectedFailure": {
+          "control": "root",
+          "property": "rect.width"
+        },
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "desktop-material3",
+        "title": "desktop · Material3",
+        "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1
+        },
+        "webSelector": "#c-progress .kit-component-states .kit-specimen:first-child .boot-progress",
+        "controls": [],
+        "capturePadding": 0,
+        "note": "Утверждённое пользователем отличие: ошибочный HTML waveform не переносится. Справа штатный Material3 CircularProgressIndicator из текущей ProgressIndicatorThemeData. Expected mismatch подтверждает различие, не совпадение. Фазы start/mid проверяются native golden.",
+        "expectedFailure": {
+          "control": "root",
+          "property": "rect.width"
+        },
+        "freezeMilliseconds": 0
+      }
+    ]
+  },
+  "results": [
+    {
+      "id": "mobile-material3",
+      "title": "mobile · Material3",
+      "expectedFailure": {
+        "control": "root",
+        "property": "rect.width"
+      },
+      "status": "fail",
+      "findings": [
+        {
+          "control": "root",
+          "property": "rect.width",
+          "expected": 160,
+          "actual": 48,
+          "delta": 112,
+          "tolerance": 0.25
+        },
+        {
+          "control": "root",
+          "property": "rect.height",
+          "expected": 24,
+          "actual": 48,
+          "delta": 24,
+          "tolerance": 0.25
+        }
+      ],
+      "web": {
+        "id": "mobile-material3",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 160,
+          "height": 24
+        },
+        "controls": {},
+        "originalRoot": {
+          "width": 160,
+          "height": 24
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/mobile-material3.png"
+        }
+      },
+      "native": {
+        "id": "mobile-material3",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 48,
+          "height": 48
+        },
+        "controls": {},
+        "raster": {
+          "changedPixels": 656,
+          "meanChannelDelta": 2.240972222222222
+        },
+        "artifacts": {
+          "image": "flutter/mobile-material3.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/mobile-material3.png",
+        "flutter": "flutter/mobile-material3.png",
+        "overlay": "overlay/mobile-material3.png",
+        "diff": "diff/mobile-material3.png"
+      },
+      "raster": {
+        "changedPixels": 656,
+        "meanChannelDelta": 2.240972222222222
+      },
+      "expectedFailureVerified": true
+    },
+    {
+      "id": "desktop-material3",
+      "title": "desktop · Material3",
+      "expectedFailure": {
+        "control": "root",
+        "property": "rect.width"
+      },
+      "status": "fail",
+      "findings": [
+        {
+          "control": "root",
+          "property": "rect.width",
+          "expected": 160,
+          "actual": 48,
+          "delta": 112,
+          "tolerance": 0.25
+        },
+        {
+          "control": "root",
+          "property": "rect.height",
+          "expected": 24,
+          "actual": 48,
+          "delta": 24,
+          "tolerance": 0.25
+        }
+      ],
+      "web": {
+        "id": "desktop-material3",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 160,
+          "height": 24
+        },
+        "controls": {},
+        "originalRoot": {
+          "width": 160,
+          "height": 24
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/desktop-material3.png"
+        }
+      },
+      "native": {
+        "id": "desktop-material3",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 48,
+          "height": 48
+        },
+        "controls": {},
+        "raster": {
+          "changedPixels": 656,
+          "meanChannelDelta": 2.240972222222222
+        },
+        "artifacts": {
+          "image": "flutter/desktop-material3.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/desktop-material3.png",
+        "flutter": "flutter/desktop-material3.png",
+        "overlay": "overlay/desktop-material3.png",
+        "diff": "diff/desktop-material3.png"
+      },
+      "raster": {
+        "changedPixels": 656,
+        "meanChannelDelta": 2.240972222222222
+      },
+      "expectedFailureVerified": true
+    }
+  ],
+  "error": null,
+  "runId": "2026-11-07T20:25:24.040Z"
+}

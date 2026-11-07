@@ -1,0 +1,40 @@
+[
+  {
+    "id": "mobile-material3",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 160,
+      "height": 24
+    },
+    "controls": {},
+    "originalRoot": {
+      "width": 160,
+      "height": 24
+    },
+    "pageX": 0,
+    "pageY": 0,
+    "artifacts": {
+      "image": "web/mobile-material3.png"
+    }
+  },
+  {
+    "id": "desktop-material3",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 160,
+      "height": 24
+    },
+    "controls": {},
+    "originalRoot": {
+      "width": 160,
+      "height": 24
+    },
+    "pageX": 0,
+    "pageY": 0,
+    "artifacts": {
+      "image": "web/desktop-material3.png"
+    }
+  }
+]

@@ -846,6 +846,12 @@ abstract class FoundationLocalizations {
   /// In ru, this message translates to:
   /// **'Не удалось сохранить. Повтори.'**
   String get noticeError;
+
+  /// No description provided for @progressLoading.
+  ///
+  /// In ru, this message translates to:
+  /// **'Загрузка'**
+  String get progressLoading;
 }
 
 class _FoundationLocalizationsDelegate

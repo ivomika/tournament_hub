@@ -415,4 +415,7 @@ class FoundationLocalizationsRu extends FoundationLocalizations {
 
   @override
   String get noticeError => 'Не удалось сохранить. Повтори.';
+
+  @override
+  String get progressLoading => 'Загрузка';
 }

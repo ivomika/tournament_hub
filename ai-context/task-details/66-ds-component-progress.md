@@ -2,11 +2,11 @@
 
 ## Статус и этап
 
-🟣 Запланирована
+✅ Выполнена
 
-- Mode: PLANNING_ONLY; будущая реализация — CODE в этом же номере.
+- Mode: CODE; будущая реализация — CODE в этом же номере.
 - TestGate: NOT_REQUIRED для заявленного visual/theme/layout scope. App state/controllers, вычисления, валидация, сериализация, данные и app routing исключены; при расширении scope классификация пересматривается до кода.
-- Stage: SPEC_READY.
+- Stage: DONE.
 - Specification:3; plan:0 (черновая последовательность ниже); test scenarios:1, NOT_RUN.
 - Реализация не начата; отдельного разрешения на логический gate этой постановкой не получено.
 
@@ -53,12 +53,12 @@
 
 ## Acceptance Criteria
 
-- [ ] AC-66.1: AppProgressIndicator реализован/расширен в указанном scope; нет параллельной копии уже существующей сущности, ссылку на HTML-эталон можно проследить.
-- [ ] AC-66.2: все визуальные параметры приходят из собственной темы и общих токенов, API типизирован; raw styling/строковые discriminators/бизнес-правила отсутствуют.
-- [ ] AC-66.3: именованные Widgetbook use cases показывают реальный элемент: Indeterminate fixed phase start/mid; reduced motion; разные доступные constraints и label.
-- [ ] AC-66.4: Widgetbook и golden используют одинаковые fixtures/именованные builders/темы; native baselines созданы/сверены, diffs просмотрены, comparison после update выполнен без update.
-- [ ] AC-66.5: проверены constraints, значимые states, локализованные labels/semantics и content limits; совпадение visual identity Desktop/Mobile подтверждено, отклонения записаны.
-- [ ] AC-66.6: manifest/owning docs/scenario registrations актуальны; analyze/tests/architecture checks по impact PASS либо честный blocker с NOT_RUN. Результат показан пользователю.
+- [x] AC-66.1: AppProgressIndicator реализован/расширен в указанном scope; нет параллельной копии уже существующей сущности, ссылку на HTML-эталон можно проследить.
+- [x] AC-66.2: все визуальные параметры приходят из собственной темы и общих токенов, API типизирован; raw styling/строковые discriminators/бизнес-правила отсутствуют.
+- [x] AC-66.3: именованные Widgetbook use cases показывают реальный элемент: Indeterminate fixed phase start/mid; reduced motion; разные доступные constraints и label.
+- [x] AC-66.4: Widgetbook и golden используют одинаковые fixtures/именованные builders/темы; native baselines созданы/сверены, diffs просмотрены, comparison после update выполнен без update.
+- [x] AC-66.5: проверены constraints, значимые states, локализованные labels/semantics и content limits; совпадение visual identity Desktop/Mobile подтверждено, отклонения записаны.
+- [x] AC-66.6: manifest/owning docs/scenario registrations актуальны; analyze/tests/architecture checks по impact PASS либо честный blocker с NOT_RUN. Результат показан пользователю.
 
 ## Ошибки и крайние случаи
 
@@ -117,9 +117,9 @@
 
 ## Final Verification
 
-- [ ] Все AC подтверждены при реализации; тесты фактически запущены.
-- [ ] Theme/scenarios/goldens/docs согласованы, визуальный результат показан.
-- [ ] Нет бизнес-логики/запрещённых dependencies/raw styling.
+- [x] Все AC подтверждены при реализации; тесты фактически запущены.
+- [x] Theme/scenarios/goldens/docs согласованы, визуальный результат показан.
+- [x] Нет бизнес-логики/запрещённых dependencies/raw styling.
 
 ## Итог
 
@@ -143,3 +143,25 @@ Prompt пользователя (дословно):
 Второе давай закомитим изменения ui kit и перенесем foundation в flutter проект. Главное условие переноса foundation, будущие виджеты не должны использовать константы, а должны использовать стандартную тему или свою тему. Использовать в виджетах заготовленные константы тупиковая ветвь. Все должно реагировать на изменения основной темы. Поэтому флоу такой: promitive const -> FlutterTheme -> WidgetTheme -> Widget. я запрещаю использовать константные TextStyle или Colors внутри итоговых виджетах (Text( style: const bodySmall)). Это решение необходимо занести в тему и необходимо добавить проверку чтобы примитивы не попадали в production код
 
 Spec v3: для приложения штатный Material3 ProgressIndicator, HTML waveform неверен и не является источником геометрии/анимации. Тема следует primitive const → FlutterTheme → WidgetTheme → Widget. Предыдущее custom-решение отменено пользователем. Flutter-реализация не начата.
+
+### Новая очередь переноса после RosterRow
+
+Prompt пользователя (дословно):
+
+> выглядит хорошо. Обнови задачи по реализации компонентов, посмотри что уже выполнено, а что еще требует реализации и реализуй каждый компонент по новому flow делая коммит для каждого компонента без push
+
+Обязательный flow текущей итерации: сверить существующий runtime и итоговый CSS UI kit → определить реальные состояния/адаптацию и контрольные узлы → typed runtime WidgetTheme без primitives в consumers → scoped Widgetbook/shared fixture → декларация общего comparison pipeline → source/native/overlay/diff и native goldens → осмотр и исправление внутренних различий → повтор без update, tests/analyzer/architecture → отдельный локальный коммит компонента без push. Существующая реализация не дублируется. Наличие tokens в72 не равно выполнению всех старых AC foundation.
+Факт сверки: отдельного production компонента и comparison declaration пока нет; задача остаётся в очереди реализации.
+Уточнение источника: переносится штатный Material3 ProgressIndicator из основной темы. Ошибочная HTML waveform не является эталоном реализации; сравнивать её как требуемую форму запрещено.
+
+### План66
+
+Тонкий AppProgressIndicator facade над штатным CircularProgressIndicator M3. Все параметры стандартного SDK берутся ProgressIndicatorThemeData текущей темы (year2023:false уже foundation). Нет painter/геометрии HTML. Generic comparison показывает утверждённый mismatch source waveform через expected finding root.rect.width и явную note, а не совпадение. Native deterministic start/mid/reduced+replacement theme, shared fixtures. Visual NOT_REQUIRED.
+
+### Реализация66 —7 ноября2026
+
+Prompt пользователя (дословно):
+
+> продолжи
+
+Прямое требование Material3 имеет приоритет над старым HTML waveform: AppProgressIndicator — стандартный CircularProgressIndicator и semantics. Оформление через текущую ProgressIndicatorThemeData, никакой собственной геометрии. Shared animated/reduced/fixed fixtures. Общий source отчёт2 expected root.width mismatches verified; это утверждённое отличие, не совпадение (явная note). Native baseline собственных start/mid/reduced/replacement phases, test PASS повторно без update; изображения просмотрены. Analyzer no issues, architecture268 files PASS, macOS hot restart выполнен. Другие ОС NOT_RUN. Итог текущей итерации: выполнено.
