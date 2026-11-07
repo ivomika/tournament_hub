@@ -1,3 +1,5 @@
+import 'package:tournament_app/presentation/widgetbook/foundation/spacing/source_scale/source_scale_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/foundation/spacing/application/application_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/foundation/typography/source_roles/source_roles_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/foundation/colors/source_roles/source_roles_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/widgets/roster_row/default/default_use_case.dart';
@@ -38,6 +40,10 @@ final widgetbookCatalog = <WidgetbookNode>[
     name: 'Foundation',
     isInitiallyExpanded: true,
     children: [
+      WidgetbookComponent(
+        name: 'Spacing',
+        useCases: [spacingScaleUseCase, spacingApplicationUseCase],
+      ),
       WidgetbookComponent(
         name: 'Colors',
         useCases: [scalesUseCase, colorsUseCase, sourceColorsUseCase],

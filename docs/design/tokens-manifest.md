@@ -76,7 +76,7 @@ ColorPrimitives содержит static const Color. Суффикс — свет
 
 | Extension | Поля и defaults |
 | --- | --- |
-| AppSpacing | space0/4/8/12/16/20/24/28/32/48/64 — соответствующие logical px |
+| AppSpacing | space0/4/8/12/16/20/24/32/48/64 — соответствующие logical px |
 | AppBorderMetrics | hairline 1, emphasis 2, highContrastFocus 3, focusOffset 4 |
 | AppShape | control 8, nested 16, desktopSurface 20, avatarTile 22, surface 24, panel 32, pill 999; sheet — только верхние углы 24 |
 | AppIconMetrics | small 16, medium 20, standard 24 (включая inline error), large 32, display 48, hero 64 |
@@ -148,3 +148,7 @@ Runtime AppRosterMetrics: cardHeight208, swipeThreshold24, reveal160ms/ease; р�
 ### Завершение Typography41
 
 AppTextStyles — runtime фасад текущей TextTheme, включая Inter optical sizing из AppTypeRoles; primitive tracking0 предотвращает неявное наследование Material tracking. Standard TextTheme overrides сохраняются. AppTextMetrics содержит компактную/просторную header line-height1.4/1.3, размеры следуют labelLarge/bodyLarge. CSS half-leading закреплён в primitive assembly. Source8 ролей в2 viewport: `node tools/visual-comparison/compare.mjs typography`; Title32.5/33px имеет явно отмеченный baseline допуск1.25px вместо ручной подгонки текста.
+
+### Завершение Spacing42
+
+AppSpacing содержит только глобальную подтверждённую шкалу0/4/8/12/16/20/24/32/48/64. Неиспользуемый28 удалён из global API; локальные insets28 принадлежат будущей композиции. FoundationSampleMetrics отделяет размеры developer showcases от product tokens. Source18 cases и actual inset/gap consumer snapshots: `node tools/visual-comparison/compare.mjs spacing`.

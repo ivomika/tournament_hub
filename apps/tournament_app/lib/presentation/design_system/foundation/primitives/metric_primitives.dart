@@ -9,7 +9,6 @@ abstract final class MetricPrimitives {
   static const spacingSpace16 = 16.0;
   static const spacingSpace20 = 20.0;
   static const spacingSpace24 = 24.0;
-  static const spacingSpace28 = 28.0;
   static const spacingSpace32 = 32.0;
   static const spacingSpace48 = 48.0;
   static const spacingSpace64 = 64.0;

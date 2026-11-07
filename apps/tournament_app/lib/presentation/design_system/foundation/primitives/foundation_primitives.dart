@@ -3,6 +3,12 @@ import 'package:tournament_app/presentation/design_system/foundation/primitives/
 
 /// Raw defaults. Only the main ThemeData assembly consumes these values.
 abstract final class FoundationPrimitives {
+  static const sampleBarHeight = 12.0;
+  static const sampleBarRadius = BorderRadius.all(Radius.circular(2));
+  static const sampleShapeExtent = 72.0;
+  static const sampleFontSize = 12.0;
+  static const sampleCenter = Alignment.center;
+
   static const avatarContentAlignment = Alignment.center;
   static const avatarLeadingDistribution = TextLeadingDistribution.even;
   static const shapeControl = BorderRadius.all(Radius.circular(8));

@@ -2,11 +2,11 @@
 
 ## Статус и этап
 
-🟣 Запланирована
+✅ Выполнена
 
-- Mode: PLANNING_ONLY; будущая реализация — CODE в этом же номере.
+- Mode: CODE; будущая реализация — CODE в этом же номере.
 - TestGate: NOT_REQUIRED для заявленного visual/theme/layout scope. App state/controllers, вычисления, валидация, сериализация, данные и app routing исключены; при расширении scope классификация пересматривается до кода.
-- Stage: SPEC_READY.
+- Stage: DONE.
 - Specification:1; plan:0 (черновая последовательность ниже); test scenarios:1, NOT_RUN.
 - Реализация не начата; отдельного разрешения на логический gate этой постановкой не получено.
 
@@ -53,12 +53,12 @@ FoundationLayout существует, но описывает layout color/type
 
 ## Acceptance Criteria
 
-- [ ] AC-42.1: AppSpacing реализован/расширен в указанном scope; нет параллельной копии уже существующей сущности, ссылку на HTML-эталон можно проследить.
-- [ ] AC-42.2: все визуальные параметры приходят из собственной темы и общих токенов, API типизирован; raw styling/строковые discriminators/бизнес-правила отсутствуют.
-- [ ] AC-42.3: именованные Widgetbook use cases показывают реальный элемент: Шкала; gap vs inset; compact/comfortable применения; сравнительный mobile/desktop showcase.
-- [ ] AC-42.4: Widgetbook и golden используют одинаковые fixtures/именованные builders/темы; native baselines созданы/сверены, diffs просмотрены, comparison после update выполнен без update.
-- [ ] AC-42.5: проверены constraints, значимые states, локализованные labels/semantics и content limits; совпадение visual identity Desktop/Mobile подтверждено, отклонения записаны.
-- [ ] AC-42.6: manifest/owning docs/scenario registrations актуальны; analyze/tests/architecture checks по impact PASS либо честный blocker с NOT_RUN. Результат показан пользователю.
+- [x] AC-42.1: AppSpacing реализован/расширен в указанном scope; нет параллельной копии уже существующей сущности, ссылку на HTML-эталон можно проследить.
+- [x] AC-42.2: все визуальные параметры приходят из собственной темы и общих токенов, API типизирован; raw styling/строковые discriminators/бизнес-правила отсутствуют.
+- [x] AC-42.3: именованные Widgetbook use cases показывают реальный элемент: Шкала; gap vs inset; compact/comfortable применения; сравнительный mobile/desktop showcase.
+- [x] AC-42.4: Widgetbook и golden используют одинаковые fixtures/именованные builders/темы; native baselines созданы/сверены, diffs просмотрены, comparison после update выполнен без update.
+- [x] AC-42.5: проверены constraints, значимые states, локализованные labels/semantics и content limits; совпадение visual identity Desktop/Mobile подтверждено, отклонения записаны.
+- [x] AC-42.6: manifest/owning docs/scenario registrations актуальны; analyze/tests/architecture checks по impact PASS либо честный blocker с NOT_RUN. Результат показан пользователю.
 
 ## Ошибки и крайние случаи
 
@@ -124,3 +124,20 @@ FoundationLayout существует, но описывает layout color/type
 ## Итог
 
 Постановка создана; 🟣. Реализация и выполнение Flutter-проверок не начаты.
+
+### Новая очередь переноса после RosterRow
+
+Prompt пользователя (дословно):
+
+> выглядит хорошо. Обнови задачи по реализации компонентов, посмотри что уже выполнено, а что еще требует реализации и реализуй каждый компонент по новому flow делая коммит для каждого компонента без push
+
+Обязательный flow текущей итерации: сверить существующий runtime и итоговый CSS UI kit → определить реальные состояния/адаптацию и контрольные узлы → typed runtime WidgetTheme без primitives в consumers → scoped Widgetbook/shared fixture → декларация общего comparison pipeline → source/native/overlay/diff и native goldens → осмотр и исправление внутренних различий → повтор без update, tests/analyzer/architecture → отдельный локальный коммит компонента без push. Существующая реализация не дублируется. Наличие tokens в72 не равно выполнению всех старых AC foundation.
+Факт сверки: runtime foundation перенесён задачей72; требуется сверить оставшиеся AC этой карточки (showcase/state coverage и документация), прежде чем закрывать номер.
+
+### План42
+
+Продолжение авторизованной очереди. Существующий AppSpacing не дублируется.9 подтверждённых source bars ×2 viewport, новый scoped source/application use cases и shared native application fixture gap/inset из настоящих Surface/Identity. Preview-only геометрия bar12/radius2 идёт primitive → main FoundationSampleMetrics → fixture. Проверки source/native, theme replacement/actual gap/inset и PNG. Visual NOT_REQUIRED.
+
+### Итог42
+
+Source9 bars ×2 viewport PASS18 с update и без; native actual Surface inset24 / Identity gap16 в обоих viewport PASS, runtime spacing override PASS. Удалён неиспользуемый global space28: source относит28 к локальной композиции; глобальная шкала0/4/8/12/16/20/24/32/48/64. Preview geometry12/radius2 отдельно в FoundationSampleMetrics main theme, не product spacing. Native application PNG лично просмотрен; consumer/theme tests PASS7, analyzer и architecture-check PASS. Manifest актуален, macOS only; остальные ОС NOT_RUN. Отдельный коммит42 без push.

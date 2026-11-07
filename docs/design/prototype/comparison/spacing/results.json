@@ -1,0 +1,2037 @@
+{
+  "spec": {
+    "version": 1,
+    "component": "spacing",
+    "title": "Foundation Spacing",
+    "source": {
+      "url": "http://127.0.0.1:8094/ui-kit.html"
+    },
+    "tolerances": {
+      "geometry": 0.25,
+      "typography": 0.05,
+      "baseline": 0.5
+    },
+    "scenarios": [
+      {
+        "id": "mobile-space4",
+        "title": "mobile · space4",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#foundations .kit-space-row:nth-of-type(1) .kit-space-bar",
+        "controls": [
+          {
+            "id": "bar",
+            "webSelector": ":scope",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 0,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "mobile-space8",
+        "title": "mobile · space8",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#foundations .kit-space-row:nth-of-type(2) .kit-space-bar",
+        "controls": [
+          {
+            "id": "bar",
+            "webSelector": ":scope",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 0,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "mobile-space12",
+        "title": "mobile · space12",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#foundations .kit-space-row:nth-of-type(3) .kit-space-bar",
+        "controls": [
+          {
+            "id": "bar",
+            "webSelector": ":scope",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 0,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "mobile-space16",
+        "title": "mobile · space16",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#foundations .kit-space-row:nth-of-type(4) .kit-space-bar",
+        "controls": [
+          {
+            "id": "bar",
+            "webSelector": ":scope",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 0,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "mobile-space20",
+        "title": "mobile · space20",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#foundations .kit-space-row:nth-of-type(5) .kit-space-bar",
+        "controls": [
+          {
+            "id": "bar",
+            "webSelector": ":scope",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 0,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "mobile-space24",
+        "title": "mobile · space24",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#foundations .kit-space-row:nth-of-type(6) .kit-space-bar",
+        "controls": [
+          {
+            "id": "bar",
+            "webSelector": ":scope",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 0,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "mobile-space32",
+        "title": "mobile · space32",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#foundations .kit-space-row:nth-of-type(7) .kit-space-bar",
+        "controls": [
+          {
+            "id": "bar",
+            "webSelector": ":scope",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 0,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "mobile-space48",
+        "title": "mobile · space48",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#foundations .kit-space-row:nth-of-type(8) .kit-space-bar",
+        "controls": [
+          {
+            "id": "bar",
+            "webSelector": ":scope",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 0,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "mobile-space64",
+        "title": "mobile · space64",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#foundations .kit-space-row:nth-of-type(9) .kit-space-bar",
+        "controls": [
+          {
+            "id": "bar",
+            "webSelector": ":scope",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 0,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "desktop-space4",
+        "title": "desktop · space4",
+        "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1
+        },
+        "webSelector": "#foundations .kit-space-row:nth-of-type(1) .kit-space-bar",
+        "controls": [
+          {
+            "id": "bar",
+            "webSelector": ":scope",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 0,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "desktop-space8",
+        "title": "desktop · space8",
+        "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1
+        },
+        "webSelector": "#foundations .kit-space-row:nth-of-type(2) .kit-space-bar",
+        "controls": [
+          {
+            "id": "bar",
+            "webSelector": ":scope",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 0,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "desktop-space12",
+        "title": "desktop · space12",
+        "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1
+        },
+        "webSelector": "#foundations .kit-space-row:nth-of-type(3) .kit-space-bar",
+        "controls": [
+          {
+            "id": "bar",
+            "webSelector": ":scope",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 0,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "desktop-space16",
+        "title": "desktop · space16",
+        "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1
+        },
+        "webSelector": "#foundations .kit-space-row:nth-of-type(4) .kit-space-bar",
+        "controls": [
+          {
+            "id": "bar",
+            "webSelector": ":scope",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 0,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "desktop-space20",
+        "title": "desktop · space20",
+        "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1
+        },
+        "webSelector": "#foundations .kit-space-row:nth-of-type(5) .kit-space-bar",
+        "controls": [
+          {
+            "id": "bar",
+            "webSelector": ":scope",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 0,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "desktop-space24",
+        "title": "desktop · space24",
+        "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1
+        },
+        "webSelector": "#foundations .kit-space-row:nth-of-type(6) .kit-space-bar",
+        "controls": [
+          {
+            "id": "bar",
+            "webSelector": ":scope",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 0,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "desktop-space32",
+        "title": "desktop · space32",
+        "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1
+        },
+        "webSelector": "#foundations .kit-space-row:nth-of-type(7) .kit-space-bar",
+        "controls": [
+          {
+            "id": "bar",
+            "webSelector": ":scope",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 0,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "desktop-space48",
+        "title": "desktop · space48",
+        "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1
+        },
+        "webSelector": "#foundations .kit-space-row:nth-of-type(8) .kit-space-bar",
+        "controls": [
+          {
+            "id": "bar",
+            "webSelector": ":scope",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 0,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "desktop-space64",
+        "title": "desktop · space64",
+        "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1
+        },
+        "webSelector": "#foundations .kit-space-row:nth-of-type(9) .kit-space-bar",
+        "controls": [
+          {
+            "id": "bar",
+            "webSelector": ":scope",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 0,
+        "freezeMilliseconds": 0
+      }
+    ]
+  },
+  "results": [
+    {
+      "id": "mobile-space4",
+      "title": "mobile · space4",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "mobile-space4",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 4,
+          "height": 12
+        },
+        "controls": {
+          "bar": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 4,
+              "height": 12
+            },
+            "width": 4,
+            "height": 12,
+            "fontSize": 12,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#f1c75bff",
+            "radius": 2,
+            "borderWidth": 0,
+            "baseline": 12,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 4,
+          "height": 12
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/mobile-space4.png"
+        }
+      },
+      "native": {
+        "id": "mobile-space4",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 4,
+          "height": 12
+        },
+        "controls": {
+          "bar": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 4,
+              "height": 12
+            },
+            "width": 4,
+            "height": 12,
+            "background": "#f1c75bff",
+            "radius": 2,
+            "borderWidth": 0
+          }
+        },
+        "raster": {
+          "changedPixels": 0,
+          "meanChannelDelta": 0.1388888888888889
+        },
+        "artifacts": {
+          "image": "flutter/mobile-space4.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/mobile-space4.png",
+        "flutter": "flutter/mobile-space4.png",
+        "overlay": "overlay/mobile-space4.png",
+        "diff": "diff/mobile-space4.png"
+      },
+      "raster": {
+        "changedPixels": 0,
+        "meanChannelDelta": 0.1388888888888889
+      }
+    },
+    {
+      "id": "mobile-space8",
+      "title": "mobile · space8",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "mobile-space8",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 8,
+          "height": 12
+        },
+        "controls": {
+          "bar": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 8,
+              "height": 12
+            },
+            "width": 8,
+            "height": 12,
+            "fontSize": 12,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#f1c75bff",
+            "radius": 2,
+            "borderWidth": 0,
+            "baseline": 12,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 8,
+          "height": 12
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/mobile-space8.png"
+        }
+      },
+      "native": {
+        "id": "mobile-space8",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 8,
+          "height": 12
+        },
+        "controls": {
+          "bar": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 8,
+              "height": 12
+            },
+            "width": 8,
+            "height": 12,
+            "background": "#f1c75bff",
+            "radius": 2,
+            "borderWidth": 0
+          }
+        },
+        "raster": {
+          "changedPixels": 0,
+          "meanChannelDelta": 0.06944444444444445
+        },
+        "artifacts": {
+          "image": "flutter/mobile-space8.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/mobile-space8.png",
+        "flutter": "flutter/mobile-space8.png",
+        "overlay": "overlay/mobile-space8.png",
+        "diff": "diff/mobile-space8.png"
+      },
+      "raster": {
+        "changedPixels": 0,
+        "meanChannelDelta": 0.06944444444444445
+      }
+    },
+    {
+      "id": "mobile-space12",
+      "title": "mobile · space12",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "mobile-space12",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 12,
+          "height": 12
+        },
+        "controls": {
+          "bar": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 12,
+              "height": 12
+            },
+            "width": 12,
+            "height": 12,
+            "fontSize": 12,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#f1c75bff",
+            "radius": 2,
+            "borderWidth": 0,
+            "baseline": 12,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 12,
+          "height": 12
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/mobile-space12.png"
+        }
+      },
+      "native": {
+        "id": "mobile-space12",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 12,
+          "height": 12
+        },
+        "controls": {
+          "bar": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 12,
+              "height": 12
+            },
+            "width": 12,
+            "height": 12,
+            "background": "#f1c75bff",
+            "radius": 2,
+            "borderWidth": 0
+          }
+        },
+        "raster": {
+          "changedPixels": 0,
+          "meanChannelDelta": 0.046296296296296294
+        },
+        "artifacts": {
+          "image": "flutter/mobile-space12.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/mobile-space12.png",
+        "flutter": "flutter/mobile-space12.png",
+        "overlay": "overlay/mobile-space12.png",
+        "diff": "diff/mobile-space12.png"
+      },
+      "raster": {
+        "changedPixels": 0,
+        "meanChannelDelta": 0.046296296296296294
+      }
+    },
+    {
+      "id": "mobile-space16",
+      "title": "mobile · space16",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "mobile-space16",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 16,
+          "height": 12
+        },
+        "controls": {
+          "bar": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 16,
+              "height": 12
+            },
+            "width": 16,
+            "height": 12,
+            "fontSize": 12,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#f1c75bff",
+            "radius": 2,
+            "borderWidth": 0,
+            "baseline": 12,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 16,
+          "height": 12
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/mobile-space16.png"
+        }
+      },
+      "native": {
+        "id": "mobile-space16",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 16,
+          "height": 12
+        },
+        "controls": {
+          "bar": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 16,
+              "height": 12
+            },
+            "width": 16,
+            "height": 12,
+            "background": "#f1c75bff",
+            "radius": 2,
+            "borderWidth": 0
+          }
+        },
+        "raster": {
+          "changedPixels": 0,
+          "meanChannelDelta": 0.034722222222222224
+        },
+        "artifacts": {
+          "image": "flutter/mobile-space16.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/mobile-space16.png",
+        "flutter": "flutter/mobile-space16.png",
+        "overlay": "overlay/mobile-space16.png",
+        "diff": "diff/mobile-space16.png"
+      },
+      "raster": {
+        "changedPixels": 0,
+        "meanChannelDelta": 0.034722222222222224
+      }
+    },
+    {
+      "id": "mobile-space20",
+      "title": "mobile · space20",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "mobile-space20",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 20,
+          "height": 12
+        },
+        "controls": {
+          "bar": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 20,
+              "height": 12
+            },
+            "width": 20,
+            "height": 12,
+            "fontSize": 12,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#f1c75bff",
+            "radius": 2,
+            "borderWidth": 0,
+            "baseline": 12,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 20,
+          "height": 12
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/mobile-space20.png"
+        }
+      },
+      "native": {
+        "id": "mobile-space20",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 20,
+          "height": 12
+        },
+        "controls": {
+          "bar": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 20,
+              "height": 12
+            },
+            "width": 20,
+            "height": 12,
+            "background": "#f1c75bff",
+            "radius": 2,
+            "borderWidth": 0
+          }
+        },
+        "raster": {
+          "changedPixels": 0,
+          "meanChannelDelta": 0.027777777777777776
+        },
+        "artifacts": {
+          "image": "flutter/mobile-space20.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/mobile-space20.png",
+        "flutter": "flutter/mobile-space20.png",
+        "overlay": "overlay/mobile-space20.png",
+        "diff": "diff/mobile-space20.png"
+      },
+      "raster": {
+        "changedPixels": 0,
+        "meanChannelDelta": 0.027777777777777776
+      }
+    },
+    {
+      "id": "mobile-space24",
+      "title": "mobile · space24",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "mobile-space24",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 12
+        },
+        "controls": {
+          "bar": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 24,
+              "height": 12
+            },
+            "width": 24,
+            "height": 12,
+            "fontSize": 12,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#f1c75bff",
+            "radius": 2,
+            "borderWidth": 0,
+            "baseline": 12,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 24,
+          "height": 12
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/mobile-space24.png"
+        }
+      },
+      "native": {
+        "id": "mobile-space24",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 12
+        },
+        "controls": {
+          "bar": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 24,
+              "height": 12
+            },
+            "width": 24,
+            "height": 12,
+            "background": "#f1c75bff",
+            "radius": 2,
+            "borderWidth": 0
+          }
+        },
+        "raster": {
+          "changedPixels": 0,
+          "meanChannelDelta": 0.023148148148148147
+        },
+        "artifacts": {
+          "image": "flutter/mobile-space24.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/mobile-space24.png",
+        "flutter": "flutter/mobile-space24.png",
+        "overlay": "overlay/mobile-space24.png",
+        "diff": "diff/mobile-space24.png"
+      },
+      "raster": {
+        "changedPixels": 0,
+        "meanChannelDelta": 0.023148148148148147
+      }
+    },
+    {
+      "id": "mobile-space32",
+      "title": "mobile · space32",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "mobile-space32",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 32,
+          "height": 12
+        },
+        "controls": {
+          "bar": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 32,
+              "height": 12
+            },
+            "width": 32,
+            "height": 12,
+            "fontSize": 12,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#f1c75bff",
+            "radius": 2,
+            "borderWidth": 0,
+            "baseline": 12,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 32,
+          "height": 12
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/mobile-space32.png"
+        }
+      },
+      "native": {
+        "id": "mobile-space32",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 32,
+          "height": 12
+        },
+        "controls": {
+          "bar": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 32,
+              "height": 12
+            },
+            "width": 32,
+            "height": 12,
+            "background": "#f1c75bff",
+            "radius": 2,
+            "borderWidth": 0
+          }
+        },
+        "raster": {
+          "changedPixels": 0,
+          "meanChannelDelta": 0.017361111111111112
+        },
+        "artifacts": {
+          "image": "flutter/mobile-space32.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/mobile-space32.png",
+        "flutter": "flutter/mobile-space32.png",
+        "overlay": "overlay/mobile-space32.png",
+        "diff": "diff/mobile-space32.png"
+      },
+      "raster": {
+        "changedPixels": 0,
+        "meanChannelDelta": 0.017361111111111112
+      }
+    },
+    {
+      "id": "mobile-space48",
+      "title": "mobile · space48",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "mobile-space48",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 48,
+          "height": 12
+        },
+        "controls": {
+          "bar": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 48,
+              "height": 12
+            },
+            "width": 48,
+            "height": 12,
+            "fontSize": 12,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#f1c75bff",
+            "radius": 2,
+            "borderWidth": 0,
+            "baseline": 12,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 48,
+          "height": 12
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/mobile-space48.png"
+        }
+      },
+      "native": {
+        "id": "mobile-space48",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 48,
+          "height": 12
+        },
+        "controls": {
+          "bar": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 48,
+              "height": 12
+            },
+            "width": 48,
+            "height": 12,
+            "background": "#f1c75bff",
+            "radius": 2,
+            "borderWidth": 0
+          }
+        },
+        "raster": {
+          "changedPixels": 0,
+          "meanChannelDelta": 0.011574074074074073
+        },
+        "artifacts": {
+          "image": "flutter/mobile-space48.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/mobile-space48.png",
+        "flutter": "flutter/mobile-space48.png",
+        "overlay": "overlay/mobile-space48.png",
+        "diff": "diff/mobile-space48.png"
+      },
+      "raster": {
+        "changedPixels": 0,
+        "meanChannelDelta": 0.011574074074074073
+      }
+    },
+    {
+      "id": "mobile-space64",
+      "title": "mobile · space64",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "mobile-space64",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 64,
+          "height": 12
+        },
+        "controls": {
+          "bar": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 64,
+              "height": 12
+            },
+            "width": 64,
+            "height": 12,
+            "fontSize": 12,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#f1c75bff",
+            "radius": 2,
+            "borderWidth": 0,
+            "baseline": 12,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 64,
+          "height": 12
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/mobile-space64.png"
+        }
+      },
+      "native": {
+        "id": "mobile-space64",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 64,
+          "height": 12
+        },
+        "controls": {
+          "bar": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 64,
+              "height": 12
+            },
+            "width": 64,
+            "height": 12,
+            "background": "#f1c75bff",
+            "radius": 2,
+            "borderWidth": 0
+          }
+        },
+        "raster": {
+          "changedPixels": 0,
+          "meanChannelDelta": 0.008680555555555556
+        },
+        "artifacts": {
+          "image": "flutter/mobile-space64.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/mobile-space64.png",
+        "flutter": "flutter/mobile-space64.png",
+        "overlay": "overlay/mobile-space64.png",
+        "diff": "diff/mobile-space64.png"
+      },
+      "raster": {
+        "changedPixels": 0,
+        "meanChannelDelta": 0.008680555555555556
+      }
+    },
+    {
+      "id": "desktop-space4",
+      "title": "desktop · space4",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "desktop-space4",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 4,
+          "height": 12
+        },
+        "controls": {
+          "bar": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 4,
+              "height": 12
+            },
+            "width": 4,
+            "height": 12,
+            "fontSize": 12,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#f1c75bff",
+            "radius": 2,
+            "borderWidth": 0,
+            "baseline": 12,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 4,
+          "height": 12
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/desktop-space4.png"
+        }
+      },
+      "native": {
+        "id": "desktop-space4",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 4,
+          "height": 12
+        },
+        "controls": {
+          "bar": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 4,
+              "height": 12
+            },
+            "width": 4,
+            "height": 12,
+            "background": "#f1c75bff",
+            "radius": 2,
+            "borderWidth": 0
+          }
+        },
+        "raster": {
+          "changedPixels": 0,
+          "meanChannelDelta": 0.1388888888888889
+        },
+        "artifacts": {
+          "image": "flutter/desktop-space4.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/desktop-space4.png",
+        "flutter": "flutter/desktop-space4.png",
+        "overlay": "overlay/desktop-space4.png",
+        "diff": "diff/desktop-space4.png"
+      },
+      "raster": {
+        "changedPixels": 0,
+        "meanChannelDelta": 0.1388888888888889
+      }
+    },
+    {
+      "id": "desktop-space8",
+      "title": "desktop · space8",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "desktop-space8",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 8,
+          "height": 12
+        },
+        "controls": {
+          "bar": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 8,
+              "height": 12
+            },
+            "width": 8,
+            "height": 12,
+            "fontSize": 12,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#f1c75bff",
+            "radius": 2,
+            "borderWidth": 0,
+            "baseline": 12,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 8,
+          "height": 12
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/desktop-space8.png"
+        }
+      },
+      "native": {
+        "id": "desktop-space8",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 8,
+          "height": 12
+        },
+        "controls": {
+          "bar": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 8,
+              "height": 12
+            },
+            "width": 8,
+            "height": 12,
+            "background": "#f1c75bff",
+            "radius": 2,
+            "borderWidth": 0
+          }
+        },
+        "raster": {
+          "changedPixels": 0,
+          "meanChannelDelta": 0.06944444444444445
+        },
+        "artifacts": {
+          "image": "flutter/desktop-space8.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/desktop-space8.png",
+        "flutter": "flutter/desktop-space8.png",
+        "overlay": "overlay/desktop-space8.png",
+        "diff": "diff/desktop-space8.png"
+      },
+      "raster": {
+        "changedPixels": 0,
+        "meanChannelDelta": 0.06944444444444445
+      }
+    },
+    {
+      "id": "desktop-space12",
+      "title": "desktop · space12",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "desktop-space12",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 12,
+          "height": 12
+        },
+        "controls": {
+          "bar": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 12,
+              "height": 12
+            },
+            "width": 12,
+            "height": 12,
+            "fontSize": 12,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#f1c75bff",
+            "radius": 2,
+            "borderWidth": 0,
+            "baseline": 12,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 12,
+          "height": 12
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/desktop-space12.png"
+        }
+      },
+      "native": {
+        "id": "desktop-space12",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 12,
+          "height": 12
+        },
+        "controls": {
+          "bar": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 12,
+              "height": 12
+            },
+            "width": 12,
+            "height": 12,
+            "background": "#f1c75bff",
+            "radius": 2,
+            "borderWidth": 0
+          }
+        },
+        "raster": {
+          "changedPixels": 0,
+          "meanChannelDelta": 0.046296296296296294
+        },
+        "artifacts": {
+          "image": "flutter/desktop-space12.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/desktop-space12.png",
+        "flutter": "flutter/desktop-space12.png",
+        "overlay": "overlay/desktop-space12.png",
+        "diff": "diff/desktop-space12.png"
+      },
+      "raster": {
+        "changedPixels": 0,
+        "meanChannelDelta": 0.046296296296296294
+      }
+    },
+    {
+      "id": "desktop-space16",
+      "title": "desktop · space16",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "desktop-space16",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 16,
+          "height": 12
+        },
+        "controls": {
+          "bar": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 16,
+              "height": 12
+            },
+            "width": 16,
+            "height": 12,
+            "fontSize": 12,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#f1c75bff",
+            "radius": 2,
+            "borderWidth": 0,
+            "baseline": 12,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 16,
+          "height": 12
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/desktop-space16.png"
+        }
+      },
+      "native": {
+        "id": "desktop-space16",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 16,
+          "height": 12
+        },
+        "controls": {
+          "bar": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 16,
+              "height": 12
+            },
+            "width": 16,
+            "height": 12,
+            "background": "#f1c75bff",
+            "radius": 2,
+            "borderWidth": 0
+          }
+        },
+        "raster": {
+          "changedPixels": 0,
+          "meanChannelDelta": 0.034722222222222224
+        },
+        "artifacts": {
+          "image": "flutter/desktop-space16.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/desktop-space16.png",
+        "flutter": "flutter/desktop-space16.png",
+        "overlay": "overlay/desktop-space16.png",
+        "diff": "diff/desktop-space16.png"
+      },
+      "raster": {
+        "changedPixels": 0,
+        "meanChannelDelta": 0.034722222222222224
+      }
+    },
+    {
+      "id": "desktop-space20",
+      "title": "desktop · space20",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "desktop-space20",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 20,
+          "height": 12
+        },
+        "controls": {
+          "bar": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 20,
+              "height": 12
+            },
+            "width": 20,
+            "height": 12,
+            "fontSize": 12,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#f1c75bff",
+            "radius": 2,
+            "borderWidth": 0,
+            "baseline": 12,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 20,
+          "height": 12
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/desktop-space20.png"
+        }
+      },
+      "native": {
+        "id": "desktop-space20",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 20,
+          "height": 12
+        },
+        "controls": {
+          "bar": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 20,
+              "height": 12
+            },
+            "width": 20,
+            "height": 12,
+            "background": "#f1c75bff",
+            "radius": 2,
+            "borderWidth": 0
+          }
+        },
+        "raster": {
+          "changedPixels": 0,
+          "meanChannelDelta": 0.027777777777777776
+        },
+        "artifacts": {
+          "image": "flutter/desktop-space20.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/desktop-space20.png",
+        "flutter": "flutter/desktop-space20.png",
+        "overlay": "overlay/desktop-space20.png",
+        "diff": "diff/desktop-space20.png"
+      },
+      "raster": {
+        "changedPixels": 0,
+        "meanChannelDelta": 0.027777777777777776
+      }
+    },
+    {
+      "id": "desktop-space24",
+      "title": "desktop · space24",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "desktop-space24",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 12
+        },
+        "controls": {
+          "bar": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 24,
+              "height": 12
+            },
+            "width": 24,
+            "height": 12,
+            "fontSize": 12,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#f1c75bff",
+            "radius": 2,
+            "borderWidth": 0,
+            "baseline": 12,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 24,
+          "height": 12
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/desktop-space24.png"
+        }
+      },
+      "native": {
+        "id": "desktop-space24",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 12
+        },
+        "controls": {
+          "bar": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 24,
+              "height": 12
+            },
+            "width": 24,
+            "height": 12,
+            "background": "#f1c75bff",
+            "radius": 2,
+            "borderWidth": 0
+          }
+        },
+        "raster": {
+          "changedPixels": 0,
+          "meanChannelDelta": 0.023148148148148147
+        },
+        "artifacts": {
+          "image": "flutter/desktop-space24.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/desktop-space24.png",
+        "flutter": "flutter/desktop-space24.png",
+        "overlay": "overlay/desktop-space24.png",
+        "diff": "diff/desktop-space24.png"
+      },
+      "raster": {
+        "changedPixels": 0,
+        "meanChannelDelta": 0.023148148148148147
+      }
+    },
+    {
+      "id": "desktop-space32",
+      "title": "desktop · space32",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "desktop-space32",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 32,
+          "height": 12
+        },
+        "controls": {
+          "bar": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 32,
+              "height": 12
+            },
+            "width": 32,
+            "height": 12,
+            "fontSize": 12,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#f1c75bff",
+            "radius": 2,
+            "borderWidth": 0,
+            "baseline": 12,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 32,
+          "height": 12
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/desktop-space32.png"
+        }
+      },
+      "native": {
+        "id": "desktop-space32",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 32,
+          "height": 12
+        },
+        "controls": {
+          "bar": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 32,
+              "height": 12
+            },
+            "width": 32,
+            "height": 12,
+            "background": "#f1c75bff",
+            "radius": 2,
+            "borderWidth": 0
+          }
+        },
+        "raster": {
+          "changedPixels": 0,
+          "meanChannelDelta": 0.017361111111111112
+        },
+        "artifacts": {
+          "image": "flutter/desktop-space32.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/desktop-space32.png",
+        "flutter": "flutter/desktop-space32.png",
+        "overlay": "overlay/desktop-space32.png",
+        "diff": "diff/desktop-space32.png"
+      },
+      "raster": {
+        "changedPixels": 0,
+        "meanChannelDelta": 0.017361111111111112
+      }
+    },
+    {
+      "id": "desktop-space48",
+      "title": "desktop · space48",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "desktop-space48",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 48,
+          "height": 12
+        },
+        "controls": {
+          "bar": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 48,
+              "height": 12
+            },
+            "width": 48,
+            "height": 12,
+            "fontSize": 12,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#f1c75bff",
+            "radius": 2,
+            "borderWidth": 0,
+            "baseline": 12,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 48,
+          "height": 12
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/desktop-space48.png"
+        }
+      },
+      "native": {
+        "id": "desktop-space48",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 48,
+          "height": 12
+        },
+        "controls": {
+          "bar": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 48,
+              "height": 12
+            },
+            "width": 48,
+            "height": 12,
+            "background": "#f1c75bff",
+            "radius": 2,
+            "borderWidth": 0
+          }
+        },
+        "raster": {
+          "changedPixels": 0,
+          "meanChannelDelta": 0.011574074074074073
+        },
+        "artifacts": {
+          "image": "flutter/desktop-space48.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/desktop-space48.png",
+        "flutter": "flutter/desktop-space48.png",
+        "overlay": "overlay/desktop-space48.png",
+        "diff": "diff/desktop-space48.png"
+      },
+      "raster": {
+        "changedPixels": 0,
+        "meanChannelDelta": 0.011574074074074073
+      }
+    },
+    {
+      "id": "desktop-space64",
+      "title": "desktop · space64",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "desktop-space64",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 64,
+          "height": 12
+        },
+        "controls": {
+          "bar": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 64,
+              "height": 12
+            },
+            "width": 64,
+            "height": 12,
+            "fontSize": 12,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#f1c75bff",
+            "radius": 2,
+            "borderWidth": 0,
+            "baseline": 12,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 64,
+          "height": 12
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/desktop-space64.png"
+        }
+      },
+      "native": {
+        "id": "desktop-space64",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 64,
+          "height": 12
+        },
+        "controls": {
+          "bar": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 64,
+              "height": 12
+            },
+            "width": 64,
+            "height": 12,
+            "background": "#f1c75bff",
+            "radius": 2,
+            "borderWidth": 0
+          }
+        },
+        "raster": {
+          "changedPixels": 0,
+          "meanChannelDelta": 0.008680555555555556
+        },
+        "artifacts": {
+          "image": "flutter/desktop-space64.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/desktop-space64.png",
+        "flutter": "flutter/desktop-space64.png",
+        "overlay": "overlay/desktop-space64.png",
+        "diff": "diff/desktop-space64.png"
+      },
+      "raster": {
+        "changedPixels": 0,
+        "meanChannelDelta": 0.008680555555555556
+      }
+    }
+  ],
+  "error": null,
+  "runId": "2026-11-07T17:19:52.209Z"
+}

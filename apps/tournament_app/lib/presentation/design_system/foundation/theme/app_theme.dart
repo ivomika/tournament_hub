@@ -1,3 +1,4 @@
+import 'package:tournament_app/presentation/design_system/foundation/layout/foundation_sample_metrics.dart';
 import 'package:tournament_app/presentation/design_system/foundation/typography/app_text_metrics.dart';
 import 'package:tournament_app/presentation/design_system/foundation/primitives/roster_primitives.dart';
 import 'package:tournament_app/presentation/design_system/foundation/responsive/app_roster_metrics.dart';
@@ -95,6 +96,13 @@ abstract final class AppTheme {
         year2023: false,
       ),
       extensions: [
+        const FoundationSampleMetrics(
+          barHeight: FoundationPrimitives.sampleBarHeight,
+          barRadius: FoundationPrimitives.sampleBarRadius,
+          shapeExtent: FoundationPrimitives.sampleShapeExtent,
+          fontSize: FoundationPrimitives.sampleFontSize,
+          center: FoundationPrimitives.sampleCenter,
+        ),
         const AppTextMetrics(
           compactHeaderLine: TypographyPrimitives.compactHeaderLine,
           comfortableHeaderLine: TypographyPrimitives.comfortableHeaderLine,
@@ -165,7 +173,6 @@ abstract final class AppTheme {
           space16: MetricPrimitives.spacingSpace16,
           space20: MetricPrimitives.spacingSpace20,
           space24: MetricPrimitives.spacingSpace24,
-          space28: MetricPrimitives.spacingSpace28,
           space32: MetricPrimitives.spacingSpace32,
           space48: MetricPrimitives.spacingSpace48,
           space64: MetricPrimitives.spacingSpace64,

@@ -11,7 +11,6 @@ class AppSpacing extends ThemeExtension<AppSpacing> {
     required this.space16,
     required this.space20,
     required this.space24,
-    required this.space28,
     required this.space32,
     required this.space48,
     required this.space64,
@@ -23,7 +22,6 @@ class AppSpacing extends ThemeExtension<AppSpacing> {
   final double space16;
   final double space20;
   final double space24;
-  final double space28;
   final double space32;
   final double space48;
   final double space64;
@@ -36,7 +34,6 @@ class AppSpacing extends ThemeExtension<AppSpacing> {
     double? space16,
     double? space20,
     double? space24,
-    double? space28,
     double? space32,
     double? space48,
     double? space64,
@@ -48,7 +45,6 @@ class AppSpacing extends ThemeExtension<AppSpacing> {
     space16: space16 ?? this.space16,
     space20: space20 ?? this.space20,
     space24: space24 ?? this.space24,
-    space28: space28 ?? this.space28,
     space32: space32 ?? this.space32,
     space48: space48 ?? this.space48,
     space64: space64 ?? this.space64,
@@ -64,7 +60,6 @@ class AppSpacing extends ThemeExtension<AppSpacing> {
       space16: lerpDouble(space16, other.space16, t)!,
       space20: lerpDouble(space20, other.space20, t)!,
       space24: lerpDouble(space24, other.space24, t)!,
-      space28: lerpDouble(space28, other.space28, t)!,
       space32: lerpDouble(space32, other.space32, t)!,
       space48: lerpDouble(space48, other.space48, t)!,
       space64: lerpDouble(space64, other.space64, t)!,
