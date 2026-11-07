@@ -14,3 +14,7 @@
 ## Контракт Flutter темы
 
 `python3 tools/check_theme_contract.py` выполняет архитектурные self-tests, regression fixtures R-003.g (функции классов) и запрета primitives/raw styles, проверку реальных lib/test и Flutter theme propagation tests. `--static-only` выполняет первые три шага без Flutter. Скрипт запускается из любой директории; DART и FLUTTER задают SDK executable. Make shortcuts: `make theme-check` и `make theme-test`. Любой отказ возвращает ненулевой код. Контракт и исключения описаны в [runtime foundation](../docs/architecture/runtime-theme-foundation.md).
+
+## Пилот визуального сравнения Avatar
+
+[Инструкция](visual-comparison/README.md) описывает fixed test-only capture оригинального UI kit через отдельный headless Chrome, native Flutter screenshots, overlay/diff и статический локальный отчёт. Продуктовые HTML/CSS эталона не изменяются.

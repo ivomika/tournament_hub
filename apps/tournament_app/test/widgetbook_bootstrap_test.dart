@@ -26,8 +26,9 @@ abstract final class _WidgetbookBootstrapTests {
     final rootFinder = find.byType(Widgetbook);
     expect(rootFinder, findsOneWidget);
     final root = tester.widget<Widgetbook>(rootFinder);
-    expect(root.directories, hasLength(1));
-    expect(root.directories.single.children, hasLength(2));
+    expect(root.directories, hasLength(2));
+    expect(root.directories.first.children, hasLength(2));
+    expect(root.directories.last.children!.single.name, 'Avatar');
     expect(root.addons, anyOf(isNull, isEmpty));
     expect(root.integrations, anyOf(isNull, isEmpty));
     expect(tester.takeException(), isNull);

@@ -1,3 +1,11 @@
+import 'package:tournament_app/presentation/widgetbook/components/avatar/content/content_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/components/avatar/size_28/size_28_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/components/avatar/size_40/size_40_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/components/avatar/size_48/size_48_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/components/avatar/size_64/size_64_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/components/avatar/size_96/size_96_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/components/avatar/size_112/size_112_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/components/avatar/size_128/size_128_use_case.dart';
 import 'package:widgetbook/widgetbook.dart';
 import 'package:tournament_app/presentation/widgetbook/foundation/colors/dark_palette/colors_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/foundation/colors/primitive_scales/scales_use_case.dart';
@@ -14,6 +22,25 @@ final widgetbookCatalog = <WidgetbookNode>[
         useCases: [scalesUseCase, colorsUseCase],
       ),
       WidgetbookComponent(name: 'Typography', useCases: [typographyUseCase]),
+    ],
+  ),
+  WidgetbookFolder(
+    name: 'Components',
+    isInitiallyExpanded: true,
+    children: [
+      WidgetbookComponent(
+        name: 'Avatar',
+        useCases: [
+          avatar28UseCase,
+          avatar40UseCase,
+          avatar48UseCase,
+          avatar64UseCase,
+          avatar96UseCase,
+          avatar112UseCase,
+          avatar128UseCase,
+          avatarContentUseCase,
+        ],
+      ),
     ],
   ),
 ];

@@ -2,25 +2,25 @@
 
 ## Статус и этап
 
-🟣 Запланирована
+✅ Выполнена
 
-- Mode: PLANNING_ONLY; будущая реализация — CODE в этом же номере.
+- Mode: CODE.
 - TestGate: NOT_REQUIRED для заявленного visual/theme/layout scope. App state/controllers, вычисления, валидация, сериализация, данные и app routing исключены; при расширении scope классификация пересматривается до кода.
-- Stage: SPEC_READY.
-- Specification:1; plan:0 (черновая последовательность ниже); test scenarios:1, NOT_RUN.
-- Реализация не начата; отдельного разрешения на логический gate этой постановкой не получено.
+- Stage: DONE.
+- Specification:2; plan:1; visual scenarios:2.
+- Пользователь разрешил визуальный пилот. TestGate NOT_REQUIRED: чистый visual/theme/layout scope, comparison является тестовым harness, без нового production checker/логики приложения.
 
 ## Цель и контекст
 
 Один результат задачи: **AppAvatar**, scope `components/avatar`. Добавление/расширение именно одного элемента вместе с его темой, scoped Widgetbook и проверками; не набор новых компонентов экранов.
 
-UI kit содержит инициалы, character tone, portrait/profile и размеры слотов40/48/64/96/112.
+Актуальный UI kit после уточнений: размеры28/40/48/64/96/112/128, tile/round, инициалы, без border. Цвет — данные, не самостоятельный компонент.
 
 Эталон: [UI kit](../../docs/design/prototype/ui-kit.html#c-avatar), [описание и ограничения](../../docs/design/ui-kit.md), [mapping источников](../../docs/design/prototype/ui-kit-mapping.json). Уже реализованная основа: [foundation](../../docs/design/foundation.md), [manifest](../../docs/design/tokens-manifest.md). Рабочий порядок: [добавление DS-компонента](../../docs/development/design-system-component-workflow.md), [visual workflow](../../docs/development/visual-workflow.md).
 
 ## Scope и non-goals
 
-- Входит: Один Avatar с типизированным tone/size/shape и initials/image slot; AppAvatarTheme задаёт все параметры. Изображения в preview локальны; сеть не требуется.
+- Входит: Один Avatar с типизированным size/shape и initials, optional themed foreground; AppAvatarTheme задаёт все параметры. Изображений в актуальном Avatar UI kit нет; image/loading/error API не изобретается.
 - Входит: собственная типизированная тема, trace к foundation tokens и обновление manifest/docs по затронутым решениям.
 - Входит: реальные use cases в Widgetbook, shared deterministic scenarios и executable native golden visual samples; meaningful interaction/semantics tests по риску.
 - Не входит: перенос экранов, изменение HTML UI kit/прототипов, бизнес-правила, use cases, DI/сеть/БД, новая локаль, новая светлая тема, Widgetbook Cloud/generator или обновление SDK.
@@ -53,12 +53,12 @@ UI kit содержит инициалы, character tone, portrait/profile и р
 
 ## Acceptance Criteria
 
-- [ ] AC-57.1: AppAvatar реализован/расширен в указанном scope; нет параллельной копии уже существующей сущности, ссылку на HTML-эталон можно проследить.
-- [ ] AC-57.2: все визуальные параметры приходят из собственной темы и общих токенов, API типизирован; raw styling/строковые discriminators/бизнес-правила отсутствуют.
-- [ ] AC-57.3: именованные Widgetbook use cases показывают реальный элемент: Инициалы/portrait/profile; ice/fire/fan/storm/unassigned; компактные размеры; fallback image при поддержке; рядом с именем и самостоятельно.
-- [ ] AC-57.4: Widgetbook и golden используют одинаковые fixtures/именованные builders/темы; native baselines созданы/сверены, diffs просмотрены, comparison после update выполнен без update.
-- [ ] AC-57.5: проверены constraints, значимые states, локализованные labels/semantics и content limits; совпадение visual identity Desktop/Mobile подтверждено, отклонения записаны.
-- [ ] AC-57.6: manifest/owning docs/scenario registrations актуальны; analyze/tests/architecture checks по impact PASS либо честный blocker с NOT_RUN. Результат показан пользователю.
+- [x] AC-57.1: AppAvatar реализован/расширен в указанном scope; нет параллельной копии уже существующей сущности, ссылку на HTML-эталон можно проследить.
+- [x] AC-57.2: все визуальные параметры приходят из собственной темы и общих токенов, API типизирован; raw styling/строковые discriminators/бизнес-правила отсутствуют.
+- [x] AC-57.3: именованные Widgetbook use cases показывают реальный элемент: Все7 размеров, tile/round, нейтральный вид, тематический foreground как данные; пустые/двухбуквенные инициалы. Identity с именем относится к задаче58 и не подменяется заглушкой.
+- [x] AC-57.4: Widgetbook и golden используют одинаковые fixtures/именованные builders/темы; native baselines созданы/сверены, diffs просмотрены, comparison после update выполнен без update.
+- [x] AC-57.5: проверены constraints, значимые states, локализованные labels/semantics и content limits; совпадение visual identity Desktop/Mobile подтверждено, отклонения записаны.
+- [x] AC-57.6: manifest/owning docs/scenario registrations актуальны; analyze/tests/architecture checks по impact PASS либо честный blocker с NOT_RUN. Результат показан пользователю.
 
 ## Ошибки и крайние случаи
 
@@ -117,10 +117,44 @@ UI kit содержит инициалы, character tone, portrait/profile и р
 
 ## Final Verification
 
-- [ ] Все AC подтверждены при реализации; тесты фактически запущены.
-- [ ] Theme/scenarios/goldens/docs согласованы, визуальный результат показан.
-- [ ] Нет бизнес-логики/запрещённых dependencies/raw styling.
+- [x] Все AC подтверждены при реализации; тесты фактически запущены.
+- [x] Theme/scenarios/goldens/docs согласованы, визуальный результат показан.
+- [x] Нет бизнес-логики/запрещённых dependencies/raw styling.
 
 ## Итог
 
-Постановка создана; 🟣. Реализация и выполнение Flutter-проверок не начаты.
+AppAvatar, runtime theme,8 Widgetbook cases и fixed visual comparison pilot реализованы.28 web/Flutter pairs,17 native goldens и measured JSON/overlay/diff доступны в локальном отчёте. Известный raster edge delta1px для112px явно показан; pixel-perfect не заявлен.
+
+### Визуальный пилот —7 ноября2026
+
+Prompt пользователя (дословно):
+
+> давай попробуем
+
+Контекст: пользователь одобрил начать инструмент сравнения с самостоятельного Avatar после обсуждения зависимостей. План: (1) снять оригинальные14 Avatar samples и computed geometry из исходной страницы UI kit headless Chrome, (2) добавить отсутствующие размерные font/radius значения в runtime foundation и AppAvatar/AppAvatarTheme, (3) shared Widgetbook/scenarios/native goldens, (4) статический локальный отчёт web/Flutter/overlay/diff с измерениями и заведомо смещённым контрольным образцом. Чистый визуальный перенос; test-only capture/comparison harness не является новым production checker. Для будущего общего автоматического инструмента потребуется самостоятельная постановка, если выйдем за pilot harness.
+
+Прочитаны актуальные core/Flutter rules, включая R-003.g, workflow и task57. Других conditional rules нет. Dependencies40/41/43/44/47 удовлетворены runtime foundation задачи72; здесь добавляются только конкретные метрики Avatar. Прямой CUA браузер выключен Work settings; read-only визуальный эталон снимается отдельным headless Chrome с новым tmp profile. UI kit исходник не меняется.
+
+Pilot AC: оригинальные web screenshots и computed metrics;14 matching isolated samples при390/1440 viewport; actual Flutter AppAvatar; current-theme response; no border; статический report со comparison images и контрольным сдвигом; native golden comparison повторяется без update. Glyph antialiasing различается между движками и показывается честно отдельно от geometry.
+
+### Результаты визуального пилота
+
+- Web: исходный UI kit визуально просмотрен через screenshot; измерены computed font/box/radius/colors, затем28 изолированных оригинальных DOM samples сняты headless Chrome156, DPR1, font readiness. Исходные HTML/CSS/JS UI kit не менялись. Второй viewport сначала не перезагружал тот же URL после DOM isolation; capture исправлен на document navigation с отдельным query, полный набор28 подтверждён.
+- Flutter: AppAvatar с size/shape, переданными initials/optional themed foreground/semanticsLabel; no image/interactive API. Все метрики идут primitive → AppTheme/AppResponsive/AppAvatarMetrics → AppAvatarTheme → Widget; current Theme replacement проверяет extent/font/radius/colors.7 size use cases и1 data use case используют общую AvatarFixture с goldens.
+- Сравнение:28 случаев,14 размеров/форм для390×900 и1440×900. Точно совпали outer bounds, центры text block, font size/weight, color/background, radius и no-border. Layout center tolerance0.01px; baseline≤0.5px (Chrome integer font metrics); glyph raster edge≤1 physical px.24/28 integer ink bounds совпали полностью.112px в обеих формах/viewport имеет Y ink delta1px при baseline Chrome69.5 / Flutter69.671875. Специальные pixel offsets по размеру не добавлялись. Остаток показан в отчёте и не скрывается pixel threshold.
+- Проверены CSS half-leading и альтернативные TextHeightBehavior. Последние ухудшили другие размеры и удалены. Runtime тема сохраняет стандартный even leading; существующая геометрия центрирования не подменена ручными смещениями.
+- Контроль чувствительности: actual AppAvatar с намеренно ошибочным alignment темы сохраняет контур64×64, но сдвигает букву на5px; test harness обнаружил это и сохранил отдельные overlay/diff. Это fixture, не production state.
+- Отчёт визуально просмотрен (top и control), все116 image assets загрузились, horizontal overflow отсутствует. Node scripts — fixed test-only fixture capture/render, не новый общий production checker; отдельного logic gate для visual harness нет по workflow NOT_REQUIRED.
+
+## Финальные проверки пилота
+
+- `flutter test --no-pub --update-goldens test/presentation/design_system/components/avatar/avatar_visual_test.dart` — PASS3,17 macOS native baselines.
+- Повтор без update: `flutter test --no-pub test/presentation/design_system/components/avatar/avatar_visual_test.dart test/presentation/foundation_preview_test.dart test/widgetbook_bootstrap_test.dart test/presentation/golden_environment_test.dart test/presentation/design_system/foundation/theme_propagation_test.dart` — PASS28. Прежние foundation PNG не менялись.
+- `flutter analyze --no-pub` — PASS, no issues. При расширении data fixture временно добавилась undefined foreground в тестовом вызове; исправлена до последних GREEN.
+- `make architecture-test` — PASS49 class-owned/51 architecture/35 theme cases;58 реальных файлов без findings.
+- `node --check` обоих capture/report scripts, `node tools/check_rules.cjs` (16 leaf/2 группы), `git diff --check` — PASS.
+- DTD hot restart успешен; Widgetbook обновлён. Открытие отчёта запрошено через open_in_codex, tool вернул queued; ссылка для пользователя: http://127.0.0.1:8094/comparison/avatar/index.html.
+
+Ограничения: native comparison только macOS; backend raster различия зафиксированы выше. Пилот проверяет Avatar, а не ещё не реализованные составные Identity/RosterRow. Для них понадобятся отдельные измерения внутренних узлов. Viewport900 выбран для isolated capture; existing foundation presets390×844/1440×900 сохраняются.
+
+Сохраняется прежняя авторизация пользователя: «каждый добавленный компонент сопровождай коммитом без пуша». Этот коммит содержит один Avatar с его визуальной evidence и необходимыми foundation метриками; push не выполняется. Все AC подтверждены с явно указанными visual deviations.

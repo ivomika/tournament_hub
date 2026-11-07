@@ -1,0 +1,303 @@
+[
+  {
+    "title": "Avatar · 28 px",
+    "samples": [
+      {
+        "caption": "Без подписи",
+        "text": "И",
+        "x": 61,
+        "y": 333.890625,
+        "width": 28,
+        "height": 28,
+        "font": "700 12px / 12px Condensed, system-ui, sans-serif",
+        "fontFamily": "Condensed, system-ui, sans-serif",
+        "fontSize": "12px",
+        "fontWeight": "700",
+        "lineHeight": "12px",
+        "letterSpacing": "normal",
+        "color": "rgb(184, 190, 201)",
+        "background": "rgb(35, 39, 48)",
+        "radius": "7px",
+        "border": "0px",
+        "boxSizing": "border-box"
+      },
+      {
+        "caption": "Круглая форма",
+        "text": "И",
+        "x": 61,
+        "y": 418.390625,
+        "width": 28,
+        "height": 28,
+        "font": "700 12px / 12px Condensed, system-ui, sans-serif",
+        "fontFamily": "Condensed, system-ui, sans-serif",
+        "fontSize": "12px",
+        "fontWeight": "700",
+        "lineHeight": "12px",
+        "letterSpacing": "normal",
+        "color": "rgb(241, 199, 91)",
+        "background": "rgb(35, 39, 48)",
+        "radius": "50%",
+        "border": "0px",
+        "boxSizing": "border-box"
+      }
+    ]
+  },
+  {
+    "title": "Avatar · 40 px",
+    "samples": [
+      {
+        "caption": "Без подписи",
+        "text": "И",
+        "x": 522.328125,
+        "y": 333.890625,
+        "width": 40,
+        "height": 40,
+        "font": "700 16px / 16px Condensed, system-ui, sans-serif",
+        "fontFamily": "Condensed, system-ui, sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "700",
+        "lineHeight": "16px",
+        "letterSpacing": "normal",
+        "color": "rgb(184, 190, 201)",
+        "background": "rgb(35, 39, 48)",
+        "radius": "10px",
+        "border": "0px",
+        "boxSizing": "border-box"
+      },
+      {
+        "caption": "Круглая форма",
+        "text": "И",
+        "x": 522.328125,
+        "y": 430.390625,
+        "width": 40,
+        "height": 40,
+        "font": "700 16px / 16px Condensed, system-ui, sans-serif",
+        "fontFamily": "Condensed, system-ui, sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "700",
+        "lineHeight": "16px",
+        "letterSpacing": "normal",
+        "color": "rgb(241, 199, 91)",
+        "background": "rgb(35, 39, 48)",
+        "radius": "50%",
+        "border": "0px",
+        "boxSizing": "border-box"
+      }
+    ]
+  },
+  {
+    "title": "Avatar · 48 px",
+    "samples": [
+      {
+        "caption": "Без подписи",
+        "text": "И",
+        "x": 983.65625,
+        "y": 333.890625,
+        "width": 48,
+        "height": 48,
+        "font": "700 18px / 18px Condensed, system-ui, sans-serif",
+        "fontFamily": "Condensed, system-ui, sans-serif",
+        "fontSize": "18px",
+        "fontWeight": "700",
+        "lineHeight": "18px",
+        "letterSpacing": "normal",
+        "color": "rgb(184, 190, 201)",
+        "background": "rgb(35, 39, 48)",
+        "radius": "12px",
+        "border": "0px",
+        "boxSizing": "border-box"
+      },
+      {
+        "caption": "Круглая форма",
+        "text": "И",
+        "x": 983.65625,
+        "y": 438.390625,
+        "width": 48,
+        "height": 48,
+        "font": "700 18px / 18px Condensed, system-ui, sans-serif",
+        "fontFamily": "Condensed, system-ui, sans-serif",
+        "fontSize": "18px",
+        "fontWeight": "700",
+        "lineHeight": "18px",
+        "letterSpacing": "normal",
+        "color": "rgb(241, 199, 91)",
+        "background": "rgb(35, 39, 48)",
+        "radius": "50%",
+        "border": "0px",
+        "boxSizing": "border-box"
+      }
+    ]
+  },
+  {
+    "title": "Avatar · 64 px",
+    "samples": [
+      {
+        "caption": "Без подписи",
+        "text": "И",
+        "x": 61,
+        "y": 1141.25,
+        "width": 64,
+        "height": 64,
+        "font": "700 26px / 26px Condensed, system-ui, sans-serif",
+        "fontFamily": "Condensed, system-ui, sans-serif",
+        "fontSize": "26px",
+        "fontWeight": "700",
+        "lineHeight": "26px",
+        "letterSpacing": "normal",
+        "color": "rgb(184, 190, 201)",
+        "background": "rgb(35, 39, 48)",
+        "radius": "16px",
+        "border": "0px",
+        "boxSizing": "border-box"
+      },
+      {
+        "caption": "Круглая форма",
+        "text": "И",
+        "x": 61,
+        "y": 1261.75,
+        "width": 64,
+        "height": 64,
+        "font": "700 26px / 26px Condensed, system-ui, sans-serif",
+        "fontFamily": "Condensed, system-ui, sans-serif",
+        "fontSize": "26px",
+        "fontWeight": "700",
+        "lineHeight": "26px",
+        "letterSpacing": "normal",
+        "color": "rgb(241, 199, 91)",
+        "background": "rgb(35, 39, 48)",
+        "radius": "50%",
+        "border": "0px",
+        "boxSizing": "border-box"
+      }
+    ]
+  },
+  {
+    "title": "Avatar · 96 px",
+    "samples": [
+      {
+        "caption": "Без подписи",
+        "text": "И",
+        "x": 522.328125,
+        "y": 1141.25,
+        "width": 96,
+        "height": 96,
+        "font": "700 36px / 36px Condensed, system-ui, sans-serif",
+        "fontFamily": "Condensed, system-ui, sans-serif",
+        "fontSize": "36px",
+        "fontWeight": "700",
+        "lineHeight": "36px",
+        "letterSpacing": "normal",
+        "color": "rgb(184, 190, 201)",
+        "background": "rgb(35, 39, 48)",
+        "radius": "16px",
+        "border": "0px",
+        "boxSizing": "border-box"
+      },
+      {
+        "caption": "Круглая форма",
+        "text": "И",
+        "x": 522.328125,
+        "y": 1293.75,
+        "width": 96,
+        "height": 96,
+        "font": "700 36px / 36px Condensed, system-ui, sans-serif",
+        "fontFamily": "Condensed, system-ui, sans-serif",
+        "fontSize": "36px",
+        "fontWeight": "700",
+        "lineHeight": "36px",
+        "letterSpacing": "normal",
+        "color": "rgb(241, 199, 91)",
+        "background": "rgb(35, 39, 48)",
+        "radius": "50%",
+        "border": "0px",
+        "boxSizing": "border-box"
+      }
+    ]
+  },
+  {
+    "title": "Avatar · 112 px",
+    "samples": [
+      {
+        "caption": "Без подписи",
+        "text": "И",
+        "x": 983.65625,
+        "y": 1141.25,
+        "width": 112,
+        "height": 112,
+        "font": "700 40px / 40px Condensed, system-ui, sans-serif",
+        "fontFamily": "Condensed, system-ui, sans-serif",
+        "fontSize": "40px",
+        "fontWeight": "700",
+        "lineHeight": "40px",
+        "letterSpacing": "normal",
+        "color": "rgb(184, 190, 201)",
+        "background": "rgb(35, 39, 48)",
+        "radius": "16px",
+        "border": "0px",
+        "boxSizing": "border-box"
+      },
+      {
+        "caption": "Круглая форма",
+        "text": "И",
+        "x": 983.65625,
+        "y": 1309.75,
+        "width": 112,
+        "height": 112,
+        "font": "700 40px / 40px Condensed, system-ui, sans-serif",
+        "fontFamily": "Condensed, system-ui, sans-serif",
+        "fontSize": "40px",
+        "fontWeight": "700",
+        "lineHeight": "40px",
+        "letterSpacing": "normal",
+        "color": "rgb(241, 199, 91)",
+        "background": "rgb(35, 39, 48)",
+        "radius": "50%",
+        "border": "0px",
+        "boxSizing": "border-box"
+      }
+    ]
+  },
+  {
+    "title": "Avatar · 128 px",
+    "samples": [
+      {
+        "caption": "Без подписи",
+        "text": "И",
+        "x": 61,
+        "y": 2441.71875,
+        "width": 128,
+        "height": 128,
+        "font": "700 44px / 44px Condensed, system-ui, sans-serif",
+        "fontFamily": "Condensed, system-ui, sans-serif",
+        "fontSize": "44px",
+        "fontWeight": "700",
+        "lineHeight": "44px",
+        "letterSpacing": "normal",
+        "color": "rgb(184, 190, 201)",
+        "background": "rgb(35, 39, 48)",
+        "radius": "16px",
+        "border": "0px",
+        "boxSizing": "border-box"
+      },
+      {
+        "caption": "Круглая форма",
+        "text": "И",
+        "x": 61,
+        "y": 2626.21875,
+        "width": 128,
+        "height": 128,
+        "font": "700 44px / 44px Condensed, system-ui, sans-serif",
+        "fontFamily": "Condensed, system-ui, sans-serif",
+        "fontSize": "44px",
+        "fontWeight": "700",
+        "lineHeight": "44px",
+        "letterSpacing": "normal",
+        "color": "rgb(241, 199, 91)",
+        "background": "rgb(35, 39, 48)",
+        "radius": "50%",
+        "border": "0px",
+        "boxSizing": "border-box"
+      }
+    ]
+  }
+]

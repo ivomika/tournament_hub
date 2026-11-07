@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tournament_app/presentation/design_system/foundation/responsive/app_avatar_metrics.dart';
 import 'package:tournament_app/presentation/design_system/foundation/primitives/foundation_primitives.dart';
 import 'package:tournament_app/presentation/design_system/foundation/spacing/app_spacing.dart';
 import 'package:tournament_app/presentation/design_system/foundation/borders/app_border_metrics.dart';
@@ -74,6 +75,26 @@ abstract final class AppTheme {
         year2023: false,
       ),
       extensions: [
+        const AppAvatarMetrics(
+          contentAlignment: FoundationPrimitives.avatarContentAlignment,
+          leadingDistribution: FoundationPrimitives.avatarLeadingDistribution,
+          avatarFont28: MetricPrimitives.avatarFont28,
+          avatarFont40: MetricPrimitives.avatarFont40,
+          avatarFont48: MetricPrimitives.avatarFont48,
+          avatarFont64: MetricPrimitives.avatarFont64,
+          avatarFont96: MetricPrimitives.avatarFont96,
+          avatarFont112: MetricPrimitives.avatarFont112,
+          avatarFont128: MetricPrimitives.avatarFont128,
+          avatarRadius28: MetricPrimitives.avatarRadius28,
+          avatarRadius40: MetricPrimitives.avatarRadius40,
+          avatarRadius48: MetricPrimitives.avatarRadius48,
+          avatarRadius64: MetricPrimitives.avatarRadius64,
+          avatarRadius96: MetricPrimitives.avatarRadius96,
+          avatarRadius112: MetricPrimitives.avatarRadius112,
+          avatarRadius128: MetricPrimitives.avatarRadius128,
+          avatarLineHeight: MetricPrimitives.avatarLineHeight,
+          avatarTracking: MetricPrimitives.avatarTracking,
+        ),
         const AppSpacing(
           space0: MetricPrimitives.spacingSpace0,
           space4: MetricPrimitives.spacingSpace4,

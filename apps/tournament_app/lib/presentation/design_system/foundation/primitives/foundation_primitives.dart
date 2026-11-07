@@ -3,6 +3,8 @@ import 'package:tournament_app/presentation/design_system/foundation/primitives/
 
 /// Raw defaults. Only the main ThemeData assembly consumes these values.
 abstract final class FoundationPrimitives {
+  static const avatarContentAlignment = Alignment.center;
+  static const avatarLeadingDistribution = TextLeadingDistribution.even;
   static const shapeControl = BorderRadius.all(Radius.circular(8));
   static const shapeNested = BorderRadius.all(Radius.circular(16));
   static const shapeDesktopSurface = BorderRadius.all(Radius.circular(20));

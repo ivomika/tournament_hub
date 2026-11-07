@@ -33,4 +33,20 @@ abstract final class MetricPrimitives {
   static const iconMetricsLarge = 32.0;
   static const iconMetricsDisplay = 48.0;
   static const iconMetricsHero = 64.0;
+  static const avatarFont28 = 12.0;
+  static const avatarFont40 = 16.0;
+  static const avatarFont48 = 18.0;
+  static const avatarFont64 = 26.0;
+  static const avatarFont96 = 36.0;
+  static const avatarFont112 = 40.0;
+  static const avatarFont128 = 44.0;
+  static const avatarRadius28 = 7.0;
+  static const avatarRadius40 = 10.0;
+  static const avatarRadius48 = 12.0;
+  static const avatarRadius64 = 16.0;
+  static const avatarRadius96 = 16.0;
+  static const avatarRadius112 = 16.0;
+  static const avatarRadius128 = 16.0;
+  static const avatarLineHeight = 1.0;
+  static const avatarTracking = 0.0;
 }

@@ -104,3 +104,19 @@ ColorPrimitives содержит static const Color. Суффикс — свет
 ## Render-контекст (не токены дизайна продукта)
 
 Mobile 390×844, desktop 1440×900; DPR 1, locale ru, text scale 1; реальные локальные TTF. В golden снимаются позиции scroll top/middle/bottom, если каталог больше viewport; для полностью помещающегося каталога — только top, без одинаковых PNG. Нативная ОС определяет только папку baseline (golden/windows, golden/linux или golden/macos), не выбор визуальных токенов. Эти профили фиксируют условия сравнения и не определяют обязательную ширину приложения или его screen layout.
+
+## Avatar metrics — задача57
+
+AppAvatarMetrics — runtime ThemeExtension. Источник: computed styles исходных Avatar в UI kit, не размеры соседних identity-compositions.
+
+| Extent | Font size | Tile radius | Round radius |
+| ---: | ---: | ---: | ---: |
+| 28 | 12 | 7 | 50% |
+| 40 | 16 | 10 | 50% |
+| 48 | 18 | 12 | 50% |
+| 64 | 26 | 16 | 50% |
+| 96 | 36 | 16 | 50% |
+| 112 | 40 | 16 | 50% |
+| 128 | 44 | 16 | 50% |
+
+Line height1, tracking0, contentAlignment.center и CSS half-leading(even). Font family/weight наследуются текущей TextTheme.headlineLarge. Primitive значения проходят только через AppTheme → AppAvatarMetrics/AppResponsive → AppAvatarTheme → AppAvatar. Legacy общий shape.avatarTile22 не применяется к нормализованным Avatar UI kit. [Компонент и сравнение](components/avatar.md).
