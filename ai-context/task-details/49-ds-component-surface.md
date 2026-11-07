@@ -2,11 +2,11 @@
 
 ## Статус и этап
 
-🟣 Запланирована
+✅ Выполнена
 
-- Mode: PLANNING_ONLY; будущая реализация — CODE в этом же номере.
+- Mode: CODE; будущая реализация — CODE в этом же номере.
 - TestGate: NOT_REQUIRED для заявленного visual/theme/layout scope. App state/controllers, вычисления, валидация, сериализация, данные и app routing исключены; при расширении scope классификация пересматривается до кода.
-- Stage: SPEC_READY.
+- Stage: DONE.
 - Specification:1; plan:0 (черновая последовательность ниже); test scenarios:1, NOT_RUN.
 - Реализация не начата; отдельного разрешения на логический gate этой постановкой не получено.
 
@@ -53,12 +53,12 @@
 
 ## Acceptance Criteria
 
-- [ ] AC-49.1: AppSurface реализован/расширен в указанном scope; нет параллельной копии уже существующей сущности, ссылку на HTML-эталон можно проследить.
-- [ ] AC-49.2: все визуальные параметры приходят из собственной темы и общих токенов, API типизирован; raw styling/строковые discriminators/бизнес-правила отсутствуют.
-- [ ] AC-49.3: именованные Widgetbook use cases показывают реальный элемент: Surface; raised (в UI kit предложено как роль); nested; constrained width; multiline content.
-- [ ] AC-49.4: Widgetbook и golden используют одинаковые fixtures/именованные builders/темы; native baselines созданы/сверены, diffs просмотрены, comparison после update выполнен без update.
-- [ ] AC-49.5: проверены constraints, значимые states, локализованные labels/semantics и content limits; совпадение visual identity Desktop/Mobile подтверждено, отклонения записаны.
-- [ ] AC-49.6: manifest/owning docs/scenario registrations актуальны; analyze/tests/architecture checks по impact PASS либо честный blocker с NOT_RUN. Результат показан пользователю.
+- [x] AC-49.1: AppSurface реализован/расширен в указанном scope; нет параллельной копии уже существующей сущности, ссылку на HTML-эталон можно проследить.
+- [x] AC-49.2: все визуальные параметры приходят из собственной темы и общих токенов, API типизирован; raw styling/строковые discriminators/бизнес-правила отсутствуют.
+- [x] AC-49.3: именованные Widgetbook use cases показывают реальный элемент: Surface; raised (в UI kit предложено как роль); nested; constrained width; multiline content.
+- [x] AC-49.4: Widgetbook и golden используют одинаковые fixtures/именованные builders/темы; native baselines созданы/сверены, diffs просмотрены, comparison после update выполнен без update.
+- [x] AC-49.5: проверены constraints, значимые states, локализованные labels/semantics и content limits; совпадение visual identity Desktop/Mobile подтверждено, отклонения записаны.
+- [x] AC-49.6: manifest/owning docs/scenario registrations актуальны; analyze/tests/architecture checks по impact PASS либо честный blocker с NOT_RUN. Результат показан пользователю.
 
 ## Ошибки и крайние случаи
 
@@ -117,9 +117,9 @@
 
 ## Final Verification
 
-- [ ] Все AC подтверждены при реализации; тесты фактически запущены.
-- [ ] Theme/scenarios/goldens/docs согласованы, визуальный результат показан.
-- [ ] Нет бизнес-логики/запрещённых dependencies/raw styling.
+- [x] Все AC подтверждены при реализации; тесты фактически запущены.
+- [x] Theme/scenarios/goldens/docs согласованы, визуальный результат показан.
+- [x] Нет бизнес-логики/запрещённых dependencies/raw styling.
 
 ## Итог
 
@@ -133,3 +133,11 @@ Prompt пользователя (дословно):
 > После реализуй компоненты от которых зависит строка участников, каждый компонент отдельным комитом без пуша. После реализуй компонент widget "Строка участников" и остановись показав его в инструменте сравнения
 
 Запуск реализации после общего сравнения74; до его завершения эта карточка остаётся запланированной. Отдельный коммит данного компонента без push; сверка сценариев/контрольных элементов в общем отчёте.
+
+### Plan1 после общего инструмента
+
+AppSurface/Theme: runtime ColorScheme+Shape+Spacing; source panel mobile24px desktop20px, padding24. Raised сохраняет статус предложенной роли. Content slot, отсутствие собственной интерактивности, shape/insets typed. Четыре source scenarios mobile/desktop × panel/raised; отдельный constrained/nested multiline fixture и theme replacement.
+
+### Итог реализации
+
+AppSurface + runtime AppSurfaceTheme, typed tone/shape/inset, слот произвольного содержимого. Source panel radius24/20 mobile/desktop, padding24; raised предложенная роль. Четыре source/native cases PASS и5 macOS goldens; constrained nested multiline golden и theme replacement PASS с update и без. Исходное наложение просмотрено; устранён Material tracking0.4 через новый AppTypeRoles.normalTracking=0 из assembly. Analyzer и architecture-check PASS. Остальные ОС NOT_RUN, push отсутствует.

@@ -1,3 +1,5 @@
+import 'package:tournament_app/presentation/widgetbook/components/surface/panel/panel_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/components/surface/nested/nested_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/foundation/icons/slots/slots_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/foundation/icons/glyphs/glyphs_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/components/avatar/content/content_use_case.dart';
@@ -34,6 +36,10 @@ final widgetbookCatalog = <WidgetbookNode>[
     name: 'Components',
     isInitiallyExpanded: true,
     children: [
+      WidgetbookComponent(
+        name: 'Surface',
+        useCases: [panelSurfaceUseCase, nestedSurfaceUseCase],
+      ),
       WidgetbookComponent(
         name: 'Avatar',
         useCases: [

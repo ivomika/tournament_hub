@@ -124,3 +124,7 @@ Line height1, tracking0, contentAlignment.center и CSS half-leading(even). Font
 ### AppIcon (48)
 
 Исходные18 SVG symbols из UI kit#icons перенесены Canvas paths; grid24/stroke1.8 primitive → AppGlyphMetrics основной темы → AppIconTheme → AppIcon. Размеры берутся из существующего AppIconMetrics, цвета из текущего ColorScheme. Directional glyphs отражаются в RTL. Сравнение: `node tools/visual-comparison/compare.mjs icons`; scoped fixtures и macOS goldens рядом с foundation/icons. Без нового dependency.
+
+### AppSurface (49)
+
+Surface/raised ← текущий ColorScheme; Shape surface24/desktopSurface20/nested16; inset ← AppSpacing24/0. AppSurfaceTheme выбирает adaptation по AppResponsive. Border/elevation отсутствуют в source. AppTypeRoles.normalTracking0 сохраняет исходную Inter типографику без Material tracking. Raised — предложенная роль UI kit. Команда сравнения: `node tools/visual-comparison/compare.mjs surface`.

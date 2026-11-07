@@ -51,9 +51,18 @@
   "fontDetails": "{family} · {size} px · {weight}",
   "@fontDetails": {
     "placeholders": {
-      "family": {"type": "String"},
-      "size": {"type": "int"},
-      "weight": {"type": "int"}
+      "family": {
+        "type": "String"
+      },
+      "size": {
+        "type": "int"
+      },
+      "weight": {
+        "type": "int"
+      }
     }
-  }
+  },
+  "surfaceSample": "Поверхность",
+  "raisedSurfaceSample": "Приподнятая область",
+  "surfaceLongSample": "Длинное содержимое поверхности занимает несколько строк и сохраняет внутренние отступы."
 }

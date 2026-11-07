@@ -1,0 +1,447 @@
+<!doctype html><html lang="ru"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AppSurface · Web ↔ Flutter</title><style>
+ :root{color-scheme:dark;font-family:system-ui;background:#0e1014;color:#f4f2ee}*{box-sizing:border-box}body{max-width:1600px;margin:auto;padding:32px}h1{font-size:36px}a{color:#f1c75b}p{color:#b8bec9;line-height:1.5}.stats,nav{display:flex;gap:20px;flex-wrap:wrap}nav{position:sticky;top:0;background:#0e1014ee;padding:16px 0;z-index:1}.stats>div{border:1px solid #3a414e;border-radius:12px;padding:16px}.stats strong{display:block;font-size:28px}.case{padding:20px;margin:24px 0;background:#171a20;border:1px solid #3a414e;border-radius:16px}.case header{display:flex;justify-content:space-between;gap:16px}.pass{color:#78d7a5}.fail{color:#ff968e}.shots{display:grid;grid-template-columns:repeat(4,minmax(180px,1fr));gap:12px;overflow:auto}figure{margin:0;background:#0e1014;padding:12px;display:flex;flex-direction:column;align-items:center;gap:20px;min-height:200px}figcaption{color:#b8bec9;font-size:13px}img{max-width:100%;height:auto;image-rendering:pixelated}figure a{margin:auto}table{border-collapse:collapse;width:100%;font-size:12px}th,td{text-align:left;padding:9px;border-bottom:1px solid #3a414e}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px;color:#b8bec9}.table{overflow:auto}.finding{color:#ff968e}small{color:#969eac}@media(max-width:800px){body{padding:16px}.shots{grid-template-columns:repeat(4,280px)}}
+ </style><header><small>TOURNAMENT HUB / ОБЩЕЕ ВИЗУАЛЬНОЕ СРАВНЕНИЕ</small><h1>AppSurface · Web ↔ Flutter</h1><p>Сценарии и контрольные элементы заданы декларацией компонента. Геометрия, типографика и цвета проверяются отдельно; diff показывает остаточную разницу рендереров. Нажмите PNG, чтобы открыть исходное разрешение.</p></header>
+ <div class="stats"><div><strong>4</strong>сценариев</div><div><strong class="pass">4/4</strong>прошли контракт контролей</div><div><strong>8</strong>контрольных элементов</div></div>
+ <nav><a href="#mobile-panel">mobile · Panel</a><a href="#mobile-raised">mobile · Raised (предложено)</a><a href="#desktop-panel">desktop · Panel</a><a href="#desktop-raised">desktop · Raised (предложено)</a><a href="http://127.0.0.1:8094/ui-kit.html">Web-эталон ↗</a></nav>
+ <article class="case" id="mobile-panel"><header><h2>mobile · Panel</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/mobile-panel.png"><img alt="mobile-panel Web" src="web/mobile-panel.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/mobile-panel.png"><img alt="mobile-panel Flutter" src="flutter/mobile-panel.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/mobile-panel.png"><img alt="mobile-panel Наложение 50/50" src="overlay/mobile-panel.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/mobile-panel.png"><img alt="mobile-panel Diff ×4" src="diff/mobile-panel.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 0 изменённых пикселей; mean channel delta 0.0191/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;mobile-panel&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 69
+    },
+    &quot;controls&quot;: {
+      &quot;shell&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 69
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 69,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 0,
+        &quot;baseline&quot;: 41,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;content&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 24,
+          &quot;y&quot;: 24,
+          &quot;width&quot;: 268,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 268,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;baseline&quot;: 40,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 69
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/mobile-panel.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;mobile-panel&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 69
+    },
+    &quot;controls&quot;: {
+      &quot;shell&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 69
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 69,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 0
+      },
+      &quot;content&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 24,
+          &quot;y&quot;: 24,
+          &quot;width&quot;: 268,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 268,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 39.5927734375
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 0,
+      &quot;meanChannelDelta&quot;: 0.019124931205283434
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/mobile-panel.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="mobile-raised"><header><h2>mobile · Raised (предложено)</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/mobile-raised.png"><img alt="mobile-raised Web" src="web/mobile-raised.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/mobile-raised.png"><img alt="mobile-raised Flutter" src="flutter/mobile-raised.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/mobile-raised.png"><img alt="mobile-raised Наложение 50/50" src="overlay/mobile-raised.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/mobile-raised.png"><img alt="mobile-raised Diff ×4" src="diff/mobile-raised.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 0 изменённых пикселей; mean channel delta 0.0281/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;mobile-raised&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 69
+    },
+    &quot;controls&quot;: {
+      &quot;shell&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 69
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 69,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 0,
+        &quot;baseline&quot;: 41,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;content&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 24,
+          &quot;y&quot;: 24,
+          &quot;width&quot;: 268,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 268,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;baseline&quot;: 40,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 69
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/mobile-raised.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;mobile-raised&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 69
+    },
+    &quot;controls&quot;: {
+      &quot;shell&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 69
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 69,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 0
+      },
+      &quot;content&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 24,
+          &quot;y&quot;: 24,
+          &quot;width&quot;: 268,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 268,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 39.5927734375
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 0,
+      &quot;meanChannelDelta&quot;: 0.028083532073625635
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/mobile-raised.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="desktop-panel"><header><h2>desktop · Panel</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/desktop-panel.png"><img alt="desktop-panel Web" src="web/desktop-panel.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/desktop-panel.png"><img alt="desktop-panel Flutter" src="flutter/desktop-panel.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/desktop-panel.png"><img alt="desktop-panel Наложение 50/50" src="overlay/desktop-panel.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/desktop-panel.png"><img alt="desktop-panel Diff ×4" src="diff/desktop-panel.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 78 изменённых пикселей; mean channel delta 0.0408/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;desktop-panel&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 395.328125,
+      &quot;height&quot;: 69
+    },
+    &quot;controls&quot;: {
+      &quot;shell&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 395.328125,
+          &quot;height&quot;: 69
+        },
+        &quot;width&quot;: 395.328125,
+        &quot;height&quot;: 69,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 20,
+        &quot;borderWidth&quot;: 0,
+        &quot;baseline&quot;: 41,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;content&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 24,
+          &quot;y&quot;: 24,
+          &quot;width&quot;: 347.328125,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 347.328125,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;baseline&quot;: 40,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 395.328125,
+      &quot;height&quot;: 69
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/desktop-panel.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;desktop-panel&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 395.328125,
+      &quot;height&quot;: 69
+    },
+    &quot;controls&quot;: {
+      &quot;shell&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 395.328125,
+          &quot;height&quot;: 69
+        },
+        &quot;width&quot;: 395.328125,
+        &quot;height&quot;: 69,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 20,
+        &quot;borderWidth&quot;: 0
+      },
+      &quot;content&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 24,
+          &quot;y&quot;: 24,
+          &quot;width&quot;: 347.328125,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 347.328125,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 39.5927734375
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 78,
+      &quot;meanChannelDelta&quot;: 0.04079441760601181
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/desktop-panel.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="desktop-raised"><header><h2>desktop · Raised (предложено)</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/desktop-raised.png"><img alt="desktop-raised Web" src="web/desktop-raised.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/desktop-raised.png"><img alt="desktop-raised Flutter" src="flutter/desktop-raised.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/desktop-raised.png"><img alt="desktop-raised Наложение 50/50" src="overlay/desktop-raised.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/desktop-raised.png"><img alt="desktop-raised Diff ×4" src="diff/desktop-raised.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 78 изменённых пикселей; mean channel delta 0.0471/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;desktop-raised&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 395.328125,
+      &quot;height&quot;: 69
+    },
+    &quot;controls&quot;: {
+      &quot;shell&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 395.328125,
+          &quot;height&quot;: 69
+        },
+        &quot;width&quot;: 395.328125,
+        &quot;height&quot;: 69,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 20,
+        &quot;borderWidth&quot;: 0,
+        &quot;baseline&quot;: 41,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;content&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 24,
+          &quot;y&quot;: 24,
+          &quot;width&quot;: 347.328125,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 347.328125,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;baseline&quot;: 40,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 395.328125,
+      &quot;height&quot;: 69
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/desktop-raised.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;desktop-raised&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 395.328125,
+      &quot;height&quot;: 69
+    },
+    &quot;controls&quot;: {
+      &quot;shell&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 395.328125,
+          &quot;height&quot;: 69
+        },
+        &quot;width&quot;: 395.328125,
+        &quot;height&quot;: 69,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 20,
+        &quot;borderWidth&quot;: 0
+      },
+      &quot;content&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 24,
+          &quot;y&quot;: 24,
+          &quot;width&quot;: 347.328125,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 347.328125,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 39.5927734375
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 78,
+      &quot;meanChannelDelta&quot;: 0.0470648514126775
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/desktop-raised.png&quot;
+    }
+  }
+}</pre></details></article>
+ <footer><small>Run 2026-11-07T14:07:38.492Z. <a href="results.json">Полный JSON</a> · <a href="spec.json">Декларация</a>. Native goldens проверяются отдельно; отчёт не объявляет pixel-perfect при остаточной raster-разнице.</small></footer></html>

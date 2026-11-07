@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 /// Исходные const styles доступны только сборке основной Flutter TextTheme.
 abstract final class TypographyPrimitives {
+  static const normalTracking = 0.0;
   static const interfaceFamily = 'Inter';
   static const displayFamily = 'RobotoCondensed';
   static const display = TextStyle(

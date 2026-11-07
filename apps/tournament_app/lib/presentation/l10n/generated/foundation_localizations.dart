@@ -390,6 +390,24 @@ abstract class FoundationLocalizations {
   /// In ru, this message translates to:
   /// **'{family} · {size} px · {weight}'**
   String fontDetails(String family, int size, int weight);
+
+  /// No description provided for @surfaceSample.
+  ///
+  /// In ru, this message translates to:
+  /// **'Поверхность'**
+  String get surfaceSample;
+
+  /// No description provided for @raisedSurfaceSample.
+  ///
+  /// In ru, this message translates to:
+  /// **'Приподнятая область'**
+  String get raisedSurfaceSample;
+
+  /// No description provided for @surfaceLongSample.
+  ///
+  /// In ru, this message translates to:
+  /// **'Длинное содержимое поверхности занимает несколько строк и сохраняет внутренние отступы.'**
+  String get surfaceLongSample;
 }
 
 class _FoundationLocalizationsDelegate

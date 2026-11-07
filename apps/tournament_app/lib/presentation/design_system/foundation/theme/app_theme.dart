@@ -172,7 +172,10 @@ abstract final class AppTheme {
           characterFan: ColorPrimitives.characterFan,
           characterStorm: ColorPrimitives.characterStorm,
         ),
-        const AppTypeRoles(score: TypographyPrimitives.score),
+        const AppTypeRoles(
+          normalTracking: TypographyPrimitives.normalTracking,
+          score: TypographyPrimitives.score,
+        ),
         const FoundationLayout(
           pagePadding: FoundationPrimitives.layoutPagePadding,
           tilePadding: FoundationPrimitives.layoutTilePadding,

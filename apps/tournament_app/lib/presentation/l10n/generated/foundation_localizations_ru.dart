@@ -161,4 +161,14 @@ class FoundationLocalizationsRu extends FoundationLocalizations {
   String fontDetails(String family, int size, int weight) {
     return '$family · $size px · $weight';
   }
+
+  @override
+  String get surfaceSample => 'Поверхность';
+
+  @override
+  String get raisedSurfaceSample => 'Приподнятая область';
+
+  @override
+  String get surfaceLongSample =>
+      'Длинное содержимое поверхности занимает несколько строк и сохраняет внутренние отступы.';
 }
