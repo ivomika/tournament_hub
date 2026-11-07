@@ -156,3 +156,7 @@ AppSpacing содержит только глобальную подтвержд
 ### Завершение Shape43
 
 AppShape остаётся общей темой. Source16 cases показывают радиусы8/16/24/32/pill, circle и реальные Surface mobile/desktop20. Sheet24 соответствует mobile select UI kit, largeSheet32 — flow-sheet; оба строятся AppSurfaceTheme из текущих AppShape значений с прямыми нижними углами. Команда `node tools/visual-comparison/compare.mjs shape`.
+
+### Завершение Borders44
+
+AppBorderMetrics — единственный runtime источник hairline1/emphasis2/focus3/offset4. Удалён дублирующий ControlMetrics.focusWidth; Button high-contrast focus теперь реагирует на основную border theme. Native roles catalog и настоящий focus consumer проверены заменой толщины5/offset6. Source report: `node tools/visual-comparison/compare.mjs borders`.

@@ -128,7 +128,9 @@ class AppButtonTheme {
           ? [t.extension<AppElevation>()!.floating]
           : [],
       focusColor: t.focusColor,
-      focusWidth: kind == AppButtonKind.removeIcon ? b.emphasis : m.focusWidth,
+      focusWidth: kind == AppButtonKind.removeIcon
+          ? b.emphasis
+          : b.highContrastFocus,
       focusOffset: b.focusOffset,
     );
   }

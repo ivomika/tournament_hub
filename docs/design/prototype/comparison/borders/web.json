@@ -1,0 +1,322 @@
+[
+  {
+    "id": "mobile-decorative",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 72,
+      "height": 72
+    },
+    "controls": {
+      "border": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 72,
+          "height": 72
+        },
+        "width": 72,
+        "height": 72,
+        "fontSize": 12,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#232730ff",
+        "radius": 8,
+        "borderWidth": 1,
+        "baseline": 40,
+        "opacity": 1,
+        "strokeWidth": 1
+      }
+    },
+    "originalRoot": {
+      "width": 72,
+      "height": 72
+    },
+    "pageX": 0,
+    "pageY": 0,
+    "artifacts": {
+      "image": "web/mobile-decorative.png"
+    }
+  },
+  {
+    "id": "mobile-primary-focus",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 316,
+      "height": 56
+    },
+    "controls": {
+      "frame": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 56
+        },
+        "width": 316,
+        "height": 56,
+        "fontSize": 16,
+        "fontWeight": 600,
+        "lineHeight": 1.5,
+        "color": "#19150bff",
+        "background": "#f1c75bff",
+        "radius": 28,
+        "borderWidth": 0,
+        "baseline": 32,
+        "opacity": 1,
+        "strokeWidth": 1
+      }
+    },
+    "originalRoot": {
+      "width": 316,
+      "height": 56
+    },
+    "pageX": 12,
+    "pageY": 12,
+    "artifacts": {
+      "image": "web/mobile-primary-focus.png"
+    }
+  },
+  {
+    "id": "mobile-secondary-focus",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 316,
+      "height": 56
+    },
+    "controls": {
+      "frame": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 56
+        },
+        "width": 316,
+        "height": 56,
+        "fontSize": 16,
+        "fontWeight": 600,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#232730ff",
+        "radius": 28,
+        "borderWidth": 0,
+        "baseline": 34,
+        "opacity": 1,
+        "strokeWidth": 1
+      }
+    },
+    "originalRoot": {
+      "width": 316,
+      "height": 56
+    },
+    "pageX": 12,
+    "pageY": 12,
+    "artifacts": {
+      "image": "web/mobile-secondary-focus.png"
+    }
+  },
+  {
+    "id": "mobile-icon-focus",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 56,
+      "height": 56
+    },
+    "controls": {
+      "frame": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 56,
+          "height": 56
+        },
+        "width": 56,
+        "height": 56,
+        "fontSize": 18,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#232730ff",
+        "radius": 28,
+        "borderWidth": 0,
+        "baseline": 33,
+        "opacity": 1,
+        "strokeWidth": 1
+      }
+    },
+    "originalRoot": {
+      "width": 56,
+      "height": 56
+    },
+    "pageX": 12,
+    "pageY": 12,
+    "artifacts": {
+      "image": "web/mobile-icon-focus.png"
+    }
+  },
+  {
+    "id": "desktop-decorative",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 72,
+      "height": 72
+    },
+    "controls": {
+      "border": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 72,
+          "height": 72
+        },
+        "width": 72,
+        "height": 72,
+        "fontSize": 12,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#232730ff",
+        "radius": 8,
+        "borderWidth": 1,
+        "baseline": 40,
+        "opacity": 1,
+        "strokeWidth": 1
+      }
+    },
+    "originalRoot": {
+      "width": 72,
+      "height": 72
+    },
+    "pageX": 0,
+    "pageY": 0,
+    "artifacts": {
+      "image": "web/desktop-decorative.png"
+    }
+  },
+  {
+    "id": "desktop-primary-focus",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 395.328125,
+      "height": 56
+    },
+    "controls": {
+      "frame": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 395.328125,
+          "height": 56
+        },
+        "width": 395.328125,
+        "height": 56,
+        "fontSize": 16,
+        "fontWeight": 600,
+        "lineHeight": 1.5,
+        "color": "#19150bff",
+        "background": "#f1c75bff",
+        "radius": 28,
+        "borderWidth": 0,
+        "baseline": 32,
+        "opacity": 1,
+        "strokeWidth": 1
+      }
+    },
+    "originalRoot": {
+      "width": 395.328125,
+      "height": 56
+    },
+    "pageX": 12,
+    "pageY": 12,
+    "artifacts": {
+      "image": "web/desktop-primary-focus.png"
+    }
+  },
+  {
+    "id": "desktop-secondary-focus",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 395.328125,
+      "height": 56
+    },
+    "controls": {
+      "frame": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 395.328125,
+          "height": 56
+        },
+        "width": 395.328125,
+        "height": 56,
+        "fontSize": 16,
+        "fontWeight": 600,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#232730ff",
+        "radius": 28,
+        "borderWidth": 0,
+        "baseline": 34,
+        "opacity": 1,
+        "strokeWidth": 1
+      }
+    },
+    "originalRoot": {
+      "width": 395.328125,
+      "height": 56
+    },
+    "pageX": 12,
+    "pageY": 12,
+    "artifacts": {
+      "image": "web/desktop-secondary-focus.png"
+    }
+  },
+  {
+    "id": "desktop-icon-focus",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 48,
+      "height": 48
+    },
+    "controls": {
+      "frame": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 48,
+          "height": 48
+        },
+        "width": 48,
+        "height": 48,
+        "fontSize": 18,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#232730ff",
+        "radius": 24,
+        "borderWidth": 0,
+        "baseline": 29,
+        "opacity": 1,
+        "strokeWidth": 1
+      }
+    },
+    "originalRoot": {
+      "width": 48,
+      "height": 48
+    },
+    "pageX": 12,
+    "pageY": 12,
+    "artifacts": {
+      "image": "web/desktop-icon-focus.png"
+    }
+  }
+]

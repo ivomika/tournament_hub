@@ -6,7 +6,6 @@ class AppControlMetrics extends ThemeExtension<AppControlMetrics> {
     required this.regularWeight,
     required this.regularVariations,
     required this.regularLine,
-    required this.focusWidth,
     required this.spaceBetween,
     required this.center,
     required this.centerCross,
@@ -21,7 +20,6 @@ class AppControlMetrics extends ThemeExtension<AppControlMetrics> {
   final FontWeight regularWeight;
   final List<FontVariation> regularVariations;
   final double regularLine;
-  final double focusWidth;
   final MainAxisAlignment spaceBetween;
   final MainAxisAlignment center;
   final CrossAxisAlignment centerCross;
@@ -37,7 +35,6 @@ class AppControlMetrics extends ThemeExtension<AppControlMetrics> {
     FontWeight? regularWeight,
     List<FontVariation>? regularVariations,
     double? regularLine,
-    double? focusWidth,
     MainAxisAlignment? spaceBetween,
     MainAxisAlignment? center,
     CrossAxisAlignment? centerCross,
@@ -52,7 +49,6 @@ class AppControlMetrics extends ThemeExtension<AppControlMetrics> {
     regularWeight: regularWeight ?? this.regularWeight,
     regularVariations: regularVariations ?? this.regularVariations,
     regularLine: regularLine ?? this.regularLine,
-    focusWidth: focusWidth ?? this.focusWidth,
     spaceBetween: spaceBetween ?? this.spaceBetween,
     center: center ?? this.center,
     centerCross: centerCross ?? this.centerCross,
@@ -74,7 +70,6 @@ class AppControlMetrics extends ThemeExtension<AppControlMetrics> {
               ? regularVariations
               : other.regularVariations,
           regularLine: regularLine + (other.regularLine - regularLine) * t,
-          focusWidth: focusWidth + (other.focusWidth - focusWidth) * t,
           spaceBetween: t < 0.5 ? spaceBetween : other.spaceBetween,
           center: t < 0.5 ? center : other.center,
           centerCross: t < 0.5 ? centerCross : other.centerCross,

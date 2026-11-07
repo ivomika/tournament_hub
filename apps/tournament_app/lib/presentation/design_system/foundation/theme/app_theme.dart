@@ -130,7 +130,6 @@ abstract final class AppTheme {
           regularWeight: ControlPrimitives.regularWeight,
           regularVariations: ControlPrimitives.regularVariations,
           regularLine: ControlPrimitives.regularLine,
-          focusWidth: ControlPrimitives.focusWidth,
           spaceBetween: ControlPrimitives.spaceBetween,
           center: ControlPrimitives.center,
           centerCross: ControlPrimitives.centerCross,
