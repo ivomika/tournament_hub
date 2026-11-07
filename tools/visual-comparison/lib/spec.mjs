@@ -1,4 +1,4 @@
-const properties = new Set(['rect','center','width','height','fontSize','fontWeight','lineHeight','color','background','radius','borderWidth','baseline','strokeWidth','opacity']);
+const properties = new Set(['rect','center','width','height','fontSize','fontWeight','lineHeight','color','background','radius','borderWidth','borderColor','baseline','strokeWidth','opacity']);
 export function validateSpec(raw) {
   const fail = path => {throw new Error(`Invalid comparison specification: ${path}`);};
   if(raw?.version!==1)fail('version');

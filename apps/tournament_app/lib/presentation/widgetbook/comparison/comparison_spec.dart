@@ -13,6 +13,7 @@ enum ComparisonProperty {
   background,
   radius,
   borderWidth,
+  borderColor,
   baseline,
   strokeWidth,
   opacity,

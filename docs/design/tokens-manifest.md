@@ -172,3 +172,9 @@ AppMotion.reveal160ms/curve ease/reduced0 — единственный исто�
 ## Responsive — сверка47
 
 AppResponsive использует CSS-смысл границы: mobile width≤740, desktop width>740. Consumer WidgetTheme Surface/Button/RosterRow читают текущую extension. Compact круглый action48 desktop /56 touch; primary56 остаётся56 в обеих плотностях. Thresholds1000/1100 описывают композиции прототипов, не глобальные переключатели каждого элемента. Source comparison33 сценария на390/739/740/741/999/1000/1001/1099/1100/1101/1440. Native actual consumer fixture нормальный и textscale1.6; replacement threshold1500 сохраняет mobile в1440. VisualViewport — только capture environment; optional ComparisonScenario.captureSize не является продуктовым токеном.
+
+## Field — реализация51
+
+AppFieldTheme получает single input из текущего TextTheme.bodyMedium18, multiline из labelLarge16 с regular role AppControlMetrics; Inter optical sizing через AppTypeRoles.interfaceStyle. Label/supporting caption14. AppFieldMetrics хранит multiline192 mobile/220 desktop и line1; основной AppTheme собирает extension из FieldPrimitives. Surface одинаковый для обоих представлений, disabled raised/muted. Радиус24 из AppShape.surface; border1 из AppBorderMetrics и цвет outlineVariant (#3a414e); padding single24+border, multiline16+border; label/error gap8. Single56 из touchControlHeight. Focus outline3/offset4.
+
+Invalid/disabled — предложенные состояния HTML. Исходный textarea invalid показывает сообщение без danger-границы (CSS меняет border только input); это сохранено и отмечено у сценария. Error icon24 совпадает с остальными стандартными иконками. Валидация отсутствует; controller/callbacks принадлежат потребителю.

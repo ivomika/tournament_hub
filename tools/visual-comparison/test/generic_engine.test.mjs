@@ -198,3 +198,9 @@ test('cleanup failure is included in the published report',async()=>{
  const result=await capability(pipeline,'runPipeline')(spec(),{async captureWeb(){return[frame()];},async captureFlutter(){return[frame()];},async publishReport(payload){published=payload;return'/tmp/report';},async close(){throw Error('owned browser cleanup failed');}});
  assert.notEqual(result.exitCode,0);assert.match(JSON.stringify(published),/owned browser cleanup failed/);
 });
+
+test('border color difference is detected independently of matching frame',()=>{
+ const scenario=spec().scenarios[0];scenario.controls=[{id:'name',webSelector:':scope',properties:['borderColor']}];
+ const a=frame(),b=frame();a.controls.name.borderColor='#3a414eff';b.controls.name.borderColor='#ff968eff';
+ const result=comparison.compareScenario(scenario,a,b);assert.equal(result.status,'fail');assert.equal(result.findings[0].property,'borderColor');
+});

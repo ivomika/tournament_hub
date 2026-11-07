@@ -1,0 +1,3661 @@
+{
+  "spec": {
+    "version": 1,
+    "component": "field",
+    "title": "AppField",
+    "source": {
+      "url": "http://127.0.0.1:8094/ui-kit.html"
+    },
+    "tolerances": {
+      "geometry": 0.5,
+      "typography": 0.05,
+      "baseline": 1
+    },
+    "scenarios": [
+      {
+        "id": "singleline-negative-font",
+        "title": "Negative control · input font",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#c-field .kit-component:nth-child(1) .kit-component-states .kit-specimen:nth-child(1) .field",
+        "controls": [
+          {
+            "id": "label",
+            "webSelector": "label",
+            "properties": [
+              "rect",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "input",
+            "webSelector": "input,textarea",
+            "properties": [
+              "rect",
+              "background",
+              "borderWidth",
+              "borderColor",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "value",
+            "webSelector": "input,textarea",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          }
+        ],
+        "capturePadding": 12,
+        "note": "Намеренно изменён размер текста ввода; стенд обязан обнаружить отличие внутри рамки.",
+        "expectedFailure": {
+          "control": "value",
+          "property": "fontSize"
+        },
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "singleline-filled",
+        "title": "singleLine · filled",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#c-field .kit-component:nth-child(1) .kit-component-states .kit-specimen:nth-child(1) .field",
+        "controls": [
+          {
+            "id": "label",
+            "webSelector": "label",
+            "properties": [
+              "rect",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "input",
+            "webSelector": "input,textarea",
+            "properties": [
+              "rect",
+              "background",
+              "borderWidth",
+              "borderColor",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "value",
+            "webSelector": "input,textarea",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          }
+        ],
+        "capturePadding": 12,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "singleline-empty",
+        "title": "singleLine · empty",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#c-field .kit-component:nth-child(1) .kit-component-states .kit-specimen:nth-child(2) .field",
+        "controls": [
+          {
+            "id": "label",
+            "webSelector": "label",
+            "properties": [
+              "rect",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "input",
+            "webSelector": "input,textarea",
+            "properties": [
+              "rect",
+              "background",
+              "borderWidth",
+              "borderColor",
+              "radius"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 12,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "singleline-readonly",
+        "title": "singleLine · readOnly",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#c-field .kit-component:nth-child(1) .kit-component-states .kit-specimen:nth-child(3) .field",
+        "controls": [
+          {
+            "id": "label",
+            "webSelector": "label",
+            "properties": [
+              "rect",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "input",
+            "webSelector": "input,textarea",
+            "properties": [
+              "rect",
+              "background",
+              "borderWidth",
+              "borderColor",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "value",
+            "webSelector": "input,textarea",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          }
+        ],
+        "capturePadding": 12,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "singleline-focused",
+        "title": "singleLine · focused",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#c-field .kit-component:nth-child(1) .kit-component-states .kit-specimen:nth-child(4) .field",
+        "controls": [
+          {
+            "id": "label",
+            "webSelector": "label",
+            "properties": [
+              "rect",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "input",
+            "webSelector": "input,textarea",
+            "properties": [
+              "rect",
+              "background",
+              "borderWidth",
+              "borderColor",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "value",
+            "webSelector": "input,textarea",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          }
+        ],
+        "capturePadding": 12,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "singleline-invalid",
+        "title": "singleLine · invalid",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#c-field .kit-component:nth-child(1) .kit-component-states .kit-specimen:nth-child(5) .field",
+        "controls": [
+          {
+            "id": "label",
+            "webSelector": "label",
+            "properties": [
+              "rect",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "input",
+            "webSelector": "input,textarea",
+            "properties": [
+              "rect",
+              "background",
+              "borderWidth",
+              "borderColor",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "value",
+            "webSelector": "input,textarea",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          },
+          {
+            "id": "error",
+            "webSelector": ".error-copy",
+            "properties": [
+              "width",
+              "fontSize",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          }
+        ],
+        "capturePadding": 12,
+        "note": "Состояние предложено в исходном UI kit; валидация вне DS. Source textarea показывает ошибку без смены цвета границы; input использует danger.",
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "singleline-disabled",
+        "title": "singleLine · disabled",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#c-field .kit-component:nth-child(1) .kit-component-states .kit-specimen:nth-child(6) .field",
+        "controls": [
+          {
+            "id": "label",
+            "webSelector": "label",
+            "properties": [
+              "rect",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "input",
+            "webSelector": "input,textarea",
+            "properties": [
+              "rect",
+              "background",
+              "borderWidth",
+              "borderColor",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "value",
+            "webSelector": "input,textarea",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          }
+        ],
+        "capturePadding": 12,
+        "note": "Состояние предложено в исходном UI kit; валидация вне DS. Source textarea показывает ошибку без смены цвета границы; input использует danger.",
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "multiline-filled",
+        "title": "multiline · filled",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#c-field .kit-component:nth-child(2) .kit-component-states .kit-specimen:nth-child(1) .field",
+        "controls": [
+          {
+            "id": "label",
+            "webSelector": "label",
+            "properties": [
+              "rect",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "input",
+            "webSelector": "input,textarea",
+            "properties": [
+              "rect",
+              "background",
+              "borderWidth",
+              "borderColor",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "value",
+            "webSelector": "input,textarea",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          }
+        ],
+        "capturePadding": 12,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "multiline-empty",
+        "title": "multiline · empty",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#c-field .kit-component:nth-child(2) .kit-component-states .kit-specimen:nth-child(2) .field",
+        "controls": [
+          {
+            "id": "label",
+            "webSelector": "label",
+            "properties": [
+              "rect",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "input",
+            "webSelector": "input,textarea",
+            "properties": [
+              "rect",
+              "background",
+              "borderWidth",
+              "borderColor",
+              "radius"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 12,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "multiline-readonly",
+        "title": "multiline · readOnly",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#c-field .kit-component:nth-child(2) .kit-component-states .kit-specimen:nth-child(3) .field",
+        "controls": [
+          {
+            "id": "label",
+            "webSelector": "label",
+            "properties": [
+              "rect",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "input",
+            "webSelector": "input,textarea",
+            "properties": [
+              "rect",
+              "background",
+              "borderWidth",
+              "borderColor",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "value",
+            "webSelector": "input,textarea",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          }
+        ],
+        "capturePadding": 12,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "multiline-focused",
+        "title": "multiline · focused",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#c-field .kit-component:nth-child(2) .kit-component-states .kit-specimen:nth-child(4) .field",
+        "controls": [
+          {
+            "id": "label",
+            "webSelector": "label",
+            "properties": [
+              "rect",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "input",
+            "webSelector": "input,textarea",
+            "properties": [
+              "rect",
+              "background",
+              "borderWidth",
+              "borderColor",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "value",
+            "webSelector": "input,textarea",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          }
+        ],
+        "capturePadding": 12,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "multiline-invalid",
+        "title": "multiline · invalid",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#c-field .kit-component:nth-child(2) .kit-component-states .kit-specimen:nth-child(5) .field",
+        "controls": [
+          {
+            "id": "label",
+            "webSelector": "label",
+            "properties": [
+              "rect",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "input",
+            "webSelector": "input,textarea",
+            "properties": [
+              "rect",
+              "background",
+              "borderWidth",
+              "borderColor",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "value",
+            "webSelector": "input,textarea",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          },
+          {
+            "id": "error",
+            "webSelector": ".error-copy",
+            "properties": [
+              "width",
+              "fontSize",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          }
+        ],
+        "capturePadding": 12,
+        "note": "Состояние предложено в исходном UI kit; валидация вне DS. Source textarea показывает ошибку без смены цвета границы; input использует danger.",
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "multiline-disabled",
+        "title": "multiline · disabled",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#c-field .kit-component:nth-child(2) .kit-component-states .kit-specimen:nth-child(6) .field",
+        "controls": [
+          {
+            "id": "label",
+            "webSelector": "label",
+            "properties": [
+              "rect",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "input",
+            "webSelector": "input,textarea",
+            "properties": [
+              "rect",
+              "background",
+              "borderWidth",
+              "borderColor",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "value",
+            "webSelector": "input,textarea",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          }
+        ],
+        "capturePadding": 12,
+        "note": "Состояние предложено в исходном UI kit; валидация вне DS. Source textarea показывает ошибку без смены цвета границы; input использует danger.",
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "singleline-mobile",
+        "title": "singleLine · mobile",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#c-field .kit-component:nth-child(1) .kit-adaptation .kit-specimen:nth-of-type(1) .field",
+        "controls": [
+          {
+            "id": "label",
+            "webSelector": "label",
+            "properties": [
+              "rect",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "input",
+            "webSelector": "input,textarea",
+            "properties": [
+              "rect",
+              "background",
+              "borderWidth",
+              "borderColor",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "value",
+            "webSelector": "input,textarea",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          }
+        ],
+        "capturePadding": 12,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "singleline-desktop",
+        "title": "singleLine · desktop",
+        "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1
+        },
+        "webSelector": "#c-field .kit-component:nth-child(1) .kit-adaptation .kit-specimen:nth-of-type(2) .field",
+        "controls": [
+          {
+            "id": "label",
+            "webSelector": "label",
+            "properties": [
+              "rect",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "input",
+            "webSelector": "input,textarea",
+            "properties": [
+              "rect",
+              "background",
+              "borderWidth",
+              "borderColor",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "value",
+            "webSelector": "input,textarea",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          }
+        ],
+        "capturePadding": 12,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "multiline-mobile",
+        "title": "multiline · mobile",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#c-field .kit-component:nth-child(2) .kit-adaptation .kit-specimen:nth-of-type(1) .field",
+        "controls": [
+          {
+            "id": "label",
+            "webSelector": "label",
+            "properties": [
+              "rect",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "input",
+            "webSelector": "input,textarea",
+            "properties": [
+              "rect",
+              "background",
+              "borderWidth",
+              "borderColor",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "value",
+            "webSelector": "input,textarea",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          }
+        ],
+        "capturePadding": 12,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "multiline-desktop",
+        "title": "multiline · desktop",
+        "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1
+        },
+        "webSelector": "#c-field .kit-component:nth-child(2) .kit-adaptation .kit-specimen:nth-of-type(2) .field",
+        "controls": [
+          {
+            "id": "label",
+            "webSelector": "label",
+            "properties": [
+              "rect",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "input",
+            "webSelector": "input,textarea",
+            "properties": [
+              "rect",
+              "background",
+              "borderWidth",
+              "borderColor",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "value",
+            "webSelector": "input,textarea",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          }
+        ],
+        "capturePadding": 12,
+        "freezeMilliseconds": 0
+      }
+    ]
+  },
+  "results": [
+    {
+      "id": "singleline-negative-font",
+      "title": "Negative control · input font",
+      "expectedFailure": {
+        "control": "value",
+        "property": "fontSize"
+      },
+      "status": "fail",
+      "findings": [
+        {
+          "control": "value",
+          "property": "width",
+          "expected": 162.889404296875,
+          "actual": 196.189208984375,
+          "delta": 33.2998046875,
+          "tolerance": 0.5
+        },
+        {
+          "control": "value",
+          "property": "fontSize",
+          "expected": 18,
+          "actual": 22,
+          "delta": 4,
+          "tolerance": 0.05
+        },
+        {
+          "control": "value",
+          "property": "baseline",
+          "expected": 63.5,
+          "actual": 65.0029296875,
+          "delta": 1.5029296875,
+          "tolerance": 1
+        }
+      ],
+      "web": {
+        "id": "singleline-negative-font",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 85
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 21
+            },
+            "width": 316,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 16,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "input": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 316,
+              "height": 56
+            },
+            "width": 316,
+            "height": 56,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#171a20ff",
+            "radius": 24,
+            "borderWidth": 1,
+            "borderColor": "#3a414eff",
+            "baseline": 63.5,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "value": {
+            "rect": {
+              "x": -12,
+              "y": -12,
+              "width": 0,
+              "height": 0
+            },
+            "width": 162.889404296875,
+            "height": 0,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#171a20ff",
+            "radius": 24,
+            "borderWidth": 1,
+            "borderColor": "#3a414eff",
+            "baseline": 63.5,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 316,
+          "height": 85
+        },
+        "pageX": 12,
+        "pageY": 12,
+        "artifacts": {
+          "image": "web/singleline-negative-font.png"
+        }
+      },
+      "native": {
+        "id": "singleline-negative-font",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 85
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 21
+            },
+            "width": 316,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "baseline": 15.5927734375
+          },
+          "input": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 316,
+              "height": 56
+            },
+            "width": 316,
+            "height": 56,
+            "background": "#171a20ff",
+            "radius": 24,
+            "borderWidth": 1,
+            "borderColor": "#3a414eff"
+          },
+          "value": {
+            "rect": {
+              "x": 25,
+              "y": 40.5,
+              "width": 266,
+              "height": 33
+            },
+            "width": 196.189208984375,
+            "height": 33,
+            "fontSize": 22,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "baseline": 65.0029296875
+          }
+        },
+        "raster": {
+          "changedPixels": 1791,
+          "meanChannelDelta": 7.0171883432271995
+        },
+        "artifacts": {
+          "image": "flutter/singleline-negative-font.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/singleline-negative-font.png",
+        "flutter": "flutter/singleline-negative-font.png",
+        "overlay": "overlay/singleline-negative-font.png",
+        "diff": "diff/singleline-negative-font.png"
+      },
+      "raster": {
+        "changedPixels": 1791,
+        "meanChannelDelta": 7.0171883432271995
+      },
+      "expectedFailureVerified": true
+    },
+    {
+      "id": "singleline-filled",
+      "title": "singleLine · filled",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "singleline-filled",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 85
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 21
+            },
+            "width": 316,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 16,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "input": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 316,
+              "height": 56
+            },
+            "width": 316,
+            "height": 56,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#171a20ff",
+            "radius": 24,
+            "borderWidth": 1,
+            "borderColor": "#3a414eff",
+            "baseline": 63.5,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "value": {
+            "rect": {
+              "x": -12,
+              "y": -12,
+              "width": 0,
+              "height": 0
+            },
+            "width": 162.889404296875,
+            "height": 0,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#171a20ff",
+            "radius": 24,
+            "borderWidth": 1,
+            "borderColor": "#3a414eff",
+            "baseline": 63.5,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 316,
+          "height": 85
+        },
+        "pageX": 12,
+        "pageY": 12,
+        "artifacts": {
+          "image": "web/singleline-filled.png"
+        }
+      },
+      "native": {
+        "id": "singleline-filled",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 85
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 21
+            },
+            "width": 316,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "baseline": 15.5927734375
+          },
+          "input": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 316,
+              "height": 56
+            },
+            "width": 316,
+            "height": 56,
+            "background": "#171a20ff",
+            "radius": 24,
+            "borderWidth": 1,
+            "borderColor": "#3a414eff"
+          },
+          "value": {
+            "rect": {
+              "x": 25,
+              "y": 43.5,
+              "width": 266,
+              "height": 27
+            },
+            "width": 162.8896484375,
+            "height": 27,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "baseline": 63.5478515625
+          }
+        },
+        "raster": {
+          "changedPixels": 0,
+          "meanChannelDelta": 0.02396114409066379
+        },
+        "artifacts": {
+          "image": "flutter/singleline-filled.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/singleline-filled.png",
+        "flutter": "flutter/singleline-filled.png",
+        "overlay": "overlay/singleline-filled.png",
+        "diff": "diff/singleline-filled.png"
+      },
+      "raster": {
+        "changedPixels": 0,
+        "meanChannelDelta": 0.02396114409066379
+      }
+    },
+    {
+      "id": "singleline-empty",
+      "title": "singleLine · empty",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "singleline-empty",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 85
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 21
+            },
+            "width": 316,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 16,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "input": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 316,
+              "height": 56
+            },
+            "width": 316,
+            "height": 56,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#171a20ff",
+            "radius": 24,
+            "borderWidth": 1,
+            "borderColor": "#3a414eff",
+            "baseline": 63.5,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 316,
+          "height": 85
+        },
+        "pageX": 12,
+        "pageY": 12,
+        "artifacts": {
+          "image": "web/singleline-empty.png"
+        }
+      },
+      "native": {
+        "id": "singleline-empty",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 85
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 21
+            },
+            "width": 316,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "baseline": 15.5927734375
+          },
+          "input": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 316,
+              "height": 56
+            },
+            "width": 316,
+            "height": 56,
+            "background": "#171a20ff",
+            "radius": 24,
+            "borderWidth": 1,
+            "borderColor": "#3a414eff"
+          }
+        },
+        "raster": {
+          "changedPixels": 0,
+          "meanChannelDelta": 0.011782694729267854
+        },
+        "artifacts": {
+          "image": "flutter/singleline-empty.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/singleline-empty.png",
+        "flutter": "flutter/singleline-empty.png",
+        "overlay": "overlay/singleline-empty.png",
+        "diff": "diff/singleline-empty.png"
+      },
+      "raster": {
+        "changedPixels": 0,
+        "meanChannelDelta": 0.011782694729267854
+      }
+    },
+    {
+      "id": "singleline-readonly",
+      "title": "singleLine · readOnly",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "singleline-readonly",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 85
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 21
+            },
+            "width": 316,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 16,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "input": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 316,
+              "height": 56
+            },
+            "width": 316,
+            "height": 56,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#171a20ff",
+            "radius": 24,
+            "borderWidth": 1,
+            "borderColor": "#3a414eff",
+            "baseline": 63.5,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "value": {
+            "rect": {
+              "x": -12,
+              "y": -12,
+              "width": 0,
+              "height": 0
+            },
+            "width": 162.889404296875,
+            "height": 0,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#171a20ff",
+            "radius": 24,
+            "borderWidth": 1,
+            "borderColor": "#3a414eff",
+            "baseline": 63.5,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 316,
+          "height": 85
+        },
+        "pageX": 12,
+        "pageY": 12,
+        "artifacts": {
+          "image": "web/singleline-readonly.png"
+        }
+      },
+      "native": {
+        "id": "singleline-readonly",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 85
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 21
+            },
+            "width": 316,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "baseline": 15.5927734375
+          },
+          "input": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 316,
+              "height": 56
+            },
+            "width": 316,
+            "height": 56,
+            "background": "#171a20ff",
+            "radius": 24,
+            "borderWidth": 1,
+            "borderColor": "#3a414eff"
+          },
+          "value": {
+            "rect": {
+              "x": 25,
+              "y": 43.5,
+              "width": 266,
+              "height": 27
+            },
+            "width": 162.8896484375,
+            "height": 27,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "baseline": 63.5478515625
+          }
+        },
+        "raster": {
+          "changedPixels": 0,
+          "meanChannelDelta": 0.02396114409066379
+        },
+        "artifacts": {
+          "image": "flutter/singleline-readonly.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/singleline-readonly.png",
+        "flutter": "flutter/singleline-readonly.png",
+        "overlay": "overlay/singleline-readonly.png",
+        "diff": "diff/singleline-readonly.png"
+      },
+      "raster": {
+        "changedPixels": 0,
+        "meanChannelDelta": 0.02396114409066379
+      }
+    },
+    {
+      "id": "singleline-focused",
+      "title": "singleLine · focused",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "singleline-focused",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 85
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 21
+            },
+            "width": 316,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 16,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "input": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 316,
+              "height": 56
+            },
+            "width": 316,
+            "height": 56,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#171a20ff",
+            "radius": 24,
+            "borderWidth": 1,
+            "borderColor": "#3a414eff",
+            "baseline": 63.5,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "value": {
+            "rect": {
+              "x": -12,
+              "y": -12,
+              "width": 0,
+              "height": 0
+            },
+            "width": 162.889404296875,
+            "height": 0,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#171a20ff",
+            "radius": 24,
+            "borderWidth": 1,
+            "borderColor": "#3a414eff",
+            "baseline": 63.5,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 316,
+          "height": 85
+        },
+        "pageX": 12,
+        "pageY": 12,
+        "artifacts": {
+          "image": "web/singleline-focused.png"
+        }
+      },
+      "native": {
+        "id": "singleline-focused",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 85
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 21
+            },
+            "width": 316,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "baseline": 15.5927734375
+          },
+          "input": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 316,
+              "height": 56
+            },
+            "width": 316,
+            "height": 56,
+            "background": "#171a20ff",
+            "radius": 24,
+            "borderWidth": 1,
+            "borderColor": "#3a414eff"
+          },
+          "value": {
+            "rect": {
+              "x": 25,
+              "y": 43.5,
+              "width": 266,
+              "height": 27
+            },
+            "width": 162.8896484375,
+            "height": 27,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "baseline": 63.5478515625
+          }
+        },
+        "raster": {
+          "changedPixels": 569,
+          "meanChannelDelta": 1.0537146968879294
+        },
+        "artifacts": {
+          "image": "flutter/singleline-focused.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/singleline-focused.png",
+        "flutter": "flutter/singleline-focused.png",
+        "overlay": "overlay/singleline-focused.png",
+        "diff": "diff/singleline-focused.png"
+      },
+      "raster": {
+        "changedPixels": 569,
+        "meanChannelDelta": 1.0537146968879294
+      }
+    },
+    {
+      "id": "singleline-invalid",
+      "title": "singleLine · invalid",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "singleline-invalid",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 117
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 21
+            },
+            "width": 316,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 16,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "input": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 316,
+              "height": 56
+            },
+            "width": 316,
+            "height": 56,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#171a20ff",
+            "radius": 24,
+            "borderWidth": 1,
+            "borderColor": "#ff968eff",
+            "baseline": 63.5,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "value": {
+            "rect": {
+              "x": -12,
+              "y": -12,
+              "width": 0,
+              "height": 0
+            },
+            "width": 162.889404296875,
+            "height": 0,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#171a20ff",
+            "radius": 24,
+            "borderWidth": 1,
+            "borderColor": "#ff968eff",
+            "baseline": 63.5,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "error": {
+            "rect": {
+              "x": 32,
+              "y": 95,
+              "width": 127.71875,
+              "height": 17
+            },
+            "width": 127.71875,
+            "height": 17,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#ff968eff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#ff968eff",
+            "baseline": 109,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 316,
+          "height": 117
+        },
+        "pageX": 12,
+        "pageY": 12,
+        "artifacts": {
+          "image": "web/singleline-invalid.png"
+        }
+      },
+      "native": {
+        "id": "singleline-invalid",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 117
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 21
+            },
+            "width": 316,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "baseline": 15.5927734375
+          },
+          "input": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 316,
+              "height": 56
+            },
+            "width": 316,
+            "height": 56,
+            "background": "#171a20ff",
+            "radius": 24,
+            "borderWidth": 1,
+            "borderColor": "#ff968eff"
+          },
+          "value": {
+            "rect": {
+              "x": 25,
+              "y": 43.5,
+              "width": 266,
+              "height": 27
+            },
+            "width": 162.8896484375,
+            "height": 27,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "baseline": 63.5478515625
+          },
+          "error": {
+            "rect": {
+              "x": 32,
+              "y": 93,
+              "width": 284,
+              "height": 21
+            },
+            "width": 127.7158203125,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#ff968eff",
+            "baseline": 108.5927734375
+          }
+        },
+        "raster": {
+          "changedPixels": 1,
+          "meanChannelDelta": 0.02889723265192602
+        },
+        "artifacts": {
+          "image": "flutter/singleline-invalid.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/singleline-invalid.png",
+        "flutter": "flutter/singleline-invalid.png",
+        "overlay": "overlay/singleline-invalid.png",
+        "diff": "diff/singleline-invalid.png"
+      },
+      "raster": {
+        "changedPixels": 1,
+        "meanChannelDelta": 0.02889723265192602
+      }
+    },
+    {
+      "id": "singleline-disabled",
+      "title": "singleLine · disabled",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "singleline-disabled",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 85
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 21
+            },
+            "width": 316,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 16,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "input": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 316,
+              "height": 56
+            },
+            "width": 316,
+            "height": 56,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#969eacff",
+            "background": "#232730ff",
+            "radius": 24,
+            "borderWidth": 1,
+            "borderColor": "#3a414eff",
+            "baseline": 63.5,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "value": {
+            "rect": {
+              "x": -12,
+              "y": -12,
+              "width": 0,
+              "height": 0
+            },
+            "width": 162.889404296875,
+            "height": 0,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#969eacff",
+            "background": "#232730ff",
+            "radius": 24,
+            "borderWidth": 1,
+            "borderColor": "#3a414eff",
+            "baseline": 63.5,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 316,
+          "height": 85
+        },
+        "pageX": 12,
+        "pageY": 12,
+        "artifacts": {
+          "image": "web/singleline-disabled.png"
+        }
+      },
+      "native": {
+        "id": "singleline-disabled",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 85
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 21
+            },
+            "width": 316,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "baseline": 15.5927734375
+          },
+          "input": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 316,
+              "height": 56
+            },
+            "width": 316,
+            "height": 56,
+            "background": "#232730ff",
+            "radius": 24,
+            "borderWidth": 1,
+            "borderColor": "#3a414eff"
+          },
+          "value": {
+            "rect": {
+              "x": 25,
+              "y": 43.5,
+              "width": 266,
+              "height": 27
+            },
+            "width": 162.8896484375,
+            "height": 27,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#969eacff",
+            "baseline": 63.5478515625
+          }
+        },
+        "raster": {
+          "changedPixels": 0,
+          "meanChannelDelta": 0.02217125382262997
+        },
+        "artifacts": {
+          "image": "flutter/singleline-disabled.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/singleline-disabled.png",
+        "flutter": "flutter/singleline-disabled.png",
+        "overlay": "overlay/singleline-disabled.png",
+        "diff": "diff/singleline-disabled.png"
+      },
+      "raster": {
+        "changedPixels": 0,
+        "meanChannelDelta": 0.02217125382262997
+      }
+    },
+    {
+      "id": "multiline-filled",
+      "title": "multiline · filled",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "multiline-filled",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 221
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 21
+            },
+            "width": 316,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 16,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "input": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 316,
+              "height": 192
+            },
+            "width": 316,
+            "height": 192,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#171a20ff",
+            "radius": 24,
+            "borderWidth": 1,
+            "borderColor": "#3a414eff",
+            "baseline": 64,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "value": {
+            "rect": {
+              "x": -12,
+              "y": -12,
+              "width": 0,
+              "height": 0
+            },
+            "width": 240.59323120117188,
+            "height": 0,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#171a20ff",
+            "radius": 24,
+            "borderWidth": 1,
+            "borderColor": "#3a414eff",
+            "baseline": 64,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 316,
+          "height": 221
+        },
+        "pageX": 12,
+        "pageY": 12,
+        "artifacts": {
+          "image": "web/multiline-filled.png"
+        }
+      },
+      "native": {
+        "id": "multiline-filled",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 221
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 21
+            },
+            "width": 316,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "baseline": 15.5927734375
+          },
+          "input": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 316,
+              "height": 192
+            },
+            "width": 316,
+            "height": 192,
+            "background": "#171a20ff",
+            "radius": 24,
+            "borderWidth": 1,
+            "borderColor": "#3a414eff"
+          },
+          "value": {
+            "rect": {
+              "x": 17,
+              "y": 46,
+              "width": 282,
+              "height": 24
+            },
+            "width": 240.5933380126953,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "baseline": 63.8203125
+          }
+        },
+        "raster": {
+          "changedPixels": 0,
+          "meanChannelDelta": 0.012789115646258504
+        },
+        "artifacts": {
+          "image": "flutter/multiline-filled.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/multiline-filled.png",
+        "flutter": "flutter/multiline-filled.png",
+        "overlay": "overlay/multiline-filled.png",
+        "diff": "diff/multiline-filled.png"
+      },
+      "raster": {
+        "changedPixels": 0,
+        "meanChannelDelta": 0.012789115646258504
+      }
+    },
+    {
+      "id": "multiline-empty",
+      "title": "multiline · empty",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "multiline-empty",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 221
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 21
+            },
+            "width": 316,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 16,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "input": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 316,
+              "height": 192
+            },
+            "width": 316,
+            "height": 192,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#171a20ff",
+            "radius": 24,
+            "borderWidth": 1,
+            "borderColor": "#3a414eff",
+            "baseline": 64,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 316,
+          "height": 221
+        },
+        "pageX": 12,
+        "pageY": 12,
+        "artifacts": {
+          "image": "web/multiline-empty.png"
+        }
+      },
+      "native": {
+        "id": "multiline-empty",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 221
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 21
+            },
+            "width": 316,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "baseline": 15.5927734375
+          },
+          "input": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 316,
+              "height": 192
+            },
+            "width": 316,
+            "height": 192,
+            "background": "#171a20ff",
+            "radius": 24,
+            "borderWidth": 1,
+            "borderColor": "#3a414eff"
+          }
+        },
+        "raster": {
+          "changedPixels": 0,
+          "meanChannelDelta": 0.005726290516206482
+        },
+        "artifacts": {
+          "image": "flutter/multiline-empty.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/multiline-empty.png",
+        "flutter": "flutter/multiline-empty.png",
+        "overlay": "overlay/multiline-empty.png",
+        "diff": "diff/multiline-empty.png"
+      },
+      "raster": {
+        "changedPixels": 0,
+        "meanChannelDelta": 0.005726290516206482
+      }
+    },
+    {
+      "id": "multiline-readonly",
+      "title": "multiline · readOnly",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "multiline-readonly",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 221
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 21
+            },
+            "width": 316,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 16,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "input": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 316,
+              "height": 192
+            },
+            "width": 316,
+            "height": 192,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#171a20ff",
+            "radius": 24,
+            "borderWidth": 1,
+            "borderColor": "#3a414eff",
+            "baseline": 64,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "value": {
+            "rect": {
+              "x": -12,
+              "y": -12,
+              "width": 0,
+              "height": 0
+            },
+            "width": 240.59323120117188,
+            "height": 0,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#171a20ff",
+            "radius": 24,
+            "borderWidth": 1,
+            "borderColor": "#3a414eff",
+            "baseline": 64,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 316,
+          "height": 221
+        },
+        "pageX": 12,
+        "pageY": 12,
+        "artifacts": {
+          "image": "web/multiline-readonly.png"
+        }
+      },
+      "native": {
+        "id": "multiline-readonly",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 221
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 21
+            },
+            "width": 316,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "baseline": 15.5927734375
+          },
+          "input": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 316,
+              "height": 192
+            },
+            "width": 316,
+            "height": 192,
+            "background": "#171a20ff",
+            "radius": 24,
+            "borderWidth": 1,
+            "borderColor": "#3a414eff"
+          },
+          "value": {
+            "rect": {
+              "x": 17,
+              "y": 46,
+              "width": 282,
+              "height": 24
+            },
+            "width": 240.5933380126953,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "baseline": 63.8203125
+          }
+        },
+        "raster": {
+          "changedPixels": 0,
+          "meanChannelDelta": 0.012789115646258504
+        },
+        "artifacts": {
+          "image": "flutter/multiline-readonly.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/multiline-readonly.png",
+        "flutter": "flutter/multiline-readonly.png",
+        "overlay": "overlay/multiline-readonly.png",
+        "diff": "diff/multiline-readonly.png"
+      },
+      "raster": {
+        "changedPixels": 0,
+        "meanChannelDelta": 0.012789115646258504
+      }
+    },
+    {
+      "id": "multiline-focused",
+      "title": "multiline · focused",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "multiline-focused",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 221
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 21
+            },
+            "width": 316,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 16,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "input": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 316,
+              "height": 192
+            },
+            "width": 316,
+            "height": 192,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#171a20ff",
+            "radius": 24,
+            "borderWidth": 1,
+            "borderColor": "#3a414eff",
+            "baseline": 64,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "value": {
+            "rect": {
+              "x": -12,
+              "y": -12,
+              "width": 0,
+              "height": 0
+            },
+            "width": 240.59323120117188,
+            "height": 0,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#171a20ff",
+            "radius": 24,
+            "borderWidth": 1,
+            "borderColor": "#3a414eff",
+            "baseline": 64,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 316,
+          "height": 221
+        },
+        "pageX": 12,
+        "pageY": 12,
+        "artifacts": {
+          "image": "web/multiline-focused.png"
+        }
+      },
+      "native": {
+        "id": "multiline-focused",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 221
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 21
+            },
+            "width": 316,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "baseline": 15.5927734375
+          },
+          "input": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 316,
+              "height": 192
+            },
+            "width": 316,
+            "height": 192,
+            "background": "#171a20ff",
+            "radius": 24,
+            "borderWidth": 1,
+            "borderColor": "#3a414eff"
+          },
+          "value": {
+            "rect": {
+              "x": 17,
+              "y": 46,
+              "width": 282,
+              "height": 24
+            },
+            "width": 240.5933380126953,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "baseline": 63.8203125
+          }
+        },
+        "raster": {
+          "changedPixels": 563,
+          "meanChannelDelta": 0.4554861944777911
+        },
+        "artifacts": {
+          "image": "flutter/multiline-focused.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/multiline-focused.png",
+        "flutter": "flutter/multiline-focused.png",
+        "overlay": "overlay/multiline-focused.png",
+        "diff": "diff/multiline-focused.png"
+      },
+      "raster": {
+        "changedPixels": 563,
+        "meanChannelDelta": 0.4554861944777911
+      }
+    },
+    {
+      "id": "multiline-invalid",
+      "title": "multiline · invalid",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "multiline-invalid",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 253
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 21
+            },
+            "width": 316,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 16,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "input": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 316,
+              "height": 192
+            },
+            "width": 316,
+            "height": 192,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#171a20ff",
+            "radius": 24,
+            "borderWidth": 1,
+            "borderColor": "#3a414eff",
+            "baseline": 64,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "value": {
+            "rect": {
+              "x": -12,
+              "y": -12,
+              "width": 0,
+              "height": 0
+            },
+            "width": 240.59323120117188,
+            "height": 0,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#171a20ff",
+            "radius": 24,
+            "borderWidth": 1,
+            "borderColor": "#3a414eff",
+            "baseline": 64,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "error": {
+            "rect": {
+              "x": 32,
+              "y": 231,
+              "width": 127.71875,
+              "height": 17
+            },
+            "width": 127.71875,
+            "height": 17,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#ff968eff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#ff968eff",
+            "baseline": 245,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 316,
+          "height": 253
+        },
+        "pageX": 12,
+        "pageY": 12,
+        "artifacts": {
+          "image": "web/multiline-invalid.png"
+        }
+      },
+      "native": {
+        "id": "multiline-invalid",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 253
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 21
+            },
+            "width": 316,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "baseline": 15.5927734375
+          },
+          "input": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 316,
+              "height": 192
+            },
+            "width": 316,
+            "height": 192,
+            "background": "#171a20ff",
+            "radius": 24,
+            "borderWidth": 1,
+            "borderColor": "#3a414eff"
+          },
+          "value": {
+            "rect": {
+              "x": 17,
+              "y": 46,
+              "width": 282,
+              "height": 24
+            },
+            "width": 240.5933380126953,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "baseline": 63.8203125
+          },
+          "error": {
+            "rect": {
+              "x": 32,
+              "y": 229,
+              "width": 284,
+              "height": 21
+            },
+            "width": 127.7158203125,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#ff968eff",
+            "baseline": 244.5927734375
+          }
+        },
+        "raster": {
+          "changedPixels": 1,
+          "meanChannelDelta": 0.016627734126141432
+        },
+        "artifacts": {
+          "image": "flutter/multiline-invalid.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/multiline-invalid.png",
+        "flutter": "flutter/multiline-invalid.png",
+        "overlay": "overlay/multiline-invalid.png",
+        "diff": "diff/multiline-invalid.png"
+      },
+      "raster": {
+        "changedPixels": 1,
+        "meanChannelDelta": 0.016627734126141432
+      }
+    },
+    {
+      "id": "multiline-disabled",
+      "title": "multiline · disabled",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "multiline-disabled",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 221
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 21
+            },
+            "width": 316,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 16,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "input": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 316,
+              "height": 192
+            },
+            "width": 316,
+            "height": 192,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#969eacff",
+            "background": "#232730ff",
+            "radius": 24,
+            "borderWidth": 1,
+            "borderColor": "#3a414eff",
+            "baseline": 64,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "value": {
+            "rect": {
+              "x": -12,
+              "y": -12,
+              "width": 0,
+              "height": 0
+            },
+            "width": 240.59323120117188,
+            "height": 0,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#969eacff",
+            "background": "#232730ff",
+            "radius": 24,
+            "borderWidth": 1,
+            "borderColor": "#3a414eff",
+            "baseline": 64,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 316,
+          "height": 221
+        },
+        "pageX": 12,
+        "pageY": 12,
+        "artifacts": {
+          "image": "web/multiline-disabled.png"
+        }
+      },
+      "native": {
+        "id": "multiline-disabled",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 221
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 21
+            },
+            "width": 316,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "baseline": 15.5927734375
+          },
+          "input": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 316,
+              "height": 192
+            },
+            "width": 316,
+            "height": 192,
+            "background": "#232730ff",
+            "radius": 24,
+            "borderWidth": 1,
+            "borderColor": "#3a414eff"
+          },
+          "value": {
+            "rect": {
+              "x": 17,
+              "y": 46,
+              "width": 282,
+              "height": 24
+            },
+            "width": 240.5933380126953,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#969eacff",
+            "baseline": 63.8203125
+          }
+        },
+        "raster": {
+          "changedPixels": 0,
+          "meanChannelDelta": 0.012589035614245698
+        },
+        "artifacts": {
+          "image": "flutter/multiline-disabled.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/multiline-disabled.png",
+        "flutter": "flutter/multiline-disabled.png",
+        "overlay": "overlay/multiline-disabled.png",
+        "diff": "diff/multiline-disabled.png"
+      },
+      "raster": {
+        "changedPixels": 0,
+        "meanChannelDelta": 0.012589035614245698
+      }
+    },
+    {
+      "id": "singleline-mobile",
+      "title": "singleLine · mobile",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "singleline-mobile",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 85
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 21
+            },
+            "width": 316,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 16,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "input": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 316,
+              "height": 56
+            },
+            "width": 316,
+            "height": 56,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#171a20ff",
+            "radius": 24,
+            "borderWidth": 1,
+            "borderColor": "#3a414eff",
+            "baseline": 63.5,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "value": {
+            "rect": {
+              "x": -12,
+              "y": -12,
+              "width": 0,
+              "height": 0
+            },
+            "width": 162.889404296875,
+            "height": 0,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#171a20ff",
+            "radius": 24,
+            "borderWidth": 1,
+            "borderColor": "#3a414eff",
+            "baseline": 63.5,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 316,
+          "height": 85
+        },
+        "pageX": 12,
+        "pageY": 12,
+        "artifacts": {
+          "image": "web/singleline-mobile.png"
+        }
+      },
+      "native": {
+        "id": "singleline-mobile",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 85
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 21
+            },
+            "width": 316,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "baseline": 15.5927734375
+          },
+          "input": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 316,
+              "height": 56
+            },
+            "width": 316,
+            "height": 56,
+            "background": "#171a20ff",
+            "radius": 24,
+            "borderWidth": 1,
+            "borderColor": "#3a414eff"
+          },
+          "value": {
+            "rect": {
+              "x": 25,
+              "y": 43.5,
+              "width": 266,
+              "height": 27
+            },
+            "width": 162.8896484375,
+            "height": 27,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "baseline": 63.5478515625
+          }
+        },
+        "raster": {
+          "changedPixels": 0,
+          "meanChannelDelta": 0.02396114409066379
+        },
+        "artifacts": {
+          "image": "flutter/singleline-mobile.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/singleline-mobile.png",
+        "flutter": "flutter/singleline-mobile.png",
+        "overlay": "overlay/singleline-mobile.png",
+        "diff": "diff/singleline-mobile.png"
+      },
+      "raster": {
+        "changedPixels": 0,
+        "meanChannelDelta": 0.02396114409066379
+      }
+    },
+    {
+      "id": "singleline-desktop",
+      "title": "singleLine · desktop",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "singleline-desktop",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 395.328125,
+          "height": 85
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 395.328125,
+              "height": 21
+            },
+            "width": 395.328125,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 16,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "input": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 395.328125,
+              "height": 56
+            },
+            "width": 395.328125,
+            "height": 56,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#171a20ff",
+            "radius": 24,
+            "borderWidth": 1,
+            "borderColor": "#3a414eff",
+            "baseline": 63.5,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "value": {
+            "rect": {
+              "x": -12,
+              "y": -12,
+              "width": 0,
+              "height": 0
+            },
+            "width": 162.889404296875,
+            "height": 0,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#171a20ff",
+            "radius": 24,
+            "borderWidth": 1,
+            "borderColor": "#3a414eff",
+            "baseline": 63.5,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 395.328125,
+          "height": 85
+        },
+        "pageX": 12,
+        "pageY": 12,
+        "artifacts": {
+          "image": "web/singleline-desktop.png"
+        }
+      },
+      "native": {
+        "id": "singleline-desktop",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 395.328125,
+          "height": 85
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 395.328125,
+              "height": 21
+            },
+            "width": 395.328125,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "baseline": 15.5927734375
+          },
+          "input": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 395.328125,
+              "height": 56
+            },
+            "width": 395.328125,
+            "height": 56,
+            "background": "#171a20ff",
+            "radius": 24,
+            "borderWidth": 1,
+            "borderColor": "#3a414eff"
+          },
+          "value": {
+            "rect": {
+              "x": 25,
+              "y": 43.5,
+              "width": 345.328125,
+              "height": 27
+            },
+            "width": 162.8896484375,
+            "height": 27,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "baseline": 63.5478515625
+          }
+        },
+        "raster": {
+          "changedPixels": 231,
+          "meanChannelDelta": 0.07494539100043687
+        },
+        "artifacts": {
+          "image": "flutter/singleline-desktop.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/singleline-desktop.png",
+        "flutter": "flutter/singleline-desktop.png",
+        "overlay": "overlay/singleline-desktop.png",
+        "diff": "diff/singleline-desktop.png"
+      },
+      "raster": {
+        "changedPixels": 231,
+        "meanChannelDelta": 0.07494539100043687
+      }
+    },
+    {
+      "id": "multiline-mobile",
+      "title": "multiline · mobile",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "multiline-mobile",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 221
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 21
+            },
+            "width": 316,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 16,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "input": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 316,
+              "height": 192
+            },
+            "width": 316,
+            "height": 192,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#171a20ff",
+            "radius": 24,
+            "borderWidth": 1,
+            "borderColor": "#3a414eff",
+            "baseline": 64,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "value": {
+            "rect": {
+              "x": -12,
+              "y": -12,
+              "width": 0,
+              "height": 0
+            },
+            "width": 240.59323120117188,
+            "height": 0,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#171a20ff",
+            "radius": 24,
+            "borderWidth": 1,
+            "borderColor": "#3a414eff",
+            "baseline": 64,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 316,
+          "height": 221
+        },
+        "pageX": 12,
+        "pageY": 12,
+        "artifacts": {
+          "image": "web/multiline-mobile.png"
+        }
+      },
+      "native": {
+        "id": "multiline-mobile",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 221
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 21
+            },
+            "width": 316,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "baseline": 15.5927734375
+          },
+          "input": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 316,
+              "height": 192
+            },
+            "width": 316,
+            "height": 192,
+            "background": "#171a20ff",
+            "radius": 24,
+            "borderWidth": 1,
+            "borderColor": "#3a414eff"
+          },
+          "value": {
+            "rect": {
+              "x": 17,
+              "y": 46,
+              "width": 282,
+              "height": 24
+            },
+            "width": 240.5933380126953,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "baseline": 63.8203125
+          }
+        },
+        "raster": {
+          "changedPixels": 0,
+          "meanChannelDelta": 0.012789115646258504
+        },
+        "artifacts": {
+          "image": "flutter/multiline-mobile.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/multiline-mobile.png",
+        "flutter": "flutter/multiline-mobile.png",
+        "overlay": "overlay/multiline-mobile.png",
+        "diff": "diff/multiline-mobile.png"
+      },
+      "raster": {
+        "changedPixels": 0,
+        "meanChannelDelta": 0.012789115646258504
+      }
+    },
+    {
+      "id": "multiline-desktop",
+      "title": "multiline · desktop",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "multiline-desktop",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 395.328125,
+          "height": 249
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 395.328125,
+              "height": 21
+            },
+            "width": 395.328125,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 16,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "input": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 395.328125,
+              "height": 220
+            },
+            "width": 395.328125,
+            "height": 220,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#171a20ff",
+            "radius": 24,
+            "borderWidth": 1,
+            "borderColor": "#3a414eff",
+            "baseline": 64,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "value": {
+            "rect": {
+              "x": -12,
+              "y": -12,
+              "width": 0,
+              "height": 0
+            },
+            "width": 240.59323120117188,
+            "height": 0,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#171a20ff",
+            "radius": 24,
+            "borderWidth": 1,
+            "borderColor": "#3a414eff",
+            "baseline": 64,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 395.328125,
+          "height": 249
+        },
+        "pageX": 12,
+        "pageY": 12,
+        "artifacts": {
+          "image": "web/multiline-desktop.png"
+        }
+      },
+      "native": {
+        "id": "multiline-desktop",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 395.328125,
+          "height": 249
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 395.328125,
+              "height": 21
+            },
+            "width": 395.328125,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "baseline": 15.5927734375
+          },
+          "input": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 395.328125,
+              "height": 220
+            },
+            "width": 395.328125,
+            "height": 220,
+            "background": "#171a20ff",
+            "radius": 24,
+            "borderWidth": 1,
+            "borderColor": "#3a414eff"
+          },
+          "value": {
+            "rect": {
+              "x": 17,
+              "y": 46,
+              "width": 361.328125,
+              "height": 24
+            },
+            "width": 240.5933380126953,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "baseline": 63.8203125
+          }
+        },
+        "raster": {
+          "changedPixels": 723,
+          "meanChannelDelta": 0.09058956916099774
+        },
+        "artifacts": {
+          "image": "flutter/multiline-desktop.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/multiline-desktop.png",
+        "flutter": "flutter/multiline-desktop.png",
+        "overlay": "overlay/multiline-desktop.png",
+        "diff": "diff/multiline-desktop.png"
+      },
+      "raster": {
+        "changedPixels": 723,
+        "meanChannelDelta": 0.09058956916099774
+      }
+    }
+  ],
+  "error": null,
+  "runId": "2026-11-07T18:23:10.304Z"
+}

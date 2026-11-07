@@ -1,3 +1,5 @@
+import 'package:tournament_app/presentation/widgetbook/components/field/single_line/single_line_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/components/field/multiline/multiline_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/foundation/responsive/consumers/consumers_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/foundation/responsive/text_scale/text_scale_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/foundation/motion/normal/normal_use_case.dart';
@@ -102,6 +104,10 @@ final widgetbookCatalog = <WidgetbookNode>[
     name: 'Components',
     isInitiallyExpanded: true,
     children: [
+      WidgetbookComponent(
+        name: 'Field',
+        useCases: [fieldSingleLineUseCase, fieldMultilineUseCase],
+      ),
       WidgetbookComponent(
         name: 'Button',
         useCases: [

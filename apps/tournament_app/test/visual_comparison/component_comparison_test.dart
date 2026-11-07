@@ -158,11 +158,44 @@ abstract final class _ComparisonDriver {
             textHeightBehavior: widget.textHeightBehavior,
           )..layout(maxWidth: rect.width);
           values.addAll({
+            if (control.textRange)
+              'width': painter
+                  .computeLineMetrics()
+                  .map((line) => line.width)
+                  .reduce(math.max),
             'fontSize': effective.fontSize,
             'fontWeight': effective.fontWeight?.value,
             'lineHeight': effective.height,
             'color': effective.color == null ? null : _color(effective.color!),
             'baseline': rect.top + painter.computeLineMetrics().first.baseline,
+          });
+          painter.dispose();
+        }
+        if (widget is EditableText) {
+          final editable = tester
+              .state<EditableTextState>(finder)
+              .renderEditable;
+          final painter = TextPainter(
+            text: TextSpan(text: widget.controller.text, style: widget.style),
+            textDirection: TextDirection.ltr,
+          )..layout(maxWidth: rect.width);
+          values.addAll({
+            'width': painter.computeLineMetrics().isEmpty
+                ? 0
+                : painter
+                      .computeLineMetrics()
+                      .map((line) => line.width)
+                      .reduce(math.max),
+            'fontSize': widget.style.fontSize,
+            'fontWeight': widget.style.fontWeight?.value,
+            'lineHeight': widget.style.height,
+            'color': widget.style.color == null
+                ? null
+                : _color(widget.style.color!),
+            'baseline':
+                editable.localToGlobal(Offset.zero).dy -
+                rootRect.top +
+                painter.computeLineMetrics().first.baseline,
           });
           painter.dispose();
         }
@@ -183,6 +216,9 @@ abstract final class _ComparisonDriver {
                     math.min(rect.width, rect.height) / 2,
                   ),
             'borderWidth': box.border?.top.width ?? 0,
+            'borderColor': box.border == null
+                ? '#00000000'
+                : _color(box.border!.top.color),
           });
         }
         controls[control.id] = values;

@@ -255,4 +255,19 @@ class FoundationLocalizationsRu extends FoundationLocalizations {
 
   @override
   String get elevationDialog => 'Диалог';
+
+  @override
+  String get fieldNameLabel => 'Название';
+
+  @override
+  String get fieldMessageLabel => 'Сообщение';
+
+  @override
+  String get fieldNameSample => 'Пятничный турнир';
+
+  @override
+  String get fieldMessageSample => 'Хочу предложить улучшение…';
+
+  @override
+  String get fieldErrorSample => 'Проверь значение';
 }

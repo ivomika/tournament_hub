@@ -1,0 +1,2540 @@
+<!doctype html><html lang="ru"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AppField · Web ↔ Flutter</title><style>
+ :root{color-scheme:dark;font-family:system-ui;background:#0e1014;color:#f4f2ee}*{box-sizing:border-box}body{max-width:1600px;margin:auto;padding:32px}h1{font-size:36px}a{color:#f1c75b}p{color:#b8bec9;line-height:1.5}.stats,nav{display:flex;gap:20px;flex-wrap:wrap}nav{position:sticky;top:0;background:#0e1014ee;padding:16px 0;z-index:1}.stats>div{border:1px solid #3a414e;border-radius:12px;padding:16px}.stats strong{display:block;font-size:28px}.case{padding:20px;margin:24px 0;background:#171a20;border:1px solid #3a414e;border-radius:16px}.case header{display:flex;justify-content:space-between;gap:16px}.pass{color:#78d7a5}.fail{color:#ff968e}.shots{display:grid;grid-template-columns:repeat(4,minmax(180px,1fr));gap:12px;overflow:auto}figure{margin:0;background:#0e1014;padding:12px;display:flex;flex-direction:column;align-items:center;gap:20px;min-height:200px}figcaption{color:#b8bec9;font-size:13px}img{max-width:100%;height:auto;image-rendering:pixelated}figure a{margin:auto}table{border-collapse:collapse;width:100%;font-size:12px}th,td{text-align:left;padding:9px;border-bottom:1px solid #3a414e}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px;color:#b8bec9}.table{overflow:auto}.finding{color:#ff968e}small{color:#969eac}@media(max-width:800px){body{padding:16px}.shots{grid-template-columns:repeat(4,280px)}}
+ </style><header><small>TOURNAMENT HUB / ОБЩЕЕ ВИЗУАЛЬНОЕ СРАВНЕНИЕ</small><h1>AppField · Web ↔ Flutter</h1><p>Сценарии и контрольные элементы заданы декларацией компонента. Геометрия, типографика и цвета проверяются отдельно; diff показывает остаточную разницу рендереров. Нажмите PNG, чтобы открыть исходное разрешение.</p></header>
+ <div class="stats"><div><strong>17</strong>сценариев</div><div><strong class="pass">16/16</strong>прошли контракт контролей</div><div><strong>51</strong>контрольных элементов</div></div>
+ <nav><a href="#singleline-negative-font">Negative control · input font</a><a href="#singleline-filled">singleLine · filled</a><a href="#singleline-empty">singleLine · empty</a><a href="#singleline-readonly">singleLine · readOnly</a><a href="#singleline-focused">singleLine · focused</a><a href="#singleline-invalid">singleLine · invalid</a><a href="#singleline-disabled">singleLine · disabled</a><a href="#multiline-filled">multiline · filled</a><a href="#multiline-empty">multiline · empty</a><a href="#multiline-readonly">multiline · readOnly</a><a href="#multiline-focused">multiline · focused</a><a href="#multiline-invalid">multiline · invalid</a><a href="#multiline-disabled">multiline · disabled</a><a href="#singleline-mobile">singleLine · mobile</a><a href="#singleline-desktop">singleLine · desktop</a><a href="#multiline-mobile">multiline · mobile</a><a href="#multiline-desktop">multiline · desktop</a><a href="http://127.0.0.1:8094/ui-kit.html">Web-эталон ↗</a></nav>
+ <article class="case" id="singleline-negative-font"><header><h2>Negative control · input font</h2><b class="fail">Контрольный дефект обнаружен</b></header><p>Намеренно изменён размер текста ввода; стенд обязан обнаружить отличие внутри рамки.</p><div class="shots"><figure><figcaption>Web</figcaption><a href="web/singleline-negative-font.png"><img alt="singleline-negative-font Web" src="web/singleline-negative-font.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/singleline-negative-font.png"><img alt="singleline-negative-font Flutter" src="flutter/singleline-negative-font.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/singleline-negative-font.png"><img alt="singleline-negative-font Наложение 50/50" src="overlay/singleline-negative-font.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/singleline-negative-font.png"><img alt="singleline-negative-font Diff ×4" src="diff/singleline-negative-font.png"></a></figure></div>
+ <div class="table"><table><thead><tr><th>Контроль</th><th>Свойство</th><th>Web</th><th>Flutter</th><th>Δ / допуск</th></tr></thead><tbody><tr class="finding"><td>value</td><td>width</td><td>162.889404296875</td><td>196.189208984375</td><td>33.2998046875 / 0.5</td></tr><tr class="finding"><td>value</td><td>fontSize</td><td>18</td><td>22</td><td>4 / 0.05</td></tr><tr class="finding"><td>value</td><td>baseline</td><td>63.5</td><td>65.0029296875</td><td>1.5029296875 / 1</td></tr></tbody></table></div>
+ <p>Raster: 1791 изменённых пикселей; mean channel delta 7.0172/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;singleline-negative-font&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 85
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 16,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;input&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;,
+        &quot;baseline&quot;: 63.5,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;value&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: -12,
+          &quot;y&quot;: -12,
+          &quot;width&quot;: 0,
+          &quot;height&quot;: 0
+        },
+        &quot;width&quot;: 162.889404296875,
+        &quot;height&quot;: 0,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;,
+        &quot;baseline&quot;: 63.5,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 85
+    },
+    &quot;pageX&quot;: 12,
+    &quot;pageY&quot;: 12,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/singleline-negative-font.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;singleline-negative-font&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 85
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 15.5927734375
+      },
+      &quot;input&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 56,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;
+      },
+      &quot;value&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 25,
+          &quot;y&quot;: 40.5,
+          &quot;width&quot;: 266,
+          &quot;height&quot;: 33
+        },
+        &quot;width&quot;: 196.189208984375,
+        &quot;height&quot;: 33,
+        &quot;fontSize&quot;: 22,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 65.0029296875
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 1791,
+      &quot;meanChannelDelta&quot;: 7.0171883432271995
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/singleline-negative-font.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="singleline-filled"><header><h2>singleLine · filled</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/singleline-filled.png"><img alt="singleline-filled Web" src="web/singleline-filled.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/singleline-filled.png"><img alt="singleline-filled Flutter" src="flutter/singleline-filled.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/singleline-filled.png"><img alt="singleline-filled Наложение 50/50" src="overlay/singleline-filled.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/singleline-filled.png"><img alt="singleline-filled Diff ×4" src="diff/singleline-filled.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 0 изменённых пикселей; mean channel delta 0.0240/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;singleline-filled&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 85
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 16,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;input&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;,
+        &quot;baseline&quot;: 63.5,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;value&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: -12,
+          &quot;y&quot;: -12,
+          &quot;width&quot;: 0,
+          &quot;height&quot;: 0
+        },
+        &quot;width&quot;: 162.889404296875,
+        &quot;height&quot;: 0,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;,
+        &quot;baseline&quot;: 63.5,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 85
+    },
+    &quot;pageX&quot;: 12,
+    &quot;pageY&quot;: 12,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/singleline-filled.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;singleline-filled&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 85
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 15.5927734375
+      },
+      &quot;input&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 56,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;
+      },
+      &quot;value&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 25,
+          &quot;y&quot;: 43.5,
+          &quot;width&quot;: 266,
+          &quot;height&quot;: 27
+        },
+        &quot;width&quot;: 162.8896484375,
+        &quot;height&quot;: 27,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 63.5478515625
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 0,
+      &quot;meanChannelDelta&quot;: 0.02396114409066379
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/singleline-filled.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="singleline-empty"><header><h2>singleLine · empty</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/singleline-empty.png"><img alt="singleline-empty Web" src="web/singleline-empty.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/singleline-empty.png"><img alt="singleline-empty Flutter" src="flutter/singleline-empty.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/singleline-empty.png"><img alt="singleline-empty Наложение 50/50" src="overlay/singleline-empty.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/singleline-empty.png"><img alt="singleline-empty Diff ×4" src="diff/singleline-empty.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 0 изменённых пикселей; mean channel delta 0.0118/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;singleline-empty&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 85
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 16,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;input&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;,
+        &quot;baseline&quot;: 63.5,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 85
+    },
+    &quot;pageX&quot;: 12,
+    &quot;pageY&quot;: 12,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/singleline-empty.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;singleline-empty&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 85
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 15.5927734375
+      },
+      &quot;input&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 56,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 0,
+      &quot;meanChannelDelta&quot;: 0.011782694729267854
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/singleline-empty.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="singleline-readonly"><header><h2>singleLine · readOnly</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/singleline-readonly.png"><img alt="singleline-readonly Web" src="web/singleline-readonly.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/singleline-readonly.png"><img alt="singleline-readonly Flutter" src="flutter/singleline-readonly.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/singleline-readonly.png"><img alt="singleline-readonly Наложение 50/50" src="overlay/singleline-readonly.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/singleline-readonly.png"><img alt="singleline-readonly Diff ×4" src="diff/singleline-readonly.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 0 изменённых пикселей; mean channel delta 0.0240/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;singleline-readonly&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 85
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 16,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;input&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;,
+        &quot;baseline&quot;: 63.5,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;value&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: -12,
+          &quot;y&quot;: -12,
+          &quot;width&quot;: 0,
+          &quot;height&quot;: 0
+        },
+        &quot;width&quot;: 162.889404296875,
+        &quot;height&quot;: 0,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;,
+        &quot;baseline&quot;: 63.5,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 85
+    },
+    &quot;pageX&quot;: 12,
+    &quot;pageY&quot;: 12,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/singleline-readonly.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;singleline-readonly&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 85
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 15.5927734375
+      },
+      &quot;input&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 56,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;
+      },
+      &quot;value&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 25,
+          &quot;y&quot;: 43.5,
+          &quot;width&quot;: 266,
+          &quot;height&quot;: 27
+        },
+        &quot;width&quot;: 162.8896484375,
+        &quot;height&quot;: 27,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 63.5478515625
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 0,
+      &quot;meanChannelDelta&quot;: 0.02396114409066379
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/singleline-readonly.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="singleline-focused"><header><h2>singleLine · focused</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/singleline-focused.png"><img alt="singleline-focused Web" src="web/singleline-focused.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/singleline-focused.png"><img alt="singleline-focused Flutter" src="flutter/singleline-focused.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/singleline-focused.png"><img alt="singleline-focused Наложение 50/50" src="overlay/singleline-focused.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/singleline-focused.png"><img alt="singleline-focused Diff ×4" src="diff/singleline-focused.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 569 изменённых пикселей; mean channel delta 1.0537/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;singleline-focused&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 85
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 16,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;input&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;,
+        &quot;baseline&quot;: 63.5,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;value&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: -12,
+          &quot;y&quot;: -12,
+          &quot;width&quot;: 0,
+          &quot;height&quot;: 0
+        },
+        &quot;width&quot;: 162.889404296875,
+        &quot;height&quot;: 0,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;,
+        &quot;baseline&quot;: 63.5,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 85
+    },
+    &quot;pageX&quot;: 12,
+    &quot;pageY&quot;: 12,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/singleline-focused.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;singleline-focused&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 85
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 15.5927734375
+      },
+      &quot;input&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 56,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;
+      },
+      &quot;value&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 25,
+          &quot;y&quot;: 43.5,
+          &quot;width&quot;: 266,
+          &quot;height&quot;: 27
+        },
+        &quot;width&quot;: 162.8896484375,
+        &quot;height&quot;: 27,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 63.5478515625
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 569,
+      &quot;meanChannelDelta&quot;: 1.0537146968879294
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/singleline-focused.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="singleline-invalid"><header><h2>singleLine · invalid</h2><b class="pass">pass</b></header><p>Состояние предложено в исходном UI kit; валидация вне DS. Source textarea показывает ошибку без смены цвета границы; input использует danger.</p><div class="shots"><figure><figcaption>Web</figcaption><a href="web/singleline-invalid.png"><img alt="singleline-invalid Web" src="web/singleline-invalid.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/singleline-invalid.png"><img alt="singleline-invalid Flutter" src="flutter/singleline-invalid.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/singleline-invalid.png"><img alt="singleline-invalid Наложение 50/50" src="overlay/singleline-invalid.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/singleline-invalid.png"><img alt="singleline-invalid Diff ×4" src="diff/singleline-invalid.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 1 изменённых пикселей; mean channel delta 0.0289/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;singleline-invalid&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 117
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 16,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;input&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#ff968eff&quot;,
+        &quot;baseline&quot;: 63.5,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;value&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: -12,
+          &quot;y&quot;: -12,
+          &quot;width&quot;: 0,
+          &quot;height&quot;: 0
+        },
+        &quot;width&quot;: 162.889404296875,
+        &quot;height&quot;: 0,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#ff968eff&quot;,
+        &quot;baseline&quot;: 63.5,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;error&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 32,
+          &quot;y&quot;: 95,
+          &quot;width&quot;: 127.71875,
+          &quot;height&quot;: 17
+        },
+        &quot;width&quot;: 127.71875,
+        &quot;height&quot;: 17,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#ff968eff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#ff968eff&quot;,
+        &quot;baseline&quot;: 109,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 117
+    },
+    &quot;pageX&quot;: 12,
+    &quot;pageY&quot;: 12,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/singleline-invalid.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;singleline-invalid&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 117
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 15.5927734375
+      },
+      &quot;input&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 56,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#ff968eff&quot;
+      },
+      &quot;value&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 25,
+          &quot;y&quot;: 43.5,
+          &quot;width&quot;: 266,
+          &quot;height&quot;: 27
+        },
+        &quot;width&quot;: 162.8896484375,
+        &quot;height&quot;: 27,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 63.5478515625
+      },
+      &quot;error&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 32,
+          &quot;y&quot;: 93,
+          &quot;width&quot;: 284,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 127.7158203125,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#ff968eff&quot;,
+        &quot;baseline&quot;: 108.5927734375
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 1,
+      &quot;meanChannelDelta&quot;: 0.02889723265192602
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/singleline-invalid.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="singleline-disabled"><header><h2>singleLine · disabled</h2><b class="pass">pass</b></header><p>Состояние предложено в исходном UI kit; валидация вне DS. Source textarea показывает ошибку без смены цвета границы; input использует danger.</p><div class="shots"><figure><figcaption>Web</figcaption><a href="web/singleline-disabled.png"><img alt="singleline-disabled Web" src="web/singleline-disabled.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/singleline-disabled.png"><img alt="singleline-disabled Flutter" src="flutter/singleline-disabled.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/singleline-disabled.png"><img alt="singleline-disabled Наложение 50/50" src="overlay/singleline-disabled.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/singleline-disabled.png"><img alt="singleline-disabled Diff ×4" src="diff/singleline-disabled.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 0 изменённых пикселей; mean channel delta 0.0222/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;singleline-disabled&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 85
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 16,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;input&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#969eacff&quot;,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;,
+        &quot;baseline&quot;: 63.5,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;value&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: -12,
+          &quot;y&quot;: -12,
+          &quot;width&quot;: 0,
+          &quot;height&quot;: 0
+        },
+        &quot;width&quot;: 162.889404296875,
+        &quot;height&quot;: 0,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#969eacff&quot;,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;,
+        &quot;baseline&quot;: 63.5,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 85
+    },
+    &quot;pageX&quot;: 12,
+    &quot;pageY&quot;: 12,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/singleline-disabled.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;singleline-disabled&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 85
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 15.5927734375
+      },
+      &quot;input&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 56,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;
+      },
+      &quot;value&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 25,
+          &quot;y&quot;: 43.5,
+          &quot;width&quot;: 266,
+          &quot;height&quot;: 27
+        },
+        &quot;width&quot;: 162.8896484375,
+        &quot;height&quot;: 27,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#969eacff&quot;,
+        &quot;baseline&quot;: 63.5478515625
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 0,
+      &quot;meanChannelDelta&quot;: 0.02217125382262997
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/singleline-disabled.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="multiline-filled"><header><h2>multiline · filled</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/multiline-filled.png"><img alt="multiline-filled Web" src="web/multiline-filled.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/multiline-filled.png"><img alt="multiline-filled Flutter" src="flutter/multiline-filled.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/multiline-filled.png"><img alt="multiline-filled Наложение 50/50" src="overlay/multiline-filled.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/multiline-filled.png"><img alt="multiline-filled Diff ×4" src="diff/multiline-filled.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 0 изменённых пикселей; mean channel delta 0.0128/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;multiline-filled&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 221
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 16,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;input&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 192
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 192,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;,
+        &quot;baseline&quot;: 64,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;value&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: -12,
+          &quot;y&quot;: -12,
+          &quot;width&quot;: 0,
+          &quot;height&quot;: 0
+        },
+        &quot;width&quot;: 240.59323120117188,
+        &quot;height&quot;: 0,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;,
+        &quot;baseline&quot;: 64,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 221
+    },
+    &quot;pageX&quot;: 12,
+    &quot;pageY&quot;: 12,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/multiline-filled.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;multiline-filled&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 221
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 15.5927734375
+      },
+      &quot;input&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 192
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 192,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;
+      },
+      &quot;value&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 17,
+          &quot;y&quot;: 46,
+          &quot;width&quot;: 282,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 240.5933380126953,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 63.8203125
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 0,
+      &quot;meanChannelDelta&quot;: 0.012789115646258504
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/multiline-filled.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="multiline-empty"><header><h2>multiline · empty</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/multiline-empty.png"><img alt="multiline-empty Web" src="web/multiline-empty.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/multiline-empty.png"><img alt="multiline-empty Flutter" src="flutter/multiline-empty.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/multiline-empty.png"><img alt="multiline-empty Наложение 50/50" src="overlay/multiline-empty.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/multiline-empty.png"><img alt="multiline-empty Diff ×4" src="diff/multiline-empty.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 0 изменённых пикселей; mean channel delta 0.0057/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;multiline-empty&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 221
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 16,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;input&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 192
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 192,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;,
+        &quot;baseline&quot;: 64,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 221
+    },
+    &quot;pageX&quot;: 12,
+    &quot;pageY&quot;: 12,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/multiline-empty.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;multiline-empty&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 221
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 15.5927734375
+      },
+      &quot;input&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 192
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 192,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 0,
+      &quot;meanChannelDelta&quot;: 0.005726290516206482
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/multiline-empty.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="multiline-readonly"><header><h2>multiline · readOnly</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/multiline-readonly.png"><img alt="multiline-readonly Web" src="web/multiline-readonly.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/multiline-readonly.png"><img alt="multiline-readonly Flutter" src="flutter/multiline-readonly.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/multiline-readonly.png"><img alt="multiline-readonly Наложение 50/50" src="overlay/multiline-readonly.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/multiline-readonly.png"><img alt="multiline-readonly Diff ×4" src="diff/multiline-readonly.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 0 изменённых пикселей; mean channel delta 0.0128/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;multiline-readonly&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 221
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 16,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;input&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 192
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 192,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;,
+        &quot;baseline&quot;: 64,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;value&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: -12,
+          &quot;y&quot;: -12,
+          &quot;width&quot;: 0,
+          &quot;height&quot;: 0
+        },
+        &quot;width&quot;: 240.59323120117188,
+        &quot;height&quot;: 0,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;,
+        &quot;baseline&quot;: 64,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 221
+    },
+    &quot;pageX&quot;: 12,
+    &quot;pageY&quot;: 12,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/multiline-readonly.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;multiline-readonly&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 221
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 15.5927734375
+      },
+      &quot;input&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 192
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 192,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;
+      },
+      &quot;value&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 17,
+          &quot;y&quot;: 46,
+          &quot;width&quot;: 282,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 240.5933380126953,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 63.8203125
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 0,
+      &quot;meanChannelDelta&quot;: 0.012789115646258504
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/multiline-readonly.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="multiline-focused"><header><h2>multiline · focused</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/multiline-focused.png"><img alt="multiline-focused Web" src="web/multiline-focused.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/multiline-focused.png"><img alt="multiline-focused Flutter" src="flutter/multiline-focused.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/multiline-focused.png"><img alt="multiline-focused Наложение 50/50" src="overlay/multiline-focused.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/multiline-focused.png"><img alt="multiline-focused Diff ×4" src="diff/multiline-focused.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 563 изменённых пикселей; mean channel delta 0.4555/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;multiline-focused&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 221
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 16,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;input&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 192
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 192,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;,
+        &quot;baseline&quot;: 64,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;value&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: -12,
+          &quot;y&quot;: -12,
+          &quot;width&quot;: 0,
+          &quot;height&quot;: 0
+        },
+        &quot;width&quot;: 240.59323120117188,
+        &quot;height&quot;: 0,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;,
+        &quot;baseline&quot;: 64,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 221
+    },
+    &quot;pageX&quot;: 12,
+    &quot;pageY&quot;: 12,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/multiline-focused.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;multiline-focused&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 221
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 15.5927734375
+      },
+      &quot;input&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 192
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 192,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;
+      },
+      &quot;value&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 17,
+          &quot;y&quot;: 46,
+          &quot;width&quot;: 282,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 240.5933380126953,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 63.8203125
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 563,
+      &quot;meanChannelDelta&quot;: 0.4554861944777911
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/multiline-focused.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="multiline-invalid"><header><h2>multiline · invalid</h2><b class="pass">pass</b></header><p>Состояние предложено в исходном UI kit; валидация вне DS. Source textarea показывает ошибку без смены цвета границы; input использует danger.</p><div class="shots"><figure><figcaption>Web</figcaption><a href="web/multiline-invalid.png"><img alt="multiline-invalid Web" src="web/multiline-invalid.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/multiline-invalid.png"><img alt="multiline-invalid Flutter" src="flutter/multiline-invalid.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/multiline-invalid.png"><img alt="multiline-invalid Наложение 50/50" src="overlay/multiline-invalid.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/multiline-invalid.png"><img alt="multiline-invalid Diff ×4" src="diff/multiline-invalid.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 1 изменённых пикселей; mean channel delta 0.0166/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;multiline-invalid&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 253
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 16,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;input&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 192
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 192,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;,
+        &quot;baseline&quot;: 64,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;value&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: -12,
+          &quot;y&quot;: -12,
+          &quot;width&quot;: 0,
+          &quot;height&quot;: 0
+        },
+        &quot;width&quot;: 240.59323120117188,
+        &quot;height&quot;: 0,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;,
+        &quot;baseline&quot;: 64,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;error&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 32,
+          &quot;y&quot;: 231,
+          &quot;width&quot;: 127.71875,
+          &quot;height&quot;: 17
+        },
+        &quot;width&quot;: 127.71875,
+        &quot;height&quot;: 17,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#ff968eff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#ff968eff&quot;,
+        &quot;baseline&quot;: 245,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 253
+    },
+    &quot;pageX&quot;: 12,
+    &quot;pageY&quot;: 12,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/multiline-invalid.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;multiline-invalid&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 253
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 15.5927734375
+      },
+      &quot;input&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 192
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 192,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;
+      },
+      &quot;value&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 17,
+          &quot;y&quot;: 46,
+          &quot;width&quot;: 282,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 240.5933380126953,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 63.8203125
+      },
+      &quot;error&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 32,
+          &quot;y&quot;: 229,
+          &quot;width&quot;: 284,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 127.7158203125,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#ff968eff&quot;,
+        &quot;baseline&quot;: 244.5927734375
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 1,
+      &quot;meanChannelDelta&quot;: 0.016627734126141432
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/multiline-invalid.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="multiline-disabled"><header><h2>multiline · disabled</h2><b class="pass">pass</b></header><p>Состояние предложено в исходном UI kit; валидация вне DS. Source textarea показывает ошибку без смены цвета границы; input использует danger.</p><div class="shots"><figure><figcaption>Web</figcaption><a href="web/multiline-disabled.png"><img alt="multiline-disabled Web" src="web/multiline-disabled.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/multiline-disabled.png"><img alt="multiline-disabled Flutter" src="flutter/multiline-disabled.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/multiline-disabled.png"><img alt="multiline-disabled Наложение 50/50" src="overlay/multiline-disabled.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/multiline-disabled.png"><img alt="multiline-disabled Diff ×4" src="diff/multiline-disabled.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 0 изменённых пикселей; mean channel delta 0.0126/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;multiline-disabled&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 221
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 16,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;input&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 192
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 192,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#969eacff&quot;,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;,
+        &quot;baseline&quot;: 64,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;value&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: -12,
+          &quot;y&quot;: -12,
+          &quot;width&quot;: 0,
+          &quot;height&quot;: 0
+        },
+        &quot;width&quot;: 240.59323120117188,
+        &quot;height&quot;: 0,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#969eacff&quot;,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;,
+        &quot;baseline&quot;: 64,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 221
+    },
+    &quot;pageX&quot;: 12,
+    &quot;pageY&quot;: 12,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/multiline-disabled.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;multiline-disabled&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 221
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 15.5927734375
+      },
+      &quot;input&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 192
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 192,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;
+      },
+      &quot;value&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 17,
+          &quot;y&quot;: 46,
+          &quot;width&quot;: 282,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 240.5933380126953,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#969eacff&quot;,
+        &quot;baseline&quot;: 63.8203125
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 0,
+      &quot;meanChannelDelta&quot;: 0.012589035614245698
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/multiline-disabled.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="singleline-mobile"><header><h2>singleLine · mobile</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/singleline-mobile.png"><img alt="singleline-mobile Web" src="web/singleline-mobile.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/singleline-mobile.png"><img alt="singleline-mobile Flutter" src="flutter/singleline-mobile.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/singleline-mobile.png"><img alt="singleline-mobile Наложение 50/50" src="overlay/singleline-mobile.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/singleline-mobile.png"><img alt="singleline-mobile Diff ×4" src="diff/singleline-mobile.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 0 изменённых пикселей; mean channel delta 0.0240/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;singleline-mobile&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 85
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 16,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;input&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;,
+        &quot;baseline&quot;: 63.5,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;value&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: -12,
+          &quot;y&quot;: -12,
+          &quot;width&quot;: 0,
+          &quot;height&quot;: 0
+        },
+        &quot;width&quot;: 162.889404296875,
+        &quot;height&quot;: 0,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;,
+        &quot;baseline&quot;: 63.5,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 85
+    },
+    &quot;pageX&quot;: 12,
+    &quot;pageY&quot;: 12,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/singleline-mobile.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;singleline-mobile&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 85
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 15.5927734375
+      },
+      &quot;input&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 56,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;
+      },
+      &quot;value&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 25,
+          &quot;y&quot;: 43.5,
+          &quot;width&quot;: 266,
+          &quot;height&quot;: 27
+        },
+        &quot;width&quot;: 162.8896484375,
+        &quot;height&quot;: 27,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 63.5478515625
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 0,
+      &quot;meanChannelDelta&quot;: 0.02396114409066379
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/singleline-mobile.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="singleline-desktop"><header><h2>singleLine · desktop</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/singleline-desktop.png"><img alt="singleline-desktop Web" src="web/singleline-desktop.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/singleline-desktop.png"><img alt="singleline-desktop Flutter" src="flutter/singleline-desktop.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/singleline-desktop.png"><img alt="singleline-desktop Наложение 50/50" src="overlay/singleline-desktop.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/singleline-desktop.png"><img alt="singleline-desktop Diff ×4" src="diff/singleline-desktop.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 231 изменённых пикселей; mean channel delta 0.0749/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;singleline-desktop&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 395.328125,
+      &quot;height&quot;: 85
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 395.328125,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 395.328125,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 16,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;input&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 395.328125,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 395.328125,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;,
+        &quot;baseline&quot;: 63.5,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;value&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: -12,
+          &quot;y&quot;: -12,
+          &quot;width&quot;: 0,
+          &quot;height&quot;: 0
+        },
+        &quot;width&quot;: 162.889404296875,
+        &quot;height&quot;: 0,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;,
+        &quot;baseline&quot;: 63.5,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 395.328125,
+      &quot;height&quot;: 85
+    },
+    &quot;pageX&quot;: 12,
+    &quot;pageY&quot;: 12,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/singleline-desktop.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;singleline-desktop&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 395.328125,
+      &quot;height&quot;: 85
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 395.328125,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 395.328125,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 15.5927734375
+      },
+      &quot;input&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 395.328125,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 395.328125,
+        &quot;height&quot;: 56,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;
+      },
+      &quot;value&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 25,
+          &quot;y&quot;: 43.5,
+          &quot;width&quot;: 345.328125,
+          &quot;height&quot;: 27
+        },
+        &quot;width&quot;: 162.8896484375,
+        &quot;height&quot;: 27,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 63.5478515625
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 231,
+      &quot;meanChannelDelta&quot;: 0.07494539100043687
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/singleline-desktop.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="multiline-mobile"><header><h2>multiline · mobile</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/multiline-mobile.png"><img alt="multiline-mobile Web" src="web/multiline-mobile.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/multiline-mobile.png"><img alt="multiline-mobile Flutter" src="flutter/multiline-mobile.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/multiline-mobile.png"><img alt="multiline-mobile Наложение 50/50" src="overlay/multiline-mobile.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/multiline-mobile.png"><img alt="multiline-mobile Diff ×4" src="diff/multiline-mobile.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 0 изменённых пикселей; mean channel delta 0.0128/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;multiline-mobile&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 221
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 16,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;input&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 192
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 192,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;,
+        &quot;baseline&quot;: 64,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;value&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: -12,
+          &quot;y&quot;: -12,
+          &quot;width&quot;: 0,
+          &quot;height&quot;: 0
+        },
+        &quot;width&quot;: 240.59323120117188,
+        &quot;height&quot;: 0,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;,
+        &quot;baseline&quot;: 64,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 221
+    },
+    &quot;pageX&quot;: 12,
+    &quot;pageY&quot;: 12,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/multiline-mobile.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;multiline-mobile&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 221
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 15.5927734375
+      },
+      &quot;input&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 192
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 192,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;
+      },
+      &quot;value&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 17,
+          &quot;y&quot;: 46,
+          &quot;width&quot;: 282,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 240.5933380126953,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 63.8203125
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 0,
+      &quot;meanChannelDelta&quot;: 0.012789115646258504
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/multiline-mobile.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="multiline-desktop"><header><h2>multiline · desktop</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/multiline-desktop.png"><img alt="multiline-desktop Web" src="web/multiline-desktop.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/multiline-desktop.png"><img alt="multiline-desktop Flutter" src="flutter/multiline-desktop.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/multiline-desktop.png"><img alt="multiline-desktop Наложение 50/50" src="overlay/multiline-desktop.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/multiline-desktop.png"><img alt="multiline-desktop Diff ×4" src="diff/multiline-desktop.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 723 изменённых пикселей; mean channel delta 0.0906/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;multiline-desktop&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 395.328125,
+      &quot;height&quot;: 249
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 395.328125,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 395.328125,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 16,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;input&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 395.328125,
+          &quot;height&quot;: 220
+        },
+        &quot;width&quot;: 395.328125,
+        &quot;height&quot;: 220,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;,
+        &quot;baseline&quot;: 64,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;value&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: -12,
+          &quot;y&quot;: -12,
+          &quot;width&quot;: 0,
+          &quot;height&quot;: 0
+        },
+        &quot;width&quot;: 240.59323120117188,
+        &quot;height&quot;: 0,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;,
+        &quot;baseline&quot;: 64,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 395.328125,
+      &quot;height&quot;: 249
+    },
+    &quot;pageX&quot;: 12,
+    &quot;pageY&quot;: 12,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/multiline-desktop.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;multiline-desktop&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 395.328125,
+      &quot;height&quot;: 249
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 395.328125,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 395.328125,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 15.5927734375
+      },
+      &quot;input&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 395.328125,
+          &quot;height&quot;: 220
+        },
+        &quot;width&quot;: 395.328125,
+        &quot;height&quot;: 220,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;
+      },
+      &quot;value&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 17,
+          &quot;y&quot;: 46,
+          &quot;width&quot;: 361.328125,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 240.5933380126953,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 63.8203125
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 723,
+      &quot;meanChannelDelta&quot;: 0.09058956916099774
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/multiline-desktop.png&quot;
+    }
+  }
+}</pre></details></article>
+ <footer><small>Run 2026-11-07T18:23:10.304Z. <a href="results.json">Полный JSON</a> · <a href="spec.json">Декларация</a>. Native goldens проверяются отдельно; отчёт не объявляет pixel-perfect при остаточной raster-разнице.</small></footer></html>

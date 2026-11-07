@@ -2,13 +2,13 @@
 
 ## Статус и этап
 
-🟣 Запланирована
+✅ Выполнена
 
-- Mode: PLANNING_ONLY; будущая реализация — CODE в этом же номере.
+- Mode: CODE; будущая реализация — CODE в этом же номере.
 - TestGate: NOT_REQUIRED для заявленного visual/theme/layout scope. App state/controllers, вычисления, валидация, сериализация, данные и app routing исключены; при расширении scope классификация пересматривается до кода.
-- Stage: SPEC_READY.
+- Stage: DONE.
 - Specification:1; plan:0 (черновая последовательность ниже); test scenarios:1, NOT_RUN.
-- Реализация не начата; отдельного разрешения на логический gate этой постановкой не получено.
+- Visual/theme scope реализован; NOT_REQUIRED.
 
 ## Цель и контекст
 
@@ -53,12 +53,12 @@ UI kit использует общую field анатомию для Input/TextA
 
 ## Acceptance Criteria
 
-- [ ] AC-51.1: AppField реализован/расширен в указанном scope; нет параллельной копии уже существующей сущности, ссылку на HTML-эталон можно проследить.
-- [ ] AC-51.2: все визуальные параметры приходят из собственной темы и общих токенов, API типизирован; raw styling/строковые discriminators/бизнес-правила отсутствуют.
-- [ ] AC-51.3: именованные Widgetbook use cases показывают реальный элемент: Filled/empty/focus; multiline; readonly без визуального дубля; disabled/invalid с явным status согласования; long value/long supporting text.
-- [ ] AC-51.4: Widgetbook и golden используют одинаковые fixtures/именованные builders/темы; native baselines созданы/сверены, diffs просмотрены, comparison после update выполнен без update.
-- [ ] AC-51.5: проверены constraints, значимые states, локализованные labels/semantics и content limits; совпадение visual identity Desktop/Mobile подтверждено, отклонения записаны.
-- [ ] AC-51.6: manifest/owning docs/scenario registrations актуальны; analyze/tests/architecture checks по impact PASS либо честный blocker с NOT_RUN. Результат показан пользователю.
+- [x] AC-51.1: AppField реализован/расширен в указанном scope; нет параллельной копии уже существующей сущности, ссылку на HTML-эталон можно проследить.
+- [x] AC-51.2: все визуальные параметры приходят из собственной темы и общих токенов, API типизирован; raw styling/строковые discriminators/бизнес-правила отсутствуют.
+- [x] AC-51.3: именованные Widgetbook use cases показывают реальный элемент: Filled/empty/focus; multiline; readonly без визуального дубля; disabled/invalid с явным status согласования; long value/long supporting text.
+- [x] AC-51.4: Widgetbook и golden используют одинаковые fixtures/именованные builders/темы; native baselines созданы/сверены, diffs просмотрены, comparison после update выполнен без update.
+- [x] AC-51.5: проверены constraints, значимые states, локализованные labels/semantics и content limits; совпадение visual identity Desktop/Mobile подтверждено, отклонения записаны.
+- [x] AC-51.6: manifest/owning docs/scenario registrations актуальны; analyze/tests/architecture checks по impact PASS либо честный blocker с NOT_RUN. Результат показан пользователю.
 
 ## Ошибки и крайние случаи
 
@@ -117,10 +117,35 @@ UI kit использует общую field анатомию для Input/TextA
 
 ## Final Verification
 
-- [ ] Все AC подтверждены при реализации; тесты фактически запущены.
-- [ ] Theme/scenarios/goldens/docs согласованы, визуальный результат показан.
-- [ ] Нет бизнес-логики/запрещённых dependencies/raw styling.
+- [x] Все AC подтверждены при реализации; тесты фактически запущены.
+- [x] Theme/scenarios/goldens/docs согласованы, визуальный результат показан.
+- [x] Нет бизнес-логики/запрещённых dependencies/raw styling.
 
 ## Итог
 
 Постановка создана; 🟣. Реализация и выполнение Flutter-проверок не начаты.
+
+### Новая очередь переноса после RosterRow
+
+Prompt пользователя (дословно):
+
+> выглядит хорошо. Обнови задачи по реализации компонентов, посмотри что уже выполнено, а что еще требует реализации и реализуй каждый компонент по новому flow делая коммит для каждого компонента без push
+
+Обязательный flow текущей итерации: сверить существующий runtime и итоговый CSS UI kit → определить реальные состояния/адаптацию и контрольные узлы → typed runtime WidgetTheme без primitives в consumers → scoped Widgetbook/shared fixture → декларация общего comparison pipeline → source/native/overlay/diff и native goldens → осмотр и исправление внутренних различий → повтор без update, tests/analyzer/architecture → отдельный локальный коммит компонента без push. Существующая реализация не дублируется. Наличие tokens в72 не равно выполнению всех старых AC foundation.
+Факт сверки: отдельного production компонента и comparison declaration пока нет; задача остаётся в очереди реализации.
+
+### План51
+
+Реальный TextField с внешним label, single/multiline, shared surface background, readonly/enabled, supporting/error и delegated callbacks. AppFieldTheme читает текущие Flutter themes/extensions; multiline192/220 и минимальные lines через новый AppFieldMetrics. Source filled/empty/readonly/focus/invalid/disabled ×2 плотности + native theme/typing/scaled. Ошибка только отображается, валидации нет. Visual NOT_REQUIRED.
+
+### Реализация51 —7 ноября2026
+
+Prompt пользователя (дословно):
+
+> Продолжай реализацию: сначала заверши foundation, затем остальные компоненты по новому flow. Каждый компонент отдельным коммитом без push.
+
+AppField на настоящем TextField: single/multiline, controller, readonly/enabled, focus, supporting/error и callbacks. Валидации/сохранения нет. WidgetTheme читает текущие TextTheme/ColorScheme/extensions; multiline192/220, label/body/error roles сверены с оригинальным DOM. Shared fixtures/state use cases и16 source scenarios + negative input fontSize.
+
+Comparison действительно нашёл неверные text roles20/18 вместо18/16, неверный borderStrong вместо outlineVariant и отличие textarea invalid border. Исправлены, overlay просмотрены; textarea invalid сохраняет обычную границу по source, note это объясняет. TextRange измеряет сам текст, включая EditableText, отдельный borderColor control+engine regression. Native scaled1.6 PNG и реальные editing/delegation/readonly/disabled/theme propagation tests4 PASS. Source16/16 PASS +1 expected negative verified после update и повторно без update.
+
+Analyzer no issues; architecture fixtures49/51/35 PASS,159 files без нарушений; engine35 PASS; macOS hot restart выполнен. Другие ОС NOT_RUN. Отчёт docs/design/prototype/comparison/field/index.html. Итог текущей итерации: выполнено.

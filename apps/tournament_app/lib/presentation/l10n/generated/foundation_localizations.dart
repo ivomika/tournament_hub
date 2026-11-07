@@ -558,6 +558,36 @@ abstract class FoundationLocalizations {
   /// In ru, this message translates to:
   /// **'Диалог'**
   String get elevationDialog;
+
+  /// No description provided for @fieldNameLabel.
+  ///
+  /// In ru, this message translates to:
+  /// **'Название'**
+  String get fieldNameLabel;
+
+  /// No description provided for @fieldMessageLabel.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сообщение'**
+  String get fieldMessageLabel;
+
+  /// No description provided for @fieldNameSample.
+  ///
+  /// In ru, this message translates to:
+  /// **'Пятничный турнир'**
+  String get fieldNameSample;
+
+  /// No description provided for @fieldMessageSample.
+  ///
+  /// In ru, this message translates to:
+  /// **'Хочу предложить улучшение…'**
+  String get fieldMessageSample;
+
+  /// No description provided for @fieldErrorSample.
+  ///
+  /// In ru, this message translates to:
+  /// **'Проверь значение'**
+  String get fieldErrorSample;
 }
 
 class _FoundationLocalizationsDelegate

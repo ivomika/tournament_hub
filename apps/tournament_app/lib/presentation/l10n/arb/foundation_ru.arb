@@ -104,5 +104,10 @@
   "elevationSource": "floating · 0 8 24 / #07080b80",
   "elevationFloating": "Плавающая поверхность",
   "elevationSheet": "Нижняя панель",
-  "elevationDialog": "Диалог"
+  "elevationDialog": "Диалог",
+  "fieldNameLabel": "Название",
+  "fieldMessageLabel": "Сообщение",
+  "fieldNameSample": "Пятничный турнир",
+  "fieldMessageSample": "Хочу предложить улучшение…",
+  "fieldErrorSample": "Проверь значение"
 }

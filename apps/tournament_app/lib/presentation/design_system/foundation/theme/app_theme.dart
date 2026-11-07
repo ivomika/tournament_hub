@@ -1,3 +1,5 @@
+import 'package:tournament_app/presentation/design_system/foundation/primitives/field_primitives.dart';
+import 'package:tournament_app/presentation/design_system/foundation/responsive/app_field_metrics.dart';
 import 'package:tournament_app/presentation/design_system/foundation/layout/foundation_sample_metrics.dart';
 import 'package:tournament_app/presentation/design_system/foundation/typography/app_text_metrics.dart';
 import 'package:tournament_app/presentation/design_system/foundation/primitives/roster_primitives.dart';
@@ -107,6 +109,14 @@ abstract final class AppTheme {
         const AppTextMetrics(
           compactHeaderLine: TypographyPrimitives.compactHeaderLine,
           comfortableHeaderLine: TypographyPrimitives.comfortableHeaderLine,
+        ),
+        const AppFieldMetrics(
+          mobileMessageHeight: FieldPrimitives.mobileMessageHeight,
+          desktopMessageHeight: FieldPrimitives.desktopMessageHeight,
+          singleLine: FieldPrimitives.singleLine,
+          centerLeft: FieldPrimitives.centerLeft,
+          stretch: FieldPrimitives.stretch,
+          start: FieldPrimitives.start,
         ),
         const AppRosterMetrics(
           cardHeight: RosterPrimitives.cardHeight,
