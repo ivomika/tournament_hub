@@ -28,7 +28,7 @@ class AppRosterRowTheme {
         motion = t.extension<AppMotion>()!,
         c = t.extension<AppControlMetrics>()!,
         shape = t.extension<AppShape>()!;
-    final desktop = MediaQuery.sizeOf(context).width >= r.mobileToDesktopWidth;
+    final desktop = MediaQuery.sizeOf(context).width > r.mobileToDesktopWidth;
     return AppRosterRowTheme(
       desktop: desktop,
       minHeight: desktop ? m.cardHeight : c.removeHeight,

@@ -1,3 +1,5 @@
+import 'package:tournament_app/presentation/widgetbook/foundation/responsive/consumers/consumers_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/foundation/responsive/text_scale/text_scale_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/foundation/motion/normal/normal_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/foundation/motion/reduced/reduced_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/foundation/motion/progress/progress_use_case.dart';
@@ -50,6 +52,10 @@ final widgetbookCatalog = <WidgetbookNode>[
     name: 'Foundation',
     isInitiallyExpanded: true,
     children: [
+      WidgetbookComponent(
+        name: 'Responsive',
+        useCases: [responsiveConsumersUseCase, responsiveTextScaleUseCase],
+      ),
       WidgetbookComponent(
         name: 'Motion',
         useCases: [

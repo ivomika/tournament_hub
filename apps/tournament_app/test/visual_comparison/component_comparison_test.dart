@@ -65,7 +65,7 @@ abstract final class _ComparisonDriver {
       final reference = web.singleWhere((f) => f['id'] == scenario.id);
       final sourceRoot = reference['root']! as Map<String, Object?>;
       final width = (sourceRoot['width']! as num).toDouble();
-      tester.view.physicalSize = scenario.viewport.size;
+      tester.view.physicalSize = scenario.size;
       Widget? actualRoot;
       final base = AppTheme.dark();
       final theme = scenario.theme?.call(base) ?? base;

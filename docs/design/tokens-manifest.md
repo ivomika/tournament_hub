@@ -168,3 +168,7 @@ AppElevation остаётся runtime ThemeExtension для floating/sheet/dialo
 ## Motion — сверка46
 
 AppMotion.reveal160ms/curve ease/reduced0 — единственный источник анимации раскрытия RosterRow через его WidgetTheme. AppRosterMetrics хранит только размеры и swipe threshold. Reduced policy берётся из MediaQuery.disableAnimations. Source сравнивает closed/revealed, native clock проверяет80/160ms и замену duration320/linear. Progress использует штатный Material3 CircularProgressIndicator: HTML wave/segment durations не являются Flutter tokens.
+
+## Responsive — сверка47
+
+AppResponsive использует CSS-смысл границы: mobile width≤740, desktop width>740. Consumer WidgetTheme Surface/Button/RosterRow читают текущую extension. Compact круглый action48 desktop /56 touch; primary56 остаётся56 в обеих плотностях. Thresholds1000/1100 описывают композиции прототипов, не глобальные переключатели каждого элемента. Source comparison33 сценария на390/739/740/741/999/1000/1001/1099/1100/1101/1440. Native actual consumer fixture нормальный и textscale1.6; replacement threshold1500 сохраняет mobile в1440. VisualViewport — только capture environment; optional ComparisonScenario.captureSize не является продуктовым токеном.

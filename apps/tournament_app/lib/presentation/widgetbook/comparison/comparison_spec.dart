@@ -75,6 +75,7 @@ class ComparisonScenario {
     required this.webSelector,
     required this.builder,
     required this.controls,
+    this.captureSize,
     this.capturePadding = 0,
     this.note,
     this.goldenId,
@@ -87,6 +88,8 @@ class ComparisonScenario {
   final String id;
   final String title;
   final VisualViewport viewport;
+  final Size? captureSize;
+  Size get size => captureSize ?? viewport.size;
   final String webSelector;
   final WidgetBuilder builder;
   final List<ComparisonControl> controls;
@@ -101,11 +104,7 @@ class ComparisonScenario {
   Map<String, Object?> toJson() => {
     'id': id,
     'title': title,
-    'viewport': {
-      'width': viewport.size.width,
-      'height': viewport.size.height,
-      'dpr': 1,
-    },
+    'viewport': {'width': size.width, 'height': size.height, 'dpr': 1},
     'webSelector': webSelector,
     'controls': controls.map((c) => c.toJson()).toList(),
     'capturePadding': capturePadding,

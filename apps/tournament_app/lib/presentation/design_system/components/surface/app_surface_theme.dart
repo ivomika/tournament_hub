@@ -25,7 +25,7 @@ class AppSurfaceTheme {
         s = t.extension<AppShape>()!,
         space = t.extension<AppSpacing>()!;
     final desktop =
-        MediaQuery.sizeOf(context).width >=
+        MediaQuery.sizeOf(context).width >
         t.extension<AppResponsive>()!.mobileToDesktopWidth;
     return AppSurfaceTheme(
       color:

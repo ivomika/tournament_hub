@@ -47,7 +47,7 @@ class AppButtonTheme {
         s = t.extension<AppSpacing>()!,
         shape = t.extension<AppShape>()!,
         b = t.extension<AppBorderMetrics>()!;
-    final desktop = MediaQuery.sizeOf(context).width >= r.mobileToDesktopWidth,
+    final desktop = MediaQuery.sizeOf(context).width > r.mobileToDesktopWidth,
         disabled = states.contains(WidgetState.disabled),
         hovered = states.contains(WidgetState.hovered),
         pressed = states.contains(WidgetState.pressed);

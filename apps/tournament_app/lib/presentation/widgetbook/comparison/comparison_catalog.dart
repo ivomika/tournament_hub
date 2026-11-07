@@ -1,3 +1,4 @@
+import 'package:tournament_app/presentation/widgetbook/foundation/responsive/responsive_comparison.dart';
 import 'package:tournament_app/presentation/widgetbook/foundation/motion/motion_comparison.dart';
 import 'package:tournament_app/presentation/widgetbook/foundation/elevation/elevation_comparison.dart';
 import 'package:tournament_app/presentation/widgetbook/foundation/borders/borders_comparison.dart';
@@ -15,6 +16,7 @@ import 'package:tournament_app/presentation/widgetbook/components/avatar/avatar_
 
 abstract final class ComparisonCatalog {
   static final List<ComparisonSpec> components = [
+    ResponsiveComparison.spec,
     MotionComparison.spec,
     ElevationComparison.spec,
     BordersComparison.spec,

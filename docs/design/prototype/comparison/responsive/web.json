@@ -1,0 +1,3342 @@
+[
+  {
+    "id": "w390-mobile-panel",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 316,
+      "height": 69
+    },
+    "controls": {
+      "shell": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 69
+        },
+        "width": 316,
+        "height": 69,
+        "fontSize": 18,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#171a20ff",
+        "radius": 24,
+        "borderWidth": 0,
+        "baseline": 41,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "content": {
+        "rect": {
+          "x": 24,
+          "y": 24,
+          "width": 268,
+          "height": 21
+        },
+        "width": 268,
+        "height": 21,
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#b8bec9ff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 40,
+        "opacity": 1,
+        "strokeWidth": 1
+      }
+    },
+    "originalRoot": {
+      "width": 316,
+      "height": 69
+    },
+    "pageX": 0,
+    "pageY": 0,
+    "artifacts": {
+      "image": "web/w390-mobile-panel.png"
+    }
+  },
+  {
+    "id": "w390-primary-mobile",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 316,
+      "height": 56
+    },
+    "controls": {
+      "shell": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 56
+        },
+        "width": 316,
+        "height": 56,
+        "fontSize": 16,
+        "fontWeight": 600,
+        "lineHeight": 1.5,
+        "color": "#19150bff",
+        "background": "#f1c75bff",
+        "radius": 28,
+        "borderWidth": 0,
+        "baseline": 32,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "icon": {
+        "rect": {
+          "x": 268,
+          "y": 16,
+          "width": 24,
+          "height": 24
+        },
+        "width": 24,
+        "height": 24,
+        "fontSize": 16,
+        "fontWeight": 600,
+        "lineHeight": 1.5,
+        "color": "#19150bff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 37.099998474121094,
+        "opacity": 1,
+        "strokeWidth": 1.8
+      },
+      "label": {
+        "rect": {
+          "x": 24,
+          "y": 18,
+          "width": 101.09375,
+          "height": 20
+        },
+        "width": 101.09375,
+        "height": 20,
+        "fontSize": 16,
+        "fontWeight": 600,
+        "lineHeight": 1.5,
+        "color": "#19150bff",
+        "background": "#f1c75bff",
+        "radius": 28,
+        "borderWidth": 0,
+        "baseline": 34,
+        "opacity": 1,
+        "strokeWidth": 1
+      }
+    },
+    "originalRoot": {
+      "width": 316,
+      "height": 56
+    },
+    "pageX": 12,
+    "pageY": 12,
+    "artifacts": {
+      "image": "web/w390-primary-mobile.png"
+    }
+  },
+  {
+    "id": "w390-mobile-default",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 316,
+      "height": 72
+    },
+    "controls": {
+      "frame": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 72
+        },
+        "width": 316,
+        "height": 72,
+        "fontSize": 18,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#00000000",
+        "radius": 16,
+        "borderWidth": 0,
+        "baseline": 17,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "avatar": {
+        "rect": {
+          "x": 16,
+          "y": 12,
+          "width": 48,
+          "height": 48
+        },
+        "width": 48,
+        "height": 48,
+        "fontSize": 18,
+        "fontWeight": 600,
+        "lineHeight": 1,
+        "color": "#b8bec9ff",
+        "background": "#232730ff",
+        "radius": 24,
+        "borderWidth": 0,
+        "baseline": 42,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "avatar-style": {
+        "rect": {
+          "x": 16,
+          "y": 12,
+          "width": 48,
+          "height": 48
+        },
+        "width": 48,
+        "height": 48,
+        "fontSize": 18,
+        "fontWeight": 600,
+        "lineHeight": 1,
+        "color": "#b8bec9ff",
+        "background": "#232730ff",
+        "radius": 24,
+        "borderWidth": 0,
+        "baseline": 42,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "initials": {
+        "rect": {
+          "x": 16,
+          "y": 12,
+          "width": 48,
+          "height": 48
+        },
+        "width": 48,
+        "height": 48,
+        "fontSize": 18,
+        "fontWeight": 600,
+        "lineHeight": 1,
+        "color": "#b8bec9ff",
+        "background": "#232730ff",
+        "radius": 24,
+        "borderWidth": 0,
+        "baseline": 42,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "name": {
+        "rect": {
+          "x": 80,
+          "y": 23.40625,
+          "width": 44.75,
+          "height": 25.1875
+        },
+        "width": 44.75,
+        "height": 25.1875,
+        "fontSize": 18,
+        "fontWeight": 600,
+        "lineHeight": 1.4,
+        "color": "#f4f2eeff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 42.40625,
+        "opacity": 1,
+        "strokeWidth": 1
+      }
+    },
+    "originalRoot": {
+      "width": 316,
+      "height": 72
+    },
+    "pageX": 0,
+    "pageY": 0,
+    "artifacts": {
+      "image": "web/w390-mobile-default.png"
+    }
+  },
+  {
+    "id": "w739-mobile-panel",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 665,
+      "height": 69
+    },
+    "controls": {
+      "shell": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 665,
+          "height": 69
+        },
+        "width": 665,
+        "height": 69,
+        "fontSize": 18,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#171a20ff",
+        "radius": 24,
+        "borderWidth": 0,
+        "baseline": 41,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "content": {
+        "rect": {
+          "x": 24,
+          "y": 24,
+          "width": 617,
+          "height": 21
+        },
+        "width": 617,
+        "height": 21,
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#b8bec9ff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 40,
+        "opacity": 1,
+        "strokeWidth": 1
+      }
+    },
+    "originalRoot": {
+      "width": 665,
+      "height": 69
+    },
+    "pageX": 0,
+    "pageY": 0,
+    "artifacts": {
+      "image": "web/w739-mobile-panel.png"
+    }
+  },
+  {
+    "id": "w739-primary-mobile",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 665,
+      "height": 56
+    },
+    "controls": {
+      "shell": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 665,
+          "height": 56
+        },
+        "width": 665,
+        "height": 56,
+        "fontSize": 16,
+        "fontWeight": 600,
+        "lineHeight": 1.5,
+        "color": "#19150bff",
+        "background": "#f1c75bff",
+        "radius": 28,
+        "borderWidth": 0,
+        "baseline": 32,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "icon": {
+        "rect": {
+          "x": 617,
+          "y": 16,
+          "width": 24,
+          "height": 24
+        },
+        "width": 24,
+        "height": 24,
+        "fontSize": 16,
+        "fontWeight": 600,
+        "lineHeight": 1.5,
+        "color": "#19150bff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 37.099998474121094,
+        "opacity": 1,
+        "strokeWidth": 1.8
+      },
+      "label": {
+        "rect": {
+          "x": 24,
+          "y": 18,
+          "width": 101.09375,
+          "height": 20
+        },
+        "width": 101.09375,
+        "height": 20,
+        "fontSize": 16,
+        "fontWeight": 600,
+        "lineHeight": 1.5,
+        "color": "#19150bff",
+        "background": "#f1c75bff",
+        "radius": 28,
+        "borderWidth": 0,
+        "baseline": 34,
+        "opacity": 1,
+        "strokeWidth": 1
+      }
+    },
+    "originalRoot": {
+      "width": 665,
+      "height": 56
+    },
+    "pageX": 12,
+    "pageY": 12,
+    "artifacts": {
+      "image": "web/w739-primary-mobile.png"
+    }
+  },
+  {
+    "id": "w739-mobile-default",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 665,
+      "height": 72
+    },
+    "controls": {
+      "frame": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 665,
+          "height": 72
+        },
+        "width": 665,
+        "height": 72,
+        "fontSize": 18,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#00000000",
+        "radius": 16,
+        "borderWidth": 0,
+        "baseline": 17,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "avatar": {
+        "rect": {
+          "x": 16,
+          "y": 12,
+          "width": 48,
+          "height": 48
+        },
+        "width": 48,
+        "height": 48,
+        "fontSize": 18,
+        "fontWeight": 600,
+        "lineHeight": 1,
+        "color": "#b8bec9ff",
+        "background": "#232730ff",
+        "radius": 24,
+        "borderWidth": 0,
+        "baseline": 42,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "avatar-style": {
+        "rect": {
+          "x": 16,
+          "y": 12,
+          "width": 48,
+          "height": 48
+        },
+        "width": 48,
+        "height": 48,
+        "fontSize": 18,
+        "fontWeight": 600,
+        "lineHeight": 1,
+        "color": "#b8bec9ff",
+        "background": "#232730ff",
+        "radius": 24,
+        "borderWidth": 0,
+        "baseline": 42,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "initials": {
+        "rect": {
+          "x": 16,
+          "y": 12,
+          "width": 48,
+          "height": 48
+        },
+        "width": 48,
+        "height": 48,
+        "fontSize": 18,
+        "fontWeight": 600,
+        "lineHeight": 1,
+        "color": "#b8bec9ff",
+        "background": "#232730ff",
+        "radius": 24,
+        "borderWidth": 0,
+        "baseline": 42,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "name": {
+        "rect": {
+          "x": 80,
+          "y": 23.40625,
+          "width": 44.75,
+          "height": 25.1875
+        },
+        "width": 44.75,
+        "height": 25.1875,
+        "fontSize": 18,
+        "fontWeight": 600,
+        "lineHeight": 1.4,
+        "color": "#f4f2eeff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 42.40625,
+        "opacity": 1,
+        "strokeWidth": 1
+      }
+    },
+    "originalRoot": {
+      "width": 665,
+      "height": 72
+    },
+    "pageX": 0,
+    "pageY": 0,
+    "artifacts": {
+      "image": "web/w739-mobile-default.png"
+    }
+  },
+  {
+    "id": "w740-mobile-panel",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 666,
+      "height": 69
+    },
+    "controls": {
+      "shell": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 666,
+          "height": 69
+        },
+        "width": 666,
+        "height": 69,
+        "fontSize": 18,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#171a20ff",
+        "radius": 24,
+        "borderWidth": 0,
+        "baseline": 41,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "content": {
+        "rect": {
+          "x": 24,
+          "y": 24,
+          "width": 618,
+          "height": 21
+        },
+        "width": 618,
+        "height": 21,
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#b8bec9ff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 40,
+        "opacity": 1,
+        "strokeWidth": 1
+      }
+    },
+    "originalRoot": {
+      "width": 666,
+      "height": 69
+    },
+    "pageX": 0,
+    "pageY": 0,
+    "artifacts": {
+      "image": "web/w740-mobile-panel.png"
+    }
+  },
+  {
+    "id": "w740-primary-mobile",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 666,
+      "height": 56
+    },
+    "controls": {
+      "shell": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 666,
+          "height": 56
+        },
+        "width": 666,
+        "height": 56,
+        "fontSize": 16,
+        "fontWeight": 600,
+        "lineHeight": 1.5,
+        "color": "#19150bff",
+        "background": "#f1c75bff",
+        "radius": 28,
+        "borderWidth": 0,
+        "baseline": 32,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "icon": {
+        "rect": {
+          "x": 618,
+          "y": 16,
+          "width": 24,
+          "height": 24
+        },
+        "width": 24,
+        "height": 24,
+        "fontSize": 16,
+        "fontWeight": 600,
+        "lineHeight": 1.5,
+        "color": "#19150bff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 37.099998474121094,
+        "opacity": 1,
+        "strokeWidth": 1.8
+      },
+      "label": {
+        "rect": {
+          "x": 24,
+          "y": 18,
+          "width": 101.09375,
+          "height": 20
+        },
+        "width": 101.09375,
+        "height": 20,
+        "fontSize": 16,
+        "fontWeight": 600,
+        "lineHeight": 1.5,
+        "color": "#19150bff",
+        "background": "#f1c75bff",
+        "radius": 28,
+        "borderWidth": 0,
+        "baseline": 34,
+        "opacity": 1,
+        "strokeWidth": 1
+      }
+    },
+    "originalRoot": {
+      "width": 666,
+      "height": 56
+    },
+    "pageX": 12,
+    "pageY": 12,
+    "artifacts": {
+      "image": "web/w740-primary-mobile.png"
+    }
+  },
+  {
+    "id": "w740-mobile-default",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 666,
+      "height": 72
+    },
+    "controls": {
+      "frame": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 666,
+          "height": 72
+        },
+        "width": 666,
+        "height": 72,
+        "fontSize": 18,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#00000000",
+        "radius": 16,
+        "borderWidth": 0,
+        "baseline": 17,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "avatar": {
+        "rect": {
+          "x": 16,
+          "y": 12,
+          "width": 48,
+          "height": 48
+        },
+        "width": 48,
+        "height": 48,
+        "fontSize": 18,
+        "fontWeight": 600,
+        "lineHeight": 1,
+        "color": "#b8bec9ff",
+        "background": "#232730ff",
+        "radius": 24,
+        "borderWidth": 0,
+        "baseline": 42,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "avatar-style": {
+        "rect": {
+          "x": 16,
+          "y": 12,
+          "width": 48,
+          "height": 48
+        },
+        "width": 48,
+        "height": 48,
+        "fontSize": 18,
+        "fontWeight": 600,
+        "lineHeight": 1,
+        "color": "#b8bec9ff",
+        "background": "#232730ff",
+        "radius": 24,
+        "borderWidth": 0,
+        "baseline": 42,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "initials": {
+        "rect": {
+          "x": 16,
+          "y": 12,
+          "width": 48,
+          "height": 48
+        },
+        "width": 48,
+        "height": 48,
+        "fontSize": 18,
+        "fontWeight": 600,
+        "lineHeight": 1,
+        "color": "#b8bec9ff",
+        "background": "#232730ff",
+        "radius": 24,
+        "borderWidth": 0,
+        "baseline": 42,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "name": {
+        "rect": {
+          "x": 80,
+          "y": 23.40625,
+          "width": 44.75,
+          "height": 25.1875
+        },
+        "width": 44.75,
+        "height": 25.1875,
+        "fontSize": 18,
+        "fontWeight": 600,
+        "lineHeight": 1.4,
+        "color": "#f4f2eeff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 42.40625,
+        "opacity": 1,
+        "strokeWidth": 1
+      }
+    },
+    "originalRoot": {
+      "width": 666,
+      "height": 72
+    },
+    "pageX": 0,
+    "pageY": 0,
+    "artifacts": {
+      "image": "web/w740-mobile-default.png"
+    }
+  },
+  {
+    "id": "w741-desktop-panel",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 276.5,
+      "height": 69
+    },
+    "controls": {
+      "shell": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 276.5,
+          "height": 69
+        },
+        "width": 276.5,
+        "height": 69,
+        "fontSize": 18,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#232730ff",
+        "radius": 20,
+        "borderWidth": 0,
+        "baseline": 41,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "content": {
+        "rect": {
+          "x": 24,
+          "y": 24,
+          "width": 228.5,
+          "height": 21
+        },
+        "width": 228.5,
+        "height": 21,
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#b8bec9ff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 40,
+        "opacity": 1,
+        "strokeWidth": 1
+      }
+    },
+    "originalRoot": {
+      "width": 276.5,
+      "height": 69
+    },
+    "pageX": 0,
+    "pageY": 0,
+    "artifacts": {
+      "image": "web/w741-desktop-panel.png"
+    }
+  },
+  {
+    "id": "w741-primary-desktop",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 276.5,
+      "height": 56
+    },
+    "controls": {
+      "shell": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 276.5,
+          "height": 56
+        },
+        "width": 276.5,
+        "height": 56,
+        "fontSize": 16,
+        "fontWeight": 600,
+        "lineHeight": 1.5,
+        "color": "#19150bff",
+        "background": "#f1c75bff",
+        "radius": 28,
+        "borderWidth": 0,
+        "baseline": 32,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "icon": {
+        "rect": {
+          "x": 228.5,
+          "y": 16,
+          "width": 24,
+          "height": 24
+        },
+        "width": 24,
+        "height": 24,
+        "fontSize": 16,
+        "fontWeight": 600,
+        "lineHeight": 1.5,
+        "color": "#19150bff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 37.099998474121094,
+        "opacity": 1,
+        "strokeWidth": 1.8
+      },
+      "label": {
+        "rect": {
+          "x": 24,
+          "y": 18,
+          "width": 101.09375,
+          "height": 20
+        },
+        "width": 101.09375,
+        "height": 20,
+        "fontSize": 16,
+        "fontWeight": 600,
+        "lineHeight": 1.5,
+        "color": "#19150bff",
+        "background": "#f1c75bff",
+        "radius": 28,
+        "borderWidth": 0,
+        "baseline": 34,
+        "opacity": 1,
+        "strokeWidth": 1
+      }
+    },
+    "originalRoot": {
+      "width": 276.5,
+      "height": 56
+    },
+    "pageX": 12,
+    "pageY": 12,
+    "artifacts": {
+      "image": "web/w741-primary-desktop.png"
+    }
+  },
+  {
+    "id": "w741-desktop-default",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 276.5,
+      "height": 208
+    },
+    "controls": {
+      "frame": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 276.5,
+          "height": 208
+        },
+        "width": 276.5,
+        "height": 208,
+        "fontSize": 18,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#171a20ff",
+        "radius": 24,
+        "borderWidth": 0,
+        "baseline": 17,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "avatar": {
+        "rect": {
+          "x": 24,
+          "y": 24,
+          "width": 64,
+          "height": 64
+        },
+        "width": 64,
+        "height": 64,
+        "fontSize": 24,
+        "fontWeight": 600,
+        "lineHeight": 1,
+        "color": "#b8bec9ff",
+        "background": "#232730ff",
+        "radius": 22,
+        "borderWidth": 0,
+        "baseline": 64,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "avatar-style": {
+        "rect": {
+          "x": 24,
+          "y": 24,
+          "width": 64,
+          "height": 64
+        },
+        "width": 64,
+        "height": 64,
+        "fontSize": 24,
+        "fontWeight": 600,
+        "lineHeight": 1,
+        "color": "#b8bec9ff",
+        "background": "#232730ff",
+        "radius": 22,
+        "borderWidth": 0,
+        "baseline": 64,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "initials": {
+        "rect": {
+          "x": 24,
+          "y": 24,
+          "width": 64,
+          "height": 64
+        },
+        "width": 64,
+        "height": 64,
+        "fontSize": 24,
+        "fontWeight": 600,
+        "lineHeight": 1,
+        "color": "#b8bec9ff",
+        "background": "#232730ff",
+        "radius": 22,
+        "borderWidth": 0,
+        "baseline": 64,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "name": {
+        "rect": {
+          "x": 24,
+          "y": 104,
+          "width": 54,
+          "height": 30.796875
+        },
+        "width": 54,
+        "height": 30.796875,
+        "fontSize": 22,
+        "fontWeight": 600,
+        "lineHeight": 1.4000000000000001,
+        "color": "#f4f2eeff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 127,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "remove": {
+        "rect": {
+          "x": 212.5,
+          "y": 24,
+          "width": 40,
+          "height": 40
+        },
+        "width": 40,
+        "height": 40,
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#b8bec9ff",
+        "background": "#232730ff",
+        "radius": 20,
+        "borderWidth": 0,
+        "baseline": 46,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "remove-style": {
+        "rect": {
+          "x": 212.5,
+          "y": 24,
+          "width": 40,
+          "height": 40
+        },
+        "width": 40,
+        "height": 40,
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#b8bec9ff",
+        "background": "#232730ff",
+        "radius": 20,
+        "borderWidth": 0,
+        "baseline": 46,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "trash": {
+        "rect": {
+          "x": 220.5,
+          "y": 32,
+          "width": 24,
+          "height": 24
+        },
+        "width": 24,
+        "height": 24,
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#b8bec9ff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 49.099998474121094,
+        "opacity": 1,
+        "strokeWidth": 1.8
+      }
+    },
+    "originalRoot": {
+      "width": 276.5,
+      "height": 208
+    },
+    "pageX": 0,
+    "pageY": 0,
+    "artifacts": {
+      "image": "web/w741-desktop-default.png"
+    }
+  },
+  {
+    "id": "w999-desktop-panel",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 405.5,
+      "height": 69
+    },
+    "controls": {
+      "shell": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 405.5,
+          "height": 69
+        },
+        "width": 405.5,
+        "height": 69,
+        "fontSize": 18,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#232730ff",
+        "radius": 20,
+        "borderWidth": 0,
+        "baseline": 41,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "content": {
+        "rect": {
+          "x": 24,
+          "y": 24,
+          "width": 357.5,
+          "height": 21
+        },
+        "width": 357.5,
+        "height": 21,
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#b8bec9ff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 40,
+        "opacity": 1,
+        "strokeWidth": 1
+      }
+    },
+    "originalRoot": {
+      "width": 405.5,
+      "height": 69
+    },
+    "pageX": 0,
+    "pageY": 0,
+    "artifacts": {
+      "image": "web/w999-desktop-panel.png"
+    }
+  },
+  {
+    "id": "w999-primary-desktop",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 405.5,
+      "height": 56
+    },
+    "controls": {
+      "shell": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 405.5,
+          "height": 56
+        },
+        "width": 405.5,
+        "height": 56,
+        "fontSize": 16,
+        "fontWeight": 600,
+        "lineHeight": 1.5,
+        "color": "#19150bff",
+        "background": "#f1c75bff",
+        "radius": 28,
+        "borderWidth": 0,
+        "baseline": 32,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "icon": {
+        "rect": {
+          "x": 357.5,
+          "y": 16,
+          "width": 24,
+          "height": 24
+        },
+        "width": 24,
+        "height": 24,
+        "fontSize": 16,
+        "fontWeight": 600,
+        "lineHeight": 1.5,
+        "color": "#19150bff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 37.099998474121094,
+        "opacity": 1,
+        "strokeWidth": 1.8
+      },
+      "label": {
+        "rect": {
+          "x": 24,
+          "y": 18,
+          "width": 101.09375,
+          "height": 20
+        },
+        "width": 101.09375,
+        "height": 20,
+        "fontSize": 16,
+        "fontWeight": 600,
+        "lineHeight": 1.5,
+        "color": "#19150bff",
+        "background": "#f1c75bff",
+        "radius": 28,
+        "borderWidth": 0,
+        "baseline": 34,
+        "opacity": 1,
+        "strokeWidth": 1
+      }
+    },
+    "originalRoot": {
+      "width": 405.5,
+      "height": 56
+    },
+    "pageX": 12,
+    "pageY": 12,
+    "artifacts": {
+      "image": "web/w999-primary-desktop.png"
+    }
+  },
+  {
+    "id": "w999-desktop-default",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 405.5,
+      "height": 208
+    },
+    "controls": {
+      "frame": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 405.5,
+          "height": 208
+        },
+        "width": 405.5,
+        "height": 208,
+        "fontSize": 18,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#171a20ff",
+        "radius": 24,
+        "borderWidth": 0,
+        "baseline": 17,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "avatar": {
+        "rect": {
+          "x": 24,
+          "y": 24,
+          "width": 64,
+          "height": 64
+        },
+        "width": 64,
+        "height": 64,
+        "fontSize": 24,
+        "fontWeight": 600,
+        "lineHeight": 1,
+        "color": "#b8bec9ff",
+        "background": "#232730ff",
+        "radius": 22,
+        "borderWidth": 0,
+        "baseline": 64,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "avatar-style": {
+        "rect": {
+          "x": 24,
+          "y": 24,
+          "width": 64,
+          "height": 64
+        },
+        "width": 64,
+        "height": 64,
+        "fontSize": 24,
+        "fontWeight": 600,
+        "lineHeight": 1,
+        "color": "#b8bec9ff",
+        "background": "#232730ff",
+        "radius": 22,
+        "borderWidth": 0,
+        "baseline": 64,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "initials": {
+        "rect": {
+          "x": 24,
+          "y": 24,
+          "width": 64,
+          "height": 64
+        },
+        "width": 64,
+        "height": 64,
+        "fontSize": 24,
+        "fontWeight": 600,
+        "lineHeight": 1,
+        "color": "#b8bec9ff",
+        "background": "#232730ff",
+        "radius": 22,
+        "borderWidth": 0,
+        "baseline": 64,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "name": {
+        "rect": {
+          "x": 24,
+          "y": 104,
+          "width": 54,
+          "height": 30.796875
+        },
+        "width": 54,
+        "height": 30.796875,
+        "fontSize": 22,
+        "fontWeight": 600,
+        "lineHeight": 1.4000000000000001,
+        "color": "#f4f2eeff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 127,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "remove": {
+        "rect": {
+          "x": 341.5,
+          "y": 24,
+          "width": 40,
+          "height": 40
+        },
+        "width": 40,
+        "height": 40,
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#b8bec9ff",
+        "background": "#232730ff",
+        "radius": 20,
+        "borderWidth": 0,
+        "baseline": 46,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "remove-style": {
+        "rect": {
+          "x": 341.5,
+          "y": 24,
+          "width": 40,
+          "height": 40
+        },
+        "width": 40,
+        "height": 40,
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#b8bec9ff",
+        "background": "#232730ff",
+        "radius": 20,
+        "borderWidth": 0,
+        "baseline": 46,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "trash": {
+        "rect": {
+          "x": 349.5,
+          "y": 32,
+          "width": 24,
+          "height": 24
+        },
+        "width": 24,
+        "height": 24,
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#b8bec9ff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 49.099998474121094,
+        "opacity": 1,
+        "strokeWidth": 1.8
+      }
+    },
+    "originalRoot": {
+      "width": 405.5,
+      "height": 208
+    },
+    "pageX": 0,
+    "pageY": 0,
+    "artifacts": {
+      "image": "web/w999-desktop-default.png"
+    }
+  },
+  {
+    "id": "w1000-desktop-panel",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 406,
+      "height": 69
+    },
+    "controls": {
+      "shell": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 406,
+          "height": 69
+        },
+        "width": 406,
+        "height": 69,
+        "fontSize": 18,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#232730ff",
+        "radius": 20,
+        "borderWidth": 0,
+        "baseline": 41,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "content": {
+        "rect": {
+          "x": 24,
+          "y": 24,
+          "width": 358,
+          "height": 21
+        },
+        "width": 358,
+        "height": 21,
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#b8bec9ff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 40,
+        "opacity": 1,
+        "strokeWidth": 1
+      }
+    },
+    "originalRoot": {
+      "width": 406,
+      "height": 69
+    },
+    "pageX": 0,
+    "pageY": 0,
+    "artifacts": {
+      "image": "web/w1000-desktop-panel.png"
+    }
+  },
+  {
+    "id": "w1000-primary-desktop",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 406,
+      "height": 56
+    },
+    "controls": {
+      "shell": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 406,
+          "height": 56
+        },
+        "width": 406,
+        "height": 56,
+        "fontSize": 16,
+        "fontWeight": 600,
+        "lineHeight": 1.5,
+        "color": "#19150bff",
+        "background": "#f1c75bff",
+        "radius": 28,
+        "borderWidth": 0,
+        "baseline": 32,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "icon": {
+        "rect": {
+          "x": 358,
+          "y": 16,
+          "width": 24,
+          "height": 24
+        },
+        "width": 24,
+        "height": 24,
+        "fontSize": 16,
+        "fontWeight": 600,
+        "lineHeight": 1.5,
+        "color": "#19150bff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 37.099998474121094,
+        "opacity": 1,
+        "strokeWidth": 1.8
+      },
+      "label": {
+        "rect": {
+          "x": 24,
+          "y": 18,
+          "width": 101.09375,
+          "height": 20
+        },
+        "width": 101.09375,
+        "height": 20,
+        "fontSize": 16,
+        "fontWeight": 600,
+        "lineHeight": 1.5,
+        "color": "#19150bff",
+        "background": "#f1c75bff",
+        "radius": 28,
+        "borderWidth": 0,
+        "baseline": 34,
+        "opacity": 1,
+        "strokeWidth": 1
+      }
+    },
+    "originalRoot": {
+      "width": 406,
+      "height": 56
+    },
+    "pageX": 12,
+    "pageY": 12,
+    "artifacts": {
+      "image": "web/w1000-primary-desktop.png"
+    }
+  },
+  {
+    "id": "w1000-desktop-default",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 406,
+      "height": 208
+    },
+    "controls": {
+      "frame": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 406,
+          "height": 208
+        },
+        "width": 406,
+        "height": 208,
+        "fontSize": 18,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#171a20ff",
+        "radius": 24,
+        "borderWidth": 0,
+        "baseline": 17,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "avatar": {
+        "rect": {
+          "x": 24,
+          "y": 24,
+          "width": 64,
+          "height": 64
+        },
+        "width": 64,
+        "height": 64,
+        "fontSize": 24,
+        "fontWeight": 600,
+        "lineHeight": 1,
+        "color": "#b8bec9ff",
+        "background": "#232730ff",
+        "radius": 22,
+        "borderWidth": 0,
+        "baseline": 64,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "avatar-style": {
+        "rect": {
+          "x": 24,
+          "y": 24,
+          "width": 64,
+          "height": 64
+        },
+        "width": 64,
+        "height": 64,
+        "fontSize": 24,
+        "fontWeight": 600,
+        "lineHeight": 1,
+        "color": "#b8bec9ff",
+        "background": "#232730ff",
+        "radius": 22,
+        "borderWidth": 0,
+        "baseline": 64,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "initials": {
+        "rect": {
+          "x": 24,
+          "y": 24,
+          "width": 64,
+          "height": 64
+        },
+        "width": 64,
+        "height": 64,
+        "fontSize": 24,
+        "fontWeight": 600,
+        "lineHeight": 1,
+        "color": "#b8bec9ff",
+        "background": "#232730ff",
+        "radius": 22,
+        "borderWidth": 0,
+        "baseline": 64,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "name": {
+        "rect": {
+          "x": 24,
+          "y": 104,
+          "width": 54,
+          "height": 30.796875
+        },
+        "width": 54,
+        "height": 30.796875,
+        "fontSize": 22,
+        "fontWeight": 600,
+        "lineHeight": 1.4000000000000001,
+        "color": "#f4f2eeff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 127,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "remove": {
+        "rect": {
+          "x": 342,
+          "y": 24,
+          "width": 40,
+          "height": 40
+        },
+        "width": 40,
+        "height": 40,
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#b8bec9ff",
+        "background": "#232730ff",
+        "radius": 20,
+        "borderWidth": 0,
+        "baseline": 46,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "remove-style": {
+        "rect": {
+          "x": 342,
+          "y": 24,
+          "width": 40,
+          "height": 40
+        },
+        "width": 40,
+        "height": 40,
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#b8bec9ff",
+        "background": "#232730ff",
+        "radius": 20,
+        "borderWidth": 0,
+        "baseline": 46,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "trash": {
+        "rect": {
+          "x": 350,
+          "y": 32,
+          "width": 24,
+          "height": 24
+        },
+        "width": 24,
+        "height": 24,
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#b8bec9ff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 49.099998474121094,
+        "opacity": 1,
+        "strokeWidth": 1.8
+      }
+    },
+    "originalRoot": {
+      "width": 406,
+      "height": 208
+    },
+    "pageX": 0,
+    "pageY": 0,
+    "artifacts": {
+      "image": "web/w1000-desktop-default.png"
+    }
+  },
+  {
+    "id": "w1001-desktop-panel",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 406.5,
+      "height": 69
+    },
+    "controls": {
+      "shell": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 406.5,
+          "height": 69
+        },
+        "width": 406.5,
+        "height": 69,
+        "fontSize": 18,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#232730ff",
+        "radius": 20,
+        "borderWidth": 0,
+        "baseline": 41,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "content": {
+        "rect": {
+          "x": 24,
+          "y": 24,
+          "width": 358.5,
+          "height": 21
+        },
+        "width": 358.5,
+        "height": 21,
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#b8bec9ff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 40,
+        "opacity": 1,
+        "strokeWidth": 1
+      }
+    },
+    "originalRoot": {
+      "width": 406.5,
+      "height": 69
+    },
+    "pageX": 0,
+    "pageY": 0,
+    "artifacts": {
+      "image": "web/w1001-desktop-panel.png"
+    }
+  },
+  {
+    "id": "w1001-primary-desktop",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 406.5,
+      "height": 56
+    },
+    "controls": {
+      "shell": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 406.5,
+          "height": 56
+        },
+        "width": 406.5,
+        "height": 56,
+        "fontSize": 16,
+        "fontWeight": 600,
+        "lineHeight": 1.5,
+        "color": "#19150bff",
+        "background": "#f1c75bff",
+        "radius": 28,
+        "borderWidth": 0,
+        "baseline": 32,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "icon": {
+        "rect": {
+          "x": 358.5,
+          "y": 16,
+          "width": 24,
+          "height": 24
+        },
+        "width": 24,
+        "height": 24,
+        "fontSize": 16,
+        "fontWeight": 600,
+        "lineHeight": 1.5,
+        "color": "#19150bff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 37.099998474121094,
+        "opacity": 1,
+        "strokeWidth": 1.8
+      },
+      "label": {
+        "rect": {
+          "x": 24,
+          "y": 18,
+          "width": 101.09375,
+          "height": 20
+        },
+        "width": 101.09375,
+        "height": 20,
+        "fontSize": 16,
+        "fontWeight": 600,
+        "lineHeight": 1.5,
+        "color": "#19150bff",
+        "background": "#f1c75bff",
+        "radius": 28,
+        "borderWidth": 0,
+        "baseline": 34,
+        "opacity": 1,
+        "strokeWidth": 1
+      }
+    },
+    "originalRoot": {
+      "width": 406.5,
+      "height": 56
+    },
+    "pageX": 12,
+    "pageY": 12,
+    "artifacts": {
+      "image": "web/w1001-primary-desktop.png"
+    }
+  },
+  {
+    "id": "w1001-desktop-default",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 406.5,
+      "height": 208
+    },
+    "controls": {
+      "frame": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 406.5,
+          "height": 208
+        },
+        "width": 406.5,
+        "height": 208,
+        "fontSize": 18,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#171a20ff",
+        "radius": 24,
+        "borderWidth": 0,
+        "baseline": 17,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "avatar": {
+        "rect": {
+          "x": 24,
+          "y": 24,
+          "width": 64,
+          "height": 64
+        },
+        "width": 64,
+        "height": 64,
+        "fontSize": 24,
+        "fontWeight": 600,
+        "lineHeight": 1,
+        "color": "#b8bec9ff",
+        "background": "#232730ff",
+        "radius": 22,
+        "borderWidth": 0,
+        "baseline": 64,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "avatar-style": {
+        "rect": {
+          "x": 24,
+          "y": 24,
+          "width": 64,
+          "height": 64
+        },
+        "width": 64,
+        "height": 64,
+        "fontSize": 24,
+        "fontWeight": 600,
+        "lineHeight": 1,
+        "color": "#b8bec9ff",
+        "background": "#232730ff",
+        "radius": 22,
+        "borderWidth": 0,
+        "baseline": 64,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "initials": {
+        "rect": {
+          "x": 24,
+          "y": 24,
+          "width": 64,
+          "height": 64
+        },
+        "width": 64,
+        "height": 64,
+        "fontSize": 24,
+        "fontWeight": 600,
+        "lineHeight": 1,
+        "color": "#b8bec9ff",
+        "background": "#232730ff",
+        "radius": 22,
+        "borderWidth": 0,
+        "baseline": 64,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "name": {
+        "rect": {
+          "x": 24,
+          "y": 104,
+          "width": 54,
+          "height": 30.796875
+        },
+        "width": 54,
+        "height": 30.796875,
+        "fontSize": 22,
+        "fontWeight": 600,
+        "lineHeight": 1.4000000000000001,
+        "color": "#f4f2eeff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 127,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "remove": {
+        "rect": {
+          "x": 342.5,
+          "y": 24,
+          "width": 40,
+          "height": 40
+        },
+        "width": 40,
+        "height": 40,
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#b8bec9ff",
+        "background": "#232730ff",
+        "radius": 20,
+        "borderWidth": 0,
+        "baseline": 46,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "remove-style": {
+        "rect": {
+          "x": 342.5,
+          "y": 24,
+          "width": 40,
+          "height": 40
+        },
+        "width": 40,
+        "height": 40,
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#b8bec9ff",
+        "background": "#232730ff",
+        "radius": 20,
+        "borderWidth": 0,
+        "baseline": 46,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "trash": {
+        "rect": {
+          "x": 350.5,
+          "y": 32,
+          "width": 24,
+          "height": 24
+        },
+        "width": 24,
+        "height": 24,
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#b8bec9ff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 49.099998474121094,
+        "opacity": 1,
+        "strokeWidth": 1.8
+      }
+    },
+    "originalRoot": {
+      "width": 406.5,
+      "height": 208
+    },
+    "pageX": 0,
+    "pageY": 0,
+    "artifacts": {
+      "image": "web/w1001-desktop-default.png"
+    }
+  },
+  {
+    "id": "w1099-desktop-panel",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 455.5,
+      "height": 69
+    },
+    "controls": {
+      "shell": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 455.5,
+          "height": 69
+        },
+        "width": 455.5,
+        "height": 69,
+        "fontSize": 18,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#232730ff",
+        "radius": 20,
+        "borderWidth": 0,
+        "baseline": 41,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "content": {
+        "rect": {
+          "x": 24,
+          "y": 24,
+          "width": 407.5,
+          "height": 21
+        },
+        "width": 407.5,
+        "height": 21,
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#b8bec9ff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 40,
+        "opacity": 1,
+        "strokeWidth": 1
+      }
+    },
+    "originalRoot": {
+      "width": 455.5,
+      "height": 69
+    },
+    "pageX": 0,
+    "pageY": 0,
+    "artifacts": {
+      "image": "web/w1099-desktop-panel.png"
+    }
+  },
+  {
+    "id": "w1099-primary-desktop",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 455.5,
+      "height": 56
+    },
+    "controls": {
+      "shell": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 455.5,
+          "height": 56
+        },
+        "width": 455.5,
+        "height": 56,
+        "fontSize": 16,
+        "fontWeight": 600,
+        "lineHeight": 1.5,
+        "color": "#19150bff",
+        "background": "#f1c75bff",
+        "radius": 28,
+        "borderWidth": 0,
+        "baseline": 32,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "icon": {
+        "rect": {
+          "x": 407.5,
+          "y": 16,
+          "width": 24,
+          "height": 24
+        },
+        "width": 24,
+        "height": 24,
+        "fontSize": 16,
+        "fontWeight": 600,
+        "lineHeight": 1.5,
+        "color": "#19150bff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 37.099998474121094,
+        "opacity": 1,
+        "strokeWidth": 1.8
+      },
+      "label": {
+        "rect": {
+          "x": 24,
+          "y": 18,
+          "width": 101.09375,
+          "height": 20
+        },
+        "width": 101.09375,
+        "height": 20,
+        "fontSize": 16,
+        "fontWeight": 600,
+        "lineHeight": 1.5,
+        "color": "#19150bff",
+        "background": "#f1c75bff",
+        "radius": 28,
+        "borderWidth": 0,
+        "baseline": 34,
+        "opacity": 1,
+        "strokeWidth": 1
+      }
+    },
+    "originalRoot": {
+      "width": 455.5,
+      "height": 56
+    },
+    "pageX": 12,
+    "pageY": 12,
+    "artifacts": {
+      "image": "web/w1099-primary-desktop.png"
+    }
+  },
+  {
+    "id": "w1099-desktop-default",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 455.5,
+      "height": 208
+    },
+    "controls": {
+      "frame": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 455.5,
+          "height": 208
+        },
+        "width": 455.5,
+        "height": 208,
+        "fontSize": 18,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#171a20ff",
+        "radius": 24,
+        "borderWidth": 0,
+        "baseline": 17,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "avatar": {
+        "rect": {
+          "x": 24,
+          "y": 24,
+          "width": 64,
+          "height": 64
+        },
+        "width": 64,
+        "height": 64,
+        "fontSize": 24,
+        "fontWeight": 600,
+        "lineHeight": 1,
+        "color": "#b8bec9ff",
+        "background": "#232730ff",
+        "radius": 22,
+        "borderWidth": 0,
+        "baseline": 64,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "avatar-style": {
+        "rect": {
+          "x": 24,
+          "y": 24,
+          "width": 64,
+          "height": 64
+        },
+        "width": 64,
+        "height": 64,
+        "fontSize": 24,
+        "fontWeight": 600,
+        "lineHeight": 1,
+        "color": "#b8bec9ff",
+        "background": "#232730ff",
+        "radius": 22,
+        "borderWidth": 0,
+        "baseline": 64,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "initials": {
+        "rect": {
+          "x": 24,
+          "y": 24,
+          "width": 64,
+          "height": 64
+        },
+        "width": 64,
+        "height": 64,
+        "fontSize": 24,
+        "fontWeight": 600,
+        "lineHeight": 1,
+        "color": "#b8bec9ff",
+        "background": "#232730ff",
+        "radius": 22,
+        "borderWidth": 0,
+        "baseline": 64,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "name": {
+        "rect": {
+          "x": 24,
+          "y": 104,
+          "width": 54,
+          "height": 30.796875
+        },
+        "width": 54,
+        "height": 30.796875,
+        "fontSize": 22,
+        "fontWeight": 600,
+        "lineHeight": 1.4000000000000001,
+        "color": "#f4f2eeff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 127,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "remove": {
+        "rect": {
+          "x": 391.5,
+          "y": 24,
+          "width": 40,
+          "height": 40
+        },
+        "width": 40,
+        "height": 40,
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#b8bec9ff",
+        "background": "#232730ff",
+        "radius": 20,
+        "borderWidth": 0,
+        "baseline": 46,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "remove-style": {
+        "rect": {
+          "x": 391.5,
+          "y": 24,
+          "width": 40,
+          "height": 40
+        },
+        "width": 40,
+        "height": 40,
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#b8bec9ff",
+        "background": "#232730ff",
+        "radius": 20,
+        "borderWidth": 0,
+        "baseline": 46,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "trash": {
+        "rect": {
+          "x": 399.5,
+          "y": 32,
+          "width": 24,
+          "height": 24
+        },
+        "width": 24,
+        "height": 24,
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#b8bec9ff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 49.099998474121094,
+        "opacity": 1,
+        "strokeWidth": 1.8
+      }
+    },
+    "originalRoot": {
+      "width": 455.5,
+      "height": 208
+    },
+    "pageX": 0,
+    "pageY": 0,
+    "artifacts": {
+      "image": "web/w1099-desktop-default.png"
+    }
+  },
+  {
+    "id": "w1100-desktop-panel",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 456,
+      "height": 69
+    },
+    "controls": {
+      "shell": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 456,
+          "height": 69
+        },
+        "width": 456,
+        "height": 69,
+        "fontSize": 18,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#232730ff",
+        "radius": 20,
+        "borderWidth": 0,
+        "baseline": 41,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "content": {
+        "rect": {
+          "x": 24,
+          "y": 24,
+          "width": 408,
+          "height": 21
+        },
+        "width": 408,
+        "height": 21,
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#b8bec9ff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 40,
+        "opacity": 1,
+        "strokeWidth": 1
+      }
+    },
+    "originalRoot": {
+      "width": 456,
+      "height": 69
+    },
+    "pageX": 0,
+    "pageY": 0,
+    "artifacts": {
+      "image": "web/w1100-desktop-panel.png"
+    }
+  },
+  {
+    "id": "w1100-primary-desktop",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 456,
+      "height": 56
+    },
+    "controls": {
+      "shell": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 456,
+          "height": 56
+        },
+        "width": 456,
+        "height": 56,
+        "fontSize": 16,
+        "fontWeight": 600,
+        "lineHeight": 1.5,
+        "color": "#19150bff",
+        "background": "#f1c75bff",
+        "radius": 28,
+        "borderWidth": 0,
+        "baseline": 32,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "icon": {
+        "rect": {
+          "x": 408,
+          "y": 16,
+          "width": 24,
+          "height": 24
+        },
+        "width": 24,
+        "height": 24,
+        "fontSize": 16,
+        "fontWeight": 600,
+        "lineHeight": 1.5,
+        "color": "#19150bff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 37.099998474121094,
+        "opacity": 1,
+        "strokeWidth": 1.8
+      },
+      "label": {
+        "rect": {
+          "x": 24,
+          "y": 18,
+          "width": 101.09375,
+          "height": 20
+        },
+        "width": 101.09375,
+        "height": 20,
+        "fontSize": 16,
+        "fontWeight": 600,
+        "lineHeight": 1.5,
+        "color": "#19150bff",
+        "background": "#f1c75bff",
+        "radius": 28,
+        "borderWidth": 0,
+        "baseline": 34,
+        "opacity": 1,
+        "strokeWidth": 1
+      }
+    },
+    "originalRoot": {
+      "width": 456,
+      "height": 56
+    },
+    "pageX": 12,
+    "pageY": 12,
+    "artifacts": {
+      "image": "web/w1100-primary-desktop.png"
+    }
+  },
+  {
+    "id": "w1100-desktop-default",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 456,
+      "height": 208
+    },
+    "controls": {
+      "frame": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 456,
+          "height": 208
+        },
+        "width": 456,
+        "height": 208,
+        "fontSize": 18,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#171a20ff",
+        "radius": 24,
+        "borderWidth": 0,
+        "baseline": 17,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "avatar": {
+        "rect": {
+          "x": 24,
+          "y": 24,
+          "width": 64,
+          "height": 64
+        },
+        "width": 64,
+        "height": 64,
+        "fontSize": 24,
+        "fontWeight": 600,
+        "lineHeight": 1,
+        "color": "#b8bec9ff",
+        "background": "#232730ff",
+        "radius": 22,
+        "borderWidth": 0,
+        "baseline": 64,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "avatar-style": {
+        "rect": {
+          "x": 24,
+          "y": 24,
+          "width": 64,
+          "height": 64
+        },
+        "width": 64,
+        "height": 64,
+        "fontSize": 24,
+        "fontWeight": 600,
+        "lineHeight": 1,
+        "color": "#b8bec9ff",
+        "background": "#232730ff",
+        "radius": 22,
+        "borderWidth": 0,
+        "baseline": 64,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "initials": {
+        "rect": {
+          "x": 24,
+          "y": 24,
+          "width": 64,
+          "height": 64
+        },
+        "width": 64,
+        "height": 64,
+        "fontSize": 24,
+        "fontWeight": 600,
+        "lineHeight": 1,
+        "color": "#b8bec9ff",
+        "background": "#232730ff",
+        "radius": 22,
+        "borderWidth": 0,
+        "baseline": 64,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "name": {
+        "rect": {
+          "x": 24,
+          "y": 104,
+          "width": 54,
+          "height": 30.796875
+        },
+        "width": 54,
+        "height": 30.796875,
+        "fontSize": 22,
+        "fontWeight": 600,
+        "lineHeight": 1.4000000000000001,
+        "color": "#f4f2eeff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 127,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "remove": {
+        "rect": {
+          "x": 392,
+          "y": 24,
+          "width": 40,
+          "height": 40
+        },
+        "width": 40,
+        "height": 40,
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#b8bec9ff",
+        "background": "#232730ff",
+        "radius": 20,
+        "borderWidth": 0,
+        "baseline": 46,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "remove-style": {
+        "rect": {
+          "x": 392,
+          "y": 24,
+          "width": 40,
+          "height": 40
+        },
+        "width": 40,
+        "height": 40,
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#b8bec9ff",
+        "background": "#232730ff",
+        "radius": 20,
+        "borderWidth": 0,
+        "baseline": 46,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "trash": {
+        "rect": {
+          "x": 400,
+          "y": 32,
+          "width": 24,
+          "height": 24
+        },
+        "width": 24,
+        "height": 24,
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#b8bec9ff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 49.099998474121094,
+        "opacity": 1,
+        "strokeWidth": 1.8
+      }
+    },
+    "originalRoot": {
+      "width": 456,
+      "height": 208
+    },
+    "pageX": 0,
+    "pageY": 0,
+    "artifacts": {
+      "image": "web/w1100-desktop-default.png"
+    }
+  },
+  {
+    "id": "w1101-desktop-panel",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 282.328125,
+      "height": 69
+    },
+    "controls": {
+      "shell": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 282.328125,
+          "height": 69
+        },
+        "width": 282.328125,
+        "height": 69,
+        "fontSize": 18,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#232730ff",
+        "radius": 20,
+        "borderWidth": 0,
+        "baseline": 41,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "content": {
+        "rect": {
+          "x": 24,
+          "y": 24,
+          "width": 234.328125,
+          "height": 21
+        },
+        "width": 234.328125,
+        "height": 21,
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#b8bec9ff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 40,
+        "opacity": 1,
+        "strokeWidth": 1
+      }
+    },
+    "originalRoot": {
+      "width": 282.328125,
+      "height": 69
+    },
+    "pageX": 0,
+    "pageY": 0,
+    "artifacts": {
+      "image": "web/w1101-desktop-panel.png"
+    }
+  },
+  {
+    "id": "w1101-primary-desktop",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 282.328125,
+      "height": 56
+    },
+    "controls": {
+      "shell": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 282.328125,
+          "height": 56
+        },
+        "width": 282.328125,
+        "height": 56,
+        "fontSize": 16,
+        "fontWeight": 600,
+        "lineHeight": 1.5,
+        "color": "#19150bff",
+        "background": "#f1c75bff",
+        "radius": 28,
+        "borderWidth": 0,
+        "baseline": 32,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "icon": {
+        "rect": {
+          "x": 234.328125,
+          "y": 16,
+          "width": 24,
+          "height": 24
+        },
+        "width": 24,
+        "height": 24,
+        "fontSize": 16,
+        "fontWeight": 600,
+        "lineHeight": 1.5,
+        "color": "#19150bff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 37.099998474121094,
+        "opacity": 1,
+        "strokeWidth": 1.8
+      },
+      "label": {
+        "rect": {
+          "x": 24,
+          "y": 18,
+          "width": 101.09375,
+          "height": 20
+        },
+        "width": 101.09375,
+        "height": 20,
+        "fontSize": 16,
+        "fontWeight": 600,
+        "lineHeight": 1.5,
+        "color": "#19150bff",
+        "background": "#f1c75bff",
+        "radius": 28,
+        "borderWidth": 0,
+        "baseline": 34,
+        "opacity": 1,
+        "strokeWidth": 1
+      }
+    },
+    "originalRoot": {
+      "width": 282.328125,
+      "height": 56
+    },
+    "pageX": 12,
+    "pageY": 12,
+    "artifacts": {
+      "image": "web/w1101-primary-desktop.png"
+    }
+  },
+  {
+    "id": "w1101-desktop-default",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 282.328125,
+      "height": 208
+    },
+    "controls": {
+      "frame": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 282.328125,
+          "height": 208
+        },
+        "width": 282.328125,
+        "height": 208,
+        "fontSize": 18,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#171a20ff",
+        "radius": 24,
+        "borderWidth": 0,
+        "baseline": 17,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "avatar": {
+        "rect": {
+          "x": 24,
+          "y": 24,
+          "width": 64,
+          "height": 64
+        },
+        "width": 64,
+        "height": 64,
+        "fontSize": 24,
+        "fontWeight": 600,
+        "lineHeight": 1,
+        "color": "#b8bec9ff",
+        "background": "#232730ff",
+        "radius": 22,
+        "borderWidth": 0,
+        "baseline": 64,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "avatar-style": {
+        "rect": {
+          "x": 24,
+          "y": 24,
+          "width": 64,
+          "height": 64
+        },
+        "width": 64,
+        "height": 64,
+        "fontSize": 24,
+        "fontWeight": 600,
+        "lineHeight": 1,
+        "color": "#b8bec9ff",
+        "background": "#232730ff",
+        "radius": 22,
+        "borderWidth": 0,
+        "baseline": 64,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "initials": {
+        "rect": {
+          "x": 24,
+          "y": 24,
+          "width": 64,
+          "height": 64
+        },
+        "width": 64,
+        "height": 64,
+        "fontSize": 24,
+        "fontWeight": 600,
+        "lineHeight": 1,
+        "color": "#b8bec9ff",
+        "background": "#232730ff",
+        "radius": 22,
+        "borderWidth": 0,
+        "baseline": 64,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "name": {
+        "rect": {
+          "x": 24,
+          "y": 104,
+          "width": 54,
+          "height": 30.796875
+        },
+        "width": 54,
+        "height": 30.796875,
+        "fontSize": 22,
+        "fontWeight": 600,
+        "lineHeight": 1.4000000000000001,
+        "color": "#f4f2eeff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 127,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "remove": {
+        "rect": {
+          "x": 218.328125,
+          "y": 24,
+          "width": 40,
+          "height": 40
+        },
+        "width": 40,
+        "height": 40,
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#b8bec9ff",
+        "background": "#232730ff",
+        "radius": 20,
+        "borderWidth": 0,
+        "baseline": 46,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "remove-style": {
+        "rect": {
+          "x": 218.328125,
+          "y": 24,
+          "width": 40,
+          "height": 40
+        },
+        "width": 40,
+        "height": 40,
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#b8bec9ff",
+        "background": "#232730ff",
+        "radius": 20,
+        "borderWidth": 0,
+        "baseline": 46,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "trash": {
+        "rect": {
+          "x": 226.328125,
+          "y": 32,
+          "width": 24,
+          "height": 24
+        },
+        "width": 24,
+        "height": 24,
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#b8bec9ff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 49.099998474121094,
+        "opacity": 1,
+        "strokeWidth": 1.8
+      }
+    },
+    "originalRoot": {
+      "width": 282.328125,
+      "height": 208
+    },
+    "pageX": 0,
+    "pageY": 0,
+    "artifacts": {
+      "image": "web/w1101-desktop-default.png"
+    }
+  },
+  {
+    "id": "w1440-desktop-panel",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 395.328125,
+      "height": 69
+    },
+    "controls": {
+      "shell": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 395.328125,
+          "height": 69
+        },
+        "width": 395.328125,
+        "height": 69,
+        "fontSize": 18,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#232730ff",
+        "radius": 20,
+        "borderWidth": 0,
+        "baseline": 41,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "content": {
+        "rect": {
+          "x": 24,
+          "y": 24,
+          "width": 347.328125,
+          "height": 21
+        },
+        "width": 347.328125,
+        "height": 21,
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#b8bec9ff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 40,
+        "opacity": 1,
+        "strokeWidth": 1
+      }
+    },
+    "originalRoot": {
+      "width": 395.328125,
+      "height": 69
+    },
+    "pageX": 0,
+    "pageY": 0,
+    "artifacts": {
+      "image": "web/w1440-desktop-panel.png"
+    }
+  },
+  {
+    "id": "w1440-primary-desktop",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 395.328125,
+      "height": 56
+    },
+    "controls": {
+      "shell": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 395.328125,
+          "height": 56
+        },
+        "width": 395.328125,
+        "height": 56,
+        "fontSize": 16,
+        "fontWeight": 600,
+        "lineHeight": 1.5,
+        "color": "#19150bff",
+        "background": "#f1c75bff",
+        "radius": 28,
+        "borderWidth": 0,
+        "baseline": 32,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "icon": {
+        "rect": {
+          "x": 347.328125,
+          "y": 16,
+          "width": 24,
+          "height": 24
+        },
+        "width": 24,
+        "height": 24,
+        "fontSize": 16,
+        "fontWeight": 600,
+        "lineHeight": 1.5,
+        "color": "#19150bff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 37.099998474121094,
+        "opacity": 1,
+        "strokeWidth": 1.8
+      },
+      "label": {
+        "rect": {
+          "x": 24,
+          "y": 18,
+          "width": 101.09375,
+          "height": 20
+        },
+        "width": 101.09375,
+        "height": 20,
+        "fontSize": 16,
+        "fontWeight": 600,
+        "lineHeight": 1.5,
+        "color": "#19150bff",
+        "background": "#f1c75bff",
+        "radius": 28,
+        "borderWidth": 0,
+        "baseline": 34,
+        "opacity": 1,
+        "strokeWidth": 1
+      }
+    },
+    "originalRoot": {
+      "width": 395.328125,
+      "height": 56
+    },
+    "pageX": 12,
+    "pageY": 12,
+    "artifacts": {
+      "image": "web/w1440-primary-desktop.png"
+    }
+  },
+  {
+    "id": "w1440-desktop-default",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 395.328125,
+      "height": 208
+    },
+    "controls": {
+      "frame": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 395.328125,
+          "height": 208
+        },
+        "width": 395.328125,
+        "height": 208,
+        "fontSize": 18,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#171a20ff",
+        "radius": 24,
+        "borderWidth": 0,
+        "baseline": 17,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "avatar": {
+        "rect": {
+          "x": 24,
+          "y": 24,
+          "width": 64,
+          "height": 64
+        },
+        "width": 64,
+        "height": 64,
+        "fontSize": 24,
+        "fontWeight": 600,
+        "lineHeight": 1,
+        "color": "#b8bec9ff",
+        "background": "#232730ff",
+        "radius": 22,
+        "borderWidth": 0,
+        "baseline": 64,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "avatar-style": {
+        "rect": {
+          "x": 24,
+          "y": 24,
+          "width": 64,
+          "height": 64
+        },
+        "width": 64,
+        "height": 64,
+        "fontSize": 24,
+        "fontWeight": 600,
+        "lineHeight": 1,
+        "color": "#b8bec9ff",
+        "background": "#232730ff",
+        "radius": 22,
+        "borderWidth": 0,
+        "baseline": 64,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "initials": {
+        "rect": {
+          "x": 24,
+          "y": 24,
+          "width": 64,
+          "height": 64
+        },
+        "width": 64,
+        "height": 64,
+        "fontSize": 24,
+        "fontWeight": 600,
+        "lineHeight": 1,
+        "color": "#b8bec9ff",
+        "background": "#232730ff",
+        "radius": 22,
+        "borderWidth": 0,
+        "baseline": 64,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "name": {
+        "rect": {
+          "x": 24,
+          "y": 104,
+          "width": 54,
+          "height": 30.796875
+        },
+        "width": 54,
+        "height": 30.796875,
+        "fontSize": 22,
+        "fontWeight": 600,
+        "lineHeight": 1.4000000000000001,
+        "color": "#f4f2eeff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 127,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "remove": {
+        "rect": {
+          "x": 331.328125,
+          "y": 24,
+          "width": 40,
+          "height": 40
+        },
+        "width": 40,
+        "height": 40,
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#b8bec9ff",
+        "background": "#232730ff",
+        "radius": 20,
+        "borderWidth": 0,
+        "baseline": 46,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "remove-style": {
+        "rect": {
+          "x": 331.328125,
+          "y": 24,
+          "width": 40,
+          "height": 40
+        },
+        "width": 40,
+        "height": 40,
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#b8bec9ff",
+        "background": "#232730ff",
+        "radius": 20,
+        "borderWidth": 0,
+        "baseline": 46,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "trash": {
+        "rect": {
+          "x": 339.328125,
+          "y": 32,
+          "width": 24,
+          "height": 24
+        },
+        "width": 24,
+        "height": 24,
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#b8bec9ff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 49.099998474121094,
+        "opacity": 1,
+        "strokeWidth": 1.8
+      }
+    },
+    "originalRoot": {
+      "width": 395.328125,
+      "height": 208
+    },
+    "pageX": 0,
+    "pageY": 0,
+    "artifacts": {
+      "image": "web/w1440-desktop-default.png"
+    }
+  }
+]

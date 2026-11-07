@@ -2,13 +2,13 @@
 
 ## Статус и этап
 
-🟣 Запланирована
+✅ Выполнена
 
-- Mode: PLANNING_ONLY; будущая реализация — CODE в этом же номере.
+- Mode: CODE; будущая реализация — CODE в этом же номере.
 - TestGate: NOT_REQUIRED для заявленного visual/theme/layout scope. App state/controllers, вычисления, валидация, сериализация, данные и app routing исключены; при расширении scope классификация пересматривается до кода.
-- Stage: SPEC_READY.
+- Stage: DONE.
 - Specification:1; plan:0 (черновая последовательность ниже); test scenarios:1, NOT_RUN.
-- Реализация не начата; отдельного разрешения на логический gate этой постановкой не получено.
+- Visual/theme scope реализован; gate NOT_REQUIRED.
 
 ## Цель и контекст
 
@@ -53,12 +53,12 @@ VisualViewport уже фиксирует тестовые390×844/1440×900; Fou
 
 ## Acceptance Criteria
 
-- [ ] AC-47.1: AppResponsive реализован/расширен в указанном scope; нет параллельной копии уже существующей сущности, ссылку на HTML-эталон можно проследить.
-- [ ] AC-47.2: все визуальные параметры приходят из собственной темы и общих токенов, API типизирован; raw styling/строковые discriminators/бизнес-правила отсутствуют.
-- [ ] AC-47.3: именованные Widgetbook use cases показывают реальный элемент: Mobile390; Desktop1440; непосредственно до/после подтверждённых thresholds; узкий desktop; увеличенный text scale.
-- [ ] AC-47.4: Widgetbook и golden используют одинаковые fixtures/именованные builders/темы; native baselines созданы/сверены, diffs просмотрены, comparison после update выполнен без update.
-- [ ] AC-47.5: проверены constraints, значимые states, локализованные labels/semantics и content limits; совпадение visual identity Desktop/Mobile подтверждено, отклонения записаны.
-- [ ] AC-47.6: manifest/owning docs/scenario registrations актуальны; analyze/tests/architecture checks по impact PASS либо честный blocker с NOT_RUN. Результат показан пользователю.
+- [x] AC-47.1: AppResponsive реализован/расширен в указанном scope; нет параллельной копии уже существующей сущности, ссылку на HTML-эталон можно проследить.
+- [x] AC-47.2: все визуальные параметры приходят из собственной темы и общих токенов, API типизирован; raw styling/строковые discriminators/бизнес-правила отсутствуют.
+- [x] AC-47.3: именованные Widgetbook use cases показывают реальный элемент: Mobile390; Desktop1440; непосредственно до/после подтверждённых thresholds; узкий desktop; увеличенный text scale.
+- [x] AC-47.4: Widgetbook и golden используют одинаковые fixtures/именованные builders/темы; native baselines созданы/сверены, diffs просмотрены, comparison после update выполнен без update.
+- [x] AC-47.5: проверены constraints, значимые states, локализованные labels/semantics и content limits; совпадение visual identity Desktop/Mobile подтверждено, отклонения записаны.
+- [x] AC-47.6: manifest/owning docs/scenario registrations актуальны; analyze/tests/architecture checks по impact PASS либо честный blocker с NOT_RUN. Результат показан пользователю.
 
 ## Ошибки и крайние случаи
 
@@ -117,10 +117,33 @@ VisualViewport уже фиксирует тестовые390×844/1440×900; Fou
 
 ## Final Verification
 
-- [ ] Все AC подтверждены при реализации; тесты фактически запущены.
-- [ ] Theme/scenarios/goldens/docs согласованы, визуальный результат показан.
-- [ ] Нет бизнес-логики/запрещённых dependencies/raw styling.
+- [x] Все AC подтверждены при реализации; тесты фактически запущены.
+- [x] Theme/scenarios/goldens/docs согласованы, визуальный результат показан.
+- [x] Нет бизнес-логики/запрещённых dependencies/raw styling.
 
 ## Итог
 
 Постановка создана; 🟣. Реализация и выполнение Flutter-проверок не начаты.
+
+### Новая очередь переноса после RosterRow
+
+Prompt пользователя (дословно):
+
+> выглядит хорошо. Обнови задачи по реализации компонентов, посмотри что уже выполнено, а что еще требует реализации и реализуй каждый компонент по новому flow делая коммит для каждого компонента без push
+
+Обязательный flow текущей итерации: сверить существующий runtime и итоговый CSS UI kit → определить реальные состояния/адаптацию и контрольные узлы → typed runtime WidgetTheme без primitives в consumers → scoped Widgetbook/shared fixture → декларация общего comparison pipeline → source/native/overlay/diff и native goldens → осмотр и исправление внутренних различий → повтор без update, tests/analyzer/architecture → отдельный локальный коммит компонента без push. Существующая реализация не дублируется. Наличие tokens в72 не равно выполнению всех старых AC foundation.
+Факт сверки: runtime foundation перенесён задачей72; требуется сверить оставшиеся AC этой карточки (showcase/state coverage и документация), прежде чем закрывать номер.
+
+### План47
+
+Проверить реальные Surface/Button/Row на390/739/740/741/999/1000/1001/1099/1100/1101/1440. Mobile включает740 по CSS max-width, desktop начинается741;1000/1100 остаются thresholds композиции, не заставляют все компоненты менять вид. ComparisonScenario получает override размера capture без изменения enum двух основных viewport. Scoped fixtures нормальный/textscale1.6 и replacement threshold native tests.
+
+### Реализация47 —7 ноября2026
+
+Prompt пользователя (дословно):
+
+> Продолжай реализацию: сначала заверши foundation, затем остальные компоненты по новому flow. Каждый компонент отдельным коммитом без push.
+
+Сверены реальные consumers и CSS. Исправлено условие desktop: строго>740, поскольку max-width740 остаётся mobile. Никаких новых глобальных breakpoint введено не было. Scoped normal/scaled fixtures переиспользуют реальные Surface/Button/Row. Source33/33 PASS после update и повторно без update;22 native composition PNG normal/scaled1.6 на11 ширинах, просмотрены narrow desktop и длинный текст. Threshold replacement1500 подтверждён реальными consumers. Primary56 неизменен, circular48/56 подтверждён отдельно.
+
+Checks: native responsive+Surface+Button+Row12 PASS без update, analyze no issues; architecture150 files без нарушений, engine34 PASS. Ранее architecture fixtures49/51/35 PASS; hot restart Widgetbook выполнен. Другие ОС NOT_RUN. Отчёт docs/design/prototype/comparison/responsive/index.html. Итог текущей итерации: выполнено.
