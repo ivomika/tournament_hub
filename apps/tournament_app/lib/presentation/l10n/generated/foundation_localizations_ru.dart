@@ -405,4 +405,14 @@ class FoundationLocalizationsRu extends FoundationLocalizations {
   @override
   String get disclosureBody =>
       'Дополнительные действия доступны в контексте турнира.';
+
+  @override
+  String get noticeInfo => 'Bracket Reset включён всегда.';
+
+  @override
+  String get noticeInfoLong =>
+      'Bracket Reset включён всегда. Второй финал проводится при победе участника из нижней сетки.';
+
+  @override
+  String get noticeError => 'Не удалось сохранить. Повтори.';
 }

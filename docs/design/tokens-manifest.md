@@ -220,3 +220,7 @@ Typed live/outcome/points и accent/error tone, готовый текст. Live1
 ## Disclosure — реализация64
 
 AppDisclosure controlled expanded/onToggle/body slot, без app state. Summary56/title16medium1.4/secondary/icon24; open chevron поворачивается90°. Body caption14/21 padding top8 bottom16, desktop horizontal4. Native TextButton обеспечивает keyboard activation, Semantics.expanded отражает внешний контракт. В исходнике нет reveal transition — конечные состояния без выдуманной анимации.
+
+## Notice — реализация65
+
+AppNotice information/operationError/inlineError использует caption14/21, gap8, top alignment и AppIcon.standard24 во всех вариантах. Information secondary/info, error error/alert. Текст и liveRegion передаются снаружи; сохранения/валидации нет. Flexible сохраняет естественную ширину source span, длинный текст переносится в доступных constraints.

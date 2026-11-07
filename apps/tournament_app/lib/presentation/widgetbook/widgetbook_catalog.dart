@@ -1,3 +1,6 @@
+import 'package:tournament_app/presentation/widgetbook/components/notice/information/information_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/components/notice/operation_error/operation_error_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/components/notice/inline_error/inline_error_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/widgets/disclosure/closed/closed_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/widgets/disclosure/open/open_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/widgets/disclosure/disabled/disabled_use_case.dart';
@@ -136,6 +139,14 @@ final widgetbookCatalog = <WidgetbookNode>[
     name: 'Components',
     isInitiallyExpanded: true,
     children: [
+      WidgetbookComponent(
+        name: 'Notice',
+        useCases: [
+          noticeInformationUseCase,
+          noticeOperationErrorUseCase,
+          noticeInlineErrorUseCase,
+        ],
+      ),
       WidgetbookComponent(
         name: 'Status label',
         useCases: [

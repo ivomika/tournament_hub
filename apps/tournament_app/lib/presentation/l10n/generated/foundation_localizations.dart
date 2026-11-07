@@ -828,6 +828,24 @@ abstract class FoundationLocalizations {
   /// In ru, this message translates to:
   /// **'Дополнительные действия доступны в контексте турнира.'**
   String get disclosureBody;
+
+  /// No description provided for @noticeInfo.
+  ///
+  /// In ru, this message translates to:
+  /// **'Bracket Reset включён всегда.'**
+  String get noticeInfo;
+
+  /// No description provided for @noticeInfoLong.
+  ///
+  /// In ru, this message translates to:
+  /// **'Bracket Reset включён всегда. Второй финал проводится при победе участника из нижней сетки.'**
+  String get noticeInfoLong;
+
+  /// No description provided for @noticeError.
+  ///
+  /// In ru, this message translates to:
+  /// **'Не удалось сохранить. Повтори.'**
+  String get noticeError;
 }
 
 class _FoundationLocalizationsDelegate
