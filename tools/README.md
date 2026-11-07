@@ -13,4 +13,4 @@
 
 ## Контракт Flutter темы
 
-`python3 tools/check_theme_contract.py` выполняет архитектурные self-tests, regression fixtures запрета primitives/raw styles, проверку реальных lib/test и Flutter theme propagation tests. `--static-only` выполняет первые три шага без Flutter. Скрипт запускается из любой директории; DART и FLUTTER задают SDK executable. Make shortcuts: `make theme-check` и `make theme-test`. Любой отказ возвращает ненулевой код. Контракт и исключения описаны в [runtime foundation](../docs/architecture/runtime-theme-foundation.md).
+`python3 tools/check_theme_contract.py` выполняет архитектурные self-tests, regression fixtures R-003.g (функции классов) и запрета primitives/raw styles, проверку реальных lib/test и Flutter theme propagation tests. `--static-only` выполняет первые три шага без Flutter. Скрипт запускается из любой директории; DART и FLUTTER задают SDK executable. Make shortcuts: `make theme-check` и `make theme-test`. Любой отказ возвращает ненулевой код. Контракт и исключения описаны в [runtime foundation](../docs/architecture/runtime-theme-foundation.md).

@@ -21,6 +21,7 @@ def main():
     flutter = os.environ.get('FLUTTER', 'flutter')
     checker = ROOT / 'tools/domain-check'
     checks = [
+        (checker, [dart, 'run', 'test/top_level_functions_test.dart']),
         (checker, [dart, 'run', 'bin/check_flutter_architecture.dart', '--self-test']),
         (checker, [dart, 'run', 'test/theme_boundaries_test.dart']),
         (checker, [dart, 'run', 'bin/check_flutter_architecture.dart']),

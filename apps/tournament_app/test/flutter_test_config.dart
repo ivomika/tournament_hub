@@ -7,38 +7,43 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:tournament_app/presentation/design_system/foundation/primitives/typography_primitives.dart';
 
 /// Flutter автоматически вызывает этот test-only hook; импорт из lib не нужен.
-Future<void> testExecutable(FutureOr<void> Function() testMain) async {
-  TestWidgetsFlutterBinding.ensureInitialized();
-  goldenFileComparator = _PlatformGoldenComparator(goldenFileComparator);
-  setUpAll(_loadFoundationFonts);
-  setUp(_setRenderEnvironment);
-  tearDown(_resetRenderEnvironment);
-  await testMain();
-}
+Future<void> testExecutable(FutureOr<void> Function() testMain) =>
+    _FlutterTestEnvironment.run(testMain);
 
-Future<void> _loadFoundationFonts() async {
-  final inter = FontLoader(TypographyPrimitives.interfaceFamily)
-    ..addFont(rootBundle.load('assets/fonts/inter/Inter-Variable.ttf'));
-  final condensed = FontLoader(TypographyPrimitives.displayFamily)
-    ..addFont(
-      rootBundle.load(
-        'assets/fonts/roboto_condensed/RobotoCondensed-Variable.ttf',
-      ),
-    );
-  await Future.wait([inter.load(), condensed.load()]);
-}
+abstract final class _FlutterTestEnvironment {
+  static Future<void> run(FutureOr<void> Function() testMain) async {
+    TestWidgetsFlutterBinding.ensureInitialized();
+    goldenFileComparator = _PlatformGoldenComparator(goldenFileComparator);
+    setUpAll(_loadFoundationFonts);
+    setUp(_setRenderEnvironment);
+    tearDown(_resetRenderEnvironment);
+    await testMain();
+  }
 
-void _setRenderEnvironment() {
-  final dispatcher = TestWidgetsFlutterBinding.instance.platformDispatcher;
-  dispatcher.localeTestValue = const Locale('ru');
-  dispatcher.textScaleFactorTestValue = 1;
-  dispatcher.implicitView?.devicePixelRatio = 1;
-}
+  static Future<void> _loadFoundationFonts() async {
+    final inter = FontLoader(TypographyPrimitives.interfaceFamily)
+      ..addFont(rootBundle.load('assets/fonts/inter/Inter-Variable.ttf'));
+    final condensed = FontLoader(TypographyPrimitives.displayFamily)
+      ..addFont(
+        rootBundle.load(
+          'assets/fonts/roboto_condensed/RobotoCondensed-Variable.ttf',
+        ),
+      );
+    await Future.wait([inter.load(), condensed.load()]);
+  }
 
-void _resetRenderEnvironment() {
-  final dispatcher = TestWidgetsFlutterBinding.instance.platformDispatcher;
-  dispatcher.implicitView?.reset();
-  dispatcher.clearAllTestValues();
+  static void _setRenderEnvironment() {
+    final dispatcher = TestWidgetsFlutterBinding.instance.platformDispatcher;
+    dispatcher.localeTestValue = const Locale('ru');
+    dispatcher.textScaleFactorTestValue = 1;
+    dispatcher.implicitView?.devicePixelRatio = 1;
+  }
+
+  static void _resetRenderEnvironment() {
+    final dispatcher = TestWidgetsFlutterBinding.instance.platformDispatcher;
+    dispatcher.implicitView?.reset();
+    dispatcher.clearAllTestValues();
+  }
 }
 
 /// Проверяет внешний формат URI: `golden/<native-os>/<snapshot>.png`.

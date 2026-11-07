@@ -75,3 +75,4 @@
 - 🟣 70. QrCode — добавить отображение QR и кода доступа. [Детали](task-details/70-ds-component-qr-code.md)
 - 🟣 71. ShareLink — добавить адрес и действие копирования. [Детали](task-details/71-ds-widget-share-link.md)
 - ✅ 72. Перенести foundation через FlutterTheme и запретить обход темы в production UI. [Детали](task-details/72-runtime-theme-foundation.md)
+- ✅ 73. Запретить верхнеуровневые Dart-функции и добавить AST checker с миграцией lib/test. [Детали](task-details/73-class-owned-functions.md)

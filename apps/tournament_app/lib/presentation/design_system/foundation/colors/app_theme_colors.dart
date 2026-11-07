@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tournament_app/presentation/design_system/foundation/colors/app_status_colors.dart';
-import 'package:tournament_app/presentation/design_system/foundation/theme/require_theme_extension.dart';
+import 'package:tournament_app/presentation/design_system/foundation/theme/theme_extensions.dart';
 
 class AppThemeColors {
   const AppThemeColors(this.theme);
@@ -28,20 +28,20 @@ class AppThemeColors {
   Color get information => theme.colorScheme.secondary;
   Color get informationContainer => theme.colorScheme.secondaryContainer;
   Color get onInformationContainer => theme.colorScheme.onSecondaryContainer;
-  Color get success => requireThemeExtension<AppStatusColors>(theme).success;
+  Color get success => ThemeExtensions.require<AppStatusColors>(theme).success;
   Color get successContainer =>
-      requireThemeExtension<AppStatusColors>(theme).successContainer;
+      ThemeExtensions.require<AppStatusColors>(theme).successContainer;
   Color get onSuccessContainer =>
-      requireThemeExtension<AppStatusColors>(theme).onSuccessContainer;
-  Color get warning => requireThemeExtension<AppStatusColors>(theme).warning;
+      ThemeExtensions.require<AppStatusColors>(theme).onSuccessContainer;
+  Color get warning => ThemeExtensions.require<AppStatusColors>(theme).warning;
   Color get warningContainer =>
-      requireThemeExtension<AppStatusColors>(theme).warningContainer;
+      ThemeExtensions.require<AppStatusColors>(theme).warningContainer;
   Color get onWarningContainer =>
-      requireThemeExtension<AppStatusColors>(theme).onWarningContainer;
+      ThemeExtensions.require<AppStatusColors>(theme).onWarningContainer;
   Color get characterIce =>
-      requireThemeExtension<AppStatusColors>(theme).characterIce;
+      ThemeExtensions.require<AppStatusColors>(theme).characterIce;
   Color get characterFan =>
-      requireThemeExtension<AppStatusColors>(theme).characterFan;
+      ThemeExtensions.require<AppStatusColors>(theme).characterFan;
   Color get characterStorm =>
-      requireThemeExtension<AppStatusColors>(theme).characterStorm;
+      ThemeExtensions.require<AppStatusColors>(theme).characterStorm;
 }

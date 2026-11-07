@@ -14,7 +14,7 @@
 - Стандартные цвета и типографика находятся в ColorScheme/TextTheme. Success/warning и character colors — в AppStatusColors; score — в AppTypeRoles.
 - AppSpacing, AppShape, AppBorderMetrics, AppElevation, AppMotion, AppResponsive, AppIconMetrics и FoundationLayout — типизированные ThemeExtension с copyWith/lerp, без primitive defaults внутри.
 - PaletteTheme.of(context) и TypographyCatalogTheme.of(context) получают текущую Theme.of(context) в build. Каталоги зависят от InheritedTheme, поэтому замена темы обновляет уже существующие элементы.
-- Обязательный extension читается через requireThemeExtension; неполная assembly даёт StateError, без скрытого возврата к dark constants.
+- Обязательный extension читается через ThemeExtensions.require; неполная assembly даёт StateError, без скрытого возврата к dark constants.
 
 Точные значения и отображение ролей — в [manifest](tokens-manifest.md). Стандартные Flutter controls используют стандартные component themes. ProgressIndicator — штатный Material3 с текущим оформлением SDK; HTML waveform и его motion-параметры не переносятся.
 

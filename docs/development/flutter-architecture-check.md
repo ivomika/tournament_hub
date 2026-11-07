@@ -23,3 +23,7 @@ Domain допускает dart:core, async, collection, convert, math и typed_d
 ## Theme boundaries (R-003.d)
 
 Общий checker вызывает theme AST guard. `make theme-test` / `python3 tools/check_theme_contract.py` дополняет структурную проверку регрессиями и реальной runtime заменой темы. Полный контракт, разрешённые tooling boundaries и пределы parse-only анализа — [runtime foundation](../architecture/runtime-theme-foundation.md).
+
+## Функции классов (R-003.g)
+
+Checker проверяет top-level FunctionDeclaration (включая getters/setters) и прямые lambda initializers, в том числе parenthesized. Проверяются все lib/test, без исключения Widgetbook/domain/generated каталогов. Точечные framework hooks перечислены в [контракте функций классов](../architecture/class-owned-functions.md). В part libraries эти hooks не допускаются. Прежнее соблюдение imports и theme boundaries не отменяет новый запрет. `make architecture-test` выполняет отдельный test/top_level_functions_test.dart перед остальной регрессией.

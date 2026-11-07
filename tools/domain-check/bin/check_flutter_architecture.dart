@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:tournament_domain_check/theme_boundaries.dart';
+import 'package:tournament_domain_check/class_owned_functions.dart';
 
 import 'package:analyzer/dart/analysis/utilities.dart';
 import 'package:analyzer/dart/ast/ast.dart';
@@ -71,6 +72,9 @@ List<String> inspect(Map<String, String> sources, String packageName) {
         report(error.offset, 'Синтаксическая ошибка: ${error.message}');
       continue;
     }
+    problems.addAll(
+      ClassOwnedFunctions.inspect(entry.key, entry.value, parsed.unit),
+    );
     void checkUri(String? raw, int offset, {bool isImport = false}) {
       // gen-l10n emits sibling imports and exposes no package-import option.
       const generatedFolder = 'lib/presentation/l10n/generated/';
@@ -496,6 +500,6 @@ void main(List<String> arguments) {
     exitCode = 1;
   } else
     stdout.writeln(
-      'Архитектура Flutter: ${sources.length} файлов, нарушений импортов нет.',
+      'Архитектура Flutter: ${sources.length} файлов, нарушений правил нет.',
     );
 }

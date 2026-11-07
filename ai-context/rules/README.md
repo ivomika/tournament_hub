@@ -17,6 +17,7 @@
 - [R-003.d · Архитектура дизайн-системы](flutter/003-d-tokenized-widget-themes.md) — токены и темы компонентов.
 - [R-003.e · Абсолютные Dart-импорты](flutter/003-e-package-imports.md) — package/dart URI и архитектурный тест зависимостей.
 - [R-003.f · Детерминированные screens](flutter/003-f-deterministic-screens.md) — presentation-контракты, независимый preview и композиция DS.
+- [R-003.g · Функции классов](flutter/003-g-class-owned-functions.md) — запрет верхнеуровневых функций и точечные framework hooks.
 
 ## Обязательные правила flutter: локализация
 

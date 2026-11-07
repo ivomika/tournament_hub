@@ -30,10 +30,12 @@ abstract final class Palette {
         '''
 import 'package:flutter/material.dart';
 import '$primitiveImport';
-ThemeData createTheme() => ThemeData(
+abstract final class AppTheme {
+static ThemeData createTheme() => ThemeData(
   colorScheme: ColorScheme.dark(primary: Palette.primary),
   textTheme: const TextTheme(bodySmall: Palette.body),
 );
+}
 ''',
     widgetTheme: '''
 import 'package:flutter/material.dart';
@@ -158,7 +160,7 @@ class Home extends StatelessWidget {
       name: 'standard Flutter runtime theme accepted',
       overrides: {
         widget:
-            "import 'package:flutter/material.dart'; TextStyle? read(BuildContext c) => Theme.of(c).textTheme.bodySmall;",
+            "import 'package:flutter/material.dart'; abstract final class Styles { static TextStyle? read(BuildContext c) => Theme.of(c).textTheme.bodySmall; }",
       },
       rejectedFile: null,
     ),
@@ -255,7 +257,7 @@ class Home extends StatelessWidget {
       name: "runtime extension reference allowed",
       overrides: {
         "lib/presentation/screens/home/home_screen.dart":
-            "import 'package:flutter/material.dart'; import 'package:fixture/presentation/design_system/foundation/spacing/app_spacing.dart'; Widget child(BuildContext c) => SizedBox(width: Theme.of(c).extension<AppSpacing>()!.space8);",
+            "import 'package:flutter/material.dart'; import 'package:fixture/presentation/design_system/foundation/spacing/app_spacing.dart'; abstract final class Preview { static Widget child(BuildContext c) => SizedBox(width: Theme.of(c).extension<AppSpacing>()!.space8); }",
       },
       rejectedFile: null,
     ),
@@ -330,7 +332,7 @@ class Home extends StatelessWidget {
       name: 'runtime color interpolation allowed',
       overrides: {
         widget:
-            "import 'package:flutter/material.dart'; Color? blend(Color a, Color b, double t) => Color.lerp(a, b, t);",
+            "import 'package:flutter/material.dart'; abstract final class ColorsAdapter { static Color? blend(Color a, Color b, double t) => Color.lerp(a, b, t); }",
       },
       rejectedFile: null,
     ),

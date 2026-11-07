@@ -46,6 +46,10 @@
       "path": "flutter/003-f-deterministic-screens.md"
     },
     {
+      "id": "R-003.g",
+      "path": "flutter/003-g-class-owned-functions.md"
+    },
+    {
       "id": "R-004",
       "path": "core/004-typed-values.md"
     },
