@@ -528,6 +528,12 @@ abstract class FoundationLocalizations {
   /// In ru, this message translates to:
   /// **'Новый турнир'**
   String get typeSource7;
+
+  /// No description provided for @foundationMetricValue.
+  ///
+  /// In ru, this message translates to:
+  /// **'{value}'**
+  String foundationMetricValue(num value);
 }
 
 class _FoundationLocalizationsDelegate

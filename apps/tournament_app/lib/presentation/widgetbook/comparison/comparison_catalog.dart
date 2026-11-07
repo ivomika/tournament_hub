@@ -1,3 +1,4 @@
+import 'package:tournament_app/presentation/widgetbook/foundation/shape/shape_comparison.dart';
 import 'package:tournament_app/presentation/widgetbook/foundation/spacing/spacing_comparison.dart';
 import 'package:tournament_app/presentation/widgetbook/foundation/typography/typography_comparison.dart';
 import 'package:tournament_app/presentation/widgetbook/foundation/colors/colors_comparison.dart';
@@ -11,6 +12,7 @@ import 'package:tournament_app/presentation/widgetbook/components/avatar/avatar_
 
 abstract final class ComparisonCatalog {
   static final List<ComparisonSpec> components = [
+    ShapeComparison.spec,
     SpacingComparison.spec,
     ColorsComparison.spec,
     TypographyComparison.spec,

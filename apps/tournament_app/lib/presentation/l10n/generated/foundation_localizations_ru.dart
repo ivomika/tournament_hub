@@ -234,4 +234,13 @@ class FoundationLocalizationsRu extends FoundationLocalizations {
 
   @override
   String get typeSource7 => 'Новый турнир';
+
+  @override
+  String foundationMetricValue(num value) {
+    final intl.NumberFormat valueNumberFormat =
+        intl.NumberFormat.decimalPattern(localeName);
+    final String valueString = valueNumberFormat.format(value);
+
+    return '$valueString';
+  }
 }

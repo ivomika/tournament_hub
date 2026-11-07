@@ -152,3 +152,7 @@ AppTextStyles — runtime фасад текущей TextTheme, включая In
 ### Завершение Spacing42
 
 AppSpacing содержит только глобальную подтверждённую шкалу0/4/8/12/16/20/24/32/48/64. Неиспользуемый28 удалён из global API; локальные insets28 принадлежат будущей композиции. FoundationSampleMetrics отделяет размеры developer showcases от product tokens. Source18 cases и actual inset/gap consumer snapshots: `node tools/visual-comparison/compare.mjs spacing`.
+
+### Завершение Shape43
+
+AppShape остаётся общей темой. Source16 cases показывают радиусы8/16/24/32/pill, circle и реальные Surface mobile/desktop20. Sheet24 соответствует mobile select UI kit, largeSheet32 — flow-sheet; оба строятся AppSurfaceTheme из текущих AppShape значений с прямыми нижними углами. Команда `node tools/visual-comparison/compare.mjs shape`.

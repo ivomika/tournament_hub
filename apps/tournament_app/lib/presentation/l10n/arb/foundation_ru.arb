@@ -91,5 +91,14 @@
   "typeSource4": "Продолжить турнир",
   "typeSource5": "Метаданные и пояснения · FT2",
   "typeSource6": "Новый турнир",
-  "typeSource7": "Новый турнир"
+  "typeSource7": "Новый турнир",
+  "foundationMetricValue": "{value}",
+  "@foundationMetricValue": {
+    "placeholders": {
+      "value": {
+        "type": "num",
+        "format": "decimalPattern"
+      }
+    }
+  }
 }
