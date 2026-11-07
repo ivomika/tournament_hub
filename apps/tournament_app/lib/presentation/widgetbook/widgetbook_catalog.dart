@@ -1,3 +1,9 @@
+import 'package:tournament_app/presentation/widgetbook/components/button/content/content_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/components/button/primary/primary_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/components/button/secondary/secondary_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/components/button/destructive/destructive_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/components/button/icon/icon_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/components/button/accenticon/accenticon_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/components/surface/panel/panel_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/components/surface/nested/nested_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/foundation/icons/slots/slots_use_case.dart';
@@ -36,6 +42,17 @@ final widgetbookCatalog = <WidgetbookNode>[
     name: 'Components',
     isInitiallyExpanded: true,
     children: [
+      WidgetbookComponent(
+        name: 'Button',
+        useCases: [
+          primaryButtonUseCase,
+          contentButtonUseCase,
+          secondaryButtonUseCase,
+          destructiveButtonUseCase,
+          iconButtonUseCase,
+          accenticonButtonUseCase,
+        ],
+      ),
       WidgetbookComponent(
         name: 'Surface',
         useCases: [panelSurfaceUseCase, nestedSurfaceUseCase],

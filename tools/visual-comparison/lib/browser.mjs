@@ -53,11 +53,13 @@ function measure(scenario){
  if(scenario.webText!==undefined)root.textContent=scenario.webText;
  for(const animation of document.getAnimations()){animation.pause();animation.currentTime=scenario.freezeMilliseconds??0;}
  const original=root.getBoundingClientRect();
+ const mask=document.createElement('div');Object.assign(mask.style,{position:'fixed',inset:'0',background:getComputedStyle(document.body).backgroundColor,zIndex:'2147483646'});document.body.append(mask);
+ const captureInset=scenario.capturePadding??0;
  // Normalize only capture placement. Keep the original DOM ancestry, SVG
  // symbols, state classes and measured width; never replace component CSS.
  root.style.position='fixed';root.style.left='0px';root.style.top='0px';root.style.margin='0px';root.style.width=`${original.width}px`;root.style.zIndex='2147483647';
  for(let parent=root.parentElement;parent&&parent!==document.body;parent=parent.parentElement)parent.style.overflow='visible';
- let placed=root.getBoundingClientRect();root.style.left=`${-placed.left}px`;root.style.top=`${-placed.top}px`;
+ let placed=root.getBoundingClientRect();root.style.left=`${captureInset-placed.left}px`;root.style.top=`${captureInset-placed.top}px`;
  const r=root.getBoundingClientRect();
  if(Math.abs(r.width-original.width)>0.25||Math.abs(r.height-original.height)>0.25)throw Error('Isolation changed source component dimensions');
  const rect=(box)=>({x:box.left-r.left,y:box.top-r.top,width:box.width,height:box.height});
@@ -65,11 +67,11 @@ function measure(scenario){
  const controls={};
  for(const control of scenario.controls){
   const node=control.webSelector===':scope'?root:root.querySelector(control.webSelector);if(!node)continue;
-  const c=getComputedStyle(node);const box=node.getBoundingClientRect();const range=document.createRange();range.selectNodeContents(node);const rangeBox=range.getBoundingClientRect();
+  const c=getComputedStyle(node);const box=node.getBoundingClientRect();const range=document.createRange();range.selectNodeContents(node);if(control.textRange){const text=[...node.childNodes].find(n=>n.nodeType===Node.TEXT_NODE&&n.textContent.trim());if(text)range.selectNodeContents(text);}const rangeBox=range.getBoundingClientRect();
   const context=document.createElement('canvas').getContext('2d');context.font=`${c.fontStyle} ${c.fontWeight} ${c.fontSize} ${c.fontFamily}`;const font=context.measureText(node.textContent??'');
   if(node.textContent?.trim()&&!document.fonts.check(c.font))throw Error(`Font not ready for ${control.id}`);
   const radius=c.borderTopLeftRadius.endsWith('%')?Math.min(box.width,box.height)*parseFloat(c.borderTopLeftRadius)/100:parseFloat(c.borderTopLeftRadius);
-  controls[control.id]={rect:rect(control.textRange?rangeBox:box),width:box.width,height:box.height,fontSize:parseFloat(c.fontSize),fontWeight:parseInt(c.fontWeight),lineHeight:c.lineHeight==='normal'?null:parseFloat(c.lineHeight)/parseFloat(c.fontSize),color:color(c.color),background:color(c.backgroundColor),radius,borderWidth:parseFloat(c.borderTopWidth),baseline:rangeBox.top-r.top+font.fontBoundingBoxAscent,opacity:parseFloat(c.opacity),strokeWidth:parseFloat(c.strokeWidth)};
+  controls[control.id]={rect:rect(control.textRange?rangeBox:box),width:control.textRange?rangeBox.width:box.width,height:control.textRange?rangeBox.height:box.height,fontSize:parseFloat(c.fontSize),fontWeight:parseInt(c.fontWeight),lineHeight:c.lineHeight==='normal'?null:parseFloat(c.lineHeight)/parseFloat(c.fontSize),color:color(c.color),background:color(c.backgroundColor),radius,borderWidth:parseFloat(c.borderTopWidth),baseline:rangeBox.top-r.top+font.fontBoundingBoxAscent,opacity:parseFloat(c.opacity),strokeWidth:parseFloat(c.strokeWidth)};
  }
  return {id:scenario.id,root:{x:0,y:0,width:r.width,height:r.height},controls,originalRoot:{width:original.width,height:original.height},pageX:r.left+scrollX,pageY:r.top+scrollY,artifacts:{image:`web/${scenario.id}.png`}};
 }

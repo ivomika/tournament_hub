@@ -128,3 +128,7 @@ Line height1, tracking0, contentAlignment.center и CSS half-leading(even). Font
 ### AppSurface (49)
 
 Surface/raised ← текущий ColorScheme; Shape surface24/desktopSurface20/nested16; inset ← AppSpacing24/0. AppSurfaceTheme выбирает adaptation по AppResponsive. Border/elevation отсутствуют в source. AppTypeRoles.normalTracking0 сохраняет исходную Inter типографику без Material tracking. Raised — предложенная роль UI kit. Команда сравнения: `node tools/visual-comparison/compare.mjs surface`.
+
+### AppButton (50)
+
+Исходные primary/secondary/destructive/neutral/accent icon через AppButtonTheme и runtime AppControlMetrics. RemoveIcon40 и RemoveSwipe88×72 — action slots RosterRow. Colors/TextTheme/Shape/Spacing/Border/Elevation приходят из текущей основной темы. AppTypeRoles.interfaceStyle настраивает Inter optical axis opsz по текущему размеру14..32, weight по текущему TextStyle; создание FontVariation остаётся только в AppTheme. Сравнение `node tools/visual-comparison/compare.mjs button`. Focus outline снаружи4px, thickness3 (compact remove2); размер компонента не меняется.

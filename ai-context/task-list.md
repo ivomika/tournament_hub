@@ -52,7 +52,7 @@
 - 🟣 47. Foundation Responsive — добавить размеры и плотность. [Детали](task-details/47-ds-foundation-responsive.md)
 - ✅ 48. Foundation Icon — перенести исходный набор иконок. [Детали](task-details/48-ds-foundation-icons.md)
 - ✅ 49. Surface — добавить базовую поверхность. [Детали](task-details/49-ds-component-surface.md)
-- 🟣 50. Button — добавить единое семейство кнопок. [Детали](task-details/50-ds-component-button.md)
+- ✅ 50. Button — добавить единое семейство кнопок. [Детали](task-details/50-ds-component-button.md)
 - 🟣 51. Field — добавить однострочное и многострочное поле. [Детали](task-details/51-ds-component-field.md)
 - 🟣 52. Select — добавить выбор одного значения. [Детали](task-details/52-ds-component-select.md)
 - 🟣 53. SegmentedChoice — добавить сегментированный выбор. [Детали](task-details/53-ds-component-segmented-choice.md)

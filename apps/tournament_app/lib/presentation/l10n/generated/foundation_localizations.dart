@@ -408,6 +408,48 @@ abstract class FoundationLocalizations {
   /// In ru, this message translates to:
   /// **'Длинное содержимое поверхности занимает несколько строк и сохраняет внутренние отступы.'**
   String get surfaceLongSample;
+
+  /// No description provided for @buttonContinue.
+  ///
+  /// In ru, this message translates to:
+  /// **'Продолжить'**
+  String get buttonContinue;
+
+  /// No description provided for @buttonCancel.
+  ///
+  /// In ru, this message translates to:
+  /// **'Отмена'**
+  String get buttonCancel;
+
+  /// No description provided for @buttonRemove.
+  ///
+  /// In ru, this message translates to:
+  /// **'Снять участника'**
+  String get buttonRemove;
+
+  /// No description provided for @buttonBack.
+  ///
+  /// In ru, this message translates to:
+  /// **'Назад'**
+  String get buttonBack;
+
+  /// No description provided for @buttonSave.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сохранить'**
+  String get buttonSave;
+
+  /// No description provided for @buttonLong.
+  ///
+  /// In ru, this message translates to:
+  /// **'Продолжить создание турнира с выбранными участниками'**
+  String get buttonLong;
+
+  /// No description provided for @rosterDelete.
+  ///
+  /// In ru, this message translates to:
+  /// **'Удалить'**
+  String get rosterDelete;
 }
 
 class _FoundationLocalizationsDelegate

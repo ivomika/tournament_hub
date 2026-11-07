@@ -1,0 +1,4181 @@
+{
+  "spec": {
+    "version": 1,
+    "component": "button",
+    "title": "AppButton",
+    "source": {
+      "url": "http://127.0.0.1:8094/ui-kit.html"
+    },
+    "tolerances": {
+      "geometry": 0.25,
+      "typography": 0.05,
+      "baseline": 1
+    },
+    "scenarios": [
+      {
+        "id": "primary-default",
+        "title": "primary · default",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#c-button .kit-component:nth-child(1) .kit-component-states .kit-specimen:nth-child(1) button",
+        "controls": [
+          {
+            "id": "shell",
+            "webSelector": ":scope",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "icon",
+            "webSelector": ".icon",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "label",
+            "webSelector": ":scope",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          }
+        ],
+        "capturePadding": 12,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "primary-hovered",
+        "title": "primary · hovered",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#c-button .kit-component:nth-child(1) .kit-component-states .kit-specimen:nth-child(2) button",
+        "controls": [
+          {
+            "id": "shell",
+            "webSelector": ":scope",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "icon",
+            "webSelector": ".icon",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "label",
+            "webSelector": ":scope",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          }
+        ],
+        "capturePadding": 12,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "primary-pressed",
+        "title": "primary · pressed",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#c-button .kit-component:nth-child(1) .kit-component-states .kit-specimen:nth-child(3) button",
+        "controls": [
+          {
+            "id": "shell",
+            "webSelector": ":scope",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "icon",
+            "webSelector": ".icon",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "label",
+            "webSelector": ":scope",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          }
+        ],
+        "capturePadding": 12,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "primary-focused",
+        "title": "primary · focused",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#c-button .kit-component:nth-child(1) .kit-component-states .kit-specimen:nth-child(4) button",
+        "controls": [
+          {
+            "id": "shell",
+            "webSelector": ":scope",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "icon",
+            "webSelector": ".icon",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "label",
+            "webSelector": ":scope",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          }
+        ],
+        "capturePadding": 12,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "primary-disabled",
+        "title": "primary · disabled",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#c-button .kit-component:nth-child(1) .kit-component-states .kit-specimen:nth-child(5) button",
+        "controls": [
+          {
+            "id": "shell",
+            "webSelector": ":scope",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "icon",
+            "webSelector": ".icon",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "label",
+            "webSelector": ":scope",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          }
+        ],
+        "capturePadding": 12,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "primary-mobile",
+        "title": "primary · mobile",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#c-button .kit-component:nth-child(1) .kit-adaptation .kit-specimen:nth-of-type(1) button",
+        "controls": [
+          {
+            "id": "shell",
+            "webSelector": ":scope",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "icon",
+            "webSelector": ".icon",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "label",
+            "webSelector": ":scope",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          }
+        ],
+        "capturePadding": 12,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "primary-desktop",
+        "title": "primary · desktop",
+        "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1
+        },
+        "webSelector": "#c-button .kit-component:nth-child(1) .kit-adaptation .kit-specimen:nth-of-type(2) button",
+        "controls": [
+          {
+            "id": "shell",
+            "webSelector": ":scope",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "icon",
+            "webSelector": ".icon",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "label",
+            "webSelector": ":scope",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          }
+        ],
+        "capturePadding": 12,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "secondary-default",
+        "title": "secondary · default",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#c-button .kit-component:nth-child(2) .kit-component-states .kit-specimen:nth-child(1) button",
+        "controls": [
+          {
+            "id": "shell",
+            "webSelector": ":scope",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "label",
+            "webSelector": ":scope",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          }
+        ],
+        "capturePadding": 12,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "secondary-hovered",
+        "title": "secondary · hovered",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#c-button .kit-component:nth-child(2) .kit-component-states .kit-specimen:nth-child(2) button",
+        "controls": [
+          {
+            "id": "shell",
+            "webSelector": ":scope",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "label",
+            "webSelector": ":scope",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          }
+        ],
+        "capturePadding": 12,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "secondary-focused",
+        "title": "secondary · focused",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#c-button .kit-component:nth-child(2) .kit-component-states .kit-specimen:nth-child(3) button",
+        "controls": [
+          {
+            "id": "shell",
+            "webSelector": ":scope",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "label",
+            "webSelector": ":scope",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          }
+        ],
+        "capturePadding": 12,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "secondary-mobile",
+        "title": "secondary · mobile",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#c-button .kit-component:nth-child(2) .kit-adaptation .kit-specimen:nth-of-type(1) button",
+        "controls": [
+          {
+            "id": "shell",
+            "webSelector": ":scope",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "label",
+            "webSelector": ":scope",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          }
+        ],
+        "capturePadding": 12,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "secondary-desktop",
+        "title": "secondary · desktop",
+        "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1
+        },
+        "webSelector": "#c-button .kit-component:nth-child(2) .kit-adaptation .kit-specimen:nth-of-type(2) button",
+        "controls": [
+          {
+            "id": "shell",
+            "webSelector": ":scope",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "label",
+            "webSelector": ":scope",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          }
+        ],
+        "capturePadding": 12,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "destructive-default",
+        "title": "destructive · default",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#c-button .kit-component:nth-child(3) .kit-component-states .kit-specimen:nth-child(1) button",
+        "controls": [
+          {
+            "id": "shell",
+            "webSelector": ":scope",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "label",
+            "webSelector": ":scope",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          }
+        ],
+        "capturePadding": 12,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "destructive-focused",
+        "title": "destructive · focused",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#c-button .kit-component:nth-child(3) .kit-component-states .kit-specimen:nth-child(2) button",
+        "controls": [
+          {
+            "id": "shell",
+            "webSelector": ":scope",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "label",
+            "webSelector": ":scope",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          }
+        ],
+        "capturePadding": 12,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "destructive-mobile",
+        "title": "destructive · mobile",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#c-button .kit-component:nth-child(3) .kit-adaptation .kit-specimen:nth-of-type(1) button",
+        "controls": [
+          {
+            "id": "shell",
+            "webSelector": ":scope",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "label",
+            "webSelector": ":scope",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          }
+        ],
+        "capturePadding": 12,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "destructive-desktop",
+        "title": "destructive · desktop",
+        "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1
+        },
+        "webSelector": "#c-button .kit-component:nth-child(3) .kit-adaptation .kit-specimen:nth-of-type(2) button",
+        "controls": [
+          {
+            "id": "shell",
+            "webSelector": ":scope",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "label",
+            "webSelector": ":scope",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          }
+        ],
+        "capturePadding": 12,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "icon-default",
+        "title": "icon · default",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#c-button .kit-component:nth-child(4) .kit-component-states .kit-specimen:nth-child(1) button",
+        "controls": [
+          {
+            "id": "shell",
+            "webSelector": ":scope",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "icon",
+            "webSelector": ".icon",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 12,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "icon-hovered",
+        "title": "icon · hovered",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#c-button .kit-component:nth-child(4) .kit-component-states .kit-specimen:nth-child(2) button",
+        "controls": [
+          {
+            "id": "shell",
+            "webSelector": ":scope",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "icon",
+            "webSelector": ".icon",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 12,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "icon-focused",
+        "title": "icon · focused",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#c-button .kit-component:nth-child(4) .kit-component-states .kit-specimen:nth-child(3) button",
+        "controls": [
+          {
+            "id": "shell",
+            "webSelector": ":scope",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "icon",
+            "webSelector": ".icon",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 12,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "icon-mobile",
+        "title": "icon · mobile",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#c-button .kit-component:nth-child(4) .kit-adaptation .kit-specimen:nth-of-type(1) button",
+        "controls": [
+          {
+            "id": "shell",
+            "webSelector": ":scope",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "icon",
+            "webSelector": ".icon",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 12,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "icon-desktop",
+        "title": "icon · desktop",
+        "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1
+        },
+        "webSelector": "#c-button .kit-component:nth-child(4) .kit-adaptation .kit-specimen:nth-of-type(2) button",
+        "controls": [
+          {
+            "id": "shell",
+            "webSelector": ":scope",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "icon",
+            "webSelector": ".icon",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 12,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "accenticon-default",
+        "title": "accentIcon · default",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#c-button .kit-component:nth-child(5) .kit-component-states .kit-specimen:nth-child(1) button",
+        "controls": [
+          {
+            "id": "shell",
+            "webSelector": ":scope",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "icon",
+            "webSelector": ".icon",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 12,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "accenticon-focused",
+        "title": "accentIcon · focused",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#c-button .kit-component:nth-child(5) .kit-component-states .kit-specimen:nth-child(2) button",
+        "controls": [
+          {
+            "id": "shell",
+            "webSelector": ":scope",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "icon",
+            "webSelector": ".icon",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 12,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "accenticon-mobile",
+        "title": "accentIcon · mobile",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#c-button .kit-component:nth-child(5) .kit-adaptation .kit-specimen:nth-of-type(1) button",
+        "controls": [
+          {
+            "id": "shell",
+            "webSelector": ":scope",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "icon",
+            "webSelector": ".icon",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 12,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "accenticon-desktop",
+        "title": "accentIcon · desktop",
+        "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1
+        },
+        "webSelector": "#c-button .kit-component:nth-child(5) .kit-adaptation .kit-specimen:nth-of-type(2) button",
+        "controls": [
+          {
+            "id": "shell",
+            "webSelector": ":scope",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "icon",
+            "webSelector": ".icon",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 12,
+        "freezeMilliseconds": 0
+      }
+    ]
+  },
+  "results": [
+    {
+      "id": "primary-default",
+      "title": "primary · default",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "primary-default",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 56
+        },
+        "controls": {
+          "shell": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 56
+            },
+            "width": 316,
+            "height": 56,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#19150bff",
+            "background": "#f1c75bff",
+            "radius": 999,
+            "borderWidth": 0,
+            "baseline": 32,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "icon": {
+            "rect": {
+              "x": 268,
+              "y": 16,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#19150bff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "baseline": 37.099998474121094,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          },
+          "label": {
+            "rect": {
+              "x": 24,
+              "y": 18,
+              "width": 101.09375,
+              "height": 20
+            },
+            "width": 101.09375,
+            "height": 20,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#19150bff",
+            "background": "#f1c75bff",
+            "radius": 999,
+            "borderWidth": 0,
+            "baseline": 34,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 316,
+          "height": 56
+        },
+        "pageX": 12,
+        "pageY": 12,
+        "artifacts": {
+          "image": "web/primary-default.png"
+        }
+      },
+      "native": {
+        "id": "primary-default",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 56
+        },
+        "controls": {
+          "shell": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 56
+            },
+            "width": 316,
+            "height": 56,
+            "background": "#f1c75bff",
+            "radius": 999,
+            "borderWidth": 0
+          },
+          "icon": {
+            "rect": {
+              "x": 268,
+              "y": 16,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          },
+          "label": {
+            "rect": {
+              "x": 24,
+              "y": 16,
+              "width": 101.09199523925781,
+              "height": 24
+            },
+            "width": 101.09199523925781,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#19150bff",
+            "baseline": 33.8203125
+          }
+        },
+        "raster": {
+          "changedPixels": 0,
+          "meanChannelDelta": 0.5740808823529412
+        },
+        "artifacts": {
+          "image": "flutter/primary-default.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/primary-default.png",
+        "flutter": "flutter/primary-default.png",
+        "overlay": "overlay/primary-default.png",
+        "diff": "diff/primary-default.png"
+      },
+      "raster": {
+        "changedPixels": 0,
+        "meanChannelDelta": 0.5740808823529412
+      }
+    },
+    {
+      "id": "primary-hovered",
+      "title": "primary · hovered",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "primary-hovered",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 56
+        },
+        "controls": {
+          "shell": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 56
+            },
+            "width": 316,
+            "height": 56,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#19150bff",
+            "background": "#ffe199ff",
+            "radius": 999,
+            "borderWidth": 0,
+            "baseline": 32,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "icon": {
+            "rect": {
+              "x": 268,
+              "y": 16,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#19150bff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "baseline": 37.099998474121094,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          },
+          "label": {
+            "rect": {
+              "x": 24,
+              "y": 18,
+              "width": 101.09375,
+              "height": 20
+            },
+            "width": 101.09375,
+            "height": 20,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#19150bff",
+            "background": "#ffe199ff",
+            "radius": 999,
+            "borderWidth": 0,
+            "baseline": 34,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 316,
+          "height": 56
+        },
+        "pageX": 12,
+        "pageY": 12,
+        "artifacts": {
+          "image": "web/primary-hovered.png"
+        }
+      },
+      "native": {
+        "id": "primary-hovered",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 56
+        },
+        "controls": {
+          "shell": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 56
+            },
+            "width": 316,
+            "height": 56,
+            "background": "#ffe199ff",
+            "radius": 999,
+            "borderWidth": 0
+          },
+          "icon": {
+            "rect": {
+              "x": 268,
+              "y": 16,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          },
+          "label": {
+            "rect": {
+              "x": 24,
+              "y": 16,
+              "width": 101.09199523925781,
+              "height": 24
+            },
+            "width": 101.09199523925781,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#19150bff",
+            "baseline": 33.8203125
+          }
+        },
+        "raster": {
+          "changedPixels": 0,
+          "meanChannelDelta": 0.5719240196078431
+        },
+        "artifacts": {
+          "image": "flutter/primary-hovered.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/primary-hovered.png",
+        "flutter": "flutter/primary-hovered.png",
+        "overlay": "overlay/primary-hovered.png",
+        "diff": "diff/primary-hovered.png"
+      },
+      "raster": {
+        "changedPixels": 0,
+        "meanChannelDelta": 0.5719240196078431
+      }
+    },
+    {
+      "id": "primary-pressed",
+      "title": "primary · pressed",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "primary-pressed",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 56
+        },
+        "controls": {
+          "shell": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 56
+            },
+            "width": 316,
+            "height": 56,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#19150bff",
+            "background": "#dca82fff",
+            "radius": 999,
+            "borderWidth": 0,
+            "baseline": 32,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "icon": {
+            "rect": {
+              "x": 268,
+              "y": 16,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#19150bff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "baseline": 37.099998474121094,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          },
+          "label": {
+            "rect": {
+              "x": 24,
+              "y": 18,
+              "width": 101.09375,
+              "height": 20
+            },
+            "width": 101.09375,
+            "height": 20,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#19150bff",
+            "background": "#dca82fff",
+            "radius": 999,
+            "borderWidth": 0,
+            "baseline": 34,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 316,
+          "height": 56
+        },
+        "pageX": 12,
+        "pageY": 12,
+        "artifacts": {
+          "image": "web/primary-pressed.png"
+        }
+      },
+      "native": {
+        "id": "primary-pressed",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 56
+        },
+        "controls": {
+          "shell": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 56
+            },
+            "width": 316,
+            "height": 56,
+            "background": "#dca82fff",
+            "radius": 999,
+            "borderWidth": 0
+          },
+          "icon": {
+            "rect": {
+              "x": 268,
+              "y": 16,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          },
+          "label": {
+            "rect": {
+              "x": 24,
+              "y": 16,
+              "width": 101.09199523925781,
+              "height": 24
+            },
+            "width": 101.09199523925781,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#19150bff",
+            "baseline": 33.8203125
+          }
+        },
+        "raster": {
+          "changedPixels": 0,
+          "meanChannelDelta": 0.5747426470588235
+        },
+        "artifacts": {
+          "image": "flutter/primary-pressed.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/primary-pressed.png",
+        "flutter": "flutter/primary-pressed.png",
+        "overlay": "overlay/primary-pressed.png",
+        "diff": "diff/primary-pressed.png"
+      },
+      "raster": {
+        "changedPixels": 0,
+        "meanChannelDelta": 0.5747426470588235
+      }
+    },
+    {
+      "id": "primary-focused",
+      "title": "primary · focused",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "primary-focused",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 56
+        },
+        "controls": {
+          "shell": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 56
+            },
+            "width": 316,
+            "height": 56,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#19150bff",
+            "background": "#f1c75bff",
+            "radius": 999,
+            "borderWidth": 0,
+            "baseline": 32,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "icon": {
+            "rect": {
+              "x": 268,
+              "y": 16,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#19150bff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "baseline": 37.099998474121094,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          },
+          "label": {
+            "rect": {
+              "x": 24,
+              "y": 18,
+              "width": 101.09375,
+              "height": 20
+            },
+            "width": 101.09375,
+            "height": 20,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#19150bff",
+            "background": "#f1c75bff",
+            "radius": 999,
+            "borderWidth": 0,
+            "baseline": 34,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 316,
+          "height": 56
+        },
+        "pageX": 12,
+        "pageY": 12,
+        "artifacts": {
+          "image": "web/primary-focused.png"
+        }
+      },
+      "native": {
+        "id": "primary-focused",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 56
+        },
+        "controls": {
+          "shell": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 56
+            },
+            "width": 316,
+            "height": 56,
+            "background": "#f1c75bff",
+            "radius": 999,
+            "borderWidth": 0
+          },
+          "icon": {
+            "rect": {
+              "x": 268,
+              "y": 16,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          },
+          "label": {
+            "rect": {
+              "x": 24,
+              "y": 16,
+              "width": 101.09199523925781,
+              "height": 24
+            },
+            "width": 101.09199523925781,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#19150bff",
+            "baseline": 33.8203125
+          }
+        },
+        "raster": {
+          "changedPixels": 0,
+          "meanChannelDelta": 0.46153186274509805
+        },
+        "artifacts": {
+          "image": "flutter/primary-focused.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/primary-focused.png",
+        "flutter": "flutter/primary-focused.png",
+        "overlay": "overlay/primary-focused.png",
+        "diff": "diff/primary-focused.png"
+      },
+      "raster": {
+        "changedPixels": 0,
+        "meanChannelDelta": 0.46153186274509805
+      }
+    },
+    {
+      "id": "primary-disabled",
+      "title": "primary · disabled",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "primary-disabled",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 56
+        },
+        "controls": {
+          "shell": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 56
+            },
+            "width": 316,
+            "height": 56,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#969eacff",
+            "background": "#232730ff",
+            "radius": 999,
+            "borderWidth": 0,
+            "baseline": 32,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "icon": {
+            "rect": {
+              "x": 268,
+              "y": 16,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#969eacff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "baseline": 37.099998474121094,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          },
+          "label": {
+            "rect": {
+              "x": 24,
+              "y": 18,
+              "width": 101.09375,
+              "height": 20
+            },
+            "width": 101.09375,
+            "height": 20,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#969eacff",
+            "background": "#232730ff",
+            "radius": 999,
+            "borderWidth": 0,
+            "baseline": 34,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 316,
+          "height": 56
+        },
+        "pageX": 12,
+        "pageY": 12,
+        "artifacts": {
+          "image": "web/primary-disabled.png"
+        }
+      },
+      "native": {
+        "id": "primary-disabled",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 56
+        },
+        "controls": {
+          "shell": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 56
+            },
+            "width": 316,
+            "height": 56,
+            "background": "#232730ff",
+            "radius": 999,
+            "borderWidth": 0
+          },
+          "icon": {
+            "rect": {
+              "x": 268,
+              "y": 16,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          },
+          "label": {
+            "rect": {
+              "x": 24,
+              "y": 16,
+              "width": 101.09199523925781,
+              "height": 24
+            },
+            "width": 101.09199523925781,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#969eacff",
+            "baseline": 33.8203125
+          }
+        },
+        "raster": {
+          "changedPixels": 0,
+          "meanChannelDelta": 0.01681372549019608
+        },
+        "artifacts": {
+          "image": "flutter/primary-disabled.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/primary-disabled.png",
+        "flutter": "flutter/primary-disabled.png",
+        "overlay": "overlay/primary-disabled.png",
+        "diff": "diff/primary-disabled.png"
+      },
+      "raster": {
+        "changedPixels": 0,
+        "meanChannelDelta": 0.01681372549019608
+      }
+    },
+    {
+      "id": "primary-mobile",
+      "title": "primary · mobile",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "primary-mobile",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 56
+        },
+        "controls": {
+          "shell": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 56
+            },
+            "width": 316,
+            "height": 56,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#19150bff",
+            "background": "#f1c75bff",
+            "radius": 999,
+            "borderWidth": 0,
+            "baseline": 32,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "icon": {
+            "rect": {
+              "x": 268,
+              "y": 16,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#19150bff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "baseline": 37.099998474121094,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          },
+          "label": {
+            "rect": {
+              "x": 24,
+              "y": 18,
+              "width": 101.09375,
+              "height": 20
+            },
+            "width": 101.09375,
+            "height": 20,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#19150bff",
+            "background": "#f1c75bff",
+            "radius": 999,
+            "borderWidth": 0,
+            "baseline": 34,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 316,
+          "height": 56
+        },
+        "pageX": 12,
+        "pageY": 12,
+        "artifacts": {
+          "image": "web/primary-mobile.png"
+        }
+      },
+      "native": {
+        "id": "primary-mobile",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 56
+        },
+        "controls": {
+          "shell": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 56
+            },
+            "width": 316,
+            "height": 56,
+            "background": "#f1c75bff",
+            "radius": 999,
+            "borderWidth": 0
+          },
+          "icon": {
+            "rect": {
+              "x": 268,
+              "y": 16,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          },
+          "label": {
+            "rect": {
+              "x": 24,
+              "y": 16,
+              "width": 101.09199523925781,
+              "height": 24
+            },
+            "width": 101.09199523925781,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#19150bff",
+            "baseline": 33.8203125
+          }
+        },
+        "raster": {
+          "changedPixels": 0,
+          "meanChannelDelta": 0.5740808823529412
+        },
+        "artifacts": {
+          "image": "flutter/primary-mobile.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/primary-mobile.png",
+        "flutter": "flutter/primary-mobile.png",
+        "overlay": "overlay/primary-mobile.png",
+        "diff": "diff/primary-mobile.png"
+      },
+      "raster": {
+        "changedPixels": 0,
+        "meanChannelDelta": 0.5740808823529412
+      }
+    },
+    {
+      "id": "primary-desktop",
+      "title": "primary · desktop",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "primary-desktop",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 395.328125,
+          "height": 56
+        },
+        "controls": {
+          "shell": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 395.328125,
+              "height": 56
+            },
+            "width": 395.328125,
+            "height": 56,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#19150bff",
+            "background": "#f1c75bff",
+            "radius": 999,
+            "borderWidth": 0,
+            "baseline": 32,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "icon": {
+            "rect": {
+              "x": 347.328125,
+              "y": 16,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#19150bff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "baseline": 37.099998474121094,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          },
+          "label": {
+            "rect": {
+              "x": 24,
+              "y": 18,
+              "width": 101.09375,
+              "height": 20
+            },
+            "width": 101.09375,
+            "height": 20,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#19150bff",
+            "background": "#f1c75bff",
+            "radius": 999,
+            "borderWidth": 0,
+            "baseline": 34,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 395.328125,
+          "height": 56
+        },
+        "pageX": 12,
+        "pageY": 12,
+        "artifacts": {
+          "image": "web/primary-desktop.png"
+        }
+      },
+      "native": {
+        "id": "primary-desktop",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 395.328125,
+          "height": 56
+        },
+        "controls": {
+          "shell": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 395.328125,
+              "height": 56
+            },
+            "width": 395.328125,
+            "height": 56,
+            "background": "#f1c75bff",
+            "radius": 999,
+            "borderWidth": 0
+          },
+          "icon": {
+            "rect": {
+              "x": 347.328125,
+              "y": 16,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          },
+          "label": {
+            "rect": {
+              "x": 24,
+              "y": 16,
+              "width": 101.09199523925781,
+              "height": 24
+            },
+            "width": 101.09199523925781,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#19150bff",
+            "baseline": 33.8203125
+          }
+        },
+        "raster": {
+          "changedPixels": 239,
+          "meanChannelDelta": 0.16771825396825396
+        },
+        "artifacts": {
+          "image": "flutter/primary-desktop.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/primary-desktop.png",
+        "flutter": "flutter/primary-desktop.png",
+        "overlay": "overlay/primary-desktop.png",
+        "diff": "diff/primary-desktop.png"
+      },
+      "raster": {
+        "changedPixels": 239,
+        "meanChannelDelta": 0.16771825396825396
+      }
+    },
+    {
+      "id": "secondary-default",
+      "title": "secondary · default",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "secondary-default",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 56
+        },
+        "controls": {
+          "shell": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 56
+            },
+            "width": 316,
+            "height": 56,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#232730ff",
+            "radius": 999,
+            "borderWidth": 0,
+            "baseline": 34,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "label": {
+            "rect": {
+              "x": 127.359375,
+              "y": 18,
+              "width": 61.265625,
+              "height": 20
+            },
+            "width": 61.265625,
+            "height": 20,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#232730ff",
+            "radius": 999,
+            "borderWidth": 0,
+            "baseline": 34,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 316,
+          "height": 56
+        },
+        "pageX": 12,
+        "pageY": 12,
+        "artifacts": {
+          "image": "web/secondary-default.png"
+        }
+      },
+      "native": {
+        "id": "secondary-default",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 56
+        },
+        "controls": {
+          "shell": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 56
+            },
+            "width": 316,
+            "height": 56,
+            "background": "#232730ff",
+            "radius": 999,
+            "borderWidth": 0
+          },
+          "label": {
+            "rect": {
+              "x": 127.36732482910156,
+              "y": 16,
+              "width": 61.265350341796875,
+              "height": 24
+            },
+            "width": 61.265350341796875,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "baseline": 33.8203125
+          }
+        },
+        "raster": {
+          "changedPixels": 18,
+          "meanChannelDelta": 0.5994485294117647
+        },
+        "artifacts": {
+          "image": "flutter/secondary-default.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/secondary-default.png",
+        "flutter": "flutter/secondary-default.png",
+        "overlay": "overlay/secondary-default.png",
+        "diff": "diff/secondary-default.png"
+      },
+      "raster": {
+        "changedPixels": 18,
+        "meanChannelDelta": 0.5994485294117647
+      }
+    },
+    {
+      "id": "secondary-hovered",
+      "title": "secondary · hovered",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "secondary-hovered",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 56
+        },
+        "controls": {
+          "shell": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 56
+            },
+            "width": 316,
+            "height": 56,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#3a414eff",
+            "radius": 999,
+            "borderWidth": 0,
+            "baseline": 34,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "label": {
+            "rect": {
+              "x": 127.359375,
+              "y": 18,
+              "width": 61.265625,
+              "height": 20
+            },
+            "width": 61.265625,
+            "height": 20,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#3a414eff",
+            "radius": 999,
+            "borderWidth": 0,
+            "baseline": 34,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 316,
+          "height": 56
+        },
+        "pageX": 12,
+        "pageY": 12,
+        "artifacts": {
+          "image": "web/secondary-hovered.png"
+        }
+      },
+      "native": {
+        "id": "secondary-hovered",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 56
+        },
+        "controls": {
+          "shell": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 56
+            },
+            "width": 316,
+            "height": 56,
+            "background": "#3a414eff",
+            "radius": 999,
+            "borderWidth": 0
+          },
+          "label": {
+            "rect": {
+              "x": 127.36732482910156,
+              "y": 16,
+              "width": 61.265350341796875,
+              "height": 24
+            },
+            "width": 61.265350341796875,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "baseline": 33.8203125
+          }
+        },
+        "raster": {
+          "changedPixels": 18,
+          "meanChannelDelta": 0.594375
+        },
+        "artifacts": {
+          "image": "flutter/secondary-hovered.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/secondary-hovered.png",
+        "flutter": "flutter/secondary-hovered.png",
+        "overlay": "overlay/secondary-hovered.png",
+        "diff": "diff/secondary-hovered.png"
+      },
+      "raster": {
+        "changedPixels": 18,
+        "meanChannelDelta": 0.594375
+      }
+    },
+    {
+      "id": "secondary-focused",
+      "title": "secondary · focused",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "secondary-focused",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 56
+        },
+        "controls": {
+          "shell": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 56
+            },
+            "width": 316,
+            "height": 56,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#232730ff",
+            "radius": 999,
+            "borderWidth": 0,
+            "baseline": 34,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "label": {
+            "rect": {
+              "x": 127.359375,
+              "y": 18,
+              "width": 61.265625,
+              "height": 20
+            },
+            "width": 61.265625,
+            "height": 20,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#232730ff",
+            "radius": 999,
+            "borderWidth": 0,
+            "baseline": 34,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 316,
+          "height": 56
+        },
+        "pageX": 12,
+        "pageY": 12,
+        "artifacts": {
+          "image": "web/secondary-focused.png"
+        }
+      },
+      "native": {
+        "id": "secondary-focused",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 56
+        },
+        "controls": {
+          "shell": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 56
+            },
+            "width": 316,
+            "height": 56,
+            "background": "#232730ff",
+            "radius": 999,
+            "borderWidth": 0
+          },
+          "label": {
+            "rect": {
+              "x": 127.36732482910156,
+              "y": 16,
+              "width": 61.265350341796875,
+              "height": 24
+            },
+            "width": 61.265350341796875,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "baseline": 33.8203125
+          }
+        },
+        "raster": {
+          "changedPixels": 18,
+          "meanChannelDelta": 0.48689950980392155
+        },
+        "artifacts": {
+          "image": "flutter/secondary-focused.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/secondary-focused.png",
+        "flutter": "flutter/secondary-focused.png",
+        "overlay": "overlay/secondary-focused.png",
+        "diff": "diff/secondary-focused.png"
+      },
+      "raster": {
+        "changedPixels": 18,
+        "meanChannelDelta": 0.48689950980392155
+      }
+    },
+    {
+      "id": "secondary-mobile",
+      "title": "secondary · mobile",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "secondary-mobile",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 56
+        },
+        "controls": {
+          "shell": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 56
+            },
+            "width": 316,
+            "height": 56,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#232730ff",
+            "radius": 999,
+            "borderWidth": 0,
+            "baseline": 34,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "label": {
+            "rect": {
+              "x": 127.359375,
+              "y": 18,
+              "width": 61.265625,
+              "height": 20
+            },
+            "width": 61.265625,
+            "height": 20,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#232730ff",
+            "radius": 999,
+            "borderWidth": 0,
+            "baseline": 34,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 316,
+          "height": 56
+        },
+        "pageX": 12,
+        "pageY": 12,
+        "artifacts": {
+          "image": "web/secondary-mobile.png"
+        }
+      },
+      "native": {
+        "id": "secondary-mobile",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 56
+        },
+        "controls": {
+          "shell": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 56
+            },
+            "width": 316,
+            "height": 56,
+            "background": "#232730ff",
+            "radius": 999,
+            "borderWidth": 0
+          },
+          "label": {
+            "rect": {
+              "x": 127.36732482910156,
+              "y": 16,
+              "width": 61.265350341796875,
+              "height": 24
+            },
+            "width": 61.265350341796875,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "baseline": 33.8203125
+          }
+        },
+        "raster": {
+          "changedPixels": 18,
+          "meanChannelDelta": 0.5994485294117647
+        },
+        "artifacts": {
+          "image": "flutter/secondary-mobile.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/secondary-mobile.png",
+        "flutter": "flutter/secondary-mobile.png",
+        "overlay": "overlay/secondary-mobile.png",
+        "diff": "diff/secondary-mobile.png"
+      },
+      "raster": {
+        "changedPixels": 18,
+        "meanChannelDelta": 0.5994485294117647
+      }
+    },
+    {
+      "id": "secondary-desktop",
+      "title": "secondary · desktop",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "secondary-desktop",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 395.328125,
+          "height": 56
+        },
+        "controls": {
+          "shell": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 395.328125,
+              "height": 56
+            },
+            "width": 395.328125,
+            "height": 56,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#232730ff",
+            "radius": 999,
+            "borderWidth": 0,
+            "baseline": 34,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "label": {
+            "rect": {
+              "x": 167.03125,
+              "y": 18,
+              "width": 61.265625,
+              "height": 20
+            },
+            "width": 61.265625,
+            "height": 20,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#232730ff",
+            "radius": 999,
+            "borderWidth": 0,
+            "baseline": 34,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 395.328125,
+          "height": 56
+        },
+        "pageX": 12,
+        "pageY": 12,
+        "artifacts": {
+          "image": "web/secondary-desktop.png"
+        }
+      },
+      "native": {
+        "id": "secondary-desktop",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 395.328125,
+          "height": 56
+        },
+        "controls": {
+          "shell": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 395.328125,
+              "height": 56
+            },
+            "width": 395.328125,
+            "height": 56,
+            "background": "#232730ff",
+            "radius": 999,
+            "borderWidth": 0
+          },
+          "label": {
+            "rect": {
+              "x": 167.03138732910156,
+              "y": 16,
+              "width": 61.265350341796875,
+              "height": 24
+            },
+            "width": 61.265350341796875,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "baseline": 33.8203125
+          }
+        },
+        "raster": {
+          "changedPixels": 143,
+          "meanChannelDelta": 0.048412698412698414
+        },
+        "artifacts": {
+          "image": "flutter/secondary-desktop.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/secondary-desktop.png",
+        "flutter": "flutter/secondary-desktop.png",
+        "overlay": "overlay/secondary-desktop.png",
+        "diff": "diff/secondary-desktop.png"
+      },
+      "raster": {
+        "changedPixels": 143,
+        "meanChannelDelta": 0.048412698412698414
+      }
+    },
+    {
+      "id": "destructive-default",
+      "title": "destructive · default",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "destructive-default",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 56
+        },
+        "controls": {
+          "shell": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 56
+            },
+            "width": 316,
+            "height": 56,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#ff968eff",
+            "background": "#632a2aff",
+            "radius": 999,
+            "borderWidth": 0,
+            "baseline": 34,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "label": {
+            "rect": {
+              "x": 92.609375,
+              "y": 18,
+              "width": 130.78125,
+              "height": 20
+            },
+            "width": 130.78125,
+            "height": 20,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#ff968eff",
+            "background": "#632a2aff",
+            "radius": 999,
+            "borderWidth": 0,
+            "baseline": 34,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 316,
+          "height": 56
+        },
+        "pageX": 12,
+        "pageY": 12,
+        "artifacts": {
+          "image": "web/destructive-default.png"
+        }
+      },
+      "native": {
+        "id": "destructive-default",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 56
+        },
+        "controls": {
+          "shell": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 56
+            },
+            "width": 316,
+            "height": 56,
+            "background": "#632a2aff",
+            "radius": 999,
+            "borderWidth": 0
+          },
+          "label": {
+            "rect": {
+              "x": 92.61537170410156,
+              "y": 16,
+              "width": 130.76925659179688,
+              "height": 24
+            },
+            "width": 130.76925659179688,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#ff968eff",
+            "baseline": 33.8203125
+          }
+        },
+        "raster": {
+          "changedPixels": 33,
+          "meanChannelDelta": 0.05386029411764706
+        },
+        "artifacts": {
+          "image": "flutter/destructive-default.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/destructive-default.png",
+        "flutter": "flutter/destructive-default.png",
+        "overlay": "overlay/destructive-default.png",
+        "diff": "diff/destructive-default.png"
+      },
+      "raster": {
+        "changedPixels": 33,
+        "meanChannelDelta": 0.05386029411764706
+      }
+    },
+    {
+      "id": "destructive-focused",
+      "title": "destructive · focused",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "destructive-focused",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 56
+        },
+        "controls": {
+          "shell": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 56
+            },
+            "width": 316,
+            "height": 56,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#ff968eff",
+            "background": "#632a2aff",
+            "radius": 999,
+            "borderWidth": 0,
+            "baseline": 34,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "label": {
+            "rect": {
+              "x": 92.609375,
+              "y": 18,
+              "width": 130.78125,
+              "height": 20
+            },
+            "width": 130.78125,
+            "height": 20,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#ff968eff",
+            "background": "#632a2aff",
+            "radius": 999,
+            "borderWidth": 0,
+            "baseline": 34,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 316,
+          "height": 56
+        },
+        "pageX": 12,
+        "pageY": 12,
+        "artifacts": {
+          "image": "web/destructive-focused.png"
+        }
+      },
+      "native": {
+        "id": "destructive-focused",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 56
+        },
+        "controls": {
+          "shell": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 56
+            },
+            "width": 316,
+            "height": 56,
+            "background": "#632a2aff",
+            "radius": 999,
+            "borderWidth": 0
+          },
+          "label": {
+            "rect": {
+              "x": 92.61537170410156,
+              "y": 16,
+              "width": 130.76925659179688,
+              "height": 24
+            },
+            "width": 130.76925659179688,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#ff968eff",
+            "baseline": 33.8203125
+          }
+        },
+        "raster": {
+          "changedPixels": 34,
+          "meanChannelDelta": 0.0658578431372549
+        },
+        "artifacts": {
+          "image": "flutter/destructive-focused.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/destructive-focused.png",
+        "flutter": "flutter/destructive-focused.png",
+        "overlay": "overlay/destructive-focused.png",
+        "diff": "diff/destructive-focused.png"
+      },
+      "raster": {
+        "changedPixels": 34,
+        "meanChannelDelta": 0.0658578431372549
+      }
+    },
+    {
+      "id": "destructive-mobile",
+      "title": "destructive · mobile",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "destructive-mobile",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 56
+        },
+        "controls": {
+          "shell": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 56
+            },
+            "width": 316,
+            "height": 56,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#ff968eff",
+            "background": "#632a2aff",
+            "radius": 999,
+            "borderWidth": 0,
+            "baseline": 34,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "label": {
+            "rect": {
+              "x": 92.609375,
+              "y": 18,
+              "width": 130.78125,
+              "height": 20
+            },
+            "width": 130.78125,
+            "height": 20,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#ff968eff",
+            "background": "#632a2aff",
+            "radius": 999,
+            "borderWidth": 0,
+            "baseline": 34,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 316,
+          "height": 56
+        },
+        "pageX": 12,
+        "pageY": 12,
+        "artifacts": {
+          "image": "web/destructive-mobile.png"
+        }
+      },
+      "native": {
+        "id": "destructive-mobile",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 56
+        },
+        "controls": {
+          "shell": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 56
+            },
+            "width": 316,
+            "height": 56,
+            "background": "#632a2aff",
+            "radius": 999,
+            "borderWidth": 0
+          },
+          "label": {
+            "rect": {
+              "x": 92.61537170410156,
+              "y": 16,
+              "width": 130.76925659179688,
+              "height": 24
+            },
+            "width": 130.76925659179688,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#ff968eff",
+            "baseline": 33.8203125
+          }
+        },
+        "raster": {
+          "changedPixels": 33,
+          "meanChannelDelta": 0.05386029411764706
+        },
+        "artifacts": {
+          "image": "flutter/destructive-mobile.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/destructive-mobile.png",
+        "flutter": "flutter/destructive-mobile.png",
+        "overlay": "overlay/destructive-mobile.png",
+        "diff": "diff/destructive-mobile.png"
+      },
+      "raster": {
+        "changedPixels": 33,
+        "meanChannelDelta": 0.05386029411764706
+      }
+    },
+    {
+      "id": "destructive-desktop",
+      "title": "destructive · desktop",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "destructive-desktop",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 395.34375,
+          "height": 56
+        },
+        "controls": {
+          "shell": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 395.34375,
+              "height": 56
+            },
+            "width": 395.34375,
+            "height": 56,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#ff968eff",
+            "background": "#632a2aff",
+            "radius": 999,
+            "borderWidth": 0,
+            "baseline": 34,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "label": {
+            "rect": {
+              "x": 132.28125,
+              "y": 18,
+              "width": 130.78125,
+              "height": 20
+            },
+            "width": 130.78125,
+            "height": 20,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#ff968eff",
+            "background": "#632a2aff",
+            "radius": 999,
+            "borderWidth": 0,
+            "baseline": 34,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 395.34375,
+          "height": 56
+        },
+        "pageX": 12,
+        "pageY": 12,
+        "artifacts": {
+          "image": "web/destructive-desktop.png"
+        }
+      },
+      "native": {
+        "id": "destructive-desktop",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 395.34375,
+          "height": 56
+        },
+        "controls": {
+          "shell": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 395.34375,
+              "height": 56
+            },
+            "width": 395.34375,
+            "height": 56,
+            "background": "#632a2aff",
+            "radius": 999,
+            "borderWidth": 0
+          },
+          "label": {
+            "rect": {
+              "x": 132.28724670410156,
+              "y": 16,
+              "width": 130.76925659179688,
+              "height": 24
+            },
+            "width": 130.76925659179688,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#ff968eff",
+            "baseline": 33.8203125
+          }
+        },
+        "raster": {
+          "changedPixels": 164,
+          "meanChannelDelta": 0.065625
+        },
+        "artifacts": {
+          "image": "flutter/destructive-desktop.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/destructive-desktop.png",
+        "flutter": "flutter/destructive-desktop.png",
+        "overlay": "overlay/destructive-desktop.png",
+        "diff": "diff/destructive-desktop.png"
+      },
+      "raster": {
+        "changedPixels": 164,
+        "meanChannelDelta": 0.065625
+      }
+    },
+    {
+      "id": "icon-default",
+      "title": "icon · default",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "icon-default",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 56,
+          "height": 56
+        },
+        "controls": {
+          "shell": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#232730ff",
+            "radius": 28,
+            "borderWidth": 0,
+            "baseline": 33,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "icon": {
+            "rect": {
+              "x": 16,
+              "y": 16,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "baseline": 38.099998474121094,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          }
+        },
+        "originalRoot": {
+          "width": 56,
+          "height": 56
+        },
+        "pageX": 12,
+        "pageY": 12,
+        "artifacts": {
+          "image": "web/icon-default.png"
+        }
+      },
+      "native": {
+        "id": "icon-default",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 56,
+          "height": 56
+        },
+        "controls": {
+          "shell": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56,
+            "background": "#232730ff",
+            "radius": 28,
+            "borderWidth": 0
+          },
+          "icon": {
+            "rect": {
+              "x": 16,
+              "y": 16,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          }
+        },
+        "raster": {
+          "changedPixels": 0,
+          "meanChannelDelta": 0.9134375
+        },
+        "artifacts": {
+          "image": "flutter/icon-default.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/icon-default.png",
+        "flutter": "flutter/icon-default.png",
+        "overlay": "overlay/icon-default.png",
+        "diff": "diff/icon-default.png"
+      },
+      "raster": {
+        "changedPixels": 0,
+        "meanChannelDelta": 0.9134375
+      }
+    },
+    {
+      "id": "icon-hovered",
+      "title": "icon · hovered",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "icon-hovered",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 56,
+          "height": 56
+        },
+        "controls": {
+          "shell": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#3a414eff",
+            "radius": 28,
+            "borderWidth": 0,
+            "baseline": 33,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "icon": {
+            "rect": {
+              "x": 16,
+              "y": 16,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "baseline": 38.099998474121094,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          }
+        },
+        "originalRoot": {
+          "width": 56,
+          "height": 56
+        },
+        "pageX": 12,
+        "pageY": 12,
+        "artifacts": {
+          "image": "web/icon-hovered.png"
+        }
+      },
+      "native": {
+        "id": "icon-hovered",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 56,
+          "height": 56
+        },
+        "controls": {
+          "shell": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56,
+            "background": "#3a414eff",
+            "radius": 28,
+            "borderWidth": 0
+          },
+          "icon": {
+            "rect": {
+              "x": 16,
+              "y": 16,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          }
+        },
+        "raster": {
+          "changedPixels": 0,
+          "meanChannelDelta": 0.9136458333333334
+        },
+        "artifacts": {
+          "image": "flutter/icon-hovered.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/icon-hovered.png",
+        "flutter": "flutter/icon-hovered.png",
+        "overlay": "overlay/icon-hovered.png",
+        "diff": "diff/icon-hovered.png"
+      },
+      "raster": {
+        "changedPixels": 0,
+        "meanChannelDelta": 0.9136458333333334
+      }
+    },
+    {
+      "id": "icon-focused",
+      "title": "icon · focused",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "icon-focused",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 56,
+          "height": 56
+        },
+        "controls": {
+          "shell": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#232730ff",
+            "radius": 28,
+            "borderWidth": 0,
+            "baseline": 33,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "icon": {
+            "rect": {
+              "x": 16,
+              "y": 16,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "baseline": 38.099998474121094,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          }
+        },
+        "originalRoot": {
+          "width": 56,
+          "height": 56
+        },
+        "pageX": 12,
+        "pageY": 12,
+        "artifacts": {
+          "image": "web/icon-focused.png"
+        }
+      },
+      "native": {
+        "id": "icon-focused",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 56,
+          "height": 56
+        },
+        "controls": {
+          "shell": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56,
+            "background": "#232730ff",
+            "radius": 28,
+            "borderWidth": 0
+          },
+          "icon": {
+            "rect": {
+              "x": 16,
+              "y": 16,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          }
+        },
+        "raster": {
+          "changedPixels": 599,
+          "meanChannelDelta": 5.977135416666667
+        },
+        "artifacts": {
+          "image": "flutter/icon-focused.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/icon-focused.png",
+        "flutter": "flutter/icon-focused.png",
+        "overlay": "overlay/icon-focused.png",
+        "diff": "diff/icon-focused.png"
+      },
+      "raster": {
+        "changedPixels": 599,
+        "meanChannelDelta": 5.977135416666667
+      }
+    },
+    {
+      "id": "icon-mobile",
+      "title": "icon · mobile",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "icon-mobile",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 56,
+          "height": 56
+        },
+        "controls": {
+          "shell": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#232730ff",
+            "radius": 28,
+            "borderWidth": 0,
+            "baseline": 33,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "icon": {
+            "rect": {
+              "x": 16,
+              "y": 16,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "baseline": 38.099998474121094,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          }
+        },
+        "originalRoot": {
+          "width": 56,
+          "height": 56
+        },
+        "pageX": 12,
+        "pageY": 12,
+        "artifacts": {
+          "image": "web/icon-mobile.png"
+        }
+      },
+      "native": {
+        "id": "icon-mobile",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 56,
+          "height": 56
+        },
+        "controls": {
+          "shell": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56,
+            "background": "#232730ff",
+            "radius": 28,
+            "borderWidth": 0
+          },
+          "icon": {
+            "rect": {
+              "x": 16,
+              "y": 16,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          }
+        },
+        "raster": {
+          "changedPixels": 0,
+          "meanChannelDelta": 0.9134375
+        },
+        "artifacts": {
+          "image": "flutter/icon-mobile.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/icon-mobile.png",
+        "flutter": "flutter/icon-mobile.png",
+        "overlay": "overlay/icon-mobile.png",
+        "diff": "diff/icon-mobile.png"
+      },
+      "raster": {
+        "changedPixels": 0,
+        "meanChannelDelta": 0.9134375
+      }
+    },
+    {
+      "id": "icon-desktop",
+      "title": "icon · desktop",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "icon-desktop",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 48,
+          "height": 48
+        },
+        "controls": {
+          "shell": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 48,
+              "height": 48
+            },
+            "width": 48,
+            "height": 48,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#232730ff",
+            "radius": 24,
+            "borderWidth": 0,
+            "baseline": 29,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "icon": {
+            "rect": {
+              "x": 12,
+              "y": 12,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "baseline": 34.10000038146973,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          }
+        },
+        "originalRoot": {
+          "width": 48,
+          "height": 48
+        },
+        "pageX": 12,
+        "pageY": 12,
+        "artifacts": {
+          "image": "web/icon-desktop.png"
+        }
+      },
+      "native": {
+        "id": "icon-desktop",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 48,
+          "height": 48
+        },
+        "controls": {
+          "shell": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 48,
+              "height": 48
+            },
+            "width": 48,
+            "height": 48,
+            "background": "#232730ff",
+            "radius": 24,
+            "borderWidth": 0
+          },
+          "icon": {
+            "rect": {
+              "x": 12,
+              "y": 12,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          }
+        },
+        "raster": {
+          "changedPixels": 0,
+          "meanChannelDelta": 0.03594393004115226
+        },
+        "artifacts": {
+          "image": "flutter/icon-desktop.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/icon-desktop.png",
+        "flutter": "flutter/icon-desktop.png",
+        "overlay": "overlay/icon-desktop.png",
+        "diff": "diff/icon-desktop.png"
+      },
+      "raster": {
+        "changedPixels": 0,
+        "meanChannelDelta": 0.03594393004115226
+      }
+    },
+    {
+      "id": "accenticon-default",
+      "title": "accentIcon · default",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "accenticon-default",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 56,
+          "height": 56
+        },
+        "controls": {
+          "shell": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#19150bff",
+            "background": "#f1c75bff",
+            "radius": 28,
+            "borderWidth": 0,
+            "baseline": 33,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "icon": {
+            "rect": {
+              "x": 16,
+              "y": 16,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#19150bff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "baseline": 38.099998474121094,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          }
+        },
+        "originalRoot": {
+          "width": 56,
+          "height": 56
+        },
+        "pageX": 12,
+        "pageY": 12,
+        "artifacts": {
+          "image": "web/accenticon-default.png"
+        }
+      },
+      "native": {
+        "id": "accenticon-default",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 56,
+          "height": 56
+        },
+        "controls": {
+          "shell": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56,
+            "background": "#f1c75bff",
+            "radius": 28,
+            "borderWidth": 0
+          },
+          "icon": {
+            "rect": {
+              "x": 16,
+              "y": 16,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          }
+        },
+        "raster": {
+          "changedPixels": 0,
+          "meanChannelDelta": 0.9136458333333334
+        },
+        "artifacts": {
+          "image": "flutter/accenticon-default.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/accenticon-default.png",
+        "flutter": "flutter/accenticon-default.png",
+        "overlay": "overlay/accenticon-default.png",
+        "diff": "diff/accenticon-default.png"
+      },
+      "raster": {
+        "changedPixels": 0,
+        "meanChannelDelta": 0.9136458333333334
+      }
+    },
+    {
+      "id": "accenticon-focused",
+      "title": "accentIcon · focused",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "accenticon-focused",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 56,
+          "height": 56
+        },
+        "controls": {
+          "shell": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#19150bff",
+            "background": "#f1c75bff",
+            "radius": 28,
+            "borderWidth": 0,
+            "baseline": 33,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "icon": {
+            "rect": {
+              "x": 16,
+              "y": 16,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#19150bff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "baseline": 38.099998474121094,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          }
+        },
+        "originalRoot": {
+          "width": 56,
+          "height": 56
+        },
+        "pageX": 12,
+        "pageY": 12,
+        "artifacts": {
+          "image": "web/accenticon-focused.png"
+        }
+      },
+      "native": {
+        "id": "accenticon-focused",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 56,
+          "height": 56
+        },
+        "controls": {
+          "shell": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56,
+            "background": "#f1c75bff",
+            "radius": 28,
+            "borderWidth": 0
+          },
+          "icon": {
+            "rect": {
+              "x": 16,
+              "y": 16,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          }
+        },
+        "raster": {
+          "changedPixels": 599,
+          "meanChannelDelta": 5.97734375
+        },
+        "artifacts": {
+          "image": "flutter/accenticon-focused.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/accenticon-focused.png",
+        "flutter": "flutter/accenticon-focused.png",
+        "overlay": "overlay/accenticon-focused.png",
+        "diff": "diff/accenticon-focused.png"
+      },
+      "raster": {
+        "changedPixels": 599,
+        "meanChannelDelta": 5.97734375
+      }
+    },
+    {
+      "id": "accenticon-mobile",
+      "title": "accentIcon · mobile",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "accenticon-mobile",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 56,
+          "height": 56
+        },
+        "controls": {
+          "shell": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#19150bff",
+            "background": "#f1c75bff",
+            "radius": 28,
+            "borderWidth": 0,
+            "baseline": 33,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "icon": {
+            "rect": {
+              "x": 16,
+              "y": 16,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#19150bff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "baseline": 38.099998474121094,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          }
+        },
+        "originalRoot": {
+          "width": 56,
+          "height": 56
+        },
+        "pageX": 12,
+        "pageY": 12,
+        "artifacts": {
+          "image": "web/accenticon-mobile.png"
+        }
+      },
+      "native": {
+        "id": "accenticon-mobile",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 56,
+          "height": 56
+        },
+        "controls": {
+          "shell": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56,
+            "background": "#f1c75bff",
+            "radius": 28,
+            "borderWidth": 0
+          },
+          "icon": {
+            "rect": {
+              "x": 16,
+              "y": 16,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          }
+        },
+        "raster": {
+          "changedPixels": 0,
+          "meanChannelDelta": 0.9136458333333334
+        },
+        "artifacts": {
+          "image": "flutter/accenticon-mobile.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/accenticon-mobile.png",
+        "flutter": "flutter/accenticon-mobile.png",
+        "overlay": "overlay/accenticon-mobile.png",
+        "diff": "diff/accenticon-mobile.png"
+      },
+      "raster": {
+        "changedPixels": 0,
+        "meanChannelDelta": 0.9136458333333334
+      }
+    },
+    {
+      "id": "accenticon-desktop",
+      "title": "accentIcon · desktop",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "accenticon-desktop",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 48,
+          "height": 48
+        },
+        "controls": {
+          "shell": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 48,
+              "height": 48
+            },
+            "width": 48,
+            "height": 48,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#19150bff",
+            "background": "#f1c75bff",
+            "radius": 24,
+            "borderWidth": 0,
+            "baseline": 29,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "icon": {
+            "rect": {
+              "x": 12,
+              "y": 12,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#19150bff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "baseline": 34.10000038146973,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          }
+        },
+        "originalRoot": {
+          "width": 48,
+          "height": 48
+        },
+        "pageX": 12,
+        "pageY": 12,
+        "artifacts": {
+          "image": "web/accenticon-desktop.png"
+        }
+      },
+      "native": {
+        "id": "accenticon-desktop",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 48,
+          "height": 48
+        },
+        "controls": {
+          "shell": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 48,
+              "height": 48
+            },
+            "width": 48,
+            "height": 48,
+            "background": "#f1c75bff",
+            "radius": 24,
+            "borderWidth": 0
+          },
+          "icon": {
+            "rect": {
+              "x": 12,
+              "y": 12,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          }
+        },
+        "raster": {
+          "changedPixels": 1,
+          "meanChannelDelta": 0.03793724279835391
+        },
+        "artifacts": {
+          "image": "flutter/accenticon-desktop.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/accenticon-desktop.png",
+        "flutter": "flutter/accenticon-desktop.png",
+        "overlay": "overlay/accenticon-desktop.png",
+        "diff": "diff/accenticon-desktop.png"
+      },
+      "raster": {
+        "changedPixels": 1,
+        "meanChannelDelta": 0.03793724279835391
+      }
+    }
+  ],
+  "error": null,
+  "runId": "2026-11-07T14:17:57.629Z"
+}

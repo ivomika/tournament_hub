@@ -2,11 +2,11 @@
 
 ## Статус и этап
 
-🟣 Запланирована
+✅ Выполнена
 
-- Mode: PLANNING_ONLY; будущая реализация — CODE в этом же номере.
+- Mode: CODE; будущая реализация — CODE в этом же номере.
 - TestGate: NOT_REQUIRED для заявленного visual/theme/layout scope. App state/controllers, вычисления, валидация, сериализация, данные и app routing исключены; при расширении scope классификация пересматривается до кода.
-- Stage: SPEC_READY.
+- Stage: DONE.
 - Specification:1; plan:0 (черновая последовательность ниже); test scenarios:1, NOT_RUN.
 - Реализация не начата; отдельного разрешения на логический gate этой постановкой не получено.
 
@@ -53,12 +53,12 @@ UI kit объединяет primary/secondary/destructive, text/icon slot/icon-o
 
 ## Acceptance Criteria
 
-- [ ] AC-50.1: AppButton реализован/расширен в указанном scope; нет параллельной копии уже существующей сущности, ссылку на HTML-эталон можно проследить.
-- [ ] AC-50.2: все визуальные параметры приходят из собственной темы и общих токенов, API типизирован; raw styling/строковые discriminators/бизнес-правила отсутствуют.
-- [ ] AC-50.3: именованные Widgetbook use cases показывают реальный элемент: Primary default/hover/pressed/focus/disabled; secondary; destructive; neutral/accent icon-only; content/fill; длинный label.
-- [ ] AC-50.4: Widgetbook и golden используют одинаковые fixtures/именованные builders/темы; native baselines созданы/сверены, diffs просмотрены, comparison после update выполнен без update.
-- [ ] AC-50.5: проверены constraints, значимые states, локализованные labels/semantics и content limits; совпадение visual identity Desktop/Mobile подтверждено, отклонения записаны.
-- [ ] AC-50.6: manifest/owning docs/scenario registrations актуальны; analyze/tests/architecture checks по impact PASS либо честный blocker с NOT_RUN. Результат показан пользователю.
+- [x] AC-50.1: AppButton реализован/расширен в указанном scope; нет параллельной копии уже существующей сущности, ссылку на HTML-эталон можно проследить.
+- [x] AC-50.2: все визуальные параметры приходят из собственной темы и общих токенов, API типизирован; raw styling/строковые discriminators/бизнес-правила отсутствуют.
+- [x] AC-50.3: именованные Widgetbook use cases показывают реальный элемент: Primary default/hover/pressed/focus/disabled; secondary; destructive; neutral/accent icon-only; content/fill; длинный label.
+- [x] AC-50.4: Widgetbook и golden используют одинаковые fixtures/именованные builders/темы; native baselines созданы/сверены, diffs просмотрены, comparison после update выполнен без update.
+- [x] AC-50.5: проверены constraints, значимые states, локализованные labels/semantics и content limits; совпадение visual identity Desktop/Mobile подтверждено, отклонения записаны.
+- [x] AC-50.6: manifest/owning docs/scenario registrations актуальны; analyze/tests/architecture checks по impact PASS либо честный blocker с NOT_RUN. Результат показан пользователю.
 
 ## Ошибки и крайние случаи
 
@@ -117,9 +117,9 @@ UI kit объединяет primary/secondary/destructive, text/icon slot/icon-o
 
 ## Final Verification
 
-- [ ] Все AC подтверждены при реализации; тесты фактически запущены.
-- [ ] Theme/scenarios/goldens/docs согласованы, визуальный результат показан.
-- [ ] Нет бизнес-логики/запрещённых dependencies/raw styling.
+- [x] Все AC подтверждены при реализации; тесты фактически запущены.
+- [x] Theme/scenarios/goldens/docs согласованы, визуальный результат показан.
+- [x] Нет бизнес-логики/запрещённых dependencies/raw styling.
 
 ## Итог
 
@@ -133,3 +133,13 @@ Prompt пользователя (дословно):
 > После реализуй компоненты от которых зависит строка участников, каждый компонент отдельным комитом без пуша. После реализуй компонент widget "Строка участников" и остановись показав его в инструменте сравнения
 
 Запуск реализации после общего сравнения74; до его завершения эта карточка остаётся запланированной. Отдельный коммит данного компонента без push; сверка сценариев/контрольных элементов в общем отчёте.
+
+### Plan1
+
+AppButton: primary/secondary/destructive/neutral/accent icon. Дополнительные removeIcon40 и removeSwipe88×72 — реальные action recipes строки62. FocusableActionDetector+keyboard/semantics и null callback; statesController для воспроизводимых фаз. WidgetTheme читает runtime foundation; shared scenarios source states/adaptations и native long-label/content-width golden. Никакой бизнес-логики удаления.
+
+### Итог реализации
+
+AppButton/Theme: пять исходных видов + две action recipes RosterRow. FocusableActionDetector, named pointer/keyboard callbacks, semantic label, null callback. Runtime metrics/theme/ColorScheme/TextTheme; font-optical-sizing Inter через AppTypeRoles.interfaceStyle основной темы (opsz14..32,wght из текущего TextStyle). Контракт шрифта не зафиксирован в итоговом widget.
+
+25 исходных states/adaptations прошли общий pipeline с update и без.26 macOS goldens incl long label/content fixture; pointer/Enter/Space/disabled/theme replacement tests PASS; Avatar+Surface regression PASS8, Node34 PASS. Analyzer/architecture-check PASS. Снимки primary и focus overlay просмотрены, outline включён padding12 без обрезки. Capture driver уточняет direct text Range и нейтральный фон вокруг root; исходные CSS не менялись. Остальные ОС NOT_RUN.

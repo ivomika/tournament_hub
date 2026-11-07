@@ -1,3 +1,5 @@
+import 'package:tournament_app/presentation/design_system/foundation/primitives/control_primitives.dart';
+import 'package:tournament_app/presentation/design_system/foundation/responsive/app_control_metrics.dart';
 import 'package:tournament_app/presentation/design_system/foundation/icons/app_glyph_metrics.dart';
 import 'package:flutter/material.dart';
 import 'package:tournament_app/presentation/design_system/foundation/responsive/app_avatar_metrics.dart';
@@ -19,6 +21,18 @@ import 'package:tournament_app/presentation/design_system/foundation/primitives/
 
 /// Единственная сборка primitive const в runtime Flutter ThemeData.
 abstract final class AppTheme {
+  // CSS font-optical-sizing:auto. Inter opsz supports14..32; wght follows the
+  // current TextTheme rather than a captured const style in a widget.
+  static TextStyle _interfaceStyle(TextStyle style) => style.copyWith(
+    fontVariations: [
+      ...?style.fontVariations?.where(
+        (axis) => axis.axis != 'opsz' && axis.axis != 'wght',
+      ),
+      FontVariation('opsz', (style.fontSize ?? 14).clamp(14, 32)),
+      FontVariation('wght', (style.fontWeight?.value ?? 400).toDouble()),
+    ],
+  );
+
   static ThemeData dark() {
     final scheme = ColorScheme.dark(
       primary: ColorRolesPrimitives.accent,
@@ -76,6 +90,22 @@ abstract final class AppTheme {
         year2023: false,
       ),
       extensions: [
+        const AppControlMetrics(
+          half: ControlPrimitives.half,
+          regularWeight: ControlPrimitives.regularWeight,
+          regularVariations: ControlPrimitives.regularVariations,
+          regularLine: ControlPrimitives.regularLine,
+          focusWidth: ControlPrimitives.focusWidth,
+          spaceBetween: ControlPrimitives.spaceBetween,
+          center: ControlPrimitives.center,
+          centerCross: ControlPrimitives.centerCross,
+          topLeft: ControlPrimitives.topLeft,
+          zero: ControlPrimitives.zero,
+          transparent: ControlPrimitives.transparent,
+          removeWidth: ControlPrimitives.removeWidth,
+          removeHeight: ControlPrimitives.removeHeight,
+          removeIconExtent: ControlPrimitives.removeIconExtent,
+        ),
         const AppGlyphMetrics(
           stroke: MetricPrimitives.glyphStroke,
           grid: MetricPrimitives.glyphGrid,
@@ -172,7 +202,8 @@ abstract final class AppTheme {
           characterFan: ColorPrimitives.characterFan,
           characterStorm: ColorPrimitives.characterStorm,
         ),
-        const AppTypeRoles(
+        AppTypeRoles(
+          interfaceStyle: _interfaceStyle,
           normalTracking: TypographyPrimitives.normalTracking,
           score: TypographyPrimitives.score,
         ),

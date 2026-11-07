@@ -171,4 +171,26 @@ class FoundationLocalizationsRu extends FoundationLocalizations {
   @override
   String get surfaceLongSample =>
       'Длинное содержимое поверхности занимает несколько строк и сохраняет внутренние отступы.';
+
+  @override
+  String get buttonContinue => 'Продолжить';
+
+  @override
+  String get buttonCancel => 'Отмена';
+
+  @override
+  String get buttonRemove => 'Снять участника';
+
+  @override
+  String get buttonBack => 'Назад';
+
+  @override
+  String get buttonSave => 'Сохранить';
+
+  @override
+  String get buttonLong =>
+      'Продолжить создание турнира с выбранными участниками';
+
+  @override
+  String get rosterDelete => 'Удалить';
 }
