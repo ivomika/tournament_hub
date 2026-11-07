@@ -1,3 +1,4 @@
+import 'package:tournament_app/presentation/widgetbook/components/score_choice/score_choice_comparison.dart';
 import 'package:tournament_app/presentation/widgetbook/components/score/score_comparison.dart';
 import 'package:tournament_app/presentation/widgetbook/components/number_stepper/stepper_comparison.dart';
 import 'package:tournament_app/presentation/widgetbook/components/segmented_choice/segmented_comparison.dart';
@@ -21,6 +22,7 @@ import 'package:tournament_app/presentation/widgetbook/components/avatar/avatar_
 
 abstract final class ComparisonCatalog {
   static final List<ComparisonSpec> components = [
+    ScoreChoiceComparison.spec,
     ScoreComparison.spec,
     StepperComparison.spec,
     SegmentedComparison.spec,

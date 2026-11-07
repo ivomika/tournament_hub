@@ -173,5 +173,8 @@
         "type": "String"
       }
     }
-  }
+  },
+  "scoreChoiceLabel": "Выбор счёта",
+  "scoreChoiceLeft": "1 : 0",
+  "scoreChoiceRight": "0 : 1"
 }

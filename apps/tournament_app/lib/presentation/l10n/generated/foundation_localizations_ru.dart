@@ -339,4 +339,13 @@ class FoundationLocalizationsRu extends FoundationLocalizations {
 
   @override
   String get scoreSeparator => ':';
+
+  @override
+  String get scoreChoiceLabel => 'Выбор счёта';
+
+  @override
+  String get scoreChoiceLeft => '1 : 0';
+
+  @override
+  String get scoreChoiceRight => '0 : 1';
 }

@@ -58,7 +58,7 @@
 - ✅ 53. SegmentedChoice — добавить сегментированный выбор. [Детали](task-details/53-ds-component-segmented-choice.md)
 - ✅ 54. NumberStepper — добавить числовой контрол. [Детали](task-details/54-ds-component-number-stepper.md)
 - ✅ 55. Score — добавить отображение счёта. [Детали](task-details/55-ds-component-score.md)
-- 🟣 56. ScoreChoice — добавить выбор результата FT1. [Детали](task-details/56-ds-component-score-choice.md)
+- ✅ 56. ScoreChoice — добавить выбор результата FT1. [Детали](task-details/56-ds-component-score-choice.md)
 - ✅ 57. Avatar — добавить аватар и портрет. [Детали](task-details/57-ds-component-avatar.md)
 - ✅ 58. Identity — добавить переиспользуемую идентификацию. [Детали](task-details/58-ds-widget-identity.md)
 - 🟣 59. Metric — добавить метрику и achievement-вариант. [Детали](task-details/59-ds-component-metric.md)

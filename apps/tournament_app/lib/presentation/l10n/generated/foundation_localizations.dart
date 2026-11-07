@@ -702,6 +702,24 @@ abstract class FoundationLocalizations {
   /// In ru, this message translates to:
   /// **':'**
   String get scoreSeparator;
+
+  /// No description provided for @scoreChoiceLabel.
+  ///
+  /// In ru, this message translates to:
+  /// **'Выбор счёта'**
+  String get scoreChoiceLabel;
+
+  /// No description provided for @scoreChoiceLeft.
+  ///
+  /// In ru, this message translates to:
+  /// **'1 : 0'**
+  String get scoreChoiceLeft;
+
+  /// No description provided for @scoreChoiceRight.
+  ///
+  /// In ru, this message translates to:
+  /// **'0 : 1'**
+  String get scoreChoiceRight;
 }
 
 class _FoundationLocalizationsDelegate

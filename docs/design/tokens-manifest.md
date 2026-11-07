@@ -196,3 +196,7 @@ AppNumberStepper.output/input — одинаковая геометрия на �
 ## Score — реализация55
 
 AppScore.pair/fixed принимает готовые строки и semanticLabel, арифметики нет. AppScoreTheme использует runtime AppTypeRoles.score60/700/line1/tabular; pair desktop80 через AppScoreMetrics, fixed60/gold. Separator текущий titleLarge26 с regular weight/line1/normalTracking/muted. Gap24 и центр из runtime spacing/control metrics. Semantic label объединяет результат без дублирования каждого символа. Source9 сценариев, scaled native pair/fixed.
+
+## ScoreChoice — реализация56
+
+Controlled AppScoreChoice<T> показывает готовые AppScoreOption<T> labels; callback не вычисляет результат. Итоговый UI kit: condensed40/700/line1, minHeight56, gap16, radius16, raised background, selected border/text primary, normal border outlineVariant/text onSurface. Снятые computed values имеют приоритет над CSS из другого competition context (32/8 не относится к итоговому образцу). Keyboard focus, disabled и runtime theme поддержаны.

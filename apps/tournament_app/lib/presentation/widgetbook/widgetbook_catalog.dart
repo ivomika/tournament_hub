@@ -1,3 +1,6 @@
+import 'package:tournament_app/presentation/widgetbook/components/score_choice/left/left_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/components/score_choice/right/right_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/components/score_choice/disabled/disabled_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/components/score/pair/pair_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/components/score/fixed/fixed_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/components/score/two_digits/two_digits_use_case.dart';
@@ -116,6 +119,14 @@ final widgetbookCatalog = <WidgetbookNode>[
     name: 'Components',
     isInitiallyExpanded: true,
     children: [
+      WidgetbookComponent(
+        name: 'Score choice',
+        useCases: [
+          scoreChoiceLeftUseCase,
+          scoreChoiceRightUseCase,
+          scoreChoiceDisabledUseCase,
+        ],
+      ),
       WidgetbookComponent(
         name: 'Score',
         useCases: [scorePairUseCase, scoreFixedUseCase, scoreTwoDigitsUseCase],

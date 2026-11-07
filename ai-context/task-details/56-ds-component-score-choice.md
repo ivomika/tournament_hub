@@ -2,11 +2,11 @@
 
 ## Статус и этап
 
-🟣 Запланирована
+✅ Выполнена
 
-- Mode: PLANNING_ONLY; будущая реализация — CODE в этом же номере.
+- Mode: CODE; будущая реализация — CODE в этом же номере.
 - TestGate: NOT_REQUIRED для заявленного visual/theme/layout scope. App state/controllers, вычисления, валидация, сериализация, данные и app routing исключены; при расширении scope классификация пересматривается до кода.
-- Stage: SPEC_READY.
+- Stage: DONE.
 - Specification:1; plan:0 (черновая последовательность ниже); test scenarios:1, NOT_RUN.
 - Реализация не начата; отдельного разрешения на логический gate этой постановкой не получено.
 
@@ -53,12 +53,12 @@
 
 ## Acceptance Criteria
 
-- [ ] AC-56.1: AppScoreChoice реализован/расширен в указанном scope; нет параллельной копии уже существующей сущности, ссылку на HTML-эталон можно проследить.
-- [ ] AC-56.2: все визуальные параметры приходят из собственной темы и общих токенов, API типизирован; raw styling/строковые discriminators/бизнес-правила отсутствуют.
-- [ ] AC-56.3: именованные Widgetbook use cases показывают реальный элемент: Selected first/second; unselected при допустимом контракте; focus/keyboard; disabled; длинные имена в semantics.
-- [ ] AC-56.4: Widgetbook и golden используют одинаковые fixtures/именованные builders/темы; native baselines созданы/сверены, diffs просмотрены, comparison после update выполнен без update.
-- [ ] AC-56.5: проверены constraints, значимые states, локализованные labels/semantics и content limits; совпадение visual identity Desktop/Mobile подтверждено, отклонения записаны.
-- [ ] AC-56.6: manifest/owning docs/scenario registrations актуальны; analyze/tests/architecture checks по impact PASS либо честный blocker с NOT_RUN. Результат показан пользователю.
+- [x] AC-56.1: AppScoreChoice реализован/расширен в указанном scope; нет параллельной копии уже существующей сущности, ссылку на HTML-эталон можно проследить.
+- [x] AC-56.2: все визуальные параметры приходят из собственной темы и общих токенов, API типизирован; raw styling/строковые discriminators/бизнес-правила отсутствуют.
+- [x] AC-56.3: именованные Widgetbook use cases показывают реальный элемент: Selected first/second; unselected при допустимом контракте; focus/keyboard; disabled; длинные имена в semantics.
+- [x] AC-56.4: Widgetbook и golden используют одинаковые fixtures/именованные builders/темы; native baselines созданы/сверены, diffs просмотрены, comparison после update выполнен без update.
+- [x] AC-56.5: проверены constraints, значимые states, локализованные labels/semantics и content limits; совпадение visual identity Desktop/Mobile подтверждено, отклонения записаны.
+- [x] AC-56.6: manifest/owning docs/scenario registrations актуальны; analyze/tests/architecture checks по impact PASS либо честный blocker с NOT_RUN. Результат показан пользователю.
 
 ## Ошибки и крайние случаи
 
@@ -117,10 +117,31 @@
 
 ## Final Verification
 
-- [ ] Все AC подтверждены при реализации; тесты фактически запущены.
-- [ ] Theme/scenarios/goldens/docs согласованы, визуальный результат показан.
-- [ ] Нет бизнес-логики/запрещённых dependencies/raw styling.
+- [x] Все AC подтверждены при реализации; тесты фактически запущены.
+- [x] Theme/scenarios/goldens/docs согласованы, визуальный результат показан.
+- [x] Нет бизнес-логики/запрещённых dependencies/raw styling.
 
 ## Итог
 
 Постановка создана; 🟣. Реализация и выполнение Flutter-проверок не начаты.
+
+### Новая очередь переноса после RosterRow
+
+Prompt пользователя (дословно):
+
+> выглядит хорошо. Обнови задачи по реализации компонентов, посмотри что уже выполнено, а что еще требует реализации и реализуй каждый компонент по новому flow делая коммит для каждого компонента без push
+
+Обязательный flow текущей итерации: сверить существующий runtime и итоговый CSS UI kit → определить реальные состояния/адаптацию и контрольные узлы → typed runtime WidgetTheme без primitives в consumers → scoped Widgetbook/shared fixture → декларация общего comparison pipeline → source/native/overlay/diff и native goldens → осмотр и исправление внутренних различий → повтор без update, tests/analyzer/architecture → отдельный локальный коммит компонента без push. Существующая реализация не дублируется. Наличие tokens в72 не равно выполнению всех старых AC foundation.
+Факт сверки: отдельного production компонента и comparison declaration пока нет; задача остаётся в очереди реализации.
+
+### План56
+
+Typed controlled ScoreChoice options/value/callback. Готовые labels1:0/0:1, без вычисления победителя. Source selected left/right×2, рамки/внутренний текст; actual pointer/keyboard/null/theme/scaled native. Runtime WidgetTheme использует source condensed28, minHeight56, gap8, radius16. Visual NOT_REQUIRED.
+
+### Реализация56 —7 ноября2026
+
+Prompt пользователя (дословно):
+
+> продолжи
+
+Controlled typed ScoreChoice с собственной runtime темой и localized fixture labels. Итоговый source40/gap16/outlineVariant подтверждён computed DOM; первоначальное применение CSS другого competition context32/8 исправлено сравнением. Source4/4 PASS после update и обычного comparison, overlay просмотрен. Native2 tests PASS без update: pointer/keyboard/null, runtime primary replacement и scaled golden. Analyzer no issues, architecture206 files PASS. MacOS Widgetbook hot restart выполнен; другие ОС NOT_RUN. Итог текущей итерации: выполнено.
