@@ -10,6 +10,7 @@ class AppIdentity extends StatelessWidget {
     this.kind = AppIdentityKind.character,
     this.layout = AppIdentityLayout.inline,
     this.avatarForeground,
+    this.theme,
     super.key,
   });
   final String primary, initials;
@@ -17,15 +18,13 @@ class AppIdentity extends StatelessWidget {
   final AppIdentityKind kind;
   final AppIdentityLayout layout;
   final Color? avatarForeground;
+  final AppIdentityTheme? theme;
   @override
   Widget build(BuildContext context) => LayoutBuilder(builder: _buildLayout);
   Widget _buildLayout(BuildContext context, BoxConstraints constraints) {
-    final theme = AppIdentityTheme.of(
-      context,
-      kind,
-      layout,
-      constraints.maxWidth,
-    );
+    final theme =
+        this.theme ??
+        AppIdentityTheme.of(context, kind, layout, constraints.maxWidth);
     return MergeSemantics(
       child: SizedBox(
         width: constraints.maxWidth,

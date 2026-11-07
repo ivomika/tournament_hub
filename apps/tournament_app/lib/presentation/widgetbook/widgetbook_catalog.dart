@@ -1,3 +1,4 @@
+import 'package:tournament_app/presentation/widgetbook/widgets/data_table/standings/standings_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/components/progress_indicator/animated/animated_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/components/progress_indicator/reduced/reduced_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/components/progress_indicator/fixed_phase/fixed_phase_use_case.dart';
@@ -266,6 +267,10 @@ final widgetbookCatalog = <WidgetbookNode>[
           disclosureOpenUseCase,
           disclosureDisabledUseCase,
         ],
+      ),
+      WidgetbookComponent(
+        name: 'Data table',
+        useCases: [tableStandingsUseCase],
       ),
       WidgetbookComponent(
         name: 'Roster row',

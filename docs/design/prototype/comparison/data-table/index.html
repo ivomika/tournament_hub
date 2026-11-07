@@ -1,0 +1,1369 @@
+<!doctype html><html lang="ru"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AppDataTable · Web ↔ Flutter</title><style>
+ :root{color-scheme:dark;font-family:system-ui;background:#0e1014;color:#f4f2ee}*{box-sizing:border-box}body{max-width:1600px;margin:auto;padding:32px}h1{font-size:36px}a{color:#f1c75b}p{color:#b8bec9;line-height:1.5}.stats,nav{display:flex;gap:20px;flex-wrap:wrap}nav{position:sticky;top:0;background:#0e1014ee;padding:16px 0;z-index:1}.stats>div{border:1px solid #3a414e;border-radius:12px;padding:16px}.stats strong{display:block;font-size:28px}.case{padding:20px;margin:24px 0;background:#171a20;border:1px solid #3a414e;border-radius:16px}.case header{display:flex;justify-content:space-between;gap:16px}.pass{color:#78d7a5}.fail{color:#ff968e}.shots{display:grid;grid-template-columns:repeat(4,minmax(180px,1fr));gap:12px;overflow:auto}figure{margin:0;background:#0e1014;padding:12px;display:flex;flex-direction:column;align-items:center;gap:20px;min-height:200px}figcaption{color:#b8bec9;font-size:13px}img{max-width:100%;height:auto;image-rendering:pixelated}figure a{margin:auto}table{border-collapse:collapse;width:100%;font-size:12px}th,td{text-align:left;padding:9px;border-bottom:1px solid #3a414e}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px;color:#b8bec9}.table{overflow:auto}.finding{color:#ff968e}small{color:#969eac}@media(max-width:800px){body{padding:16px}.shots{grid-template-columns:repeat(4,280px)}}
+ </style><header><small>TOURNAMENT HUB / ОБЩЕЕ ВИЗУАЛЬНОЕ СРАВНЕНИЕ</small><h1>AppDataTable · Web ↔ Flutter</h1><p>Сценарии и контрольные элементы заданы декларацией компонента. Геометрия, типографика и цвета проверяются отдельно; diff показывает остаточную разницу рендереров. Нажмите PNG, чтобы открыть исходное разрешение.</p></header>
+ <div class="stats"><div><strong>2</strong>сценариев</div><div><strong class="pass">2/2</strong>прошли контракт контролей</div><div><strong>38</strong>контрольных элементов</div></div>
+ <nav><a href="#mobile-standings">mobile · standings</a><a href="#desktop-standings">desktop · standings</a><a href="http://127.0.0.1:8094/ui-kit.html">Web-эталон ↗</a></nav>
+ <article class="case" id="mobile-standings"><header><h2>mobile · standings</h2><b class="pass">pass</b></header><p>CSS45.796px/native46px на3 строках дают0.609px разницы; явный геометрический допуск0.75px.</p><div class="shots"><figure><figcaption>Web</figcaption><a href="web/mobile-standings.png"><img alt="mobile-standings Web" src="web/mobile-standings.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/mobile-standings.png"><img alt="mobile-standings Flutter" src="flutter/mobile-standings.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/mobile-standings.png"><img alt="mobile-standings Наложение 50/50" src="overlay/mobile-standings.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/mobile-standings.png"><img alt="mobile-standings Diff ×4" src="diff/mobile-standings.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 1357 изменённых пикселей; mean channel delta 0.8952/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;mobile-standings&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 259.390625
+    },
+    &quot;controls&quot;: {
+      &quot;cell-0-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 203.640625,
+          &quot;y&quot;: 74,
+          &quot;width&quot;: 58.421875,
+          &quot;height&quot;: 61.796875
+        },
+        &quot;width&quot;: 58.421875,
+        &quot;height&quot;: 61.796875,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 110.890625,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;cell-0-2&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 262.0625,
+          &quot;y&quot;: 74,
+          &quot;width&quot;: 53.9375,
+          &quot;height&quot;: 61.796875
+        },
+        &quot;width&quot;: 53.9375,
+        &quot;height&quot;: 61.796875,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 110.890625,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;cell-1-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 203.640625,
+          &quot;y&quot;: 135.796875,
+          &quot;width&quot;: 58.421875,
+          &quot;height&quot;: 61.796875
+        },
+        &quot;width&quot;: 58.421875,
+        &quot;height&quot;: 61.796875,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 172.6875,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;cell-1-2&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 262.0625,
+          &quot;y&quot;: 135.796875,
+          &quot;width&quot;: 53.9375,
+          &quot;height&quot;: 61.796875
+        },
+        &quot;width&quot;: 53.9375,
+        &quot;height&quot;: 61.796875,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 172.6875,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;cell-2-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 203.640625,
+          &quot;y&quot;: 197.59375,
+          &quot;width&quot;: 58.421875,
+          &quot;height&quot;: 61.796875
+        },
+        &quot;width&quot;: 58.421875,
+        &quot;height&quot;: 61.796875,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 234.484375,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;cell-2-2&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 262.0625,
+          &quot;y&quot;: 197.59375,
+          &quot;width&quot;: 53.9375,
+          &quot;height&quot;: 61.796875
+        },
+        &quot;width&quot;: 53.9375,
+        &quot;height&quot;: 61.796875,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 234.484375,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;caption&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 37
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 37,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 16,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;header-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 47,
+          &quot;width&quot;: 62.90625,
+          &quot;height&quot;: 17
+        },
+        &quot;width&quot;: 62.90625,
+        &quot;height&quot;: 17,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 61,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;header-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 227.390625,
+          &quot;y&quot;: 47,
+          &quot;width&quot;: 34.671875,
+          &quot;height&quot;: 17
+        },
+        &quot;width&quot;: 34.671875,
+        &quot;height&quot;: 17,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 61,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;header-2&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 303.34375,
+          &quot;y&quot;: 47,
+          &quot;width&quot;: 12.65625,
+          &quot;height&quot;: 17
+        },
+        &quot;width&quot;: 12.65625,
+        &quot;height&quot;: 17,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 61,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;avatar-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 84.890625,
+          &quot;width&quot;: 40,
+          &quot;height&quot;: 40
+        },
+        &quot;width&quot;: 40,
+        &quot;height&quot;: 40,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#92c9edff&quot;,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 16,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#92c9edff&quot;,
+        &quot;baseline&quot;: 110.890625,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;primary-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 48,
+          &quot;y&quot;: 82,
+          &quot;width&quot;: 72.859375,
+          &quot;height&quot;: 20.796875
+        },
+        &quot;width&quot;: 72.859375,
+        &quot;height&quot;: 20.796875,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.3,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 98,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;points-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 251.921875,
+          &quot;y&quot;: 94.890625,
+          &quot;width&quot;: 10.140625,
+          &quot;height&quot;: 20
+        },
+        &quot;width&quot;: 10.140625,
+        &quot;height&quot;: 20,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 110.890625,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;avatar-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 146.6875,
+          &quot;width&quot;: 40,
+          &quot;height&quot;: 40
+        },
+        &quot;width&quot;: 40,
+        &quot;height&quot;: 40,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#f1c75bff&quot;,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 16,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f1c75bff&quot;,
+        &quot;baseline&quot;: 172.6875,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;primary-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 48,
+          &quot;y&quot;: 143.796875,
+          &quot;width&quot;: 69.203125,
+          &quot;height&quot;: 20.796875
+        },
+        &quot;width&quot;: 69.203125,
+        &quot;height&quot;: 20.796875,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.3,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 159.796875,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;points-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 251.921875,
+          &quot;y&quot;: 156.6875,
+          &quot;width&quot;: 10.140625,
+          &quot;height&quot;: 20
+        },
+        &quot;width&quot;: 10.140625,
+        &quot;height&quot;: 20,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 172.6875,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;avatar-2&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 208.484375,
+          &quot;width&quot;: 40,
+          &quot;height&quot;: 40
+        },
+        &quot;width&quot;: 40,
+        &quot;height&quot;: 40,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#c6b4eeff&quot;,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 16,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#c6b4eeff&quot;,
+        &quot;baseline&quot;: 234.484375,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;primary-2&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 48,
+          &quot;y&quot;: 205.59375,
+          &quot;width&quot;: 49.203125,
+          &quot;height&quot;: 20.796875
+        },
+        &quot;width&quot;: 49.203125,
+        &quot;height&quot;: 20.796875,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.3,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 221.59375,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;points-2&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 251.921875,
+          &quot;y&quot;: 218.484375,
+          &quot;width&quot;: 10.140625,
+          &quot;height&quot;: 20
+        },
+        &quot;width&quot;: 10.140625,
+        &quot;height&quot;: 20,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 234.484375,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 259.390625
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/mobile-standings.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;mobile-standings&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 260
+    },
+    &quot;controls&quot;: {
+      &quot;cell-0-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 203.66372726348735,
+          &quot;y&quot;: 85,
+          &quot;width&quot;: 58.40801546219981,
+          &quot;height&quot;: 40
+        },
+        &quot;width&quot;: 58.40801546219981,
+        &quot;height&quot;: 40
+      },
+      &quot;cell-0-2&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 262.07174272568716,
+          &quot;y&quot;: 85,
+          &quot;width&quot;: 53.92825727431284,
+          &quot;height&quot;: 40
+        },
+        &quot;width&quot;: 53.92825727431284,
+        &quot;height&quot;: 40
+      },
+      &quot;cell-1-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 203.66372726348735,
+          &quot;y&quot;: 147,
+          &quot;width&quot;: 58.40801546219981,
+          &quot;height&quot;: 40
+        },
+        &quot;width&quot;: 58.40801546219981,
+        &quot;height&quot;: 40
+      },
+      &quot;cell-1-2&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 262.07174272568716,
+          &quot;y&quot;: 147,
+          &quot;width&quot;: 53.92825727431284,
+          &quot;height&quot;: 40
+        },
+        &quot;width&quot;: 53.92825727431284,
+        &quot;height&quot;: 40
+      },
+      &quot;cell-2-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 203.66372726348735,
+          &quot;y&quot;: 209,
+          &quot;width&quot;: 58.40801546219981,
+          &quot;height&quot;: 40
+        },
+        &quot;width&quot;: 58.40801546219981,
+        &quot;height&quot;: 40
+      },
+      &quot;cell-2-2&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 262.07174272568716,
+          &quot;y&quot;: 209,
+          &quot;width&quot;: 53.92825727431284,
+          &quot;height&quot;: 40
+        },
+        &quot;width&quot;: 53.92825727431284,
+        &quot;height&quot;: 40
+      },
+      &quot;caption&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 15.5927734375
+      },
+      &quot;header-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 45,
+          &quot;width&quot;: 203.66372726348735,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 62.904296875,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 60.5927734375
+      },
+      &quot;header-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 203.66372726348735,
+          &quot;y&quot;: 45,
+          &quot;width&quot;: 58.40801546219981,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 34.658203125,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 60.5927734375
+      },
+      &quot;header-2&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 262.07174272568716,
+          &quot;y&quot;: 45,
+          &quot;width&quot;: 53.92825727431284,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 12.646484375,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 60.5927734375
+      },
+      &quot;avatar-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 85,
+          &quot;width&quot;: 40,
+          &quot;height&quot;: 40
+        },
+        &quot;width&quot;: 40,
+        &quot;height&quot;: 40
+      },
+      &quot;primary-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 48,
+          &quot;y&quot;: 82,
+          &quot;width&quot;: 72.85017395019531,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 72.85017395019531,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.3,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 98.42031288146973
+      },
+      &quot;points-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 203.66372726348735,
+          &quot;y&quot;: 93,
+          &quot;width&quot;: 58.40801546219981,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 10.136459350585938,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 110.8203125
+      },
+      &quot;avatar-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 147,
+          &quot;width&quot;: 40,
+          &quot;height&quot;: 40
+        },
+        &quot;width&quot;: 40,
+        &quot;height&quot;: 40
+      },
+      &quot;primary-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 48,
+          &quot;y&quot;: 144,
+          &quot;width&quot;: 69.19107055664062,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 69.19107055664062,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.3,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 160.42031288146973
+      },
+      &quot;points-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 203.66372726348735,
+          &quot;y&quot;: 155,
+          &quot;width&quot;: 58.40801546219981,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 10.136459350585938,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 172.8203125
+      },
+      &quot;avatar-2&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 209,
+          &quot;width&quot;: 40,
+          &quot;height&quot;: 40
+        },
+        &quot;width&quot;: 40,
+        &quot;height&quot;: 40
+      },
+      &quot;primary-2&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 48,
+          &quot;y&quot;: 206,
+          &quot;width&quot;: 49.19065856933594,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 49.19065856933594,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.3,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 222.42031288146973
+      },
+      &quot;points-2&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 203.66372726348735,
+          &quot;y&quot;: 217,
+          &quot;width&quot;: 58.40801546219981,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 10.136459350585938,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 234.8203125
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 1357,
+      &quot;meanChannelDelta&quot;: 0.8952288218111003
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/mobile-standings.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="desktop-standings"><header><h2>desktop · standings</h2><b class="pass">pass</b></header><p>CSS45.796px/native46px на3 строках дают0.609px разницы; явный геометрический допуск0.75px.</p><div class="shots"><figure><figcaption>Web</figcaption><a href="web/desktop-standings.png"><img alt="desktop-standings Web" src="web/desktop-standings.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/desktop-standings.png"><img alt="desktop-standings Flutter" src="flutter/desktop-standings.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/desktop-standings.png"><img alt="desktop-standings Наложение 50/50" src="overlay/desktop-standings.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/desktop-standings.png"><img alt="desktop-standings Diff ×4" src="diff/desktop-standings.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 22230 изменённых пикселей; mean channel delta 2.2514/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;desktop-standings&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 395.328125,
+      &quot;height&quot;: 323.390625
+    },
+    &quot;controls&quot;: {
+      &quot;cell-0-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 246.453125,
+          &quot;y&quot;: 90,
+          &quot;width&quot;: 91.234375,
+          &quot;height&quot;: 77.796875
+        },
+        &quot;width&quot;: 91.234375,
+        &quot;height&quot;: 77.796875,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 134.890625,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;cell-0-2&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 337.6875,
+          &quot;y&quot;: 90,
+          &quot;width&quot;: 57.640625,
+          &quot;height&quot;: 77.796875
+        },
+        &quot;width&quot;: 57.640625,
+        &quot;height&quot;: 77.796875,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 134.890625,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;cell-1-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 246.453125,
+          &quot;y&quot;: 167.796875,
+          &quot;width&quot;: 91.234375,
+          &quot;height&quot;: 77.796875
+        },
+        &quot;width&quot;: 91.234375,
+        &quot;height&quot;: 77.796875,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 212.6875,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;cell-1-2&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 337.6875,
+          &quot;y&quot;: 167.796875,
+          &quot;width&quot;: 57.640625,
+          &quot;height&quot;: 77.796875
+        },
+        &quot;width&quot;: 57.640625,
+        &quot;height&quot;: 77.796875,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 212.6875,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;cell-2-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 246.453125,
+          &quot;y&quot;: 245.59375,
+          &quot;width&quot;: 91.234375,
+          &quot;height&quot;: 77.796875
+        },
+        &quot;width&quot;: 91.234375,
+        &quot;height&quot;: 77.796875,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 290.484375,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;cell-2-2&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 337.6875,
+          &quot;y&quot;: 245.59375,
+          &quot;width&quot;: 57.640625,
+          &quot;height&quot;: 77.796875
+        },
+        &quot;width&quot;: 57.640625,
+        &quot;height&quot;: 77.796875,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 290.484375,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;caption&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 395.328125,
+          &quot;height&quot;: 37
+        },
+        &quot;width&quot;: 395.328125,
+        &quot;height&quot;: 37,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 16,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;header-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 8,
+          &quot;y&quot;: 55,
+          &quot;width&quot;: 62.90625,
+          &quot;height&quot;: 17
+        },
+        &quot;width&quot;: 62.90625,
+        &quot;height&quot;: 17,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 69,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;header-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 295.015625,
+          &quot;y&quot;: 55,
+          &quot;width&quot;: 34.671875,
+          &quot;height&quot;: 17
+        },
+        &quot;width&quot;: 34.671875,
+        &quot;height&quot;: 17,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 69,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;header-2&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 374.671875,
+          &quot;y&quot;: 55,
+          &quot;width&quot;: 12.65625,
+          &quot;height&quot;: 17
+        },
+        &quot;width&quot;: 12.65625,
+        &quot;height&quot;: 17,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 69,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;avatar-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 8,
+          &quot;y&quot;: 108.890625,
+          &quot;width&quot;: 40,
+          &quot;height&quot;: 40
+        },
+        &quot;width&quot;: 40,
+        &quot;height&quot;: 40,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#92c9edff&quot;,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 16,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#92c9edff&quot;,
+        &quot;baseline&quot;: 134.890625,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;primary-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 56,
+          &quot;y&quot;: 106,
+          &quot;width&quot;: 72.859375,
+          &quot;height&quot;: 20.796875
+        },
+        &quot;width&quot;: 72.859375,
+        &quot;height&quot;: 20.796875,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.3,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 122,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;points-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 319.546875,
+          &quot;y&quot;: 118.890625,
+          &quot;width&quot;: 10.140625,
+          &quot;height&quot;: 20
+        },
+        &quot;width&quot;: 10.140625,
+        &quot;height&quot;: 20,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 134.890625,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;avatar-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 8,
+          &quot;y&quot;: 186.6875,
+          &quot;width&quot;: 40,
+          &quot;height&quot;: 40
+        },
+        &quot;width&quot;: 40,
+        &quot;height&quot;: 40,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#f1c75bff&quot;,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 16,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f1c75bff&quot;,
+        &quot;baseline&quot;: 212.6875,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;primary-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 56,
+          &quot;y&quot;: 183.796875,
+          &quot;width&quot;: 69.203125,
+          &quot;height&quot;: 20.796875
+        },
+        &quot;width&quot;: 69.203125,
+        &quot;height&quot;: 20.796875,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.3,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 199.796875,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;points-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 319.546875,
+          &quot;y&quot;: 196.6875,
+          &quot;width&quot;: 10.140625,
+          &quot;height&quot;: 20
+        },
+        &quot;width&quot;: 10.140625,
+        &quot;height&quot;: 20,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 212.6875,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;avatar-2&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 8,
+          &quot;y&quot;: 264.484375,
+          &quot;width&quot;: 40,
+          &quot;height&quot;: 40
+        },
+        &quot;width&quot;: 40,
+        &quot;height&quot;: 40,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#c6b4eeff&quot;,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 16,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#c6b4eeff&quot;,
+        &quot;baseline&quot;: 290.484375,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;primary-2&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 56,
+          &quot;y&quot;: 261.59375,
+          &quot;width&quot;: 49.203125,
+          &quot;height&quot;: 20.796875
+        },
+        &quot;width&quot;: 49.203125,
+        &quot;height&quot;: 20.796875,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.3,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 277.59375,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;points-2&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 319.546875,
+          &quot;y&quot;: 274.484375,
+          &quot;width&quot;: 10.140625,
+          &quot;height&quot;: 20
+        },
+        &quot;width&quot;: 10.140625,
+        &quot;height&quot;: 20,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 290.484375,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 395.328125,
+      &quot;height&quot;: 323.390625
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/desktop-standings.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;desktop-standings&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 395.328125,
+      &quot;height&quot;: 324
+    },
+    &quot;controls&quot;: {
+      &quot;cell-0-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 246.46313454871785,
+          &quot;y&quot;: 101,
+          &quot;width&quot;: 91.23393250005682,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 91.23393250005682,
+        &quot;height&quot;: 56
+      },
+      &quot;cell-0-2&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 337.69706704877467,
+          &quot;y&quot;: 101,
+          &quot;width&quot;: 57.63105795122533,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 57.63105795122533,
+        &quot;height&quot;: 56
+      },
+      &quot;cell-1-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 246.46313454871785,
+          &quot;y&quot;: 179,
+          &quot;width&quot;: 91.23393250005682,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 91.23393250005682,
+        &quot;height&quot;: 56
+      },
+      &quot;cell-1-2&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 337.69706704877467,
+          &quot;y&quot;: 179,
+          &quot;width&quot;: 57.63105795122533,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 57.63105795122533,
+        &quot;height&quot;: 56
+      },
+      &quot;cell-2-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 246.46313454871785,
+          &quot;y&quot;: 257,
+          &quot;width&quot;: 91.23393250005682,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 91.23393250005682,
+        &quot;height&quot;: 56
+      },
+      &quot;cell-2-2&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 337.69706704877467,
+          &quot;y&quot;: 257,
+          &quot;width&quot;: 57.63105795122533,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 57.63105795122533,
+        &quot;height&quot;: 56
+      },
+      &quot;caption&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 395.328125,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 395.328125,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 15.5927734375
+      },
+      &quot;header-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 8,
+          &quot;y&quot;: 53,
+          &quot;width&quot;: 230.46313454871785,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 62.904296875,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 68.5927734375
+      },
+      &quot;header-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 254.46313454871785,
+          &quot;y&quot;: 53,
+          &quot;width&quot;: 75.23393250005682,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 34.658203125,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 68.5927734375
+      },
+      &quot;header-2&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 345.69706704877467,
+          &quot;y&quot;: 53,
+          &quot;width&quot;: 41.63105795122533,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 12.646484375,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 68.5927734375
+      },
+      &quot;avatar-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 8,
+          &quot;y&quot;: 109,
+          &quot;width&quot;: 40,
+          &quot;height&quot;: 40
+        },
+        &quot;width&quot;: 40,
+        &quot;height&quot;: 40
+      },
+      &quot;primary-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 56,
+          &quot;y&quot;: 106,
+          &quot;width&quot;: 72.85017395019531,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 72.85017395019531,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.3,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 122.42031288146973
+      },
+      &quot;points-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 254.46313454871785,
+          &quot;y&quot;: 117,
+          &quot;width&quot;: 75.23393250005682,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 10.136459350585938,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 134.8203125
+      },
+      &quot;avatar-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 8,
+          &quot;y&quot;: 187,
+          &quot;width&quot;: 40,
+          &quot;height&quot;: 40
+        },
+        &quot;width&quot;: 40,
+        &quot;height&quot;: 40
+      },
+      &quot;primary-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 56,
+          &quot;y&quot;: 184,
+          &quot;width&quot;: 69.19107055664062,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 69.19107055664062,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.3,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 200.42031288146973
+      },
+      &quot;points-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 254.46313454871785,
+          &quot;y&quot;: 195,
+          &quot;width&quot;: 75.23393250005682,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 10.136459350585938,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 212.8203125
+      },
+      &quot;avatar-2&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 8,
+          &quot;y&quot;: 265,
+          &quot;width&quot;: 40,
+          &quot;height&quot;: 40
+        },
+        &quot;width&quot;: 40,
+        &quot;height&quot;: 40
+      },
+      &quot;primary-2&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 56,
+          &quot;y&quot;: 262,
+          &quot;width&quot;: 49.19065856933594,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 49.19065856933594,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.3,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 278.4203128814697
+      },
+      &quot;points-2&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 254.46313454871785,
+          &quot;y&quot;: 273,
+          &quot;width&quot;: 75.23393250005682,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 10.136459350585938,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 290.8203125
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 22230,
+      &quot;meanChannelDelta&quot;: 2.251358752130357
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/desktop-standings.png&quot;
+    }
+  }
+}</pre></details></article>
+ <footer><small>Run 2026-11-07T20:33:24.598Z. <a href="results.json">Полный JSON</a> · <a href="spec.json">Декларация</a>. Native goldens проверяются отдельно; отчёт не объявляет pixel-perfect при остаточной raster-разнице.</small></footer></html>

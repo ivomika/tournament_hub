@@ -418,4 +418,19 @@ class FoundationLocalizationsRu extends FoundationLocalizations {
 
   @override
   String get progressLoading => 'Загрузка';
+
+  @override
+  String get tableCaption => 'Основной этап · итоговые очки';
+
+  @override
+  String get tableParticipant => 'Участник';
+
+  @override
+  String get tablePoints => 'Очки';
+
+  @override
+  String get tableMatches => 'М';
+
+  @override
+  String get tableMatchesFull => 'Сыграно матчей';
 }

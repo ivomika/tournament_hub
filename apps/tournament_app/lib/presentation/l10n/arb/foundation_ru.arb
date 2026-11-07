@@ -208,5 +208,10 @@
   "noticeInfo": "Bracket Reset включён всегда.",
   "noticeInfoLong": "Bracket Reset включён всегда. Второй финал проводится при победе участника из нижней сетки.",
   "noticeError": "Не удалось сохранить. Повтори.",
-  "progressLoading": "Загрузка"
+  "progressLoading": "Загрузка",
+  "tableCaption": "Основной этап · итоговые очки",
+  "tableParticipant": "Участник",
+  "tablePoints": "Очки",
+  "tableMatches": "М",
+  "tableMatchesFull": "Сыграно матчей"
 }

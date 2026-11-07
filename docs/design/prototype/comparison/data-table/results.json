@@ -1,0 +1,1821 @@
+{
+  "spec": {
+    "version": 1,
+    "component": "data-table",
+    "title": "AppDataTable",
+    "source": {
+      "url": "http://127.0.0.1:8094/ui-kit.html"
+    },
+    "tolerances": {
+      "geometry": 0.75,
+      "typography": 0.05,
+      "baseline": 1
+    },
+    "scenarios": [
+      {
+        "id": "mobile-standings",
+        "title": "mobile · standings",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#c-table .kit-adaptation .kit-specimen:nth-of-type(1) .flow-table-wrap",
+        "controls": [
+          {
+            "id": "cell-0-1",
+            "webSelector": "tbody tr:nth-child(1) td:nth-of-type(1)",
+            "properties": [
+              "width",
+              "center"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "cell-0-2",
+            "webSelector": "tbody tr:nth-child(1) td:nth-of-type(2)",
+            "properties": [
+              "width",
+              "center"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "cell-1-1",
+            "webSelector": "tbody tr:nth-child(2) td:nth-of-type(1)",
+            "properties": [
+              "width",
+              "center"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "cell-1-2",
+            "webSelector": "tbody tr:nth-child(2) td:nth-of-type(2)",
+            "properties": [
+              "width",
+              "center"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "cell-2-1",
+            "webSelector": "tbody tr:nth-child(3) td:nth-of-type(1)",
+            "properties": [
+              "width",
+              "center"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "cell-2-2",
+            "webSelector": "tbody tr:nth-child(3) td:nth-of-type(2)",
+            "properties": [
+              "width",
+              "center"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "caption",
+            "webSelector": "caption",
+            "properties": [
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "header-0",
+            "webSelector": "thead th:nth-child(1)",
+            "properties": [
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          },
+          {
+            "id": "header-1",
+            "webSelector": "thead th:nth-child(2)",
+            "properties": [
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          },
+          {
+            "id": "header-2",
+            "webSelector": "thead th:nth-child(3)",
+            "properties": [
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          },
+          {
+            "id": "avatar-0",
+            "webSelector": "tbody tr:nth-child(1) .flow-avatar",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "primary-0",
+            "webSelector": "tbody tr:nth-child(1) strong",
+            "properties": [
+              "rect",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "points-0",
+            "webSelector": "tbody tr:nth-child(1) td:first-of-type",
+            "properties": [
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          },
+          {
+            "id": "avatar-1",
+            "webSelector": "tbody tr:nth-child(2) .flow-avatar",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "primary-1",
+            "webSelector": "tbody tr:nth-child(2) strong",
+            "properties": [
+              "rect",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "points-1",
+            "webSelector": "tbody tr:nth-child(2) td:first-of-type",
+            "properties": [
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          },
+          {
+            "id": "avatar-2",
+            "webSelector": "tbody tr:nth-child(3) .flow-avatar",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "primary-2",
+            "webSelector": "tbody tr:nth-child(3) strong",
+            "properties": [
+              "rect",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "points-2",
+            "webSelector": "tbody tr:nth-child(3) td:first-of-type",
+            "properties": [
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          }
+        ],
+        "capturePadding": 0,
+        "note": "CSS45.796px/native46px на3 строках дают0.609px разницы; явный геометрический допуск0.75px.",
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "desktop-standings",
+        "title": "desktop · standings",
+        "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1
+        },
+        "webSelector": "#c-table .kit-adaptation .kit-specimen:nth-of-type(2) .flow-table-wrap",
+        "controls": [
+          {
+            "id": "cell-0-1",
+            "webSelector": "tbody tr:nth-child(1) td:nth-of-type(1)",
+            "properties": [
+              "width",
+              "center"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "cell-0-2",
+            "webSelector": "tbody tr:nth-child(1) td:nth-of-type(2)",
+            "properties": [
+              "width",
+              "center"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "cell-1-1",
+            "webSelector": "tbody tr:nth-child(2) td:nth-of-type(1)",
+            "properties": [
+              "width",
+              "center"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "cell-1-2",
+            "webSelector": "tbody tr:nth-child(2) td:nth-of-type(2)",
+            "properties": [
+              "width",
+              "center"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "cell-2-1",
+            "webSelector": "tbody tr:nth-child(3) td:nth-of-type(1)",
+            "properties": [
+              "width",
+              "center"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "cell-2-2",
+            "webSelector": "tbody tr:nth-child(3) td:nth-of-type(2)",
+            "properties": [
+              "width",
+              "center"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "caption",
+            "webSelector": "caption",
+            "properties": [
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "header-0",
+            "webSelector": "thead th:nth-child(1)",
+            "properties": [
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          },
+          {
+            "id": "header-1",
+            "webSelector": "thead th:nth-child(2)",
+            "properties": [
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          },
+          {
+            "id": "header-2",
+            "webSelector": "thead th:nth-child(3)",
+            "properties": [
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          },
+          {
+            "id": "avatar-0",
+            "webSelector": "tbody tr:nth-child(1) .flow-avatar",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "primary-0",
+            "webSelector": "tbody tr:nth-child(1) strong",
+            "properties": [
+              "rect",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "points-0",
+            "webSelector": "tbody tr:nth-child(1) td:first-of-type",
+            "properties": [
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          },
+          {
+            "id": "avatar-1",
+            "webSelector": "tbody tr:nth-child(2) .flow-avatar",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "primary-1",
+            "webSelector": "tbody tr:nth-child(2) strong",
+            "properties": [
+              "rect",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "points-1",
+            "webSelector": "tbody tr:nth-child(2) td:first-of-type",
+            "properties": [
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          },
+          {
+            "id": "avatar-2",
+            "webSelector": "tbody tr:nth-child(3) .flow-avatar",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "primary-2",
+            "webSelector": "tbody tr:nth-child(3) strong",
+            "properties": [
+              "rect",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "points-2",
+            "webSelector": "tbody tr:nth-child(3) td:first-of-type",
+            "properties": [
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          }
+        ],
+        "capturePadding": 0,
+        "note": "CSS45.796px/native46px на3 строках дают0.609px разницы; явный геометрический допуск0.75px.",
+        "freezeMilliseconds": 0
+      }
+    ]
+  },
+  "results": [
+    {
+      "id": "mobile-standings",
+      "title": "mobile · standings",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "mobile-standings",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 259.390625
+        },
+        "controls": {
+          "cell-0-1": {
+            "rect": {
+              "x": 203.640625,
+              "y": 74,
+              "width": 58.421875,
+              "height": 61.796875
+            },
+            "width": 58.421875,
+            "height": 61.796875,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 110.890625,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "cell-0-2": {
+            "rect": {
+              "x": 262.0625,
+              "y": 74,
+              "width": 53.9375,
+              "height": 61.796875
+            },
+            "width": 53.9375,
+            "height": 61.796875,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 110.890625,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "cell-1-1": {
+            "rect": {
+              "x": 203.640625,
+              "y": 135.796875,
+              "width": 58.421875,
+              "height": 61.796875
+            },
+            "width": 58.421875,
+            "height": 61.796875,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 172.6875,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "cell-1-2": {
+            "rect": {
+              "x": 262.0625,
+              "y": 135.796875,
+              "width": 53.9375,
+              "height": 61.796875
+            },
+            "width": 53.9375,
+            "height": 61.796875,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 172.6875,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "cell-2-1": {
+            "rect": {
+              "x": 203.640625,
+              "y": 197.59375,
+              "width": 58.421875,
+              "height": 61.796875
+            },
+            "width": 58.421875,
+            "height": 61.796875,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 234.484375,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "cell-2-2": {
+            "rect": {
+              "x": 262.0625,
+              "y": 197.59375,
+              "width": 53.9375,
+              "height": 61.796875
+            },
+            "width": 53.9375,
+            "height": 61.796875,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 234.484375,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "caption": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 37
+            },
+            "width": 316,
+            "height": 37,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 16,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "header-0": {
+            "rect": {
+              "x": 0,
+              "y": 47,
+              "width": 62.90625,
+              "height": 17
+            },
+            "width": 62.90625,
+            "height": 17,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 61,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "header-1": {
+            "rect": {
+              "x": 227.390625,
+              "y": 47,
+              "width": 34.671875,
+              "height": 17
+            },
+            "width": 34.671875,
+            "height": 17,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 61,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "header-2": {
+            "rect": {
+              "x": 303.34375,
+              "y": 47,
+              "width": 12.65625,
+              "height": 17
+            },
+            "width": 12.65625,
+            "height": 17,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 61,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "avatar-0": {
+            "rect": {
+              "x": 0,
+              "y": 84.890625,
+              "width": 40,
+              "height": 40
+            },
+            "width": 40,
+            "height": 40,
+            "fontSize": 18,
+            "fontWeight": 700,
+            "lineHeight": 1,
+            "color": "#92c9edff",
+            "background": "#232730ff",
+            "radius": 16,
+            "borderWidth": 0,
+            "borderColor": "#92c9edff",
+            "baseline": 110.890625,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "primary-0": {
+            "rect": {
+              "x": 48,
+              "y": 82,
+              "width": 72.859375,
+              "height": 20.796875
+            },
+            "width": 72.859375,
+            "height": 20.796875,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.3,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 98,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "points-0": {
+            "rect": {
+              "x": 251.921875,
+              "y": 94.890625,
+              "width": 10.140625,
+              "height": 20
+            },
+            "width": 10.140625,
+            "height": 20,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 110.890625,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "avatar-1": {
+            "rect": {
+              "x": 0,
+              "y": 146.6875,
+              "width": 40,
+              "height": 40
+            },
+            "width": 40,
+            "height": 40,
+            "fontSize": 18,
+            "fontWeight": 700,
+            "lineHeight": 1,
+            "color": "#f1c75bff",
+            "background": "#232730ff",
+            "radius": 16,
+            "borderWidth": 0,
+            "borderColor": "#f1c75bff",
+            "baseline": 172.6875,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "primary-1": {
+            "rect": {
+              "x": 48,
+              "y": 143.796875,
+              "width": 69.203125,
+              "height": 20.796875
+            },
+            "width": 69.203125,
+            "height": 20.796875,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.3,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 159.796875,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "points-1": {
+            "rect": {
+              "x": 251.921875,
+              "y": 156.6875,
+              "width": 10.140625,
+              "height": 20
+            },
+            "width": 10.140625,
+            "height": 20,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 172.6875,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "avatar-2": {
+            "rect": {
+              "x": 0,
+              "y": 208.484375,
+              "width": 40,
+              "height": 40
+            },
+            "width": 40,
+            "height": 40,
+            "fontSize": 18,
+            "fontWeight": 700,
+            "lineHeight": 1,
+            "color": "#c6b4eeff",
+            "background": "#232730ff",
+            "radius": 16,
+            "borderWidth": 0,
+            "borderColor": "#c6b4eeff",
+            "baseline": 234.484375,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "primary-2": {
+            "rect": {
+              "x": 48,
+              "y": 205.59375,
+              "width": 49.203125,
+              "height": 20.796875
+            },
+            "width": 49.203125,
+            "height": 20.796875,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.3,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 221.59375,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "points-2": {
+            "rect": {
+              "x": 251.921875,
+              "y": 218.484375,
+              "width": 10.140625,
+              "height": 20
+            },
+            "width": 10.140625,
+            "height": 20,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 234.484375,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 316,
+          "height": 259.390625
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/mobile-standings.png"
+        }
+      },
+      "native": {
+        "id": "mobile-standings",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 260
+        },
+        "controls": {
+          "cell-0-1": {
+            "rect": {
+              "x": 203.66372726348735,
+              "y": 85,
+              "width": 58.40801546219981,
+              "height": 40
+            },
+            "width": 58.40801546219981,
+            "height": 40
+          },
+          "cell-0-2": {
+            "rect": {
+              "x": 262.07174272568716,
+              "y": 85,
+              "width": 53.92825727431284,
+              "height": 40
+            },
+            "width": 53.92825727431284,
+            "height": 40
+          },
+          "cell-1-1": {
+            "rect": {
+              "x": 203.66372726348735,
+              "y": 147,
+              "width": 58.40801546219981,
+              "height": 40
+            },
+            "width": 58.40801546219981,
+            "height": 40
+          },
+          "cell-1-2": {
+            "rect": {
+              "x": 262.07174272568716,
+              "y": 147,
+              "width": 53.92825727431284,
+              "height": 40
+            },
+            "width": 53.92825727431284,
+            "height": 40
+          },
+          "cell-2-1": {
+            "rect": {
+              "x": 203.66372726348735,
+              "y": 209,
+              "width": 58.40801546219981,
+              "height": 40
+            },
+            "width": 58.40801546219981,
+            "height": 40
+          },
+          "cell-2-2": {
+            "rect": {
+              "x": 262.07174272568716,
+              "y": 209,
+              "width": 53.92825727431284,
+              "height": 40
+            },
+            "width": 53.92825727431284,
+            "height": 40
+          },
+          "caption": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 21
+            },
+            "width": 316,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "baseline": 15.5927734375
+          },
+          "header-0": {
+            "rect": {
+              "x": 0,
+              "y": 45,
+              "width": 203.66372726348735,
+              "height": 21
+            },
+            "width": 62.904296875,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "baseline": 60.5927734375
+          },
+          "header-1": {
+            "rect": {
+              "x": 203.66372726348735,
+              "y": 45,
+              "width": 58.40801546219981,
+              "height": 21
+            },
+            "width": 34.658203125,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "baseline": 60.5927734375
+          },
+          "header-2": {
+            "rect": {
+              "x": 262.07174272568716,
+              "y": 45,
+              "width": 53.92825727431284,
+              "height": 21
+            },
+            "width": 12.646484375,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "baseline": 60.5927734375
+          },
+          "avatar-0": {
+            "rect": {
+              "x": 0,
+              "y": 85,
+              "width": 40,
+              "height": 40
+            },
+            "width": 40,
+            "height": 40
+          },
+          "primary-0": {
+            "rect": {
+              "x": 48,
+              "y": 82,
+              "width": 72.85017395019531,
+              "height": 21
+            },
+            "width": 72.85017395019531,
+            "height": 21,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.3,
+            "color": "#f4f2eeff",
+            "baseline": 98.42031288146973
+          },
+          "points-0": {
+            "rect": {
+              "x": 203.66372726348735,
+              "y": 93,
+              "width": 58.40801546219981,
+              "height": 24
+            },
+            "width": 10.136459350585938,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "baseline": 110.8203125
+          },
+          "avatar-1": {
+            "rect": {
+              "x": 0,
+              "y": 147,
+              "width": 40,
+              "height": 40
+            },
+            "width": 40,
+            "height": 40
+          },
+          "primary-1": {
+            "rect": {
+              "x": 48,
+              "y": 144,
+              "width": 69.19107055664062,
+              "height": 21
+            },
+            "width": 69.19107055664062,
+            "height": 21,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.3,
+            "color": "#f4f2eeff",
+            "baseline": 160.42031288146973
+          },
+          "points-1": {
+            "rect": {
+              "x": 203.66372726348735,
+              "y": 155,
+              "width": 58.40801546219981,
+              "height": 24
+            },
+            "width": 10.136459350585938,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "baseline": 172.8203125
+          },
+          "avatar-2": {
+            "rect": {
+              "x": 0,
+              "y": 209,
+              "width": 40,
+              "height": 40
+            },
+            "width": 40,
+            "height": 40
+          },
+          "primary-2": {
+            "rect": {
+              "x": 48,
+              "y": 206,
+              "width": 49.19065856933594,
+              "height": 21
+            },
+            "width": 49.19065856933594,
+            "height": 21,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.3,
+            "color": "#f4f2eeff",
+            "baseline": 222.42031288146973
+          },
+          "points-2": {
+            "rect": {
+              "x": 203.66372726348735,
+              "y": 217,
+              "width": 58.40801546219981,
+              "height": 24
+            },
+            "width": 10.136459350585938,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "baseline": 234.8203125
+          }
+        },
+        "raster": {
+          "changedPixels": 1357,
+          "meanChannelDelta": 0.8952288218111003
+        },
+        "artifacts": {
+          "image": "flutter/mobile-standings.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/mobile-standings.png",
+        "flutter": "flutter/mobile-standings.png",
+        "overlay": "overlay/mobile-standings.png",
+        "diff": "diff/mobile-standings.png"
+      },
+      "raster": {
+        "changedPixels": 1357,
+        "meanChannelDelta": 0.8952288218111003
+      }
+    },
+    {
+      "id": "desktop-standings",
+      "title": "desktop · standings",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "desktop-standings",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 395.328125,
+          "height": 323.390625
+        },
+        "controls": {
+          "cell-0-1": {
+            "rect": {
+              "x": 246.453125,
+              "y": 90,
+              "width": 91.234375,
+              "height": 77.796875
+            },
+            "width": 91.234375,
+            "height": 77.796875,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 134.890625,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "cell-0-2": {
+            "rect": {
+              "x": 337.6875,
+              "y": 90,
+              "width": 57.640625,
+              "height": 77.796875
+            },
+            "width": 57.640625,
+            "height": 77.796875,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 134.890625,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "cell-1-1": {
+            "rect": {
+              "x": 246.453125,
+              "y": 167.796875,
+              "width": 91.234375,
+              "height": 77.796875
+            },
+            "width": 91.234375,
+            "height": 77.796875,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 212.6875,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "cell-1-2": {
+            "rect": {
+              "x": 337.6875,
+              "y": 167.796875,
+              "width": 57.640625,
+              "height": 77.796875
+            },
+            "width": 57.640625,
+            "height": 77.796875,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 212.6875,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "cell-2-1": {
+            "rect": {
+              "x": 246.453125,
+              "y": 245.59375,
+              "width": 91.234375,
+              "height": 77.796875
+            },
+            "width": 91.234375,
+            "height": 77.796875,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 290.484375,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "cell-2-2": {
+            "rect": {
+              "x": 337.6875,
+              "y": 245.59375,
+              "width": 57.640625,
+              "height": 77.796875
+            },
+            "width": 57.640625,
+            "height": 77.796875,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 290.484375,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "caption": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 395.328125,
+              "height": 37
+            },
+            "width": 395.328125,
+            "height": 37,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 16,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "header-0": {
+            "rect": {
+              "x": 8,
+              "y": 55,
+              "width": 62.90625,
+              "height": 17
+            },
+            "width": 62.90625,
+            "height": 17,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 69,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "header-1": {
+            "rect": {
+              "x": 295.015625,
+              "y": 55,
+              "width": 34.671875,
+              "height": 17
+            },
+            "width": 34.671875,
+            "height": 17,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 69,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "header-2": {
+            "rect": {
+              "x": 374.671875,
+              "y": 55,
+              "width": 12.65625,
+              "height": 17
+            },
+            "width": 12.65625,
+            "height": 17,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 69,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "avatar-0": {
+            "rect": {
+              "x": 8,
+              "y": 108.890625,
+              "width": 40,
+              "height": 40
+            },
+            "width": 40,
+            "height": 40,
+            "fontSize": 18,
+            "fontWeight": 700,
+            "lineHeight": 1,
+            "color": "#92c9edff",
+            "background": "#232730ff",
+            "radius": 16,
+            "borderWidth": 0,
+            "borderColor": "#92c9edff",
+            "baseline": 134.890625,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "primary-0": {
+            "rect": {
+              "x": 56,
+              "y": 106,
+              "width": 72.859375,
+              "height": 20.796875
+            },
+            "width": 72.859375,
+            "height": 20.796875,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.3,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 122,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "points-0": {
+            "rect": {
+              "x": 319.546875,
+              "y": 118.890625,
+              "width": 10.140625,
+              "height": 20
+            },
+            "width": 10.140625,
+            "height": 20,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 134.890625,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "avatar-1": {
+            "rect": {
+              "x": 8,
+              "y": 186.6875,
+              "width": 40,
+              "height": 40
+            },
+            "width": 40,
+            "height": 40,
+            "fontSize": 18,
+            "fontWeight": 700,
+            "lineHeight": 1,
+            "color": "#f1c75bff",
+            "background": "#232730ff",
+            "radius": 16,
+            "borderWidth": 0,
+            "borderColor": "#f1c75bff",
+            "baseline": 212.6875,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "primary-1": {
+            "rect": {
+              "x": 56,
+              "y": 183.796875,
+              "width": 69.203125,
+              "height": 20.796875
+            },
+            "width": 69.203125,
+            "height": 20.796875,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.3,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 199.796875,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "points-1": {
+            "rect": {
+              "x": 319.546875,
+              "y": 196.6875,
+              "width": 10.140625,
+              "height": 20
+            },
+            "width": 10.140625,
+            "height": 20,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 212.6875,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "avatar-2": {
+            "rect": {
+              "x": 8,
+              "y": 264.484375,
+              "width": 40,
+              "height": 40
+            },
+            "width": 40,
+            "height": 40,
+            "fontSize": 18,
+            "fontWeight": 700,
+            "lineHeight": 1,
+            "color": "#c6b4eeff",
+            "background": "#232730ff",
+            "radius": 16,
+            "borderWidth": 0,
+            "borderColor": "#c6b4eeff",
+            "baseline": 290.484375,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "primary-2": {
+            "rect": {
+              "x": 56,
+              "y": 261.59375,
+              "width": 49.203125,
+              "height": 20.796875
+            },
+            "width": 49.203125,
+            "height": 20.796875,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.3,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 277.59375,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "points-2": {
+            "rect": {
+              "x": 319.546875,
+              "y": 274.484375,
+              "width": 10.140625,
+              "height": 20
+            },
+            "width": 10.140625,
+            "height": 20,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 290.484375,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 395.328125,
+          "height": 323.390625
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/desktop-standings.png"
+        }
+      },
+      "native": {
+        "id": "desktop-standings",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 395.328125,
+          "height": 324
+        },
+        "controls": {
+          "cell-0-1": {
+            "rect": {
+              "x": 246.46313454871785,
+              "y": 101,
+              "width": 91.23393250005682,
+              "height": 56
+            },
+            "width": 91.23393250005682,
+            "height": 56
+          },
+          "cell-0-2": {
+            "rect": {
+              "x": 337.69706704877467,
+              "y": 101,
+              "width": 57.63105795122533,
+              "height": 56
+            },
+            "width": 57.63105795122533,
+            "height": 56
+          },
+          "cell-1-1": {
+            "rect": {
+              "x": 246.46313454871785,
+              "y": 179,
+              "width": 91.23393250005682,
+              "height": 56
+            },
+            "width": 91.23393250005682,
+            "height": 56
+          },
+          "cell-1-2": {
+            "rect": {
+              "x": 337.69706704877467,
+              "y": 179,
+              "width": 57.63105795122533,
+              "height": 56
+            },
+            "width": 57.63105795122533,
+            "height": 56
+          },
+          "cell-2-1": {
+            "rect": {
+              "x": 246.46313454871785,
+              "y": 257,
+              "width": 91.23393250005682,
+              "height": 56
+            },
+            "width": 91.23393250005682,
+            "height": 56
+          },
+          "cell-2-2": {
+            "rect": {
+              "x": 337.69706704877467,
+              "y": 257,
+              "width": 57.63105795122533,
+              "height": 56
+            },
+            "width": 57.63105795122533,
+            "height": 56
+          },
+          "caption": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 395.328125,
+              "height": 21
+            },
+            "width": 395.328125,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "baseline": 15.5927734375
+          },
+          "header-0": {
+            "rect": {
+              "x": 8,
+              "y": 53,
+              "width": 230.46313454871785,
+              "height": 21
+            },
+            "width": 62.904296875,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "baseline": 68.5927734375
+          },
+          "header-1": {
+            "rect": {
+              "x": 254.46313454871785,
+              "y": 53,
+              "width": 75.23393250005682,
+              "height": 21
+            },
+            "width": 34.658203125,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "baseline": 68.5927734375
+          },
+          "header-2": {
+            "rect": {
+              "x": 345.69706704877467,
+              "y": 53,
+              "width": 41.63105795122533,
+              "height": 21
+            },
+            "width": 12.646484375,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "baseline": 68.5927734375
+          },
+          "avatar-0": {
+            "rect": {
+              "x": 8,
+              "y": 109,
+              "width": 40,
+              "height": 40
+            },
+            "width": 40,
+            "height": 40
+          },
+          "primary-0": {
+            "rect": {
+              "x": 56,
+              "y": 106,
+              "width": 72.85017395019531,
+              "height": 21
+            },
+            "width": 72.85017395019531,
+            "height": 21,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.3,
+            "color": "#f4f2eeff",
+            "baseline": 122.42031288146973
+          },
+          "points-0": {
+            "rect": {
+              "x": 254.46313454871785,
+              "y": 117,
+              "width": 75.23393250005682,
+              "height": 24
+            },
+            "width": 10.136459350585938,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "baseline": 134.8203125
+          },
+          "avatar-1": {
+            "rect": {
+              "x": 8,
+              "y": 187,
+              "width": 40,
+              "height": 40
+            },
+            "width": 40,
+            "height": 40
+          },
+          "primary-1": {
+            "rect": {
+              "x": 56,
+              "y": 184,
+              "width": 69.19107055664062,
+              "height": 21
+            },
+            "width": 69.19107055664062,
+            "height": 21,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.3,
+            "color": "#f4f2eeff",
+            "baseline": 200.42031288146973
+          },
+          "points-1": {
+            "rect": {
+              "x": 254.46313454871785,
+              "y": 195,
+              "width": 75.23393250005682,
+              "height": 24
+            },
+            "width": 10.136459350585938,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "baseline": 212.8203125
+          },
+          "avatar-2": {
+            "rect": {
+              "x": 8,
+              "y": 265,
+              "width": 40,
+              "height": 40
+            },
+            "width": 40,
+            "height": 40
+          },
+          "primary-2": {
+            "rect": {
+              "x": 56,
+              "y": 262,
+              "width": 49.19065856933594,
+              "height": 21
+            },
+            "width": 49.19065856933594,
+            "height": 21,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.3,
+            "color": "#f4f2eeff",
+            "baseline": 278.4203128814697
+          },
+          "points-2": {
+            "rect": {
+              "x": 254.46313454871785,
+              "y": 273,
+              "width": 75.23393250005682,
+              "height": 24
+            },
+            "width": 10.136459350585938,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "baseline": 290.8203125
+          }
+        },
+        "raster": {
+          "changedPixels": 22230,
+          "meanChannelDelta": 2.251358752130357
+        },
+        "artifacts": {
+          "image": "flutter/desktop-standings.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/desktop-standings.png",
+        "flutter": "flutter/desktop-standings.png",
+        "overlay": "overlay/desktop-standings.png",
+        "diff": "diff/desktop-standings.png"
+      },
+      "raster": {
+        "changedPixels": 22230,
+        "meanChannelDelta": 2.251358752130357
+      }
+    }
+  ],
+  "error": null,
+  "runId": "2026-11-07T20:33:24.598Z"
+}

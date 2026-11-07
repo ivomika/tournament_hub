@@ -69,7 +69,7 @@
 - ✅ 64. Disclosure — добавить раскрываемый блок. [Детали](task-details/64-ds-widget-disclosure.md)
 - ✅ 65. Notice — добавить сообщение и supporting text. [Детали](task-details/65-ds-component-notice.md)
 - ✅ 66. ProgressIndicator — добавить исходный индикатор загрузки. [Детали](task-details/66-ds-component-progress.md)
-- 🟣 67. Table — добавить табличную композицию. [Детали](task-details/67-ds-widget-table.md)
+- ✅ 67. Table — добавить табличную композицию. [Детали](task-details/67-ds-widget-table.md)
 - 🟣 68. BracketNode — добавить узел турнирной сетки. [Детали](task-details/68-ds-widget-bracket-node.md)
 - 🟣 69. Dialog — добавить поверхность и каркас модального окна. [Детали](task-details/69-ds-widget-dialog.md)
 - 🟣 70. QrCode — добавить отображение QR и кода доступа. [Детали](task-details/70-ds-component-qr-code.md)

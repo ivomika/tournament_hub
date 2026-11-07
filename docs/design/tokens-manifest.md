@@ -228,3 +228,7 @@ AppNotice information/operationError/inlineError использует caption14/
 ## ProgressIndicator — реализация66
 
 AppProgressIndicator — только стандартный CircularProgressIndicator с semantics label; никакого собственного painter или geometry. Основной AppTheme уже задаёт ProgressIndicatorThemeData(color:ColorScheme.primary, year2023:false) и M3. Параметры/animation SDK, replacement основной ProgressIndicatorThemeData распространяется на существующий widget. HTML waveform признан неверным пользователем: comparison сохраняет обе картинки и явно ожидаемый root.width mismatch; PASS pipeline означает подтверждение утверждённого различия, не visual match. Native start/mid/reduced/replacement snapshots — принимаемый baseline, expected mismatch source-сценарии не подменяют native golden tests.
+
+## DataTable — реализация67
+
+AppDataTable typed columns/rows/text-or-identity cells; caption/headers, числовые ячейки выравниваются справа. Расчёта рейтинга/сортировки нет. AppIdentity принимает явную WidgetTheme: avatar40, primary16/600/1.3, secondary14/700/1.5, avatar gap8/text gap4. Это переиспользование Identity, не второй компонент. Column shares измеряются текущим шрифтом, numeric min32 включает padding (border-box). Mobile cell padding8/0, desktop16/8. Дробные CSS45.796px/native46px на3 строках дают0.609px, comparison геометрический допуск.75px. Числовые cell widths/centers проверяются отдельно от содержимого.

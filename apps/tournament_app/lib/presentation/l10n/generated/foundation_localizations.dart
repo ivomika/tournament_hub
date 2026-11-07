@@ -852,6 +852,36 @@ abstract class FoundationLocalizations {
   /// In ru, this message translates to:
   /// **'Загрузка'**
   String get progressLoading;
+
+  /// No description provided for @tableCaption.
+  ///
+  /// In ru, this message translates to:
+  /// **'Основной этап · итоговые очки'**
+  String get tableCaption;
+
+  /// No description provided for @tableParticipant.
+  ///
+  /// In ru, this message translates to:
+  /// **'Участник'**
+  String get tableParticipant;
+
+  /// No description provided for @tablePoints.
+  ///
+  /// In ru, this message translates to:
+  /// **'Очки'**
+  String get tablePoints;
+
+  /// No description provided for @tableMatches.
+  ///
+  /// In ru, this message translates to:
+  /// **'М'**
+  String get tableMatches;
+
+  /// No description provided for @tableMatchesFull.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сыграно матчей'**
+  String get tableMatchesFull;
 }
 
 class _FoundationLocalizationsDelegate
