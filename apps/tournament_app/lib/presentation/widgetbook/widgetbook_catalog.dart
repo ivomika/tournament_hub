@@ -1,3 +1,4 @@
+import 'package:tournament_app/presentation/widgetbook/foundation/colors/source_roles/source_roles_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/widgets/roster_row/default/default_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/widgets/roster_row/revealed/revealed_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/widgets/roster_row/focus/focus_use_case.dart';
@@ -38,7 +39,7 @@ final widgetbookCatalog = <WidgetbookNode>[
     children: [
       WidgetbookComponent(
         name: 'Colors',
-        useCases: [scalesUseCase, colorsUseCase],
+        useCases: [scalesUseCase, colorsUseCase, sourceColorsUseCase],
       ),
       WidgetbookComponent(
         name: 'Icons',

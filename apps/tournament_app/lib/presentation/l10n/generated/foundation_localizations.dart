@@ -462,6 +462,24 @@ abstract class FoundationLocalizations {
   /// In ru, this message translates to:
   /// **'Удалить участника {name}'**
   String rosterRemove(String name);
+
+  /// No description provided for @characterIce.
+  ///
+  /// In ru, this message translates to:
+  /// **'Персонаж · лёд'**
+  String get characterIce;
+
+  /// No description provided for @characterFan.
+  ///
+  /// In ru, this message translates to:
+  /// **'Персонаж · веер'**
+  String get characterFan;
+
+  /// No description provided for @characterStorm.
+  ///
+  /// In ru, this message translates to:
+  /// **'Персонаж · шторм'**
+  String get characterStorm;
 }
 
 class _FoundationLocalizationsDelegate

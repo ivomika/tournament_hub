@@ -23,6 +23,9 @@ abstract final class SemanticPalettePreview {
       description: strings.colorsDescription,
       samples: List.unmodifiable([
         (label: strings.background, value: colors.background),
+        (label: strings.characterIce, value: colors.characterIce),
+        (label: strings.characterFan, value: colors.characterFan),
+        (label: strings.characterStorm, value: colors.characterStorm),
         (label: strings.surface, value: colors.surface),
         (label: strings.surfaceRaised, value: colors.surfaceRaised),
         (label: strings.border, value: colors.border),

@@ -80,5 +80,8 @@
         "type": "String"
       }
     }
-  }
+  },
+  "characterIce": "Персонаж · лёд",
+  "characterFan": "Персонаж · веер",
+  "characterStorm": "Персонаж · шторм"
 }

@@ -201,4 +201,13 @@ class FoundationLocalizationsRu extends FoundationLocalizations {
   String rosterRemove(String name) {
     return 'Удалить участника $name';
   }
+
+  @override
+  String get characterIce => 'Персонаж · лёд';
+
+  @override
+  String get characterFan => 'Персонаж · веер';
+
+  @override
+  String get characterStorm => 'Персонаж · шторм';
 }

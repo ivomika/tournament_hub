@@ -140,3 +140,7 @@ Surface/raised ← текущий ColorScheme; Shape surface24/desktopSurface20/
 ### AppRosterRow (62)
 
 Runtime AppRosterMetrics: cardHeight208, swipeThreshold24, reveal160ms/ease; размеры mobile/action берутся из AppControlMetrics72/88/40, spacing/shape из общих extensions. Финальный desktop gap16 подтверждён computed CSS (desktop.css позднее переопределяет прежний24). AppIdentity participant stacked исправлен по этому факту, соответствующие macOS baselines обновлены. Внутренняя AppSurface.flat использует theme spacing0 для прямой границы выдвигаемой области; внешнее скругление принадлежит строке. Контракт/проверки: [AppRosterRow](roster-row.md).
+
+### Завершение Colors40
+
+16 исходных цветов UI kit сопоставлены AppThemeColors runtime roles, включая3 character tones;32 source/native сценария ColorsComparison покрывают mobile/desktop. Роли success/warning/information сохранены как дополнительная семантика приложения. Общая команда: `node tools/visual-comparison/compare.mjs colors`. Existing ColorPalette/primitive scales остаются основными showcases.

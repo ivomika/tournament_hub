@@ -42,7 +42,7 @@
 - ✅ 38. Создать отдельный desktop bento-прототип всех экранов и состояний. [Детали](task-details/38-desktop-bento-prototype.md)
 
 - ✅ 39. Восстановить единый визуальный UI kit из mobile/desktop по уточнённому ТЗ. [Детали](task-details/39-ui-kit.md)
-- 🚧 40. Foundation Colors — согласовать палитру приложения с UI kit. [Детали](task-details/40-ds-foundation-colors.md)
+- ✅ 40. Foundation Colors — согласовать палитру приложения с UI kit. [Детали](task-details/40-ds-foundation-colors.md)
 - 🟣 41. Foundation Typography — согласовать текстовые роли приложения с UI kit. [Детали](task-details/41-ds-foundation-typography.md)
 - 🟣 42. Foundation Spacing — добавить шкалу отступов. [Детали](task-details/42-ds-foundation-spacing.md)
 - 🟣 43. Foundation Shape — добавить радиусы и формы. [Детали](task-details/43-ds-foundation-shape.md)

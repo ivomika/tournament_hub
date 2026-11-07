@@ -2,11 +2,11 @@
 
 ## Статус и этап
 
-🚧 В работе
+✅ Выполнена
 
 - Mode: CODE.
 - TestGate: NOT_REQUIRED для заявленного visual/theme/layout scope. App state/controllers, вычисления, валидация, сериализация, данные и app routing исключены; при расширении scope классификация пересматривается до кода.
-- Stage: DISCOVERY.
+- Stage: DONE.
 - Specification:1; plan:0 (черновая последовательность ниже); test scenarios:1, NOT_RUN.
 - Реализация не начата; отдельного разрешения на логический gate этой постановкой не получено.
 
@@ -53,12 +53,12 @@
 
 ## Acceptance Criteria
 
-- [ ] AC-40.1: AppColors / ColorPrimitives реализован/расширен в указанном scope; нет параллельной копии уже существующей сущности, ссылку на HTML-эталон можно проследить.
-- [ ] AC-40.2: все визуальные параметры приходят из собственной темы и общих токенов, API типизирован; raw styling/строковые discriminators/бизнес-правила отсутствуют.
-- [ ] AC-40.3: именованные Widgetbook use cases показывают реальный элемент: Primitive scales; Dark palette; пары surface/content; hover/pressed/focus/disabled; character tones; отрицательное действие.
-- [ ] AC-40.4: Widgetbook и golden используют одинаковые fixtures/именованные builders/темы; native baselines созданы/сверены, diffs просмотрены, comparison после update выполнен без update.
-- [ ] AC-40.5: проверены constraints, значимые states, локализованные labels/semantics и content limits; совпадение visual identity Desktop/Mobile подтверждено, отклонения записаны.
-- [ ] AC-40.6: manifest/owning docs/scenario registrations актуальны; analyze/tests/architecture checks по impact PASS либо честный blocker с NOT_RUN. Результат показан пользователю.
+- [x] AC-40.1: AppColors / ColorPrimitives реализован/расширен в указанном scope; нет параллельной копии уже существующей сущности, ссылку на HTML-эталон можно проследить.
+- [x] AC-40.2: все визуальные параметры приходят из собственной темы и общих токенов, API типизирован; raw styling/строковые discriminators/бизнес-правила отсутствуют.
+- [x] AC-40.3: именованные Widgetbook use cases показывают реальный элемент: Primitive scales; Dark palette; пары surface/content; hover/pressed/focus/disabled; character tones; отрицательное действие.
+- [x] AC-40.4: Widgetbook и golden используют одинаковые fixtures/именованные builders/темы; native baselines созданы/сверены, diffs просмотрены, comparison после update выполнен без update.
+- [x] AC-40.5: проверены constraints, значимые states, локализованные labels/semantics и content limits; совпадение visual identity Desktop/Mobile подтверждено, отклонения записаны.
+- [x] AC-40.6: manifest/owning docs/scenario registrations актуальны; analyze/tests/architecture checks по impact PASS либо честный blocker с NOT_RUN. Результат показан пользователю.
 
 ## Ошибки и крайние случаи
 
@@ -145,3 +145,22 @@ UI kit принят целевым визуальным ориентиром; с
 > продолжай
 
 На macOS запущен `flutter test --no-pub test/presentation/foundation_preview_test.dart` с Flutter 3.47.0 / Dart 3.13.0: 8 проверок прошли, 6 golden comparison завершились ошибкой из-за отсутствующих macOS baseline. В репозитории доступны только Windows PNG; копировать их в macOS запрещено. Локальный тег Flutter 3.47.1 существует, но активный SDK — 3.47.0. Изменения продукта и golden не выполнялись.
+
+### Новая очередь переноса после RosterRow
+
+Prompt пользователя (дословно):
+
+> выглядит хорошо. Обнови задачи по реализации компонентов, посмотри что уже выполнено, а что еще требует реализации и реализуй каждый компонент по новому flow делая коммит для каждого компонента без push
+
+Обязательный flow текущей итерации: сверить существующий runtime и итоговый CSS UI kit → определить реальные состояния/адаптацию и контрольные узлы → typed runtime WidgetTheme без primitives в consumers → scoped Widgetbook/shared fixture → декларация общего comparison pipeline → source/native/overlay/diff и native goldens → осмотр и исправление внутренних различий → повтор без update, tests/analyzer/architecture → отдельный локальный коммит компонента без push. Существующая реализация не дублируется. Наличие tokens в72 не равно выполнению всех старых AC foundation.
+Факт сверки: runtime foundation перенесён задачей72; требуется сверить оставшиеся AC этой карточки (showcase/state coverage и документация), прежде чем закрывать номер.
+
+### Завершение после72/74
+
+Prompt: «Продолжай реализацию: сначала заверши foundation, затем остальные компоненты по новому flow. Каждый компонент отдельным коммитом без push.»
+
+Plan1: использовать существующие AppThemeColors/ColorPalette, дополнить palette тремя отсутствующими character samples;16 source colors ×2 viewports в общем pipeline. Color sample — visual showcase runtime roles, не фиктивный PNG token object. Проверить native palette/theme tests, source report, analyzer/checker, отдельный коммит40. TestGate NOT_REQUIRED: чистый visual/theme scope.
+
+### Итог40
+
+32 source/native color samples PASS с update и без; существующие palette/typography/scales previews и theme propagation PASS19; analyzer No issues, architecture-check116 файлов без findings. Цвета/hex/alpha не менялись: foundation72 уже совпадал. Добавлены3 character роли в существующий palette preview и общий source fixture/use case. Native macOS palette screenshots просмотрены. Остальные ОС NOT_RUN. Source report: comparison/colors/index.html. Отдельный коммит без push.
