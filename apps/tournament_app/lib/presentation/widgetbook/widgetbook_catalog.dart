@@ -1,3 +1,6 @@
+import 'package:tournament_app/presentation/widgetbook/widgets/share_link/short/short_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/widgets/share_link/long/long_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/widgets/share_link/disabled/disabled_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/components/qr_code/access/access_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/components/qr_code/graphic/graphic_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/widgets/dialog/default/default_use_case.dart';
@@ -299,6 +302,10 @@ final widgetbookCatalog = <WidgetbookNode>[
           dialogDisabledUseCase,
           dialogOverlayUseCase,
         ],
+      ),
+      WidgetbookComponent(
+        name: 'Share link',
+        useCases: [shareShortUseCase, shareLongUseCase, shareDisabledUseCase],
       ),
       WidgetbookComponent(
         name: 'Roster row',

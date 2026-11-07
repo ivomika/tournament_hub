@@ -250,3 +250,7 @@ Source CSS уточнил AppElevation.dialog: offset24/blur80/#0008; испра
 AppQrCode принимает готовую AppQrGraphic module alpha-mask ImageProvider, semanticLabel и optional code. Encoder/session/network отсутствуют. Module mask включает quiet zone/finder geometry; runtime theme задаёт foreground=scaffoldBackgroundColor/background=onSurface, radius32, preferred288 mobile/320 desktop. UI kit ограничивает preview220, comparison сохраняет это внешнее constraint. Code condensed26/700/1.2 и padding horizontal16/bottom24; FittedBox.scaleDown поддерживает увеличенный текст без обрезания.
 
 Fixture qr_demo_mask.png880×880 экспортирован из исходного SVG UI kit, source SVG SHA256 fc443865687060b0a68f2ca61a4afefd3141e307228fafc2116daf91441bfa88. Это графические данные, не screenshot surface/code: маска перекрашивается через текущую тему. На production можно передавать другую готовую mask с quiet zone.
+
+## ShareLink — реализация71
+
+AppShareLink показывает переданные role/address и композирует AppButton.shareIcon; Clipboard/services отсутствуют, onCopy — внешний nullable intent. Caption14/1.5 из TextTheme, padding16/gap8/radius24 из extensions; surface mobile/background desktop; copy56/48 без тени. Для соответствия CSS overflow-wrap:anywhere адрес подавляет Unicode line-break после slash через word joiner: длинный сегмент переносится внутри строки. Исходные данные и semanticsLabel остаются без служебных символов. Четыре source сценария + native scaled/theme/keyboard/null checks.

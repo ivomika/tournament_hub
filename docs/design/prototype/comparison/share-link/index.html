@@ -1,0 +1,847 @@
+<!doctype html><html lang="ru"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AppShareLink · Web ↔ Flutter</title><style>
+ :root{color-scheme:dark;font-family:system-ui;background:#0e1014;color:#f4f2ee}*{box-sizing:border-box}body{max-width:1600px;margin:auto;padding:32px}h1{font-size:36px}a{color:#f1c75b}p{color:#b8bec9;line-height:1.5}.stats,nav{display:flex;gap:20px;flex-wrap:wrap}nav{position:sticky;top:0;background:#0e1014ee;padding:16px 0;z-index:1}.stats>div{border:1px solid #3a414e;border-radius:12px;padding:16px}.stats strong{display:block;font-size:28px}.case{padding:20px;margin:24px 0;background:#171a20;border:1px solid #3a414e;border-radius:16px}.case header{display:flex;justify-content:space-between;gap:16px}.pass{color:#78d7a5}.fail{color:#ff968e}.shots{display:grid;grid-template-columns:repeat(4,minmax(180px,1fr));gap:12px;overflow:auto}figure{margin:0;background:#0e1014;padding:12px;display:flex;flex-direction:column;align-items:center;gap:20px;min-height:200px}figcaption{color:#b8bec9;font-size:13px}img{max-width:100%;height:auto;image-rendering:pixelated}figure a{margin:auto}table{border-collapse:collapse;width:100%;font-size:12px}th,td{text-align:left;padding:9px;border-bottom:1px solid #3a414e}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px;color:#b8bec9}.table{overflow:auto}.finding{color:#ff968e}small{color:#969eac}@media(max-width:800px){body{padding:16px}.shots{grid-template-columns:repeat(4,280px)}}
+ </style><header><small>TOURNAMENT HUB / ОБЩЕЕ ВИЗУАЛЬНОЕ СРАВНЕНИЕ</small><h1>AppShareLink · Web ↔ Flutter</h1><p>Сценарии и контрольные элементы заданы декларацией компонента. Геометрия, типографика и цвета проверяются отдельно; diff показывает остаточную разницу рендереров. Нажмите PNG, чтобы открыть исходное разрешение.</p></header>
+ <div class="stats"><div><strong>4</strong>сценариев</div><div><strong class="pass">4/4</strong>прошли контракт контролей</div><div><strong>20</strong>контрольных элементов</div></div>
+ <nav><a href="#state-short">Short</a><a href="#state-long">Long</a><a href="#mobile-share">mobile · share</a><a href="#desktop-share">desktop · share</a><a href="http://127.0.0.1:8094/ui-kit.html">Web-эталон ↗</a></nav>
+ <article class="case" id="state-short"><header><h2>Short</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/state-short.png"><img alt="state-short Web" src="web/state-short.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/state-short.png"><img alt="state-short Flutter" src="flutter/state-short.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/state-short.png"><img alt="state-short Наложение 50/50" src="overlay/state-short.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/state-short.png"><img alt="state-short Diff ×4" src="diff/state-short.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 11 изменённых пикселей; mean channel delta 0.0476/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;state-short&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 88
+    },
+    &quot;controls&quot;: {
+      &quot;surface&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 88
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 88,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 33,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;address&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 16,
+          &quot;y&quot;: 23,
+          &quot;width&quot;: 220,
+          &quot;height&quot;: 42
+        },
+        &quot;width&quot;: 220,
+        &quot;height&quot;: 42,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 39,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;copy&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 244,
+          &quot;y&quot;: 16,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 28,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 49,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;copy-style&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 244,
+          &quot;y&quot;: 16,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 28,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 49,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;glyph&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 260,
+          &quot;y&quot;: 32,
+          &quot;width&quot;: 24,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 24,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 50.099998474121094,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1.8
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 88
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/state-short.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;state-short&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 88
+    },
+    &quot;controls&quot;: {
+      &quot;surface&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 88
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 88,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#00000000&quot;
+      },
+      &quot;address&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 16,
+          &quot;y&quot;: 23,
+          &quot;width&quot;: 220,
+          &quot;height&quot;: 42
+        },
+        &quot;width&quot;: 220,
+        &quot;height&quot;: 42,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 38.5927734375
+      },
+      &quot;copy&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 244,
+          &quot;y&quot;: 16,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56
+      },
+      &quot;copy-style&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 244,
+          &quot;y&quot;: 16,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 28,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#00000000&quot;
+      },
+      &quot;glyph&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 260,
+          &quot;y&quot;: 32,
+          &quot;width&quot;: 24,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 24,
+        &quot;height&quot;: 24
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 11,
+      &quot;meanChannelDelta&quot;: 0.04761219792865363
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/state-short.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="state-long"><header><h2>Long</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/state-long.png"><img alt="state-long Web" src="web/state-long.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/state-long.png"><img alt="state-long Flutter" src="flutter/state-long.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/state-long.png"><img alt="state-long Наложение 50/50" src="overlay/state-long.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/state-long.png"><img alt="state-long Diff ×4" src="diff/state-long.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 11 изменённых пикселей; mean channel delta 0.0556/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;state-long&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 116
+    },
+    &quot;controls&quot;: {
+      &quot;surface&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 116
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 116,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 33,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;address&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 16,
+          &quot;y&quot;: 16,
+          &quot;width&quot;: 220,
+          &quot;height&quot;: 84
+        },
+        &quot;width&quot;: 220,
+        &quot;height&quot;: 84,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 32,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;copy&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 244,
+          &quot;y&quot;: 30,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 28,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 63,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;copy-style&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 244,
+          &quot;y&quot;: 30,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 28,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 63,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;glyph&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 260,
+          &quot;y&quot;: 46,
+          &quot;width&quot;: 24,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 24,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 64.0999984741211,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1.8
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 116
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/state-long.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;state-long&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 116
+    },
+    &quot;controls&quot;: {
+      &quot;surface&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 116
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 116,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#00000000&quot;
+      },
+      &quot;address&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 16,
+          &quot;y&quot;: 16,
+          &quot;width&quot;: 220,
+          &quot;height&quot;: 84
+        },
+        &quot;width&quot;: 220,
+        &quot;height&quot;: 84,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 31.5927734375
+      },
+      &quot;copy&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 244,
+          &quot;y&quot;: 30,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56
+      },
+      &quot;copy-style&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 244,
+          &quot;y&quot;: 30,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 28,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#00000000&quot;
+      },
+      &quot;glyph&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 260,
+          &quot;y&quot;: 46,
+          &quot;width&quot;: 24,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 24,
+        &quot;height&quot;: 24
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 11,
+      &quot;meanChannelDelta&quot;: 0.05557071147970319
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/state-long.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="mobile-share"><header><h2>mobile · share</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/mobile-share.png"><img alt="mobile-share Web" src="web/mobile-share.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/mobile-share.png"><img alt="mobile-share Flutter" src="flutter/mobile-share.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/mobile-share.png"><img alt="mobile-share Наложение 50/50" src="overlay/mobile-share.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/mobile-share.png"><img alt="mobile-share Diff ×4" src="diff/mobile-share.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 11 изменённых пикселей; mean channel delta 0.0476/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;mobile-share&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 88
+    },
+    &quot;controls&quot;: {
+      &quot;surface&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 88
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 88,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 33,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;address&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 16,
+          &quot;y&quot;: 23,
+          &quot;width&quot;: 220,
+          &quot;height&quot;: 42
+        },
+        &quot;width&quot;: 220,
+        &quot;height&quot;: 42,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 39,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;copy&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 244,
+          &quot;y&quot;: 16,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 28,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 49,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;copy-style&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 244,
+          &quot;y&quot;: 16,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 28,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 49,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;glyph&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 260,
+          &quot;y&quot;: 32,
+          &quot;width&quot;: 24,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 24,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 50.099998474121094,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1.8
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 88
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/mobile-share.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;mobile-share&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 88
+    },
+    &quot;controls&quot;: {
+      &quot;surface&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 88
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 88,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#00000000&quot;
+      },
+      &quot;address&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 16,
+          &quot;y&quot;: 23,
+          &quot;width&quot;: 220,
+          &quot;height&quot;: 42
+        },
+        &quot;width&quot;: 220,
+        &quot;height&quot;: 42,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 38.5927734375
+      },
+      &quot;copy&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 244,
+          &quot;y&quot;: 16,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56
+      },
+      &quot;copy-style&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 244,
+          &quot;y&quot;: 16,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 28,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#00000000&quot;
+      },
+      &quot;glyph&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 260,
+          &quot;y&quot;: 32,
+          &quot;width&quot;: 24,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 24,
+        &quot;height&quot;: 24
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 11,
+      &quot;meanChannelDelta&quot;: 0.04761219792865363
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/mobile-share.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="desktop-share"><header><h2>desktop · share</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/desktop-share.png"><img alt="desktop-share Web" src="web/desktop-share.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/desktop-share.png"><img alt="desktop-share Flutter" src="flutter/desktop-share.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/desktop-share.png"><img alt="desktop-share Наложение 50/50" src="overlay/desktop-share.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/desktop-share.png"><img alt="desktop-share Diff ×4" src="diff/desktop-share.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 312 изменённых пикселей; mean channel delta 0.2341/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;desktop-share&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 395.328125,
+      &quot;height&quot;: 80
+    },
+    &quot;controls&quot;: {
+      &quot;surface&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 395.328125,
+          &quot;height&quot;: 80
+        },
+        &quot;width&quot;: 395.328125,
+        &quot;height&quot;: 80,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#0e1014ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 33,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;address&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 16,
+          &quot;y&quot;: 19,
+          &quot;width&quot;: 307.328125,
+          &quot;height&quot;: 42
+        },
+        &quot;width&quot;: 307.328125,
+        &quot;height&quot;: 42,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 35,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;copy&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 331.328125,
+          &quot;y&quot;: 16,
+          &quot;width&quot;: 48,
+          &quot;height&quot;: 48
+        },
+        &quot;width&quot;: 48,
+        &quot;height&quot;: 48,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 45,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;copy-style&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 331.328125,
+          &quot;y&quot;: 16,
+          &quot;width&quot;: 48,
+          &quot;height&quot;: 48
+        },
+        &quot;width&quot;: 48,
+        &quot;height&quot;: 48,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 45,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;glyph&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 343.328125,
+          &quot;y&quot;: 28,
+          &quot;width&quot;: 24,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 24,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 46.10000038146973,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1.8
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 395.328125,
+      &quot;height&quot;: 80
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/desktop-share.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;desktop-share&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 395.328125,
+      &quot;height&quot;: 80
+    },
+    &quot;controls&quot;: {
+      &quot;surface&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 395.328125,
+          &quot;height&quot;: 80
+        },
+        &quot;width&quot;: 395.328125,
+        &quot;height&quot;: 80,
+        &quot;background&quot;: &quot;#0e1014ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#00000000&quot;
+      },
+      &quot;address&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 16,
+          &quot;y&quot;: 19,
+          &quot;width&quot;: 307.328125,
+          &quot;height&quot;: 42
+        },
+        &quot;width&quot;: 307.328125,
+        &quot;height&quot;: 42,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 34.5927734375
+      },
+      &quot;copy&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 331.328125,
+          &quot;y&quot;: 16,
+          &quot;width&quot;: 48,
+          &quot;height&quot;: 48
+        },
+        &quot;width&quot;: 48,
+        &quot;height&quot;: 48
+      },
+      &quot;copy-style&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 331.328125,
+          &quot;y&quot;: 16,
+          &quot;width&quot;: 48,
+          &quot;height&quot;: 48
+        },
+        &quot;width&quot;: 48,
+        &quot;height&quot;: 48,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#00000000&quot;
+      },
+      &quot;glyph&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 343.328125,
+          &quot;y&quot;: 28,
+          &quot;width&quot;: 24,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 24,
+        &quot;height&quot;: 24
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 312,
+      &quot;meanChannelDelta&quot;: 0.23413299663299664
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/desktop-share.png&quot;
+    }
+  }
+}</pre></details></article>
+ <footer><small>Run 2026-11-07T21:42:09.326Z. <a href="results.json">Полный JSON</a> · <a href="spec.json">Декларация</a>. Native goldens проверяются отдельно; отчёт не объявляет pixel-perfect при остаточной raster-разнице.</small></footer></html>

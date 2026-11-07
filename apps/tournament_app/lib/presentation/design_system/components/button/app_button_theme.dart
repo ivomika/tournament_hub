@@ -17,6 +17,7 @@ enum AppButtonKind {
   removeSwipe,
   dialogDestructive,
   dialogCancel,
+  shareIcon,
 }
 
 class AppButtonTheme {
@@ -58,6 +59,7 @@ class AppButtonTheme {
         kind == AppButtonKind.dialogCancel;
     final circular =
         kind == AppButtonKind.icon ||
+        kind == AppButtonKind.shareIcon ||
         kind == AppButtonKind.accentIcon ||
         kind == AppButtonKind.removeIcon;
     final accent =
@@ -136,7 +138,12 @@ class AppButtonTheme {
       circular: circular,
       justify: kind == AppButtonKind.primary ? m.spaceBetween : m.center,
       cross: m.centerCross,
-      shadows: !dialog && !desktop && !disabled && !danger
+      shadows:
+          kind != AppButtonKind.shareIcon &&
+              !dialog &&
+              !desktop &&
+              !disabled &&
+              !danger
           ? [t.extension<AppElevation>()!.floating]
           : [],
       focusColor: t.focusColor,

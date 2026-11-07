@@ -2,13 +2,13 @@
 
 ## Статус и этап
 
-🟣 Запланирована
+✅ Выполнена
 
-- Mode: PLANNING_ONLY; будущая реализация — CODE в этом же номере.
+- Mode: CODE; будущая реализация — CODE в этом же номере.
 - TestGate: NOT_REQUIRED для заявленного visual/theme/layout scope. App state/controllers, вычисления, валидация, сериализация, данные и app routing исключены; при расширении scope классификация пересматривается до кода.
-- Stage: SPEC_READY.
-- Specification:1; plan:0 (черновая последовательность ниже); test scenarios:1, NOT_RUN.
-- Реализация не начата; отдельного разрешения на логический gate этой постановкой не получено.
+- Stage: DONE.
+- Specification:1; plan:1; native/source сценарии выполнены.
+- Реализован visual/theme scope по запросу пользователя; Clipboard не входит в контракт.
 
 ## Цель и контекст
 
@@ -53,12 +53,12 @@
 
 ## Acceptance Criteria
 
-- [ ] AC-71.1: AppShareLink реализован/расширен в указанном scope; нет параллельной копии уже существующей сущности, ссылку на HTML-эталон можно проследить.
-- [ ] AC-71.2: все визуальные параметры приходят из собственной темы и общих токенов, API типизирован; raw styling/строковые discriminators/бизнес-правила отсутствуют.
-- [ ] AC-71.3: именованные Widgetbook use cases показывают реальный элемент: Короткий/длинный URL; focus; disabled callback; readonly role explanation; обе плотности.
-- [ ] AC-71.4: Widgetbook и golden используют одинаковые fixtures/именованные builders/темы; native baselines созданы/сверены, diffs просмотрены, comparison после update выполнен без update.
-- [ ] AC-71.5: проверены constraints, значимые states, локализованные labels/semantics и content limits; совпадение visual identity Desktop/Mobile подтверждено, отклонения записаны.
-- [ ] AC-71.6: manifest/owning docs/scenario registrations актуальны; analyze/tests/architecture checks по impact PASS либо честный blocker с NOT_RUN. Результат показан пользователю.
+- [x] AC-71.1: AppShareLink реализован/расширен в указанном scope; нет параллельной копии уже существующей сущности, ссылку на HTML-эталон можно проследить.
+- [x] AC-71.2: все визуальные параметры приходят из собственной темы и общих токенов, API типизирован; raw styling/строковые discriminators/бизнес-правила отсутствуют.
+- [x] AC-71.3: именованные Widgetbook use cases показывают реальный элемент: Короткий/длинный URL; focus; disabled callback; readonly role explanation; обе плотности.
+- [x] AC-71.4: Widgetbook и golden используют одинаковые fixtures/именованные builders/темы; native baselines созданы/сверены, diffs просмотрены, comparison после update выполнен без update.
+- [x] AC-71.5: проверены constraints, значимые states, локализованные labels/semantics и content limits; совпадение visual identity Desktop/Mobile подтверждено, отклонения записаны.
+- [x] AC-71.6: manifest/owning docs/scenario registrations актуальны; analyze/tests/architecture checks по impact PASS либо честный blocker с NOT_RUN. Результат показан пользователю.
 
 ## Ошибки и крайние случаи
 
@@ -117,10 +117,34 @@
 
 ## Final Verification
 
-- [ ] Все AC подтверждены при реализации; тесты фактически запущены.
-- [ ] Theme/scenarios/goldens/docs согласованы, визуальный результат показан.
-- [ ] Нет бизнес-логики/запрещённых dependencies/raw styling.
+- [x] Все AC подтверждены при реализации; тесты фактически запущены.
+- [x] Theme/scenarios/goldens/docs согласованы, визуальный результат показан.
+- [x] Нет бизнес-логики/запрещённых dependencies/raw styling.
 
 ## Итог
 
-Постановка создана; 🟣. Реализация и выполнение Flutter-проверок не начаты.
+AppShareLink реализован, зарегистрирован и проверен по общему flow; ✅. Другие native ОС не проверялись.
+
+### Новая очередь переноса после RosterRow
+
+Prompt пользователя (дословно):
+
+> выглядит хорошо. Обнови задачи по реализации компонентов, посмотри что уже выполнено, а что еще требует реализации и реализуй каждый компонент по новому flow делая коммит для каждого компонента без push
+
+Обязательный flow текущей итерации: сверить существующий runtime и итоговый CSS UI kit → определить реальные состояния/адаптацию и контрольные узлы → typed runtime WidgetTheme без primitives в consumers → scoped Widgetbook/shared fixture → декларация общего comparison pipeline → source/native/overlay/diff и native goldens → осмотр и исправление внутренних различий → повтор без update, tests/analyzer/architecture → отдельный локальный коммит компонента без push. Существующая реализация не дублируется. Наличие tokens в72 не равно выполнению всех старых AC foundation.
+Факт сверки: отдельного production компонента и comparison declaration пока нет; задача остаётся в очереди реализации.
+
+### План71
+
+AppShareLink композирует role/address Text и реальный AppButton.shareIcon без контекстной тени. Никакого Clipboard service и copied/error без эталона. Runtime background surface mobile/background desktop, padding16/gap8/radius24/caption14, copy56/48. Source short/long/mobile/desktop controls + native keyboard/null/theme/scaled. Visual NOT_REQUIRED.
+
+### Реализация71 — 8 ноября2026
+
+Prompt пользователя (дословно):
+
+> продолжи
+
+- Runtime AppShareLink + собственная тема, реальный AppButton.shareIcon, short/long/disabled scoped Widgetbook fixtures. Локализация role/copy через intl.
+- Web/native/overlay/diff:4 сценария. Осмотр выявил иной перенос длинного URL после slash при совпадающей внешней геометрии; исправлен visual word wrapping, raw address/semantics сохранены. Повтор после обновления без update выполнен.
+- Native pointer/Enter/null callbacks, main theme replacement и mobile/desktop textScale1.6 goldens:2 tests PASS. Flutter analyze PASS; architecture49+51+35 fixtures и315 production/test files PASS; comparison engine37 PASS.
+- Отчёт: docs/design/prototype/comparison/share-link/index.html; Clipboard, copied/error и сервисы не реализуются этим визуальным контрактом.

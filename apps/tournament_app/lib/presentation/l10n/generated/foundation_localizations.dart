@@ -948,6 +948,18 @@ abstract class FoundationLocalizations {
   /// In ru, this message translates to:
   /// **'Демонстрационный QR подключения участников'**
   String get qrDescription;
+
+  /// No description provided for @shareRole.
+  ///
+  /// In ru, this message translates to:
+  /// **'Только просмотр'**
+  String get shareRole;
+
+  /// No description provided for @shareCopy.
+  ///
+  /// In ru, this message translates to:
+  /// **'Скопировать ссылку'**
+  String get shareCopy;
 }
 
 class _FoundationLocalizationsDelegate

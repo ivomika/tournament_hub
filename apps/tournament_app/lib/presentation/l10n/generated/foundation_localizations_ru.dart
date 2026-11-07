@@ -467,4 +467,10 @@ class FoundationLocalizationsRu extends FoundationLocalizations {
 
   @override
   String get qrDescription => 'Демонстрационный QR подключения участников';
+
+  @override
+  String get shareRole => 'Только просмотр';
+
+  @override
+  String get shareCopy => 'Скопировать ссылку';
 }
