@@ -2,13 +2,13 @@
 
 ## Статус и этап
 
-🟣 Запланирована
+✅ Выполнена
 
-- Mode: PLANNING_ONLY; будущая реализация — CODE в этом же номере.
+- Mode: CODE; будущая реализация — CODE в этом же номере.
 - TestGate: NOT_REQUIRED для заявленного visual/theme/layout scope. App state/controllers, вычисления, валидация, сериализация, данные и app routing исключены; при расширении scope классификация пересматривается до кода.
-- Stage: SPEC_READY.
+- Stage: DONE.
 - Specification:1; plan:0 (черновая последовательность ниже); test scenarios:1, NOT_RUN.
-- Реализация не начата; отдельного разрешения на логический gate этой постановкой не получено.
+- Visual/theme scope реализован; отдельный логический gate не требуется.
 
 ## Цель и контекст
 
@@ -53,12 +53,12 @@ Product shadows/scrim/opacity scope отсутствует; HTML задаёт fl
 
 ## Acceptance Criteria
 
-- [ ] AC-45.1: AppElevation реализован/расширен в указанном scope; нет параллельной копии уже существующей сущности, ссылку на HTML-эталон можно проследить.
-- [ ] AC-45.2: все визуальные параметры приходят из собственной темы и общих токенов, API типизирован; raw styling/строковые discriminators/бизнес-правила отсутствуют.
-- [ ] AC-45.3: именованные Widgetbook use cases показывают реальный элемент: Floating action; overlay surface; scrim на разных поверхностях; disabled/underlay opacity там, где она подтверждена.
-- [ ] AC-45.4: Widgetbook и golden используют одинаковые fixtures/именованные builders/темы; native baselines созданы/сверены, diffs просмотрены, comparison после update выполнен без update.
-- [ ] AC-45.5: проверены constraints, значимые states, локализованные labels/semantics и content limits; совпадение visual identity Desktop/Mobile подтверждено, отклонения записаны.
-- [ ] AC-45.6: manifest/owning docs/scenario registrations актуальны; analyze/tests/architecture checks по impact PASS либо честный blocker с NOT_RUN. Результат показан пользователю.
+- [x] AC-45.1: AppElevation реализован/расширен в указанном scope; нет параллельной копии уже существующей сущности, ссылку на HTML-эталон можно проследить.
+- [x] AC-45.2: все визуальные параметры приходят из собственной темы и общих токенов, API типизирован; raw styling/строковые discriminators/бизнес-правила отсутствуют.
+- [x] AC-45.3: именованные Widgetbook use cases показывают реальный элемент: Floating action; overlay surface; scrim на разных поверхностях; disabled/underlay opacity там, где она подтверждена.
+- [x] AC-45.4: Widgetbook и golden используют одинаковые fixtures/именованные builders/темы; native baselines созданы/сверены, diffs просмотрены, comparison после update выполнен без update.
+- [x] AC-45.5: проверены constraints, значимые states, локализованные labels/semantics и content limits; совпадение visual identity Desktop/Mobile подтверждено, отклонения записаны.
+- [x] AC-45.6: manifest/owning docs/scenario registrations актуальны; analyze/tests/architecture checks по impact PASS либо честный blocker с NOT_RUN. Результат показан пользователю.
 
 ## Ошибки и крайние случаи
 
@@ -117,10 +117,37 @@ Product shadows/scrim/opacity scope отсутствует; HTML задаёт fl
 
 ## Final Verification
 
-- [ ] Все AC подтверждены при реализации; тесты фактически запущены.
-- [ ] Theme/scenarios/goldens/docs согласованы, визуальный результат показан.
-- [ ] Нет бизнес-логики/запрещённых dependencies/raw styling.
+- [x] Все AC подтверждены при реализации; тесты фактически запущены.
+- [x] Theme/scenarios/goldens/docs согласованы, визуальный результат показан.
+- [x] Нет бизнес-логики/запрещённых dependencies/raw styling.
 
 ## Итог
 
 Постановка создана; 🟣. Реализация и выполнение Flutter-проверок не начаты.
+
+### Новая очередь переноса после RosterRow
+
+Prompt пользователя (дословно):
+
+> выглядит хорошо. Обнови задачи по реализации компонентов, посмотри что уже выполнено, а что еще требует реализации и реализуй каждый компонент по новому flow делая коммит для каждого компонента без push
+
+Обязательный flow текущей итерации: сверить существующий runtime и итоговый CSS UI kit → определить реальные состояния/адаптацию и контрольные узлы → typed runtime WidgetTheme без primitives в consumers → scoped Widgetbook/shared fixture → декларация общего comparison pipeline → source/native/overlay/diff и native goldens → осмотр и исправление внутренних различий → повтор без update, tests/analyzer/architecture → отдельный локальный коммит компонента без push. Существующая реализация не дублируется. Наличие tokens в72 не равно выполнению всех старых AC foundation.
+Факт сверки: runtime foundation перенесён задачей72; требуется сверить оставшиеся AC этой карточки (showcase/state coverage и документация), прежде чем закрывать номер.
+
+### План45
+
+AppElevation shadows уже перенесены72. Добавить отсутствующий source scrim#07080bb8 в ColorScheme основной темы; source floating sample ×2 viewports с внешним capturePadding64, scoped shadow roles/scrim fixtures и native theme replacement. Native shader/blur diff показывается отдельно, не называется pixel-perfect. Disabled solid content roles уже40, не выдумывать общий opacity для всех disabled widgets. Visual NOT_REQUIRED.
+
+### Реализация45 —7 ноября2026
+
+Prompt пользователя (дословно):
+
+> Продолжай реализацию: сначала заверши foundation, затем остальные компоненты по новому flow. Каждый компонент отдельным коммитом без push.
+
+Существующий AppElevation сохранён как единственная runtime foundation; scrim#07080bb8 добавлен в основной ColorScheme. Scoped shadow/scrim fixtures используют текущую тему; отдельный replacement test меняет scrim. Source floating сравнивается на390/1440 с padding64: frame и внутренний label,2/2 PASS после update и обычного прогона. Роли sheet/dialog и scrim проверены native golden; общего неподтверждённого disabled opacity не вводили.
+
+В тестовом binding включены реальные blurred shadows (стандартный Automated binding отключал blur). Capture harness сохраняет исходные constraints при внешнем padding; browser mask покрывает весь снимок. Намеренно обновлены затронутые Button/Border snapshots, обычные сравнения25/25 и8/8 PASS. Raster/overlay просмотрены, полного pixel-perfect не заявляем.
+
+Проверки: Flutter DS + foundation preview + Widgetbook bootstrap47 PASS; analyzer без issues; architecture fixtures49/51/35 PASS,139 files; Node comparison engine34 PASS; rules16leaf/2groups PASS; diff check PASS. Hot restart macOS Widgetbook выполнен. Другие ОС NOT_RUN.
+
+Итог текущей итерации: AC-45.1–6 выполнены; отчёт docs/design/prototype/comparison/elevation/index.html.

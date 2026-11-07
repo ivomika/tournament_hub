@@ -53,8 +53,8 @@ function measure(scenario){
  if(scenario.webText!==undefined)root.textContent=scenario.webText;
  for(const animation of document.getAnimations()){animation.pause();animation.currentTime=scenario.freezeMilliseconds??0;}
  const original=root.getBoundingClientRect();
- const mask=document.createElement('div');Object.assign(mask.style,{position:'fixed',inset:'0',background:getComputedStyle(document.body).backgroundColor,zIndex:'2147483646'});document.body.append(mask);
  const captureInset=scenario.capturePadding??0;
+ const mask=document.createElement('div');Object.assign(mask.style,{position:'fixed',inset:'0',width:Math.max(innerWidth,original.width+captureInset*2)+'px',height:Math.max(innerHeight,original.height+captureInset*2)+'px',background:getComputedStyle(document.body).backgroundColor,zIndex:'2147483646'});document.body.append(mask);
  // Normalize only capture placement. Keep the original DOM ancestry, SVG
  // symbols, state classes and measured width; never replace component CSS.
  root.style.position='fixed';root.style.left='0px';root.style.top='0px';root.style.margin='0px';root.style.width=`${original.width}px`;root.style.zIndex='2147483647';

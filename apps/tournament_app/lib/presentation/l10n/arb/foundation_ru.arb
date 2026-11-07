@@ -100,5 +100,9 @@
         "format": "decimalPattern"
       }
     }
-  }
+  },
+  "elevationSource": "floating · 0 8 24 / #07080b80",
+  "elevationFloating": "Плавающая поверхность",
+  "elevationSheet": "Нижняя панель",
+  "elevationDialog": "Диалог"
 }

@@ -1,0 +1,227 @@
+<!doctype html><html lang="ru"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Foundation Elevation · Web ↔ Flutter</title><style>
+ :root{color-scheme:dark;font-family:system-ui;background:#0e1014;color:#f4f2ee}*{box-sizing:border-box}body{max-width:1600px;margin:auto;padding:32px}h1{font-size:36px}a{color:#f1c75b}p{color:#b8bec9;line-height:1.5}.stats,nav{display:flex;gap:20px;flex-wrap:wrap}nav{position:sticky;top:0;background:#0e1014ee;padding:16px 0;z-index:1}.stats>div{border:1px solid #3a414e;border-radius:12px;padding:16px}.stats strong{display:block;font-size:28px}.case{padding:20px;margin:24px 0;background:#171a20;border:1px solid #3a414e;border-radius:16px}.case header{display:flex;justify-content:space-between;gap:16px}.pass{color:#78d7a5}.fail{color:#ff968e}.shots{display:grid;grid-template-columns:repeat(4,minmax(180px,1fr));gap:12px;overflow:auto}figure{margin:0;background:#0e1014;padding:12px;display:flex;flex-direction:column;align-items:center;gap:20px;min-height:200px}figcaption{color:#b8bec9;font-size:13px}img{max-width:100%;height:auto;image-rendering:pixelated}figure a{margin:auto}table{border-collapse:collapse;width:100%;font-size:12px}th,td{text-align:left;padding:9px;border-bottom:1px solid #3a414e}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px;color:#b8bec9}.table{overflow:auto}.finding{color:#ff968e}small{color:#969eac}@media(max-width:800px){body{padding:16px}.shots{grid-template-columns:repeat(4,280px)}}
+ </style><header><small>TOURNAMENT HUB / ОБЩЕЕ ВИЗУАЛЬНОЕ СРАВНЕНИЕ</small><h1>Foundation Elevation · Web ↔ Flutter</h1><p>Сценарии и контрольные элементы заданы декларацией компонента. Геометрия, типографика и цвета проверяются отдельно; diff показывает остаточную разницу рендереров. Нажмите PNG, чтобы открыть исходное разрешение.</p></header>
+ <div class="stats"><div><strong>2</strong>сценариев</div><div><strong class="pass">2/2</strong>прошли контракт контролей</div><div><strong>4</strong>контрольных элементов</div></div>
+ <nav><a href="#mobile-floating">mobile · floating</a><a href="#desktop-floating">desktop · floating</a><a href="http://127.0.0.1:8094/ui-kit.html">Web-эталон ↗</a></nav>
+ <article class="case" id="mobile-floating"><header><h2>mobile · floating</h2><b class="pass">pass</b></header><p>Shadow24 CSS / Flutter: geometry/color роли одинаковы; raster показывает возможную разницу blur shader. Внешние64px включены в capture, тень не обрезана.</p><div class="shots"><figure><figcaption>Web</figcaption><a href="web/mobile-floating.png"><img alt="mobile-floating Web" src="web/mobile-floating.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/mobile-floating.png"><img alt="mobile-floating Flutter" src="flutter/mobile-floating.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/mobile-floating.png"><img alt="mobile-floating Наложение 50/50" src="overlay/mobile-floating.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/mobile-floating.png"><img alt="mobile-floating Diff ×4" src="diff/mobile-floating.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 22 изменённых пикселей; mean channel delta 0.2575/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;mobile-floating&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 308,
+      &quot;height&quot;: 72
+    },
+    &quot;controls&quot;: {
+      &quot;surface&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 308,
+          &quot;height&quot;: 72
+        },
+        &quot;width&quot;: 308,
+        &quot;height&quot;: 72,
+        &quot;fontSize&quot;: 12,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 0,
+        &quot;baseline&quot;: 40,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 70.46875,
+          &quot;y&quot;: 28,
+          &quot;width&quot;: 167.046875,
+          &quot;height&quot;: 15
+        },
+        &quot;width&quot;: 167.046875,
+        &quot;height&quot;: 15,
+        &quot;fontSize&quot;: 12,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 0,
+        &quot;baseline&quot;: 40,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 308,
+      &quot;height&quot;: 72
+    },
+    &quot;pageX&quot;: 64,
+    &quot;pageY&quot;: 64,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/mobile-floating.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;mobile-floating&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 308,
+      &quot;height&quot;: 72
+    },
+    &quot;controls&quot;: {
+      &quot;surface&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 308,
+          &quot;height&quot;: 72
+        },
+        &quot;width&quot;: 308,
+        &quot;height&quot;: 72,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 0
+      },
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 70.4833984375,
+          &quot;y&quot;: 27,
+          &quot;width&quot;: 167.033203125,
+          &quot;height&quot;: 18
+        },
+        &quot;width&quot;: 167.033203125,
+        &quot;height&quot;: 18,
+        &quot;fontSize&quot;: 12,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 40.365234375
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 22,
+      &quot;meanChannelDelta&quot;: 0.25752675840978595
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/mobile-floating.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="desktop-floating"><header><h2>desktop · floating</h2><b class="pass">pass</b></header><p>Shadow24 CSS / Flutter: geometry/color роли одинаковы; raster показывает возможную разницу blur shader. Внешние64px включены в capture, тень не обрезана.</p><div class="shots"><figure><figcaption>Web</figcaption><a href="web/desktop-floating.png"><img alt="desktop-floating Web" src="web/desktop-floating.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/desktop-floating.png"><img alt="desktop-floating Flutter" src="flutter/desktop-floating.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/desktop-floating.png"><img alt="desktop-floating Наложение 50/50" src="overlay/desktop-floating.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/desktop-floating.png"><img alt="desktop-floating Diff ×4" src="diff/desktop-floating.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 22 изменённых пикселей; mean channel delta 0.2558/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;desktop-floating&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 390,
+      &quot;height&quot;: 72
+    },
+    &quot;controls&quot;: {
+      &quot;surface&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 390,
+          &quot;height&quot;: 72
+        },
+        &quot;width&quot;: 390,
+        &quot;height&quot;: 72,
+        &quot;fontSize&quot;: 12,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 0,
+        &quot;baseline&quot;: 40,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 111.46875,
+          &quot;y&quot;: 28,
+          &quot;width&quot;: 167.046875,
+          &quot;height&quot;: 15
+        },
+        &quot;width&quot;: 167.046875,
+        &quot;height&quot;: 15,
+        &quot;fontSize&quot;: 12,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 0,
+        &quot;baseline&quot;: 40,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 390,
+      &quot;height&quot;: 72
+    },
+    &quot;pageX&quot;: 64,
+    &quot;pageY&quot;: 64,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/desktop-floating.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;desktop-floating&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 390,
+      &quot;height&quot;: 72
+    },
+    &quot;controls&quot;: {
+      &quot;surface&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 390,
+          &quot;height&quot;: 72
+        },
+        &quot;width&quot;: 390,
+        &quot;height&quot;: 72,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 0
+      },
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 111.4833984375,
+          &quot;y&quot;: 27,
+          &quot;width&quot;: 167.033203125,
+          &quot;height&quot;: 18
+        },
+        &quot;width&quot;: 167.033203125,
+        &quot;height&quot;: 18,
+        &quot;fontSize&quot;: 12,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 40.365234375
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 22,
+      &quot;meanChannelDelta&quot;: 0.2558075933075933
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/desktop-floating.png&quot;
+    }
+  }
+}</pre></details></article>
+ <footer><small>Run 2026-11-07T17:57:04.941Z. <a href="results.json">Полный JSON</a> · <a href="spec.json">Декларация</a>. Native goldens проверяются отдельно; отчёт не объявляет pixel-perfect при остаточной raster-разнице.</small></footer></html>

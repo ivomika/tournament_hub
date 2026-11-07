@@ -243,4 +243,16 @@ class FoundationLocalizationsRu extends FoundationLocalizations {
 
     return '$valueString';
   }
+
+  @override
+  String get elevationSource => 'floating · 0 8 24 / #07080b80';
+
+  @override
+  String get elevationFloating => 'Плавающая поверхность';
+
+  @override
+  String get elevationSheet => 'Нижняя панель';
+
+  @override
+  String get elevationDialog => 'Диалог';
 }

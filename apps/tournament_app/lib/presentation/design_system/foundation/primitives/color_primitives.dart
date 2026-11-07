@@ -70,6 +70,7 @@ abstract final class ColorPrimitives {
   static const characterIce = Color(0xFF92C9ED);
   static const characterFan = Color(0xFFC6B4EE);
   static const characterStorm = Color(0xFFA7D6D1);
+  static const scrim = Color(0xb807080b);
   static const floatingShadow = Color(0x8007080B);
   static const sheetShadow = Color(0x6007080B);
   static const dialogShadow = Color(0x5507080B);

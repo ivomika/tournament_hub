@@ -534,6 +534,30 @@ abstract class FoundationLocalizations {
   /// In ru, this message translates to:
   /// **'{value}'**
   String foundationMetricValue(num value);
+
+  /// No description provided for @elevationSource.
+  ///
+  /// In ru, this message translates to:
+  /// **'floating · 0 8 24 / #07080b80'**
+  String get elevationSource;
+
+  /// No description provided for @elevationFloating.
+  ///
+  /// In ru, this message translates to:
+  /// **'Плавающая поверхность'**
+  String get elevationFloating;
+
+  /// No description provided for @elevationSheet.
+  ///
+  /// In ru, this message translates to:
+  /// **'Нижняя панель'**
+  String get elevationSheet;
+
+  /// No description provided for @elevationDialog.
+  ///
+  /// In ru, this message translates to:
+  /// **'Диалог'**
+  String get elevationDialog;
 }
 
 class _FoundationLocalizationsDelegate

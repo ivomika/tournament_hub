@@ -1071,7 +1071,7 @@
         },
         "raster": {
           "changedPixels": 0,
-          "meanChannelDelta": 0.5740808823529412
+          "meanChannelDelta": 0.3275735294117647
         },
         "artifacts": {
           "image": "flutter/primary-default.png"
@@ -1085,7 +1085,7 @@
       },
       "raster": {
         "changedPixels": 0,
-        "meanChannelDelta": 0.5740808823529412
+        "meanChannelDelta": 0.3275735294117647
       }
     },
     {
@@ -1224,7 +1224,7 @@
         },
         "raster": {
           "changedPixels": 0,
-          "meanChannelDelta": 0.5719240196078431
+          "meanChannelDelta": 0.325453431372549
         },
         "artifacts": {
           "image": "flutter/primary-hovered.png"
@@ -1238,7 +1238,7 @@
       },
       "raster": {
         "changedPixels": 0,
-        "meanChannelDelta": 0.5719240196078431
+        "meanChannelDelta": 0.325453431372549
       }
     },
     {
@@ -1377,7 +1377,7 @@
         },
         "raster": {
           "changedPixels": 0,
-          "meanChannelDelta": 0.5747426470588235
+          "meanChannelDelta": 0.32841911764705883
         },
         "artifacts": {
           "image": "flutter/primary-pressed.png"
@@ -1391,7 +1391,7 @@
       },
       "raster": {
         "changedPixels": 0,
-        "meanChannelDelta": 0.5747426470588235
+        "meanChannelDelta": 0.32841911764705883
       }
     },
     {
@@ -1530,7 +1530,7 @@
         },
         "raster": {
           "changedPixels": 0,
-          "meanChannelDelta": 0.46153186274509805
+          "meanChannelDelta": 0.2824754901960784
         },
         "artifacts": {
           "image": "flutter/primary-focused.png"
@@ -1544,7 +1544,7 @@
       },
       "raster": {
         "changedPixels": 0,
-        "meanChannelDelta": 0.46153186274509805
+        "meanChannelDelta": 0.2824754901960784
       }
     },
     {
@@ -1836,7 +1836,7 @@
         },
         "raster": {
           "changedPixels": 0,
-          "meanChannelDelta": 0.5740808823529412
+          "meanChannelDelta": 0.3275735294117647
         },
         "artifacts": {
           "image": "flutter/primary-mobile.png"
@@ -1850,7 +1850,7 @@
       },
       "raster": {
         "changedPixels": 0,
-        "meanChannelDelta": 0.5740808823529412
+        "meanChannelDelta": 0.3275735294117647
       }
     },
     {
@@ -2112,7 +2112,7 @@
         },
         "raster": {
           "changedPixels": 18,
-          "meanChannelDelta": 0.5994485294117647
+          "meanChannelDelta": 0.3531004901960784
         },
         "artifacts": {
           "image": "flutter/secondary-default.png"
@@ -2126,7 +2126,7 @@
       },
       "raster": {
         "changedPixels": 18,
-        "meanChannelDelta": 0.5994485294117647
+        "meanChannelDelta": 0.3531004901960784
       }
     },
     {
@@ -2235,7 +2235,7 @@
         },
         "raster": {
           "changedPixels": 18,
-          "meanChannelDelta": 0.594375
+          "meanChannelDelta": 0.34829656862745095
         },
         "artifacts": {
           "image": "flutter/secondary-hovered.png"
@@ -2249,7 +2249,7 @@
       },
       "raster": {
         "changedPixels": 18,
-        "meanChannelDelta": 0.594375
+        "meanChannelDelta": 0.34829656862745095
       }
     },
     {
@@ -2358,7 +2358,7 @@
         },
         "raster": {
           "changedPixels": 18,
-          "meanChannelDelta": 0.48689950980392155
+          "meanChannelDelta": 0.30800245098039214
         },
         "artifacts": {
           "image": "flutter/secondary-focused.png"
@@ -2372,7 +2372,7 @@
       },
       "raster": {
         "changedPixels": 18,
-        "meanChannelDelta": 0.48689950980392155
+        "meanChannelDelta": 0.30800245098039214
       }
     },
     {
@@ -2481,7 +2481,7 @@
         },
         "raster": {
           "changedPixels": 18,
-          "meanChannelDelta": 0.5994485294117647
+          "meanChannelDelta": 0.3531004901960784
         },
         "artifacts": {
           "image": "flutter/secondary-mobile.png"
@@ -2495,7 +2495,7 @@
       },
       "raster": {
         "changedPixels": 18,
-        "meanChannelDelta": 0.5994485294117647
+        "meanChannelDelta": 0.3531004901960784
       }
     },
     {
@@ -3214,7 +3214,7 @@
         },
         "raster": {
           "changedPixels": 0,
-          "meanChannelDelta": 0.9134375
+          "meanChannelDelta": 0.5648958333333334
         },
         "artifacts": {
           "image": "flutter/icon-default.png"
@@ -3228,7 +3228,7 @@
       },
       "raster": {
         "changedPixels": 0,
-        "meanChannelDelta": 0.9134375
+        "meanChannelDelta": 0.5648958333333334
       }
     },
     {
@@ -3332,7 +3332,7 @@
         },
         "raster": {
           "changedPixels": 0,
-          "meanChannelDelta": 0.9136458333333334
+          "meanChannelDelta": 0.5664583333333333
         },
         "artifacts": {
           "image": "flutter/icon-hovered.png"
@@ -3346,7 +3346,7 @@
       },
       "raster": {
         "changedPixels": 0,
-        "meanChannelDelta": 0.9136458333333334
+        "meanChannelDelta": 0.5664583333333333
       }
     },
     {
@@ -3450,7 +3450,7 @@
         },
         "raster": {
           "changedPixels": 599,
-          "meanChannelDelta": 5.977135416666667
+          "meanChannelDelta": 5.73359375
         },
         "artifacts": {
           "image": "flutter/icon-focused.png"
@@ -3464,7 +3464,7 @@
       },
       "raster": {
         "changedPixels": 599,
-        "meanChannelDelta": 5.977135416666667
+        "meanChannelDelta": 5.73359375
       }
     },
     {
@@ -3568,7 +3568,7 @@
         },
         "raster": {
           "changedPixels": 0,
-          "meanChannelDelta": 0.9134375
+          "meanChannelDelta": 0.5648958333333334
         },
         "artifacts": {
           "image": "flutter/icon-mobile.png"
@@ -3582,7 +3582,7 @@
       },
       "raster": {
         "changedPixels": 0,
-        "meanChannelDelta": 0.9134375
+        "meanChannelDelta": 0.5648958333333334
       }
     },
     {
@@ -3804,7 +3804,7 @@
         },
         "raster": {
           "changedPixels": 0,
-          "meanChannelDelta": 0.9136458333333334
+          "meanChannelDelta": 0.5644791666666666
         },
         "artifacts": {
           "image": "flutter/accenticon-default.png"
@@ -3818,7 +3818,7 @@
       },
       "raster": {
         "changedPixels": 0,
-        "meanChannelDelta": 0.9136458333333334
+        "meanChannelDelta": 0.5644791666666666
       }
     },
     {
@@ -3922,7 +3922,7 @@
         },
         "raster": {
           "changedPixels": 599,
-          "meanChannelDelta": 5.97734375
+          "meanChannelDelta": 5.7331770833333335
         },
         "artifacts": {
           "image": "flutter/accenticon-focused.png"
@@ -3936,7 +3936,7 @@
       },
       "raster": {
         "changedPixels": 599,
-        "meanChannelDelta": 5.97734375
+        "meanChannelDelta": 5.7331770833333335
       }
     },
     {
@@ -4040,7 +4040,7 @@
         },
         "raster": {
           "changedPixels": 0,
-          "meanChannelDelta": 0.9136458333333334
+          "meanChannelDelta": 0.5644791666666666
         },
         "artifacts": {
           "image": "flutter/accenticon-mobile.png"
@@ -4054,7 +4054,7 @@
       },
       "raster": {
         "changedPixels": 0,
-        "meanChannelDelta": 0.9136458333333334
+        "meanChannelDelta": 0.5644791666666666
       }
     },
     {
@@ -4177,5 +4177,5 @@
     }
   ],
   "error": null,
-  "runId": "2026-11-07T16:39:55.827Z"
+  "runId": "2026-11-07T17:58:46.677Z"
 }

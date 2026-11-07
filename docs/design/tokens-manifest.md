@@ -160,3 +160,7 @@ AppShape остаётся общей темой. Source16 cases показыва
 ### Завершение Borders44
 
 AppBorderMetrics — единственный runtime источник hairline1/emphasis2/focus3/offset4. Удалён дублирующий ControlMetrics.focusWidth; Button high-contrast focus теперь реагирует на основную border theme. Native roles catalog и настоящий focus consumer проверены заменой толщины5/offset6. Source report: `node tools/visual-comparison/compare.mjs borders`.
+
+## Elevation — сверка45
+
+AppElevation остаётся runtime ThemeExtension для floating/sheet/dialog; scrim#07080bb8 задаётся основным ColorScheme и читается потребителями оттуда. Shadow showcase использует эти реальные роли, scrim проверяется на двух поверхностях. Source floating ×2: `node tools/visual-comparison/compare.mjs elevation`. Native visual binding сохраняет blur теней приложения.

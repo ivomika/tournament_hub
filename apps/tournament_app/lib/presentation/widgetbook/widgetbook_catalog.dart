@@ -1,3 +1,5 @@
+import 'package:tournament_app/presentation/widgetbook/foundation/elevation/shadows/shadows_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/foundation/elevation/scrim/scrim_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/foundation/borders/catalog/catalog_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/foundation/borders/focus/focus_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/foundation/shape/large_sheet/large_sheet_use_case.dart';
@@ -45,6 +47,10 @@ final widgetbookCatalog = <WidgetbookNode>[
     name: 'Foundation',
     isInitiallyExpanded: true,
     children: [
+      WidgetbookComponent(
+        name: 'Elevation',
+        useCases: [elevationShadowsUseCase, elevationScrimUseCase],
+      ),
       WidgetbookComponent(
         name: 'Borders',
         useCases: [bordersCatalogUseCase, borderFocusUseCase],

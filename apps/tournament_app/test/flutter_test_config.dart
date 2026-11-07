@@ -12,7 +12,7 @@ Future<void> testExecutable(FutureOr<void> Function() testMain) =>
 
 abstract final class _FlutterTestEnvironment {
   static Future<void> run(FutureOr<void> Function() testMain) async {
-    TestWidgetsFlutterBinding.ensureInitialized();
+    _NativeVisualTestBinding();
     goldenFileComparator = _PlatformGoldenComparator(goldenFileComparator);
     setUpAll(_loadFoundationFonts);
     setUp(_setRenderEnvironment);
@@ -82,4 +82,10 @@ class _PlatformGoldenComparator extends GoldenFileComparator {
     _requireNativePath(golden);
     return delegate.update(golden, imageBytes);
   }
+}
+
+/// Native comparison must render the same shadow blur as the application.
+class _NativeVisualTestBinding extends AutomatedTestWidgetsFlutterBinding {
+  @override
+  bool get disableShadows => false;
 }

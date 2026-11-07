@@ -47,7 +47,7 @@
 - ✅ 42. Foundation Spacing — добавить шкалу отступов. [Детали](task-details/42-ds-foundation-spacing.md)
 - ✅ 43. Foundation Shape — добавить радиусы и формы. [Детали](task-details/43-ds-foundation-shape.md)
 - ✅ 44. Foundation Borders — добавить границы и focus ring. [Детали](task-details/44-ds-foundation-borders.md)
-- 🟣 45. Foundation Elevation — добавить тени, scrim и opacity. [Детали](task-details/45-ds-foundation-elevation.md)
+- ✅ 45. Foundation Elevation — добавить тени, scrim и opacity. [Детали](task-details/45-ds-foundation-elevation.md)
 - 🟣 46. Foundation Motion — добавить длительности и кривые. [Детали](task-details/46-ds-foundation-motion.md)
 - 🟣 47. Foundation Responsive — добавить размеры и плотность. [Детали](task-details/47-ds-foundation-responsive.md)
 - ✅ 48. Foundation Icon — перенести исходный набор иконок. [Детали](task-details/48-ds-foundation-icons.md)

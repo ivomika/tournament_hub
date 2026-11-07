@@ -378,7 +378,7 @@
         },
         "raster": {
           "changedPixels": 0,
-          "meanChannelDelta": 0.46153186274509805
+          "meanChannelDelta": 0.2824754901960784
         },
         "artifacts": {
           "image": "flutter/mobile-primary-focus.png"
@@ -392,7 +392,7 @@
       },
       "raster": {
         "changedPixels": 0,
-        "meanChannelDelta": 0.46153186274509805
+        "meanChannelDelta": 0.2824754901960784
       }
     },
     {
@@ -466,7 +466,7 @@
         },
         "raster": {
           "changedPixels": 18,
-          "meanChannelDelta": 0.48689950980392155
+          "meanChannelDelta": 0.30800245098039214
         },
         "artifacts": {
           "image": "flutter/mobile-secondary-focus.png"
@@ -480,7 +480,7 @@
       },
       "raster": {
         "changedPixels": 18,
-        "meanChannelDelta": 0.48689950980392155
+        "meanChannelDelta": 0.30800245098039214
       }
     },
     {
@@ -554,7 +554,7 @@
         },
         "raster": {
           "changedPixels": 599,
-          "meanChannelDelta": 5.977135416666667
+          "meanChannelDelta": 5.73359375
         },
         "artifacts": {
           "image": "flutter/mobile-icon-focus.png"
@@ -568,7 +568,7 @@
       },
       "raster": {
         "changedPixels": 599,
-        "meanChannelDelta": 5.977135416666667
+        "meanChannelDelta": 5.73359375
       }
     },
     {
@@ -925,5 +925,5 @@
     }
   ],
   "error": null,
-  "runId": "2026-11-07T17:34:37.559Z"
+  "runId": "2026-11-07T17:58:42.698Z"
 }

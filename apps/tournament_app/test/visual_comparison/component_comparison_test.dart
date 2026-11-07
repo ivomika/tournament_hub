@@ -51,6 +51,11 @@ abstract final class _ComparisonDriver {
   }
 
   static Future<void> _capture(WidgetTester tester, ComparisonSpec spec) async {
+    expect(
+      debugDisableShadows,
+      isFalse,
+      reason: 'Comparison requires real native shadow rendering',
+    );
     addTearDown(tester.view.reset);
     final web = (jsonDecode(
       File('$directory/web.json').readAsStringSync(),
@@ -75,19 +80,22 @@ abstract final class _ComparisonDriver {
             body: SingleChildScrollView(
               child: Align(
                 alignment: Alignment.topLeft,
-                child: RepaintBoundary(
-                  key: boundaryKey,
-                  child: ColoredBox(
-                    color: theme.scaffoldBackgroundColor,
-                    child: Padding(
-                      padding: EdgeInsets.all(scenario.capturePadding),
-                      child: ConstrainedBox(
-                        constraints: BoxConstraints(maxWidth: width),
-                        child: Builder(
-                          builder: (context) {
-                            actualRoot = scenario.builder(context);
-                            return actualRoot!;
-                          },
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: RepaintBoundary(
+                    key: boundaryKey,
+                    child: ColoredBox(
+                      color: theme.scaffoldBackgroundColor,
+                      child: Padding(
+                        padding: EdgeInsets.all(scenario.capturePadding),
+                        child: ConstrainedBox(
+                          constraints: BoxConstraints(maxWidth: width),
+                          child: Builder(
+                            builder: (context) {
+                              actualRoot = scenario.builder(context);
+                              return actualRoot!;
+                            },
+                          ),
                         ),
                       ),
                     ),

@@ -1,0 +1,122 @@
+[
+  {
+    "id": "mobile-floating",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 308,
+      "height": 72
+    },
+    "controls": {
+      "surface": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 308,
+          "height": 72
+        },
+        "width": 308,
+        "height": 72,
+        "fontSize": 12,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#171a20ff",
+        "radius": 24,
+        "borderWidth": 0,
+        "baseline": 40,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "label": {
+        "rect": {
+          "x": 70.46875,
+          "y": 28,
+          "width": 167.046875,
+          "height": 15
+        },
+        "width": 167.046875,
+        "height": 15,
+        "fontSize": 12,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#171a20ff",
+        "radius": 24,
+        "borderWidth": 0,
+        "baseline": 40,
+        "opacity": 1,
+        "strokeWidth": 1
+      }
+    },
+    "originalRoot": {
+      "width": 308,
+      "height": 72
+    },
+    "pageX": 64,
+    "pageY": 64,
+    "artifacts": {
+      "image": "web/mobile-floating.png"
+    }
+  },
+  {
+    "id": "desktop-floating",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 72
+    },
+    "controls": {
+      "surface": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 72
+        },
+        "width": 390,
+        "height": 72,
+        "fontSize": 12,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#171a20ff",
+        "radius": 24,
+        "borderWidth": 0,
+        "baseline": 40,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "label": {
+        "rect": {
+          "x": 111.46875,
+          "y": 28,
+          "width": 167.046875,
+          "height": 15
+        },
+        "width": 167.046875,
+        "height": 15,
+        "fontSize": 12,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#171a20ff",
+        "radius": 24,
+        "borderWidth": 0,
+        "baseline": 40,
+        "opacity": 1,
+        "strokeWidth": 1
+      }
+    },
+    "originalRoot": {
+      "width": 390,
+      "height": 72
+    },
+    "pageX": 64,
+    "pageY": 64,
+    "artifacts": {
+      "image": "web/desktop-floating.png"
+    }
+  }
+]

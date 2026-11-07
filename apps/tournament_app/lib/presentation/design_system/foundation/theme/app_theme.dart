@@ -41,6 +41,7 @@ abstract final class AppTheme {
 
   static ThemeData dark() {
     final scheme = ColorScheme.dark(
+      scrim: ColorPrimitives.scrim,
       primary: ColorRolesPrimitives.accent,
       onPrimary: ColorRolesPrimitives.onAccent,
       primaryContainer: ColorRolesPrimitives.accentContainer,
