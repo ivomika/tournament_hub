@@ -720,6 +720,24 @@ abstract class FoundationLocalizations {
   /// In ru, this message translates to:
   /// **'0 : 1'**
   String get scoreChoiceRight;
+
+  /// No description provided for @metricWins.
+  ///
+  /// In ru, this message translates to:
+  /// **'Победы в турнирах'**
+  String get metricWins;
+
+  /// No description provided for @metricTournaments.
+  ///
+  /// In ru, this message translates to:
+  /// **'Турниры'**
+  String get metricTournaments;
+
+  /// No description provided for @metricSummary.
+  ///
+  /// In ru, this message translates to:
+  /// **'{label}: {value}'**
+  String metricSummary(String label, String value);
 }
 
 class _FoundationLocalizationsDelegate

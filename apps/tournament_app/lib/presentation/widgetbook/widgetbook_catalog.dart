@@ -1,3 +1,5 @@
+import 'package:tournament_app/presentation/widgetbook/components/metric/achievement/achievement_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/components/metric/plain/plain_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/components/score_choice/left/left_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/components/score_choice/right/right_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/components/score_choice/disabled/disabled_use_case.dart';
@@ -119,6 +121,10 @@ final widgetbookCatalog = <WidgetbookNode>[
     name: 'Components',
     isInitiallyExpanded: true,
     children: [
+      WidgetbookComponent(
+        name: 'Metric',
+        useCases: [metricAchievementUseCase, metricPlainUseCase],
+      ),
       WidgetbookComponent(
         name: 'Score choice',
         useCases: [

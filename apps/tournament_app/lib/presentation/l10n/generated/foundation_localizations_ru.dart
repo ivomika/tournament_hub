@@ -348,4 +348,15 @@ class FoundationLocalizationsRu extends FoundationLocalizations {
 
   @override
   String get scoreChoiceRight => '0 : 1';
+
+  @override
+  String get metricWins => 'Победы в турнирах';
+
+  @override
+  String get metricTournaments => 'Турниры';
+
+  @override
+  String metricSummary(String label, String value) {
+    return '$label: $value';
+  }
 }

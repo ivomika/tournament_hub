@@ -176,5 +176,18 @@
   },
   "scoreChoiceLabel": "Выбор счёта",
   "scoreChoiceLeft": "1 : 0",
-  "scoreChoiceRight": "0 : 1"
+  "scoreChoiceRight": "0 : 1",
+  "metricWins": "Победы в турнирах",
+  "metricTournaments": "Турниры",
+  "metricSummary": "{label}: {value}",
+  "@metricSummary": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      },
+      "value": {
+        "type": "String"
+      }
+    }
+  }
 }

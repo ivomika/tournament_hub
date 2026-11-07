@@ -200,3 +200,7 @@ AppScore.pair/fixed принимает готовые строки и semanticLa
 ## ScoreChoice — реализация56
 
 Controlled AppScoreChoice<T> показывает готовые AppScoreOption<T> labels; callback не вычисляет результат. Итоговый UI kit: condensed40/700/line1, minHeight56, gap16, radius16, raised background, selected border/text primary, normal border outlineVariant/text onSurface. Снятые computed values имеют приоритет над CSS из другого competition context (32/8 не относится к итоговому образцу). Keyboard focus, disabled и runtime theme поддержаны.
+
+## Metric — реализация59
+
+AppMetric plain/achievement показывает готовые value/label/semanticLabel. Mobile plain40/center/padding16; desktop plain64/left/minHeight160/surface. Mobile achievement60/gold/icon64 leading/dark surface/inset24; desktop88/line.95/onPrimary/gold/icon64 trailing opacity.65/minHeight180. Desktop inset24 (compact≤1000:20), radius24; label max13ch измеряется текущим runtime шрифтом. AppMetricMetrics собирается в основной теме, consumers используют WidgetTheme. Card занимает доступную ширину; label optical axis задаётся после выбора16px.
