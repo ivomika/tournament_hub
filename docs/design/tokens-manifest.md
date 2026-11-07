@@ -216,3 +216,7 @@ AppSectionHeader композирует AppButton back/save/edit; callback inten
 ## StatusLabel — реализация63
 
 Typed live/outcome/points и accent/error tone, готовый текст. Live14 regular/1.5 dot8/gap8, outcome14 medium/1.4, points14 semibold/1.4; только текущие colors/styles через WidgetTheme. Inline outcome/points сохраняют glyph box исходного span: TextHeightBehavior без first/last extra leading собирается в AppTheme через AppStatusMetrics. Badge-подложки нет.
+
+## Disclosure — реализация64
+
+AppDisclosure controlled expanded/onToggle/body slot, без app state. Summary56/title16medium1.4/secondary/icon24; open chevron поворачивается90°. Body caption14/21 padding top8 bottom16, desktop horizontal4. Native TextButton обеспечивает keyboard activation, Semantics.expanded отражает внешний контракт. В исходнике нет reveal transition — конечные состояния без выдуманной анимации.

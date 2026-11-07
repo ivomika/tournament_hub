@@ -398,4 +398,11 @@ class FoundationLocalizationsRu extends FoundationLocalizations {
 
   @override
   String get statusPoints => '2 очка';
+
+  @override
+  String get disclosureTitle => 'Управление турниром';
+
+  @override
+  String get disclosureBody =>
+      'Дополнительные действия доступны в контексте турнира.';
 }

@@ -202,5 +202,7 @@
   "statusLive": "В процессе",
   "statusWin": "Техническая победа",
   "statusLoss": "Техническое поражение",
-  "statusPoints": "2 очка"
+  "statusPoints": "2 очка",
+  "disclosureTitle": "Управление турниром",
+  "disclosureBody": "Дополнительные действия доступны в контексте турнира."
 }

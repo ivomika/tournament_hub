@@ -1,3 +1,6 @@
+import 'package:tournament_app/presentation/widgetbook/widgets/disclosure/closed/closed_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/widgets/disclosure/open/open_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/widgets/disclosure/disabled/disabled_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/components/status_label/live/live_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/components/status_label/win/win_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/components/status_label/loss/loss_use_case.dart';
@@ -232,6 +235,14 @@ final widgetbookCatalog = <WidgetbookNode>[
           headerSaveUseCase,
           headerEditUseCase,
           headerLongUseCase,
+        ],
+      ),
+      WidgetbookComponent(
+        name: 'Disclosure',
+        useCases: [
+          disclosureClosedUseCase,
+          disclosureOpenUseCase,
+          disclosureDisabledUseCase,
         ],
       ),
       WidgetbookComponent(

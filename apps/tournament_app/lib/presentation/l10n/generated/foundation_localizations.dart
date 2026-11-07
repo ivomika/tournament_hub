@@ -816,6 +816,18 @@ abstract class FoundationLocalizations {
   /// In ru, this message translates to:
   /// **'2 очка'**
   String get statusPoints;
+
+  /// No description provided for @disclosureTitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'Управление турниром'**
+  String get disclosureTitle;
+
+  /// No description provided for @disclosureBody.
+  ///
+  /// In ru, this message translates to:
+  /// **'Дополнительные действия доступны в контексте турнира.'**
+  String get disclosureBody;
 }
 
 class _FoundationLocalizationsDelegate
