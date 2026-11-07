@@ -208,3 +208,7 @@ AppMetric plain/achievement показывает готовые value/label/sema
 ## NavigationItem — реализация60
 
 AppNavigationItem передаёт onPressed без app routing. Mobile row56/padding24/label16/leading24/chevron16, внутри внешней nested AppSurface fixture. Desktop tile80/radius24/padding24(≤1000:20)/label18/leading32/chevron16. Gap16 и текущие цвета темы; hover raised, disabled muted, видимый focus. Own WidgetStatesController не передаётся Material ButtonStyle-потребителю, чтобы изменение enabled не уведомляло родителя во время build; pointer/keyboard оболочка использует FocusableActionDetector.
+
+## SectionHeader — реализация61
+
+AppSectionHeader композирует AppButton back/save/edit; callback intents снаружи. Slots56 mobile/48 desktop, итоговый source gap8 в обоих, title compactHeader16/1.4 center и comfortableHeader20/1.3 left. Отсутствие trailing action сохраняет слот. Две строки source44.781px/native44px: допуск1px только long title, остальные controls.5px.

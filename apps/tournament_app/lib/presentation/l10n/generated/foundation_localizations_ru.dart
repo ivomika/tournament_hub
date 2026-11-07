@@ -365,4 +365,25 @@ class FoundationLocalizationsRu extends FoundationLocalizations {
 
   @override
   String get navigationLong => 'Настройки параметров отображения турнира';
+
+  @override
+  String get headerNew => 'Новый турнир';
+
+  @override
+  String get headerLong => 'Параметры пятничного турнира';
+
+  @override
+  String get headerEditing => 'Редактирование';
+
+  @override
+  String get headerProfile => 'Профиль';
+
+  @override
+  String get headerBack => 'Назад';
+
+  @override
+  String get headerSave => 'Сохранить';
+
+  @override
+  String get headerEdit => 'Редактировать';
 }

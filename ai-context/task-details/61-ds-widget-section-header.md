@@ -2,11 +2,11 @@
 
 ## Статус и этап
 
-🟣 Запланирована
+✅ Выполнена
 
-- Mode: PLANNING_ONLY; будущая реализация — CODE в этом же номере.
+- Mode: CODE; будущая реализация — CODE в этом же номере.
 - TestGate: NOT_REQUIRED для заявленного visual/theme/layout scope. App state/controllers, вычисления, валидация, сериализация, данные и app routing исключены; при расширении scope классификация пересматривается до кода.
-- Stage: SPEC_READY.
+- Stage: DONE.
 - Specification:1; plan:0 (черновая последовательность ниже); test scenarios:1, NOT_RUN.
 - Реализация не начата; отдельного разрешения на логический gate этой постановкой не получено.
 
@@ -53,12 +53,12 @@ Title с leading/trailing action; Mobile центрирует, Desktop выра�
 
 ## Acceptance Criteria
 
-- [ ] AC-61.1: AppSectionHeader реализован/расширен в указанном scope; нет параллельной копии уже существующей сущности, ссылку на HTML-эталон можно проследить.
-- [ ] AC-61.2: все визуальные параметры приходят из собственной темы и общих токенов, API типизирован; raw styling/строковые discriminators/бизнес-правила отсутствуют.
-- [ ] AC-61.3: именованные Widgetbook use cases показывают реальный элемент: Back/title; title+save; title+edit; отсутствующий trailing; длинный title; обе плотности; text scale.
-- [ ] AC-61.4: Widgetbook и golden используют одинаковые fixtures/именованные builders/темы; native baselines созданы/сверены, diffs просмотрены, comparison после update выполнен без update.
-- [ ] AC-61.5: проверены constraints, значимые states, локализованные labels/semantics и content limits; совпадение visual identity Desktop/Mobile подтверждено, отклонения записаны.
-- [ ] AC-61.6: manifest/owning docs/scenario registrations актуальны; analyze/tests/architecture checks по impact PASS либо честный blocker с NOT_RUN. Результат показан пользователю.
+- [x] AC-61.1: AppSectionHeader реализован/расширен в указанном scope; нет параллельной копии уже существующей сущности, ссылку на HTML-эталон можно проследить.
+- [x] AC-61.2: все визуальные параметры приходят из собственной темы и общих токенов, API типизирован; raw styling/строковые discriminators/бизнес-правила отсутствуют.
+- [x] AC-61.3: именованные Widgetbook use cases показывают реальный элемент: Back/title; title+save; title+edit; отсутствующий trailing; длинный title; обе плотности; text scale.
+- [x] AC-61.4: Widgetbook и golden используют одинаковые fixtures/именованные builders/темы; native baselines созданы/сверены, diffs просмотрены, comparison после update выполнен без update.
+- [x] AC-61.5: проверены constraints, значимые states, локализованные labels/semantics и content limits; совпадение visual identity Desktop/Mobile подтверждено, отклонения записаны.
+- [x] AC-61.6: manifest/owning docs/scenario registrations актуальны; analyze/tests/architecture checks по impact PASS либо честный blocker с NOT_RUN. Результат показан пользователю.
 
 ## Ошибки и крайние случаи
 
@@ -117,10 +117,31 @@ Title с leading/trailing action; Mobile центрирует, Desktop выра�
 
 ## Final Verification
 
-- [ ] Все AC подтверждены при реализации; тесты фактически запущены.
-- [ ] Theme/scenarios/goldens/docs согласованы, визуальный результат показан.
-- [ ] Нет бизнес-логики/запрещённых dependencies/raw styling.
+- [x] Все AC подтверждены при реализации; тесты фактически запущены.
+- [x] Theme/scenarios/goldens/docs согласованы, визуальный результат показан.
+- [x] Нет бизнес-логики/запрещённых dependencies/raw styling.
 
 ## Итог
 
 Постановка создана; 🟣. Реализация и выполнение Flutter-проверок не начаты.
+
+### Новая очередь переноса после RosterRow
+
+Prompt пользователя (дословно):
+
+> выглядит хорошо. Обнови задачи по реализации компонентов, посмотри что уже выполнено, а что еще требует реализации и реализуй каждый компонент по новому flow делая коммит для каждого компонента без push
+
+Обязательный flow текущей итерации: сверить существующий runtime и итоговый CSS UI kit → определить реальные состояния/адаптацию и контрольные узлы → typed runtime WidgetTheme без primitives в consumers → scoped Widgetbook/shared fixture → декларация общего comparison pipeline → source/native/overlay/diff и native goldens → осмотр и исправление внутренних различий → повтор без update, tests/analyzer/architecture → отдельный локальный коммит компонента без push. Существующая реализация не дублируется. Наличие tokens в72 не равно выполнению всех старых AC foundation.
+Факт сверки: отдельного production компонента и comparison declaration пока нет; задача остаётся в очереди реализации.
+
+### План61
+
+SectionHeader композиция реальных AppButton back/save/edit, typed trailing action; callbacks снаружи. Runtime slots56 mobile/48 desktop, gap8/16, compactHeader16 center/comfortableHeader20 left. Source4 states+6 adaptations с title и button slots; native intents/null/long/scaled/theme. Visual NOT_REQUIRED.
+
+### Реализация61 —7 ноября2026
+
+Prompt пользователя (дословно):
+
+> продолжи
+
+SectionHeader — композиция уже реализованного AppButton, typed trailing action, внешние callbacks. Текущая тема задаёт slots/title/alignment. Source10/10 PASS после update и обычного comparison; исправлен desktop gap8, записан renderer rounding long title44.781/44px. Overlay просмотрены. Native2 tests PASS без update: distinct intents/main text role и4 long/disabled/scaled PNG. Analyzer no issues, architecture234 files PASS. MacOS Widgetbook hot restart выполнен; другие ОС NOT_RUN. Итог текущей итерации: выполнено.

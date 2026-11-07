@@ -750,6 +750,48 @@ abstract class FoundationLocalizations {
   /// In ru, this message translates to:
   /// **'Настройки параметров отображения турнира'**
   String get navigationLong;
+
+  /// No description provided for @headerNew.
+  ///
+  /// In ru, this message translates to:
+  /// **'Новый турнир'**
+  String get headerNew;
+
+  /// No description provided for @headerLong.
+  ///
+  /// In ru, this message translates to:
+  /// **'Параметры пятничного турнира'**
+  String get headerLong;
+
+  /// No description provided for @headerEditing.
+  ///
+  /// In ru, this message translates to:
+  /// **'Редактирование'**
+  String get headerEditing;
+
+  /// No description provided for @headerProfile.
+  ///
+  /// In ru, this message translates to:
+  /// **'Профиль'**
+  String get headerProfile;
+
+  /// No description provided for @headerBack.
+  ///
+  /// In ru, this message translates to:
+  /// **'Назад'**
+  String get headerBack;
+
+  /// No description provided for @headerSave.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сохранить'**
+  String get headerSave;
+
+  /// No description provided for @headerEdit.
+  ///
+  /// In ru, this message translates to:
+  /// **'Редактировать'**
+  String get headerEdit;
 }
 
 class _FoundationLocalizationsDelegate

@@ -191,5 +191,12 @@
     }
   },
   "navigationSettings": "Настройки",
-  "navigationLong": "Настройки параметров отображения турнира"
+  "navigationLong": "Настройки параметров отображения турнира",
+  "headerNew": "Новый турнир",
+  "headerLong": "Параметры пятничного турнира",
+  "headerEditing": "Редактирование",
+  "headerProfile": "Профиль",
+  "headerBack": "Назад",
+  "headerSave": "Сохранить",
+  "headerEdit": "Редактировать"
 }

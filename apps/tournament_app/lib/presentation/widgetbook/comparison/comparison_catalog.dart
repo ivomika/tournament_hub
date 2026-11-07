@@ -1,3 +1,4 @@
+import 'package:tournament_app/presentation/widgetbook/widgets/section_header/header_comparison.dart';
 import 'package:tournament_app/presentation/widgetbook/components/navigation_item/navigation_comparison.dart';
 import 'package:tournament_app/presentation/widgetbook/components/metric/metric_comparison.dart';
 import 'package:tournament_app/presentation/widgetbook/components/score_choice/score_choice_comparison.dart';
@@ -24,6 +25,7 @@ import 'package:tournament_app/presentation/widgetbook/components/avatar/avatar_
 
 abstract final class ComparisonCatalog {
   static final List<ComparisonSpec> components = [
+    HeaderComparison.spec,
     NavigationComparison.spec,
     MetricComparison.spec,
     ScoreChoiceComparison.spec,

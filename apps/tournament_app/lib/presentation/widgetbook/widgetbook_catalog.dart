@@ -1,3 +1,7 @@
+import 'package:tournament_app/presentation/widgetbook/widgets/section_header/back/back_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/widgets/section_header/save/save_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/widgets/section_header/edit/edit_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/widgets/section_header/long/long_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/components/navigation_item/default/default_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/components/navigation_item/hovered/hovered_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/components/navigation_item/focused/focused_use_case.dart';
@@ -208,6 +212,15 @@ final widgetbookCatalog = <WidgetbookNode>[
   WidgetbookFolder(
     name: 'Widgets',
     children: [
+      WidgetbookComponent(
+        name: 'Section header',
+        useCases: [
+          headerBackUseCase,
+          headerSaveUseCase,
+          headerEditUseCase,
+          headerLongUseCase,
+        ],
+      ),
       WidgetbookComponent(
         name: 'Roster row',
         useCases: [
