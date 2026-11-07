@@ -173,3 +173,12 @@ Test evidence (macOS, DPR1, bundled fonts):
 Final verification: текущие AC-62.1–6 выполнены; code/tests/scoped fixtures/theme/docs/report согласованы. DONE. Отдельный локальный коммит RosterRow без push; после показа отчёта работа останавливается по запросу. Assignment/ranking/history и остальные задачи DS не начинались.
 
 Дополнительная граница жеста: DragStartBehavior.down сохраняет отсчёт порога от pointer down, без добавления framework touch slop. Проверки20px (закрыт) /30px (раскрыт) и обратный30px PASS; повторные5 Roster tests без update PASS.
+
+### Новая очередь переноса после RosterRow
+
+Prompt пользователя (дословно):
+
+> выглядит хорошо. Обнови задачи по реализации компонентов, посмотри что уже выполнено, а что еще требует реализации и реализуй каждый компонент по новому flow делая коммит для каждого компонента без push
+
+Обязательный flow текущей итерации: сверить существующий runtime и итоговый CSS UI kit → определить реальные состояния/адаптацию и контрольные узлы → typed runtime WidgetTheme без primitives в consumers → scoped Widgetbook/shared fixture → декларация общего comparison pipeline → source/native/overlay/diff и native goldens → осмотр и исправление внутренних различий → повтор без update, tests/analyzer/architecture → отдельный локальный коммит компонента без push. Существующая реализация не дублируется. Наличие tokens в72 не равно выполнению всех старых AC foundation.
+Факт сверки: компонент уже реализован и имеет comparison declaration/отчёт и native проверки; повторная реализация не нужна. Изменять только при обнаруженном расхождении.

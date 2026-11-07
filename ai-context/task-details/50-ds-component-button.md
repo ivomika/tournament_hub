@@ -143,3 +143,12 @@ AppButton: primary/secondary/destructive/neutral/accent icon. Дополните
 AppButton/Theme: пять исходных видов + две action recipes RosterRow. FocusableActionDetector, named pointer/keyboard callbacks, semantic label, null callback. Runtime metrics/theme/ColorScheme/TextTheme; font-optical-sizing Inter через AppTypeRoles.interfaceStyle основной темы (opsz14..32,wght из текущего TextStyle). Контракт шрифта не зафиксирован в итоговом widget.
 
 25 исходных states/adaptations прошли общий pipeline с update и без.26 macOS goldens incl long label/content fixture; pointer/Enter/Space/disabled/theme replacement tests PASS; Avatar+Surface regression PASS8, Node34 PASS. Analyzer/architecture-check PASS. Снимки primary и focus overlay просмотрены, outline включён padding12 без обрезки. Capture driver уточняет direct text Range и нейтральный фон вокруг root; исходные CSS не менялись. Остальные ОС NOT_RUN.
+
+### Новая очередь переноса после RosterRow
+
+Prompt пользователя (дословно):
+
+> выглядит хорошо. Обнови задачи по реализации компонентов, посмотри что уже выполнено, а что еще требует реализации и реализуй каждый компонент по новому flow делая коммит для каждого компонента без push
+
+Обязательный flow текущей итерации: сверить существующий runtime и итоговый CSS UI kit → определить реальные состояния/адаптацию и контрольные узлы → typed runtime WidgetTheme без primitives в consumers → scoped Widgetbook/shared fixture → декларация общего comparison pipeline → source/native/overlay/diff и native goldens → осмотр и исправление внутренних различий → повтор без update, tests/analyzer/architecture → отдельный локальный коммит компонента без push. Существующая реализация не дублируется. Наличие tokens в72 не равно выполнению всех старых AC foundation.
+Факт сверки: компонент уже реализован и имеет comparison declaration/отчёт и native проверки; повторная реализация не нужна. Изменять только при обнаруженном расхождении.

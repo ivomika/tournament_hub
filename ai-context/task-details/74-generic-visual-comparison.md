@@ -106,3 +106,18 @@ Prompt пользователя (дословно):
 ### Проверка на составной строке62
 
 Общий driver дополнен locator scope withinType и фактическим radius для CSS pill/circle; notes показывают сознательные source расхождения. Устаревший README пилота заменён актуальной одной командой. RosterRow сравнивает внутренние Avatar/Text/Button, а не только внешний shell. Общий pipeline обнаружил реальный неверный desktop gap8px, исправление проверено повторно.
+
+### Итоговая сверка очереди40–71 — 8 ноября2026
+
+Prompt пользователя (дословно):
+
+> Продолжай реализацию: сначала заверши foundation, затем остальные компоненты по новому flow. Каждый компонент отдельным коммитом без push.
+
+> продолжи
+
+- Все32 задачи40–71 имеют статус✅:9 foundation scopes и23 UI семейства. Ранее выполненные48/49/50/57/58/62 повторно не дублировались; факт сверки отражён в их карточках. Каждая новая реализация сохранена отдельным локальным коммитом, от Colors9e1bb74 до ShareLink6962cf9. Push не выполнялся.
+- Последний ShareLink:4 source/native сценария PASS после update и повторного обычного запуска. Визуальный осмотр overlay выявил различие переноса URL при совпадающей геометрии; перенос исправлен до коммита.
+- Итоговая команда из apps/tournament_app: `flutter test --no-pub test/presentation/design_system test/presentation/foundation_preview_test.dart test/widgetbook_bootstrap_test.dart` —90 PASS без обновления goldens. Первый запуск включал несуществующий путь test/presentation/widgetbook и завершился ошибкой загрузки; повтор с реальными путями выше полностью GREEN.
+- `flutter analyze --no-pub` — PASS. `make architecture-test` —49 function fixtures,51 dependency fixtures,35 theme fixtures PASS; checker315 файлов без нарушений. `node --test tools/visual-comparison/test/*.test.mjs` —37 PASS. `node tools/check_rules.cjs` и `git diff --check` — PASS. Native Widgetbook hot restart выполнен.
+- Source/native/overlay/diff отчёты находятся в docs/design/prototype/comparison/<component>/index.html; report хранит raster delta отдельно от измеряемых контрактов, PASS не означает побитового совпадения растеризации. ProgressIndicator — намеренное утверждённое отличие: стандартный Material3 вместо неверного HTML waveform.
+- Проверены только native macOS baselines; Windows/Linux NOT_RUN. Реализованы presentation-компоненты и callback intents; сеть, Clipboard и бизнес-сценарии приложения в scope переноса не входят.

@@ -143,3 +143,12 @@ AppIdentity: typed character/participant typography и inline/stacked layout; Av
 AppIdentity + AppIdentityTheme, character/participant recipes, inline/stacked, secondary nullable. Используется существующий AppAvatar; optional typed Avatar recipe позволяет participant typography/shape из текущей темы без копии Avatar. Default Avatar сохраняет17 прежних baselines.
 
 4 source scenarios +4 participant native goldens (200px, long/short) macOS. Общий pipeline с update и без PASS; theme replacement/semantics/optional secondary tests PASS, Avatar regression PASS. Source inline/stacked/overlay просмотрены. Identity geometry tolerance0.5px: дробная line-height native24/29 против source24.328/28.594 (max0.406px), не скрывает ошибки компоновки; baseline1px. Analyzer/architecture-check PASS. Participant source composition дополнительно сверяется в62. Остальные ОС NOT_RUN.
+
+### Новая очередь переноса после RosterRow
+
+Prompt пользователя (дословно):
+
+> выглядит хорошо. Обнови задачи по реализации компонентов, посмотри что уже выполнено, а что еще требует реализации и реализуй каждый компонент по новому flow делая коммит для каждого компонента без push
+
+Обязательный flow текущей итерации: сверить существующий runtime и итоговый CSS UI kit → определить реальные состояния/адаптацию и контрольные узлы → typed runtime WidgetTheme без primitives в consumers → scoped Widgetbook/shared fixture → декларация общего comparison pipeline → source/native/overlay/diff и native goldens → осмотр и исправление внутренних различий → повтор без update, tests/analyzer/architecture → отдельный локальный коммит компонента без push. Существующая реализация не дублируется. Наличие tokens в72 не равно выполнению всех старых AC foundation.
+Факт сверки: компонент уже реализован и имеет comparison declaration/отчёт и native проверки; повторная реализация не нужна. Изменять только при обнаруженном расхождении.

@@ -141,3 +141,12 @@ AppSurface/Theme: runtime ColorScheme+Shape+Spacing; source panel mobile24px des
 ### Итог реализации
 
 AppSurface + runtime AppSurfaceTheme, typed tone/shape/inset, слот произвольного содержимого. Source panel radius24/20 mobile/desktop, padding24; raised предложенная роль. Четыре source/native cases PASS и5 macOS goldens; constrained nested multiline golden и theme replacement PASS с update и без. Исходное наложение просмотрено; устранён Material tracking0.4 через новый AppTypeRoles.normalTracking=0 из assembly. Analyzer и architecture-check PASS. Остальные ОС NOT_RUN, push отсутствует.
+
+### Новая очередь переноса после RosterRow
+
+Prompt пользователя (дословно):
+
+> выглядит хорошо. Обнови задачи по реализации компонентов, посмотри что уже выполнено, а что еще требует реализации и реализуй каждый компонент по новому flow делая коммит для каждого компонента без push
+
+Обязательный flow текущей итерации: сверить существующий runtime и итоговый CSS UI kit → определить реальные состояния/адаптацию и контрольные узлы → typed runtime WidgetTheme без primitives в consumers → scoped Widgetbook/shared fixture → декларация общего comparison pipeline → source/native/overlay/diff и native goldens → осмотр и исправление внутренних различий → повтор без update, tests/analyzer/architecture → отдельный локальный коммит компонента без push. Существующая реализация не дублируется. Наличие tokens в72 не равно выполнению всех старых AC foundation.
+Факт сверки: компонент уже реализован и имеет comparison declaration/отчёт и native проверки; повторная реализация не нужна. Изменять только при обнаруженном расхождении.

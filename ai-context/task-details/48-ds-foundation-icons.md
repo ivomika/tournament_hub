@@ -141,3 +141,12 @@ Plan1: исходные18 SVG paths → native Canvas без внешнего п
 ### Завершение реализации
 
 18 исходных glyphs Canvas, типизированные slots16/20/24/32/48/64 и роли color, runtime AppGlyphMetrics stroke/grid. AppIconTheme читает текущую главную тему. SVG arcs переведены в кубические координаты; начертания — artwork data, не layout primitives. Scoped glyphs/slots use cases и общий IconComparison. Native macOS19 goldens (18 glyphs+slots), theme replacement/semantics tests PASS. Общая команда icons с update и затем без update PASS18/18; screenshot корзины/overlay просмотрен. Architecture-check PASS; analyzer проверен. Другие ОС NOT_RUN. Пуш не выполнялся.
+
+### Новая очередь переноса после RosterRow
+
+Prompt пользователя (дословно):
+
+> выглядит хорошо. Обнови задачи по реализации компонентов, посмотри что уже выполнено, а что еще требует реализации и реализуй каждый компонент по новому flow делая коммит для каждого компонента без push
+
+Обязательный flow текущей итерации: сверить существующий runtime и итоговый CSS UI kit → определить реальные состояния/адаптацию и контрольные узлы → typed runtime WidgetTheme без primitives в consumers → scoped Widgetbook/shared fixture → декларация общего comparison pipeline → source/native/overlay/diff и native goldens → осмотр и исправление внутренних различий → повтор без update, tests/analyzer/architecture → отдельный локальный коммит компонента без push. Существующая реализация не дублируется. Наличие tokens в72 не равно выполнению всех старых AC foundation.
+Факт сверки: компонент уже реализован и имеет comparison declaration/отчёт и native проверки; повторная реализация не нужна. Изменять только при обнаруженном расхождении.
