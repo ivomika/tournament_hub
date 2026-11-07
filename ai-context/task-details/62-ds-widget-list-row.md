@@ -1,26 +1,26 @@
-# Задача 62. ListRow — добавить строковую композицию со слотами
+# Задача 62. AppRosterRow — строка участников из общих компонентов
 
 ## Статус и этап
 
-🟣 Запланирована
+✅ Выполнена
 
-- Mode: PLANNING_ONLY; будущая реализация — CODE в этом же номере.
+- Mode: CODE; будущая реализация — CODE в этом же номере.
 - TestGate: NOT_REQUIRED для заявленного visual/theme/layout scope. App state/controllers, вычисления, валидация, сериализация, данные и app routing исключены; при расширении scope классификация пересматривается до кода.
-- Stage: SPEC_READY.
-- Specification:1; plan:0 (черновая последовательность ниже); test scenarios:1, NOT_RUN.
-- Реализация не начата; отдельного разрешения на логический gate этой постановкой не получено.
+- Stage: DONE.
+- Specification:2; plan:1; test scenarios:2, PASS.
+- Реализация визуального scope завершена по approval74; отдельная бизнес-логика не добавлялась.
 
 ## Цель и контекст
 
-Один результат задачи: **AppListRow**, scope `widgets/list_row`. Добавление/расширение именно одного элемента вместе с его темой, scoped Widgetbook и проверками; не набор новых компонентов экранов.
+Один результат задачи: **AppRosterRow**, scope `widgets/roster_row`. Добавление/расширение именно одного элемента вместе с его темой, scoped Widgetbook и проверками; не набор новых компонентов экранов.
 
-UI kit показывает roster/assignment/ranking/history как применения общей строки, а не четыре копии identity.
+Текущий scope после approval74: только mobile roster row/reveal и desktop roster card. Assignment/ranking/history исключены из этой реализации.
 
 Эталон: [UI kit](../../docs/design/prototype/ui-kit.html#c-row), [описание и ограничения](../../docs/design/ui-kit.md), [mapping источников](../../docs/design/prototype/ui-kit-mapping.json). Уже реализованная основа: [foundation](../../docs/design/foundation.md), [manifest](../../docs/design/tokens-manifest.md). Рабочий порядок: [добавление DS-компонента](../../docs/development/design-system-component-workflow.md), [visual workflow](../../docs/development/visual-workflow.md).
 
 ## Scope и non-goals
 
-- Входит: Реализовать одну строку со стабильными leading/body/trailing/action slots и собственной темой; подтвердить локальный reveal presentation. Примеры roster/assignment/ranking/history собираются из slots, не из монолитного enum всех экранов.
+- Входит: Реализовать AppRosterRow через общие AppSurface/AppIdentity/AppAvatar/AppButton/AppIcon, runtime тему и локальный swipe reveal. Remove intent делегируется; desktop имеет явную кнопку.
 - Входит: собственная типизированная тема, trace к foundation tokens и обновление manifest/docs по затронутым решениям.
 - Входит: реальные use cases в Widgetbook, shared deterministic scenarios и executable native golden visual samples; meaningful interaction/semantics tests по риску.
 - Не входит: перенос экранов, изменение HTML UI kit/прототипов, бизнес-правила, use cases, DI/сеть/БД, новая локаль, новая светлая тема, Widgetbook Cloud/generator или обновление SDK.
@@ -39,9 +39,9 @@ UI kit показывает roster/assignment/ranking/history как приме�
 ## Зависимости и архитектурные границы
 
 - Depends on: [40](40-ds-foundation-colors.md), [41](41-ds-foundation-typography.md), [42](42-ds-foundation-spacing.md), [43](43-ds-foundation-shape.md), [44](44-ds-foundation-borders.md), [46](46-ds-foundation-motion.md), [47](47-ds-foundation-responsive.md), [49](49-ds-component-surface.md), [50](50-ds-component-button.md), [58](58-ds-widget-identity.md).
-- Product: `lib/presentation/design_system/widgets/list_row/`; собственная тема рядом с визуальным элементом. Чистые tokens не требуют PNG сами по себе.
-- Widgetbook: `lib/presentation/widgetbook/widgets/list_row/<named_use_case>/`; каждый именованный use case в своей папке, registry только агрегирует регистрации.
-- Tests: `test/presentation/design_system/widgets/list_row/`; PNG — `golden/<native-os>/` рядом с визуальным элементом/showcase в lib. Harness/matcher/flutter_test — только test.
+- Product: `lib/presentation/design_system/widgets/roster_row/`; собственная тема рядом с визуальным элементом. Чистые tokens не требуют PNG сами по себе.
+- Widgetbook: `lib/presentation/widgetbook/widgets/roster_row/<named_use_case>/`; каждый именованный use case в своей папке, registry только агрегирует регистрации.
+- Tests: `test/presentation/design_system/widgets/roster_row/`; PNG — `golden/<native-os>/` рядом с визуальным элементом/showcase в lib. Harness/matcher/flutter_test — только test.
 - Никакой независимой копии компонента в showcase/golden. Использовать текущую оболочку/registry и existing FoundationScenarioHost там, где он подходит; не создавать новый entrypoint.
 
 ## Уточнения и решения
@@ -53,12 +53,12 @@ UI kit показывает roster/assignment/ranking/history как приме�
 
 ## Acceptance Criteria
 
-- [ ] AC-62.1: AppListRow реализован/расширен в указанном scope; нет параллельной копии уже существующей сущности, ссылку на HTML-эталон можно проследить.
-- [ ] AC-62.2: все визуальные параметры приходят из собственной темы и общих токенов, API типизирован; raw styling/строковые discriminators/бизнес-правила отсутствуют.
-- [ ] AC-62.3: именованные Widgetbook use cases показывают реальный элемент: Обычная; reveal; assignment identity; rank2/3–4 как данные; history content; длинные имена; keyboard alternative удалению.
-- [ ] AC-62.4: Widgetbook и golden используют одинаковые fixtures/именованные builders/темы; native baselines созданы/сверены, diffs просмотрены, comparison после update выполнен без update.
-- [ ] AC-62.5: проверены constraints, значимые states, локализованные labels/semantics и content limits; совпадение visual identity Desktop/Mobile подтверждено, отклонения записаны.
-- [ ] AC-62.6: manifest/owning docs/scenario registrations актуальны; analyze/tests/architecture checks по impact PASS либо честный blocker с NOT_RUN. Результат показан пользователю.
+- [x] AC-62.1: AppRosterRow реализован/расширен в указанном scope; нет параллельной копии уже существующей сущности, ссылку на HTML-эталон можно проследить.
+- [x] AC-62.2: все визуальные параметры приходят из собственной темы и общих токенов, API типизирован; raw styling/строковые discriminators/бизнес-правила отсутствуют.
+- [x] AC-62.3: именованные Widgetbook use cases показывают реальный элемент: Mobile default/revealed; Desktop default/focus; long/disabled; keyboard и accessible removal intent.
+- [x] AC-62.4: Widgetbook и golden используют одинаковые fixtures/именованные builders/темы; native baselines созданы/сверены, diffs просмотрены, comparison после update выполнен без update.
+- [x] AC-62.5: проверены constraints, значимые states, локализованные labels/semantics и content limits; совпадение visual identity Desktop/Mobile подтверждено, отклонения записаны.
+- [x] AC-62.6: manifest/owning docs/scenario registrations актуальны; analyze/tests/architecture checks по impact PASS либо честный blocker с NOT_RUN. Результат показан пользователю.
 
 ## Ошибки и крайние случаи
 
@@ -93,7 +93,7 @@ UI kit показывает roster/assignment/ranking/history как приме�
 
 ## Test Evidence и Approval
 
-- NOT_RUN: runtime-код, tests и baselines не изменялись; задача только поставлена.
+- Реальный общий pipeline RosterRow PASS4/4,29 controls; Flutter DS/Widgetbook suite PASS24, Node engine PASS34, analyzer и architecture-test PASS.
 - Для visual scope TestGate approval не требуется; запуск реализации — отдельный запрос. Если появится логическая часть, пройти workflow REQUIRED для неё до production изменения.
 - Обязательная golden-проверка R-006.c сохраняется независимо от отсутствия логического gate.
 
@@ -135,3 +135,41 @@ Prompt пользователя (дословно):
 Запуск реализации после общего сравнения74; до его завершения эта карточка остаётся запланированной. Отдельный коммит данного компонента без push; сверка сценариев/контрольных элементов в общем отчёте.
 
 Уточнение текущего scope: запрос относится к «Строке участников» — AppRosterRow, mobile row/reveal и desktop card с постоянной кнопкой. Assignment/ranking/history сейчас не реализуются. Перед кодом обновить specification/AC до этого конкретного результата; не объявлять все HTML Row recipes готовыми. Remove intent делегируется потребителю, без удаления данных/confirmation logic внутри widget.
+
+### Уточнение scope и Plan1 после approval74
+
+По явной очереди пользователя реализуется только AppRosterRow в widgets/roster_row. Исходная общая идея AppListRow с assignment/ranking/history заменена узкой композицией. Эти дополнительные recipes не входят в текущий принимаемый результат и не считаются выполненными автоматически. Историческая постановка выше сохранена.
+
+Specification2: mobile min72, Avatar48 round, Inter18/1.4, inset8×16; swipe left reveals action88 на всю высоту справа. Desktop min208, inset24, Avatar64 radius22, gap24, Inter22/1.4, explicit remove40 top/right24 без swipe. Shared AppSurface/AppIdentity/AppButton/AppIcon. Локальная drag/focus/reveal — только визуальное взаимодействие, TestGate NOT_REQUIRED. Callback только remove intent, confirmation/business deletion у потребителя. Keyboard Left/Right/Escape mobile; Enter/Space action; hidden action исключён из focus/semantics, доступный semantic delete intent. Nullable callback disabled.
+
+Plan: runtime Roster metrics/theme → widget composition и визуальный reveal → shared scoped fixtures/сценарии → источник и native controls плюс long/disabled native goldens → gesture/keyboard/semantics/theme checks → полный report, отдельный коммит без push и остановка.
+
+AC текущей версии: mobile default/reveal и desktop default/focus source сравнены с Avatar/Text/action controls; actual drag/cancel/reclose и keyboard/disabled/semantics делегируют intent без удаления данных; long/narrow/text scale/theme не ломают layout; native goldens/analyzer/architecture проходят, отчёт показан.
+
+### Итерация2 — реализация и завершение
+
+Prompt пользователя (дословно):
+
+> Подтверждаю, приступай. Реализуй общий инструмент, затем зависимости и строку участников, каждый компонент отдельным коммитом без пуша. После покажи строку в сравнении и остановись.
+
+Продолжение пользователя (дословно):
+
+> продолжи
+
+Изменения: AppRosterRow через AppSurface/AppIdentity/AppAvatar/AppButton/AppIcon; runtime AppRosterMetrics/Theme, drag/reveal/cancel, постоянный desktop action, keyboard/focus, custom semantics intent и intl label. Callback/null callback делегируются без изменения данных. Внутренняя поверхность flat имеет прямую границу; outer radius остаётся у строки. Scoped Widgetbook5 use cases и10 macOS PNG (4 source +6 long/disabled/scaled).
+
+Реальное сравнение выявило desktop name offset8px: поздний source CSS задаёт gap16, а не прежний24. Исправлена participant stacked theme, обновлены2 затронутых Identity baselines; старые character/Avatar baselines сохранены. Pointercancel-test выявил commit reveal при отмене принятого gesture; raw cancel теперь восстанавливает положение до pointer down. Полный suite повторён после исправлений. Scoped control locator withinType исключает зависимость от глобального порядка private boxes; измеряется actual used radius, CSS999px и circle48 дают24px.
+
+Test evidence (macOS, DPR1, bundled fonts):
+
+- `node tools/visual-comparison/compare.mjs roster-row --update-goldens`, затем без update — PASS4/4,29 controls,0 findings. Все16 PNG Web/Flutter/overlay/diff загружены в настоящем браузере; отчёт и снимки лично просмотрены. Geometry0.5px/baseline1px — явные дробные renderer допуски. Desktop focus note: CSS-demo3px против реального desktop focus2px; Flutter2px, отличие прямо показано в отчёте.
+- `flutter test --no-pub test/presentation/design_system test/widgetbook_bootstrap_test.dart` — PASS24. Отдельно Roster+Identity с update и без: swipe/reclose/cancel/vertical, Left/Right/Escape, Enter/Space, hidden focus/semantics и custom action, null callback, theme replacement, long/narrow/scaled1.6. Обновлён bootstrap после добавления законного Widgets scope, без искусственного старого ограничения2 folders.
+- `flutter analyze --no-pub` — No issues. `make architecture-test` —49 function fixtures,51 architecture,35 theme boundaries и114 реальных файлов PASS. `node --test tools/visual-comparison/test/generic_engine.test.mjs` —34/34 PASS (включая escaping source note). `node tools/check_rules.cjs`, `git diff --check` — PASS.
+- Регрессия общей used-radius нормализации: `node tools/visual-comparison/compare.mjs button` — PASS25/25 без update.
+- Widgetbook hot restart succeeded; runtime errors отсутствуют. Сервер8094 продолжает работать. Browser report открыт через Codex panel (queued клиентом) и доступен по прямой ссылке; headless проверка подтвердила все cases/images.
+
+Временный отказ automatic approval reviewer из-за workspace credits прервал один запуск; после «продолжи» повторное согласование инструментом прошло, заблокированных проверок не осталось. Linux/Windows native проверки NOT_RUN.
+
+Final verification: текущие AC-62.1–6 выполнены; code/tests/scoped fixtures/theme/docs/report согласованы. DONE. Отдельный локальный коммит RosterRow без push; после показа отчёта работа останавливается по запросу. Assignment/ranking/history и остальные задачи DS не начинались.
+
+Дополнительная граница жеста: DragStartBehavior.down сохраняет отсчёт порога от pointer down, без добавления framework touch slop. Проверки20px (закрыт) /30px (раскрыт) и обратный30px PASS; повторные5 Roster tests без update PASS.

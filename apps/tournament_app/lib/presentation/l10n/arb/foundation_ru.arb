@@ -72,5 +72,13 @@
   "buttonSave": "Сохранить",
   "buttonLong": "Продолжить создание турнира с выбранными участниками",
   "rosterDelete": "Удалить",
-  "participantDescription": "Участник турнира"
+  "participantDescription": "Участник турнира",
+  "rosterRemove": "Удалить участника {name}",
+  "@rosterRemove": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  }
 }

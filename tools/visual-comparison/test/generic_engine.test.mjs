@@ -119,9 +119,9 @@ test('missing capture stays visible instead of dropping a scenario',()=>{
   assert.ok(html.includes('mobile-default'));assert.match(html,/missing|отсутств|не получ|не захвачен/i);
 });
 test('report escapes fixture text and diagnostic markup',()=>{
-  const input=spec();input.title='<script>unsafe()</script>';
+  const input=spec();input.title='<script>unsafe()</script>';input.scenarios[0].note='<script>source-note()</script>';
   const html=capability(reporting,'renderReport')({spec:input,results:[]});
-  assert.ok(!html.includes(input.title));assert.ok(html.includes('&lt;script&gt;'));
+  assert.ok(!html.includes(input.title));assert.ok(html.includes('&lt;script&gt;'));assert.ok(!html.includes(input.scenarios[0].note));assert.ok(html.includes('&lt;script&gt;source-note()&lt;/script&gt;'));
 });
 
 test('pipeline performs capture, comparison, report, cleanup in order',async()=>{

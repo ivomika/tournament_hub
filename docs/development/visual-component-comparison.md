@@ -13,3 +13,8 @@ Pipeline экспортирует manifest, захватывает оригин�
 Native goldens расположены рядом с DS-элементом в `golden/<native-os>`. Обычный Flutter suite не запускает внешний capture; integration driver вызывается CLI с VC_RUN_DIR. Baseline обновляется отдельно от подтверждения соответствия web. Для отрицательного контрольного сценария указывается конкретное ожидаемое finding; отсутствие этого finding считается failure. В Avatar намеренно смещены инициалы, root сохранён.
 
 Проверки engine: `node --test tools/visual-comparison/test/generic_engine.test.mjs`. Новые компоненты требуют деклараций, а не отдельных capture/report scripts.
+
+
+Уточнения составных компонентов: `ComparisonControl.type(withinType: AppAvatar, type: DecoratedBox, ...)` ограничивает locator реальной дочерней компонентой; приватный layout не приходится искать глобальным индексом. `textRange:true` измеряет непосредственный текстовый узел отдельно от SVG. Радиус сравнивается как фактическое скругление, ограниченное половиной меньшей стороны: CSS999px и нативный circle48×48 дают24px. `capturePadding` включает внешние контуры/тени; фон вне root нейтрализован без изменения CSS компонента. `note` явно показывает принятые расхождения, не скрывая raster diff.
+
+Пример принятого отклонения RosterRow: UI kit принудительно показывает `.kit-focus` с3px, а настоящий desktop `:focus-visible` прототипа использует2px. Native повторяет последний; это отмечено прямо у focus-сценария. Четыре source-состояния RosterRow проверяют frame, avatar rect/style, initials, name, remove rect/style и glyph/label. Native long/disabled/text-scale fixtures дополнительно проверяются Flutter-тестами.

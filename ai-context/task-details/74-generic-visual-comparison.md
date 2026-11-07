@@ -2,7 +2,7 @@
 
 ## Статус и этап
 
-🚧 В работе. Mode CODE. Stage IMPLEMENTING.
+✅ Выполнена. Mode CODE. Stage DONE.
 Specification1 / plan1 / test set1. TestGate REQUIRED: новый общий инструмент с validation/comparison/orchestration/error handling. До RED и отдельного approval меняются только docs/tests. Existing Avatar pilot остаётся рабочим.
 
 ## Goal / Context
@@ -102,3 +102,7 @@ Prompt пользователя (дословно):
 Проверки:34/34 Node tests PASS; реальная команда `node tools/visual-comparison/compare.mjs avatar` PASS; analyzer PASS. Targeted Avatar/Widgetbook/generic-driver suite и architecture-test проверены при завершении. Новые goldens не требовались: старые17 Avatar baselines сохранены. Другие native ОС не запускались.
 
 Итог инструмента: DONE. Зависимые компоненты продолжаются в48/49/50/58/62.
+
+### Проверка на составной строке62
+
+Общий driver дополнен locator scope withinType и фактическим radius для CSS pill/circle; notes показывают сознательные source расхождения. Устаревший README пилота заменён актуальной одной командой. RosterRow сравнивает внутренние Avatar/Text/Button, а не только внешний shell. Общий pipeline обнаружил реальный неверный desktop gap8px, исправление проверено повторно.

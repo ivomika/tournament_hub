@@ -456,6 +456,12 @@ abstract class FoundationLocalizations {
   /// In ru, this message translates to:
   /// **'Участник турнира'**
   String get participantDescription;
+
+  /// No description provided for @rosterRemove.
+  ///
+  /// In ru, this message translates to:
+  /// **'Удалить участника {name}'**
+  String rosterRemove(String name);
 }
 
 class _FoundationLocalizationsDelegate

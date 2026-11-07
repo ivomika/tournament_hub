@@ -136,3 +136,7 @@ Surface/raised ← текущий ColorScheme; Shape surface24/desktopSurface20/
 ### AppIdentity (58)
 
 Композиция существующего AppAvatar и primary/optional secondary. Inline/stacked и character/participant — типизированные контракты. Runtime AppIdentityMetrics содержит источник participant18/22, avatar18/24 и corner22, line-height1.4/1.1 и container ratio0.07; остальные значения приходят из текущих TextTheme/ColorScheme/Spacing/Avatar metrics. AppAvatar принимает typed recipe от темы композиции, default не меняется. Сверка `node tools/visual-comparison/compare.mjs identity`; дробная geometry квантована в пределах0.5px.
+
+### AppRosterRow (62)
+
+Runtime AppRosterMetrics: cardHeight208, swipeThreshold24, reveal160ms/ease; размеры mobile/action берутся из AppControlMetrics72/88/40, spacing/shape из общих extensions. Финальный desktop gap16 подтверждён computed CSS (desktop.css позднее переопределяет прежний24). AppIdentity participant stacked исправлен по этому факту, соответствующие macOS baselines обновлены. Внутренняя AppSurface.flat использует theme spacing0 для прямой границы выдвигаемой области; внешнее скругление принадлежит строке. Контракт/проверки: [AppRosterRow](roster-row.md).

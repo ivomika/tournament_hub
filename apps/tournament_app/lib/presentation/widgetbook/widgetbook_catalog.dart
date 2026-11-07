@@ -1,3 +1,8 @@
+import 'package:tournament_app/presentation/widgetbook/widgets/roster_row/default/default_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/widgets/roster_row/revealed/revealed_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/widgets/roster_row/focus/focus_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/widgets/roster_row/disabled/disabled_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/widgets/roster_row/long/long_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/widgets/identity/inline/inline_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/widgets/identity/stacked/stacked_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/widgets/identity/participant/participant_use_case.dart';
@@ -27,20 +32,6 @@ import 'package:tournament_app/presentation/widgetbook/foundation/typography/tex
 
 /// Регистрации добавляются из папок конкретных scoped use cases.
 final widgetbookCatalog = <WidgetbookNode>[
-  WidgetbookFolder(
-    name: 'Widgets',
-    children: [
-      WidgetbookComponent(
-        name: 'Identity',
-        useCases: [
-          inlineIdentityUseCase,
-          stackedIdentityUseCase,
-          participantIdentityUseCase,
-          longIdentityUseCase,
-        ],
-      ),
-    ],
-  ),
   WidgetbookFolder(
     name: 'Foundation',
     isInitiallyExpanded: true,
@@ -86,6 +77,30 @@ final widgetbookCatalog = <WidgetbookNode>[
           avatar112UseCase,
           avatar128UseCase,
           avatarContentUseCase,
+        ],
+      ),
+    ],
+  ),
+  WidgetbookFolder(
+    name: 'Widgets',
+    children: [
+      WidgetbookComponent(
+        name: 'Roster row',
+        useCases: [
+          defaultRosterUseCase,
+          revealedRosterUseCase,
+          focusRosterUseCase,
+          disabledRosterUseCase,
+          longRosterUseCase,
+        ],
+      ),
+      WidgetbookComponent(
+        name: 'Identity',
+        useCases: [
+          inlineIdentityUseCase,
+          stackedIdentityUseCase,
+          participantIdentityUseCase,
+          longIdentityUseCase,
         ],
       ),
     ],

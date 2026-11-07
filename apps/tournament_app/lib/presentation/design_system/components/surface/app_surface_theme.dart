@@ -5,7 +5,7 @@ import 'package:tournament_app/presentation/design_system/foundation/responsive/
 
 enum AppSurfaceTone { adaptive, surface, raised }
 
-enum AppSurfaceShape { panel, nested, card }
+enum AppSurfaceShape { panel, nested, card, flat }
 
 enum AppSurfaceInset { standard, none }
 
@@ -37,6 +37,7 @@ class AppSurfaceTheme {
         AppSurfaceShape.panel => desktop ? s.desktopSurface : s.surface,
         AppSurfaceShape.nested => s.nested,
         AppSurfaceShape.card => s.surface,
+        AppSurfaceShape.flat => BorderRadius.circular(space.space0),
       },
       padding: EdgeInsets.all(
         inset == AppSurfaceInset.none ? space.space0 : space.space24,

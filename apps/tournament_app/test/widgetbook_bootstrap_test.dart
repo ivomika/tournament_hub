@@ -26,9 +26,31 @@ abstract final class _WidgetbookBootstrapTests {
     final rootFinder = find.byType(Widgetbook);
     expect(rootFinder, findsOneWidget);
     final root = tester.widget<Widgetbook>(rootFinder);
-    expect(root.directories, hasLength(2));
-    expect(root.directories.first.children, hasLength(2));
-    expect(root.directories.last.children!.single.name, 'Avatar');
+    expect(
+      root.directories.map((node) => node.name),
+      unorderedEquals(['Foundation', 'Components', 'Widgets']),
+    );
+    final foundation = root.directories.singleWhere(
+      (node) => node.name == 'Foundation',
+    );
+    final components = root.directories.singleWhere(
+      (node) => node.name == 'Components',
+    );
+    final widgets = root.directories.singleWhere(
+      (node) => node.name == 'Widgets',
+    );
+    expect(
+      foundation.children!.map((node) => node.name),
+      containsAll(['Colors', 'Typography', 'Icons']),
+    );
+    expect(
+      components.children!.map((node) => node.name),
+      containsAll(['Avatar', 'Surface', 'Button']),
+    );
+    expect(
+      widgets.children!.map((node) => node.name),
+      containsAll(['Identity', 'Roster row']),
+    );
     expect(root.addons, anyOf(isNull, isEmpty));
     expect(root.integrations, anyOf(isNull, isEmpty));
     expect(tester.takeException(), isNull);

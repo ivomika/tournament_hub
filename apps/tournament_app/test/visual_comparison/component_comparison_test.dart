@@ -111,8 +111,15 @@ abstract final class _ComparisonDriver {
         final matching = control.widgetType != null
             ? find.byType(control.widgetType!)
             : find.text(control.text!);
+        final scope = control.withinType == null
+            ? rootFinder
+            : find.descendant(
+                of: rootFinder,
+                matching: find.byType(control.withinType!),
+                matchRoot: true,
+              );
         final targets = find.descendant(
-          of: rootFinder,
+          of: scope,
           matching: matching,
           matchRoot: true,
         );
@@ -151,13 +158,22 @@ abstract final class _ComparisonDriver {
           });
           painter.dispose();
         }
+        if (widget is ClipRRect) {
+          values['radius'] = widget.borderRadius
+              .resolve(TextDirection.ltr)
+              .topLeft
+              .x;
+        }
         if (widget is DecoratedBox && widget.decoration is BoxDecoration) {
           final box = widget.decoration as BoxDecoration;
           values.addAll({
             'background': box.color == null ? '#00000000' : _color(box.color!),
             'radius': box.shape == BoxShape.circle
                 ? math.min(rect.width, rect.height) / 2
-                : box.borderRadius?.resolve(TextDirection.ltr).topLeft.x ?? 0,
+                : math.min(
+                    box.borderRadius?.resolve(TextDirection.ltr).topLeft.x ?? 0,
+                    math.min(rect.width, rect.height) / 2,
+                  ),
             'borderWidth': box.border?.top.width ?? 0,
           });
         }

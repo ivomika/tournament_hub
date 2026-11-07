@@ -24,6 +24,7 @@ class ComparisonControl {
     required this.id,
     required this.webSelector,
     required Type type,
+    this.withinType,
     required this.properties,
     this.index = 0,
     this.geometryTolerance,
@@ -34,6 +35,7 @@ class ComparisonControl {
     required this.id,
     required this.webSelector,
     required String value,
+    this.withinType,
     required this.properties,
     this.index = 0,
     this.geometryTolerance,
@@ -43,6 +45,7 @@ class ComparisonControl {
   final String id;
   final String webSelector;
   final Type? widgetType;
+  final Type? withinType;
   final String? text;
   final int index;
   final List<ComparisonProperty> properties;
@@ -67,6 +70,7 @@ class ComparisonScenario {
     required this.builder,
     required this.controls,
     this.capturePadding = 0,
+    this.note,
     this.goldenId,
     this.webClass,
     this.webText,
@@ -84,6 +88,7 @@ class ComparisonScenario {
   final ComparisonExpectedFailure? expectedFailure;
   final String? goldenId;
   final double capturePadding;
+  final String? note;
   final String? webClass;
   final String? webText;
   final int freezeMilliseconds;
@@ -98,6 +103,7 @@ class ComparisonScenario {
     'webSelector': webSelector,
     'controls': controls.map((c) => c.toJson()).toList(),
     'capturePadding': capturePadding,
+    if (note != null) 'note': note,
     if (expectedFailure != null) 'expectedFailure': expectedFailure!.toJson(),
     if (goldenId != null) 'goldenId': goldenId,
     'freezeMilliseconds': freezeMilliseconds,

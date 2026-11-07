@@ -105,7 +105,7 @@ class AppIdentityTheme {
         ),
       ),
       gap: participant && stack
-          ? s.space24
+          ? s.space16
           : stack
           ? s.space8
           : s.space16,
