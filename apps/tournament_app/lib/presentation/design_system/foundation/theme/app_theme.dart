@@ -1,3 +1,5 @@
+import 'package:tournament_app/presentation/design_system/foundation/primitives/select_primitives.dart';
+import 'package:tournament_app/presentation/design_system/foundation/responsive/app_select_metrics.dart';
 import 'package:tournament_app/presentation/design_system/foundation/primitives/field_primitives.dart';
 import 'package:tournament_app/presentation/design_system/foundation/responsive/app_field_metrics.dart';
 import 'package:tournament_app/presentation/design_system/foundation/layout/foundation_sample_metrics.dart';
@@ -109,6 +111,19 @@ abstract final class AppTheme {
         const AppTextMetrics(
           compactHeaderLine: TypographyPrimitives.compactHeaderLine,
           comfortableHeaderLine: TypographyPrimitives.comfortableHeaderLine,
+        ),
+        const AppSelectMetrics(
+          chevronTurns: SelectPrimitives.chevronTurns,
+          sheetMaxWidth: SelectPrimitives.sheetMaxWidth,
+          closeExtent: SelectPrimitives.closeExtent,
+          handleWidth: SelectPrimitives.handleWidth,
+          handleHeight: SelectPrimitives.handleHeight,
+          sheetBottom: SelectPrimitives.sheetBottom,
+          sheetTitleSize: SelectPrimitives.sheetTitleSize,
+          sheetTitleLine: SelectPrimitives.sheetTitleLine,
+          desktopLine: SelectPrimitives.desktopLine,
+          optionWeight: SelectPrimitives.optionWeight,
+          selectedWeight: SelectPrimitives.selectedWeight,
         ),
         const AppFieldMetrics(
           mobileMessageHeight: FieldPrimitives.mobileMessageHeight,

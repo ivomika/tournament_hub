@@ -109,5 +109,11 @@
   "fieldMessageLabel": "Сообщение",
   "fieldNameSample": "Пятничный турнир",
   "fieldMessageSample": "Хочу предложить улучшение…",
-  "fieldErrorSample": "Проверь значение"
+  "fieldErrorSample": "Проверь значение",
+  "selectLabel": "Оформление",
+  "selectDark": "Тёмное",
+  "selectLight": "Светлое",
+  "selectSystem": "Как в системе",
+  "selectDescription": "Выбери оформление интерфейса",
+  "selectClose": "Закрыть выбор оформления"
 }

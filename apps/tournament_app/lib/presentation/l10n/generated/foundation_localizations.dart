@@ -588,6 +588,42 @@ abstract class FoundationLocalizations {
   /// In ru, this message translates to:
   /// **'Проверь значение'**
   String get fieldErrorSample;
+
+  /// No description provided for @selectLabel.
+  ///
+  /// In ru, this message translates to:
+  /// **'Оформление'**
+  String get selectLabel;
+
+  /// No description provided for @selectDark.
+  ///
+  /// In ru, this message translates to:
+  /// **'Тёмное'**
+  String get selectDark;
+
+  /// No description provided for @selectLight.
+  ///
+  /// In ru, this message translates to:
+  /// **'Светлое'**
+  String get selectLight;
+
+  /// No description provided for @selectSystem.
+  ///
+  /// In ru, this message translates to:
+  /// **'Как в системе'**
+  String get selectSystem;
+
+  /// No description provided for @selectDescription.
+  ///
+  /// In ru, this message translates to:
+  /// **'Выбери оформление интерфейса'**
+  String get selectDescription;
+
+  /// No description provided for @selectClose.
+  ///
+  /// In ru, this message translates to:
+  /// **'Закрыть выбор оформления'**
+  String get selectClose;
 }
 
 class _FoundationLocalizationsDelegate

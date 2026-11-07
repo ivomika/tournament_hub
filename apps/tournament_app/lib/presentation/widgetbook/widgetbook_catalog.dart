@@ -1,3 +1,7 @@
+import 'package:tournament_app/presentation/widgetbook/components/select/closed/closed_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/components/select/focused/focused_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/components/select/disabled/disabled_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/components/select/sheet/sheet_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/components/field/single_line/single_line_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/components/field/multiline/multiline_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/foundation/responsive/consumers/consumers_use_case.dart';
@@ -104,6 +108,15 @@ final widgetbookCatalog = <WidgetbookNode>[
     name: 'Components',
     isInitiallyExpanded: true,
     children: [
+      WidgetbookComponent(
+        name: 'Select',
+        useCases: [
+          selectClosedUseCase,
+          selectFocusedUseCase,
+          selectDisabledUseCase,
+          selectSheetUseCase,
+        ],
+      ),
       WidgetbookComponent(
         name: 'Field',
         useCases: [fieldSingleLineUseCase, fieldMultilineUseCase],

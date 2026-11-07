@@ -270,4 +270,22 @@ class FoundationLocalizationsRu extends FoundationLocalizations {
 
   @override
   String get fieldErrorSample => 'Проверь значение';
+
+  @override
+  String get selectLabel => 'Оформление';
+
+  @override
+  String get selectDark => 'Тёмное';
+
+  @override
+  String get selectLight => 'Светлое';
+
+  @override
+  String get selectSystem => 'Как в системе';
+
+  @override
+  String get selectDescription => 'Выбери оформление интерфейса';
+
+  @override
+  String get selectClose => 'Закрыть выбор оформления';
 }

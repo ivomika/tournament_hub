@@ -31,6 +31,10 @@ export class CaptureBrowser {
    console.log(`  Web ${scenario.id}`);
    await this.call('Emulation.setDeviceMetricsOverride',{width:scenario.viewport.width,height:scenario.viewport.height,deviceScaleFactor:scenario.viewport.dpr,mobile:false});
    await this.call('Page.navigate',{url:`${spec.source.url}?comparison=${encodeURIComponent(scenario.id)}-${Date.now()}`});
+   if(scenario.webOpenSelector){
+    await this.until(()=>this.evaluate(`!!document.querySelector(${JSON.stringify(scenario.webOpenSelector)})`),15000,scenario.id+' trigger');
+    await this.evaluate(`document.querySelector(${JSON.stringify(scenario.webOpenSelector)}).click()`);
+   }
    await this.until(()=>this.evaluate(`!!document.querySelector(${JSON.stringify(scenario.webSelector)})`),15000,scenario.id);
    await this.evaluate('document.fonts.ready.then(()=>true)');
    const frame=await this.evaluate(`(${measure.toString()})(${JSON.stringify(scenario)})`);
@@ -72,7 +76,7 @@ function measure(scenario){
   if(node.textContent?.trim()&&!document.fonts.check(c.font))throw Error(`Font not ready for ${control.id}`);
   const radius=c.borderTopLeftRadius.endsWith('%')?Math.min(box.width,box.height)*parseFloat(c.borderTopLeftRadius)/100:parseFloat(c.borderTopLeftRadius);
   controls[control.id]={rect:rect(control.textRange?rangeBox:box),width:control.textRange?rangeBox.width:box.width,height:control.textRange?rangeBox.height:box.height,fontSize:parseFloat(c.fontSize),fontWeight:parseInt(c.fontWeight),lineHeight:c.lineHeight==='normal'?null:parseFloat(c.lineHeight)/parseFloat(c.fontSize),color:color(c.color),background:color(c.backgroundColor),radius:Math.min(radius,Math.min(box.width,box.height)/2),borderWidth:parseFloat(c.borderTopWidth),borderColor:color(c.borderTopColor),baseline:rangeBox.top-r.top+font.fontBoundingBoxAscent,opacity:parseFloat(c.opacity),strokeWidth:parseFloat(c.strokeWidth)};
-  if(node instanceof HTMLInputElement || node instanceof HTMLTextAreaElement){
+  if(node instanceof HTMLInputElement || node instanceof HTMLTextAreaElement || node instanceof HTMLSelectElement){
    const lines=node.value.split('\n');const metrics=lines.map(line=>context.measureText(line));
    const lineHeight=c.lineHeight==='normal'?font.fontBoundingBoxAscent+font.fontBoundingBoxDescent:parseFloat(c.lineHeight);
    const ascent=context.measureText('Hg').fontBoundingBoxAscent,descent=context.measureText('Hg').fontBoundingBoxDescent;

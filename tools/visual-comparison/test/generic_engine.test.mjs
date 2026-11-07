@@ -204,3 +204,9 @@ test('border color difference is detected independently of matching frame',()=>{
  const a=frame(),b=frame();a.controls.name.borderColor='#3a414eff';b.controls.name.borderColor='#ff968eff';
  const result=comparison.compareScenario(scenario,a,b);assert.equal(result.status,'fail');assert.equal(result.findings[0].property,'borderColor');
 });
+
+test('optional open selector is validated before capture',()=>{
+ const input=spec();input.scenarios[0].webOpenSelector=42;
+ assert.throws(()=>specification.validateSpec(input),/webOpenSelector/);
+ input.scenarios[0].webOpenSelector='[data-open]';assert.equal(specification.validateSpec(input).scenarios[0].webOpenSelector,'[data-open]');
+});

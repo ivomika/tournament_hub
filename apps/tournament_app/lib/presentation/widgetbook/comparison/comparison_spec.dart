@@ -81,6 +81,7 @@ class ComparisonScenario {
     this.note,
     this.goldenId,
     this.webClass,
+    this.webOpenSelector,
     this.webText,
     this.freezeMilliseconds = 0,
     this.theme,
@@ -100,6 +101,7 @@ class ComparisonScenario {
   final double capturePadding;
   final String? note;
   final String? webClass;
+  final String? webOpenSelector;
   final String? webText;
   final int freezeMilliseconds;
   Map<String, Object?> toJson() => {
@@ -114,6 +116,7 @@ class ComparisonScenario {
     if (goldenId != null) 'goldenId': goldenId,
     'freezeMilliseconds': freezeMilliseconds,
     if (webClass != null) 'webClass': webClass,
+    if (webOpenSelector != null) 'webOpenSelector': webOpenSelector,
     if (webText != null) 'webText': webText,
   };
 }

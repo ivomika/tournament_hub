@@ -10,6 +10,7 @@ export function validateSpec(raw) {
   for(const scenario of raw.scenarios){
     if(!/^[a-z0-9][a-z0-9-]*$/.test(scenario.id??'')||ids.has(scenario.id))fail('scenario.id');ids.add(scenario.id);
     if(typeof scenario.webSelector!=='string'||!scenario.webSelector.trim())fail(`${scenario.id}.webSelector`);
+    if(scenario.webOpenSelector!==undefined && (typeof scenario.webOpenSelector!=='string'||!scenario.webOpenSelector.trim()))fail(`${scenario.id}.webOpenSelector`);
     for(const key of ['width','height','dpr'])if(!Number.isFinite(scenario.viewport?.[key])||scenario.viewport[key]<=0)fail(`${scenario.id}.viewport.${key}`);
     if(!Array.isArray(scenario.controls))fail(`${scenario.id}.controls`);
     const names=new Set();
