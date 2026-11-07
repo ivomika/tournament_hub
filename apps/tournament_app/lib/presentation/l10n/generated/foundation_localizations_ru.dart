@@ -288,4 +288,16 @@ class FoundationLocalizationsRu extends FoundationLocalizations {
 
   @override
   String get selectClose => 'Закрыть выбор оформления';
+
+  @override
+  String get segmentedLabel => 'Формат турнира';
+
+  @override
+  String get segmentDe => 'DE';
+
+  @override
+  String get segmentSe => 'SE';
+
+  @override
+  String get segmentRr => 'RR';
 }

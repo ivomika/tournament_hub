@@ -71,7 +71,7 @@ function measure(scenario){
  const controls={};
  for(const control of scenario.controls){
   const node=control.webSelector===':scope'?root:root.querySelector(control.webSelector);if(!node)continue;
-  const c=getComputedStyle(node);const box=node.getBoundingClientRect();const range=document.createRange();range.selectNodeContents(node);if(control.textRange){const text=[...node.childNodes].find(n=>n.nodeType===Node.TEXT_NODE&&n.textContent.trim());if(text)range.selectNodeContents(text);}const rangeBox=range.getBoundingClientRect();
+  const c=getComputedStyle(node,control.webPseudo??null);let box=node.getBoundingClientRect();if(control.webPseudo){const left=parseFloat(c.left)||0,top=parseFloat(c.top)||0;box={left:box.left+left,top:box.top+top,width:parseFloat(c.width),height:parseFloat(c.height)};}const range=document.createRange();range.selectNodeContents(node);if(control.textRange){const text=[...node.childNodes].find(n=>n.nodeType===Node.TEXT_NODE&&n.textContent.trim());if(text)range.selectNodeContents(text);}const rangeBox=range.getBoundingClientRect();
   const context=document.createElement('canvas').getContext('2d');context.font=`${c.fontStyle} ${c.fontWeight} ${c.fontSize} ${c.fontFamily}`;const font=context.measureText(node.textContent??'');
   if(node.textContent?.trim()&&!document.fonts.check(c.font))throw Error(`Font not ready for ${control.id}`);
   const radius=c.borderTopLeftRadius.endsWith('%')?Math.min(box.width,box.height)*parseFloat(c.borderTopLeftRadius)/100:parseFloat(c.borderTopLeftRadius);

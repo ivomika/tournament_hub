@@ -115,5 +115,9 @@
   "selectLight": "Светлое",
   "selectSystem": "Как в системе",
   "selectDescription": "Выбери оформление интерфейса",
-  "selectClose": "Закрыть выбор оформления"
+  "selectClose": "Закрыть выбор оформления",
+  "segmentedLabel": "Формат турнира",
+  "segmentDe": "DE",
+  "segmentSe": "SE",
+  "segmentRr": "RR"
 }

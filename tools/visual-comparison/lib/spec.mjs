@@ -16,6 +16,7 @@ export function validateSpec(raw) {
     const names=new Set();
     for(const control of scenario.controls){
       if(!control.id||names.has(control.id))fail(`${scenario.id}.control.id`);names.add(control.id);
+      if(control.webPseudo!==undefined && !['::before','::after'].includes(control.webPseudo))fail(`${control.id}.webPseudo`);
       if(typeof control.webSelector!=='string')fail(`${control.id}.webSelector`);
       if(!Array.isArray(control.properties)||!control.properties.length||control.properties.some(p=>!properties.has(p)))fail(`${control.id}.properties`);
       for(const [key,value] of Object.entries(control.tolerances??{}))if(!Number.isFinite(value)||value<0)fail(`${control.id}.tolerances.${key}`);

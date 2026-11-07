@@ -20,6 +20,8 @@ enum ComparisonProperty {
 }
 
 /// Technical fixture identifiers/selectors are external capture protocol data.
+enum ComparisonPseudo { before, after }
+
 class ComparisonControl {
   const ComparisonControl.type({
     required this.id,
@@ -31,6 +33,7 @@ class ComparisonControl {
     this.geometryTolerance,
     this.baselineTolerance,
     this.textRange = false,
+    this.webPseudo,
   }) : widgetType = type,
        text = null;
   const ComparisonControl.text({
@@ -43,6 +46,7 @@ class ComparisonControl {
     this.geometryTolerance,
     this.baselineTolerance,
     this.textRange = false,
+    this.webPseudo,
   }) : text = value,
        widgetType = null;
   final String id;
@@ -55,11 +59,13 @@ class ComparisonControl {
   final double? geometryTolerance;
   final double? baselineTolerance;
   final bool textRange;
+  final ComparisonPseudo? webPseudo;
   Map<String, Object?> toJson() => {
     'id': id,
     'webSelector': webSelector,
     'properties': properties.map((p) => p.name).toList(),
     'textRange': textRange,
+    if (webPseudo != null) 'webPseudo': '::${webPseudo!.name}',
     if (geometryTolerance != null || baselineTolerance != null)
       'tolerances': {
         if (geometryTolerance != null) 'geometry': geometryTolerance,

@@ -1,0 +1,2547 @@
+{
+  "spec": {
+    "version": 1,
+    "component": "segmented-choice",
+    "title": "AppSegmentedChoice",
+    "source": {
+      "url": "http://127.0.0.1:8094/ui-kit.html"
+    },
+    "tolerances": {
+      "geometry": 0.5,
+      "typography": 0.05,
+      "baseline": 1
+    },
+    "scenarios": [
+      {
+        "id": "mobile-de",
+        "title": "mobile · de",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#c-segmented .kit-component-states .kit-specimen:nth-child(1) .flow-options",
+        "controls": [
+          {
+            "id": "group",
+            "webSelector": ":scope",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "selected-fill",
+            "webSelector": "a:nth-child(1)",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false,
+            "webPseudo": "::before"
+          },
+          {
+            "id": "hit-0",
+            "webSelector": "a:nth-child(1)",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "label-0",
+            "webSelector": "a:nth-child(1)",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          },
+          {
+            "id": "hit-1",
+            "webSelector": "a:nth-child(2)",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "label-1",
+            "webSelector": "a:nth-child(2)",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          },
+          {
+            "id": "hit-2",
+            "webSelector": "a:nth-child(3)",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "label-2",
+            "webSelector": "a:nth-child(3)",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          }
+        ],
+        "capturePadding": 0,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "mobile-se",
+        "title": "mobile · se",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#c-segmented .kit-component-states .kit-specimen:nth-child(2) .flow-options",
+        "controls": [
+          {
+            "id": "group",
+            "webSelector": ":scope",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "selected-fill",
+            "webSelector": "a:nth-child(2)",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false,
+            "webPseudo": "::before"
+          },
+          {
+            "id": "hit-0",
+            "webSelector": "a:nth-child(1)",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "label-0",
+            "webSelector": "a:nth-child(1)",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          },
+          {
+            "id": "hit-1",
+            "webSelector": "a:nth-child(2)",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "label-1",
+            "webSelector": "a:nth-child(2)",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          },
+          {
+            "id": "hit-2",
+            "webSelector": "a:nth-child(3)",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "label-2",
+            "webSelector": "a:nth-child(3)",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          }
+        ],
+        "capturePadding": 0,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "mobile-rr",
+        "title": "mobile · rr",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#c-segmented .kit-component-states .kit-specimen:nth-child(3) .flow-options",
+        "controls": [
+          {
+            "id": "group",
+            "webSelector": ":scope",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "selected-fill",
+            "webSelector": "a:nth-child(3)",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false,
+            "webPseudo": "::before"
+          },
+          {
+            "id": "hit-0",
+            "webSelector": "a:nth-child(1)",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "label-0",
+            "webSelector": "a:nth-child(1)",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          },
+          {
+            "id": "hit-1",
+            "webSelector": "a:nth-child(2)",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "label-1",
+            "webSelector": "a:nth-child(2)",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          },
+          {
+            "id": "hit-2",
+            "webSelector": "a:nth-child(3)",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "label-2",
+            "webSelector": "a:nth-child(3)",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          }
+        ],
+        "capturePadding": 0,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "desktop-de",
+        "title": "desktop · de",
+        "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1
+        },
+        "webSelector": "#c-segmented .kit-component-states .kit-specimen:nth-child(1) .flow-options",
+        "controls": [
+          {
+            "id": "group",
+            "webSelector": ":scope",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "selected-fill",
+            "webSelector": "a:nth-child(1)",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false,
+            "webPseudo": "::before"
+          },
+          {
+            "id": "hit-0",
+            "webSelector": "a:nth-child(1)",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "label-0",
+            "webSelector": "a:nth-child(1)",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          },
+          {
+            "id": "hit-1",
+            "webSelector": "a:nth-child(2)",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "label-1",
+            "webSelector": "a:nth-child(2)",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          },
+          {
+            "id": "hit-2",
+            "webSelector": "a:nth-child(3)",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "label-2",
+            "webSelector": "a:nth-child(3)",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          }
+        ],
+        "capturePadding": 0,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "desktop-se",
+        "title": "desktop · se",
+        "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1
+        },
+        "webSelector": "#c-segmented .kit-component-states .kit-specimen:nth-child(2) .flow-options",
+        "controls": [
+          {
+            "id": "group",
+            "webSelector": ":scope",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "selected-fill",
+            "webSelector": "a:nth-child(2)",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false,
+            "webPseudo": "::before"
+          },
+          {
+            "id": "hit-0",
+            "webSelector": "a:nth-child(1)",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "label-0",
+            "webSelector": "a:nth-child(1)",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          },
+          {
+            "id": "hit-1",
+            "webSelector": "a:nth-child(2)",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "label-1",
+            "webSelector": "a:nth-child(2)",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          },
+          {
+            "id": "hit-2",
+            "webSelector": "a:nth-child(3)",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "label-2",
+            "webSelector": "a:nth-child(3)",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          }
+        ],
+        "capturePadding": 0,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "desktop-rr",
+        "title": "desktop · rr",
+        "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1
+        },
+        "webSelector": "#c-segmented .kit-component-states .kit-specimen:nth-child(3) .flow-options",
+        "controls": [
+          {
+            "id": "group",
+            "webSelector": ":scope",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "selected-fill",
+            "webSelector": "a:nth-child(3)",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false,
+            "webPseudo": "::before"
+          },
+          {
+            "id": "hit-0",
+            "webSelector": "a:nth-child(1)",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "label-0",
+            "webSelector": "a:nth-child(1)",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          },
+          {
+            "id": "hit-1",
+            "webSelector": "a:nth-child(2)",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "label-1",
+            "webSelector": "a:nth-child(2)",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          },
+          {
+            "id": "hit-2",
+            "webSelector": "a:nth-child(3)",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "label-2",
+            "webSelector": "a:nth-child(3)",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          }
+        ],
+        "capturePadding": 0,
+        "freezeMilliseconds": 0
+      }
+    ]
+  },
+  "results": [
+    {
+      "id": "mobile-de",
+      "title": "mobile · de",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "mobile-de",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 64
+        },
+        "controls": {
+          "group": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 64
+            },
+            "width": 316,
+            "height": 64,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#171a20ff",
+            "radius": 32,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 17,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "selected-fill": {
+            "rect": {
+              "x": 8,
+              "y": 8,
+              "width": 94.6562,
+              "height": 48
+            },
+            "width": 94.6562,
+            "height": 48,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#232730ff",
+            "radius": 24,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 38,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "hit-0": {
+            "rect": {
+              "x": 8,
+              "y": 0,
+              "width": 94.65625,
+              "height": 64
+            },
+            "width": 94.65625,
+            "height": 64,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 32,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 38,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "label-0": {
+            "rect": {
+              "x": 44.734375,
+              "y": 22,
+              "width": 21.1875,
+              "height": 20
+            },
+            "width": 21.1875,
+            "height": 20,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 32,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 38,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "hit-1": {
+            "rect": {
+              "x": 110.65625,
+              "y": 0,
+              "width": 94.671875,
+              "height": 64
+            },
+            "width": 94.671875,
+            "height": 64,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 32,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 38,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "label-1": {
+            "rect": {
+              "x": 148.09375,
+              "y": 22,
+              "width": 19.796875,
+              "height": 20
+            },
+            "width": 19.796875,
+            "height": 20,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 32,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 38,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "hit-2": {
+            "rect": {
+              "x": 213.328125,
+              "y": 0,
+              "width": 94.671875,
+              "height": 64
+            },
+            "width": 94.671875,
+            "height": 64,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 32,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 38,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "label-2": {
+            "rect": {
+              "x": 250.375,
+              "y": 22,
+              "width": 20.5625,
+              "height": 20
+            },
+            "width": 20.5625,
+            "height": 20,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 32,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 38,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 316,
+          "height": 64
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/mobile-de.png"
+        }
+      },
+      "native": {
+        "id": "mobile-de",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 64
+        },
+        "controls": {
+          "group": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 64
+            },
+            "width": 316,
+            "height": 64,
+            "background": "#171a20ff",
+            "radius": 32,
+            "borderWidth": 0,
+            "borderColor": "#00000000"
+          },
+          "selected-fill": {
+            "rect": {
+              "x": 8,
+              "y": 8,
+              "width": 94.66666666666667,
+              "height": 48
+            },
+            "width": 94.66666666666667,
+            "height": 48,
+            "background": "#232730ff",
+            "radius": 24,
+            "borderWidth": 0,
+            "borderColor": "#00000000"
+          },
+          "hit-0": {
+            "rect": {
+              "x": 8,
+              "y": 0,
+              "width": 94.66666666666667,
+              "height": 64
+            },
+            "width": 94.66666666666667,
+            "height": 64
+          },
+          "label-0": {
+            "rect": {
+              "x": 44.74294789632162,
+              "y": 20,
+              "width": 21.180770874023445,
+              "height": 24
+            },
+            "width": 21.180770874023438,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "baseline": 37.8203125
+          },
+          "hit-1": {
+            "rect": {
+              "x": 110.66666666666667,
+              "y": 0,
+              "width": 94.66666666666667,
+              "height": 64
+            },
+            "width": 94.66666666666667,
+            "height": 64
+          },
+          "label-1": {
+            "rect": {
+              "x": 148.10198211669922,
+              "y": 20,
+              "width": 19.796035766601562,
+              "height": 24
+            },
+            "width": 19.796035766601562,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "baseline": 37.8203125
+          },
+          "hit-2": {
+            "rect": {
+              "x": 213.33333333333334,
+              "y": 0,
+              "width": 94.66666666666666,
+              "height": 64
+            },
+            "width": 94.66666666666666,
+            "height": 64
+          },
+          "label-2": {
+            "rect": {
+              "x": 250.38975016276044,
+              "y": 20,
+              "width": 20.5538330078125,
+              "height": 24
+            },
+            "width": 20.5538330078125,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "baseline": 37.8203125
+          }
+        },
+        "raster": {
+          "changedPixels": 2,
+          "meanChannelDelta": 0.029651239451476793
+        },
+        "artifacts": {
+          "image": "flutter/mobile-de.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/mobile-de.png",
+        "flutter": "flutter/mobile-de.png",
+        "overlay": "overlay/mobile-de.png",
+        "diff": "diff/mobile-de.png"
+      },
+      "raster": {
+        "changedPixels": 2,
+        "meanChannelDelta": 0.029651239451476793
+      }
+    },
+    {
+      "id": "mobile-se",
+      "title": "mobile · se",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "mobile-se",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 64
+        },
+        "controls": {
+          "group": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 64
+            },
+            "width": 316,
+            "height": 64,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#171a20ff",
+            "radius": 32,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 17,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "selected-fill": {
+            "rect": {
+              "x": 110.65625,
+              "y": 8,
+              "width": 94.6719,
+              "height": 48
+            },
+            "width": 94.6719,
+            "height": 48,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#232730ff",
+            "radius": 24,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 38,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "hit-0": {
+            "rect": {
+              "x": 8,
+              "y": 0,
+              "width": 94.65625,
+              "height": 64
+            },
+            "width": 94.65625,
+            "height": 64,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 32,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 38,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "label-0": {
+            "rect": {
+              "x": 44.78125,
+              "y": 22,
+              "width": 21.078125,
+              "height": 20
+            },
+            "width": 21.078125,
+            "height": 20,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 32,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 38,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "hit-1": {
+            "rect": {
+              "x": 110.65625,
+              "y": 0,
+              "width": 94.671875,
+              "height": 64
+            },
+            "width": 94.671875,
+            "height": 64,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 32,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 38,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "label-1": {
+            "rect": {
+              "x": 147.953125,
+              "y": 22,
+              "width": 20.0625,
+              "height": 20
+            },
+            "width": 20.0625,
+            "height": 20,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 32,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 38,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "hit-2": {
+            "rect": {
+              "x": 213.328125,
+              "y": 0,
+              "width": 94.671875,
+              "height": 64
+            },
+            "width": 94.671875,
+            "height": 64,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 32,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 38,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "label-2": {
+            "rect": {
+              "x": 250.375,
+              "y": 22,
+              "width": 20.5625,
+              "height": 20
+            },
+            "width": 20.5625,
+            "height": 20,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 32,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 38,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 316,
+          "height": 64
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/mobile-se.png"
+        }
+      },
+      "native": {
+        "id": "mobile-se",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 64
+        },
+        "controls": {
+          "group": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 64
+            },
+            "width": 316,
+            "height": 64,
+            "background": "#171a20ff",
+            "radius": 32,
+            "borderWidth": 0,
+            "borderColor": "#00000000"
+          },
+          "selected-fill": {
+            "rect": {
+              "x": 110.66666666666667,
+              "y": 8,
+              "width": 94.66666666666667,
+              "height": 48
+            },
+            "width": 94.66666666666667,
+            "height": 48,
+            "background": "#232730ff",
+            "radius": 24,
+            "borderWidth": 0,
+            "borderColor": "#00000000"
+          },
+          "hit-0": {
+            "rect": {
+              "x": 8,
+              "y": 0,
+              "width": 94.66666666666667,
+              "height": 64
+            },
+            "width": 94.66666666666667,
+            "height": 64
+          },
+          "label-0": {
+            "rect": {
+              "x": 44.799031575520836,
+              "y": 20,
+              "width": 21.068603515625007,
+              "height": 24
+            },
+            "width": 21.068603515625,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "baseline": 37.8203125
+          },
+          "hit-1": {
+            "rect": {
+              "x": 110.66666666666667,
+              "y": 0,
+              "width": 94.66666666666667,
+              "height": 64
+            },
+            "width": 94.66666666666667,
+            "height": 64
+          },
+          "label-1": {
+            "rect": {
+              "x": 147.97012329101562,
+              "y": 20,
+              "width": 20.05975341796875,
+              "height": 24
+            },
+            "width": 20.05975341796875,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "baseline": 37.8203125
+          },
+          "hit-2": {
+            "rect": {
+              "x": 213.33333333333334,
+              "y": 0,
+              "width": 94.66666666666666,
+              "height": 64
+            },
+            "width": 94.66666666666666,
+            "height": 64
+          },
+          "label-2": {
+            "rect": {
+              "x": 250.38975016276044,
+              "y": 20,
+              "width": 20.5538330078125,
+              "height": 24
+            },
+            "width": 20.5538330078125,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "baseline": 37.8203125
+          }
+        },
+        "raster": {
+          "changedPixels": 55,
+          "meanChannelDelta": 0.045919040084388185
+        },
+        "artifacts": {
+          "image": "flutter/mobile-se.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/mobile-se.png",
+        "flutter": "flutter/mobile-se.png",
+        "overlay": "overlay/mobile-se.png",
+        "diff": "diff/mobile-se.png"
+      },
+      "raster": {
+        "changedPixels": 55,
+        "meanChannelDelta": 0.045919040084388185
+      }
+    },
+    {
+      "id": "mobile-rr",
+      "title": "mobile · rr",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "mobile-rr",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 64
+        },
+        "controls": {
+          "group": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 64
+            },
+            "width": 316,
+            "height": 64,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#171a20ff",
+            "radius": 32,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 17,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "selected-fill": {
+            "rect": {
+              "x": 213.328125,
+              "y": 8,
+              "width": 94.6719,
+              "height": 48
+            },
+            "width": 94.6719,
+            "height": 48,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#232730ff",
+            "radius": 24,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 38,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "hit-0": {
+            "rect": {
+              "x": 8,
+              "y": 0,
+              "width": 94.65625,
+              "height": 64
+            },
+            "width": 94.65625,
+            "height": 64,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 32,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 38,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "label-0": {
+            "rect": {
+              "x": 44.78125,
+              "y": 22,
+              "width": 21.078125,
+              "height": 20
+            },
+            "width": 21.078125,
+            "height": 20,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 32,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 38,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "hit-1": {
+            "rect": {
+              "x": 110.65625,
+              "y": 0,
+              "width": 94.671875,
+              "height": 64
+            },
+            "width": 94.671875,
+            "height": 64,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 32,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 38,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "label-1": {
+            "rect": {
+              "x": 148.09375,
+              "y": 22,
+              "width": 19.796875,
+              "height": 20
+            },
+            "width": 19.796875,
+            "height": 20,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 32,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 38,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "hit-2": {
+            "rect": {
+              "x": 213.328125,
+              "y": 0,
+              "width": 94.671875,
+              "height": 64
+            },
+            "width": 94.671875,
+            "height": 64,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 32,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 38,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "label-2": {
+            "rect": {
+              "x": 250.234375,
+              "y": 22,
+              "width": 20.859375,
+              "height": 20
+            },
+            "width": 20.859375,
+            "height": 20,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 32,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 38,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 316,
+          "height": 64
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/mobile-rr.png"
+        }
+      },
+      "native": {
+        "id": "mobile-rr",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 64
+        },
+        "controls": {
+          "group": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 316,
+              "height": 64
+            },
+            "width": 316,
+            "height": 64,
+            "background": "#171a20ff",
+            "radius": 32,
+            "borderWidth": 0,
+            "borderColor": "#00000000"
+          },
+          "selected-fill": {
+            "rect": {
+              "x": 213.33333333333334,
+              "y": 8,
+              "width": 94.66666666666666,
+              "height": 48
+            },
+            "width": 94.66666666666666,
+            "height": 48,
+            "background": "#232730ff",
+            "radius": 24,
+            "borderWidth": 0,
+            "borderColor": "#00000000"
+          },
+          "hit-0": {
+            "rect": {
+              "x": 8,
+              "y": 0,
+              "width": 94.66666666666667,
+              "height": 64
+            },
+            "width": 94.66666666666667,
+            "height": 64
+          },
+          "label-0": {
+            "rect": {
+              "x": 44.799031575520836,
+              "y": 20,
+              "width": 21.068603515625007,
+              "height": 24
+            },
+            "width": 21.068603515625,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "baseline": 37.8203125
+          },
+          "hit-1": {
+            "rect": {
+              "x": 110.66666666666667,
+              "y": 0,
+              "width": 94.66666666666667,
+              "height": 64
+            },
+            "width": 94.66666666666667,
+            "height": 64
+          },
+          "label-1": {
+            "rect": {
+              "x": 148.10198211669922,
+              "y": 20,
+              "width": 19.796035766601562,
+              "height": 24
+            },
+            "width": 19.796035766601562,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "baseline": 37.8203125
+          },
+          "hit-2": {
+            "rect": {
+              "x": 213.33333333333334,
+              "y": 0,
+              "width": 94.66666666666666,
+              "height": 64
+            },
+            "width": 94.66666666666666,
+            "height": 64
+          },
+          "label-2": {
+            "rect": {
+              "x": 250.24350992838544,
+              "y": 20,
+              "width": 20.8463134765625,
+              "height": 24
+            },
+            "width": 20.8463134765625,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "baseline": 37.8203125
+          }
+        },
+        "raster": {
+          "changedPixels": 2,
+          "meanChannelDelta": 0.030228111814345992
+        },
+        "artifacts": {
+          "image": "flutter/mobile-rr.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/mobile-rr.png",
+        "flutter": "flutter/mobile-rr.png",
+        "overlay": "overlay/mobile-rr.png",
+        "diff": "diff/mobile-rr.png"
+      },
+      "raster": {
+        "changedPixels": 2,
+        "meanChannelDelta": 0.030228111814345992
+      }
+    },
+    {
+      "id": "desktop-de",
+      "title": "desktop · de",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "desktop-de",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 395.328125,
+          "height": 64
+        },
+        "controls": {
+          "group": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 395.328125,
+              "height": 64
+            },
+            "width": 395.328125,
+            "height": 64,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#171a20ff",
+            "radius": 32,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 17,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "selected-fill": {
+            "rect": {
+              "x": 8,
+              "y": 8,
+              "width": 121.109,
+              "height": 48
+            },
+            "width": 121.109,
+            "height": 48,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#232730ff",
+            "radius": 24,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 38,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "hit-0": {
+            "rect": {
+              "x": 8,
+              "y": 0,
+              "width": 121.109375,
+              "height": 64
+            },
+            "width": 121.109375,
+            "height": 64,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 32,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 38,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "label-0": {
+            "rect": {
+              "x": 57.953125,
+              "y": 22,
+              "width": 21.1875,
+              "height": 20
+            },
+            "width": 21.1875,
+            "height": 20,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 32,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 38,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "hit-1": {
+            "rect": {
+              "x": 137.109375,
+              "y": 0,
+              "width": 121.109375,
+              "height": 64
+            },
+            "width": 121.109375,
+            "height": 64,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 32,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 38,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "label-1": {
+            "rect": {
+              "x": 187.765625,
+              "y": 22,
+              "width": 19.796875,
+              "height": 20
+            },
+            "width": 19.796875,
+            "height": 20,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 32,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 38,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "hit-2": {
+            "rect": {
+              "x": 266.21875,
+              "y": 0,
+              "width": 121.109375,
+              "height": 64
+            },
+            "width": 121.109375,
+            "height": 64,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 32,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 38,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "label-2": {
+            "rect": {
+              "x": 316.484375,
+              "y": 22,
+              "width": 20.5625,
+              "height": 20
+            },
+            "width": 20.5625,
+            "height": 20,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 32,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 38,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 395.328125,
+          "height": 64
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/desktop-de.png"
+        }
+      },
+      "native": {
+        "id": "desktop-de",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 395.328125,
+          "height": 64
+        },
+        "controls": {
+          "group": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 395.328125,
+              "height": 64
+            },
+            "width": 395.328125,
+            "height": 64,
+            "background": "#171a20ff",
+            "radius": 32,
+            "borderWidth": 0,
+            "borderColor": "#00000000"
+          },
+          "selected-fill": {
+            "rect": {
+              "x": 8,
+              "y": 8,
+              "width": 121.109375,
+              "height": 48
+            },
+            "width": 121.109375,
+            "height": 48,
+            "background": "#232730ff",
+            "radius": 24,
+            "borderWidth": 0,
+            "borderColor": "#00000000"
+          },
+          "hit-0": {
+            "rect": {
+              "x": 8,
+              "y": 0,
+              "width": 121.109375,
+              "height": 64
+            },
+            "width": 121.109375,
+            "height": 64
+          },
+          "label-0": {
+            "rect": {
+              "x": 57.96430206298828,
+              "y": 20,
+              "width": 21.180770874023438,
+              "height": 24
+            },
+            "width": 21.180770874023438,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "baseline": 37.8203125
+          },
+          "hit-1": {
+            "rect": {
+              "x": 137.109375,
+              "y": 0,
+              "width": 121.109375,
+              "height": 64
+            },
+            "width": 121.109375,
+            "height": 64
+          },
+          "label-1": {
+            "rect": {
+              "x": 187.76604461669922,
+              "y": 20,
+              "width": 19.796035766601562,
+              "height": 24
+            },
+            "width": 19.796035766601562,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "baseline": 37.8203125
+          },
+          "hit-2": {
+            "rect": {
+              "x": 266.21875,
+              "y": 0,
+              "width": 121.109375,
+              "height": 64
+            },
+            "width": 121.109375,
+            "height": 64
+          },
+          "label-2": {
+            "rect": {
+              "x": 316.49652099609375,
+              "y": 20,
+              "width": 20.5538330078125,
+              "height": 24
+            },
+            "width": 20.5538330078125,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "baseline": 37.8203125
+          }
+        },
+        "raster": {
+          "changedPixels": 72,
+          "meanChannelDelta": 0.05718644781144781
+        },
+        "artifacts": {
+          "image": "flutter/desktop-de.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/desktop-de.png",
+        "flutter": "flutter/desktop-de.png",
+        "overlay": "overlay/desktop-de.png",
+        "diff": "diff/desktop-de.png"
+      },
+      "raster": {
+        "changedPixels": 72,
+        "meanChannelDelta": 0.05718644781144781
+      }
+    },
+    {
+      "id": "desktop-se",
+      "title": "desktop · se",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "desktop-se",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 395.328125,
+          "height": 64
+        },
+        "controls": {
+          "group": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 395.328125,
+              "height": 64
+            },
+            "width": 395.328125,
+            "height": 64,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#171a20ff",
+            "radius": 32,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 17,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "selected-fill": {
+            "rect": {
+              "x": 137.109375,
+              "y": 8,
+              "width": 121.109,
+              "height": 48
+            },
+            "width": 121.109,
+            "height": 48,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#232730ff",
+            "radius": 24,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 38,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "hit-0": {
+            "rect": {
+              "x": 8,
+              "y": 0,
+              "width": 121.109375,
+              "height": 64
+            },
+            "width": 121.109375,
+            "height": 64,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 32,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 38,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "label-0": {
+            "rect": {
+              "x": 58.015625,
+              "y": 22,
+              "width": 21.078125,
+              "height": 20
+            },
+            "width": 21.078125,
+            "height": 20,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 32,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 38,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "hit-1": {
+            "rect": {
+              "x": 137.109375,
+              "y": 0,
+              "width": 121.109375,
+              "height": 64
+            },
+            "width": 121.109375,
+            "height": 64,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 32,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 38,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "label-1": {
+            "rect": {
+              "x": 187.625,
+              "y": 22,
+              "width": 20.0625,
+              "height": 20
+            },
+            "width": 20.0625,
+            "height": 20,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 32,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 38,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "hit-2": {
+            "rect": {
+              "x": 266.21875,
+              "y": 0,
+              "width": 121.109375,
+              "height": 64
+            },
+            "width": 121.109375,
+            "height": 64,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 32,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 38,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "label-2": {
+            "rect": {
+              "x": 316.484375,
+              "y": 22,
+              "width": 20.5625,
+              "height": 20
+            },
+            "width": 20.5625,
+            "height": 20,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 32,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 38,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 395.328125,
+          "height": 64
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/desktop-se.png"
+        }
+      },
+      "native": {
+        "id": "desktop-se",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 395.328125,
+          "height": 64
+        },
+        "controls": {
+          "group": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 395.328125,
+              "height": 64
+            },
+            "width": 395.328125,
+            "height": 64,
+            "background": "#171a20ff",
+            "radius": 32,
+            "borderWidth": 0,
+            "borderColor": "#00000000"
+          },
+          "selected-fill": {
+            "rect": {
+              "x": 137.109375,
+              "y": 8,
+              "width": 121.109375,
+              "height": 48
+            },
+            "width": 121.109375,
+            "height": 48,
+            "background": "#232730ff",
+            "radius": 24,
+            "borderWidth": 0,
+            "borderColor": "#00000000"
+          },
+          "hit-0": {
+            "rect": {
+              "x": 8,
+              "y": 0,
+              "width": 121.109375,
+              "height": 64
+            },
+            "width": 121.109375,
+            "height": 64
+          },
+          "label-0": {
+            "rect": {
+              "x": 58.0203857421875,
+              "y": 20,
+              "width": 21.068603515625,
+              "height": 24
+            },
+            "width": 21.068603515625,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "baseline": 37.8203125
+          },
+          "hit-1": {
+            "rect": {
+              "x": 137.109375,
+              "y": 0,
+              "width": 121.109375,
+              "height": 64
+            },
+            "width": 121.109375,
+            "height": 64
+          },
+          "label-1": {
+            "rect": {
+              "x": 187.63418579101562,
+              "y": 20,
+              "width": 20.05975341796875,
+              "height": 24
+            },
+            "width": 20.05975341796875,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "baseline": 37.8203125
+          },
+          "hit-2": {
+            "rect": {
+              "x": 266.21875,
+              "y": 0,
+              "width": 121.109375,
+              "height": 64
+            },
+            "width": 121.109375,
+            "height": 64
+          },
+          "label-2": {
+            "rect": {
+              "x": 316.49652099609375,
+              "y": 20,
+              "width": 20.5538330078125,
+              "height": 24
+            },
+            "width": 20.5538330078125,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "baseline": 37.8203125
+          }
+        },
+        "raster": {
+          "changedPixels": 73,
+          "meanChannelDelta": 0.05858059764309764
+        },
+        "artifacts": {
+          "image": "flutter/desktop-se.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/desktop-se.png",
+        "flutter": "flutter/desktop-se.png",
+        "overlay": "overlay/desktop-se.png",
+        "diff": "diff/desktop-se.png"
+      },
+      "raster": {
+        "changedPixels": 73,
+        "meanChannelDelta": 0.05858059764309764
+      }
+    },
+    {
+      "id": "desktop-rr",
+      "title": "desktop · rr",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "desktop-rr",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 395.328125,
+          "height": 64
+        },
+        "controls": {
+          "group": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 395.328125,
+              "height": 64
+            },
+            "width": 395.328125,
+            "height": 64,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#171a20ff",
+            "radius": 32,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 17,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "selected-fill": {
+            "rect": {
+              "x": 266.21875,
+              "y": 8,
+              "width": 121.109,
+              "height": 48
+            },
+            "width": 121.109,
+            "height": 48,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#232730ff",
+            "radius": 24,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 38,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "hit-0": {
+            "rect": {
+              "x": 8,
+              "y": 0,
+              "width": 121.109375,
+              "height": 64
+            },
+            "width": 121.109375,
+            "height": 64,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 32,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 38,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "label-0": {
+            "rect": {
+              "x": 58.015625,
+              "y": 22,
+              "width": 21.078125,
+              "height": 20
+            },
+            "width": 21.078125,
+            "height": 20,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 32,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 38,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "hit-1": {
+            "rect": {
+              "x": 137.109375,
+              "y": 0,
+              "width": 121.109375,
+              "height": 64
+            },
+            "width": 121.109375,
+            "height": 64,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 32,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 38,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "label-1": {
+            "rect": {
+              "x": 187.765625,
+              "y": 22,
+              "width": 19.796875,
+              "height": 20
+            },
+            "width": 19.796875,
+            "height": 20,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 32,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 38,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "hit-2": {
+            "rect": {
+              "x": 266.21875,
+              "y": 0,
+              "width": 121.109375,
+              "height": 64
+            },
+            "width": 121.109375,
+            "height": 64,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 32,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 38,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "label-2": {
+            "rect": {
+              "x": 316.34375,
+              "y": 22,
+              "width": 20.859375,
+              "height": 20
+            },
+            "width": 20.859375,
+            "height": 20,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 32,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 38,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 395.328125,
+          "height": 64
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/desktop-rr.png"
+        }
+      },
+      "native": {
+        "id": "desktop-rr",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 395.328125,
+          "height": 64
+        },
+        "controls": {
+          "group": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 395.328125,
+              "height": 64
+            },
+            "width": 395.328125,
+            "height": 64,
+            "background": "#171a20ff",
+            "radius": 32,
+            "borderWidth": 0,
+            "borderColor": "#00000000"
+          },
+          "selected-fill": {
+            "rect": {
+              "x": 266.21875,
+              "y": 8,
+              "width": 121.109375,
+              "height": 48
+            },
+            "width": 121.109375,
+            "height": 48,
+            "background": "#232730ff",
+            "radius": 24,
+            "borderWidth": 0,
+            "borderColor": "#00000000"
+          },
+          "hit-0": {
+            "rect": {
+              "x": 8,
+              "y": 0,
+              "width": 121.109375,
+              "height": 64
+            },
+            "width": 121.109375,
+            "height": 64
+          },
+          "label-0": {
+            "rect": {
+              "x": 58.0203857421875,
+              "y": 20,
+              "width": 21.068603515625,
+              "height": 24
+            },
+            "width": 21.068603515625,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "baseline": 37.8203125
+          },
+          "hit-1": {
+            "rect": {
+              "x": 137.109375,
+              "y": 0,
+              "width": 121.109375,
+              "height": 64
+            },
+            "width": 121.109375,
+            "height": 64
+          },
+          "label-1": {
+            "rect": {
+              "x": 187.76604461669922,
+              "y": 20,
+              "width": 19.796035766601562,
+              "height": 24
+            },
+            "width": 19.796035766601562,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "baseline": 37.8203125
+          },
+          "hit-2": {
+            "rect": {
+              "x": 266.21875,
+              "y": 0,
+              "width": 121.109375,
+              "height": 64
+            },
+            "width": 121.109375,
+            "height": 64
+          },
+          "label-2": {
+            "rect": {
+              "x": 316.35028076171875,
+              "y": 20,
+              "width": 20.8463134765625,
+              "height": 24
+            },
+            "width": 20.8463134765625,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "baseline": 37.8203125
+          }
+        },
+        "raster": {
+          "changedPixels": 99,
+          "meanChannelDelta": 0.06553819444444445
+        },
+        "artifacts": {
+          "image": "flutter/desktop-rr.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/desktop-rr.png",
+        "flutter": "flutter/desktop-rr.png",
+        "overlay": "overlay/desktop-rr.png",
+        "diff": "diff/desktop-rr.png"
+      },
+      "raster": {
+        "changedPixels": 99,
+        "meanChannelDelta": 0.06553819444444445
+      }
+    }
+  ],
+  "error": null,
+  "runId": "2026-11-07T18:39:28.732Z"
+}

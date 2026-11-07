@@ -210,3 +210,8 @@ test('optional open selector is validated before capture',()=>{
  assert.throws(()=>specification.validateSpec(input),/webOpenSelector/);
  input.scenarios[0].webOpenSelector='[data-open]';assert.equal(specification.validateSpec(input).scenarios[0].webOpenSelector,'[data-open]');
 });
+
+test('source pseudo element selectors are restricted to measured before/after',()=>{
+ const input=spec();input.scenarios[0].controls[0].webPseudo='::before';assert.equal(specification.validateSpec(input).scenarios[0].controls[0].webPseudo,'::before');
+ input.scenarios[0].controls[0].webPseudo='::invented';assert.throws(()=>specification.validateSpec(input),/webPseudo/);
+});

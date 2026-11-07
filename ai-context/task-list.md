@@ -55,7 +55,7 @@
 - ✅ 50. Button — добавить единое семейство кнопок. [Детали](task-details/50-ds-component-button.md)
 - ✅ 51. Field — добавить однострочное и многострочное поле. [Детали](task-details/51-ds-component-field.md)
 - ✅ 52. Select — добавить выбор одного значения. [Детали](task-details/52-ds-component-select.md)
-- 🟣 53. SegmentedChoice — добавить сегментированный выбор. [Детали](task-details/53-ds-component-segmented-choice.md)
+- ✅ 53. SegmentedChoice — добавить сегментированный выбор. [Детали](task-details/53-ds-component-segmented-choice.md)
 - 🟣 54. NumberStepper — добавить числовой контрол. [Детали](task-details/54-ds-component-number-stepper.md)
 - 🟣 55. Score — добавить отображение счёта. [Детали](task-details/55-ds-component-score.md)
 - 🟣 56. ScoreChoice — добавить выбор результата FT1. [Детали](task-details/56-ds-component-score-choice.md)

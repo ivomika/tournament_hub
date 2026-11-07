@@ -624,6 +624,30 @@ abstract class FoundationLocalizations {
   /// In ru, this message translates to:
   /// **'Закрыть выбор оформления'**
   String get selectClose;
+
+  /// No description provided for @segmentedLabel.
+  ///
+  /// In ru, this message translates to:
+  /// **'Формат турнира'**
+  String get segmentedLabel;
+
+  /// No description provided for @segmentDe.
+  ///
+  /// In ru, this message translates to:
+  /// **'DE'**
+  String get segmentDe;
+
+  /// No description provided for @segmentSe.
+  ///
+  /// In ru, this message translates to:
+  /// **'SE'**
+  String get segmentSe;
+
+  /// No description provided for @segmentRr.
+  ///
+  /// In ru, this message translates to:
+  /// **'RR'**
+  String get segmentRr;
 }
 
 class _FoundationLocalizationsDelegate
