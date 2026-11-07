@@ -3,8 +3,9 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:tournament_app/presentation/design_system/foundation/colors/app_colors.dart';
-import 'package:tournament_app/presentation/design_system/foundation/typography/app_typography.dart';
+import 'package:tournament_app/presentation/design_system/foundation/colors/app_theme_colors.dart';
+import 'package:tournament_app/presentation/design_system/foundation/theme/app_theme.dart';
+import 'package:tournament_app/presentation/design_system/foundation/primitives/typography_primitives.dart';
 import 'package:tournament_app/presentation/widgetbook/foundation/colors/dark_palette/colors_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/foundation/colors/primitive_scales/scales_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/foundation/typography/text_styles/typography_use_case.dart';
@@ -45,7 +46,12 @@ Future<void> _pump(
 ) async {
   tester.view.physicalSize = viewport.size;
   addTearDown(tester.view.reset);
-  await tester.pumpWidget(Builder(builder: _builder(demo)));
+  await tester.pumpWidget(
+    Theme(
+      data: AppTheme.dark(),
+      child: Builder(builder: _builder(demo)),
+    ),
+  );
   await tester.pumpAndSettle();
 }
 
@@ -103,7 +109,7 @@ double _ratio(Color first, Color second) {
 }
 
 void _contrast() {
-  const colors = AppColors.dark();
+  final colors = AppThemeColors(AppTheme.dark());
   for (final foreground in [
     colors.textPrimary,
     colors.textSecondary,
@@ -137,21 +143,27 @@ void _contrast() {
 }
 
 void _textRoles() {
-  expect(AppTypography.display.fontFamily, AppTypography.displayFamily);
-  expect(AppTypography.body.fontFamily, AppTypography.interfaceFamily);
   expect(
-    AppTypography.score.fontFeatures,
+    TypographyPrimitives.display.fontFamily,
+    TypographyPrimitives.displayFamily,
+  );
+  expect(
+    TypographyPrimitives.body.fontFamily,
+    TypographyPrimitives.interfaceFamily,
+  );
+  expect(
+    TypographyPrimitives.score.fontFeatures,
     contains(const FontFeature.tabularFigures()),
   );
   for (final style in [
-    AppTypography.display,
-    AppTypography.heading,
-    AppTypography.title,
-    AppTypography.bodyLarge,
-    AppTypography.body,
-    AppTypography.label,
-    AppTypography.caption,
-    AppTypography.score,
+    TypographyPrimitives.display,
+    TypographyPrimitives.heading,
+    TypographyPrimitives.title,
+    TypographyPrimitives.bodyLarge,
+    TypographyPrimitives.body,
+    TypographyPrimitives.label,
+    TypographyPrimitives.caption,
+    TypographyPrimitives.score,
   ]) {
     expect(style.fontVariations, isNotEmpty);
     expect(style.color, isNull);

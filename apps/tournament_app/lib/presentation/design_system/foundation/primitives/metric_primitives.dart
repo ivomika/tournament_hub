@@ -1,0 +1,36 @@
+/// Primitive размеры из UI kit; потребители получают runtime ThemeExtension.
+abstract final class MetricPrimitives {
+  static const spacingSpace0 = 0.0;
+  static const spacingSpace4 = 4.0;
+  static const spacingSpace8 = 8.0;
+  static const spacingSpace12 = 12.0;
+  static const spacingSpace16 = 16.0;
+  static const spacingSpace20 = 20.0;
+  static const spacingSpace24 = 24.0;
+  static const spacingSpace28 = 28.0;
+  static const spacingSpace32 = 32.0;
+  static const spacingSpace48 = 48.0;
+  static const spacingSpace64 = 64.0;
+  static const borderMetricsHairline = 1.0;
+  static const borderMetricsEmphasis = 2.0;
+  static const borderMetricsHighContrastFocus = 3.0;
+  static const borderMetricsFocusOffset = 4.0;
+  static const responsiveMobileToDesktopWidth = 740.0;
+  static const responsiveCompactDesktopWidth = 1000.0;
+  static const responsiveWideCompositionWidth = 1100.0;
+  static const responsiveCompactControlHeight = 48.0;
+  static const responsiveTouchControlHeight = 56.0;
+  static const responsiveAvatarExtraSmall = 28.0;
+  static const responsiveAvatarSmall = 40.0;
+  static const responsiveAvatarMedium = 48.0;
+  static const responsiveAvatarLarge = 64.0;
+  static const responsiveAvatarProfile = 96.0;
+  static const responsiveAvatarPortrait = 112.0;
+  static const responsiveAvatarHero = 128.0;
+  static const iconMetricsSmall = 16.0;
+  static const iconMetricsMedium = 20.0;
+  static const iconMetricsStandard = 24.0;
+  static const iconMetricsLarge = 32.0;
+  static const iconMetricsDisplay = 48.0;
+  static const iconMetricsHero = 64.0;
+}

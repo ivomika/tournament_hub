@@ -1,10 +1,10 @@
 # Manifest foundation-токенов
 
-Текущая схема: **dark graphite / warm gold**. История выбора, assets и проверка: [foundation](foundation.md). Значения в коде и этом manifest обновляются вместе; raw-значения разрешены в foundation/theme definitions, не в widgets.
+Текущая схема: **dark graphite / warm gold**. История выбора, assets и проверка: [foundation](foundation.md). Значения в коде и этом manifest обновляются вместе; raw-значения определяются в foundation/primitives и собираются в ThemeData фабрикой foundation/theme/app_theme.dart. WidgetTheme и widgets читают только runtime тему.
 
-## Цвета — primitive шкалы и semantic AppColors
+## Цвета — primitive шкалы и runtime ColorScheme
 
-ColorPrimitives содержит static const Color. Суффикс — светлота внутри семейства (50 светлый, 950 тёмный), не opacity или ключ runtime lookup. Семантика — прямые immutable ссылки на эти константы; таблица primitive значений приведена ниже.
+ColorPrimitives содержит static const Color. Суффикс — светлота внутри семейства (50 светлый, 950 тёмный), не opacity или ключ runtime lookup. Семантические defaults собираются фабрикой в ColorScheme/AppStatusColors; таблица primitive значений приведена ниже.
 
 | Роль | Значение | Назначение |
 | --- | --- | --- |
@@ -25,8 +25,8 @@ ColorPrimitives содержит static const Color. Суффикс — свет
 | Дополнительная семантика | Primitive | Назначение |
 | --- | --- | --- |
 | borderStrong | graphite500 | Усиленная граница |
-| disabledSurface / disabledContent | graphite700 / graphite500 | Недоступное состояние |
-| accentHovered / accentPressed | gold300 / gold500 | Наведение / нажатие |
+| disabledSurface / disabledContent | graphite700 / graphite400 | Недоступное состояние |
+| accentHovered / accentPressed | gold200 / gold500 | Наведение / нажатие |
 | focus | gold200 | Фокус |
 | accentContainer / onAccentContainer | gold900 / gold100 | Акцентный контейнер и текст |
 | successContainer / onSuccessContainer | green900 / green100 | Успех: контейнер и текст |
@@ -36,7 +36,7 @@ ColorPrimitives содержит static const Color. Суффикс — свет
 
 Материальные primary/onPrimary, surface/onSurface, error/onError и outline отображаются на соответствующие семантические роли. Компоненты продукта используют собственные темы и не полагаются на неописанные Material defaults.
 
-## Типографика — готовые AppTypography TextStyle
+## Типографика — runtime TextTheme и AppTypeRoles
 
 | Роль | Семейство | Размер, logical px | Вес wght | Line height |
 | --- | --- | ---: | ---: | ---: |
@@ -45,11 +45,11 @@ ColorPrimitives содержит static const Color. Суффикс — свет
 | title | Inter | 26 | 600 | 1.25 |
 | bodyLarge | Inter | 20 | 400 | 1.50 |
 | body | Inter | 18 | 400 | 1.50 |
-| label | Inter | 16 | 600 | 1.30 |
-| caption | Inter | 14 | 400 | 1.40 |
-| score | Inter | 56 | 700 | 1.10 |
+| label | Inter | 16 | 600 | 1.50 |
+| caption | Inter | 14 | 400 | 1.50 |
+| score | Roboto Condensed | 60 | 700 | 1.00 |
 
-Все восемь стилей static const, без color и без forRole. score дополнительно включает tabular figures. Компонентная тема назначает semantic цвет; готовая типографика не зависит от AppColors. Произвольная подмена размера/веса в Text не допускается.
+Исходные const styles изолированы в TypographyPrimitives. display/heading/title имеют tracking −2.4/−1/−0.91. TextTheme заполнена полностью: displayLarge/Medium → display; displaySmall и headlineLarge/Medium → heading; headlineSmall/titleLarge → title; titleMedium/bodyLarge → bodyLarge; bodyMedium → body; titleSmall/labelLarge/Medium → label; bodySmall/labelSmall → caption. Цвет текста назначается из текущей ColorScheme. AppTypeRoles.score хранит нестандартную роль с tabular figures. WidgetTheme не импортирует TypographyPrimitives.
 
 ## Layout foundation-каталогов — FoundationLayout
 
@@ -71,6 +71,24 @@ ColorPrimitives содержит static const Color. Суффикс — свет
 | centered | center | Вертикальное выравнивание цветового образца |
 
 Все размеры логические. Эти токены нужны текущим каталогам; будущие screen/component themes могут использовать общие токены или вводить документированные semantic параметры, но не копировать raw literals.
+
+## Runtime шкалы
+
+| Extension | Поля и defaults |
+| --- | --- |
+| AppSpacing | space0/4/8/12/16/20/24/28/32/48/64 — соответствующие logical px |
+| AppBorderMetrics | hairline 1, emphasis 2, highContrastFocus 3, focusOffset 4 |
+| AppShape | control 8, nested 16, desktopSurface 20, avatarTile 22, surface 24, panel 32, pill 999; sheet — только верхние углы 24 |
+| AppIconMetrics | small 16, medium 20, standard 24 (включая inline error), large 32, display 48, hero 64 |
+| AppResponsive | mobileToDesktopWidth 740, compactDesktopWidth 1000, wideCompositionWidth 1100; compactControlHeight 48 / touchControlHeight 56 |
+| AppResponsive avatars | extraSmall 28, small 40, medium 48, large 64, profile 96, portrait 112, hero 128; размер выбирается явно, не подменяется breakpoint |
+| AppMotion | reveal 160 ms, reduced 0 ms, curve ease; component theme выбирает reduced при отключённой анимации |
+| AppElevation | floating offset(0,8)/blur24/#8007080B; sheet offset(0,−16)/blur48/#6007080B; dialog offset(0,20)/blur64/#5507080B |
+| AppStatusColors | success/warning и их container/onContainer пары; characterIce #92C9ED, characterFan #C6B4EE, characterStorm #A7D6D1 |
+
+Значения AppThemeColors получаются из текущей темы: background → scaffoldBackgroundColor; surface/raised → surface/surfaceContainerHigh; border/strong → outlineVariant/outline; textPrimary/secondary → onSurface/onSurfaceVariant; muted/disabledContent → disabledColor; accent/hovered/pressed/focus → primary/hoverColor/highlightColor/focusColor. Information использует secondary, danger — error; success/warning — AppStatusColors. Остальные container/onContainer пары следуют соответствующим ColorScheme ролям.
+
+Все ThemeExtension заменяются через ThemeData.copyWith(extensions: ...); при замене сохраняйте остальные extensions. Они не содержат static dark defaults. ProgressIndicatorThemeData подключён к primary/raised и включает текущий штатный Material3 вид (`year2023: false` для используемого SDK); кастомной геометрии/таймингов waveform нет.
 
 ## Primitive значения — ColorPrimitives
 

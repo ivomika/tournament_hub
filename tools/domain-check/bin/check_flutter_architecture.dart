@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:tournament_domain_check/theme_boundaries.dart';
+
 import 'package:analyzer/dart/analysis/utilities.dart';
 import 'package:analyzer/dart/ast/ast.dart';
 
@@ -70,6 +72,25 @@ List<String> inspect(Map<String, String> sources, String packageName) {
       continue;
     }
     void checkUri(String? raw, int offset, {bool isImport = false}) {
+      // gen-l10n emits sibling imports and exposes no package-import option.
+      const generatedFolder = 'lib/presentation/l10n/generated/';
+      const generatedNames = {
+        'foundation_localizations.dart',
+        'foundation_localizations_ru.dart',
+      };
+      if (isImport &&
+          entry.key.startsWith(generatedFolder) &&
+          generatedNames.contains(
+            entry.key.substring(generatedFolder.length),
+          ) &&
+          generatedNames.contains(raw)) {
+        checkUri(
+          'package:$packageName/presentation/l10n/generated/$raw',
+          offset,
+          isImport: true,
+        );
+        return;
+      }
       final uri = raw == null ? null : Uri.tryParse(raw);
       if (uri == null ||
           !{'package', 'dart'}.contains(uri.scheme) ||
@@ -146,6 +167,7 @@ List<String> inspect(Map<String, String> sources, String packageName) {
       }
     }
   }
+  problems.addAll(inspectThemeBoundaries(sources, packageName));
   return problems;
 }
 
@@ -365,6 +387,24 @@ void selfTest() {
       source: {
         'test/widgetbook_test.dart':
             "import 'package:fixture/main_widgetbook.dart';",
+      },
+      pass: false,
+    ),
+    (
+      name: 'gen-l10n sibling imports',
+      source: {
+        'lib/presentation/l10n/generated/foundation_localizations.dart':
+            "import 'foundation_localizations_ru.dart';",
+        'lib/presentation/l10n/generated/foundation_localizations_ru.dart':
+            "import 'foundation_localizations.dart';",
+      },
+      pass: true,
+    ),
+    (
+      name: 'gen-l10n directory cannot bypass import boundary',
+      source: {
+        'lib/presentation/l10n/generated/foundation_localizations.dart':
+            "import '../private.dart';",
       },
       pass: false,
     ),

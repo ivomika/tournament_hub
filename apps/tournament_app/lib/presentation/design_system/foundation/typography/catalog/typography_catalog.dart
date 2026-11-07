@@ -5,18 +5,14 @@ import 'package:tournament_app/presentation/l10n/generated/foundation_localizati
 typedef TextStyleSample = ({String label, String text, TextStyle style});
 
 class TypographyCatalog extends StatelessWidget {
-  const TypographyCatalog({
-    required this.theme,
-    required this.samples,
-    super.key,
-  });
+  const TypographyCatalog({required this.samples, super.key});
 
-  final TypographyCatalogTheme theme;
   final List<TextStyleSample> samples;
 
   @override
   Widget build(BuildContext context) {
     final strings = FoundationLocalizations.of(context);
+    final theme = TypographyCatalogTheme.of(context);
     final layout = theme.layout;
     return ColoredBox(
       color: theme.colors.background,

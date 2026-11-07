@@ -5,14 +5,12 @@ typedef ColorSample = ({String label, Color value});
 
 class ColorPalette extends StatelessWidget {
   const ColorPalette({
-    required this.theme,
     required this.title,
     required this.description,
     required this.samples,
     super.key,
   });
 
-  final PaletteTheme theme;
   final String title;
   final String description;
   final List<ColorSample> samples;
@@ -23,6 +21,7 @@ class ColorPalette extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = PaletteTheme.of(context);
     final layout = theme.layout;
     return ColoredBox(
       color: theme.colors.background,

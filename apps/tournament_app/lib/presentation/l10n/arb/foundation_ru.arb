@@ -1,5 +1,6 @@
 {
   "@@locale": "ru",
+  "placeholderGreeting": "Hello World!",
   "colorsTitle": "Цветовая схема",
   "colorsDescription": "Графитовая база, тёплое золото и семантические цвета состояний.",
   "colorScalesTitle": "Цветовые шкалы",
@@ -21,7 +22,7 @@
   "informationContainer": "Информационный контейнер",
   "onInformationContainer": "Текст на информационном контейнере",
   "typographyTitle": "Типографика",
-  "typographyDescription": "Inter — интерфейс и счёт. Roboto Condensed — крупные заголовки.",
+  "typographyDescription": "Inter — интерфейс. Roboto Condensed — крупные заголовки и счёт.",
   "background": "Фон приложения",
   "surface": "Поверхность",
   "surfaceRaised": "Поднятая поверхность",

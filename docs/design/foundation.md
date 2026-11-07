@@ -2,21 +2,21 @@
 
 ## Решение
 
-12 октября 2026 года выбран сдержанный турнирный стиль: тёмная графитовая основа и тёплый золотой акцент. Светлая схема не добавляется. Inter используется для интерфейса и счёта, Roboto Condensed — для двух крупных ролей заголовков.
+12 октября 2026 года выбран сдержанный турнирный стиль: тёмная графитовая основа и тёплый золотой акцент. Светлая схема не добавляется. Inter используется для интерфейса, Roboto Condensed — для крупных заголовков и счёта.
 
 Акцент выделяет важное, но не окрашивает каждый блок. Статусы имеют собственные семантические цвета; цвет не заменяет подпись/значок состояния. Этот foundation не определяет новые продуктовые screens или правила турнира.
 
 ## Реализация
 
-Общая типизированная тема — `presentation/design_system/foundation/app_foundation.dart`. Цвета и типографика располагаются в отдельных scopes, значения описаны в [manifest](tokens-manifest.md). Виджеты не выбирают raw colors, text styles или размеры: визуальные параметры приходят из их component themes.
+Основная тема собирается единственной фабрикой `presentation/design_system/foundation/theme/app_theme.dart`. Канонический поток: **primitive const → ThemeData → WidgetTheme → Widget**. `AppFoundation.dark().materialTheme` оставлен только как совместимый facade фабрики; production consumers его не импортируют.
 
-Foundation разделён на три уровня:
+- `foundation/primitives/` содержит исходные Color/TextStyle, scalar и composite defaults. Только `AppTheme.dark()` преобразует их в runtime тему.
+- Стандартные цвета и типографика находятся в ColorScheme/TextTheme. Success/warning и character colors — в AppStatusColors; score — в AppTypeRoles.
+- AppSpacing, AppShape, AppBorderMetrics, AppElevation, AppMotion, AppResponsive, AppIconMetrics и FoundationLayout — типизированные ThemeExtension с copyWith/lerp, без primitive defaults внутри.
+- PaletteTheme.of(context) и TypographyCatalogTheme.of(context) получают текущую Theme.of(context) в build. Каталоги зависят от InheritedTheme, поэтому замена темы обновляет уже существующие элементы.
+- Обязательный extension читается через requireThemeExtension; неполная assembly даёт StateError, без скрытого возврата к dark constants.
 
-- ColorPrimitives — именованные static const Color, шесть шкал по 11 оттенков. Это значения, не enum с вычислением цвета.
-- AppColors.dark — immutable semantic ссылки на primitives: поверхности/текст, accent hovered/pressed/focus, disabled и container/onContainer. Нет forRole или строкового lookup.
-- AppTypography — готовые static const TextStyle: display, heading, title, bodyLarge, body, label, caption, score. Они не связаны с палитрой; component theme назначает цвет через copyWith.
-
-`PaletteTheme` и `TypographyCatalogTheme` используют общий foundation и готовые стили. Layout берётся из FoundationLayout. Enum нужен для реального выбора варианта/состояния компонента, не для доступа к именованному токену. Label в preview-данных — отображаемая подпись, а не discriminator.
+Точные значения и отображение ролей — в [manifest](tokens-manifest.md). Стандартные Flutter controls используют стандартные component themes. ProgressIndicator — штатный Material3 с текущим оформлением SDK; HTML waveform и его motion-параметры не переносятся.
 
 ### Шрифты
 
@@ -41,7 +41,7 @@ FontLoader в test/flutter_test_config.dart загружает те же assets 
 
 ## Локализация
 
-Ресурсы: `presentation/l10n/arb/foundation_ru.arb`. SDK gen-l10n создаёт типизированный API `FoundationLocalizations` с intl. После `flutter gen-l10n` два локальных generated import нормализуются в package URI по R-003.e; generated messages вручную не меняются. Команда architecture-test ловит ненормализованные импорты, исключение для generated не добавлено.
+Ресурсы: `presentation/l10n/arb/foundation_ru.arb`. SDK gen-l10n создаёт типизированный API `FoundationLocalizations` с intl. Штатный `flutter gen-l10n` создаёт sibling imports между двумя generated файлами. Checker нормализует только эти две ссылки для проверки по R-003.e; остальные generated директивы проверяются без исключений. Generated messages вручную не меняются.
 
 Пока только ru. Новая локаль/тексты расширяют ARB и генерируемый API, а не добавляют ручные словари в widgets.
 
@@ -49,6 +49,10 @@ FontLoader в test/flutter_test_config.dart загружает те же assets 
 
 Contrast tests проверяют основной, вторичный и muted текст, акцент и статусы на всех трёх поверхностях; onAccent на default/hovered/pressed и все пары onContainer/container: минимум 4.5:1. Border — декоративная граница; borderStrong — усиленная. Disabled-цвета не обещают доступность обычного текста и не используются для активного контента.
 
-Рендер тестируется на mobile 390×844 и desktop 1440×900; проверяются верх, середина и низ scrollable-каталогов без overflow. Golden хранится рядом с каждым showcase в golden/<native-os>/. По решению от 12 октября 2026 разработка и comparison выполняются на текущей ОС без обязательного Docker, сейчас Windows/Flutter 3.47.1/Dart 3.13.1. Наборы разных ОС не смешиваются; [визуальный workflow](../development/visual-workflow.md) описывает порядок.
+Рендер тестируется на mobile 390×844 и desktop 1440×900; проверяются верх, середина и низ scrollable-каталогов без overflow. Golden хранится рядом с каждым showcase в golden/<native-os>/. По решению от 12 октября 2026 разработка и comparison выполняются на текущей ОС без обязательного Docker, первоначальный baseline Windows; перенос runtime foundation проверен также на macOS. Наборы разных ОС не смешиваются; [визуальный workflow](../development/visual-workflow.md) описывает порядок.
 
-Основной Hello World приложения не мигрируется в этой задаче. Foundation подготовлен для дальнейших UI-задач и подключён к Widgetbook, а не объявлен готовым набором экранов приложения.
+В основном entrypoint сохранена существующая Hello World заглушка; wiring перенесён в app/bootstrap и подключает ту же ThemeData. Это не реализация новых продуктовых экранов.
+
+## Автоматический контракт
+
+`python3 tools/check_theme_contract.py` (или `make theme-test`) выполняет regression tests AST guard, проверку реальных lib/test и Flutter tests замены темы. `make theme-check` запускает статическую часть без Flutter runner. Нарушение даёт ненулевой exit code и finding с файлом, строкой и R-003.d. Границы и исключения — [runtime foundation](../architecture/runtime-theme-foundation.md).

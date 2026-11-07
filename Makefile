@@ -26,7 +26,7 @@ DOMAIN_CHECK_PORT ?= 8090
 .DEFAULT_GOAL := help
 
 .PHONY: help bootstrap check-platform check-desktop-host run build build-host \
-	build-macos build-windows build-linux analyze clean domain-check domain-check-generate domain-check-validate domain-check-test architecture-check architecture-test
+	build-macos build-windows build-linux analyze clean domain-check domain-check-generate domain-check-validate domain-check-test architecture-check architecture-test theme-check theme-test
 
 help:
 	@printf '%s\n' \
@@ -41,6 +41,8 @@ help:
 		'  make analyze                  Запустить Flutter analyzer.' \
 		'  make architecture-check       Проверить импорты и границы Flutter-слоёв.' \
 		'  make architecture-test        Проверить checker и архитектуру приложения.' \
+		'  make theme-check              Проверить запрет primitives/raw styles в production.' \
+		'  make theme-test               Проверить AST guard и реакцию UI на смену темы.' \
 		'  make domain-check             Запустить Web viewer Domain-архитектуры.' \
 		'  make domain-check-generate    Пересобрать карту из Dart declarations.' \
 		'  make domain-check-validate    Проверить карту против Domain-кода.' \
@@ -107,4 +109,12 @@ architecture-check:
 
 architecture-test:
 	cd tools/domain-check && $(DART) run bin/check_flutter_architecture.dart --self-test
+	cd tools/domain-check && $(DART) run test/theme_boundaries_test.dart
 	$(MAKE) architecture-check
+
+# Контракт темы проверяется и общим architecture checker.
+theme-check:
+	DART="$(DART)" $(PYTHON) tools/check_theme_contract.py --static-only
+
+theme-test:
+	DART="$(DART)" FLUTTER="$(FLUTTER)" $(PYTHON) tools/check_theme_contract.py

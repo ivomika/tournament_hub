@@ -74,3 +74,4 @@
 - 🟣 69. Dialog — добавить поверхность и каркас модального окна. [Детали](task-details/69-ds-widget-dialog.md)
 - 🟣 70. QrCode — добавить отображение QR и кода доступа. [Детали](task-details/70-ds-component-qr-code.md)
 - 🟣 71. ShareLink — добавить адрес и действие копирования. [Детали](task-details/71-ds-widget-share-link.md)
+- ✅ 72. Перенести foundation через FlutterTheme и запретить обход темы в production UI. [Детали](task-details/72-runtime-theme-foundation.md)

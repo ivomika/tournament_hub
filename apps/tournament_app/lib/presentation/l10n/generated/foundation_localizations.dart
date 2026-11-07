@@ -97,6 +97,12 @@ abstract class FoundationLocalizations {
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[Locale('ru')];
 
+  /// No description provided for @placeholderGreeting.
+  ///
+  /// In ru, this message translates to:
+  /// **'Hello World!'**
+  String get placeholderGreeting;
+
   /// No description provided for @colorsTitle.
   ///
   /// In ru, this message translates to:
@@ -226,7 +232,7 @@ abstract class FoundationLocalizations {
   /// No description provided for @typographyDescription.
   ///
   /// In ru, this message translates to:
-  /// **'Inter — интерфейс и счёт. Roboto Condensed — крупные заголовки.'**
+  /// **'Inter — интерфейс. Roboto Condensed — крупные заголовки и счёт.'**
   String get typographyDescription;
 
   /// No description provided for @background.

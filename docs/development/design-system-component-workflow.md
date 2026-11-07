@@ -18,7 +18,7 @@ Foundation — именованные primitive и semantic решения. Ма
 
 ## Провести оформление через тему
 
-Каждый цвет, TextStyle, padding/gap, shape/border, shadow/opacity, icon size, motion и responsive параметр прослеживается до component theme и foundation. В widget нет raw literals оформления, включая0, и неописанных Material defaults. Theme использует готовые color-neutral AppTypography TextStyle и semantic AppColors. Изменение значения обновляет manifest и затронутые потребители.
+Каждый цвет, TextStyle, padding/gap, shape/border, shadow/opacity, icon size, motion и responsive параметр прослеживается до component theme и foundation. В widget нет raw literals оформления, включая0, и неописанных Material defaults. WidgetTheme использует текущие ThemeData.textTheme/colorScheme и типизированные ThemeExtension. AppTypography/ColorPrimitives/другие primitive constants доступны только assembly основной темы, не WidgetTheme или Widget. Изменение значения обновляет manifest и затронутые потребители.
 
 Сначала дополняют нужную тему/токен, затем используют его в widget. В UI нет свободного `copyWith(fontSize:...)` из локального литерала. Общая [Flutter theming-модель](https://docs.flutter.dev/cookbook/design/themes) объясняет переиспользование оформления; проект дополнительно требует собственные типизированные component themes по R-003.d. Пример Flutter с google_fonts не означает разрешение заменить закреплённые bundled fonts проекта.
 
@@ -59,3 +59,6 @@ Use case строит реальный widget с его темой, без ко�
 Для pure visual/theme/layout и визуальных взаимодействий TestGate NOT_REQUIRED по текущему workflow; обязательные native goldens остаются. NumberStepper не рассчитывает FT/результат, Table не сортирует RR, QR не создаёт сессию, ShareLink не ходит в Clipboard/service, Dialog не запускает удаление/навигацию приложения.
 
 Если scope расширяется на вычисления, валидацию, state/controller, сохранение, протокол или app routing, сначала пересмотреть specification/TestGate и выполнить REQUIRED процесс для логической части. Постановка задач не является разрешением на такой implementation. Сейчас все новые карточки остаются 🟣; выполнение начинается отдельным запросом.
+
+
+Уточнение7 ноября2026: [runtime theme foundation](../architecture/runtime-theme-foundation.md) задаёт обязательный поток primitive const → FlutterTheme → WidgetTheme → Widget. Смена основной ThemeData должна обновлять уже созданные consumers; отсутствие прямых primitives и raw Color/TextStyle/Colors проверяет AST guard (задача72). Исторические примеры создания PaletteTheme(AppFoundation.dark()) подлежат миграции.

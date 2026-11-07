@@ -1,8 +1,6 @@
 import 'package:flutter/widgets.dart';
-import 'package:tournament_app/presentation/design_system/foundation/app_foundation.dart';
-import 'package:tournament_app/presentation/design_system/foundation/colors/color_primitives.dart';
+import 'package:tournament_app/presentation/design_system/foundation/primitives/color_primitives.dart';
 import 'package:tournament_app/presentation/design_system/foundation/colors/palette/color_palette.dart';
-import 'package:tournament_app/presentation/design_system/foundation/colors/palette/palette_theme.dart';
 import 'package:tournament_app/presentation/l10n/generated/foundation_localizations.dart';
 import 'package:tournament_app/presentation/widgetbook/foundation/foundation_scenario_host.dart';
 import 'package:widgetbook/widgetbook.dart';
@@ -21,7 +19,6 @@ Widget buildScalesUseCase(BuildContext context) {
 Widget buildPrimitiveScales(BuildContext context) {
   final strings = FoundationLocalizations.of(context);
   return ColorPalette(
-    theme: const PaletteTheme(AppFoundation.dark()),
     title: strings.colorScalesTitle,
     description: strings.colorScalesDescription,
     // Подписи — технические имена const tokens, не строковый lookup.

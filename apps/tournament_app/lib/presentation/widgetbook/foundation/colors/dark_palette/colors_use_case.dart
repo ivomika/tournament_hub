@@ -1,7 +1,6 @@
-import 'package:flutter/widgets.dart';
-import 'package:tournament_app/presentation/design_system/foundation/app_foundation.dart';
+import 'package:flutter/material.dart';
+import 'package:tournament_app/presentation/design_system/foundation/colors/app_theme_colors.dart';
 import 'package:tournament_app/presentation/design_system/foundation/colors/palette/color_palette.dart';
-import 'package:tournament_app/presentation/design_system/foundation/colors/palette/palette_theme.dart';
 import 'package:tournament_app/presentation/widgetbook/foundation/foundation_scenario_host.dart';
 import 'package:tournament_app/presentation/l10n/generated/foundation_localizations.dart';
 import 'package:widgetbook/widgetbook.dart';
@@ -19,10 +18,8 @@ Widget buildColorsUseCase(BuildContext context) {
 
 Widget buildSemanticPalette(BuildContext context) {
   final strings = FoundationLocalizations.of(context);
-  const foundation = AppFoundation.dark();
-  final colors = foundation.colors;
+  final colors = AppThemeColors(Theme.of(context));
   return ColorPalette(
-    theme: const PaletteTheme(foundation),
     title: strings.colorsTitle,
     description: strings.colorsDescription,
     samples: List.unmodifiable([

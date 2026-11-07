@@ -10,6 +10,9 @@ class FoundationLocalizationsRu extends FoundationLocalizations {
   FoundationLocalizationsRu([String locale = 'ru']) : super(locale);
 
   @override
+  String get placeholderGreeting => 'Hello World!';
+
+  @override
   String get colorsTitle => 'Цветовая схема';
 
   @override
@@ -76,7 +79,7 @@ class FoundationLocalizationsRu extends FoundationLocalizations {
 
   @override
   String get typographyDescription =>
-      'Inter — интерфейс и счёт. Roboto Condensed — крупные заголовки.';
+      'Inter — интерфейс. Roboto Condensed — крупные заголовки и счёт.';
 
   @override
   String get background => 'Фон приложения';

@@ -4,7 +4,7 @@ import 'dart:io';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:tournament_app/presentation/design_system/foundation/typography/app_typography.dart';
+import 'package:tournament_app/presentation/design_system/foundation/primitives/typography_primitives.dart';
 
 /// Flutter автоматически вызывает этот test-only hook; импорт из lib не нужен.
 Future<void> testExecutable(FutureOr<void> Function() testMain) async {
@@ -17,9 +17,9 @@ Future<void> testExecutable(FutureOr<void> Function() testMain) async {
 }
 
 Future<void> _loadFoundationFonts() async {
-  final inter = FontLoader(AppTypography.interfaceFamily)
+  final inter = FontLoader(TypographyPrimitives.interfaceFamily)
     ..addFont(rootBundle.load('assets/fonts/inter/Inter-Variable.ttf'));
-  final condensed = FontLoader(AppTypography.displayFamily)
+  final condensed = FontLoader(TypographyPrimitives.displayFamily)
     ..addFont(
       rootBundle.load(
         'assets/fonts/roboto_condensed/RobotoCondensed-Variable.ttf',

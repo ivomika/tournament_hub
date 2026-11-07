@@ -1,9 +1,8 @@
-import 'package:flutter/widgets.dart';
-import 'package:tournament_app/presentation/design_system/foundation/app_foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:tournament_app/presentation/design_system/foundation/typography/catalog/typography_catalog.dart';
-import 'package:tournament_app/presentation/design_system/foundation/typography/catalog/typography_catalog_theme.dart';
 import 'package:tournament_app/presentation/widgetbook/foundation/foundation_scenario_host.dart';
-import 'package:tournament_app/presentation/design_system/foundation/typography/app_typography.dart';
+import 'package:tournament_app/presentation/design_system/foundation/typography/app_type_roles.dart';
+import 'package:tournament_app/presentation/design_system/foundation/theme/require_theme_extension.dart';
 import 'package:tournament_app/presentation/l10n/generated/foundation_localizations.dart';
 import 'package:widgetbook/widgetbook.dart';
 
@@ -18,48 +17,45 @@ Widget buildTypographyUseCase(BuildContext context) {
 
 Widget buildTextStyles(BuildContext context) {
   final strings = FoundationLocalizations.of(context);
+  final theme = Theme.of(context);
+  final text = theme.textTheme;
   return TypographyCatalog(
-    theme: const TypographyCatalogTheme(AppFoundation.dark()),
     samples: List.unmodifiable([
       (
         label: strings.display,
         text: strings.headlineSample,
-        style: AppTypography.display,
+        style: text.displayLarge!,
       ),
       (
         label: strings.heading,
         text: strings.headlineSample,
-        style: AppTypography.heading,
+        style: text.headlineLarge!,
       ),
       (
         label: strings.title,
         text: strings.headlineSample,
-        style: AppTypography.title,
+        style: text.titleLarge!,
       ),
       (
         label: strings.bodyLarge,
         text: strings.bodySample,
-        style: AppTypography.bodyLarge,
+        style: text.bodyLarge!,
       ),
-      (
-        label: strings.body,
-        text: strings.bodySample,
-        style: AppTypography.body,
-      ),
+      (label: strings.body, text: strings.bodySample, style: text.bodyMedium!),
       (
         label: strings.label,
         text: strings.compactSample,
-        style: AppTypography.label,
+        style: text.labelLarge!,
       ),
       (
         label: strings.caption,
         text: strings.compactSample,
-        style: AppTypography.caption,
+        style: text.bodySmall!,
       ),
       (
         label: strings.score,
         text: strings.scoreSample,
-        style: AppTypography.score,
+        style: requireThemeExtension<AppTypeRoles>(theme).score,
       ),
     ]),
   );

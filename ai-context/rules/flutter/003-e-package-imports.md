@@ -14,6 +14,8 @@
 - Для самостоятельного Widgetbook в задаче 32 разрешён только import из test в `lib/main_widgetbook.dart`. Это не разрешает другим слоям импортировать entrypoints и не распространяется на export/part либо другие entrypoints.
 - Domain использует только разрешённый чистый Dart SDK и явно допущенные технические пакеты; платформенные библиотеки запрещены по R-003.c.
 
+Для штатного `flutter gen-l10n` допускаются только sibling import между `foundation_localizations.dart` и `foundation_localizations_ru.dart` в `lib/presentation/l10n/generated/`. Генератор не предоставляет package-import режим; checker нормализует эти две ссылки и всё равно проверяет цель/слой. Другие relative URI, export/part и файлы этого каталога исключения не получают (решение задачи72).
+
 ## Проверка
 
 Обязательны `make architecture-check` и `make architecture-test` при изменении Dart-директив, структуры слоёв или checker.

@@ -45,7 +45,7 @@ test/presentation/
 
 ### Foundation
 
-Базовые принципы: семантические цвета, typography, spacing, размеры, shape, borders, shadows, opacity, иконки, motion, breakpoints. Каждый реализованный scope имеет отдельную папку. Общая типизированная тема собирается из foundation; темы компонентов используют её токены. Палитра, шрифты и числовые значения утверждаются вместе с реальным дизайном, не выдумываются ради каркаса.
+Базовые принципы: семантические цвета, typography, spacing, размеры, shape, borders, shadows, opacity, иконки, motion, breakpoints. Каждый реализованный scope имеет отдельную папку. Основная Flutter ThemeData собирается из primitive foundation; темы компонентов используют текущие ColorScheme/TextTheme/ThemeExtension через Theme.of(context). Прямой доступ widgets/WidgetTheme к primitive const запрещён; см. [runtime theme foundation](runtime-theme-foundation.md). Палитра, шрифты и числовые значения утверждаются вместе с реальным дизайном, не выдумываются ради каркаса.
 
 Токен, value object или тема сами по себе не являются визуальным widget и не требуют собственного PNG. Визуальный компонент foundation (например, самостоятельный типографический примитив) требует golden на общих основаниях.
 
