@@ -684,6 +684,24 @@ abstract class FoundationLocalizations {
   /// In ru, this message translates to:
   /// **'{value}'**
   String stepperNumber(int value);
+
+  /// No description provided for @scorePairLabel.
+  ///
+  /// In ru, this message translates to:
+  /// **'Текущий счёт {left}:{right}'**
+  String scorePairLabel(String left, String right);
+
+  /// No description provided for @scoreFixedLabel.
+  ///
+  /// In ru, this message translates to:
+  /// **'Счёт победителя {value}'**
+  String scoreFixedLabel(String value);
+
+  /// No description provided for @scoreSeparator.
+  ///
+  /// In ru, this message translates to:
+  /// **':'**
+  String get scoreSeparator;
 }
 
 class _FoundationLocalizationsDelegate

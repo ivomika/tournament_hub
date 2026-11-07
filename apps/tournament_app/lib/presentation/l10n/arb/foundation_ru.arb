@@ -153,5 +153,25 @@
         "type": "int"
       }
     }
+  },
+  "scorePairLabel": "Текущий счёт {left}:{right}",
+  "scoreFixedLabel": "Счёт победителя {value}",
+  "scoreSeparator": ":",
+  "@scorePairLabel": {
+    "placeholders": {
+      "left": {
+        "type": "String"
+      },
+      "right": {
+        "type": "String"
+      }
+    }
+  },
+  "@scoreFixedLabel": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
   }
 }

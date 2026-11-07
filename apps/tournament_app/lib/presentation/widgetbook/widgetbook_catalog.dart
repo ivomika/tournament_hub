@@ -1,3 +1,6 @@
+import 'package:tournament_app/presentation/widgetbook/components/score/pair/pair_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/components/score/fixed/fixed_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/components/score/two_digits/two_digits_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/components/number_stepper/format/format_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/components/number_stepper/score/score_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/components/segmented_choice/selected/selected_use_case.dart';
@@ -113,6 +116,10 @@ final widgetbookCatalog = <WidgetbookNode>[
     name: 'Components',
     isInitiallyExpanded: true,
     children: [
+      WidgetbookComponent(
+        name: 'Score',
+        useCases: [scorePairUseCase, scoreFixedUseCase, scoreTwoDigitsUseCase],
+      ),
       WidgetbookComponent(
         name: 'Number stepper',
         useCases: [stepperFormatUseCase, stepperScoreUseCase],

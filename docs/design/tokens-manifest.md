@@ -192,3 +192,7 @@ AppSegmentedChoice<T>/AppSegment<T> — controlled single selection без зн�
 ## NumberStepper — реализация54
 
 AppNumberStepper.output/input — одинаковая геометрия на всех viewport: actions56, output48, input32, pill raised. Внешние callbacks задают доступность; вычисления и limits вне DS. AppStepperMetrics содержит local label stack threshold330, disabled format opacity0.4 и numeric features. Source score disabled сохраняет ink/opacity1, format muted/opacity0.4. Label caption14/gap8 на узком контейнере; широкий контейнер размещает label/stepper в строку с gap16. Изменение viewport само по себе не меняет контрол. Numeric input сравнивает32px slot: browser Canvas не учитывает CSS tabular-nums при измерении отдельной цифры, raster/overlay проверяется отдельно.
+
+## Score — реализация55
+
+AppScore.pair/fixed принимает готовые строки и semanticLabel, арифметики нет. AppScoreTheme использует runtime AppTypeRoles.score60/700/line1/tabular; pair desktop80 через AppScoreMetrics, fixed60/gold. Separator текущий titleLarge26 с regular weight/line1/normalTracking/muted. Gap24 и центр из runtime spacing/control metrics. Semantic label объединяет результат без дублирования каждого символа. Source9 сценариев, scaled native pair/fixed.

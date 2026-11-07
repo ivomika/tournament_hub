@@ -1,0 +1,1069 @@
+<!doctype html><html lang="ru"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AppScore · Web ↔ Flutter</title><style>
+ :root{color-scheme:dark;font-family:system-ui;background:#0e1014;color:#f4f2ee}*{box-sizing:border-box}body{max-width:1600px;margin:auto;padding:32px}h1{font-size:36px}a{color:#f1c75b}p{color:#b8bec9;line-height:1.5}.stats,nav{display:flex;gap:20px;flex-wrap:wrap}nav{position:sticky;top:0;background:#0e1014ee;padding:16px 0;z-index:1}.stats>div{border:1px solid #3a414e;border-radius:12px;padding:16px}.stats strong{display:block;font-size:28px}.case{padding:20px;margin:24px 0;background:#171a20;border:1px solid #3a414e;border-radius:16px}.case header{display:flex;justify-content:space-between;gap:16px}.pass{color:#78d7a5}.fail{color:#ff968e}.shots{display:grid;grid-template-columns:repeat(4,minmax(180px,1fr));gap:12px;overflow:auto}figure{margin:0;background:#0e1014;padding:12px;display:flex;flex-direction:column;align-items:center;gap:20px;min-height:200px}figcaption{color:#b8bec9;font-size:13px}img{max-width:100%;height:auto;image-rendering:pixelated}figure a{margin:auto}table{border-collapse:collapse;width:100%;font-size:12px}th,td{text-align:left;padding:9px;border-bottom:1px solid #3a414e}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px;color:#b8bec9}.table{overflow:auto}.finding{color:#ff968e}small{color:#969eac}@media(max-width:800px){body{padding:16px}.shots{grid-template-columns:repeat(4,280px)}}
+ </style><header><small>TOURNAMENT HUB / ОБЩЕЕ ВИЗУАЛЬНОЕ СРАВНЕНИЕ</small><h1>AppScore · Web ↔ Flutter</h1><p>Сценарии и контрольные элементы заданы декларацией компонента. Геометрия, типографика и цвета проверяются отдельно; diff показывает остаточную разницу рендереров. Нажмите PNG, чтобы открыть исходное разрешение.</p></header>
+ <div class="stats"><div><strong>9</strong>сценариев</div><div><strong class="pass">9/9</strong>прошли контракт контролей</div><div><strong>19</strong>контрольных элементов</div></div>
+ <nav><a href="#pair-initial">Pair · initial</a><a href="#pair-result">Pair · result</a><a href="#pair-twodigits">Pair · twoDigits</a><a href="#fixed-result">Fixed · result</a><a href="#fixed-twodigits">Fixed · twoDigits</a><a href="#pair-mobile">pair · mobile</a><a href="#pair-desktop">pair · desktop</a><a href="#fixed-mobile">fixed · mobile</a><a href="#fixed-desktop">fixed · desktop</a><a href="http://127.0.0.1:8094/ui-kit.html">Web-эталон ↗</a></nav>
+ <article class="case" id="pair-initial"><header><h2>Pair · initial</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/pair-initial.png"><img alt="pair-initial Web" src="web/pair-initial.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/pair-initial.png"><img alt="pair-initial Flutter" src="flutter/pair-initial.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/pair-initial.png"><img alt="pair-initial Наложение 50/50" src="overlay/pair-initial.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/pair-initial.png"><img alt="pair-initial Diff ×4" src="diff/pair-initial.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 387 изменённых пикселей; mean channel delta 1.5601/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;pair-initial&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 60
+    },
+    &quot;controls&quot;: {
+      &quot;left&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 100.5,
+          &quot;y&quot;: -6,
+          &quot;width&quot;: 30.34375,
+          &quot;height&quot;: 71
+        },
+        &quot;width&quot;: 30.34375,
+        &quot;height&quot;: 71,
+        &quot;fontSize&quot;: 60,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 50,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;separator&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 154.84375,
+          &quot;y&quot;: 17,
+          &quot;width&quot;: 6.3125,
+          &quot;height&quot;: 26
+        },
+        &quot;width&quot;: 6.3125,
+        &quot;height&quot;: 26,
+        &quot;fontSize&quot;: 26,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#969eacff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#969eacff&quot;,
+        &quot;baseline&quot;: 39,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;right&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 60
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 60,
+        &quot;fontSize&quot;: 60,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 50,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 60
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/pair-initial.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;pair-initial&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 60
+    },
+    &quot;controls&quot;: {
+      &quot;left&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 100.51361083984375,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 30.333740234375,
+          &quot;height&quot;: 60
+        },
+        &quot;width&quot;: 30.333740234375,
+        &quot;height&quot;: 60,
+        &quot;fontSize&quot;: 60,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 50.5078125
+      },
+      &quot;separator&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 154.84735107421875,
+          &quot;y&quot;: 17,
+          &quot;width&quot;: 6.3052978515625,
+          &quot;height&quot;: 26
+        },
+        &quot;width&quot;: 6.3052978515625,
+        &quot;height&quot;: 26,
+        &quot;fontSize&quot;: 26,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#969eacff&quot;,
+        &quot;baseline&quot;: 39.4580078125
+      },
+      &quot;right&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 185.15264892578125,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 30.333740234375,
+          &quot;height&quot;: 60
+        },
+        &quot;width&quot;: 30.333740234375,
+        &quot;height&quot;: 60,
+        &quot;fontSize&quot;: 60,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 50.5078125
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 387,
+      &quot;meanChannelDelta&quot;: 1.560056258790436
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/pair-initial.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="pair-result"><header><h2>Pair · result</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/pair-result.png"><img alt="pair-result Web" src="web/pair-result.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/pair-result.png"><img alt="pair-result Flutter" src="flutter/pair-result.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/pair-result.png"><img alt="pair-result Наложение 50/50" src="overlay/pair-result.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/pair-result.png"><img alt="pair-result Diff ×4" src="diff/pair-result.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 304 изменённых пикселей; mean channel delta 1.7134/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;pair-result&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 60
+    },
+    &quot;controls&quot;: {
+      &quot;left&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 100.5,
+          &quot;y&quot;: -6,
+          &quot;width&quot;: 30.34375,
+          &quot;height&quot;: 71
+        },
+        &quot;width&quot;: 30.34375,
+        &quot;height&quot;: 71,
+        &quot;fontSize&quot;: 60,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 50,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;separator&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 154.84375,
+          &quot;y&quot;: 17,
+          &quot;width&quot;: 6.3125,
+          &quot;height&quot;: 26
+        },
+        &quot;width&quot;: 6.3125,
+        &quot;height&quot;: 26,
+        &quot;fontSize&quot;: 26,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#969eacff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#969eacff&quot;,
+        &quot;baseline&quot;: 39,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;right&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 60
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 60,
+        &quot;fontSize&quot;: 60,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 50,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 60
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/pair-result.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;pair-result&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 60
+    },
+    &quot;controls&quot;: {
+      &quot;left&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 100.51361083984375,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 30.333740234375,
+          &quot;height&quot;: 60
+        },
+        &quot;width&quot;: 30.333740234375,
+        &quot;height&quot;: 60,
+        &quot;fontSize&quot;: 60,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 50.5078125
+      },
+      &quot;separator&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 154.84735107421875,
+          &quot;y&quot;: 17,
+          &quot;width&quot;: 6.3052978515625,
+          &quot;height&quot;: 26
+        },
+        &quot;width&quot;: 6.3052978515625,
+        &quot;height&quot;: 26,
+        &quot;fontSize&quot;: 26,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#969eacff&quot;,
+        &quot;baseline&quot;: 39.4580078125
+      },
+      &quot;right&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 185.15264892578125,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 30.333740234375,
+          &quot;height&quot;: 60
+        },
+        &quot;width&quot;: 30.333740234375,
+        &quot;height&quot;: 60,
+        &quot;fontSize&quot;: 60,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 50.5078125
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 304,
+      &quot;meanChannelDelta&quot;: 1.7133790436005625
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/pair-result.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="pair-twodigits"><header><h2>Pair · twoDigits</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/pair-twodigits.png"><img alt="pair-twodigits Web" src="web/pair-twodigits.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/pair-twodigits.png"><img alt="pair-twodigits Flutter" src="flutter/pair-twodigits.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/pair-twodigits.png"><img alt="pair-twodigits Наложение 50/50" src="overlay/pair-twodigits.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/pair-twodigits.png"><img alt="pair-twodigits Diff ×4" src="diff/pair-twodigits.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 525 изменённых пикселей; mean channel delta 2.2949/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;pair-twodigits&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 60
+    },
+    &quot;controls&quot;: {
+      &quot;left&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 85.328125,
+          &quot;y&quot;: -6,
+          &quot;width&quot;: 60.671875,
+          &quot;height&quot;: 71
+        },
+        &quot;width&quot;: 60.671875,
+        &quot;height&quot;: 71,
+        &quot;fontSize&quot;: 60,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 50,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;separator&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 170,
+          &quot;y&quot;: 17,
+          &quot;width&quot;: 6.3125,
+          &quot;height&quot;: 26
+        },
+        &quot;width&quot;: 6.3125,
+        &quot;height&quot;: 26,
+        &quot;fontSize&quot;: 26,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#969eacff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#969eacff&quot;,
+        &quot;baseline&quot;: 39,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;right&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 60
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 60,
+        &quot;fontSize&quot;: 60,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 50,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 60
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/pair-twodigits.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;pair-twodigits&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 60
+    },
+    &quot;controls&quot;: {
+      &quot;left&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 85.34674072265625,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 60.66748046875,
+          &quot;height&quot;: 60
+        },
+        &quot;width&quot;: 60.66748046875,
+        &quot;height&quot;: 60,
+        &quot;fontSize&quot;: 60,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 50.5078125
+      },
+      &quot;separator&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 170.01422119140625,
+          &quot;y&quot;: 17,
+          &quot;width&quot;: 6.3052978515625,
+          &quot;height&quot;: 26
+        },
+        &quot;width&quot;: 6.3052978515625,
+        &quot;height&quot;: 26,
+        &quot;fontSize&quot;: 26,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#969eacff&quot;,
+        &quot;baseline&quot;: 39.4580078125
+      },
+      &quot;right&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 200.31951904296875,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 30.333740234375,
+          &quot;height&quot;: 60
+        },
+        &quot;width&quot;: 30.333740234375,
+        &quot;height&quot;: 60,
+        &quot;fontSize&quot;: 60,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 50.5078125
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 525,
+      &quot;meanChannelDelta&quot;: 2.2948839662447256
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/pair-twodigits.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="fixed-result"><header><h2>Fixed · result</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/fixed-result.png"><img alt="fixed-result Web" src="web/fixed-result.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/fixed-result.png"><img alt="fixed-result Flutter" src="flutter/fixed-result.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/fixed-result.png"><img alt="fixed-result Наложение 50/50" src="overlay/fixed-result.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/fixed-result.png"><img alt="fixed-result Diff ×4" src="diff/fixed-result.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 236 изменённых пикселей; mean channel delta 0.9268/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;fixed-result&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 60
+    },
+    &quot;controls&quot;: {
+      &quot;left&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 142.828125,
+          &quot;y&quot;: -6,
+          &quot;width&quot;: 30.34375,
+          &quot;height&quot;: 71
+        },
+        &quot;width&quot;: 30.34375,
+        &quot;height&quot;: 71,
+        &quot;fontSize&quot;: 60,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#f1c75bff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f1c75bff&quot;,
+        &quot;baseline&quot;: 50,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 60
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/fixed-result.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;fixed-result&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 60
+    },
+    &quot;controls&quot;: {
+      &quot;left&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 142.8331298828125,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 30.333740234375,
+          &quot;height&quot;: 60
+        },
+        &quot;width&quot;: 30.333740234375,
+        &quot;height&quot;: 60,
+        &quot;fontSize&quot;: 60,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#f1c75bff&quot;,
+        &quot;baseline&quot;: 50.5078125
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 236,
+      &quot;meanChannelDelta&quot;: 0.9268284106891702
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/fixed-result.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="fixed-twodigits"><header><h2>Fixed · twoDigits</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/fixed-twodigits.png"><img alt="fixed-twodigits Web" src="web/fixed-twodigits.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/fixed-twodigits.png"><img alt="fixed-twodigits Flutter" src="flutter/fixed-twodigits.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/fixed-twodigits.png"><img alt="fixed-twodigits Наложение 50/50" src="overlay/fixed-twodigits.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/fixed-twodigits.png"><img alt="fixed-twodigits Diff ×4" src="diff/fixed-twodigits.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 258 изменённых пикселей; mean channel delta 0.8544/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;fixed-twodigits&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 60
+    },
+    &quot;controls&quot;: {
+      &quot;left&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 127.65625,
+          &quot;y&quot;: -6,
+          &quot;width&quot;: 60.671875,
+          &quot;height&quot;: 71
+        },
+        &quot;width&quot;: 60.671875,
+        &quot;height&quot;: 71,
+        &quot;fontSize&quot;: 60,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#f1c75bff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f1c75bff&quot;,
+        &quot;baseline&quot;: 50,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 60
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/fixed-twodigits.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;fixed-twodigits&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 60
+    },
+    &quot;controls&quot;: {
+      &quot;left&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 127.666259765625,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 60.66748046875,
+          &quot;height&quot;: 60
+        },
+        &quot;width&quot;: 60.66748046875,
+        &quot;height&quot;: 60,
+        &quot;fontSize&quot;: 60,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#f1c75bff&quot;,
+        &quot;baseline&quot;: 50.5078125
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 258,
+      &quot;meanChannelDelta&quot;: 0.8543952180028129
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/fixed-twodigits.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="pair-mobile"><header><h2>pair · mobile</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/pair-mobile.png"><img alt="pair-mobile Web" src="web/pair-mobile.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/pair-mobile.png"><img alt="pair-mobile Flutter" src="flutter/pair-mobile.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/pair-mobile.png"><img alt="pair-mobile Наложение 50/50" src="overlay/pair-mobile.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/pair-mobile.png"><img alt="pair-mobile Diff ×4" src="diff/pair-mobile.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 387 изменённых пикселей; mean channel delta 1.5601/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;pair-mobile&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 60
+    },
+    &quot;controls&quot;: {
+      &quot;left&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 100.5,
+          &quot;y&quot;: -6,
+          &quot;width&quot;: 30.34375,
+          &quot;height&quot;: 71
+        },
+        &quot;width&quot;: 30.34375,
+        &quot;height&quot;: 71,
+        &quot;fontSize&quot;: 60,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 50,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;separator&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 154.84375,
+          &quot;y&quot;: 17,
+          &quot;width&quot;: 6.3125,
+          &quot;height&quot;: 26
+        },
+        &quot;width&quot;: 6.3125,
+        &quot;height&quot;: 26,
+        &quot;fontSize&quot;: 26,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#969eacff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#969eacff&quot;,
+        &quot;baseline&quot;: 39,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;right&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 60
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 60,
+        &quot;fontSize&quot;: 60,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 50,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 60
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/pair-mobile.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;pair-mobile&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 60
+    },
+    &quot;controls&quot;: {
+      &quot;left&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 100.51361083984375,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 30.333740234375,
+          &quot;height&quot;: 60
+        },
+        &quot;width&quot;: 30.333740234375,
+        &quot;height&quot;: 60,
+        &quot;fontSize&quot;: 60,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 50.5078125
+      },
+      &quot;separator&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 154.84735107421875,
+          &quot;y&quot;: 17,
+          &quot;width&quot;: 6.3052978515625,
+          &quot;height&quot;: 26
+        },
+        &quot;width&quot;: 6.3052978515625,
+        &quot;height&quot;: 26,
+        &quot;fontSize&quot;: 26,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#969eacff&quot;,
+        &quot;baseline&quot;: 39.4580078125
+      },
+      &quot;right&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 185.15264892578125,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 30.333740234375,
+          &quot;height&quot;: 60
+        },
+        &quot;width&quot;: 30.333740234375,
+        &quot;height&quot;: 60,
+        &quot;fontSize&quot;: 60,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 50.5078125
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 387,
+      &quot;meanChannelDelta&quot;: 1.560056258790436
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/pair-mobile.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="pair-desktop"><header><h2>pair · desktop</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/pair-desktop.png"><img alt="pair-desktop Web" src="web/pair-desktop.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/pair-desktop.png"><img alt="pair-desktop Flutter" src="flutter/pair-desktop.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/pair-desktop.png"><img alt="pair-desktop Наложение 50/50" src="overlay/pair-desktop.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/pair-desktop.png"><img alt="pair-desktop Diff ×4" src="diff/pair-desktop.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 80 изменённых пикселей; mean channel delta 0.0373/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;pair-desktop&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 395.328125,
+      &quot;height&quot;: 80
+    },
+    &quot;controls&quot;: {
+      &quot;left&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 130.046875,
+          &quot;y&quot;: -7,
+          &quot;width&quot;: 40.453125,
+          &quot;height&quot;: 94
+        },
+        &quot;width&quot;: 40.453125,
+        &quot;height&quot;: 94,
+        &quot;fontSize&quot;: 80,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 67,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;separator&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 194.5,
+          &quot;y&quot;: 27,
+          &quot;width&quot;: 6.3125,
+          &quot;height&quot;: 26
+        },
+        &quot;width&quot;: 6.3125,
+        &quot;height&quot;: 26,
+        &quot;fontSize&quot;: 26,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#969eacff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#969eacff&quot;,
+        &quot;baseline&quot;: 49,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;right&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 395.328125,
+          &quot;height&quot;: 80
+        },
+        &quot;width&quot;: 395.328125,
+        &quot;height&quot;: 80,
+        &quot;fontSize&quot;: 80,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 67,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 395.328125,
+      &quot;height&quot;: 80
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/pair-desktop.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;pair-desktop&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 395.328125,
+      &quot;height&quot;: 80
+    },
+    &quot;controls&quot;: {
+      &quot;left&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 130.06642150878906,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 40.44499206542969,
+          &quot;height&quot;: 80
+        },
+        &quot;width&quot;: 40.44499206542969,
+        &quot;height&quot;: 80,
+        &quot;fontSize&quot;: 80,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 67.34375
+      },
+      &quot;separator&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 194.51141357421875,
+          &quot;y&quot;: 27,
+          &quot;width&quot;: 6.3052978515625,
+          &quot;height&quot;: 26
+        },
+        &quot;width&quot;: 6.3052978515625,
+        &quot;height&quot;: 26,
+        &quot;fontSize&quot;: 26,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#969eacff&quot;,
+        &quot;baseline&quot;: 49.4580078125
+      },
+      &quot;right&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 224.81671142578125,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 40.44499206542969,
+          &quot;height&quot;: 80
+        },
+        &quot;width&quot;: 40.44499206542969,
+        &quot;height&quot;: 80,
+        &quot;fontSize&quot;: 80,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 67.34375
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 80,
+      &quot;meanChannelDelta&quot;: 0.03731060606060606
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/pair-desktop.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="fixed-mobile"><header><h2>fixed · mobile</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/fixed-mobile.png"><img alt="fixed-mobile Web" src="web/fixed-mobile.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/fixed-mobile.png"><img alt="fixed-mobile Flutter" src="flutter/fixed-mobile.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/fixed-mobile.png"><img alt="fixed-mobile Наложение 50/50" src="overlay/fixed-mobile.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/fixed-mobile.png"><img alt="fixed-mobile Diff ×4" src="diff/fixed-mobile.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 236 изменённых пикселей; mean channel delta 0.9268/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;fixed-mobile&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 60
+    },
+    &quot;controls&quot;: {
+      &quot;left&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 142.828125,
+          &quot;y&quot;: -6,
+          &quot;width&quot;: 30.34375,
+          &quot;height&quot;: 71
+        },
+        &quot;width&quot;: 30.34375,
+        &quot;height&quot;: 71,
+        &quot;fontSize&quot;: 60,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#f1c75bff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f1c75bff&quot;,
+        &quot;baseline&quot;: 50,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 60
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/fixed-mobile.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;fixed-mobile&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 60
+    },
+    &quot;controls&quot;: {
+      &quot;left&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 142.8331298828125,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 30.333740234375,
+          &quot;height&quot;: 60
+        },
+        &quot;width&quot;: 30.333740234375,
+        &quot;height&quot;: 60,
+        &quot;fontSize&quot;: 60,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#f1c75bff&quot;,
+        &quot;baseline&quot;: 50.5078125
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 236,
+      &quot;meanChannelDelta&quot;: 0.9268284106891702
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/fixed-mobile.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="fixed-desktop"><header><h2>fixed · desktop</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/fixed-desktop.png"><img alt="fixed-desktop Web" src="web/fixed-desktop.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/fixed-desktop.png"><img alt="fixed-desktop Flutter" src="flutter/fixed-desktop.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/fixed-desktop.png"><img alt="fixed-desktop Наложение 50/50" src="overlay/fixed-desktop.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/fixed-desktop.png"><img alt="fixed-desktop Diff ×4" src="diff/fixed-desktop.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 294 изменённых пикселей; mean channel delta 0.7676/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;fixed-desktop&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 395.328125,
+      &quot;height&quot;: 60
+    },
+    &quot;controls&quot;: {
+      &quot;left&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 182.484375,
+          &quot;y&quot;: -6,
+          &quot;width&quot;: 30.34375,
+          &quot;height&quot;: 71
+        },
+        &quot;width&quot;: 30.34375,
+        &quot;height&quot;: 71,
+        &quot;fontSize&quot;: 60,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#f1c75bff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f1c75bff&quot;,
+        &quot;baseline&quot;: 50,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 395.328125,
+      &quot;height&quot;: 60
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/fixed-desktop.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;fixed-desktop&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 395.328125,
+      &quot;height&quot;: 60
+    },
+    &quot;controls&quot;: {
+      &quot;left&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 182.4971923828125,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 30.333740234375,
+          &quot;height&quot;: 60
+        },
+        &quot;width&quot;: 30.333740234375,
+        &quot;height&quot;: 60,
+        &quot;fontSize&quot;: 60,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#f1c75bff&quot;,
+        &quot;baseline&quot;: 50.5078125
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 294,
+      &quot;meanChannelDelta&quot;: 0.767550505050505
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/fixed-desktop.png&quot;
+    }
+  }
+}</pre></details></article>
+ <footer><small>Run 2026-11-07T19:55:29.245Z. <a href="results.json">Полный JSON</a> · <a href="spec.json">Декларация</a>. Native goldens проверяются отдельно; отчёт не объявляет pixel-perfect при остаточной raster-разнице.</small></footer></html>

@@ -326,4 +326,17 @@ class FoundationLocalizationsRu extends FoundationLocalizations {
   String stepperNumber(int value) {
     return '$value';
   }
+
+  @override
+  String scorePairLabel(String left, String right) {
+    return 'Текущий счёт $left:$right';
+  }
+
+  @override
+  String scoreFixedLabel(String value) {
+    return 'Счёт победителя $value';
+  }
+
+  @override
+  String get scoreSeparator => ':';
 }
