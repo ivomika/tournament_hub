@@ -1,0 +1,722 @@
+[
+  {
+    "id": "glyph-share-link",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 24,
+      "height": 24
+    },
+    "controls": {
+      "glyph": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 24
+        },
+        "width": 24,
+        "height": 24,
+        "fontSize": 16,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 17.100000023841858,
+        "opacity": 1,
+        "strokeWidth": 1.8
+      }
+    },
+    "originalRoot": {
+      "width": 24,
+      "height": 24
+    },
+    "pageX": 0,
+    "pageY": 0,
+    "artifacts": {
+      "image": "web/glyph-share-link.png"
+    }
+  },
+  {
+    "id": "glyph-chevron",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 24,
+      "height": 24
+    },
+    "controls": {
+      "glyph": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 24
+        },
+        "width": 24,
+        "height": 24,
+        "fontSize": 16,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 21.09999990463257,
+        "opacity": 1,
+        "strokeWidth": 1.8
+      }
+    },
+    "originalRoot": {
+      "width": 24,
+      "height": 24
+    },
+    "pageX": 0,
+    "pageY": 0,
+    "artifacts": {
+      "image": "web/glyph-chevron.png"
+    }
+  },
+  {
+    "id": "glyph-settings",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 24,
+      "height": 24
+    },
+    "controls": {
+      "glyph": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 24
+        },
+        "width": 24,
+        "height": 24,
+        "fontSize": 16,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 19.09999990463257,
+        "opacity": 1,
+        "strokeWidth": 1.8
+      }
+    },
+    "originalRoot": {
+      "width": 24,
+      "height": 24
+    },
+    "pageX": 0,
+    "pageY": 0,
+    "artifacts": {
+      "image": "web/glyph-settings.png"
+    }
+  },
+  {
+    "id": "glyph-info",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 24,
+      "height": 24
+    },
+    "controls": {
+      "glyph": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 24
+        },
+        "width": 24,
+        "height": 24,
+        "fontSize": 16,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 18.09999990463257,
+        "opacity": 1,
+        "strokeWidth": 1.8
+      }
+    },
+    "originalRoot": {
+      "width": 24,
+      "height": 24
+    },
+    "pageX": 0,
+    "pageY": 0,
+    "artifacts": {
+      "image": "web/glyph-info.png"
+    }
+  },
+  {
+    "id": "glyph-contact",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 24,
+      "height": 24
+    },
+    "controls": {
+      "glyph": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 24
+        },
+        "width": 24,
+        "height": 24,
+        "fontSize": 16,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 19.09999990463257,
+        "opacity": 1,
+        "strokeWidth": 1.8
+      }
+    },
+    "originalRoot": {
+      "width": 24,
+      "height": 24
+    },
+    "pageX": 0,
+    "pageY": 0,
+    "artifacts": {
+      "image": "web/glyph-contact.png"
+    }
+  },
+  {
+    "id": "glyph-close",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 24,
+      "height": 24
+    },
+    "controls": {
+      "glyph": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 24
+        },
+        "width": 24,
+        "height": 24,
+        "fontSize": 16,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 21.09999990463257,
+        "opacity": 1,
+        "strokeWidth": 1.8
+      }
+    },
+    "originalRoot": {
+      "width": 24,
+      "height": 24
+    },
+    "pageX": 0,
+    "pageY": 0,
+    "artifacts": {
+      "image": "web/glyph-close.png"
+    }
+  },
+  {
+    "id": "glyph-minus",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 24,
+      "height": 24
+    },
+    "controls": {
+      "glyph": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 24
+        },
+        "width": 24,
+        "height": 24,
+        "fontSize": 16,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 27.100000381469727,
+        "opacity": 1,
+        "strokeWidth": 1.8
+      }
+    },
+    "originalRoot": {
+      "width": 24,
+      "height": 24
+    },
+    "pageX": 0,
+    "pageY": 0,
+    "artifacts": {
+      "image": "web/glyph-minus.png"
+    }
+  },
+  {
+    "id": "glyph-arrow",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 24,
+      "height": 24
+    },
+    "controls": {
+      "glyph": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 24
+        },
+        "width": 24,
+        "height": 24,
+        "fontSize": 16,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 21.09999990463257,
+        "opacity": 1,
+        "strokeWidth": 1.8
+      }
+    },
+    "originalRoot": {
+      "width": 24,
+      "height": 24
+    },
+    "pageX": 0,
+    "pageY": 0,
+    "artifacts": {
+      "image": "web/glyph-arrow.png"
+    }
+  },
+  {
+    "id": "glyph-back",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 24,
+      "height": 24
+    },
+    "controls": {
+      "glyph": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 24
+        },
+        "width": 24,
+        "height": 24,
+        "fontSize": 16,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 21.09999990463257,
+        "opacity": 1,
+        "strokeWidth": 1.8
+      }
+    },
+    "originalRoot": {
+      "width": 24,
+      "height": 24
+    },
+    "pageX": 0,
+    "pageY": 0,
+    "artifacts": {
+      "image": "web/glyph-back.png"
+    }
+  },
+  {
+    "id": "glyph-person",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 24,
+      "height": 24
+    },
+    "controls": {
+      "glyph": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 24
+        },
+        "width": 24,
+        "height": 24,
+        "fontSize": 16,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 19.59999990463257,
+        "opacity": 1,
+        "strokeWidth": 1.8
+      }
+    },
+    "originalRoot": {
+      "width": 24,
+      "height": 24
+    },
+    "pageX": 0,
+    "pageY": 0,
+    "artifacts": {
+      "image": "web/glyph-person.png"
+    }
+  },
+  {
+    "id": "glyph-history",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 24,
+      "height": 24
+    },
+    "controls": {
+      "glyph": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 24
+        },
+        "width": 24,
+        "height": 24,
+        "fontSize": 16,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 17.74869477748871,
+        "opacity": 1,
+        "strokeWidth": 1.8
+      }
+    },
+    "originalRoot": {
+      "width": 24,
+      "height": 24
+    },
+    "pageX": 0,
+    "pageY": 0,
+    "artifacts": {
+      "image": "web/glyph-history.png"
+    }
+  },
+  {
+    "id": "glyph-plus",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 24,
+      "height": 24
+    },
+    "controls": {
+      "glyph": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 24
+        },
+        "width": 24,
+        "height": 24,
+        "fontSize": 16,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 20.09999990463257,
+        "opacity": 1,
+        "strokeWidth": 1.8
+      }
+    },
+    "originalRoot": {
+      "width": 24,
+      "height": 24
+    },
+    "pageX": 0,
+    "pageY": 0,
+    "artifacts": {
+      "image": "web/glyph-plus.png"
+    }
+  },
+  {
+    "id": "glyph-qr",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 24,
+      "height": 24
+    },
+    "controls": {
+      "glyph": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 24
+        },
+        "width": 24,
+        "height": 24,
+        "fontSize": 16,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 18.09999990463257,
+        "opacity": 1,
+        "strokeWidth": 1.8
+      }
+    },
+    "originalRoot": {
+      "width": 24,
+      "height": 24
+    },
+    "pageX": 0,
+    "pageY": 0,
+    "artifacts": {
+      "image": "web/glyph-qr.png"
+    }
+  },
+  {
+    "id": "glyph-trash",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 24,
+      "height": 24
+    },
+    "controls": {
+      "glyph": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 24
+        },
+        "width": 24,
+        "height": 24,
+        "fontSize": 16,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 19.09999990463257,
+        "opacity": 1,
+        "strokeWidth": 1.8
+      }
+    },
+    "originalRoot": {
+      "width": 24,
+      "height": 24
+    },
+    "pageX": 0,
+    "pageY": 0,
+    "artifacts": {
+      "image": "web/glyph-trash.png"
+    }
+  },
+  {
+    "id": "glyph-edit",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 24,
+      "height": 24
+    },
+    "controls": {
+      "glyph": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 24
+        },
+        "width": 24,
+        "height": 24,
+        "fontSize": 16,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 19.09999990463257,
+        "opacity": 1,
+        "strokeWidth": 1.8
+      }
+    },
+    "originalRoot": {
+      "width": 24,
+      "height": 24
+    },
+    "pageX": 0,
+    "pageY": 0,
+    "artifacts": {
+      "image": "web/glyph-edit.png"
+    }
+  },
+  {
+    "id": "glyph-alert",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 24,
+      "height": 24
+    },
+    "controls": {
+      "glyph": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 24
+        },
+        "width": 24,
+        "height": 24,
+        "fontSize": 16,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 18.09999990463257,
+        "opacity": 1,
+        "strokeWidth": 1.8
+      }
+    },
+    "originalRoot": {
+      "width": 24,
+      "height": 24
+    },
+    "pageX": 0,
+    "pageY": 0,
+    "artifacts": {
+      "image": "web/glyph-alert.png"
+    }
+  },
+  {
+    "id": "glyph-check",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 24,
+      "height": 24
+    },
+    "controls": {
+      "glyph": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 24
+        },
+        "width": 24,
+        "height": 24,
+        "fontSize": 16,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 21.09999990463257,
+        "opacity": 1,
+        "strokeWidth": 1.8
+      }
+    },
+    "originalRoot": {
+      "width": 24,
+      "height": 24
+    },
+    "pageX": 0,
+    "pageY": 0,
+    "artifacts": {
+      "image": "web/glyph-check.png"
+    }
+  },
+  {
+    "id": "glyph-trophy",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 24,
+      "height": 24
+    },
+    "controls": {
+      "glyph": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 24
+        },
+        "width": 24,
+        "height": 24,
+        "fontSize": 16,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "baseline": 18.09999990463257,
+        "opacity": 1,
+        "strokeWidth": 1.8
+      }
+    },
+    "originalRoot": {
+      "width": 24,
+      "height": 24
+    },
+    "pageX": 0,
+    "pageY": 0,
+    "artifacts": {
+      "image": "web/glyph-trophy.png"
+    }
+  }
+]

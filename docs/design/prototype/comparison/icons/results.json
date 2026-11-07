@@ -1,0 +1,1947 @@
+{
+  "spec": {
+    "version": 1,
+    "component": "icons",
+    "title": "AppIcon · исходные18 SVG",
+    "source": {
+      "url": "http://127.0.0.1:8094/ui-kit.html"
+    },
+    "tolerances": {
+      "geometry": 0.25,
+      "typography": 0.05,
+      "baseline": 0.5
+    },
+    "scenarios": [
+      {
+        "id": "glyph-share-link",
+        "title": "share-link",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#icons .kit-icon:has(use[href=\"#share-link\"]) svg",
+        "controls": [
+          {
+            "id": "glyph",
+            "webSelector": ":scope",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 0,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "glyph-chevron",
+        "title": "chevron",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#icons .kit-icon:has(use[href=\"#chevron\"]) svg",
+        "controls": [
+          {
+            "id": "glyph",
+            "webSelector": ":scope",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 0,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "glyph-settings",
+        "title": "settings",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#icons .kit-icon:has(use[href=\"#settings\"]) svg",
+        "controls": [
+          {
+            "id": "glyph",
+            "webSelector": ":scope",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 0,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "glyph-info",
+        "title": "info",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#icons .kit-icon:has(use[href=\"#info\"]) svg",
+        "controls": [
+          {
+            "id": "glyph",
+            "webSelector": ":scope",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 0,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "glyph-contact",
+        "title": "contact",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#icons .kit-icon:has(use[href=\"#contact\"]) svg",
+        "controls": [
+          {
+            "id": "glyph",
+            "webSelector": ":scope",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 0,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "glyph-close",
+        "title": "close",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#icons .kit-icon:has(use[href=\"#close\"]) svg",
+        "controls": [
+          {
+            "id": "glyph",
+            "webSelector": ":scope",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 0,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "glyph-minus",
+        "title": "minus",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#icons .kit-icon:has(use[href=\"#minus\"]) svg",
+        "controls": [
+          {
+            "id": "glyph",
+            "webSelector": ":scope",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 0,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "glyph-arrow",
+        "title": "arrow",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#icons .kit-icon:has(use[href=\"#arrow\"]) svg",
+        "controls": [
+          {
+            "id": "glyph",
+            "webSelector": ":scope",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 0,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "glyph-back",
+        "title": "back",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#icons .kit-icon:has(use[href=\"#back\"]) svg",
+        "controls": [
+          {
+            "id": "glyph",
+            "webSelector": ":scope",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 0,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "glyph-person",
+        "title": "person",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#icons .kit-icon:has(use[href=\"#person\"]) svg",
+        "controls": [
+          {
+            "id": "glyph",
+            "webSelector": ":scope",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 0,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "glyph-history",
+        "title": "history",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#icons .kit-icon:has(use[href=\"#history\"]) svg",
+        "controls": [
+          {
+            "id": "glyph",
+            "webSelector": ":scope",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 0,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "glyph-plus",
+        "title": "plus",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#icons .kit-icon:has(use[href=\"#plus\"]) svg",
+        "controls": [
+          {
+            "id": "glyph",
+            "webSelector": ":scope",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 0,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "glyph-qr",
+        "title": "qr",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#icons .kit-icon:has(use[href=\"#qr\"]) svg",
+        "controls": [
+          {
+            "id": "glyph",
+            "webSelector": ":scope",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 0,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "glyph-trash",
+        "title": "trash",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#icons .kit-icon:has(use[href=\"#trash\"]) svg",
+        "controls": [
+          {
+            "id": "glyph",
+            "webSelector": ":scope",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 0,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "glyph-edit",
+        "title": "edit",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#icons .kit-icon:has(use[href=\"#edit\"]) svg",
+        "controls": [
+          {
+            "id": "glyph",
+            "webSelector": ":scope",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 0,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "glyph-alert",
+        "title": "alert",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#icons .kit-icon:has(use[href=\"#alert\"]) svg",
+        "controls": [
+          {
+            "id": "glyph",
+            "webSelector": ":scope",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 0,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "glyph-check",
+        "title": "check",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#icons .kit-icon:has(use[href=\"#check\"]) svg",
+        "controls": [
+          {
+            "id": "glyph",
+            "webSelector": ":scope",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 0,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "glyph-trophy",
+        "title": "trophy",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#icons .kit-icon:has(use[href=\"#trophy\"]) svg",
+        "controls": [
+          {
+            "id": "glyph",
+            "webSelector": ":scope",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 0,
+        "freezeMilliseconds": 0
+      }
+    ]
+  },
+  "results": [
+    {
+      "id": "glyph-share-link",
+      "title": "share-link",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "glyph-share-link",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 24
+        },
+        "controls": {
+          "glyph": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "baseline": 17.100000023841858,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          }
+        },
+        "originalRoot": {
+          "width": 24,
+          "height": 24
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/glyph-share-link.png"
+        }
+      },
+      "native": {
+        "id": "glyph-share-link",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 24
+        },
+        "controls": {
+          "glyph": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          }
+        },
+        "raster": {
+          "changedPixels": 12,
+          "meanChannelDelta": 0.4930555555555556
+        },
+        "artifacts": {
+          "image": "flutter/glyph-share-link.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/glyph-share-link.png",
+        "flutter": "flutter/glyph-share-link.png",
+        "overlay": "overlay/glyph-share-link.png",
+        "diff": "diff/glyph-share-link.png"
+      },
+      "raster": {
+        "changedPixels": 12,
+        "meanChannelDelta": 0.4930555555555556
+      }
+    },
+    {
+      "id": "glyph-chevron",
+      "title": "chevron",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "glyph-chevron",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 24
+        },
+        "controls": {
+          "glyph": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "baseline": 21.09999990463257,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          }
+        },
+        "originalRoot": {
+          "width": 24,
+          "height": 24
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/glyph-chevron.png"
+        }
+      },
+      "native": {
+        "id": "glyph-chevron",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 24
+        },
+        "controls": {
+          "glyph": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          }
+        },
+        "raster": {
+          "changedPixels": 0,
+          "meanChannelDelta": 0.04918981481481482
+        },
+        "artifacts": {
+          "image": "flutter/glyph-chevron.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/glyph-chevron.png",
+        "flutter": "flutter/glyph-chevron.png",
+        "overlay": "overlay/glyph-chevron.png",
+        "diff": "diff/glyph-chevron.png"
+      },
+      "raster": {
+        "changedPixels": 0,
+        "meanChannelDelta": 0.04918981481481482
+      }
+    },
+    {
+      "id": "glyph-settings",
+      "title": "settings",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "glyph-settings",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 24
+        },
+        "controls": {
+          "glyph": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "baseline": 19.09999990463257,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          }
+        },
+        "originalRoot": {
+          "width": 24,
+          "height": 24
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/glyph-settings.png"
+        }
+      },
+      "native": {
+        "id": "glyph-settings",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 24
+        },
+        "controls": {
+          "glyph": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          }
+        },
+        "raster": {
+          "changedPixels": 0,
+          "meanChannelDelta": 0.07175925925925926
+        },
+        "artifacts": {
+          "image": "flutter/glyph-settings.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/glyph-settings.png",
+        "flutter": "flutter/glyph-settings.png",
+        "overlay": "overlay/glyph-settings.png",
+        "diff": "diff/glyph-settings.png"
+      },
+      "raster": {
+        "changedPixels": 0,
+        "meanChannelDelta": 0.07175925925925926
+      }
+    },
+    {
+      "id": "glyph-info",
+      "title": "info",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "glyph-info",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 24
+        },
+        "controls": {
+          "glyph": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "baseline": 18.09999990463257,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          }
+        },
+        "originalRoot": {
+          "width": 24,
+          "height": 24
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/glyph-info.png"
+        }
+      },
+      "native": {
+        "id": "glyph-info",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 24
+        },
+        "controls": {
+          "glyph": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          }
+        },
+        "raster": {
+          "changedPixels": 4,
+          "meanChannelDelta": 0.2199074074074074
+        },
+        "artifacts": {
+          "image": "flutter/glyph-info.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/glyph-info.png",
+        "flutter": "flutter/glyph-info.png",
+        "overlay": "overlay/glyph-info.png",
+        "diff": "diff/glyph-info.png"
+      },
+      "raster": {
+        "changedPixels": 4,
+        "meanChannelDelta": 0.2199074074074074
+      }
+    },
+    {
+      "id": "glyph-contact",
+      "title": "contact",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "glyph-contact",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 24
+        },
+        "controls": {
+          "glyph": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "baseline": 19.09999990463257,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          }
+        },
+        "originalRoot": {
+          "width": 24,
+          "height": 24
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/glyph-contact.png"
+        }
+      },
+      "native": {
+        "id": "glyph-contact",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 24
+        },
+        "controls": {
+          "glyph": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          }
+        },
+        "raster": {
+          "changedPixels": 1,
+          "meanChannelDelta": 0.10185185185185185
+        },
+        "artifacts": {
+          "image": "flutter/glyph-contact.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/glyph-contact.png",
+        "flutter": "flutter/glyph-contact.png",
+        "overlay": "overlay/glyph-contact.png",
+        "diff": "diff/glyph-contact.png"
+      },
+      "raster": {
+        "changedPixels": 1,
+        "meanChannelDelta": 0.10185185185185185
+      }
+    },
+    {
+      "id": "glyph-close",
+      "title": "close",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "glyph-close",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 24
+        },
+        "controls": {
+          "glyph": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "baseline": 21.09999990463257,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          }
+        },
+        "originalRoot": {
+          "width": 24,
+          "height": 24
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/glyph-close.png"
+        }
+      },
+      "native": {
+        "id": "glyph-close",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 24
+        },
+        "controls": {
+          "glyph": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          }
+        },
+        "raster": {
+          "changedPixels": 0,
+          "meanChannelDelta": 0.09259259259259259
+        },
+        "artifacts": {
+          "image": "flutter/glyph-close.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/glyph-close.png",
+        "flutter": "flutter/glyph-close.png",
+        "overlay": "overlay/glyph-close.png",
+        "diff": "diff/glyph-close.png"
+      },
+      "raster": {
+        "changedPixels": 0,
+        "meanChannelDelta": 0.09259259259259259
+      }
+    },
+    {
+      "id": "glyph-minus",
+      "title": "minus",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "glyph-minus",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 24
+        },
+        "controls": {
+          "glyph": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "baseline": 27.100000381469727,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          }
+        },
+        "originalRoot": {
+          "width": 24,
+          "height": 24
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/glyph-minus.png"
+        }
+      },
+      "native": {
+        "id": "glyph-minus",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 24
+        },
+        "controls": {
+          "glyph": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          }
+        },
+        "raster": {
+          "changedPixels": 0,
+          "meanChannelDelta": 0.00636574074074074
+        },
+        "artifacts": {
+          "image": "flutter/glyph-minus.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/glyph-minus.png",
+        "flutter": "flutter/glyph-minus.png",
+        "overlay": "overlay/glyph-minus.png",
+        "diff": "diff/glyph-minus.png"
+      },
+      "raster": {
+        "changedPixels": 0,
+        "meanChannelDelta": 0.00636574074074074
+      }
+    },
+    {
+      "id": "glyph-arrow",
+      "title": "arrow",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "glyph-arrow",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 24
+        },
+        "controls": {
+          "glyph": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "baseline": 21.09999990463257,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          }
+        },
+        "originalRoot": {
+          "width": 24,
+          "height": 24
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/glyph-arrow.png"
+        }
+      },
+      "native": {
+        "id": "glyph-arrow",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 24
+        },
+        "controls": {
+          "glyph": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          }
+        },
+        "raster": {
+          "changedPixels": 0,
+          "meanChannelDelta": 0.04861111111111111
+        },
+        "artifacts": {
+          "image": "flutter/glyph-arrow.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/glyph-arrow.png",
+        "flutter": "flutter/glyph-arrow.png",
+        "overlay": "overlay/glyph-arrow.png",
+        "diff": "diff/glyph-arrow.png"
+      },
+      "raster": {
+        "changedPixels": 0,
+        "meanChannelDelta": 0.04861111111111111
+      }
+    },
+    {
+      "id": "glyph-back",
+      "title": "back",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "glyph-back",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 24
+        },
+        "controls": {
+          "glyph": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "baseline": 21.09999990463257,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          }
+        },
+        "originalRoot": {
+          "width": 24,
+          "height": 24
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/glyph-back.png"
+        }
+      },
+      "native": {
+        "id": "glyph-back",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 24
+        },
+        "controls": {
+          "glyph": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          }
+        },
+        "raster": {
+          "changedPixels": 0,
+          "meanChannelDelta": 0.04918981481481482
+        },
+        "artifacts": {
+          "image": "flutter/glyph-back.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/glyph-back.png",
+        "flutter": "flutter/glyph-back.png",
+        "overlay": "overlay/glyph-back.png",
+        "diff": "diff/glyph-back.png"
+      },
+      "raster": {
+        "changedPixels": 0,
+        "meanChannelDelta": 0.04918981481481482
+      }
+    },
+    {
+      "id": "glyph-person",
+      "title": "person",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "glyph-person",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 24
+        },
+        "controls": {
+          "glyph": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "baseline": 19.59999990463257,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          }
+        },
+        "originalRoot": {
+          "width": 24,
+          "height": 24
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/glyph-person.png"
+        }
+      },
+      "native": {
+        "id": "glyph-person",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 24
+        },
+        "controls": {
+          "glyph": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          }
+        },
+        "raster": {
+          "changedPixels": 10,
+          "meanChannelDelta": 0.30266203703703703
+        },
+        "artifacts": {
+          "image": "flutter/glyph-person.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/glyph-person.png",
+        "flutter": "flutter/glyph-person.png",
+        "overlay": "overlay/glyph-person.png",
+        "diff": "diff/glyph-person.png"
+      },
+      "raster": {
+        "changedPixels": 10,
+        "meanChannelDelta": 0.30266203703703703
+      }
+    },
+    {
+      "id": "glyph-history",
+      "title": "history",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "glyph-history",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 24
+        },
+        "controls": {
+          "glyph": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "baseline": 17.74869477748871,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          }
+        },
+        "originalRoot": {
+          "width": 24,
+          "height": 24
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/glyph-history.png"
+        }
+      },
+      "native": {
+        "id": "glyph-history",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 24
+        },
+        "controls": {
+          "glyph": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          }
+        },
+        "raster": {
+          "changedPixels": 82,
+          "meanChannelDelta": 2.943865740740741
+        },
+        "artifacts": {
+          "image": "flutter/glyph-history.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/glyph-history.png",
+        "flutter": "flutter/glyph-history.png",
+        "overlay": "overlay/glyph-history.png",
+        "diff": "diff/glyph-history.png"
+      },
+      "raster": {
+        "changedPixels": 82,
+        "meanChannelDelta": 2.943865740740741
+      }
+    },
+    {
+      "id": "glyph-plus",
+      "title": "plus",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "glyph-plus",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 24
+        },
+        "controls": {
+          "glyph": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "baseline": 20.09999990463257,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          }
+        },
+        "originalRoot": {
+          "width": 24,
+          "height": 24
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/glyph-plus.png"
+        }
+      },
+      "native": {
+        "id": "glyph-plus",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 24
+        },
+        "controls": {
+          "glyph": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          }
+        },
+        "raster": {
+          "changedPixels": 0,
+          "meanChannelDelta": 0.03935185185185185
+        },
+        "artifacts": {
+          "image": "flutter/glyph-plus.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/glyph-plus.png",
+        "flutter": "flutter/glyph-plus.png",
+        "overlay": "overlay/glyph-plus.png",
+        "diff": "diff/glyph-plus.png"
+      },
+      "raster": {
+        "changedPixels": 0,
+        "meanChannelDelta": 0.03935185185185185
+      }
+    },
+    {
+      "id": "glyph-qr",
+      "title": "qr",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "glyph-qr",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 24
+        },
+        "controls": {
+          "glyph": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "baseline": 18.09999990463257,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          }
+        },
+        "originalRoot": {
+          "width": 24,
+          "height": 24
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/glyph-qr.png"
+        }
+      },
+      "native": {
+        "id": "glyph-qr",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 24
+        },
+        "controls": {
+          "glyph": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          }
+        },
+        "raster": {
+          "changedPixels": 0,
+          "meanChannelDelta": 0.1284722222222222
+        },
+        "artifacts": {
+          "image": "flutter/glyph-qr.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/glyph-qr.png",
+        "flutter": "flutter/glyph-qr.png",
+        "overlay": "overlay/glyph-qr.png",
+        "diff": "diff/glyph-qr.png"
+      },
+      "raster": {
+        "changedPixels": 0,
+        "meanChannelDelta": 0.1284722222222222
+      }
+    },
+    {
+      "id": "glyph-trash",
+      "title": "trash",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "glyph-trash",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 24
+        },
+        "controls": {
+          "glyph": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "baseline": 19.09999990463257,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          }
+        },
+        "originalRoot": {
+          "width": 24,
+          "height": 24
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/glyph-trash.png"
+        }
+      },
+      "native": {
+        "id": "glyph-trash",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 24
+        },
+        "controls": {
+          "glyph": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          }
+        },
+        "raster": {
+          "changedPixels": 0,
+          "meanChannelDelta": 0.09375
+        },
+        "artifacts": {
+          "image": "flutter/glyph-trash.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/glyph-trash.png",
+        "flutter": "flutter/glyph-trash.png",
+        "overlay": "overlay/glyph-trash.png",
+        "diff": "diff/glyph-trash.png"
+      },
+      "raster": {
+        "changedPixels": 0,
+        "meanChannelDelta": 0.09375
+      }
+    },
+    {
+      "id": "glyph-edit",
+      "title": "edit",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "glyph-edit",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 24
+        },
+        "controls": {
+          "glyph": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "baseline": 19.09999990463257,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          }
+        },
+        "originalRoot": {
+          "width": 24,
+          "height": 24
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/glyph-edit.png"
+        }
+      },
+      "native": {
+        "id": "glyph-edit",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 24
+        },
+        "controls": {
+          "glyph": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          }
+        },
+        "raster": {
+          "changedPixels": 0,
+          "meanChannelDelta": 0.13599537037037038
+        },
+        "artifacts": {
+          "image": "flutter/glyph-edit.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/glyph-edit.png",
+        "flutter": "flutter/glyph-edit.png",
+        "overlay": "overlay/glyph-edit.png",
+        "diff": "diff/glyph-edit.png"
+      },
+      "raster": {
+        "changedPixels": 0,
+        "meanChannelDelta": 0.13599537037037038
+      }
+    },
+    {
+      "id": "glyph-alert",
+      "title": "alert",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "glyph-alert",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 24
+        },
+        "controls": {
+          "glyph": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "baseline": 18.09999990463257,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          }
+        },
+        "originalRoot": {
+          "width": 24,
+          "height": 24
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/glyph-alert.png"
+        }
+      },
+      "native": {
+        "id": "glyph-alert",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 24
+        },
+        "controls": {
+          "glyph": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          }
+        },
+        "raster": {
+          "changedPixels": 4,
+          "meanChannelDelta": 0.2175925925925926
+        },
+        "artifacts": {
+          "image": "flutter/glyph-alert.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/glyph-alert.png",
+        "flutter": "flutter/glyph-alert.png",
+        "overlay": "overlay/glyph-alert.png",
+        "diff": "diff/glyph-alert.png"
+      },
+      "raster": {
+        "changedPixels": 4,
+        "meanChannelDelta": 0.2175925925925926
+      }
+    },
+    {
+      "id": "glyph-check",
+      "title": "check",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "glyph-check",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 24
+        },
+        "controls": {
+          "glyph": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "baseline": 21.09999990463257,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          }
+        },
+        "originalRoot": {
+          "width": 24,
+          "height": 24
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/glyph-check.png"
+        }
+      },
+      "native": {
+        "id": "glyph-check",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 24
+        },
+        "controls": {
+          "glyph": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          }
+        },
+        "raster": {
+          "changedPixels": 0,
+          "meanChannelDelta": 0.06481481481481481
+        },
+        "artifacts": {
+          "image": "flutter/glyph-check.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/glyph-check.png",
+        "flutter": "flutter/glyph-check.png",
+        "overlay": "overlay/glyph-check.png",
+        "diff": "diff/glyph-check.png"
+      },
+      "raster": {
+        "changedPixels": 0,
+        "meanChannelDelta": 0.06481481481481481
+      }
+    },
+    {
+      "id": "glyph-trophy",
+      "title": "trophy",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "glyph-trophy",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 24
+        },
+        "controls": {
+          "glyph": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "baseline": 18.09999990463257,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          }
+        },
+        "originalRoot": {
+          "width": 24,
+          "height": 24
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/glyph-trophy.png"
+        }
+      },
+      "native": {
+        "id": "glyph-trophy",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 24
+        },
+        "controls": {
+          "glyph": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          }
+        },
+        "raster": {
+          "changedPixels": 0,
+          "meanChannelDelta": 0.11226851851851852
+        },
+        "artifacts": {
+          "image": "flutter/glyph-trophy.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/glyph-trophy.png",
+        "flutter": "flutter/glyph-trophy.png",
+        "overlay": "overlay/glyph-trophy.png",
+        "diff": "diff/glyph-trophy.png"
+      },
+      "raster": {
+        "changedPixels": 0,
+        "meanChannelDelta": 0.11226851851851852
+      }
+    }
+  ],
+  "error": null,
+  "runId": "2026-11-07T14:01:51.012Z"
+}

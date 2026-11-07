@@ -28,8 +28,11 @@ abstract final class _ComparisonDriver {
   static const boundaryKey = ValueKey('comparison-capture');
   static void run() {
     if (directory.isEmpty) {
-      test('comparison runs through the CLI', () {},
-        skip: 'Run node tools/visual-comparison/compare.mjs <component>');
+      test(
+        'comparison runs through the CLI',
+        () {},
+        skip: 'Run node tools/visual-comparison/compare.mjs <component>',
+      );
       return;
     }
     final spec = ComparisonCatalog.component(component);

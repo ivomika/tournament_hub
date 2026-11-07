@@ -1,3 +1,5 @@
+import 'package:tournament_app/presentation/widgetbook/foundation/icons/slots/slots_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/foundation/icons/glyphs/glyphs_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/components/avatar/content/content_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/components/avatar/size_28/size_28_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/components/avatar/size_40/size_40_use_case.dart';
@@ -20,6 +22,10 @@ final widgetbookCatalog = <WidgetbookNode>[
       WidgetbookComponent(
         name: 'Colors',
         useCases: [scalesUseCase, colorsUseCase],
+      ),
+      WidgetbookComponent(
+        name: 'Icons',
+        useCases: [iconUseCase, iconSlotsUseCase],
       ),
       WidgetbookComponent(name: 'Typography', useCases: [typographyUseCase]),
     ],

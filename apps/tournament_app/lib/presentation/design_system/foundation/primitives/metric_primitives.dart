@@ -1,5 +1,7 @@
 /// Primitive размеры из UI kit; потребители получают runtime ThemeExtension.
 abstract final class MetricPrimitives {
+  static const glyphStroke = 1.8;
+  static const glyphGrid = 24.0;
   static const spacingSpace0 = 0.0;
   static const spacingSpace4 = 4.0;
   static const spacingSpace8 = 8.0;

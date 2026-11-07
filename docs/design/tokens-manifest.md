@@ -120,3 +120,7 @@ AppAvatarMetrics — runtime ThemeExtension. Источник: computed styles �
 | 128 | 44 | 16 | 50% |
 
 Line height1, tracking0, contentAlignment.center и CSS half-leading(even). Font family/weight наследуются текущей TextTheme.headlineLarge. Primitive значения проходят только через AppTheme → AppAvatarMetrics/AppResponsive → AppAvatarTheme → AppAvatar. Legacy общий shape.avatarTile22 не применяется к нормализованным Avatar UI kit. [Компонент и сравнение](components/avatar.md).
+
+### AppIcon (48)
+
+Исходные18 SVG symbols из UI kit#icons перенесены Canvas paths; grid24/stroke1.8 primitive → AppGlyphMetrics основной темы → AppIconTheme → AppIcon. Размеры берутся из существующего AppIconMetrics, цвета из текущего ColorScheme. Directional glyphs отражаются в RTL. Сравнение: `node tools/visual-comparison/compare.mjs icons`; scoped fixtures и macOS goldens рядом с foundation/icons. Без нового dependency.

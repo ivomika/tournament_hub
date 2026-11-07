@@ -1,3 +1,4 @@
+import 'package:tournament_app/presentation/design_system/foundation/icons/app_glyph_metrics.dart';
 import 'package:flutter/material.dart';
 import 'package:tournament_app/presentation/design_system/foundation/responsive/app_avatar_metrics.dart';
 import 'package:tournament_app/presentation/design_system/foundation/primitives/foundation_primitives.dart';
@@ -75,6 +76,10 @@ abstract final class AppTheme {
         year2023: false,
       ),
       extensions: [
+        const AppGlyphMetrics(
+          stroke: MetricPrimitives.glyphStroke,
+          grid: MetricPrimitives.glyphGrid,
+        ),
         const AppAvatarMetrics(
           contentAlignment: FoundationPrimitives.avatarContentAlignment,
           leadingDistribution: FoundationPrimitives.avatarLeadingDistribution,
