@@ -204,3 +204,7 @@ Controlled AppScoreChoice<T> показывает готовые AppScoreOption<
 ## Metric — реализация59
 
 AppMetric plain/achievement показывает готовые value/label/semanticLabel. Mobile plain40/center/padding16; desktop plain64/left/minHeight160/surface. Mobile achievement60/gold/icon64 leading/dark surface/inset24; desktop88/line.95/onPrimary/gold/icon64 trailing opacity.65/minHeight180. Desktop inset24 (compact≤1000:20), radius24; label max13ch измеряется текущим runtime шрифтом. AppMetricMetrics собирается в основной теме, consumers используют WidgetTheme. Card занимает доступную ширину; label optical axis задаётся после выбора16px.
+
+## NavigationItem — реализация60
+
+AppNavigationItem передаёт onPressed без app routing. Mobile row56/padding24/label16/leading24/chevron16, внутри внешней nested AppSurface fixture. Desktop tile80/radius24/padding24(≤1000:20)/label18/leading32/chevron16. Gap16 и текущие цвета темы; hover raised, disabled muted, видимый focus. Own WidgetStatesController не передаётся Material ButtonStyle-потребителю, чтобы изменение enabled не уведомляло родителя во время build; pointer/keyboard оболочка использует FocusableActionDetector.

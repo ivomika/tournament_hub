@@ -738,6 +738,18 @@ abstract class FoundationLocalizations {
   /// In ru, this message translates to:
   /// **'{label}: {value}'**
   String metricSummary(String label, String value);
+
+  /// No description provided for @navigationSettings.
+  ///
+  /// In ru, this message translates to:
+  /// **'Настройки'**
+  String get navigationSettings;
+
+  /// No description provided for @navigationLong.
+  ///
+  /// In ru, this message translates to:
+  /// **'Настройки параметров отображения турнира'**
+  String get navigationLong;
 }
 
 class _FoundationLocalizationsDelegate

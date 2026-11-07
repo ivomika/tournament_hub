@@ -62,7 +62,7 @@
 - ✅ 57. Avatar — добавить аватар и портрет. [Детали](task-details/57-ds-component-avatar.md)
 - ✅ 58. Identity — добавить переиспользуемую идентификацию. [Детали](task-details/58-ds-widget-identity.md)
 - ✅ 59. Metric — добавить метрику и achievement-вариант. [Детали](task-details/59-ds-component-metric.md)
-- 🟣 60. NavigationItem — добавить пункт навигации. [Детали](task-details/60-ds-component-navigation-item.md)
+- ✅ 60. NavigationItem — добавить пункт навигации. [Детали](task-details/60-ds-component-navigation-item.md)
 - 🟣 61. SectionHeader — добавить заголовок раздела. [Детали](task-details/61-ds-widget-section-header.md)
 - ✅ 62. AppRosterRow — строка участников из общих DS-компонентов. [Детали](task-details/62-ds-widget-list-row.md)
 - 🟣 63. StatusLabel — добавить статус и исход. [Детали](task-details/63-ds-component-status.md)

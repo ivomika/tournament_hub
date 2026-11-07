@@ -1,3 +1,7 @@
+import 'package:tournament_app/presentation/widgetbook/components/navigation_item/default/default_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/components/navigation_item/hovered/hovered_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/components/navigation_item/focused/focused_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/components/navigation_item/disabled/disabled_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/components/metric/achievement/achievement_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/components/metric/plain/plain_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/components/score_choice/left/left_use_case.dart';
@@ -121,6 +125,15 @@ final widgetbookCatalog = <WidgetbookNode>[
     name: 'Components',
     isInitiallyExpanded: true,
     children: [
+      WidgetbookComponent(
+        name: 'Navigation item',
+        useCases: [
+          navigationDefaultUseCase,
+          navigationHoveredUseCase,
+          navigationFocusedUseCase,
+          navigationDisabledUseCase,
+        ],
+      ),
       WidgetbookComponent(
         name: 'Metric',
         useCases: [metricAchievementUseCase, metricPlainUseCase],

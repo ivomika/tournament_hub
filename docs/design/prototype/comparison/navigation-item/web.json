@@ -1,0 +1,522 @@
+[
+  {
+    "id": "mobile-default",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 316,
+      "height": 56
+    },
+    "controls": {
+      "frame": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 56
+        },
+        "width": 316,
+        "height": 56,
+        "fontSize": 16,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "borderColor": "#f4f2eeff",
+        "baseline": 32,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "label": {
+        "rect": {
+          "x": 64,
+          "y": 16,
+          "width": 196,
+          "height": 24
+        },
+        "width": 196,
+        "height": 24,
+        "fontSize": 16,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "borderColor": "#f4f2eeff",
+        "baseline": 34,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "icon-0": {
+        "rect": {
+          "x": 24,
+          "y": 16,
+          "width": 24,
+          "height": 24
+        },
+        "width": 24,
+        "height": 24,
+        "fontSize": 16,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#b8bec9ff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "borderColor": "#b8bec9ff",
+        "baseline": 35.10000038146973,
+        "opacity": 1,
+        "strokeWidth": 1.8
+      },
+      "icon-1": {
+        "rect": {
+          "x": 276,
+          "y": 20,
+          "width": 16,
+          "height": 16
+        },
+        "width": 16,
+        "height": 16,
+        "fontSize": 16,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#969eacff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "borderColor": "#969eacff",
+        "baseline": 39.400001525878906,
+        "opacity": 1,
+        "strokeWidth": 1.8
+      }
+    },
+    "originalRoot": {
+      "width": 316,
+      "height": 56
+    },
+    "pageX": 12,
+    "pageY": 12,
+    "artifacts": {
+      "image": "web/mobile-default.png"
+    }
+  },
+  {
+    "id": "mobile-hovered",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 316,
+      "height": 56
+    },
+    "controls": {
+      "frame": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 56
+        },
+        "width": 316,
+        "height": 56,
+        "fontSize": 16,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#232730ff",
+        "radius": 0,
+        "borderWidth": 0,
+        "borderColor": "#f4f2eeff",
+        "baseline": 32,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "label": {
+        "rect": {
+          "x": 64,
+          "y": 16,
+          "width": 196,
+          "height": 24
+        },
+        "width": 196,
+        "height": 24,
+        "fontSize": 16,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "borderColor": "#f4f2eeff",
+        "baseline": 34,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "icon-0": {
+        "rect": {
+          "x": 24,
+          "y": 16,
+          "width": 24,
+          "height": 24
+        },
+        "width": 24,
+        "height": 24,
+        "fontSize": 16,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#b8bec9ff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "borderColor": "#b8bec9ff",
+        "baseline": 35.10000038146973,
+        "opacity": 1,
+        "strokeWidth": 1.8
+      },
+      "icon-1": {
+        "rect": {
+          "x": 276,
+          "y": 20,
+          "width": 16,
+          "height": 16
+        },
+        "width": 16,
+        "height": 16,
+        "fontSize": 16,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#969eacff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "borderColor": "#969eacff",
+        "baseline": 39.400001525878906,
+        "opacity": 1,
+        "strokeWidth": 1.8
+      }
+    },
+    "originalRoot": {
+      "width": 316,
+      "height": 56
+    },
+    "pageX": 12,
+    "pageY": 12,
+    "artifacts": {
+      "image": "web/mobile-hovered.png"
+    }
+  },
+  {
+    "id": "mobile-focused",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 316,
+      "height": 56
+    },
+    "controls": {
+      "frame": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 56
+        },
+        "width": 316,
+        "height": 56,
+        "fontSize": 16,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "borderColor": "#f4f2eeff",
+        "baseline": 32,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "label": {
+        "rect": {
+          "x": 64,
+          "y": 16,
+          "width": 196,
+          "height": 24
+        },
+        "width": 196,
+        "height": 24,
+        "fontSize": 16,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "borderColor": "#f4f2eeff",
+        "baseline": 34,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "icon-0": {
+        "rect": {
+          "x": 24,
+          "y": 16,
+          "width": 24,
+          "height": 24
+        },
+        "width": 24,
+        "height": 24,
+        "fontSize": 16,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#b8bec9ff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "borderColor": "#b8bec9ff",
+        "baseline": 35.10000038146973,
+        "opacity": 1,
+        "strokeWidth": 1.8
+      },
+      "icon-1": {
+        "rect": {
+          "x": 276,
+          "y": 20,
+          "width": 16,
+          "height": 16
+        },
+        "width": 16,
+        "height": 16,
+        "fontSize": 16,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#969eacff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "borderColor": "#969eacff",
+        "baseline": 39.400001525878906,
+        "opacity": 1,
+        "strokeWidth": 1.8
+      }
+    },
+    "originalRoot": {
+      "width": 316,
+      "height": 56
+    },
+    "pageX": 12,
+    "pageY": 12,
+    "artifacts": {
+      "image": "web/mobile-focused.png"
+    }
+  },
+  {
+    "id": "mobile-adaptation",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 316,
+      "height": 56
+    },
+    "controls": {
+      "frame": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 56
+        },
+        "width": 316,
+        "height": 56,
+        "fontSize": 16,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "borderColor": "#f4f2eeff",
+        "baseline": 32,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "label": {
+        "rect": {
+          "x": 64,
+          "y": 16,
+          "width": 196,
+          "height": 24
+        },
+        "width": 196,
+        "height": 24,
+        "fontSize": 16,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "borderColor": "#f4f2eeff",
+        "baseline": 34,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "icon-0": {
+        "rect": {
+          "x": 24,
+          "y": 16,
+          "width": 24,
+          "height": 24
+        },
+        "width": 24,
+        "height": 24,
+        "fontSize": 16,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#b8bec9ff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "borderColor": "#b8bec9ff",
+        "baseline": 35.10000038146973,
+        "opacity": 1,
+        "strokeWidth": 1.8
+      },
+      "icon-1": {
+        "rect": {
+          "x": 276,
+          "y": 20,
+          "width": 16,
+          "height": 16
+        },
+        "width": 16,
+        "height": 16,
+        "fontSize": 16,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#969eacff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "borderColor": "#969eacff",
+        "baseline": 39.400001525878906,
+        "opacity": 1,
+        "strokeWidth": 1.8
+      }
+    },
+    "originalRoot": {
+      "width": 316,
+      "height": 56
+    },
+    "pageX": 12,
+    "pageY": 12,
+    "artifacts": {
+      "image": "web/mobile-adaptation.png"
+    }
+  },
+  {
+    "id": "desktop-adaptation",
+    "root": {
+      "x": 0,
+      "y": 0,
+      "width": 395.328125,
+      "height": 80
+    },
+    "controls": {
+      "frame": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 395.328125,
+          "height": 80
+        },
+        "width": 395.328125,
+        "height": 80,
+        "fontSize": 18,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#171a20ff",
+        "radius": 24,
+        "borderWidth": 0,
+        "borderColor": "#f4f2eeff",
+        "baseline": 41,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "label": {
+        "rect": {
+          "x": 72,
+          "y": 26.5,
+          "width": 267.328125,
+          "height": 27
+        },
+        "width": 267.328125,
+        "height": 27,
+        "fontSize": 18,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#f4f2eeff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "borderColor": "#f4f2eeff",
+        "baseline": 46.5,
+        "opacity": 1,
+        "strokeWidth": 1
+      },
+      "icon-0": {
+        "rect": {
+          "x": 24,
+          "y": 24,
+          "width": 32,
+          "height": 32
+        },
+        "width": 32,
+        "height": 32,
+        "fontSize": 18,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#b8bec9ff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "borderColor": "#b8bec9ff",
+        "baseline": 45.133331298828125,
+        "opacity": 1,
+        "strokeWidth": 1.8
+      },
+      "icon-1": {
+        "rect": {
+          "x": 355.328125,
+          "y": 32,
+          "width": 16,
+          "height": 16
+        },
+        "width": 16,
+        "height": 16,
+        "fontSize": 18,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "color": "#969eacff",
+        "background": "#00000000",
+        "radius": 0,
+        "borderWidth": 0,
+        "borderColor": "#969eacff",
+        "baseline": 52.400001525878906,
+        "opacity": 1,
+        "strokeWidth": 1.8
+      }
+    },
+    "originalRoot": {
+      "width": 395.328125,
+      "height": 80
+    },
+    "pageX": 12,
+    "pageY": 12,
+    "artifacts": {
+      "image": "web/desktop-adaptation.png"
+    }
+  }
+]

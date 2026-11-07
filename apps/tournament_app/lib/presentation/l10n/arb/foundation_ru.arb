@@ -189,5 +189,7 @@
         "type": "String"
       }
     }
-  }
+  },
+  "navigationSettings": "Настройки",
+  "navigationLong": "Настройки параметров отображения турнира"
 }

@@ -359,4 +359,10 @@ class FoundationLocalizationsRu extends FoundationLocalizations {
   String metricSummary(String label, String value) {
     return '$label: $value';
   }
+
+  @override
+  String get navigationSettings => 'Настройки';
+
+  @override
+  String get navigationLong => 'Настройки параметров отображения турнира';
 }
