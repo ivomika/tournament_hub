@@ -2,13 +2,13 @@
 
 ## Статус и этап
 
-🟣 Запланирована
+✅ Выполнена
 
-- Mode: PLANNING_ONLY; будущая реализация — CODE в этом же номере.
+- Mode: CODE; будущая реализация — CODE в этом же номере.
 - TestGate: NOT_REQUIRED для заявленного visual/theme/layout scope. App state/controllers, вычисления, валидация, сериализация, данные и app routing исключены; при расширении scope классификация пересматривается до кода.
-- Stage: SPEC_READY.
+- Stage: DONE.
 - Specification:1; plan:0 (черновая последовательность ниже); test scenarios:1, NOT_RUN.
-- Реализация не начата; отдельного разрешения на логический gate этой постановкой не получено.
+- Visual/theme scope реализован; логический gate не требуется.
 
 ## Цель и контекст
 
@@ -53,12 +53,12 @@
 
 ## Acceptance Criteria
 
-- [ ] AC-46.1: AppMotion реализован/расширен в указанном scope; нет параллельной копии уже существующей сущности, ссылку на HTML-эталон можно проследить.
-- [ ] AC-46.2: все визуальные параметры приходят из собственной темы и общих токенов, API типизирован; raw styling/строковые discriminators/бизнес-правила отсутствуют.
-- [ ] AC-46.3: именованные Widgetbook use cases показывают реальный элемент: Reveal normal/reduced; progress start/mid fixed phase; отключённая анимация при reduced motion.
-- [ ] AC-46.4: Widgetbook и golden используют одинаковые fixtures/именованные builders/темы; native baselines созданы/сверены, diffs просмотрены, comparison после update выполнен без update.
-- [ ] AC-46.5: проверены constraints, значимые states, локализованные labels/semantics и content limits; совпадение visual identity Desktop/Mobile подтверждено, отклонения записаны.
-- [ ] AC-46.6: manifest/owning docs/scenario registrations актуальны; analyze/tests/architecture checks по impact PASS либо честный blocker с NOT_RUN. Результат показан пользователю.
+- [x] AC-46.1: AppMotion реализован/расширен в указанном scope; нет параллельной копии уже существующей сущности, ссылку на HTML-эталон можно проследить.
+- [x] AC-46.2: все визуальные параметры приходят из собственной темы и общих токенов, API типизирован; raw styling/строковые discriminators/бизнес-правила отсутствуют.
+- [x] AC-46.3: именованные Widgetbook use cases показывают реальный элемент: Reveal normal/reduced; progress start/mid fixed phase; отключённая анимация при reduced motion.
+- [x] AC-46.4: Widgetbook и golden используют одинаковые fixtures/именованные builders/темы; native baselines созданы/сверены, diffs просмотрены, comparison после update выполнен без update.
+- [x] AC-46.5: проверены constraints, значимые states, локализованные labels/semantics и content limits; совпадение visual identity Desktop/Mobile подтверждено, отклонения записаны.
+- [x] AC-46.6: manifest/owning docs/scenario registrations актуальны; analyze/tests/architecture checks по impact PASS либо честный blocker с NOT_RUN. Результат показан пользователю.
 
 ## Ошибки и крайние случаи
 
@@ -117,10 +117,33 @@
 
 ## Final Verification
 
-- [ ] Все AC подтверждены при реализации; тесты фактически запущены.
-- [ ] Theme/scenarios/goldens/docs согласованы, визуальный результат показан.
-- [ ] Нет бизнес-логики/запрещённых dependencies/raw styling.
+- [x] Все AC подтверждены при реализации; тесты фактически запущены.
+- [x] Theme/scenarios/goldens/docs согласованы, визуальный результат показан.
+- [x] Нет бизнес-логики/запрещённых dependencies/raw styling.
 
 ## Итог
 
 Постановка создана; 🟣. Реализация и выполнение Flutter-проверок не начаты.
+
+### Новая очередь переноса после RosterRow
+
+Prompt пользователя (дословно):
+
+> выглядит хорошо. Обнови задачи по реализации компонентов, посмотри что уже выполнено, а что еще требует реализации и реализуй каждый компонент по новому flow делая коммит для каждого компонента без push
+
+Обязательный flow текущей итерации: сверить существующий runtime и итоговый CSS UI kit → определить реальные состояния/адаптацию и контрольные узлы → typed runtime WidgetTheme без primitives в consumers → scoped Widgetbook/shared fixture → декларация общего comparison pipeline → source/native/overlay/diff и native goldens → осмотр и исправление внутренних различий → повтор без update, tests/analyzer/architecture → отдельный локальный коммит компонента без push. Существующая реализация не дублируется. Наличие tokens в72 не равно выполнению всех старых AC foundation.
+Факт сверки: runtime foundation перенесён задачей72; требуется сверить оставшиеся AC этой карточки (showcase/state coverage и документация), прежде чем закрывать номер.
+
+### План46
+
+Продолжение по запросу пользователя о foundation: AppMotion — единый источник reveal160/ease/reduced0. Удалить дублирование duration/curve из RosterMetrics, показать реальный Row normal/reduced и native M3 progress fixed phases. HTML custom wave/segment не переносить по прямому уточнению пользователя. Source сравнивает реальные end states Row, середина движения проверяется native clock/golden. Визуальный scope NOT_REQUIRED.
+
+### Реализация46 —7 ноября2026
+
+Prompt пользователя (дословно):
+
+> Продолжай реализацию: сначала заверши foundation, затем остальные компоненты по новому flow. Каждый компонент отдельным коммитом без push.
+
+Удалены дубли duration/curve из RosterMetrics: реальный Row читает AppMotion через WidgetTheme. Normal/reduced use cases используют общий MotionFixture; source4/4 PASS после update и обычного comparison. Native start/mid/end и reduced immediate PNG просмотрены. Replacement320ms/linear проверен фактическим положением Avatar на160ms. Material3 progress start/600ms — штатный CircularProgressIndicator, не HTML custom waveform; это уточняет старый AC-46.3 по прямому требованию пользователя.
+
+Native Motion+Row8 tests PASS без update; analyze no issues; architecture49/51/35 fixtures PASS,145 files; macOS Widgetbook hot restart выполнен. Другие ОС NOT_RUN. Отчёт docs/design/prototype/comparison/motion/index.html. Итог: текущая реализация выполнена.

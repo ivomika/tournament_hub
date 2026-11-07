@@ -25,6 +25,7 @@ class AppRosterRowTheme {
         r = t.extension<AppResponsive>()!,
         s = t.extension<AppSpacing>()!,
         m = t.extension<AppRosterMetrics>()!,
+        motion = t.extension<AppMotion>()!,
         c = t.extension<AppControlMetrics>()!,
         shape = t.extension<AppShape>()!;
     final desktop = MediaQuery.sizeOf(context).width >= r.mobileToDesktopWidth;
@@ -40,10 +41,10 @@ class AppRosterRowTheme {
       zero: s.space0,
       threshold: m.swipeThreshold,
       duration: MediaQuery.disableAnimationsOf(context)
-          ? t.extension<AppMotion>()!.reduced
-          : m.reveal,
-      reduced: t.extension<AppMotion>()!.reduced,
-      curve: m.curve,
+          ? motion.reduced
+          : motion.reveal,
+      reduced: motion.reduced,
+      curve: motion.curve,
     );
   }
   final bool desktop;

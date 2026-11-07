@@ -1,3 +1,6 @@
+import 'package:tournament_app/presentation/widgetbook/foundation/motion/normal/normal_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/foundation/motion/reduced/reduced_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/foundation/motion/progress/progress_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/foundation/elevation/shadows/shadows_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/foundation/elevation/scrim/scrim_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/foundation/borders/catalog/catalog_use_case.dart';
@@ -47,6 +50,14 @@ final widgetbookCatalog = <WidgetbookNode>[
     name: 'Foundation',
     isInitiallyExpanded: true,
     children: [
+      WidgetbookComponent(
+        name: 'Motion',
+        useCases: [
+          motionNormalUseCase,
+          motionReducedUseCase,
+          motionProgressUseCase,
+        ],
+      ),
       WidgetbookComponent(
         name: 'Elevation',
         useCases: [elevationShadowsUseCase, elevationScrimUseCase],

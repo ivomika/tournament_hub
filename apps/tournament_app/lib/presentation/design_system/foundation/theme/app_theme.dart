@@ -111,8 +111,6 @@ abstract final class AppTheme {
         const AppRosterMetrics(
           cardHeight: RosterPrimitives.cardHeight,
           swipeThreshold: RosterPrimitives.swipeThreshold,
-          reveal: RosterPrimitives.reveal,
-          curve: RosterPrimitives.curve,
         ),
         const AppIdentityMetrics(
           leading: IdentityPrimitives.leading,

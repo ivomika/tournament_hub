@@ -164,3 +164,7 @@ AppBorderMetrics — единственный runtime источник hairline1
 ## Elevation — сверка45
 
 AppElevation остаётся runtime ThemeExtension для floating/sheet/dialog; scrim#07080bb8 задаётся основным ColorScheme и читается потребителями оттуда. Shadow showcase использует эти реальные роли, scrim проверяется на двух поверхностях. Source floating ×2: `node tools/visual-comparison/compare.mjs elevation`. Native visual binding сохраняет blur теней приложения.
+
+## Motion — сверка46
+
+AppMotion.reveal160ms/curve ease/reduced0 — единственный источник анимации раскрытия RosterRow через его WidgetTheme. AppRosterMetrics хранит только размеры и swipe threshold. Reduced policy берётся из MediaQuery.disableAnimations. Source сравнивает closed/revealed, native clock проверяет80/160ms и замену duration320/linear. Progress использует штатный Material3 CircularProgressIndicator: HTML wave/segment durations не являются Flutter tokens.
