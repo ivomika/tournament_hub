@@ -28,6 +28,7 @@ class ComparisonControl {
     required this.properties,
     this.index = 0,
     this.geometryTolerance,
+    this.baselineTolerance,
     this.textRange = false,
   }) : widgetType = type,
        text = null;
@@ -39,6 +40,7 @@ class ComparisonControl {
     required this.properties,
     this.index = 0,
     this.geometryTolerance,
+    this.baselineTolerance,
     this.textRange = false,
   }) : text = value,
        widgetType = null;
@@ -50,14 +52,18 @@ class ComparisonControl {
   final int index;
   final List<ComparisonProperty> properties;
   final double? geometryTolerance;
+  final double? baselineTolerance;
   final bool textRange;
   Map<String, Object?> toJson() => {
     'id': id,
     'webSelector': webSelector,
     'properties': properties.map((p) => p.name).toList(),
     'textRange': textRange,
-    if (geometryTolerance != null)
-      'tolerances': {'geometry': geometryTolerance},
+    if (geometryTolerance != null || baselineTolerance != null)
+      'tolerances': {
+        if (geometryTolerance != null) 'geometry': geometryTolerance,
+        if (baselineTolerance != null) 'baseline': baselineTolerance,
+      },
   };
 }
 

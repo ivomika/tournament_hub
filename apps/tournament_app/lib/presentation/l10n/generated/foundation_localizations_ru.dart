@@ -210,4 +210,28 @@ class FoundationLocalizationsRu extends FoundationLocalizations {
 
   @override
   String get characterStorm => 'Персонаж · шторм';
+
+  @override
+  String get typeSource0 => 'TOURNAMENT HUB.';
+
+  @override
+  String get typeSource1 => 'Твой следующий турнир';
+
+  @override
+  String get typeSource2 => 'Пятничный турнир';
+
+  @override
+  String get typeSource3 => 'Основной текст · Aa Бб 012345';
+
+  @override
+  String get typeSource4 => 'Продолжить турнир';
+
+  @override
+  String get typeSource5 => 'Метаданные и пояснения · FT2';
+
+  @override
+  String get typeSource6 => 'Новый турнир';
+
+  @override
+  String get typeSource7 => 'Новый турнир';
 }

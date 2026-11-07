@@ -83,5 +83,13 @@
   },
   "characterIce": "Персонаж · лёд",
   "characterFan": "Персонаж · веер",
-  "characterStorm": "Персонаж · шторм"
+  "characterStorm": "Персонаж · шторм",
+  "typeSource0": "TOURNAMENT HUB.",
+  "typeSource1": "Твой следующий турнир",
+  "typeSource2": "Пятничный турнир",
+  "typeSource3": "Основной текст · Aa Бб 012345",
+  "typeSource4": "Продолжить турнир",
+  "typeSource5": "Метаданные и пояснения · FT2",
+  "typeSource6": "Новый турнир",
+  "typeSource7": "Новый турнир"
 }

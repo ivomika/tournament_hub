@@ -1,0 +1,1239 @@
+<!doctype html><html lang="ru"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Foundation Typography · Web ↔ Flutter</title><style>
+ :root{color-scheme:dark;font-family:system-ui;background:#0e1014;color:#f4f2ee}*{box-sizing:border-box}body{max-width:1600px;margin:auto;padding:32px}h1{font-size:36px}a{color:#f1c75b}p{color:#b8bec9;line-height:1.5}.stats,nav{display:flex;gap:20px;flex-wrap:wrap}nav{position:sticky;top:0;background:#0e1014ee;padding:16px 0;z-index:1}.stats>div{border:1px solid #3a414e;border-radius:12px;padding:16px}.stats strong{display:block;font-size:28px}.case{padding:20px;margin:24px 0;background:#171a20;border:1px solid #3a414e;border-radius:16px}.case header{display:flex;justify-content:space-between;gap:16px}.pass{color:#78d7a5}.fail{color:#ff968e}.shots{display:grid;grid-template-columns:repeat(4,minmax(180px,1fr));gap:12px;overflow:auto}figure{margin:0;background:#0e1014;padding:12px;display:flex;flex-direction:column;align-items:center;gap:20px;min-height:200px}figcaption{color:#b8bec9;font-size:13px}img{max-width:100%;height:auto;image-rendering:pixelated}figure a{margin:auto}table{border-collapse:collapse;width:100%;font-size:12px}th,td{text-align:left;padding:9px;border-bottom:1px solid #3a414e}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px;color:#b8bec9}.table{overflow:auto}.finding{color:#ff968e}small{color:#969eac}@media(max-width:800px){body{padding:16px}.shots{grid-template-columns:repeat(4,280px)}}
+ </style><header><small>TOURNAMENT HUB / ОБЩЕЕ ВИЗУАЛЬНОЕ СРАВНЕНИЕ</small><h1>Foundation Typography · Web ↔ Flutter</h1><p>Сценарии и контрольные элементы заданы декларацией компонента. Геометрия, типографика и цвета проверяются отдельно; diff показывает остаточную разницу рендереров. Нажмите PNG, чтобы открыть исходное разрешение.</p></header>
+ <div class="stats"><div><strong>16</strong>сценариев</div><div><strong class="pass">16/16</strong>прошли контракт контролей</div><div><strong>16</strong>контрольных элементов</div></div>
+ <nav><a href="#mobile-display">mobile · display</a><a href="#mobile-heading">mobile · heading</a><a href="#mobile-title">mobile · title</a><a href="#mobile-body">mobile · body</a><a href="#mobile-label">mobile · label</a><a href="#mobile-caption">mobile · caption</a><a href="#mobile-compactheader">mobile · compactHeader</a><a href="#mobile-comfortableheader">mobile · comfortableHeader</a><a href="#desktop-display">desktop · display</a><a href="#desktop-heading">desktop · heading</a><a href="#desktop-title">desktop · title</a><a href="#desktop-body">desktop · body</a><a href="#desktop-label">desktop · label</a><a href="#desktop-caption">desktop · caption</a><a href="#desktop-compactheader">desktop · compactHeader</a><a href="#desktop-comfortableheader">desktop · comfortableHeader</a><a href="http://127.0.0.1:8094/ui-kit.html">Web-эталон ↗</a></nav>
+ <article class="case" id="mobile-display"><header><h2>mobile · display</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/mobile-display.png"><img alt="mobile-display Web" src="web/mobile-display.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/mobile-display.png"><img alt="mobile-display Flutter" src="flutter/mobile-display.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/mobile-display.png"><img alt="mobile-display Наложение 50/50" src="overlay/mobile-display.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/mobile-display.png"><img alt="mobile-display Diff ×4" src="diff/mobile-display.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 4234 изменённых пикселей; mean channel delta 11.5626/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;mobile-display&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 358,
+      &quot;height&quot;: 126
+    },
+    &quot;controls&quot;: {
+      &quot;text&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 358,
+          &quot;height&quot;: 126
+        },
+        &quot;width&quot;: 358,
+        &quot;height&quot;: 126,
+        &quot;fontSize&quot;: 60,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1.05,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;baseline&quot;: 52,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 358,
+      &quot;height&quot;: 126
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/mobile-display.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;mobile-display&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 358,
+      &quot;height&quot;: 126
+    },
+    &quot;controls&quot;: {
+      &quot;text&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 358,
+          &quot;height&quot;: 126
+        },
+        &quot;width&quot;: 358,
+        &quot;height&quot;: 126,
+        &quot;fontSize&quot;: 60,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1.05,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 52.0078125
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 4234,
+      &quot;meanChannelDelta&quot;: 11.562605302828766
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/mobile-display.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="mobile-heading"><header><h2>mobile · heading</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/mobile-heading.png"><img alt="mobile-heading Web" src="web/mobile-heading.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/mobile-heading.png"><img alt="mobile-heading Flutter" src="flutter/mobile-heading.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/mobile-heading.png"><img alt="mobile-heading Наложение 50/50" src="overlay/mobile-heading.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/mobile-heading.png"><img alt="mobile-heading Diff ×4" src="diff/mobile-heading.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 2957 изменённых пикселей; mean channel delta 9.1620/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;mobile-heading&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 358,
+      &quot;height&quot;: 92
+    },
+    &quot;controls&quot;: {
+      &quot;text&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 358,
+          &quot;height&quot;: 92
+        },
+        &quot;width&quot;: 358,
+        &quot;height&quot;: 92,
+        &quot;fontSize&quot;: 40,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1.15,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;baseline&quot;: 36,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 358,
+      &quot;height&quot;: 92
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/mobile-heading.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;mobile-heading&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 358,
+      &quot;height&quot;: 92
+    },
+    &quot;controls&quot;: {
+      &quot;text&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 358,
+          &quot;height&quot;: 92
+        },
+        &quot;width&quot;: 358,
+        &quot;height&quot;: 92,
+        &quot;fontSize&quot;: 40,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1.15,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 36.671875
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 2957,
+      &quot;meanChannelDelta&quot;: 9.162041535098373
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/mobile-heading.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="mobile-title"><header><h2>mobile · title</h2><b class="pass">pass</b></header><p>CSS line-height32.5px / Flutter33px; font baseline estimate отличается на1.208px. Явный допуск baseline1.25px только для Title; ручных offsets нет.</p><div class="shots"><figure><figcaption>Web</figcaption><a href="web/mobile-title.png"><img alt="mobile-title Web" src="web/mobile-title.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/mobile-title.png"><img alt="mobile-title Flutter" src="flutter/mobile-title.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/mobile-title.png"><img alt="mobile-title Наложение 50/50" src="overlay/mobile-title.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/mobile-title.png"><img alt="mobile-title Diff ×4" src="diff/mobile-title.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 1546 изменённых пикселей; mean channel delta 13.2296/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;mobile-title&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 358,
+      &quot;height&quot;: 32.5
+    },
+    &quot;controls&quot;: {
+      &quot;text&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 358,
+          &quot;height&quot;: 32.5
+        },
+        &quot;width&quot;: 358,
+        &quot;height&quot;: 32.5,
+        &quot;fontSize&quot;: 26,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.25,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;baseline&quot;: 25,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 358,
+      &quot;height&quot;: 32.5
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/mobile-title.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;mobile-title&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 358,
+      &quot;height&quot;: 33
+    },
+    &quot;controls&quot;: {
+      &quot;text&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 358,
+          &quot;height&quot;: 33
+        },
+        &quot;width&quot;: 358,
+        &quot;height&quot;: 33,
+        &quot;fontSize&quot;: 26,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.25,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 26.2080078125
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 1546,
+      &quot;meanChannelDelta&quot;: 13.229614581569889
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/mobile-title.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="mobile-body"><header><h2>mobile · body</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/mobile-body.png"><img alt="mobile-body Web" src="web/mobile-body.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/mobile-body.png"><img alt="mobile-body Flutter" src="flutter/mobile-body.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/mobile-body.png"><img alt="mobile-body Наложение 50/50" src="overlay/mobile-body.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/mobile-body.png"><img alt="mobile-body Diff ×4" src="diff/mobile-body.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 0 изменённых пикселей; mean channel delta 0.0761/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;mobile-body&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 358,
+      &quot;height&quot;: 27
+    },
+    &quot;controls&quot;: {
+      &quot;text&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 358,
+          &quot;height&quot;: 27
+        },
+        &quot;width&quot;: 358,
+        &quot;height&quot;: 27,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;baseline&quot;: 20,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 358,
+      &quot;height&quot;: 27
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/mobile-body.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;mobile-body&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 358,
+      &quot;height&quot;: 27
+    },
+    &quot;controls&quot;: {
+      &quot;text&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 358,
+          &quot;height&quot;: 27
+        },
+        &quot;width&quot;: 358,
+        &quot;height&quot;: 27,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 20.0478515625
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 0,
+      &quot;meanChannelDelta&quot;: 0.0761086971515277
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/mobile-body.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="mobile-label"><header><h2>mobile · label</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/mobile-label.png"><img alt="mobile-label Web" src="web/mobile-label.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/mobile-label.png"><img alt="mobile-label Flutter" src="flutter/mobile-label.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/mobile-label.png"><img alt="mobile-label Наложение 50/50" src="overlay/mobile-label.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/mobile-label.png"><img alt="mobile-label Diff ×4" src="diff/mobile-label.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 0 изменённых пикселей; mean channel delta 0.0464/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;mobile-label&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 358,
+      &quot;height&quot;: 24
+    },
+    &quot;controls&quot;: {
+      &quot;text&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 358,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 358,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;baseline&quot;: 18,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 358,
+      &quot;height&quot;: 24
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/mobile-label.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;mobile-label&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 358,
+      &quot;height&quot;: 24
+    },
+    &quot;controls&quot;: {
+      &quot;text&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 358,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 358,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 17.8203125
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 0,
+      &quot;meanChannelDelta&quot;: 0.04636095592799504
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/mobile-label.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="mobile-caption"><header><h2>mobile · caption</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/mobile-caption.png"><img alt="mobile-caption Web" src="web/mobile-caption.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/mobile-caption.png"><img alt="mobile-caption Flutter" src="flutter/mobile-caption.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/mobile-caption.png"><img alt="mobile-caption Наложение 50/50" src="overlay/mobile-caption.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/mobile-caption.png"><img alt="mobile-caption Diff ×4" src="diff/mobile-caption.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 0 изменённых пикселей; mean channel delta 0.0648/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;mobile-caption&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 358,
+      &quot;height&quot;: 21
+    },
+    &quot;controls&quot;: {
+      &quot;text&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 358,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 358,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;baseline&quot;: 16,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 358,
+      &quot;height&quot;: 21
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/mobile-caption.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;mobile-caption&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 358,
+      &quot;height&quot;: 21
+    },
+    &quot;controls&quot;: {
+      &quot;text&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 358,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 358,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 15.5927734375
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 0,
+      &quot;meanChannelDelta&quot;: 0.0647778664538441
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/mobile-caption.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="mobile-compactheader"><header><h2>mobile · compactHeader</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/mobile-compactheader.png"><img alt="mobile-compactheader Web" src="web/mobile-compactheader.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/mobile-compactheader.png"><img alt="mobile-compactheader Flutter" src="flutter/mobile-compactheader.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/mobile-compactheader.png"><img alt="mobile-compactheader Наложение 50/50" src="overlay/mobile-compactheader.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/mobile-compactheader.png"><img alt="mobile-compactheader Diff ×4" src="diff/mobile-compactheader.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 0 изменённых пикселей; mean channel delta 0.0345/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;mobile-compactheader&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 358,
+      &quot;height&quot;: 22.40625
+    },
+    &quot;controls&quot;: {
+      &quot;text&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 358,
+          &quot;height&quot;: 22.40625
+        },
+        &quot;width&quot;: 358,
+        &quot;height&quot;: 22.40625,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.4,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;baseline&quot;: 17,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 358,
+      &quot;height&quot;: 22.40625
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/mobile-compactheader.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;mobile-compactheader&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 358,
+      &quot;height&quot;: 22
+    },
+    &quot;controls&quot;: {
+      &quot;text&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 358,
+          &quot;height&quot;: 22
+        },
+        &quot;width&quot;: 358,
+        &quot;height&quot;: 22,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.4,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 16.620311737060547
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 0,
+      &quot;meanChannelDelta&quot;: 0.03445065176908752
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/mobile-compactheader.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="mobile-comfortableheader"><header><h2>mobile · comfortableHeader</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/mobile-comfortableheader.png"><img alt="mobile-comfortableheader Web" src="web/mobile-comfortableheader.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/mobile-comfortableheader.png"><img alt="mobile-comfortableheader Flutter" src="flutter/mobile-comfortableheader.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/mobile-comfortableheader.png"><img alt="mobile-comfortableheader Наложение 50/50" src="overlay/mobile-comfortableheader.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/mobile-comfortableheader.png"><img alt="mobile-comfortableheader Diff ×4" src="diff/mobile-comfortableheader.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 0 изменённых пикселей; mean channel delta 0.0382/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;mobile-comfortableheader&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 358,
+      &quot;height&quot;: 26
+    },
+    &quot;controls&quot;: {
+      &quot;text&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 358,
+          &quot;height&quot;: 26
+        },
+        &quot;width&quot;: 358,
+        &quot;height&quot;: 26,
+        &quot;fontSize&quot;: 20,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.3,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;baseline&quot;: 20,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 358,
+      &quot;height&quot;: 26
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/mobile-comfortableheader.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;mobile-comfortableheader&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 358,
+      &quot;height&quot;: 26
+    },
+    &quot;controls&quot;: {
+      &quot;text&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 358,
+          &quot;height&quot;: 26
+        },
+        &quot;width&quot;: 358,
+        &quot;height&quot;: 26,
+        &quot;fontSize&quot;: 20,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.3,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 20.275390625
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 0,
+      &quot;meanChannelDelta&quot;: 0.03824666953158573
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/mobile-comfortableheader.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="desktop-display"><header><h2>desktop · display</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/desktop-display.png"><img alt="desktop-display Web" src="web/desktop-display.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/desktop-display.png"><img alt="desktop-display Flutter" src="flutter/desktop-display.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/desktop-display.png"><img alt="desktop-display Наложение 50/50" src="overlay/desktop-display.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/desktop-display.png"><img alt="desktop-display Diff ×4" src="diff/desktop-display.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 4203 изменённых пикселей; mean channel delta 7.3647/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;desktop-display&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 1106,
+      &quot;height&quot;: 63
+    },
+    &quot;controls&quot;: {
+      &quot;text&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 1106,
+          &quot;height&quot;: 63
+        },
+        &quot;width&quot;: 1106,
+        &quot;height&quot;: 63,
+        &quot;fontSize&quot;: 60,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1.05,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;baseline&quot;: 52,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 1106,
+      &quot;height&quot;: 63
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/desktop-display.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;desktop-display&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 1106,
+      &quot;height&quot;: 63
+    },
+    &quot;controls&quot;: {
+      &quot;text&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 1106,
+          &quot;height&quot;: 63
+        },
+        &quot;width&quot;: 1106,
+        &quot;height&quot;: 63,
+        &quot;fontSize&quot;: 60,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1.05,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 52.0078125
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 4203,
+      &quot;meanChannelDelta&quot;: 7.364725355683764
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/desktop-display.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="desktop-heading"><header><h2>desktop · heading</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/desktop-heading.png"><img alt="desktop-heading Web" src="web/desktop-heading.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/desktop-heading.png"><img alt="desktop-heading Flutter" src="flutter/desktop-heading.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/desktop-heading.png"><img alt="desktop-heading Наложение 50/50" src="overlay/desktop-heading.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/desktop-heading.png"><img alt="desktop-heading Diff ×4" src="diff/desktop-heading.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 2960 изменённых пикселей; mean channel delta 5.9420/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;desktop-heading&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 1106,
+      &quot;height&quot;: 46
+    },
+    &quot;controls&quot;: {
+      &quot;text&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 1106,
+          &quot;height&quot;: 46
+        },
+        &quot;width&quot;: 1106,
+        &quot;height&quot;: 46,
+        &quot;fontSize&quot;: 40,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1.15,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;baseline&quot;: 36,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 1106,
+      &quot;height&quot;: 46
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/desktop-heading.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;desktop-heading&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 1106,
+      &quot;height&quot;: 46
+    },
+    &quot;controls&quot;: {
+      &quot;text&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 1106,
+          &quot;height&quot;: 46
+        },
+        &quot;width&quot;: 1106,
+        &quot;height&quot;: 46,
+        &quot;fontSize&quot;: 40,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1.15,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 36.671875
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 2960,
+      &quot;meanChannelDelta&quot;: 5.941970018607333
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/desktop-heading.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="desktop-title"><header><h2>desktop · title</h2><b class="pass">pass</b></header><p>CSS line-height32.5px / Flutter33px; font baseline estimate отличается на1.208px. Явный допуск baseline1.25px только для Title; ручных offsets нет.</p><div class="shots"><figure><figcaption>Web</figcaption><a href="web/desktop-title.png"><img alt="desktop-title Web" src="web/desktop-title.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/desktop-title.png"><img alt="desktop-title Flutter" src="flutter/desktop-title.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/desktop-title.png"><img alt="desktop-title Наложение 50/50" src="overlay/desktop-title.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/desktop-title.png"><img alt="desktop-title Diff ×4" src="diff/desktop-title.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 1546 изменённых пикселей; mean channel delta 4.2823/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;desktop-title&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 1106,
+      &quot;height&quot;: 32.5
+    },
+    &quot;controls&quot;: {
+      &quot;text&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 1106,
+          &quot;height&quot;: 32.5
+        },
+        &quot;width&quot;: 1106,
+        &quot;height&quot;: 32.5,
+        &quot;fontSize&quot;: 26,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.25,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;baseline&quot;: 25,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 1106,
+      &quot;height&quot;: 32.5
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/desktop-title.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;desktop-title&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 1106,
+      &quot;height&quot;: 33
+    },
+    &quot;controls&quot;: {
+      &quot;text&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 1106,
+          &quot;height&quot;: 33
+        },
+        &quot;width&quot;: 1106,
+        &quot;height&quot;: 33,
+        &quot;fontSize&quot;: 26,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.25,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 26.2080078125
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 1546,
+      &quot;meanChannelDelta&quot;: 4.282280307596763
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/desktop-title.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="desktop-body"><header><h2>desktop · body</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/desktop-body.png"><img alt="desktop-body Web" src="web/desktop-body.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/desktop-body.png"><img alt="desktop-body Flutter" src="flutter/desktop-body.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/desktop-body.png"><img alt="desktop-body Наложение 50/50" src="overlay/desktop-body.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/desktop-body.png"><img alt="desktop-body Diff ×4" src="diff/desktop-body.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 0 изменённых пикселей; mean channel delta 0.0246/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;desktop-body&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 1106,
+      &quot;height&quot;: 27
+    },
+    &quot;controls&quot;: {
+      &quot;text&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 1106,
+          &quot;height&quot;: 27
+        },
+        &quot;width&quot;: 1106,
+        &quot;height&quot;: 27,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;baseline&quot;: 20,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 1106,
+      &quot;height&quot;: 27
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/desktop-body.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;desktop-body&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 1106,
+      &quot;height&quot;: 27
+    },
+    &quot;controls&quot;: {
+      &quot;text&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 1106,
+          &quot;height&quot;: 27
+        },
+        &quot;width&quot;: 1106,
+        &quot;height&quot;: 27,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 20.0478515625
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 0,
+      &quot;meanChannelDelta&quot;: 0.024635545732592145
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/desktop-body.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="desktop-label"><header><h2>desktop · label</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/desktop-label.png"><img alt="desktop-label Web" src="web/desktop-label.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/desktop-label.png"><img alt="desktop-label Flutter" src="flutter/desktop-label.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/desktop-label.png"><img alt="desktop-label Наложение 50/50" src="overlay/desktop-label.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/desktop-label.png"><img alt="desktop-label Diff ×4" src="diff/desktop-label.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 0 изменённых пикселей; mean channel delta 0.0150/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;desktop-label&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 1106,
+      &quot;height&quot;: 24
+    },
+    &quot;controls&quot;: {
+      &quot;text&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 1106,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 1106,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;baseline&quot;: 18,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 1106,
+      &quot;height&quot;: 24
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/desktop-label.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;desktop-label&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 1106,
+      &quot;height&quot;: 24
+    },
+    &quot;controls&quot;: {
+      &quot;text&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 1106,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 1106,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 17.8203125
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 0,
+      &quot;meanChannelDelta&quot;: 0.015006530038175607
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/desktop-label.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="desktop-caption"><header><h2>desktop · caption</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/desktop-caption.png"><img alt="desktop-caption Web" src="web/desktop-caption.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/desktop-caption.png"><img alt="desktop-caption Flutter" src="flutter/desktop-caption.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/desktop-caption.png"><img alt="desktop-caption Наложение 50/50" src="overlay/desktop-caption.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/desktop-caption.png"><img alt="desktop-caption Diff ×4" src="diff/desktop-caption.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 0 изменённых пикселей; mean channel delta 0.0210/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;desktop-caption&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 1106,
+      &quot;height&quot;: 21
+    },
+    &quot;controls&quot;: {
+      &quot;text&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 1106,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 1106,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;baseline&quot;: 16,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 1106,
+      &quot;height&quot;: 21
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/desktop-caption.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;desktop-caption&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 1106,
+      &quot;height&quot;: 21
+    },
+    &quot;controls&quot;: {
+      &quot;text&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 1106,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 1106,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 15.5927734375
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 0,
+      &quot;meanChannelDelta&quot;: 0.02096788082321536
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/desktop-caption.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="desktop-compactheader"><header><h2>desktop · compactHeader</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/desktop-compactheader.png"><img alt="desktop-compactheader Web" src="web/desktop-compactheader.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/desktop-compactheader.png"><img alt="desktop-compactheader Flutter" src="flutter/desktop-compactheader.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/desktop-compactheader.png"><img alt="desktop-compactheader Наложение 50/50" src="overlay/desktop-compactheader.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/desktop-compactheader.png"><img alt="desktop-compactheader Diff ×4" src="diff/desktop-compactheader.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 0 изменённых пикселей; mean channel delta 0.0112/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;desktop-compactheader&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 1106,
+      &quot;height&quot;: 22.40625
+    },
+    &quot;controls&quot;: {
+      &quot;text&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 1106,
+          &quot;height&quot;: 22.40625
+        },
+        &quot;width&quot;: 1106,
+        &quot;height&quot;: 22.40625,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.4,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;baseline&quot;: 17,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 1106,
+      &quot;height&quot;: 22.40625
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/desktop-compactheader.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;desktop-compactheader&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 1106,
+      &quot;height&quot;: 22
+    },
+    &quot;controls&quot;: {
+      &quot;text&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 1106,
+          &quot;height&quot;: 22
+        },
+        &quot;width&quot;: 1106,
+        &quot;height&quot;: 22,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.4,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 16.620311737060547
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 0,
+      &quot;meanChannelDelta&quot;: 0.011151295961422544
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/desktop-compactheader.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="desktop-comfortableheader"><header><h2>desktop · comfortableHeader</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/desktop-comfortableheader.png"><img alt="desktop-comfortableheader Web" src="web/desktop-comfortableheader.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/desktop-comfortableheader.png"><img alt="desktop-comfortableheader Flutter" src="flutter/desktop-comfortableheader.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/desktop-comfortableheader.png"><img alt="desktop-comfortableheader Наложение 50/50" src="overlay/desktop-comfortableheader.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/desktop-comfortableheader.png"><img alt="desktop-comfortableheader Diff ×4" src="diff/desktop-comfortableheader.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 0 изменённых пикселей; mean channel delta 0.0124/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;desktop-comfortableheader&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 1106,
+      &quot;height&quot;: 26
+    },
+    &quot;controls&quot;: {
+      &quot;text&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 1106,
+          &quot;height&quot;: 26
+        },
+        &quot;width&quot;: 1106,
+        &quot;height&quot;: 26,
+        &quot;fontSize&quot;: 20,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.3,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;baseline&quot;: 20,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 1106,
+      &quot;height&quot;: 26
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/desktop-comfortableheader.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;desktop-comfortableheader&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 1106,
+      &quot;height&quot;: 26
+    },
+    &quot;controls&quot;: {
+      &quot;text&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 1106,
+          &quot;height&quot;: 26
+        },
+        &quot;width&quot;: 1106,
+        &quot;height&quot;: 26,
+        &quot;fontSize&quot;: 20,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.3,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 20.275390625
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 0,
+      &quot;meanChannelDelta&quot;: 0.012380025038252886
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/desktop-comfortableheader.png&quot;
+    }
+  }
+}</pre></details></article>
+ <footer><small>Run 2026-11-07T17:15:14.982Z. <a href="results.json">Полный JSON</a> · <a href="spec.json">Декларация</a>. Native goldens проверяются отдельно; отчёт не объявляет pixel-perfect при остаточной raster-разнице.</small></footer></html>

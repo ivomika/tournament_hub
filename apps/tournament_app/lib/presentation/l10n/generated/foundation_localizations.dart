@@ -480,6 +480,54 @@ abstract class FoundationLocalizations {
   /// In ru, this message translates to:
   /// **'Персонаж · шторм'**
   String get characterStorm;
+
+  /// No description provided for @typeSource0.
+  ///
+  /// In ru, this message translates to:
+  /// **'TOURNAMENT HUB.'**
+  String get typeSource0;
+
+  /// No description provided for @typeSource1.
+  ///
+  /// In ru, this message translates to:
+  /// **'Твой следующий турнир'**
+  String get typeSource1;
+
+  /// No description provided for @typeSource2.
+  ///
+  /// In ru, this message translates to:
+  /// **'Пятничный турнир'**
+  String get typeSource2;
+
+  /// No description provided for @typeSource3.
+  ///
+  /// In ru, this message translates to:
+  /// **'Основной текст · Aa Бб 012345'**
+  String get typeSource3;
+
+  /// No description provided for @typeSource4.
+  ///
+  /// In ru, this message translates to:
+  /// **'Продолжить турнир'**
+  String get typeSource4;
+
+  /// No description provided for @typeSource5.
+  ///
+  /// In ru, this message translates to:
+  /// **'Метаданные и пояснения · FT2'**
+  String get typeSource5;
+
+  /// No description provided for @typeSource6.
+  ///
+  /// In ru, this message translates to:
+  /// **'Новый турнир'**
+  String get typeSource6;
+
+  /// No description provided for @typeSource7.
+  ///
+  /// In ru, this message translates to:
+  /// **'Новый турнир'**
+  String get typeSource7;
 }
 
 class _FoundationLocalizationsDelegate

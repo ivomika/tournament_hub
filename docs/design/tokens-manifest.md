@@ -144,3 +144,7 @@ Runtime AppRosterMetrics: cardHeight208, swipeThreshold24, reveal160ms/ease; р�
 ### Завершение Colors40
 
 16 исходных цветов UI kit сопоставлены AppThemeColors runtime roles, включая3 character tones;32 source/native сценария ColorsComparison покрывают mobile/desktop. Роли success/warning/information сохранены как дополнительная семантика приложения. Общая команда: `node tools/visual-comparison/compare.mjs colors`. Existing ColorPalette/primitive scales остаются основными showcases.
+
+### Завершение Typography41
+
+AppTextStyles — runtime фасад текущей TextTheme, включая Inter optical sizing из AppTypeRoles; primitive tracking0 предотвращает неявное наследование Material tracking. Standard TextTheme overrides сохраняются. AppTextMetrics содержит компактную/просторную header line-height1.4/1.3, размеры следуют labelLarge/bodyLarge. CSS half-leading закреплён в primitive assembly. Source8 ролей в2 viewport: `node tools/visual-comparison/compare.mjs typography`; Title32.5/33px имеет явно отмеченный baseline допуск1.25px вместо ручной подгонки текста.

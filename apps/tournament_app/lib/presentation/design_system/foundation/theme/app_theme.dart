@@ -1,3 +1,4 @@
+import 'package:tournament_app/presentation/design_system/foundation/typography/app_text_metrics.dart';
 import 'package:tournament_app/presentation/design_system/foundation/primitives/roster_primitives.dart';
 import 'package:tournament_app/presentation/design_system/foundation/responsive/app_roster_metrics.dart';
 import 'package:tournament_app/presentation/design_system/foundation/primitives/identity_primitives.dart';
@@ -94,6 +95,10 @@ abstract final class AppTheme {
         year2023: false,
       ),
       extensions: [
+        const AppTextMetrics(
+          compactHeaderLine: TypographyPrimitives.compactHeaderLine,
+          comfortableHeaderLine: TypographyPrimitives.comfortableHeaderLine,
+        ),
         const AppRosterMetrics(
           cardHeight: RosterPrimitives.cardHeight,
           swipeThreshold: RosterPrimitives.swipeThreshold,

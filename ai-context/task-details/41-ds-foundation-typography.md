@@ -2,11 +2,11 @@
 
 ## Статус и этап
 
-🟣 Запланирована
+✅ Выполнена
 
-- Mode: PLANNING_ONLY; будущая реализация — CODE в этом же номере.
+- Mode: CODE; будущая реализация — CODE в этом же номере.
 - TestGate: NOT_REQUIRED для заявленного visual/theme/layout scope. App state/controllers, вычисления, валидация, сериализация, данные и app routing исключены; при расширении scope классификация пересматривается до кода.
-- Stage: DISCOVERY.
+- Stage: DONE.
 - Specification:1; plan:0 (черновая последовательность ниже); test scenarios:1, NOT_RUN.
 - Реализация не начата; отдельного разрешения на логический gate этой постановкой не получено.
 
@@ -53,12 +53,12 @@ AppTypography уже содержит восемь color-neutral static const Te
 
 ## Acceptance Criteria
 
-- [ ] AC-41.1: AppTypography реализован/расширен в указанном scope; нет параллельной копии уже существующей сущности, ссылку на HTML-эталон можно проследить.
-- [ ] AC-41.2: все визуальные параметры приходят из собственной темы и общих токенов, API типизирован; raw styling/строковые discriminators/бизнес-правила отсутствуют.
-- [ ] AC-41.3: именованные Widgetbook use cases показывают реальный элемент: Все согласованные роли; кириллица/латиница/цифры; длинный текст; display/header mobile/desktop; tabular score.
-- [ ] AC-41.4: Widgetbook и golden используют одинаковые fixtures/именованные builders/темы; native baselines созданы/сверены, diffs просмотрены, comparison после update выполнен без update.
-- [ ] AC-41.5: проверены constraints, значимые states, локализованные labels/semantics и content limits; совпадение visual identity Desktop/Mobile подтверждено, отклонения записаны.
-- [ ] AC-41.6: manifest/owning docs/scenario registrations актуальны; analyze/tests/architecture checks по impact PASS либо честный blocker с NOT_RUN. Результат показан пользователю.
+- [x] AC-41.1: AppTypography реализован/расширен в указанном scope; нет параллельной копии уже существующей сущности, ссылку на HTML-эталон можно проследить.
+- [x] AC-41.2: все визуальные параметры приходят из собственной темы и общих токенов, API типизирован; raw styling/строковые discriminators/бизнес-правила отсутствуют.
+- [x] AC-41.3: именованные Widgetbook use cases показывают реальный элемент: Все согласованные роли; кириллица/латиница/цифры; длинный текст; display/header mobile/desktop; tabular score.
+- [x] AC-41.4: Widgetbook и golden используют одинаковые fixtures/именованные builders/темы; native baselines созданы/сверены, diffs просмотрены, comparison после update выполнен без update.
+- [x] AC-41.5: проверены constraints, значимые states, локализованные labels/semantics и content limits; совпадение visual identity Desktop/Mobile подтверждено, отклонения записаны.
+- [x] AC-41.6: manifest/owning docs/scenario registrations актуальны; analyze/tests/architecture checks по impact PASS либо честный blocker с NOT_RUN. Результат показан пользователю.
 
 ## Ошибки и крайние случаи
 
@@ -124,3 +124,24 @@ AppTypography уже содержит восемь color-neutral static const Te
 ## Итог
 
 Постановка создана; 🟣. Реализация и выполнение Flutter-проверок не начаты.
+
+### Новая очередь переноса после RosterRow
+
+Prompt пользователя (дословно):
+
+> выглядит хорошо. Обнови задачи по реализации компонентов, посмотри что уже выполнено, а что еще требует реализации и реализуй каждый компонент по новому flow делая коммит для каждого компонента без push
+
+Обязательный flow текущей итерации: сверить существующий runtime и итоговый CSS UI kit → определить реальные состояния/адаптацию и контрольные узлы → typed runtime WidgetTheme без primitives в consumers → scoped Widgetbook/shared fixture → декларация общего comparison pipeline → source/native/overlay/diff и native goldens → осмотр и исправление внутренних различий → повтор без update, tests/analyzer/architecture → отдельный локальный коммит компонента без push. Существующая реализация не дублируется. Наличие tokens в72 не равно выполнению всех старых AC foundation.
+Факт сверки: runtime foundation перенесён задачей72; требуется сверить оставшиеся AC этой карточки (showcase/state coverage и документация), прежде чем закрывать номер.
+
+### План завершения41
+
+Prompt: «Продолжай реализацию: сначала заверши foundation, затем остальные компоненты по новому flow. Каждый компонент отдельным коммитом без push.»
+
+Существующие TextTheme/score остаются основной темой; runtime AppTextStyles нормализует source tracking и Inter opsz через AppTypeRoles, добавляет подтверждённые header compact/comfortable через AppTextMetrics. Source8 samples ×2 viewports, shared fixtures и existing TypographyCatalog; кириллица/латиница/цифры/long sample/score в существующем catalog. Native update/compare, theme propagation/analyzer/checker. Pure visual NOT_REQUIRED.
+
+### Итог41
+
+Runtime AppTextStyles читает текущие TextTheme/AppTypeRoles; AppTextMetrics задаёт header line-height1.4/1.3. Primitive tracking0 и CSS half-leading входят только в main ThemeData, не в widgets. Standard TextTheme overrides fontSize/weight/tracking проверены настоящим source fixture. Source8 ролей ×2 viewport PASS16 с update и без; Title имеет явно показанное renderer-отличие line32.5/33 и baseline1.208px, per-control tolerance1.25px, без ручных offsets. Все остальные baseline1px, geometry0.5px.
+
+37 foundation/DS tests PASS без update после намеренного обновления затронутых galleries и nested Surface; analyzer No issues, architecture-check PASS, Node34 PASS. Native source/Flutter/overlay Title лично просмотрены; macOS galleries и consumer goldens актуальны. Другие native ОС NOT_RUN. Старое расхождение ScoreInter56 устранено ранее72: актуальный score Condensed60/tabular. Отдельный коммит41 без push.
