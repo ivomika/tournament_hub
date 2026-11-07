@@ -2,11 +2,11 @@
 
 ## Статус и этап
 
-🟣 Запланирована
+✅ Выполнена
 
-- Mode: PLANNING_ONLY; будущая реализация — CODE в этом же номере.
+- Mode: CODE; будущая реализация — CODE в этом же номере.
 - TestGate: NOT_REQUIRED для заявленного visual/theme/layout scope. App state/controllers, вычисления, валидация, сериализация, данные и app routing исключены; при расширении scope классификация пересматривается до кода.
-- Stage: SPEC_READY.
+- Stage: DONE.
 - Specification:1; plan:0 (черновая последовательность ниже); test scenarios:1, NOT_RUN.
 - Реализация не начата; отдельного разрешения на логический gate этой постановкой не получено.
 
@@ -53,12 +53,12 @@
 
 ## Acceptance Criteria
 
-- [ ] AC-58.1: AppIdentity реализован/расширен в указанном scope; нет параллельной копии уже существующей сущности, ссылку на HTML-эталон можно проследить.
-- [ ] AC-58.2: все визуальные параметры приходят из собственной темы и общих токенов, API типизирован; raw styling/строковые discriminators/бизнес-правила отсутствуют.
-- [ ] AC-58.3: именованные Widgetbook use cases показывают реальный элемент: Inline; stack fighter; отсутствие secondary text; длинные имена; узкие constraints; mobile/desktop.
-- [ ] AC-58.4: Widgetbook и golden используют одинаковые fixtures/именованные builders/темы; native baselines созданы/сверены, diffs просмотрены, comparison после update выполнен без update.
-- [ ] AC-58.5: проверены constraints, значимые states, локализованные labels/semantics и content limits; совпадение visual identity Desktop/Mobile подтверждено, отклонения записаны.
-- [ ] AC-58.6: manifest/owning docs/scenario registrations актуальны; analyze/tests/architecture checks по impact PASS либо честный blocker с NOT_RUN. Результат показан пользователю.
+- [x] AC-58.1: AppIdentity реализован/расширен в указанном scope; нет параллельной копии уже существующей сущности, ссылку на HTML-эталон можно проследить.
+- [x] AC-58.2: все визуальные параметры приходят из собственной темы и общих токенов, API типизирован; raw styling/строковые discriminators/бизнес-правила отсутствуют.
+- [x] AC-58.3: именованные Widgetbook use cases показывают реальный элемент: Inline; stack fighter; отсутствие secondary text; длинные имена; узкие constraints; mobile/desktop.
+- [x] AC-58.4: Widgetbook и golden используют одинаковые fixtures/именованные builders/темы; native baselines созданы/сверены, diffs просмотрены, comparison после update выполнен без update.
+- [x] AC-58.5: проверены constraints, значимые states, локализованные labels/semantics и content limits; совпадение visual identity Desktop/Mobile подтверждено, отклонения записаны.
+- [x] AC-58.6: manifest/owning docs/scenario registrations актуальны; analyze/tests/architecture checks по impact PASS либо честный blocker с NOT_RUN. Результат показан пользователю.
 
 ## Ошибки и крайние случаи
 
@@ -117,9 +117,9 @@
 
 ## Final Verification
 
-- [ ] Все AC подтверждены при реализации; тесты фактически запущены.
-- [ ] Theme/scenarios/goldens/docs согласованы, визуальный результат показан.
-- [ ] Нет бизнес-логики/запрещённых dependencies/raw styling.
+- [x] Все AC подтверждены при реализации; тесты фактически запущены.
+- [x] Theme/scenarios/goldens/docs согласованы, визуальный результат показан.
+- [x] Нет бизнес-логики/запрещённых dependencies/raw styling.
 
 ## Итог
 
@@ -133,3 +133,13 @@ Prompt пользователя (дословно):
 > После реализуй компоненты от которых зависит строка участников, каждый компонент отдельным комитом без пуша. После реализуй компонент widget "Строка участников" и остановись показав его в инструменте сравнения
 
 Запуск реализации после общего сравнения74; до его завершения эта карточка остаётся запланированной. Отдельный коммит данного компонента без push; сверка сценариев/контрольных элементов в общем отчёте.
+
+### Plan1
+
+AppIdentity: typed character/participant typography и inline/stacked layout; Avatar/theme composition, primary/optional secondary data. Character source — normalized UI kit Avatar64/112 compositions; participant recipes18/22 Inter и Avatar48/64 будут дополнительно сверены в RosterRow. Существующий AppAvatar получает optional typed recipe, вычисляемую из runtime темы потребителя; default сохраняется. Общие character scenarios4, native participant/long/absent-secondary и theme replacement.
+
+### Итог реализации
+
+AppIdentity + AppIdentityTheme, character/participant recipes, inline/stacked, secondary nullable. Используется существующий AppAvatar; optional typed Avatar recipe позволяет participant typography/shape из текущей темы без копии Avatar. Default Avatar сохраняет17 прежних baselines.
+
+4 source scenarios +4 participant native goldens (200px, long/short) macOS. Общий pipeline с update и без PASS; theme replacement/semantics/optional secondary tests PASS, Avatar regression PASS. Source inline/stacked/overlay просмотрены. Identity geometry tolerance0.5px: дробная line-height native24/29 против source24.328/28.594 (max0.406px), не скрывает ошибки компоновки; baseline1px. Analyzer/architecture-check PASS. Participant source composition дополнительно сверяется в62. Остальные ОС NOT_RUN.

@@ -1,3 +1,7 @@
+import 'package:tournament_app/presentation/widgetbook/widgets/identity/inline/inline_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/widgets/identity/stacked/stacked_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/widgets/identity/participant/participant_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/widgets/identity/long/long_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/components/button/content/content_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/components/button/primary/primary_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/components/button/secondary/secondary_use_case.dart';
@@ -23,6 +27,20 @@ import 'package:tournament_app/presentation/widgetbook/foundation/typography/tex
 
 /// Регистрации добавляются из папок конкретных scoped use cases.
 final widgetbookCatalog = <WidgetbookNode>[
+  WidgetbookFolder(
+    name: 'Widgets',
+    children: [
+      WidgetbookComponent(
+        name: 'Identity',
+        useCases: [
+          inlineIdentityUseCase,
+          stackedIdentityUseCase,
+          participantIdentityUseCase,
+          longIdentityUseCase,
+        ],
+      ),
+    ],
+  ),
   WidgetbookFolder(
     name: 'Foundation',
     isInitiallyExpanded: true,

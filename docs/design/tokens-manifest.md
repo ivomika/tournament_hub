@@ -132,3 +132,7 @@ Surface/raised ← текущий ColorScheme; Shape surface24/desktopSurface20/
 ### AppButton (50)
 
 Исходные primary/secondary/destructive/neutral/accent icon через AppButtonTheme и runtime AppControlMetrics. RemoveIcon40 и RemoveSwipe88×72 — action slots RosterRow. Colors/TextTheme/Shape/Spacing/Border/Elevation приходят из текущей основной темы. AppTypeRoles.interfaceStyle настраивает Inter optical axis opsz по текущему размеру14..32, weight по текущему TextStyle; создание FontVariation остаётся только в AppTheme. Сравнение `node tools/visual-comparison/compare.mjs button`. Focus outline снаружи4px, thickness3 (compact remove2); размер компонента не меняется.
+
+### AppIdentity (58)
+
+Композиция существующего AppAvatar и primary/optional secondary. Inline/stacked и character/participant — типизированные контракты. Runtime AppIdentityMetrics содержит источник participant18/22, avatar18/24 и corner22, line-height1.4/1.1 и container ratio0.07; остальные значения приходят из текущих TextTheme/ColorScheme/Spacing/Avatar metrics. AppAvatar принимает typed recipe от темы композиции, default не меняется. Сверка `node tools/visual-comparison/compare.mjs identity`; дробная geometry квантована в пределах0.5px.

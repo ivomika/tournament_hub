@@ -1,3 +1,4 @@
+import 'package:tournament_app/presentation/widgetbook/widgets/identity/identity_comparison.dart';
 import 'package:tournament_app/presentation/widgetbook/components/button/button_comparison.dart';
 import 'package:tournament_app/presentation/widgetbook/components/surface/surface_comparison.dart';
 import 'package:tournament_app/presentation/widgetbook/foundation/icons/icon_comparison.dart';
@@ -10,6 +11,7 @@ abstract final class ComparisonCatalog {
     IconComparison.spec,
     SurfaceComparison.spec,
     ButtonComparison.spec,
+    IdentityComparison.spec,
   ];
   static ComparisonSpec component(String id) =>
       components.singleWhere((s) => s.component == id);

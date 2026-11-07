@@ -9,9 +9,11 @@ class AppAvatar extends StatelessWidget {
     this.size = AppAvatarSize.large,
     this.shape = AppAvatarShape.tile,
     this.foreground,
+    this.theme,
     this.semanticsLabel,
     super.key,
   });
+  final AppAvatarTheme? theme;
   final String initials;
   final AppAvatarSize size;
   final AppAvatarShape shape;
@@ -19,29 +21,29 @@ class AppAvatar extends StatelessWidget {
   final String? semanticsLabel;
   @override
   Widget build(BuildContext context) {
-    final theme = AppAvatarTheme.of(context, size, shape);
+    final recipe = theme ?? AppAvatarTheme.of(context, size, shape);
     return Semantics(
       label: semanticsLabel,
       excludeSemantics: true,
       child: SizedBox.square(
-        dimension: theme.extent,
+        dimension: recipe.extent,
         child: DecoratedBox(
           decoration: BoxDecoration(
-            color: theme.background,
+            color: recipe.background,
             shape: shape == AppAvatarShape.round
                 ? BoxShape.circle
                 : BoxShape.rectangle,
             borderRadius: shape == AppAvatarShape.tile
-                ? theme.tileRadius
+                ? recipe.tileRadius
                 : null,
           ),
           child: Align(
-            alignment: theme.contentAlignment,
+            alignment: recipe.contentAlignment,
             child: Text(
               initials,
               softWrap: false,
-              style: theme.typography.copyWith(
-                color: foreground ?? theme.foreground,
+              style: recipe.typography.copyWith(
+                color: foreground ?? recipe.foreground,
               ),
             ),
           ),

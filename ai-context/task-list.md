@@ -60,7 +60,7 @@
 - 🟣 55. Score — добавить отображение счёта. [Детали](task-details/55-ds-component-score.md)
 - 🟣 56. ScoreChoice — добавить выбор результата FT1. [Детали](task-details/56-ds-component-score-choice.md)
 - ✅ 57. Avatar — добавить аватар и портрет. [Детали](task-details/57-ds-component-avatar.md)
-- 🟣 58. Identity — добавить переиспользуемую идентификацию. [Детали](task-details/58-ds-widget-identity.md)
+- ✅ 58. Identity — добавить переиспользуемую идентификацию. [Детали](task-details/58-ds-widget-identity.md)
 - 🟣 59. Metric — добавить метрику и achievement-вариант. [Детали](task-details/59-ds-component-metric.md)
 - 🟣 60. NavigationItem — добавить пункт навигации. [Детали](task-details/60-ds-component-navigation-item.md)
 - 🟣 61. SectionHeader — добавить заголовок раздела. [Детали](task-details/61-ds-widget-section-header.md)

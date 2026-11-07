@@ -71,5 +71,6 @@
   "buttonBack": "Назад",
   "buttonSave": "Сохранить",
   "buttonLong": "Продолжить создание турнира с выбранными участниками",
-  "rosterDelete": "Удалить"
+  "rosterDelete": "Удалить",
+  "participantDescription": "Участник турнира"
 }

@@ -193,4 +193,7 @@ class FoundationLocalizationsRu extends FoundationLocalizations {
 
   @override
   String get rosterDelete => 'Удалить';
+
+  @override
+  String get participantDescription => 'Участник турнира';
 }

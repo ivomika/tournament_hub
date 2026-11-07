@@ -1,0 +1,825 @@
+{
+  "spec": {
+    "version": 1,
+    "component": "identity",
+    "title": "AppIdentity",
+    "source": {
+      "url": "http://127.0.0.1:8094/ui-kit.html"
+    },
+    "tolerances": {
+      "geometry": 0.5,
+      "typography": 0.05,
+      "baseline": 1
+    },
+    "scenarios": [
+      {
+        "id": "mobile-inline",
+        "title": "mobile · inline",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#c-avatar .kit-avatar-size-64 .flow-person",
+        "controls": [
+          {
+            "id": "avatar",
+            "webSelector": ".flow-avatar",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "primary",
+            "webSelector": "strong",
+            "properties": [
+              "rect",
+              "fontSize",
+              "fontWeight",
+              "lineHeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "secondary",
+            "webSelector": "small",
+            "properties": [
+              "rect",
+              "fontSize",
+              "color",
+              "baseline"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 0,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "mobile-stacked",
+        "title": "mobile · stacked",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#c-avatar .kit-avatar-size-112 .flow-fighter",
+        "controls": [
+          {
+            "id": "avatar",
+            "webSelector": ".flow-avatar",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "primary",
+            "webSelector": "strong",
+            "properties": [
+              "rect",
+              "fontSize",
+              "fontWeight",
+              "lineHeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "secondary",
+            "webSelector": "span:last-child",
+            "properties": [
+              "rect",
+              "fontSize",
+              "color",
+              "baseline"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 0,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "desktop-inline",
+        "title": "desktop · inline",
+        "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1
+        },
+        "webSelector": "#c-avatar .kit-avatar-size-64 .flow-person",
+        "controls": [
+          {
+            "id": "avatar",
+            "webSelector": ".flow-avatar",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "primary",
+            "webSelector": "strong",
+            "properties": [
+              "rect",
+              "fontSize",
+              "fontWeight",
+              "lineHeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "secondary",
+            "webSelector": "small",
+            "properties": [
+              "rect",
+              "fontSize",
+              "color",
+              "baseline"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 0,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "desktop-stacked",
+        "title": "desktop · stacked",
+        "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1
+        },
+        "webSelector": "#c-avatar .kit-avatar-size-112 .flow-fighter",
+        "controls": [
+          {
+            "id": "avatar",
+            "webSelector": ".flow-avatar",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "primary",
+            "webSelector": "strong",
+            "properties": [
+              "rect",
+              "fontSize",
+              "fontWeight",
+              "lineHeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "secondary",
+            "webSelector": "span:last-child",
+            "properties": [
+              "rect",
+              "fontSize",
+              "color",
+              "baseline"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 0,
+        "freezeMilliseconds": 0
+      }
+    ]
+  },
+  "results": [
+    {
+      "id": "mobile-inline",
+      "title": "mobile · inline",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "mobile-inline",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 64
+        },
+        "controls": {
+          "avatar": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 64,
+              "height": 64
+            },
+            "width": 64,
+            "height": 64,
+            "fontSize": 26,
+            "fontWeight": 700,
+            "lineHeight": 1,
+            "color": "#b8bec9ff",
+            "background": "#232730ff",
+            "radius": 16,
+            "borderWidth": 0,
+            "baseline": 41,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "primary": {
+            "rect": {
+              "x": 80,
+              "y": 2.546875,
+              "width": 123.109375,
+              "height": 29.890625
+            },
+            "width": 123.109375,
+            "height": 29.890625,
+            "fontSize": 26,
+            "fontWeight": 700,
+            "lineHeight": 1.15,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "baseline": 25.546875,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "secondary": {
+            "rect": {
+              "x": 80,
+              "y": 40.4375,
+              "width": 123.109375,
+              "height": 21
+            },
+            "width": 123.109375,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "baseline": 56.4375,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 316,
+          "height": 64
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/mobile-inline.png"
+        }
+      },
+      "native": {
+        "id": "mobile-inline",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 64
+        },
+        "controls": {
+          "avatar": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 64,
+              "height": 64
+            },
+            "width": 64,
+            "height": 64
+          },
+          "primary": {
+            "rect": {
+              "x": 80,
+              "y": 2.5,
+              "width": 123.1083984375,
+              "height": 30
+            },
+            "width": 123.1083984375,
+            "height": 30,
+            "fontSize": 26,
+            "fontWeight": 700,
+            "lineHeight": 1.15,
+            "color": "#f4f2eeff",
+            "baseline": 26.436717987060547
+          },
+          "secondary": {
+            "rect": {
+              "x": 80,
+              "y": 40.5,
+              "width": 123.1083984375,
+              "height": 21
+            },
+            "width": 123.1083984375,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "baseline": 56.0927734375
+          }
+        },
+        "raster": {
+          "changedPixels": 851,
+          "meanChannelDelta": 3.612803270042194
+        },
+        "artifacts": {
+          "image": "flutter/mobile-inline.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/mobile-inline.png",
+        "flutter": "flutter/mobile-inline.png",
+        "overlay": "overlay/mobile-inline.png",
+        "diff": "diff/mobile-inline.png"
+      },
+      "raster": {
+        "changedPixels": 851,
+        "meanChannelDelta": 3.612803270042194
+      }
+    },
+    {
+      "id": "mobile-stacked",
+      "title": "mobile · stacked",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "mobile-stacked",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 176.328125
+        },
+        "controls": {
+          "avatar": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 112,
+              "height": 112
+            },
+            "width": 112,
+            "height": 112,
+            "fontSize": 40,
+            "fontWeight": 700,
+            "lineHeight": 1,
+            "color": "#b8bec9ff",
+            "background": "#232730ff",
+            "radius": 16,
+            "borderWidth": 0,
+            "baseline": 69,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "primary": {
+            "rect": {
+              "x": 0,
+              "y": 120,
+              "width": 45.90625,
+              "height": 24.328125
+            },
+            "width": 45.90625,
+            "height": 24.328125,
+            "fontSize": 22.12,
+            "fontWeight": 700,
+            "lineHeight": 1.1,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "baseline": 140,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "secondary": {
+            "rect": {
+              "x": 0,
+              "y": 152.328125,
+              "width": 139.546875,
+              "height": 24
+            },
+            "width": 139.546875,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "baseline": 170.328125,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 316,
+          "height": 176.328125
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/mobile-stacked.png"
+        }
+      },
+      "native": {
+        "id": "mobile-stacked",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 176
+        },
+        "controls": {
+          "avatar": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 112,
+              "height": 112
+            },
+            "width": 112,
+            "height": 112
+          },
+          "primary": {
+            "rect": {
+              "x": 0,
+              "y": 120,
+              "width": 45.901214599609375,
+              "height": 24
+            },
+            "width": 45.901214599609375,
+            "height": 24,
+            "fontSize": 22.12,
+            "fontWeight": 700,
+            "lineHeight": 1.1,
+            "color": "#f4f2eeff",
+            "baseline": 139.39454650878906
+          },
+          "secondary": {
+            "rect": {
+              "x": 0,
+              "y": 152,
+              "width": 139.54446411132812,
+              "height": 24
+            },
+            "width": 139.54446411132812,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "baseline": 169.8203125
+          }
+        },
+        "raster": {
+          "changedPixels": 82,
+          "meanChannelDelta": 0.12197549405230161
+        },
+        "artifacts": {
+          "image": "flutter/mobile-stacked.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/mobile-stacked.png",
+        "flutter": "flutter/mobile-stacked.png",
+        "overlay": "overlay/mobile-stacked.png",
+        "diff": "diff/mobile-stacked.png"
+      },
+      "raster": {
+        "changedPixels": 82,
+        "meanChannelDelta": 0.12197549405230161
+      }
+    },
+    {
+      "id": "desktop-inline",
+      "title": "desktop · inline",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "desktop-inline",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 395.328125,
+          "height": 64
+        },
+        "controls": {
+          "avatar": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 64,
+              "height": 64
+            },
+            "width": 64,
+            "height": 64,
+            "fontSize": 26,
+            "fontWeight": 700,
+            "lineHeight": 1,
+            "color": "#b8bec9ff",
+            "background": "#232730ff",
+            "radius": 16,
+            "borderWidth": 0,
+            "baseline": 41,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "primary": {
+            "rect": {
+              "x": 80,
+              "y": 2.546875,
+              "width": 123.109375,
+              "height": 29.890625
+            },
+            "width": 123.109375,
+            "height": 29.890625,
+            "fontSize": 26,
+            "fontWeight": 700,
+            "lineHeight": 1.15,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "baseline": 25.546875,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "secondary": {
+            "rect": {
+              "x": 80,
+              "y": 40.4375,
+              "width": 123.109375,
+              "height": 21
+            },
+            "width": 123.109375,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "baseline": 56.4375,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 395.328125,
+          "height": 64
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/desktop-inline.png"
+        }
+      },
+      "native": {
+        "id": "desktop-inline",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 395.328125,
+          "height": 64
+        },
+        "controls": {
+          "avatar": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 64,
+              "height": 64
+            },
+            "width": 64,
+            "height": 64
+          },
+          "primary": {
+            "rect": {
+              "x": 80,
+              "y": 2.5,
+              "width": 123.1083984375,
+              "height": 30
+            },
+            "width": 123.1083984375,
+            "height": 30,
+            "fontSize": 26,
+            "fontWeight": 700,
+            "lineHeight": 1.15,
+            "color": "#f4f2eeff",
+            "baseline": 26.436717987060547
+          },
+          "secondary": {
+            "rect": {
+              "x": 80,
+              "y": 40.5,
+              "width": 123.1083984375,
+              "height": 21
+            },
+            "width": 123.1083984375,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "baseline": 56.0927734375
+          }
+        },
+        "raster": {
+          "changedPixels": 915,
+          "meanChannelDelta": 2.9107218013468015
+        },
+        "artifacts": {
+          "image": "flutter/desktop-inline.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/desktop-inline.png",
+        "flutter": "flutter/desktop-inline.png",
+        "overlay": "overlay/desktop-inline.png",
+        "diff": "diff/desktop-inline.png"
+      },
+      "raster": {
+        "changedPixels": 915,
+        "meanChannelDelta": 2.9107218013468015
+      }
+    },
+    {
+      "id": "desktop-stacked",
+      "title": "desktop · stacked",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "desktop-stacked",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 395.34375,
+          "height": 180.59375
+        },
+        "controls": {
+          "avatar": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 112,
+              "height": 112
+            },
+            "width": 112,
+            "height": 112,
+            "fontSize": 40,
+            "fontWeight": 700,
+            "lineHeight": 1,
+            "color": "#b8bec9ff",
+            "background": "#232730ff",
+            "radius": 16,
+            "borderWidth": 0,
+            "baseline": 69,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "primary": {
+            "rect": {
+              "x": 0,
+              "y": 120,
+              "width": 53.953125,
+              "height": 28.59375
+            },
+            "width": 53.953125,
+            "height": 28.59375,
+            "fontSize": 26,
+            "fontWeight": 700,
+            "lineHeight": 1.1,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "baseline": 143,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "secondary": {
+            "rect": {
+              "x": 0,
+              "y": 156.59375,
+              "width": 139.546875,
+              "height": 24
+            },
+            "width": 139.546875,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "baseline": 174.59375,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 395.34375,
+          "height": 180.59375
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/desktop-stacked.png"
+        }
+      },
+      "native": {
+        "id": "desktop-stacked",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 395.34375,
+          "height": 181
+        },
+        "controls": {
+          "avatar": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 112,
+              "height": 112
+            },
+            "width": 112,
+            "height": 112
+          },
+          "primary": {
+            "rect": {
+              "x": 0,
+              "y": 120,
+              "width": 53.952606201171875,
+              "height": 29
+            },
+            "width": 53.952606201171875,
+            "height": 29,
+            "fontSize": 26,
+            "fontWeight": 700,
+            "lineHeight": 1.1,
+            "color": "#f4f2eeff",
+            "baseline": 143.58671951293945
+          },
+          "secondary": {
+            "rect": {
+              "x": 0,
+              "y": 157,
+              "width": 139.54446411132812,
+              "height": 24
+            },
+            "width": 139.54446411132812,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "baseline": 174.8203125
+          }
+        },
+        "raster": {
+          "changedPixels": 263,
+          "meanChannelDelta": 0.12338393139498112
+        },
+        "artifacts": {
+          "image": "flutter/desktop-stacked.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/desktop-stacked.png",
+        "flutter": "flutter/desktop-stacked.png",
+        "overlay": "overlay/desktop-stacked.png",
+        "diff": "diff/desktop-stacked.png"
+      },
+      "raster": {
+        "changedPixels": 263,
+        "meanChannelDelta": 0.12338393139498112
+      }
+    }
+  ],
+  "error": null,
+  "runId": "2026-11-07T14:23:32.364Z"
+}

@@ -1,0 +1,575 @@
+<!doctype html><html lang="ru"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AppIdentity · Web ↔ Flutter</title><style>
+ :root{color-scheme:dark;font-family:system-ui;background:#0e1014;color:#f4f2ee}*{box-sizing:border-box}body{max-width:1600px;margin:auto;padding:32px}h1{font-size:36px}a{color:#f1c75b}p{color:#b8bec9;line-height:1.5}.stats,nav{display:flex;gap:20px;flex-wrap:wrap}nav{position:sticky;top:0;background:#0e1014ee;padding:16px 0;z-index:1}.stats>div{border:1px solid #3a414e;border-radius:12px;padding:16px}.stats strong{display:block;font-size:28px}.case{padding:20px;margin:24px 0;background:#171a20;border:1px solid #3a414e;border-radius:16px}.case header{display:flex;justify-content:space-between;gap:16px}.pass{color:#78d7a5}.fail{color:#ff968e}.shots{display:grid;grid-template-columns:repeat(4,minmax(180px,1fr));gap:12px;overflow:auto}figure{margin:0;background:#0e1014;padding:12px;display:flex;flex-direction:column;align-items:center;gap:20px;min-height:200px}figcaption{color:#b8bec9;font-size:13px}img{max-width:100%;height:auto;image-rendering:pixelated}figure a{margin:auto}table{border-collapse:collapse;width:100%;font-size:12px}th,td{text-align:left;padding:9px;border-bottom:1px solid #3a414e}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px;color:#b8bec9}.table{overflow:auto}.finding{color:#ff968e}small{color:#969eac}@media(max-width:800px){body{padding:16px}.shots{grid-template-columns:repeat(4,280px)}}
+ </style><header><small>TOURNAMENT HUB / ОБЩЕЕ ВИЗУАЛЬНОЕ СРАВНЕНИЕ</small><h1>AppIdentity · Web ↔ Flutter</h1><p>Сценарии и контрольные элементы заданы декларацией компонента. Геометрия, типографика и цвета проверяются отдельно; diff показывает остаточную разницу рендереров. Нажмите PNG, чтобы открыть исходное разрешение.</p></header>
+ <div class="stats"><div><strong>4</strong>сценариев</div><div><strong class="pass">4/4</strong>прошли контракт контролей</div><div><strong>12</strong>контрольных элементов</div></div>
+ <nav><a href="#mobile-inline">mobile · inline</a><a href="#mobile-stacked">mobile · stacked</a><a href="#desktop-inline">desktop · inline</a><a href="#desktop-stacked">desktop · stacked</a><a href="http://127.0.0.1:8094/ui-kit.html">Web-эталон ↗</a></nav>
+ <article class="case" id="mobile-inline"><header><h2>mobile · inline</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/mobile-inline.png"><img alt="mobile-inline Web" src="web/mobile-inline.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/mobile-inline.png"><img alt="mobile-inline Flutter" src="flutter/mobile-inline.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/mobile-inline.png"><img alt="mobile-inline Наложение 50/50" src="overlay/mobile-inline.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/mobile-inline.png"><img alt="mobile-inline Diff ×4" src="diff/mobile-inline.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 851 изменённых пикселей; mean channel delta 3.6128/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;mobile-inline&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 64
+    },
+    &quot;controls&quot;: {
+      &quot;avatar&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 64,
+          &quot;height&quot;: 64
+        },
+        &quot;width&quot;: 64,
+        &quot;height&quot;: 64,
+        &quot;fontSize&quot;: 26,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 16,
+        &quot;borderWidth&quot;: 0,
+        &quot;baseline&quot;: 41,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;primary&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 80,
+          &quot;y&quot;: 2.546875,
+          &quot;width&quot;: 123.109375,
+          &quot;height&quot;: 29.890625
+        },
+        &quot;width&quot;: 123.109375,
+        &quot;height&quot;: 29.890625,
+        &quot;fontSize&quot;: 26,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1.15,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;baseline&quot;: 25.546875,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;secondary&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 80,
+          &quot;y&quot;: 40.4375,
+          &quot;width&quot;: 123.109375,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 123.109375,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;baseline&quot;: 56.4375,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 64
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/mobile-inline.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;mobile-inline&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 64
+    },
+    &quot;controls&quot;: {
+      &quot;avatar&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 64,
+          &quot;height&quot;: 64
+        },
+        &quot;width&quot;: 64,
+        &quot;height&quot;: 64
+      },
+      &quot;primary&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 80,
+          &quot;y&quot;: 2.5,
+          &quot;width&quot;: 123.1083984375,
+          &quot;height&quot;: 30
+        },
+        &quot;width&quot;: 123.1083984375,
+        &quot;height&quot;: 30,
+        &quot;fontSize&quot;: 26,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1.15,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 26.436717987060547
+      },
+      &quot;secondary&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 80,
+          &quot;y&quot;: 40.5,
+          &quot;width&quot;: 123.1083984375,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 123.1083984375,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 56.0927734375
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 851,
+      &quot;meanChannelDelta&quot;: 3.612803270042194
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/mobile-inline.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="mobile-stacked"><header><h2>mobile · stacked</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/mobile-stacked.png"><img alt="mobile-stacked Web" src="web/mobile-stacked.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/mobile-stacked.png"><img alt="mobile-stacked Flutter" src="flutter/mobile-stacked.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/mobile-stacked.png"><img alt="mobile-stacked Наложение 50/50" src="overlay/mobile-stacked.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/mobile-stacked.png"><img alt="mobile-stacked Diff ×4" src="diff/mobile-stacked.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 82 изменённых пикселей; mean channel delta 0.1220/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;mobile-stacked&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 176.328125
+    },
+    &quot;controls&quot;: {
+      &quot;avatar&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 112,
+          &quot;height&quot;: 112
+        },
+        &quot;width&quot;: 112,
+        &quot;height&quot;: 112,
+        &quot;fontSize&quot;: 40,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 16,
+        &quot;borderWidth&quot;: 0,
+        &quot;baseline&quot;: 69,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;primary&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 120,
+          &quot;width&quot;: 45.90625,
+          &quot;height&quot;: 24.328125
+        },
+        &quot;width&quot;: 45.90625,
+        &quot;height&quot;: 24.328125,
+        &quot;fontSize&quot;: 22.12,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1.1,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;baseline&quot;: 140,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;secondary&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 152.328125,
+          &quot;width&quot;: 139.546875,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 139.546875,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;baseline&quot;: 170.328125,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 176.328125
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/mobile-stacked.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;mobile-stacked&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 176
+    },
+    &quot;controls&quot;: {
+      &quot;avatar&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 112,
+          &quot;height&quot;: 112
+        },
+        &quot;width&quot;: 112,
+        &quot;height&quot;: 112
+      },
+      &quot;primary&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 120,
+          &quot;width&quot;: 45.901214599609375,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 45.901214599609375,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 22.12,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1.1,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 139.39454650878906
+      },
+      &quot;secondary&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 152,
+          &quot;width&quot;: 139.54446411132812,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 139.54446411132812,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 169.8203125
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 82,
+      &quot;meanChannelDelta&quot;: 0.12197549405230161
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/mobile-stacked.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="desktop-inline"><header><h2>desktop · inline</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/desktop-inline.png"><img alt="desktop-inline Web" src="web/desktop-inline.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/desktop-inline.png"><img alt="desktop-inline Flutter" src="flutter/desktop-inline.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/desktop-inline.png"><img alt="desktop-inline Наложение 50/50" src="overlay/desktop-inline.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/desktop-inline.png"><img alt="desktop-inline Diff ×4" src="diff/desktop-inline.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 915 изменённых пикселей; mean channel delta 2.9107/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;desktop-inline&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 395.328125,
+      &quot;height&quot;: 64
+    },
+    &quot;controls&quot;: {
+      &quot;avatar&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 64,
+          &quot;height&quot;: 64
+        },
+        &quot;width&quot;: 64,
+        &quot;height&quot;: 64,
+        &quot;fontSize&quot;: 26,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 16,
+        &quot;borderWidth&quot;: 0,
+        &quot;baseline&quot;: 41,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;primary&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 80,
+          &quot;y&quot;: 2.546875,
+          &quot;width&quot;: 123.109375,
+          &quot;height&quot;: 29.890625
+        },
+        &quot;width&quot;: 123.109375,
+        &quot;height&quot;: 29.890625,
+        &quot;fontSize&quot;: 26,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1.15,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;baseline&quot;: 25.546875,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;secondary&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 80,
+          &quot;y&quot;: 40.4375,
+          &quot;width&quot;: 123.109375,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 123.109375,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;baseline&quot;: 56.4375,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 395.328125,
+      &quot;height&quot;: 64
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/desktop-inline.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;desktop-inline&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 395.328125,
+      &quot;height&quot;: 64
+    },
+    &quot;controls&quot;: {
+      &quot;avatar&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 64,
+          &quot;height&quot;: 64
+        },
+        &quot;width&quot;: 64,
+        &quot;height&quot;: 64
+      },
+      &quot;primary&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 80,
+          &quot;y&quot;: 2.5,
+          &quot;width&quot;: 123.1083984375,
+          &quot;height&quot;: 30
+        },
+        &quot;width&quot;: 123.1083984375,
+        &quot;height&quot;: 30,
+        &quot;fontSize&quot;: 26,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1.15,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 26.436717987060547
+      },
+      &quot;secondary&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 80,
+          &quot;y&quot;: 40.5,
+          &quot;width&quot;: 123.1083984375,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 123.1083984375,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 56.0927734375
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 915,
+      &quot;meanChannelDelta&quot;: 2.9107218013468015
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/desktop-inline.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="desktop-stacked"><header><h2>desktop · stacked</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/desktop-stacked.png"><img alt="desktop-stacked Web" src="web/desktop-stacked.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/desktop-stacked.png"><img alt="desktop-stacked Flutter" src="flutter/desktop-stacked.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/desktop-stacked.png"><img alt="desktop-stacked Наложение 50/50" src="overlay/desktop-stacked.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/desktop-stacked.png"><img alt="desktop-stacked Diff ×4" src="diff/desktop-stacked.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 263 изменённых пикселей; mean channel delta 0.1234/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;desktop-stacked&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 395.34375,
+      &quot;height&quot;: 180.59375
+    },
+    &quot;controls&quot;: {
+      &quot;avatar&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 112,
+          &quot;height&quot;: 112
+        },
+        &quot;width&quot;: 112,
+        &quot;height&quot;: 112,
+        &quot;fontSize&quot;: 40,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 16,
+        &quot;borderWidth&quot;: 0,
+        &quot;baseline&quot;: 69,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;primary&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 120,
+          &quot;width&quot;: 53.953125,
+          &quot;height&quot;: 28.59375
+        },
+        &quot;width&quot;: 53.953125,
+        &quot;height&quot;: 28.59375,
+        &quot;fontSize&quot;: 26,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1.1,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;baseline&quot;: 143,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;secondary&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 156.59375,
+          &quot;width&quot;: 139.546875,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 139.546875,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;baseline&quot;: 174.59375,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 395.34375,
+      &quot;height&quot;: 180.59375
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/desktop-stacked.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;desktop-stacked&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 395.34375,
+      &quot;height&quot;: 181
+    },
+    &quot;controls&quot;: {
+      &quot;avatar&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 112,
+          &quot;height&quot;: 112
+        },
+        &quot;width&quot;: 112,
+        &quot;height&quot;: 112
+      },
+      &quot;primary&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 120,
+          &quot;width&quot;: 53.952606201171875,
+          &quot;height&quot;: 29
+        },
+        &quot;width&quot;: 53.952606201171875,
+        &quot;height&quot;: 29,
+        &quot;fontSize&quot;: 26,
+        &quot;fontWeight&quot;: 700,
+        &quot;lineHeight&quot;: 1.1,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 143.58671951293945
+      },
+      &quot;secondary&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 157,
+          &quot;width&quot;: 139.54446411132812,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 139.54446411132812,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 174.8203125
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 263,
+      &quot;meanChannelDelta&quot;: 0.12338393139498112
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/desktop-stacked.png&quot;
+    }
+  }
+}</pre></details></article>
+ <footer><small>Run 2026-11-07T14:23:32.364Z. <a href="results.json">Полный JSON</a> · <a href="spec.json">Декларация</a>. Native goldens проверяются отдельно; отчёт не объявляет pixel-perfect при остаточной raster-разнице.</small></footer></html>

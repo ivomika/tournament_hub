@@ -1,3 +1,5 @@
+import 'package:tournament_app/presentation/design_system/foundation/primitives/identity_primitives.dart';
+import 'package:tournament_app/presentation/design_system/foundation/responsive/app_identity_metrics.dart';
 import 'package:tournament_app/presentation/design_system/foundation/primitives/control_primitives.dart';
 import 'package:tournament_app/presentation/design_system/foundation/responsive/app_control_metrics.dart';
 import 'package:tournament_app/presentation/design_system/foundation/icons/app_glyph_metrics.dart';
@@ -90,6 +92,18 @@ abstract final class AppTheme {
         year2023: false,
       ),
       extensions: [
+        const AppIdentityMetrics(
+          leading: IdentityPrimitives.leading,
+          stretch: IdentityPrimitives.stretch,
+          start: IdentityPrimitives.start,
+          textLeading: IdentityPrimitives.textLeading,
+          participantLine: IdentityPrimitives.participantLine,
+          cardNameSize: IdentityPrimitives.cardNameSize,
+          cardAvatarFont: IdentityPrimitives.cardAvatarFont,
+          cardAvatarRadius: IdentityPrimitives.cardAvatarRadius,
+          stackedLine: IdentityPrimitives.stackedLine,
+          containerFactor: IdentityPrimitives.containerFactor,
+        ),
         const AppControlMetrics(
           half: ControlPrimitives.half,
           regularWeight: ControlPrimitives.regularWeight,
