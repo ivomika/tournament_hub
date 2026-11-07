@@ -212,3 +212,7 @@ AppNavigationItem передаёт onPressed без app routing. Mobile row56/pa
 ## SectionHeader — реализация61
 
 AppSectionHeader композирует AppButton back/save/edit; callback intents снаружи. Slots56 mobile/48 desktop, итоговый source gap8 в обоих, title compactHeader16/1.4 center и comfortableHeader20/1.3 left. Отсутствие trailing action сохраняет слот. Две строки source44.781px/native44px: допуск1px только long title, остальные controls.5px.
+
+## StatusLabel — реализация63
+
+Typed live/outcome/points и accent/error tone, готовый текст. Live14 regular/1.5 dot8/gap8, outcome14 medium/1.4, points14 semibold/1.4; только текущие colors/styles через WidgetTheme. Inline outcome/points сохраняют glyph box исходного span: TextHeightBehavior без first/last extra leading собирается в AppTheme через AppStatusMetrics. Badge-подложки нет.

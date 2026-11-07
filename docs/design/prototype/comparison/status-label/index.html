@@ -1,0 +1,701 @@
+<!doctype html><html lang="ru"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AppStatusLabel · Web ↔ Flutter</title><style>
+ :root{color-scheme:dark;font-family:system-ui;background:#0e1014;color:#f4f2ee}*{box-sizing:border-box}body{max-width:1600px;margin:auto;padding:32px}h1{font-size:36px}a{color:#f1c75b}p{color:#b8bec9;line-height:1.5}.stats,nav{display:flex;gap:20px;flex-wrap:wrap}nav{position:sticky;top:0;background:#0e1014ee;padding:16px 0;z-index:1}.stats>div{border:1px solid #3a414e;border-radius:12px;padding:16px}.stats strong{display:block;font-size:28px}.case{padding:20px;margin:24px 0;background:#171a20;border:1px solid #3a414e;border-radius:16px}.case header{display:flex;justify-content:space-between;gap:16px}.pass{color:#78d7a5}.fail{color:#ff968e}.shots{display:grid;grid-template-columns:repeat(4,minmax(180px,1fr));gap:12px;overflow:auto}figure{margin:0;background:#0e1014;padding:12px;display:flex;flex-direction:column;align-items:center;gap:20px;min-height:200px}figcaption{color:#b8bec9;font-size:13px}img{max-width:100%;height:auto;image-rendering:pixelated}figure a{margin:auto}table{border-collapse:collapse;width:100%;font-size:12px}th,td{text-align:left;padding:9px;border-bottom:1px solid #3a414e}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px;color:#b8bec9}.table{overflow:auto}.finding{color:#ff968e}small{color:#969eac}@media(max-width:800px){body{padding:16px}.shots{grid-template-columns:repeat(4,280px)}}
+ </style><header><small>TOURNAMENT HUB / ОБЩЕЕ ВИЗУАЛЬНОЕ СРАВНЕНИЕ</small><h1>AppStatusLabel · Web ↔ Flutter</h1><p>Сценарии и контрольные элементы заданы декларацией компонента. Геометрия, типографика и цвета проверяются отдельно; diff показывает остаточную разницу рендереров. Нажмите PNG, чтобы открыть исходное разрешение.</p></header>
+ <div class="stats"><div><strong>8</strong>сценариев</div><div><strong class="pass">8/8</strong>прошли контракт контролей</div><div><strong>10</strong>контрольных элементов</div></div>
+ <nav><a href="#mobile-live">mobile · live</a><a href="#mobile-win">mobile · win</a><a href="#mobile-loss">mobile · loss</a><a href="#mobile-points">mobile · points</a><a href="#desktop-live">desktop · live</a><a href="#desktop-win">desktop · win</a><a href="#desktop-loss">desktop · loss</a><a href="#desktop-points">desktop · points</a><a href="http://127.0.0.1:8094/ui-kit.html">Web-эталон ↗</a></nav>
+ <article class="case" id="mobile-live"><header><h2>mobile · live</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/mobile-live.png"><img alt="mobile-live Web" src="web/mobile-live.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/mobile-live.png"><img alt="mobile-live Flutter" src="flutter/mobile-live.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/mobile-live.png"><img alt="mobile-live Наложение 50/50" src="overlay/mobile-live.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/mobile-live.png"><img alt="mobile-live Diff ×4" src="diff/mobile-live.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 32 изменённых пикселей; mean channel delta 0.2259/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;mobile-live&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 21
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 16,
+          &quot;y&quot;: 2,
+          &quot;width&quot;: 78.78125,
+          &quot;height&quot;: 17
+        },
+        &quot;width&quot;: 78.78125,
+        &quot;height&quot;: 17,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f1c75bff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f1c75bff&quot;,
+        &quot;baseline&quot;: 16,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;dot&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 6.5,
+          &quot;width&quot;: 8,
+          &quot;height&quot;: 8
+        },
+        &quot;width&quot;: 8,
+        &quot;height&quot;: 8,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f1c75bff&quot;,
+        &quot;background&quot;: &quot;#f1c75bff&quot;,
+        &quot;radius&quot;: 4,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f1c75bff&quot;,
+        &quot;baseline&quot;: 14,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 21
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/mobile-live.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;mobile-live&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 21
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 16,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 78.7705078125,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 78.7705078125,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f1c75bff&quot;,
+        &quot;baseline&quot;: 15.5927734375
+      },
+      &quot;dot&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 6.5,
+          &quot;width&quot;: 8,
+          &quot;height&quot;: 8
+        },
+        &quot;width&quot;: 8,
+        &quot;height&quot;: 8,
+        &quot;background&quot;: &quot;#f1c75bff&quot;,
+        &quot;radius&quot;: 4,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#00000000&quot;
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 32,
+      &quot;meanChannelDelta&quot;: 0.22593932087602975
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/mobile-live.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="mobile-win"><header><h2>mobile · win</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/mobile-win.png"><img alt="mobile-win Web" src="web/mobile-win.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/mobile-win.png"><img alt="mobile-win Flutter" src="flutter/mobile-win.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/mobile-win.png"><img alt="mobile-win Наложение 50/50" src="overlay/mobile-win.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/mobile-win.png"><img alt="mobile-win Diff ×4" src="diff/mobile-win.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 17 изменённых пикселей; mean channel delta 0.2258/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;mobile-win&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 142.59375,
+      &quot;height&quot;: 17
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 142.59375,
+          &quot;height&quot;: 17
+        },
+        &quot;width&quot;: 142.59375,
+        &quot;height&quot;: 17,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 500,
+        &quot;lineHeight&quot;: 1.4000000000000001,
+        &quot;color&quot;: &quot;#f1c75bff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f1c75bff&quot;,
+        &quot;baseline&quot;: 14,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 142.59375,
+      &quot;height&quot;: 17
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/mobile-win.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;mobile-win&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 142.57931518554688,
+      &quot;height&quot;: 17
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 142.57931518554688,
+          &quot;height&quot;: 17
+        },
+        &quot;width&quot;: 142.57931518554688,
+        &quot;height&quot;: 17,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 500,
+        &quot;lineHeight&quot;: 1.4,
+        &quot;color&quot;: &quot;#f1c75bff&quot;,
+        &quot;baseline&quot;: 13.623046875
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 17,
+      &quot;meanChannelDelta&quot;: 0.2258329905388729
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/mobile-win.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="mobile-loss"><header><h2>mobile · loss</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/mobile-loss.png"><img alt="mobile-loss Web" src="web/mobile-loss.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/mobile-loss.png"><img alt="mobile-loss Flutter" src="flutter/mobile-loss.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/mobile-loss.png"><img alt="mobile-loss Наложение 50/50" src="overlay/mobile-loss.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/mobile-loss.png"><img alt="mobile-loss Diff ×4" src="diff/mobile-loss.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 17 изменённых пикселей; mean channel delta 0.2778/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;mobile-loss&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 171.0625,
+      &quot;height&quot;: 17
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 171.0625,
+          &quot;height&quot;: 17
+        },
+        &quot;width&quot;: 171.0625,
+        &quot;height&quot;: 17,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 500,
+        &quot;lineHeight&quot;: 1.4000000000000001,
+        &quot;color&quot;: &quot;#ff968eff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#ff968eff&quot;,
+        &quot;baseline&quot;: 14,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 171.0625,
+      &quot;height&quot;: 17
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/mobile-loss.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;mobile-loss&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 171.0519561767578,
+      &quot;height&quot;: 17
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 171.0519561767578,
+          &quot;height&quot;: 17
+        },
+        &quot;width&quot;: 171.0519561767578,
+        &quot;height&quot;: 17,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 500,
+        &quot;lineHeight&quot;: 1.4,
+        &quot;color&quot;: &quot;#ff968eff&quot;,
+        &quot;baseline&quot;: 13.623046875
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 17,
+      &quot;meanChannelDelta&quot;: 0.2778157774737802
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/mobile-loss.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="mobile-points"><header><h2>mobile · points</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/mobile-points.png"><img alt="mobile-points Web" src="web/mobile-points.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/mobile-points.png"><img alt="mobile-points Flutter" src="flutter/mobile-points.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/mobile-points.png"><img alt="mobile-points Наложение 50/50" src="overlay/mobile-points.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/mobile-points.png"><img alt="mobile-points Diff ×4" src="diff/mobile-points.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 0 изменённых пикселей; mean channel delta 0.1634/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;mobile-points&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 44.9375,
+      &quot;height&quot;: 17
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 44.9375,
+          &quot;height&quot;: 17
+        },
+        &quot;width&quot;: 44.9375,
+        &quot;height&quot;: 17,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.4000000000000001,
+        &quot;color&quot;: &quot;#f1c75bff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f1c75bff&quot;,
+        &quot;baseline&quot;: 14,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 44.9375,
+      &quot;height&quot;: 17
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/mobile-points.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;mobile-points&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 44.92411804199219,
+      &quot;height&quot;: 17
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 44.92411804199219,
+          &quot;height&quot;: 17
+        },
+        &quot;width&quot;: 44.92411804199219,
+        &quot;height&quot;: 17,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.4,
+        &quot;color&quot;: &quot;#f1c75bff&quot;,
+        &quot;baseline&quot;: 13.623046875
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 0,
+      &quot;meanChannelDelta&quot;: 0.16339869281045752
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/mobile-points.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="desktop-live"><header><h2>desktop · live</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/desktop-live.png"><img alt="desktop-live Web" src="web/desktop-live.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/desktop-live.png"><img alt="desktop-live Flutter" src="flutter/desktop-live.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/desktop-live.png"><img alt="desktop-live Наложение 50/50" src="overlay/desktop-live.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/desktop-live.png"><img alt="desktop-live Diff ×4" src="diff/desktop-live.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 53 изменённых пикселей; mean channel delta 0.2081/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;desktop-live&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 395.328125,
+      &quot;height&quot;: 21
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 16,
+          &quot;y&quot;: 2,
+          &quot;width&quot;: 78.78125,
+          &quot;height&quot;: 17
+        },
+        &quot;width&quot;: 78.78125,
+        &quot;height&quot;: 17,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f1c75bff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f1c75bff&quot;,
+        &quot;baseline&quot;: 16,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;dot&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 6.5,
+          &quot;width&quot;: 8,
+          &quot;height&quot;: 8
+        },
+        &quot;width&quot;: 8,
+        &quot;height&quot;: 8,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f1c75bff&quot;,
+        &quot;background&quot;: &quot;#f1c75bff&quot;,
+        &quot;radius&quot;: 4,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f1c75bff&quot;,
+        &quot;baseline&quot;: 14,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 395.328125,
+      &quot;height&quot;: 21
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/desktop-live.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;desktop-live&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 395.328125,
+      &quot;height&quot;: 21
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 16,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 78.7705078125,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 78.7705078125,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f1c75bff&quot;,
+        &quot;baseline&quot;: 15.5927734375
+      },
+      &quot;dot&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 6.5,
+          &quot;width&quot;: 8,
+          &quot;height&quot;: 8
+        },
+        &quot;width&quot;: 8,
+        &quot;height&quot;: 8,
+        &quot;background&quot;: &quot;#f1c75bff&quot;,
+        &quot;radius&quot;: 4,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#00000000&quot;
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 53,
+      &quot;meanChannelDelta&quot;: 0.20807279140612475
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/desktop-live.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="desktop-win"><header><h2>desktop · win</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/desktop-win.png"><img alt="desktop-win Web" src="web/desktop-win.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/desktop-win.png"><img alt="desktop-win Flutter" src="flutter/desktop-win.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/desktop-win.png"><img alt="desktop-win Наложение 50/50" src="overlay/desktop-win.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/desktop-win.png"><img alt="desktop-win Diff ×4" src="diff/desktop-win.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 17 изменённых пикселей; mean channel delta 0.2258/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;desktop-win&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 142.59375,
+      &quot;height&quot;: 17
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 142.59375,
+          &quot;height&quot;: 17
+        },
+        &quot;width&quot;: 142.59375,
+        &quot;height&quot;: 17,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 500,
+        &quot;lineHeight&quot;: 1.4000000000000001,
+        &quot;color&quot;: &quot;#f1c75bff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f1c75bff&quot;,
+        &quot;baseline&quot;: 14,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 142.59375,
+      &quot;height&quot;: 17
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/desktop-win.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;desktop-win&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 142.57931518554688,
+      &quot;height&quot;: 17
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 142.57931518554688,
+          &quot;height&quot;: 17
+        },
+        &quot;width&quot;: 142.57931518554688,
+        &quot;height&quot;: 17,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 500,
+        &quot;lineHeight&quot;: 1.4,
+        &quot;color&quot;: &quot;#f1c75bff&quot;,
+        &quot;baseline&quot;: 13.623046875
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 17,
+      &quot;meanChannelDelta&quot;: 0.2258329905388729
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/desktop-win.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="desktop-loss"><header><h2>desktop · loss</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/desktop-loss.png"><img alt="desktop-loss Web" src="web/desktop-loss.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/desktop-loss.png"><img alt="desktop-loss Flutter" src="flutter/desktop-loss.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/desktop-loss.png"><img alt="desktop-loss Наложение 50/50" src="overlay/desktop-loss.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/desktop-loss.png"><img alt="desktop-loss Diff ×4" src="diff/desktop-loss.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 17 изменённых пикселей; mean channel delta 0.2778/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;desktop-loss&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 171.0625,
+      &quot;height&quot;: 17
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 171.0625,
+          &quot;height&quot;: 17
+        },
+        &quot;width&quot;: 171.0625,
+        &quot;height&quot;: 17,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 500,
+        &quot;lineHeight&quot;: 1.4000000000000001,
+        &quot;color&quot;: &quot;#ff968eff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#ff968eff&quot;,
+        &quot;baseline&quot;: 14,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 171.0625,
+      &quot;height&quot;: 17
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/desktop-loss.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;desktop-loss&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 171.0519561767578,
+      &quot;height&quot;: 17
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 171.0519561767578,
+          &quot;height&quot;: 17
+        },
+        &quot;width&quot;: 171.0519561767578,
+        &quot;height&quot;: 17,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 500,
+        &quot;lineHeight&quot;: 1.4,
+        &quot;color&quot;: &quot;#ff968eff&quot;,
+        &quot;baseline&quot;: 13.623046875
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 17,
+      &quot;meanChannelDelta&quot;: 0.2778157774737802
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/desktop-loss.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="desktop-points"><header><h2>desktop · points</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/desktop-points.png"><img alt="desktop-points Web" src="web/desktop-points.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/desktop-points.png"><img alt="desktop-points Flutter" src="flutter/desktop-points.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/desktop-points.png"><img alt="desktop-points Наложение 50/50" src="overlay/desktop-points.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/desktop-points.png"><img alt="desktop-points Diff ×4" src="diff/desktop-points.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 0 изменённых пикселей; mean channel delta 0.1634/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;desktop-points&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 44.9375,
+      &quot;height&quot;: 17
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 44.9375,
+          &quot;height&quot;: 17
+        },
+        &quot;width&quot;: 44.9375,
+        &quot;height&quot;: 17,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.4000000000000001,
+        &quot;color&quot;: &quot;#f1c75bff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f1c75bff&quot;,
+        &quot;baseline&quot;: 14,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 44.9375,
+      &quot;height&quot;: 17
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/desktop-points.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;desktop-points&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 44.92411804199219,
+      &quot;height&quot;: 17
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 44.92411804199219,
+          &quot;height&quot;: 17
+        },
+        &quot;width&quot;: 44.92411804199219,
+        &quot;height&quot;: 17,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.4,
+        &quot;color&quot;: &quot;#f1c75bff&quot;,
+        &quot;baseline&quot;: 13.623046875
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 0,
+      &quot;meanChannelDelta&quot;: 0.16339869281045752
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/desktop-points.png&quot;
+    }
+  }
+}</pre></details></article>
+ <footer><small>Run 2026-11-07T20:17:19.780Z. <a href="results.json">Полный JSON</a> · <a href="spec.json">Декларация</a>. Native goldens проверяются отдельно; отчёт не объявляет pixel-perfect при остаточной raster-разнице.</small></footer></html>

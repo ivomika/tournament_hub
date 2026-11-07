@@ -61,7 +61,7 @@ function measure(scenario){
  const mask=document.createElement('div');Object.assign(mask.style,{position:'fixed',inset:'0',width:Math.max(innerWidth,original.width+captureInset*2)+'px',height:Math.max(innerHeight,original.height+captureInset*2)+'px',background:getComputedStyle(document.body).backgroundColor,zIndex:'2147483646'});document.body.append(mask);
  // Normalize only capture placement. Keep the original DOM ancestry, SVG
  // symbols, state classes and measured width; never replace component CSS.
- root.style.position='fixed';root.style.left='0px';root.style.top='0px';root.style.margin='0px';root.style.width=`${original.width}px`;root.style.zIndex='2147483647';
+ root.style.position=getComputedStyle(root).display==='inline'?'relative':'fixed';root.style.left='0px';root.style.top='0px';root.style.margin='0px';root.style.width=`${original.width}px`;root.style.zIndex='2147483647';
  for(let parent=root.parentElement;parent&&parent!==document.body;parent=parent.parentElement)parent.style.overflow='visible';
  let placed=root.getBoundingClientRect();root.style.left=`${captureInset-placed.left}px`;root.style.top=`${captureInset-placed.top}px`;
  const r=root.getBoundingClientRect();

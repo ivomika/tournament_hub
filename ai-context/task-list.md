@@ -65,7 +65,7 @@
 - ✅ 60. NavigationItem — добавить пункт навигации. [Детали](task-details/60-ds-component-navigation-item.md)
 - ✅ 61. SectionHeader — добавить заголовок раздела. [Детали](task-details/61-ds-widget-section-header.md)
 - ✅ 62. AppRosterRow — строка участников из общих DS-компонентов. [Детали](task-details/62-ds-widget-list-row.md)
-- 🟣 63. StatusLabel — добавить статус и исход. [Детали](task-details/63-ds-component-status.md)
+- ✅ 63. StatusLabel — добавить статус и исход. [Детали](task-details/63-ds-component-status.md)
 - 🟣 64. Disclosure — добавить раскрываемый блок. [Детали](task-details/64-ds-widget-disclosure.md)
 - 🟣 65. Notice — добавить сообщение и supporting text. [Детали](task-details/65-ds-component-notice.md)
 - 🟣 66. ProgressIndicator — добавить исходный индикатор загрузки. [Детали](task-details/66-ds-component-progress.md)

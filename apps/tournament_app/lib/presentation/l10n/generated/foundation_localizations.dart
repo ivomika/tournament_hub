@@ -792,6 +792,30 @@ abstract class FoundationLocalizations {
   /// In ru, this message translates to:
   /// **'Редактировать'**
   String get headerEdit;
+
+  /// No description provided for @statusLive.
+  ///
+  /// In ru, this message translates to:
+  /// **'В процессе'**
+  String get statusLive;
+
+  /// No description provided for @statusWin.
+  ///
+  /// In ru, this message translates to:
+  /// **'Техническая победа'**
+  String get statusWin;
+
+  /// No description provided for @statusLoss.
+  ///
+  /// In ru, this message translates to:
+  /// **'Техническое поражение'**
+  String get statusLoss;
+
+  /// No description provided for @statusPoints.
+  ///
+  /// In ru, this message translates to:
+  /// **'2 очка'**
+  String get statusPoints;
 }
 
 class _FoundationLocalizationsDelegate

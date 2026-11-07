@@ -386,4 +386,16 @@ class FoundationLocalizationsRu extends FoundationLocalizations {
 
   @override
   String get headerEdit => 'Редактировать';
+
+  @override
+  String get statusLive => 'В процессе';
+
+  @override
+  String get statusWin => 'Техническая победа';
+
+  @override
+  String get statusLoss => 'Техническое поражение';
+
+  @override
+  String get statusPoints => '2 очка';
 }

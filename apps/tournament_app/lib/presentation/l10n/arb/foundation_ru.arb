@@ -198,5 +198,9 @@
   "headerProfile": "Профиль",
   "headerBack": "Назад",
   "headerSave": "Сохранить",
-  "headerEdit": "Редактировать"
+  "headerEdit": "Редактировать",
+  "statusLive": "В процессе",
+  "statusWin": "Техническая победа",
+  "statusLoss": "Техническое поражение",
+  "statusPoints": "2 очка"
 }

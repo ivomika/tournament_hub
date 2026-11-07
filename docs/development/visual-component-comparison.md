@@ -28,3 +28,5 @@ Native goldens расположены рядом с DS-элементом в `go
 Открытое состояние задаётся optional webOpenSelector: browser ждёт существующий trigger и вызывает его реальный click перед поиском source root. Это общий capture параметр, без ветвления по компонентам. Select использует его для настоящего dialog bottom sheet из UI kit; Flutter fixture рендерит ту же AppSelectSheet, что и modal route. Внутренние handle/close/options/title проверяются controls.
 
 ComparisonControl.webPseudo — typed before/after; browser читает оригинальный getComputedStyle(node,pseudo) и фактический rect из computed inset/width/height. Это не DOM-копия подложки. Segmented choice отдельно сравнивает ::before выбранного сегмента и полную область нажатия.
+
+Для исходного display:inline capture использует relative positioning, сохраняя inline formatting и glyph box. Fixed превратил бы span в block и изменил высоту; прежняя проверка isolation dimensions это обнаруживает. Прочие roots остаются fixed.

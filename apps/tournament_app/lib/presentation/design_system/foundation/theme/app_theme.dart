@@ -1,3 +1,5 @@
+import 'package:tournament_app/presentation/design_system/foundation/primitives/status_primitives.dart';
+import 'package:tournament_app/presentation/design_system/foundation/typography/app_status_metrics.dart';
 import 'package:tournament_app/presentation/design_system/foundation/primitives/metric_component_primitives.dart';
 import 'package:tournament_app/presentation/design_system/foundation/responsive/app_metric_metrics.dart';
 import 'package:tournament_app/presentation/design_system/foundation/primitives/score_primitives.dart';
@@ -117,6 +119,9 @@ abstract final class AppTheme {
         const AppTextMetrics(
           compactHeaderLine: TypographyPrimitives.compactHeaderLine,
           comfortableHeaderLine: TypographyPrimitives.comfortableHeaderLine,
+        ),
+        const AppStatusMetrics(
+          inlineHeightBehavior: StatusPrimitives.inlineHeightBehavior,
         ),
         const AppMetricMetrics(
           desktopAchievementSize:

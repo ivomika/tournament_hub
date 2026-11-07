@@ -1,3 +1,7 @@
+import 'package:tournament_app/presentation/widgetbook/components/status_label/live/live_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/components/status_label/win/win_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/components/status_label/loss/loss_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/components/status_label/points/points_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/widgets/section_header/back/back_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/widgets/section_header/save/save_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/widgets/section_header/edit/edit_use_case.dart';
@@ -129,6 +133,15 @@ final widgetbookCatalog = <WidgetbookNode>[
     name: 'Components',
     isInitiallyExpanded: true,
     children: [
+      WidgetbookComponent(
+        name: 'Status label',
+        useCases: [
+          statusLiveUseCase,
+          statusWinUseCase,
+          statusLossUseCase,
+          statusPointsUseCase,
+        ],
+      ),
       WidgetbookComponent(
         name: 'Navigation item',
         useCases: [

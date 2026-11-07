@@ -1,0 +1,1047 @@
+{
+  "spec": {
+    "version": 1,
+    "component": "status-label",
+    "title": "AppStatusLabel",
+    "source": {
+      "url": "http://127.0.0.1:8094/ui-kit.html"
+    },
+    "tolerances": {
+      "geometry": 0.5,
+      "typography": 0.05,
+      "baseline": 1
+    },
+    "scenarios": [
+      {
+        "id": "mobile-live",
+        "title": "mobile · live",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#c-status .kit-component:nth-child(1) .kit-component-states .kit-specimen:nth-child(1) .kit-status",
+        "controls": [
+          {
+            "id": "label",
+            "webSelector": ":scope",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          },
+          {
+            "id": "dot",
+            "webSelector": ".live-dot",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 0,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "mobile-win",
+        "title": "mobile · win",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#c-status .kit-component:nth-child(2) .kit-component-states .kit-specimen:nth-child(1) .competition-outcome",
+        "controls": [
+          {
+            "id": "label",
+            "webSelector": ":scope",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 0,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "mobile-loss",
+        "title": "mobile · loss",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#c-status .kit-component:nth-child(2) .kit-component-states .kit-specimen:nth-child(2) .competition-outcome",
+        "controls": [
+          {
+            "id": "label",
+            "webSelector": ":scope",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 0,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "mobile-points",
+        "title": "mobile · points",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#c-status .kit-component:nth-child(3) .kit-component-states .kit-specimen:nth-child(1) .competition-points-badge",
+        "controls": [
+          {
+            "id": "label",
+            "webSelector": ":scope",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 0,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "desktop-live",
+        "title": "desktop · live",
+        "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1
+        },
+        "webSelector": "#c-status .kit-component:nth-child(1) .kit-component-states .kit-specimen:nth-child(1) .kit-status",
+        "controls": [
+          {
+            "id": "label",
+            "webSelector": ":scope",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          },
+          {
+            "id": "dot",
+            "webSelector": ".live-dot",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 0,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "desktop-win",
+        "title": "desktop · win",
+        "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1
+        },
+        "webSelector": "#c-status .kit-component:nth-child(2) .kit-component-states .kit-specimen:nth-child(1) .competition-outcome",
+        "controls": [
+          {
+            "id": "label",
+            "webSelector": ":scope",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 0,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "desktop-loss",
+        "title": "desktop · loss",
+        "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1
+        },
+        "webSelector": "#c-status .kit-component:nth-child(2) .kit-component-states .kit-specimen:nth-child(2) .competition-outcome",
+        "controls": [
+          {
+            "id": "label",
+            "webSelector": ":scope",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 0,
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "desktop-points",
+        "title": "desktop · points",
+        "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1
+        },
+        "webSelector": "#c-status .kit-component:nth-child(3) .kit-component-states .kit-specimen:nth-child(1) .competition-points-badge",
+        "controls": [
+          {
+            "id": "label",
+            "webSelector": ":scope",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 0,
+        "freezeMilliseconds": 0
+      }
+    ]
+  },
+  "results": [
+    {
+      "id": "mobile-live",
+      "title": "mobile · live",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "mobile-live",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 21
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 16,
+              "y": 2,
+              "width": 78.78125,
+              "height": 17
+            },
+            "width": 78.78125,
+            "height": 17,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f1c75bff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f1c75bff",
+            "baseline": 16,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "dot": {
+            "rect": {
+              "x": 0,
+              "y": 6.5,
+              "width": 8,
+              "height": 8
+            },
+            "width": 8,
+            "height": 8,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f1c75bff",
+            "background": "#f1c75bff",
+            "radius": 4,
+            "borderWidth": 0,
+            "borderColor": "#f1c75bff",
+            "baseline": 14,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 316,
+          "height": 21
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/mobile-live.png"
+        }
+      },
+      "native": {
+        "id": "mobile-live",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 21
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 16,
+              "y": 0,
+              "width": 78.7705078125,
+              "height": 21
+            },
+            "width": 78.7705078125,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f1c75bff",
+            "baseline": 15.5927734375
+          },
+          "dot": {
+            "rect": {
+              "x": 0,
+              "y": 6.5,
+              "width": 8,
+              "height": 8
+            },
+            "width": 8,
+            "height": 8,
+            "background": "#f1c75bff",
+            "radius": 4,
+            "borderWidth": 0,
+            "borderColor": "#00000000"
+          }
+        },
+        "raster": {
+          "changedPixels": 32,
+          "meanChannelDelta": 0.22593932087602975
+        },
+        "artifacts": {
+          "image": "flutter/mobile-live.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/mobile-live.png",
+        "flutter": "flutter/mobile-live.png",
+        "overlay": "overlay/mobile-live.png",
+        "diff": "diff/mobile-live.png"
+      },
+      "raster": {
+        "changedPixels": 32,
+        "meanChannelDelta": 0.22593932087602975
+      }
+    },
+    {
+      "id": "mobile-win",
+      "title": "mobile · win",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "mobile-win",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 142.59375,
+          "height": 17
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 142.59375,
+              "height": 17
+            },
+            "width": 142.59375,
+            "height": 17,
+            "fontSize": 14,
+            "fontWeight": 500,
+            "lineHeight": 1.4000000000000001,
+            "color": "#f1c75bff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f1c75bff",
+            "baseline": 14,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 142.59375,
+          "height": 17
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/mobile-win.png"
+        }
+      },
+      "native": {
+        "id": "mobile-win",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 142.57931518554688,
+          "height": 17
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 142.57931518554688,
+              "height": 17
+            },
+            "width": 142.57931518554688,
+            "height": 17,
+            "fontSize": 14,
+            "fontWeight": 500,
+            "lineHeight": 1.4,
+            "color": "#f1c75bff",
+            "baseline": 13.623046875
+          }
+        },
+        "raster": {
+          "changedPixels": 17,
+          "meanChannelDelta": 0.2258329905388729
+        },
+        "artifacts": {
+          "image": "flutter/mobile-win.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/mobile-win.png",
+        "flutter": "flutter/mobile-win.png",
+        "overlay": "overlay/mobile-win.png",
+        "diff": "diff/mobile-win.png"
+      },
+      "raster": {
+        "changedPixels": 17,
+        "meanChannelDelta": 0.2258329905388729
+      }
+    },
+    {
+      "id": "mobile-loss",
+      "title": "mobile · loss",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "mobile-loss",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 171.0625,
+          "height": 17
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 171.0625,
+              "height": 17
+            },
+            "width": 171.0625,
+            "height": 17,
+            "fontSize": 14,
+            "fontWeight": 500,
+            "lineHeight": 1.4000000000000001,
+            "color": "#ff968eff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#ff968eff",
+            "baseline": 14,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 171.0625,
+          "height": 17
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/mobile-loss.png"
+        }
+      },
+      "native": {
+        "id": "mobile-loss",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 171.0519561767578,
+          "height": 17
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 171.0519561767578,
+              "height": 17
+            },
+            "width": 171.0519561767578,
+            "height": 17,
+            "fontSize": 14,
+            "fontWeight": 500,
+            "lineHeight": 1.4,
+            "color": "#ff968eff",
+            "baseline": 13.623046875
+          }
+        },
+        "raster": {
+          "changedPixels": 17,
+          "meanChannelDelta": 0.2778157774737802
+        },
+        "artifacts": {
+          "image": "flutter/mobile-loss.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/mobile-loss.png",
+        "flutter": "flutter/mobile-loss.png",
+        "overlay": "overlay/mobile-loss.png",
+        "diff": "diff/mobile-loss.png"
+      },
+      "raster": {
+        "changedPixels": 17,
+        "meanChannelDelta": 0.2778157774737802
+      }
+    },
+    {
+      "id": "mobile-points",
+      "title": "mobile · points",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "mobile-points",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 44.9375,
+          "height": 17
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 44.9375,
+              "height": 17
+            },
+            "width": 44.9375,
+            "height": 17,
+            "fontSize": 14,
+            "fontWeight": 600,
+            "lineHeight": 1.4000000000000001,
+            "color": "#f1c75bff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f1c75bff",
+            "baseline": 14,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 44.9375,
+          "height": 17
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/mobile-points.png"
+        }
+      },
+      "native": {
+        "id": "mobile-points",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 44.92411804199219,
+          "height": 17
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 44.92411804199219,
+              "height": 17
+            },
+            "width": 44.92411804199219,
+            "height": 17,
+            "fontSize": 14,
+            "fontWeight": 600,
+            "lineHeight": 1.4,
+            "color": "#f1c75bff",
+            "baseline": 13.623046875
+          }
+        },
+        "raster": {
+          "changedPixels": 0,
+          "meanChannelDelta": 0.16339869281045752
+        },
+        "artifacts": {
+          "image": "flutter/mobile-points.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/mobile-points.png",
+        "flutter": "flutter/mobile-points.png",
+        "overlay": "overlay/mobile-points.png",
+        "diff": "diff/mobile-points.png"
+      },
+      "raster": {
+        "changedPixels": 0,
+        "meanChannelDelta": 0.16339869281045752
+      }
+    },
+    {
+      "id": "desktop-live",
+      "title": "desktop · live",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "desktop-live",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 395.328125,
+          "height": 21
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 16,
+              "y": 2,
+              "width": 78.78125,
+              "height": 17
+            },
+            "width": 78.78125,
+            "height": 17,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f1c75bff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f1c75bff",
+            "baseline": 16,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "dot": {
+            "rect": {
+              "x": 0,
+              "y": 6.5,
+              "width": 8,
+              "height": 8
+            },
+            "width": 8,
+            "height": 8,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f1c75bff",
+            "background": "#f1c75bff",
+            "radius": 4,
+            "borderWidth": 0,
+            "borderColor": "#f1c75bff",
+            "baseline": 14,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 395.328125,
+          "height": 21
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/desktop-live.png"
+        }
+      },
+      "native": {
+        "id": "desktop-live",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 395.328125,
+          "height": 21
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 16,
+              "y": 0,
+              "width": 78.7705078125,
+              "height": 21
+            },
+            "width": 78.7705078125,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f1c75bff",
+            "baseline": 15.5927734375
+          },
+          "dot": {
+            "rect": {
+              "x": 0,
+              "y": 6.5,
+              "width": 8,
+              "height": 8
+            },
+            "width": 8,
+            "height": 8,
+            "background": "#f1c75bff",
+            "radius": 4,
+            "borderWidth": 0,
+            "borderColor": "#00000000"
+          }
+        },
+        "raster": {
+          "changedPixels": 53,
+          "meanChannelDelta": 0.20807279140612475
+        },
+        "artifacts": {
+          "image": "flutter/desktop-live.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/desktop-live.png",
+        "flutter": "flutter/desktop-live.png",
+        "overlay": "overlay/desktop-live.png",
+        "diff": "diff/desktop-live.png"
+      },
+      "raster": {
+        "changedPixels": 53,
+        "meanChannelDelta": 0.20807279140612475
+      }
+    },
+    {
+      "id": "desktop-win",
+      "title": "desktop · win",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "desktop-win",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 142.59375,
+          "height": 17
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 142.59375,
+              "height": 17
+            },
+            "width": 142.59375,
+            "height": 17,
+            "fontSize": 14,
+            "fontWeight": 500,
+            "lineHeight": 1.4000000000000001,
+            "color": "#f1c75bff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f1c75bff",
+            "baseline": 14,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 142.59375,
+          "height": 17
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/desktop-win.png"
+        }
+      },
+      "native": {
+        "id": "desktop-win",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 142.57931518554688,
+          "height": 17
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 142.57931518554688,
+              "height": 17
+            },
+            "width": 142.57931518554688,
+            "height": 17,
+            "fontSize": 14,
+            "fontWeight": 500,
+            "lineHeight": 1.4,
+            "color": "#f1c75bff",
+            "baseline": 13.623046875
+          }
+        },
+        "raster": {
+          "changedPixels": 17,
+          "meanChannelDelta": 0.2258329905388729
+        },
+        "artifacts": {
+          "image": "flutter/desktop-win.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/desktop-win.png",
+        "flutter": "flutter/desktop-win.png",
+        "overlay": "overlay/desktop-win.png",
+        "diff": "diff/desktop-win.png"
+      },
+      "raster": {
+        "changedPixels": 17,
+        "meanChannelDelta": 0.2258329905388729
+      }
+    },
+    {
+      "id": "desktop-loss",
+      "title": "desktop · loss",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "desktop-loss",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 171.0625,
+          "height": 17
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 171.0625,
+              "height": 17
+            },
+            "width": 171.0625,
+            "height": 17,
+            "fontSize": 14,
+            "fontWeight": 500,
+            "lineHeight": 1.4000000000000001,
+            "color": "#ff968eff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#ff968eff",
+            "baseline": 14,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 171.0625,
+          "height": 17
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/desktop-loss.png"
+        }
+      },
+      "native": {
+        "id": "desktop-loss",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 171.0519561767578,
+          "height": 17
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 171.0519561767578,
+              "height": 17
+            },
+            "width": 171.0519561767578,
+            "height": 17,
+            "fontSize": 14,
+            "fontWeight": 500,
+            "lineHeight": 1.4,
+            "color": "#ff968eff",
+            "baseline": 13.623046875
+          }
+        },
+        "raster": {
+          "changedPixels": 17,
+          "meanChannelDelta": 0.2778157774737802
+        },
+        "artifacts": {
+          "image": "flutter/desktop-loss.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/desktop-loss.png",
+        "flutter": "flutter/desktop-loss.png",
+        "overlay": "overlay/desktop-loss.png",
+        "diff": "diff/desktop-loss.png"
+      },
+      "raster": {
+        "changedPixels": 17,
+        "meanChannelDelta": 0.2778157774737802
+      }
+    },
+    {
+      "id": "desktop-points",
+      "title": "desktop · points",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "desktop-points",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 44.9375,
+          "height": 17
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 44.9375,
+              "height": 17
+            },
+            "width": 44.9375,
+            "height": 17,
+            "fontSize": 14,
+            "fontWeight": 600,
+            "lineHeight": 1.4000000000000001,
+            "color": "#f1c75bff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f1c75bff",
+            "baseline": 14,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 44.9375,
+          "height": 17
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/desktop-points.png"
+        }
+      },
+      "native": {
+        "id": "desktop-points",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 44.92411804199219,
+          "height": 17
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 44.92411804199219,
+              "height": 17
+            },
+            "width": 44.92411804199219,
+            "height": 17,
+            "fontSize": 14,
+            "fontWeight": 600,
+            "lineHeight": 1.4,
+            "color": "#f1c75bff",
+            "baseline": 13.623046875
+          }
+        },
+        "raster": {
+          "changedPixels": 0,
+          "meanChannelDelta": 0.16339869281045752
+        },
+        "artifacts": {
+          "image": "flutter/desktop-points.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/desktop-points.png",
+        "flutter": "flutter/desktop-points.png",
+        "overlay": "overlay/desktop-points.png",
+        "diff": "diff/desktop-points.png"
+      },
+      "raster": {
+        "changedPixels": 0,
+        "meanChannelDelta": 0.16339869281045752
+      }
+    }
+  ],
+  "error": null,
+  "runId": "2026-11-07T20:17:19.780Z"
+}
