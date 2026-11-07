@@ -1,0 +1,3283 @@
+<!doctype html><html lang="ru"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AppNumberStepper · Web ↔ Flutter</title><style>
+ :root{color-scheme:dark;font-family:system-ui;background:#0e1014;color:#f4f2ee}*{box-sizing:border-box}body{max-width:1600px;margin:auto;padding:32px}h1{font-size:36px}a{color:#f1c75b}p{color:#b8bec9;line-height:1.5}.stats,nav{display:flex;gap:20px;flex-wrap:wrap}nav{position:sticky;top:0;background:#0e1014ee;padding:16px 0;z-index:1}.stats>div{border:1px solid #3a414e;border-radius:12px;padding:16px}.stats strong{display:block;font-size:28px}.case{padding:20px;margin:24px 0;background:#171a20;border:1px solid #3a414e;border-radius:16px}.case header{display:flex;justify-content:space-between;gap:16px}.pass{color:#78d7a5}.fail{color:#ff968e}.shots{display:grid;grid-template-columns:repeat(4,minmax(180px,1fr));gap:12px;overflow:auto}figure{margin:0;background:#0e1014;padding:12px;display:flex;flex-direction:column;align-items:center;gap:20px;min-height:200px}figcaption{color:#b8bec9;font-size:13px}img{max-width:100%;height:auto;image-rendering:pixelated}figure a{margin:auto}table{border-collapse:collapse;width:100%;font-size:12px}th,td{text-align:left;padding:9px;border-bottom:1px solid #3a414e}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px;color:#b8bec9}.table{overflow:auto}.finding{color:#ff968e}small{color:#969eac}@media(max-width:800px){body{padding:16px}.shots{grid-template-columns:repeat(4,280px)}}
+ </style><header><small>TOURNAMENT HUB / ОБЩЕЕ ВИЗУАЛЬНОЕ СРАВНЕНИЕ</small><h1>AppNumberStepper · Web ↔ Flutter</h1><p>Сценарии и контрольные элементы заданы декларацией компонента. Геометрия, типографика и цвета проверяются отдельно; diff показывает остаточную разницу рендереров. Нажмите PNG, чтобы открыть исходное разрешение.</p></header>
+ <div class="stats"><div><strong>12</strong>сценариев</div><div><strong class="pass">12/12</strong>прошли контракт контролей</div><div><strong>84</strong>контрольных элементов</div></div>
+ <nav><a href="#mobile-output-minimum">mobile · output · minimum</a><a href="#mobile-output-intermediate">mobile · output · intermediate</a><a href="#mobile-output-maximum">mobile · output · maximum</a><a href="#mobile-input-minimum">mobile · input · minimum</a><a href="#mobile-input-intermediate">mobile · input · intermediate</a><a href="#mobile-input-maximum">mobile · input · maximum</a><a href="#desktop-output-minimum">desktop · output · minimum</a><a href="#desktop-output-intermediate">desktop · output · intermediate</a><a href="#desktop-output-maximum">desktop · output · maximum</a><a href="#desktop-input-minimum">desktop · input · minimum</a><a href="#desktop-input-intermediate">desktop · input · intermediate</a><a href="#desktop-input-maximum">desktop · input · maximum</a><a href="http://127.0.0.1:8094/ui-kit.html">Web-эталон ↗</a></nav>
+ <article class="case" id="mobile-output-minimum"><header><h2>mobile · output · minimum</h2><b class="pass">pass</b></header><p>Mobile/Desktop controls одинаковы. Local container≤330 переносит только подпись. Source score disabled сохраняет ink без opacity; format disabled muted/opacity0.4.</p><div class="shots"><figure><figcaption>Web</figcaption><a href="web/mobile-output-minimum.png"><img alt="mobile-output-minimum Web" src="web/mobile-output-minimum.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/mobile-output-minimum.png"><img alt="mobile-output-minimum Flutter" src="flutter/mobile-output-minimum.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/mobile-output-minimum.png"><img alt="mobile-output-minimum Наложение 50/50" src="overlay/mobile-output-minimum.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/mobile-output-minimum.png"><img alt="mobile-output-minimum Diff ×4" src="diff/mobile-output-minimum.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 0 изменённых пикселей; mean channel delta 0.0215/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;mobile-output-minimum&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 85
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 2,
+          &quot;width&quot;: 109.390625,
+          &quot;height&quot;: 17
+        },
+        &quot;width&quot;: 109.390625,
+        &quot;height&quot;: 17,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 16,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;pill&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 160,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 160,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 28,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 46,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;button-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#969eacff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 28,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#969eacff&quot;,
+        &quot;baseline&quot;: 62,
+        &quot;opacity&quot;: 0.4,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;icon-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 16,
+          &quot;y&quot;: 45,
+          &quot;width&quot;: 24,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 24,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#969eacff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#969eacff&quot;,
+        &quot;baseline&quot;: 73.0999984741211,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1.8
+      },
+      &quot;button-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 104,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 28,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 62,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;icon-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 120,
+          &quot;y&quot;: 45,
+          &quot;width&quot;: 24,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 24,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 66.0999984741211,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1.8
+      },
+      &quot;value&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 64.875,
+          &quot;y&quot;: 47,
+          &quot;width&quot;: 30.234375,
+          &quot;height&quot;: 20
+        },
+        &quot;width&quot;: 30.234375,
+        &quot;height&quot;: 20,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 63,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 85
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/mobile-output-minimum.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;mobile-output-minimum&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 85
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 109.388671875,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 109.388671875,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 15.5927734375
+      },
+      &quot;pill&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 160,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 160,
+        &quot;height&quot;: 56,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 28,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#00000000&quot;
+      },
+      &quot;button-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56
+      },
+      &quot;icon-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 16,
+          &quot;y&quot;: 45,
+          &quot;width&quot;: 24,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 24,
+        &quot;height&quot;: 24
+      },
+      &quot;button-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 104,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56
+      },
+      &quot;icon-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 120,
+          &quot;y&quot;: 45,
+          &quot;width&quot;: 24,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 24,
+        &quot;height&quot;: 24
+      },
+      &quot;value&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 64.88292694091797,
+          &quot;y&quot;: 45,
+          &quot;width&quot;: 30.234146118164062,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 30.234146118164062,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 62.8203125
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 0,
+      &quot;meanChannelDelta&quot;: 0.02150657731447009
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/mobile-output-minimum.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="mobile-output-intermediate"><header><h2>mobile · output · intermediate</h2><b class="pass">pass</b></header><p>Mobile/Desktop controls одинаковы. Local container≤330 переносит только подпись. Source score disabled сохраняет ink без opacity; format disabled muted/opacity0.4.</p><div class="shots"><figure><figcaption>Web</figcaption><a href="web/mobile-output-intermediate.png"><img alt="mobile-output-intermediate Web" src="web/mobile-output-intermediate.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/mobile-output-intermediate.png"><img alt="mobile-output-intermediate Flutter" src="flutter/mobile-output-intermediate.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/mobile-output-intermediate.png"><img alt="mobile-output-intermediate Наложение 50/50" src="overlay/mobile-output-intermediate.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/mobile-output-intermediate.png"><img alt="mobile-output-intermediate Diff ×4" src="diff/mobile-output-intermediate.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 0 изменённых пикселей; mean channel delta 0.0209/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;mobile-output-intermediate&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 85
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 2,
+          &quot;width&quot;: 109.390625,
+          &quot;height&quot;: 17
+        },
+        &quot;width&quot;: 109.390625,
+        &quot;height&quot;: 17,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 16,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;pill&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 160,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 160,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 28,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 46,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;button-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 28,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 62,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;icon-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 16,
+          &quot;y&quot;: 45,
+          &quot;width&quot;: 24,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 24,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 73.0999984741211,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1.8
+      },
+      &quot;button-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 104,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 28,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 62,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;icon-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 120,
+          &quot;y&quot;: 45,
+          &quot;width&quot;: 24,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 24,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 66.0999984741211,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1.8
+      },
+      &quot;value&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 64.875,
+          &quot;y&quot;: 47,
+          &quot;width&quot;: 30.234375,
+          &quot;height&quot;: 20
+        },
+        &quot;width&quot;: 30.234375,
+        &quot;height&quot;: 20,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 63,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 85
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/mobile-output-intermediate.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;mobile-output-intermediate&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 85
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 109.388671875,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 109.388671875,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 15.5927734375
+      },
+      &quot;pill&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 160,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 160,
+        &quot;height&quot;: 56,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 28,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#00000000&quot;
+      },
+      &quot;button-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56
+      },
+      &quot;icon-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 16,
+          &quot;y&quot;: 45,
+          &quot;width&quot;: 24,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 24,
+        &quot;height&quot;: 24
+      },
+      &quot;button-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 104,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56
+      },
+      &quot;icon-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 120,
+          &quot;y&quot;: 45,
+          &quot;width&quot;: 24,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 24,
+        &quot;height&quot;: 24
+      },
+      &quot;value&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 64.88292694091797,
+          &quot;y&quot;: 45,
+          &quot;width&quot;: 30.234146118164062,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 30.234146118164062,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 62.8203125
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 0,
+      &quot;meanChannelDelta&quot;: 0.02093571605857533
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/mobile-output-intermediate.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="mobile-output-maximum"><header><h2>mobile · output · maximum</h2><b class="pass">pass</b></header><p>Mobile/Desktop controls одинаковы. Local container≤330 переносит только подпись. Source score disabled сохраняет ink без opacity; format disabled muted/opacity0.4.</p><div class="shots"><figure><figcaption>Web</figcaption><a href="web/mobile-output-maximum.png"><img alt="mobile-output-maximum Web" src="web/mobile-output-maximum.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/mobile-output-maximum.png"><img alt="mobile-output-maximum Flutter" src="flutter/mobile-output-maximum.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/mobile-output-maximum.png"><img alt="mobile-output-maximum Наложение 50/50" src="overlay/mobile-output-maximum.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/mobile-output-maximum.png"><img alt="mobile-output-maximum Diff ×4" src="diff/mobile-output-maximum.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 0 изменённых пикселей; mean channel delta 0.0215/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;mobile-output-maximum&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 85
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 2,
+          &quot;width&quot;: 109.390625,
+          &quot;height&quot;: 17
+        },
+        &quot;width&quot;: 109.390625,
+        &quot;height&quot;: 17,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 16,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;pill&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 160,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 160,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 28,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 46,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;button-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 28,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 62,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;icon-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 16,
+          &quot;y&quot;: 45,
+          &quot;width&quot;: 24,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 24,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 73.0999984741211,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1.8
+      },
+      &quot;button-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 104,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#969eacff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 28,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#969eacff&quot;,
+        &quot;baseline&quot;: 62,
+        &quot;opacity&quot;: 0.4,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;icon-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 120,
+          &quot;y&quot;: 45,
+          &quot;width&quot;: 24,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 24,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#969eacff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#969eacff&quot;,
+        &quot;baseline&quot;: 66.0999984741211,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1.8
+      },
+      &quot;value&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 59.703125,
+          &quot;y&quot;: 47,
+          &quot;width&quot;: 40.59375,
+          &quot;height&quot;: 20
+        },
+        &quot;width&quot;: 40.59375,
+        &quot;height&quot;: 20,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 63,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 85
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/mobile-output-maximum.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;mobile-output-maximum&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 85
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 109.388671875,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 109.388671875,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 15.5927734375
+      },
+      &quot;pill&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 160,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 160,
+        &quot;height&quot;: 56,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 28,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#00000000&quot;
+      },
+      &quot;button-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56
+      },
+      &quot;icon-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 16,
+          &quot;y&quot;: 45,
+          &quot;width&quot;: 24,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 24,
+        &quot;height&quot;: 24
+      },
+      &quot;button-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 104,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56
+      },
+      &quot;icon-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 120,
+          &quot;y&quot;: 45,
+          &quot;width&quot;: 24,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 24,
+        &quot;height&quot;: 24
+      },
+      &quot;value&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 59.708900451660156,
+          &quot;y&quot;: 45,
+          &quot;width&quot;: 40.58219909667969,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 40.58219909667969,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 62.8203125
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 0,
+      &quot;meanChannelDelta&quot;: 0.021531397369074213
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/mobile-output-maximum.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="mobile-input-minimum"><header><h2>mobile · input · minimum</h2><b class="pass">pass</b></header><p>Mobile/Desktop controls одинаковы. Local container≤330 переносит только подпись. Source score disabled сохраняет ink без opacity; format disabled muted/opacity0.4.</p><div class="shots"><figure><figcaption>Web</figcaption><a href="web/mobile-input-minimum.png"><img alt="mobile-input-minimum Web" src="web/mobile-input-minimum.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/mobile-input-minimum.png"><img alt="mobile-input-minimum Flutter" src="flutter/mobile-input-minimum.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/mobile-input-minimum.png"><img alt="mobile-input-minimum Наложение 50/50" src="overlay/mobile-input-minimum.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/mobile-input-minimum.png"><img alt="mobile-input-minimum Diff ×4" src="diff/mobile-input-minimum.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 108 изменённых пикселей; mean channel delta 0.4682/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;mobile-input-minimum&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 85
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 2,
+          &quot;width&quot;: 94.015625,
+          &quot;height&quot;: 17
+        },
+        &quot;width&quot;: 94.015625,
+        &quot;height&quot;: 17,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 16,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;pill&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 144,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 144,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 28,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 46,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;button-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 28,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 62,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;icon-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 16,
+          &quot;y&quot;: 45,
+          &quot;width&quot;: 24,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 24,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 73.0999984741211,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1.8
+      },
+      &quot;button-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 88,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 28,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 62,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;icon-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 104,
+          &quot;y&quot;: 45,
+          &quot;width&quot;: 24,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 24,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 66.0999984741211,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1.8
+      },
+      &quot;value&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 56,
+          &quot;y&quot;: 45,
+          &quot;width&quot;: 32,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 32,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 63,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 85
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/mobile-input-minimum.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;mobile-input-minimum&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 85
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 94.0009765625,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 94.0009765625,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 15.5927734375
+      },
+      &quot;pill&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 144,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 144,
+        &quot;height&quot;: 56,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 28,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#00000000&quot;
+      },
+      &quot;button-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56
+      },
+      &quot;icon-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 16,
+          &quot;y&quot;: 45,
+          &quot;width&quot;: 24,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 24,
+        &quot;height&quot;: 24
+      },
+      &quot;button-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 88,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56
+      },
+      &quot;icon-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 104,
+          &quot;y&quot;: 45,
+          &quot;width&quot;: 24,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 24,
+        &quot;height&quot;: 24
+      },
+      &quot;value&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 56,
+          &quot;y&quot;: 45,
+          &quot;width&quot;: 32,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 10.348052978515625,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 62.8203125
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 108,
+      &quot;meanChannelDelta&quot;: 0.46815586994291386
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/mobile-input-minimum.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="mobile-input-intermediate"><header><h2>mobile · input · intermediate</h2><b class="pass">pass</b></header><p>Mobile/Desktop controls одинаковы. Local container≤330 переносит только подпись. Source score disabled сохраняет ink без opacity; format disabled muted/opacity0.4.</p><div class="shots"><figure><figcaption>Web</figcaption><a href="web/mobile-input-intermediate.png"><img alt="mobile-input-intermediate Web" src="web/mobile-input-intermediate.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/mobile-input-intermediate.png"><img alt="mobile-input-intermediate Flutter" src="flutter/mobile-input-intermediate.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/mobile-input-intermediate.png"><img alt="mobile-input-intermediate Наложение 50/50" src="overlay/mobile-input-intermediate.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/mobile-input-intermediate.png"><img alt="mobile-input-intermediate Diff ×4" src="diff/mobile-input-intermediate.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 68 изменённых пикселей; mean channel delta 0.3108/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;mobile-input-intermediate&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 85
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 2,
+          &quot;width&quot;: 94.015625,
+          &quot;height&quot;: 17
+        },
+        &quot;width&quot;: 94.015625,
+        &quot;height&quot;: 17,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 16,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;pill&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 144,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 144,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 28,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 46,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;button-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 28,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 62,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;icon-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 16,
+          &quot;y&quot;: 45,
+          &quot;width&quot;: 24,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 24,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 73.0999984741211,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1.8
+      },
+      &quot;button-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 88,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 28,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 62,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;icon-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 104,
+          &quot;y&quot;: 45,
+          &quot;width&quot;: 24,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 24,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 66.0999984741211,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1.8
+      },
+      &quot;value&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 56,
+          &quot;y&quot;: 45,
+          &quot;width&quot;: 32,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 32,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 63,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 85
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/mobile-input-intermediate.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;mobile-input-intermediate&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 85
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 94.0009765625,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 94.0009765625,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 15.5927734375
+      },
+      &quot;pill&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 144,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 144,
+        &quot;height&quot;: 56,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 28,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#00000000&quot;
+      },
+      &quot;button-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56
+      },
+      &quot;icon-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 16,
+          &quot;y&quot;: 45,
+          &quot;width&quot;: 24,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 24,
+        &quot;height&quot;: 24
+      },
+      &quot;button-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 88,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56
+      },
+      &quot;icon-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 104,
+          &quot;y&quot;: 45,
+          &quot;width&quot;: 24,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 24,
+        &quot;height&quot;: 24
+      },
+      &quot;value&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 56,
+          &quot;y&quot;: 45,
+          &quot;width&quot;: 32,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 10.348052978515625,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 62.8203125
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 68,
+      &quot;meanChannelDelta&quot;: 0.3107843137254902
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/mobile-input-intermediate.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="mobile-input-maximum"><header><h2>mobile · input · maximum</h2><b class="pass">pass</b></header><p>Mobile/Desktop controls одинаковы. Local container≤330 переносит только подпись. Source score disabled сохраняет ink без opacity; format disabled muted/opacity0.4.</p><div class="shots"><figure><figcaption>Web</figcaption><a href="web/mobile-input-maximum.png"><img alt="mobile-input-maximum Web" src="web/mobile-input-maximum.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/mobile-input-maximum.png"><img alt="mobile-input-maximum Flutter" src="flutter/mobile-input-maximum.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/mobile-input-maximum.png"><img alt="mobile-input-maximum Наложение 50/50" src="overlay/mobile-input-maximum.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/mobile-input-maximum.png"><img alt="mobile-input-maximum Diff ×4" src="diff/mobile-input-maximum.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 78 изменённых пикселей; mean channel delta 0.3351/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;mobile-input-maximum&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 85
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 2,
+          &quot;width&quot;: 94.015625,
+          &quot;height&quot;: 17
+        },
+        &quot;width&quot;: 94.015625,
+        &quot;height&quot;: 17,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 16,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;pill&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 144,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 144,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 28,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 46,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;button-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 28,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 62,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;icon-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 16,
+          &quot;y&quot;: 45,
+          &quot;width&quot;: 24,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 24,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 73.0999984741211,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1.8
+      },
+      &quot;button-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 88,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 28,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 62,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;icon-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 104,
+          &quot;y&quot;: 45,
+          &quot;width&quot;: 24,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 24,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 66.0999984741211,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1.8
+      },
+      &quot;value&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 56,
+          &quot;y&quot;: 45,
+          &quot;width&quot;: 32,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 32,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 63,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 85
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/mobile-input-maximum.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;mobile-input-maximum&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 85
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 94.0009765625,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 94.0009765625,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 15.5927734375
+      },
+      &quot;pill&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 144,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 144,
+        &quot;height&quot;: 56,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 28,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#00000000&quot;
+      },
+      &quot;button-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56
+      },
+      &quot;icon-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 16,
+          &quot;y&quot;: 45,
+          &quot;width&quot;: 24,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 24,
+        &quot;height&quot;: 24
+      },
+      &quot;button-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 88,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56
+      },
+      &quot;icon-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 104,
+          &quot;y&quot;: 45,
+          &quot;width&quot;: 24,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 24,
+        &quot;height&quot;: 24
+      },
+      &quot;value&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 56,
+          &quot;y&quot;: 45,
+          &quot;width&quot;: 32,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 10.348052978515625,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 62.8203125
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 78,
+      &quot;meanChannelDelta&quot;: 0.33507073715562175
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/mobile-input-maximum.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="desktop-output-minimum"><header><h2>desktop · output · minimum</h2><b class="pass">pass</b></header><p>Mobile/Desktop controls одинаковы. Local container≤330 переносит только подпись. Source score disabled сохраняет ink без opacity; format disabled muted/opacity0.4.</p><div class="shots"><figure><figcaption>Web</figcaption><a href="web/desktop-output-minimum.png"><img alt="desktop-output-minimum Web" src="web/desktop-output-minimum.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/desktop-output-minimum.png"><img alt="desktop-output-minimum Flutter" src="flutter/desktop-output-minimum.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/desktop-output-minimum.png"><img alt="desktop-output-minimum Наложение 50/50" src="overlay/desktop-output-minimum.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/desktop-output-minimum.png"><img alt="desktop-output-minimum Diff ×4" src="diff/desktop-output-minimum.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 205 изменённых пикселей; mean channel delta 0.1791/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;desktop-output-minimum&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 395.328125,
+      &quot;height&quot;: 56
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 19.5,
+          &quot;width&quot;: 109.390625,
+          &quot;height&quot;: 17
+        },
+        &quot;width&quot;: 109.390625,
+        &quot;height&quot;: 17,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 33.5,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;pill&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 235.328125,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 160,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 160,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 28,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 17,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;button-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 235.328125,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#969eacff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 28,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#969eacff&quot;,
+        &quot;baseline&quot;: 33,
+        &quot;opacity&quot;: 0.4,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;icon-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 251.328125,
+          &quot;y&quot;: 16,
+          &quot;width&quot;: 24,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 24,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#969eacff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#969eacff&quot;,
+        &quot;baseline&quot;: 44.10000038146973,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1.8
+      },
+      &quot;button-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 339.328125,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 28,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 33,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;icon-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 355.328125,
+          &quot;y&quot;: 16,
+          &quot;width&quot;: 24,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 24,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 37.10000038146973,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1.8
+      },
+      &quot;value&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 300.203125,
+          &quot;y&quot;: 18,
+          &quot;width&quot;: 30.234375,
+          &quot;height&quot;: 20
+        },
+        &quot;width&quot;: 30.234375,
+        &quot;height&quot;: 20,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 34,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 395.328125,
+      &quot;height&quot;: 56
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/desktop-output-minimum.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;desktop-output-minimum&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 395.328125,
+      &quot;height&quot;: 56
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 17.5,
+          &quot;width&quot;: 109.388671875,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 109.388671875,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 33.0927734375
+      },
+      &quot;pill&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 235.328125,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 160,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 160,
+        &quot;height&quot;: 56,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 28,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#00000000&quot;
+      },
+      &quot;button-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 235.328125,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56
+      },
+      &quot;icon-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 251.328125,
+          &quot;y&quot;: 16,
+          &quot;width&quot;: 24,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 24,
+        &quot;height&quot;: 24
+      },
+      &quot;button-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 339.328125,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56
+      },
+      &quot;icon-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 355.328125,
+          &quot;y&quot;: 16,
+          &quot;width&quot;: 24,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 24,
+        &quot;height&quot;: 24
+      },
+      &quot;value&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 300.21105194091797,
+          &quot;y&quot;: 16,
+          &quot;width&quot;: 30.234146118164062,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 30.234146118164062,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 33.8203125
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 205,
+      &quot;meanChannelDelta&quot;: 0.17912758537758539
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/desktop-output-minimum.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="desktop-output-intermediate"><header><h2>desktop · output · intermediate</h2><b class="pass">pass</b></header><p>Mobile/Desktop controls одинаковы. Local container≤330 переносит только подпись. Source score disabled сохраняет ink без opacity; format disabled muted/opacity0.4.</p><div class="shots"><figure><figcaption>Web</figcaption><a href="web/desktop-output-intermediate.png"><img alt="desktop-output-intermediate Web" src="web/desktop-output-intermediate.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/desktop-output-intermediate.png"><img alt="desktop-output-intermediate Flutter" src="flutter/desktop-output-intermediate.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/desktop-output-intermediate.png"><img alt="desktop-output-intermediate Наложение 50/50" src="overlay/desktop-output-intermediate.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/desktop-output-intermediate.png"><img alt="desktop-output-intermediate Diff ×4" src="diff/desktop-output-intermediate.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 207 изменённых пикселей; mean channel delta 0.1878/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;desktop-output-intermediate&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 395.328125,
+      &quot;height&quot;: 56
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 19.5,
+          &quot;width&quot;: 109.390625,
+          &quot;height&quot;: 17
+        },
+        &quot;width&quot;: 109.390625,
+        &quot;height&quot;: 17,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 33.5,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;pill&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 235.328125,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 160,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 160,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 28,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 17,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;button-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 235.328125,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 28,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 33,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;icon-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 251.328125,
+          &quot;y&quot;: 16,
+          &quot;width&quot;: 24,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 24,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 44.10000038146973,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1.8
+      },
+      &quot;button-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 339.328125,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 28,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 33,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;icon-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 355.328125,
+          &quot;y&quot;: 16,
+          &quot;width&quot;: 24,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 24,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 37.10000038146973,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1.8
+      },
+      &quot;value&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 300.203125,
+          &quot;y&quot;: 18,
+          &quot;width&quot;: 30.234375,
+          &quot;height&quot;: 20
+        },
+        &quot;width&quot;: 30.234375,
+        &quot;height&quot;: 20,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 34,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 395.328125,
+      &quot;height&quot;: 56
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/desktop-output-intermediate.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;desktop-output-intermediate&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 395.328125,
+      &quot;height&quot;: 56
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 17.5,
+          &quot;width&quot;: 109.388671875,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 109.388671875,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 33.0927734375
+      },
+      &quot;pill&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 235.328125,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 160,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 160,
+        &quot;height&quot;: 56,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 28,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#00000000&quot;
+      },
+      &quot;button-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 235.328125,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56
+      },
+      &quot;icon-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 251.328125,
+          &quot;y&quot;: 16,
+          &quot;width&quot;: 24,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 24,
+        &quot;height&quot;: 24
+      },
+      &quot;button-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 339.328125,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56
+      },
+      &quot;icon-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 355.328125,
+          &quot;y&quot;: 16,
+          &quot;width&quot;: 24,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 24,
+        &quot;height&quot;: 24
+      },
+      &quot;value&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 300.21105194091797,
+          &quot;y&quot;: 16,
+          &quot;width&quot;: 30.234146118164062,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 30.234146118164062,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 33.8203125
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 207,
+      &quot;meanChannelDelta&quot;: 0.18781565656565657
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/desktop-output-intermediate.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="desktop-output-maximum"><header><h2>desktop · output · maximum</h2><b class="pass">pass</b></header><p>Mobile/Desktop controls одинаковы. Local container≤330 переносит только подпись. Source score disabled сохраняет ink без opacity; format disabled muted/opacity0.4.</p><div class="shots"><figure><figcaption>Web</figcaption><a href="web/desktop-output-maximum.png"><img alt="desktop-output-maximum Web" src="web/desktop-output-maximum.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/desktop-output-maximum.png"><img alt="desktop-output-maximum Flutter" src="flutter/desktop-output-maximum.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/desktop-output-maximum.png"><img alt="desktop-output-maximum Наложение 50/50" src="overlay/desktop-output-maximum.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/desktop-output-maximum.png"><img alt="desktop-output-maximum Diff ×4" src="diff/desktop-output-maximum.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 203 изменённых пикселей; mean channel delta 0.1166/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;desktop-output-maximum&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 395.328125,
+      &quot;height&quot;: 56
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 19.5,
+          &quot;width&quot;: 109.390625,
+          &quot;height&quot;: 17
+        },
+        &quot;width&quot;: 109.390625,
+        &quot;height&quot;: 17,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 33.5,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;pill&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 235.328125,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 160,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 160,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 28,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 17,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;button-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 235.328125,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 28,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 33,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;icon-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 251.328125,
+          &quot;y&quot;: 16,
+          &quot;width&quot;: 24,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 24,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 44.10000038146973,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1.8
+      },
+      &quot;button-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 339.328125,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#969eacff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 28,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#969eacff&quot;,
+        &quot;baseline&quot;: 33,
+        &quot;opacity&quot;: 0.4,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;icon-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 355.328125,
+          &quot;y&quot;: 16,
+          &quot;width&quot;: 24,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 24,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#969eacff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#969eacff&quot;,
+        &quot;baseline&quot;: 37.10000038146973,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1.8
+      },
+      &quot;value&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 295.03125,
+          &quot;y&quot;: 18,
+          &quot;width&quot;: 40.59375,
+          &quot;height&quot;: 20
+        },
+        &quot;width&quot;: 40.59375,
+        &quot;height&quot;: 20,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 34,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 395.328125,
+      &quot;height&quot;: 56
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/desktop-output-maximum.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;desktop-output-maximum&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 395.328125,
+      &quot;height&quot;: 56
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 17.5,
+          &quot;width&quot;: 109.388671875,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 109.388671875,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 33.0927734375
+      },
+      &quot;pill&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 235.328125,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 160,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 160,
+        &quot;height&quot;: 56,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 28,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#00000000&quot;
+      },
+      &quot;button-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 235.328125,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56
+      },
+      &quot;icon-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 251.328125,
+          &quot;y&quot;: 16,
+          &quot;width&quot;: 24,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 24,
+        &quot;height&quot;: 24
+      },
+      &quot;button-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 339.328125,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56
+      },
+      &quot;icon-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 355.328125,
+          &quot;y&quot;: 16,
+          &quot;width&quot;: 24,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 24,
+        &quot;height&quot;: 24
+      },
+      &quot;value&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 295.03702545166016,
+          &quot;y&quot;: 16,
+          &quot;width&quot;: 40.58219909667969,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 40.58219909667969,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 33.8203125
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 203,
+      &quot;meanChannelDelta&quot;: 0.11656746031746032
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/desktop-output-maximum.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="desktop-input-minimum"><header><h2>desktop · input · minimum</h2><b class="pass">pass</b></header><p>Mobile/Desktop controls одинаковы. Local container≤330 переносит только подпись. Source score disabled сохраняет ink без opacity; format disabled muted/opacity0.4.</p><div class="shots"><figure><figcaption>Web</figcaption><a href="web/desktop-input-minimum.png"><img alt="desktop-input-minimum Web" src="web/desktop-input-minimum.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/desktop-input-minimum.png"><img alt="desktop-input-minimum Flutter" src="flutter/desktop-input-minimum.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/desktop-input-minimum.png"><img alt="desktop-input-minimum Наложение 50/50" src="overlay/desktop-input-minimum.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/desktop-input-minimum.png"><img alt="desktop-input-minimum Diff ×4" src="diff/desktop-input-minimum.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 316 изменённых пикселей; mean channel delta 0.7285/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;desktop-input-minimum&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 395.328125,
+      &quot;height&quot;: 56
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 19.5,
+          &quot;width&quot;: 94.015625,
+          &quot;height&quot;: 17
+        },
+        &quot;width&quot;: 94.015625,
+        &quot;height&quot;: 17,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 33.5,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;pill&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 251.328125,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 144,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 144,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 28,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 17,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;button-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 251.328125,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 28,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 33,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;icon-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 267.328125,
+          &quot;y&quot;: 16,
+          &quot;width&quot;: 24,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 24,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 44.10000038146973,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1.8
+      },
+      &quot;button-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 339.328125,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 28,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 33,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;icon-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 355.328125,
+          &quot;y&quot;: 16,
+          &quot;width&quot;: 24,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 24,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 37.10000038146973,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1.8
+      },
+      &quot;value&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 307.328125,
+          &quot;y&quot;: 16,
+          &quot;width&quot;: 32,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 32,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 34,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 395.328125,
+      &quot;height&quot;: 56
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/desktop-input-minimum.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;desktop-input-minimum&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 395.328125,
+      &quot;height&quot;: 56
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 17.5,
+          &quot;width&quot;: 94.0009765625,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 94.0009765625,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 33.0927734375
+      },
+      &quot;pill&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 251.328125,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 144,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 144,
+        &quot;height&quot;: 56,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 28,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#00000000&quot;
+      },
+      &quot;button-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 251.328125,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56
+      },
+      &quot;icon-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 267.328125,
+          &quot;y&quot;: 16,
+          &quot;width&quot;: 24,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 24,
+        &quot;height&quot;: 24
+      },
+      &quot;button-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 339.328125,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56
+      },
+      &quot;icon-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 355.328125,
+          &quot;y&quot;: 16,
+          &quot;width&quot;: 24,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 24,
+        &quot;height&quot;: 24
+      },
+      &quot;value&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 307.328125,
+          &quot;y&quot;: 16,
+          &quot;width&quot;: 32,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 10.348052978515625,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 33.8203125
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 316,
+      &quot;meanChannelDelta&quot;: 0.7284752284752285
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/desktop-input-minimum.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="desktop-input-intermediate"><header><h2>desktop · input · intermediate</h2><b class="pass">pass</b></header><p>Mobile/Desktop controls одинаковы. Local container≤330 переносит только подпись. Source score disabled сохраняет ink без opacity; format disabled muted/opacity0.4.</p><div class="shots"><figure><figcaption>Web</figcaption><a href="web/desktop-input-intermediate.png"><img alt="desktop-input-intermediate Web" src="web/desktop-input-intermediate.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/desktop-input-intermediate.png"><img alt="desktop-input-intermediate Flutter" src="flutter/desktop-input-intermediate.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/desktop-input-intermediate.png"><img alt="desktop-input-intermediate Наложение 50/50" src="overlay/desktop-input-intermediate.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/desktop-input-intermediate.png"><img alt="desktop-input-intermediate Diff ×4" src="diff/desktop-input-intermediate.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 265 изменённых пикселей; mean channel delta 0.5192/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;desktop-input-intermediate&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 395.328125,
+      &quot;height&quot;: 56
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 19.5,
+          &quot;width&quot;: 94.015625,
+          &quot;height&quot;: 17
+        },
+        &quot;width&quot;: 94.015625,
+        &quot;height&quot;: 17,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 33.5,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;pill&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 251.328125,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 144,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 144,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 28,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 17,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;button-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 251.328125,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 28,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 33,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;icon-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 267.328125,
+          &quot;y&quot;: 16,
+          &quot;width&quot;: 24,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 24,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 44.10000038146973,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1.8
+      },
+      &quot;button-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 339.328125,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 28,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 33,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;icon-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 355.328125,
+          &quot;y&quot;: 16,
+          &quot;width&quot;: 24,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 24,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 37.10000038146973,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1.8
+      },
+      &quot;value&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 307.328125,
+          &quot;y&quot;: 16,
+          &quot;width&quot;: 32,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 32,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 34,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 395.328125,
+      &quot;height&quot;: 56
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/desktop-input-intermediate.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;desktop-input-intermediate&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 395.328125,
+      &quot;height&quot;: 56
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 17.5,
+          &quot;width&quot;: 94.0009765625,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 94.0009765625,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 33.0927734375
+      },
+      &quot;pill&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 251.328125,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 144,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 144,
+        &quot;height&quot;: 56,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 28,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#00000000&quot;
+      },
+      &quot;button-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 251.328125,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56
+      },
+      &quot;icon-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 267.328125,
+          &quot;y&quot;: 16,
+          &quot;width&quot;: 24,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 24,
+        &quot;height&quot;: 24
+      },
+      &quot;button-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 339.328125,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56
+      },
+      &quot;icon-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 355.328125,
+          &quot;y&quot;: 16,
+          &quot;width&quot;: 24,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 24,
+        &quot;height&quot;: 24
+      },
+      &quot;value&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 307.328125,
+          &quot;y&quot;: 16,
+          &quot;width&quot;: 32,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 10.348052978515625,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 33.8203125
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 265,
+      &quot;meanChannelDelta&quot;: 0.519164862914863
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/desktop-input-intermediate.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="desktop-input-maximum"><header><h2>desktop · input · maximum</h2><b class="pass">pass</b></header><p>Mobile/Desktop controls одинаковы. Local container≤330 переносит только подпись. Source score disabled сохраняет ink без opacity; format disabled muted/opacity0.4.</p><div class="shots"><figure><figcaption>Web</figcaption><a href="web/desktop-input-maximum.png"><img alt="desktop-input-maximum Web" src="web/desktop-input-maximum.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/desktop-input-maximum.png"><img alt="desktop-input-maximum Flutter" src="flutter/desktop-input-maximum.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/desktop-input-maximum.png"><img alt="desktop-input-maximum Наложение 50/50" src="overlay/desktop-input-maximum.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/desktop-input-maximum.png"><img alt="desktop-input-maximum Diff ×4" src="diff/desktop-input-maximum.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 286 изменённых пикселей; mean channel delta 0.5652/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;desktop-input-maximum&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 395.328125,
+      &quot;height&quot;: 56
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 19.5,
+          &quot;width&quot;: 94.015625,
+          &quot;height&quot;: 17
+        },
+        &quot;width&quot;: 94.015625,
+        &quot;height&quot;: 17,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 33.5,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;pill&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 251.328125,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 144,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 144,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 28,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 17,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;button-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 251.328125,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 28,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 33,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;icon-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 267.328125,
+          &quot;y&quot;: 16,
+          &quot;width&quot;: 24,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 24,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 44.10000038146973,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1.8
+      },
+      &quot;button-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 339.328125,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 28,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 33,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;icon-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 355.328125,
+          &quot;y&quot;: 16,
+          &quot;width&quot;: 24,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 24,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 37.10000038146973,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1.8
+      },
+      &quot;value&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 307.328125,
+          &quot;y&quot;: 16,
+          &quot;width&quot;: 32,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 32,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 34,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 395.328125,
+      &quot;height&quot;: 56
+    },
+    &quot;pageX&quot;: 0,
+    &quot;pageY&quot;: 0,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/desktop-input-maximum.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;desktop-input-maximum&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 395.328125,
+      &quot;height&quot;: 56
+    },
+    &quot;controls&quot;: {
+      &quot;label&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 17.5,
+          &quot;width&quot;: 94.0009765625,
+          &quot;height&quot;: 21
+        },
+        &quot;width&quot;: 94.0009765625,
+        &quot;height&quot;: 21,
+        &quot;fontSize&quot;: 14,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 33.0927734375
+      },
+      &quot;pill&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 251.328125,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 144,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 144,
+        &quot;height&quot;: 56,
+        &quot;background&quot;: &quot;#232730ff&quot;,
+        &quot;radius&quot;: 28,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#00000000&quot;
+      },
+      &quot;button-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 251.328125,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56
+      },
+      &quot;icon-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 267.328125,
+          &quot;y&quot;: 16,
+          &quot;width&quot;: 24,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 24,
+        &quot;height&quot;: 24
+      },
+      &quot;button-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 339.328125,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 56,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 56,
+        &quot;height&quot;: 56
+      },
+      &quot;icon-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 355.328125,
+          &quot;y&quot;: 16,
+          &quot;width&quot;: 24,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 24,
+        &quot;height&quot;: 24
+      },
+      &quot;value&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 307.328125,
+          &quot;y&quot;: 16,
+          &quot;width&quot;: 32,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 10.348052978515625,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 33.8203125
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 286,
+      &quot;meanChannelDelta&quot;: 0.5651605339105339
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/desktop-input-maximum.png&quot;
+    }
+  }
+}</pre></details></article>
+ <footer><small>Run 2026-11-07T19:52:08.878Z. <a href="results.json">Полный JSON</a> · <a href="spec.json">Декларация</a>. Native goldens проверяются отдельно; отчёт не объявляет pixel-perfect при остаточной raster-разнице.</small></footer></html>

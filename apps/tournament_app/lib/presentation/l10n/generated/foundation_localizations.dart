@@ -648,6 +648,42 @@ abstract class FoundationLocalizations {
   /// In ru, this message translates to:
   /// **'RR'**
   String get segmentRr;
+
+  /// No description provided for @stepperFormatLabel.
+  ///
+  /// In ru, this message translates to:
+  /// **'Основная сетка'**
+  String get stepperFormatLabel;
+
+  /// No description provided for @stepperScoreLabel.
+  ///
+  /// In ru, this message translates to:
+  /// **'Счёт Алексея'**
+  String get stepperScoreLabel;
+
+  /// No description provided for @stepperDecrease.
+  ///
+  /// In ru, this message translates to:
+  /// **'Уменьшить {label}'**
+  String stepperDecrease(String label);
+
+  /// No description provided for @stepperIncrease.
+  ///
+  /// In ru, this message translates to:
+  /// **'Увеличить {label}'**
+  String stepperIncrease(String label);
+
+  /// No description provided for @stepperFt.
+  ///
+  /// In ru, this message translates to:
+  /// **'FT{value}'**
+  String stepperFt(int value);
+
+  /// No description provided for @stepperNumber.
+  ///
+  /// In ru, this message translates to:
+  /// **'{value}'**
+  String stepperNumber(int value);
 }
 
 class _FoundationLocalizationsDelegate

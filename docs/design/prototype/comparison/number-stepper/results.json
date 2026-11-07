@@ -1,0 +1,4425 @@
+{
+  "spec": {
+    "version": 1,
+    "component": "number-stepper",
+    "title": "AppNumberStepper",
+    "source": {
+      "url": "http://127.0.0.1:8094/ui-kit.html"
+    },
+    "tolerances": {
+      "geometry": 0.5,
+      "typography": 0.05,
+      "baseline": 1
+    },
+    "scenarios": [
+      {
+        "id": "mobile-output-minimum",
+        "title": "mobile · output · minimum",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#c-stepper .kit-component:nth-child(1) .kit-component-states .kit-specimen:nth-child(1) .flow-ft-field",
+        "controls": [
+          {
+            "id": "label",
+            "webSelector": ".flow-field-label",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          },
+          {
+            "id": "pill",
+            "webSelector": ".flow-ft-stepper,.result-score-stepper",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "button-0",
+            "webSelector": "button:first-child",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "icon-0",
+            "webSelector": "button:first-child .icon",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "button-1",
+            "webSelector": "button:last-child",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "icon-1",
+            "webSelector": "button:last-child .icon",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "value",
+            "webSelector": "output",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          }
+        ],
+        "capturePadding": 0,
+        "note": "Mobile/Desktop controls одинаковы. Local container≤330 переносит только подпись. Source score disabled сохраняет ink без opacity; format disabled muted/opacity0.4.",
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "mobile-output-intermediate",
+        "title": "mobile · output · intermediate",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#c-stepper .kit-component:nth-child(1) .kit-component-states .kit-specimen:nth-child(2) .flow-ft-field",
+        "controls": [
+          {
+            "id": "label",
+            "webSelector": ".flow-field-label",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          },
+          {
+            "id": "pill",
+            "webSelector": ".flow-ft-stepper,.result-score-stepper",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "button-0",
+            "webSelector": "button:first-child",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "icon-0",
+            "webSelector": "button:first-child .icon",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "button-1",
+            "webSelector": "button:last-child",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "icon-1",
+            "webSelector": "button:last-child .icon",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "value",
+            "webSelector": "output",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          }
+        ],
+        "capturePadding": 0,
+        "note": "Mobile/Desktop controls одинаковы. Local container≤330 переносит только подпись. Source score disabled сохраняет ink без opacity; format disabled muted/opacity0.4.",
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "mobile-output-maximum",
+        "title": "mobile · output · maximum",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#c-stepper .kit-component:nth-child(1) .kit-component-states .kit-specimen:nth-child(3) .flow-ft-field",
+        "controls": [
+          {
+            "id": "label",
+            "webSelector": ".flow-field-label",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          },
+          {
+            "id": "pill",
+            "webSelector": ".flow-ft-stepper,.result-score-stepper",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "button-0",
+            "webSelector": "button:first-child",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "icon-0",
+            "webSelector": "button:first-child .icon",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "button-1",
+            "webSelector": "button:last-child",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "icon-1",
+            "webSelector": "button:last-child .icon",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "value",
+            "webSelector": "output",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          }
+        ],
+        "capturePadding": 0,
+        "note": "Mobile/Desktop controls одинаковы. Local container≤330 переносит только подпись. Source score disabled сохраняет ink без opacity; format disabled muted/opacity0.4.",
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "mobile-input-minimum",
+        "title": "mobile · input · minimum",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#c-stepper .kit-component:nth-child(2) .kit-component-states .kit-specimen:nth-child(1) .flow-ft-field",
+        "controls": [
+          {
+            "id": "label",
+            "webSelector": ".flow-field-label",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          },
+          {
+            "id": "pill",
+            "webSelector": ".flow-ft-stepper,.result-score-stepper",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "button-0",
+            "webSelector": "button:first-child",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "icon-0",
+            "webSelector": "button:first-child .icon",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "button-1",
+            "webSelector": "button:last-child",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "icon-1",
+            "webSelector": "button:last-child .icon",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "value",
+            "webSelector": "input",
+            "properties": [
+              "rect",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 0,
+        "note": "Mobile/Desktop controls одинаковы. Local container≤330 переносит только подпись. Source score disabled сохраняет ink без opacity; format disabled muted/opacity0.4.",
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "mobile-input-intermediate",
+        "title": "mobile · input · intermediate",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#c-stepper .kit-component:nth-child(2) .kit-component-states .kit-specimen:nth-child(2) .flow-ft-field",
+        "controls": [
+          {
+            "id": "label",
+            "webSelector": ".flow-field-label",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          },
+          {
+            "id": "pill",
+            "webSelector": ".flow-ft-stepper,.result-score-stepper",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "button-0",
+            "webSelector": "button:first-child",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "icon-0",
+            "webSelector": "button:first-child .icon",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "button-1",
+            "webSelector": "button:last-child",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "icon-1",
+            "webSelector": "button:last-child .icon",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "value",
+            "webSelector": "input",
+            "properties": [
+              "rect",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 0,
+        "note": "Mobile/Desktop controls одинаковы. Local container≤330 переносит только подпись. Source score disabled сохраняет ink без opacity; format disabled muted/opacity0.4.",
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "mobile-input-maximum",
+        "title": "mobile · input · maximum",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 1
+        },
+        "webSelector": "#c-stepper .kit-component:nth-child(2) .kit-component-states .kit-specimen:nth-child(3) .flow-ft-field",
+        "controls": [
+          {
+            "id": "label",
+            "webSelector": ".flow-field-label",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          },
+          {
+            "id": "pill",
+            "webSelector": ".flow-ft-stepper,.result-score-stepper",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "button-0",
+            "webSelector": "button:first-child",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "icon-0",
+            "webSelector": "button:first-child .icon",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "button-1",
+            "webSelector": "button:last-child",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "icon-1",
+            "webSelector": "button:last-child .icon",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "value",
+            "webSelector": "input",
+            "properties": [
+              "rect",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 0,
+        "note": "Mobile/Desktop controls одинаковы. Local container≤330 переносит только подпись. Source score disabled сохраняет ink без opacity; format disabled muted/opacity0.4.",
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "desktop-output-minimum",
+        "title": "desktop · output · minimum",
+        "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1
+        },
+        "webSelector": "#c-stepper .kit-component:nth-child(1) .kit-component-states .kit-specimen:nth-child(1) .flow-ft-field",
+        "controls": [
+          {
+            "id": "label",
+            "webSelector": ".flow-field-label",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          },
+          {
+            "id": "pill",
+            "webSelector": ".flow-ft-stepper,.result-score-stepper",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "button-0",
+            "webSelector": "button:first-child",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "icon-0",
+            "webSelector": "button:first-child .icon",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "button-1",
+            "webSelector": "button:last-child",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "icon-1",
+            "webSelector": "button:last-child .icon",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "value",
+            "webSelector": "output",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          }
+        ],
+        "capturePadding": 0,
+        "note": "Mobile/Desktop controls одинаковы. Local container≤330 переносит только подпись. Source score disabled сохраняет ink без opacity; format disabled muted/opacity0.4.",
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "desktop-output-intermediate",
+        "title": "desktop · output · intermediate",
+        "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1
+        },
+        "webSelector": "#c-stepper .kit-component:nth-child(1) .kit-component-states .kit-specimen:nth-child(2) .flow-ft-field",
+        "controls": [
+          {
+            "id": "label",
+            "webSelector": ".flow-field-label",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          },
+          {
+            "id": "pill",
+            "webSelector": ".flow-ft-stepper,.result-score-stepper",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "button-0",
+            "webSelector": "button:first-child",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "icon-0",
+            "webSelector": "button:first-child .icon",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "button-1",
+            "webSelector": "button:last-child",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "icon-1",
+            "webSelector": "button:last-child .icon",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "value",
+            "webSelector": "output",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          }
+        ],
+        "capturePadding": 0,
+        "note": "Mobile/Desktop controls одинаковы. Local container≤330 переносит только подпись. Source score disabled сохраняет ink без opacity; format disabled muted/opacity0.4.",
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "desktop-output-maximum",
+        "title": "desktop · output · maximum",
+        "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1
+        },
+        "webSelector": "#c-stepper .kit-component:nth-child(1) .kit-component-states .kit-specimen:nth-child(3) .flow-ft-field",
+        "controls": [
+          {
+            "id": "label",
+            "webSelector": ".flow-field-label",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          },
+          {
+            "id": "pill",
+            "webSelector": ".flow-ft-stepper,.result-score-stepper",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "button-0",
+            "webSelector": "button:first-child",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "icon-0",
+            "webSelector": "button:first-child .icon",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "button-1",
+            "webSelector": "button:last-child",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "icon-1",
+            "webSelector": "button:last-child .icon",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "value",
+            "webSelector": "output",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          }
+        ],
+        "capturePadding": 0,
+        "note": "Mobile/Desktop controls одинаковы. Local container≤330 переносит только подпись. Source score disabled сохраняет ink без opacity; format disabled muted/opacity0.4.",
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "desktop-input-minimum",
+        "title": "desktop · input · minimum",
+        "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1
+        },
+        "webSelector": "#c-stepper .kit-component:nth-child(2) .kit-component-states .kit-specimen:nth-child(1) .flow-ft-field",
+        "controls": [
+          {
+            "id": "label",
+            "webSelector": ".flow-field-label",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          },
+          {
+            "id": "pill",
+            "webSelector": ".flow-ft-stepper,.result-score-stepper",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "button-0",
+            "webSelector": "button:first-child",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "icon-0",
+            "webSelector": "button:first-child .icon",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "button-1",
+            "webSelector": "button:last-child",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "icon-1",
+            "webSelector": "button:last-child .icon",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "value",
+            "webSelector": "input",
+            "properties": [
+              "rect",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 0,
+        "note": "Mobile/Desktop controls одинаковы. Local container≤330 переносит только подпись. Source score disabled сохраняет ink без opacity; format disabled muted/opacity0.4.",
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "desktop-input-intermediate",
+        "title": "desktop · input · intermediate",
+        "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1
+        },
+        "webSelector": "#c-stepper .kit-component:nth-child(2) .kit-component-states .kit-specimen:nth-child(2) .flow-ft-field",
+        "controls": [
+          {
+            "id": "label",
+            "webSelector": ".flow-field-label",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          },
+          {
+            "id": "pill",
+            "webSelector": ".flow-ft-stepper,.result-score-stepper",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "button-0",
+            "webSelector": "button:first-child",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "icon-0",
+            "webSelector": "button:first-child .icon",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "button-1",
+            "webSelector": "button:last-child",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "icon-1",
+            "webSelector": "button:last-child .icon",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "value",
+            "webSelector": "input",
+            "properties": [
+              "rect",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 0,
+        "note": "Mobile/Desktop controls одинаковы. Local container≤330 переносит только подпись. Source score disabled сохраняет ink без opacity; format disabled muted/opacity0.4.",
+        "freezeMilliseconds": 0
+      },
+      {
+        "id": "desktop-input-maximum",
+        "title": "desktop · input · maximum",
+        "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1
+        },
+        "webSelector": "#c-stepper .kit-component:nth-child(2) .kit-component-states .kit-specimen:nth-child(3) .flow-ft-field",
+        "controls": [
+          {
+            "id": "label",
+            "webSelector": ".flow-field-label",
+            "properties": [
+              "width",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": true
+          },
+          {
+            "id": "pill",
+            "webSelector": ".flow-ft-stepper,.result-score-stepper",
+            "properties": [
+              "rect",
+              "background",
+              "radius"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "button-0",
+            "webSelector": "button:first-child",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "icon-0",
+            "webSelector": "button:first-child .icon",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "button-1",
+            "webSelector": "button:last-child",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "icon-1",
+            "webSelector": "button:last-child .icon",
+            "properties": [
+              "rect"
+            ],
+            "textRange": false
+          },
+          {
+            "id": "value",
+            "webSelector": "input",
+            "properties": [
+              "rect",
+              "fontSize",
+              "fontWeight",
+              "color",
+              "baseline"
+            ],
+            "textRange": false
+          }
+        ],
+        "capturePadding": 0,
+        "note": "Mobile/Desktop controls одинаковы. Local container≤330 переносит только подпись. Source score disabled сохраняет ink без opacity; format disabled muted/opacity0.4.",
+        "freezeMilliseconds": 0
+      }
+    ]
+  },
+  "results": [
+    {
+      "id": "mobile-output-minimum",
+      "title": "mobile · output · minimum",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "mobile-output-minimum",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 85
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 2,
+              "width": 109.390625,
+              "height": 17
+            },
+            "width": 109.390625,
+            "height": 17,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 16,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "pill": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 160,
+              "height": 56
+            },
+            "width": 160,
+            "height": 56,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#232730ff",
+            "radius": 28,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 46,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "button-0": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#969eacff",
+            "background": "#00000000",
+            "radius": 28,
+            "borderWidth": 0,
+            "borderColor": "#969eacff",
+            "baseline": 62,
+            "opacity": 0.4,
+            "strokeWidth": 1
+          },
+          "icon-0": {
+            "rect": {
+              "x": 16,
+              "y": 45,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#969eacff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#969eacff",
+            "baseline": 73.0999984741211,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          },
+          "button-1": {
+            "rect": {
+              "x": 104,
+              "y": 29,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 28,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 62,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "icon-1": {
+            "rect": {
+              "x": 120,
+              "y": 45,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 66.0999984741211,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          },
+          "value": {
+            "rect": {
+              "x": 64.875,
+              "y": 47,
+              "width": 30.234375,
+              "height": 20
+            },
+            "width": 30.234375,
+            "height": 20,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 63,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 316,
+          "height": 85
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/mobile-output-minimum.png"
+        }
+      },
+      "native": {
+        "id": "mobile-output-minimum",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 85
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 109.388671875,
+              "height": 21
+            },
+            "width": 109.388671875,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "baseline": 15.5927734375
+          },
+          "pill": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 160,
+              "height": 56
+            },
+            "width": 160,
+            "height": 56,
+            "background": "#232730ff",
+            "radius": 28,
+            "borderWidth": 0,
+            "borderColor": "#00000000"
+          },
+          "button-0": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56
+          },
+          "icon-0": {
+            "rect": {
+              "x": 16,
+              "y": 45,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          },
+          "button-1": {
+            "rect": {
+              "x": 104,
+              "y": 29,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56
+          },
+          "icon-1": {
+            "rect": {
+              "x": 120,
+              "y": 45,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          },
+          "value": {
+            "rect": {
+              "x": 64.88292694091797,
+              "y": 45,
+              "width": 30.234146118164062,
+              "height": 24
+            },
+            "width": 30.234146118164062,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "baseline": 62.8203125
+          }
+        },
+        "raster": {
+          "changedPixels": 0,
+          "meanChannelDelta": 0.02150657731447009
+        },
+        "artifacts": {
+          "image": "flutter/mobile-output-minimum.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/mobile-output-minimum.png",
+        "flutter": "flutter/mobile-output-minimum.png",
+        "overlay": "overlay/mobile-output-minimum.png",
+        "diff": "diff/mobile-output-minimum.png"
+      },
+      "raster": {
+        "changedPixels": 0,
+        "meanChannelDelta": 0.02150657731447009
+      }
+    },
+    {
+      "id": "mobile-output-intermediate",
+      "title": "mobile · output · intermediate",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "mobile-output-intermediate",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 85
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 2,
+              "width": 109.390625,
+              "height": 17
+            },
+            "width": 109.390625,
+            "height": 17,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 16,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "pill": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 160,
+              "height": 56
+            },
+            "width": 160,
+            "height": 56,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#232730ff",
+            "radius": 28,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 46,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "button-0": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 28,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 62,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "icon-0": {
+            "rect": {
+              "x": 16,
+              "y": 45,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 73.0999984741211,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          },
+          "button-1": {
+            "rect": {
+              "x": 104,
+              "y": 29,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 28,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 62,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "icon-1": {
+            "rect": {
+              "x": 120,
+              "y": 45,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 66.0999984741211,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          },
+          "value": {
+            "rect": {
+              "x": 64.875,
+              "y": 47,
+              "width": 30.234375,
+              "height": 20
+            },
+            "width": 30.234375,
+            "height": 20,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 63,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 316,
+          "height": 85
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/mobile-output-intermediate.png"
+        }
+      },
+      "native": {
+        "id": "mobile-output-intermediate",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 85
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 109.388671875,
+              "height": 21
+            },
+            "width": 109.388671875,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "baseline": 15.5927734375
+          },
+          "pill": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 160,
+              "height": 56
+            },
+            "width": 160,
+            "height": 56,
+            "background": "#232730ff",
+            "radius": 28,
+            "borderWidth": 0,
+            "borderColor": "#00000000"
+          },
+          "button-0": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56
+          },
+          "icon-0": {
+            "rect": {
+              "x": 16,
+              "y": 45,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          },
+          "button-1": {
+            "rect": {
+              "x": 104,
+              "y": 29,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56
+          },
+          "icon-1": {
+            "rect": {
+              "x": 120,
+              "y": 45,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          },
+          "value": {
+            "rect": {
+              "x": 64.88292694091797,
+              "y": 45,
+              "width": 30.234146118164062,
+              "height": 24
+            },
+            "width": 30.234146118164062,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "baseline": 62.8203125
+          }
+        },
+        "raster": {
+          "changedPixels": 0,
+          "meanChannelDelta": 0.02093571605857533
+        },
+        "artifacts": {
+          "image": "flutter/mobile-output-intermediate.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/mobile-output-intermediate.png",
+        "flutter": "flutter/mobile-output-intermediate.png",
+        "overlay": "overlay/mobile-output-intermediate.png",
+        "diff": "diff/mobile-output-intermediate.png"
+      },
+      "raster": {
+        "changedPixels": 0,
+        "meanChannelDelta": 0.02093571605857533
+      }
+    },
+    {
+      "id": "mobile-output-maximum",
+      "title": "mobile · output · maximum",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "mobile-output-maximum",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 85
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 2,
+              "width": 109.390625,
+              "height": 17
+            },
+            "width": 109.390625,
+            "height": 17,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 16,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "pill": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 160,
+              "height": 56
+            },
+            "width": 160,
+            "height": 56,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#232730ff",
+            "radius": 28,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 46,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "button-0": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 28,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 62,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "icon-0": {
+            "rect": {
+              "x": 16,
+              "y": 45,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 73.0999984741211,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          },
+          "button-1": {
+            "rect": {
+              "x": 104,
+              "y": 29,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#969eacff",
+            "background": "#00000000",
+            "radius": 28,
+            "borderWidth": 0,
+            "borderColor": "#969eacff",
+            "baseline": 62,
+            "opacity": 0.4,
+            "strokeWidth": 1
+          },
+          "icon-1": {
+            "rect": {
+              "x": 120,
+              "y": 45,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#969eacff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#969eacff",
+            "baseline": 66.0999984741211,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          },
+          "value": {
+            "rect": {
+              "x": 59.703125,
+              "y": 47,
+              "width": 40.59375,
+              "height": 20
+            },
+            "width": 40.59375,
+            "height": 20,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 63,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 316,
+          "height": 85
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/mobile-output-maximum.png"
+        }
+      },
+      "native": {
+        "id": "mobile-output-maximum",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 85
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 109.388671875,
+              "height": 21
+            },
+            "width": 109.388671875,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "baseline": 15.5927734375
+          },
+          "pill": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 160,
+              "height": 56
+            },
+            "width": 160,
+            "height": 56,
+            "background": "#232730ff",
+            "radius": 28,
+            "borderWidth": 0,
+            "borderColor": "#00000000"
+          },
+          "button-0": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56
+          },
+          "icon-0": {
+            "rect": {
+              "x": 16,
+              "y": 45,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          },
+          "button-1": {
+            "rect": {
+              "x": 104,
+              "y": 29,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56
+          },
+          "icon-1": {
+            "rect": {
+              "x": 120,
+              "y": 45,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          },
+          "value": {
+            "rect": {
+              "x": 59.708900451660156,
+              "y": 45,
+              "width": 40.58219909667969,
+              "height": 24
+            },
+            "width": 40.58219909667969,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "baseline": 62.8203125
+          }
+        },
+        "raster": {
+          "changedPixels": 0,
+          "meanChannelDelta": 0.021531397369074213
+        },
+        "artifacts": {
+          "image": "flutter/mobile-output-maximum.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/mobile-output-maximum.png",
+        "flutter": "flutter/mobile-output-maximum.png",
+        "overlay": "overlay/mobile-output-maximum.png",
+        "diff": "diff/mobile-output-maximum.png"
+      },
+      "raster": {
+        "changedPixels": 0,
+        "meanChannelDelta": 0.021531397369074213
+      }
+    },
+    {
+      "id": "mobile-input-minimum",
+      "title": "mobile · input · minimum",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "mobile-input-minimum",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 85
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 2,
+              "width": 94.015625,
+              "height": 17
+            },
+            "width": 94.015625,
+            "height": 17,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 16,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "pill": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 144,
+              "height": 56
+            },
+            "width": 144,
+            "height": 56,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#232730ff",
+            "radius": 28,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 46,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "button-0": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 28,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 62,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "icon-0": {
+            "rect": {
+              "x": 16,
+              "y": 45,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 73.0999984741211,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          },
+          "button-1": {
+            "rect": {
+              "x": 88,
+              "y": 29,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 28,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 62,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "icon-1": {
+            "rect": {
+              "x": 104,
+              "y": 45,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 66.0999984741211,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          },
+          "value": {
+            "rect": {
+              "x": 56,
+              "y": 45,
+              "width": 32,
+              "height": 24
+            },
+            "width": 32,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 63,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 316,
+          "height": 85
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/mobile-input-minimum.png"
+        }
+      },
+      "native": {
+        "id": "mobile-input-minimum",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 85
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 94.0009765625,
+              "height": 21
+            },
+            "width": 94.0009765625,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "baseline": 15.5927734375
+          },
+          "pill": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 144,
+              "height": 56
+            },
+            "width": 144,
+            "height": 56,
+            "background": "#232730ff",
+            "radius": 28,
+            "borderWidth": 0,
+            "borderColor": "#00000000"
+          },
+          "button-0": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56
+          },
+          "icon-0": {
+            "rect": {
+              "x": 16,
+              "y": 45,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          },
+          "button-1": {
+            "rect": {
+              "x": 88,
+              "y": 29,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56
+          },
+          "icon-1": {
+            "rect": {
+              "x": 104,
+              "y": 45,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          },
+          "value": {
+            "rect": {
+              "x": 56,
+              "y": 45,
+              "width": 32,
+              "height": 24
+            },
+            "width": 10.348052978515625,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "baseline": 62.8203125
+          }
+        },
+        "raster": {
+          "changedPixels": 108,
+          "meanChannelDelta": 0.46815586994291386
+        },
+        "artifacts": {
+          "image": "flutter/mobile-input-minimum.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/mobile-input-minimum.png",
+        "flutter": "flutter/mobile-input-minimum.png",
+        "overlay": "overlay/mobile-input-minimum.png",
+        "diff": "diff/mobile-input-minimum.png"
+      },
+      "raster": {
+        "changedPixels": 108,
+        "meanChannelDelta": 0.46815586994291386
+      }
+    },
+    {
+      "id": "mobile-input-intermediate",
+      "title": "mobile · input · intermediate",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "mobile-input-intermediate",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 85
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 2,
+              "width": 94.015625,
+              "height": 17
+            },
+            "width": 94.015625,
+            "height": 17,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 16,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "pill": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 144,
+              "height": 56
+            },
+            "width": 144,
+            "height": 56,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#232730ff",
+            "radius": 28,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 46,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "button-0": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 28,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 62,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "icon-0": {
+            "rect": {
+              "x": 16,
+              "y": 45,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 73.0999984741211,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          },
+          "button-1": {
+            "rect": {
+              "x": 88,
+              "y": 29,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 28,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 62,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "icon-1": {
+            "rect": {
+              "x": 104,
+              "y": 45,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 66.0999984741211,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          },
+          "value": {
+            "rect": {
+              "x": 56,
+              "y": 45,
+              "width": 32,
+              "height": 24
+            },
+            "width": 32,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 63,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 316,
+          "height": 85
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/mobile-input-intermediate.png"
+        }
+      },
+      "native": {
+        "id": "mobile-input-intermediate",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 85
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 94.0009765625,
+              "height": 21
+            },
+            "width": 94.0009765625,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "baseline": 15.5927734375
+          },
+          "pill": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 144,
+              "height": 56
+            },
+            "width": 144,
+            "height": 56,
+            "background": "#232730ff",
+            "radius": 28,
+            "borderWidth": 0,
+            "borderColor": "#00000000"
+          },
+          "button-0": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56
+          },
+          "icon-0": {
+            "rect": {
+              "x": 16,
+              "y": 45,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          },
+          "button-1": {
+            "rect": {
+              "x": 88,
+              "y": 29,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56
+          },
+          "icon-1": {
+            "rect": {
+              "x": 104,
+              "y": 45,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          },
+          "value": {
+            "rect": {
+              "x": 56,
+              "y": 45,
+              "width": 32,
+              "height": 24
+            },
+            "width": 10.348052978515625,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "baseline": 62.8203125
+          }
+        },
+        "raster": {
+          "changedPixels": 68,
+          "meanChannelDelta": 0.3107843137254902
+        },
+        "artifacts": {
+          "image": "flutter/mobile-input-intermediate.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/mobile-input-intermediate.png",
+        "flutter": "flutter/mobile-input-intermediate.png",
+        "overlay": "overlay/mobile-input-intermediate.png",
+        "diff": "diff/mobile-input-intermediate.png"
+      },
+      "raster": {
+        "changedPixels": 68,
+        "meanChannelDelta": 0.3107843137254902
+      }
+    },
+    {
+      "id": "mobile-input-maximum",
+      "title": "mobile · input · maximum",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "mobile-input-maximum",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 85
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 2,
+              "width": 94.015625,
+              "height": 17
+            },
+            "width": 94.015625,
+            "height": 17,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 16,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "pill": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 144,
+              "height": 56
+            },
+            "width": 144,
+            "height": 56,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#232730ff",
+            "radius": 28,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 46,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "button-0": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 28,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 62,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "icon-0": {
+            "rect": {
+              "x": 16,
+              "y": 45,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 73.0999984741211,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          },
+          "button-1": {
+            "rect": {
+              "x": 88,
+              "y": 29,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 28,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 62,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "icon-1": {
+            "rect": {
+              "x": 104,
+              "y": 45,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 66.0999984741211,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          },
+          "value": {
+            "rect": {
+              "x": 56,
+              "y": 45,
+              "width": 32,
+              "height": 24
+            },
+            "width": 32,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 63,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 316,
+          "height": 85
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/mobile-input-maximum.png"
+        }
+      },
+      "native": {
+        "id": "mobile-input-maximum",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 316,
+          "height": 85
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 94.0009765625,
+              "height": 21
+            },
+            "width": 94.0009765625,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "baseline": 15.5927734375
+          },
+          "pill": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 144,
+              "height": 56
+            },
+            "width": 144,
+            "height": 56,
+            "background": "#232730ff",
+            "radius": 28,
+            "borderWidth": 0,
+            "borderColor": "#00000000"
+          },
+          "button-0": {
+            "rect": {
+              "x": 0,
+              "y": 29,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56
+          },
+          "icon-0": {
+            "rect": {
+              "x": 16,
+              "y": 45,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          },
+          "button-1": {
+            "rect": {
+              "x": 88,
+              "y": 29,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56
+          },
+          "icon-1": {
+            "rect": {
+              "x": 104,
+              "y": 45,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          },
+          "value": {
+            "rect": {
+              "x": 56,
+              "y": 45,
+              "width": 32,
+              "height": 24
+            },
+            "width": 10.348052978515625,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "baseline": 62.8203125
+          }
+        },
+        "raster": {
+          "changedPixels": 78,
+          "meanChannelDelta": 0.33507073715562175
+        },
+        "artifacts": {
+          "image": "flutter/mobile-input-maximum.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/mobile-input-maximum.png",
+        "flutter": "flutter/mobile-input-maximum.png",
+        "overlay": "overlay/mobile-input-maximum.png",
+        "diff": "diff/mobile-input-maximum.png"
+      },
+      "raster": {
+        "changedPixels": 78,
+        "meanChannelDelta": 0.33507073715562175
+      }
+    },
+    {
+      "id": "desktop-output-minimum",
+      "title": "desktop · output · minimum",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "desktop-output-minimum",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 395.328125,
+          "height": 56
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 19.5,
+              "width": 109.390625,
+              "height": 17
+            },
+            "width": 109.390625,
+            "height": 17,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 33.5,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "pill": {
+            "rect": {
+              "x": 235.328125,
+              "y": 0,
+              "width": 160,
+              "height": 56
+            },
+            "width": 160,
+            "height": 56,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#232730ff",
+            "radius": 28,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 17,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "button-0": {
+            "rect": {
+              "x": 235.328125,
+              "y": 0,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#969eacff",
+            "background": "#00000000",
+            "radius": 28,
+            "borderWidth": 0,
+            "borderColor": "#969eacff",
+            "baseline": 33,
+            "opacity": 0.4,
+            "strokeWidth": 1
+          },
+          "icon-0": {
+            "rect": {
+              "x": 251.328125,
+              "y": 16,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#969eacff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#969eacff",
+            "baseline": 44.10000038146973,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          },
+          "button-1": {
+            "rect": {
+              "x": 339.328125,
+              "y": 0,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 28,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 33,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "icon-1": {
+            "rect": {
+              "x": 355.328125,
+              "y": 16,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 37.10000038146973,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          },
+          "value": {
+            "rect": {
+              "x": 300.203125,
+              "y": 18,
+              "width": 30.234375,
+              "height": 20
+            },
+            "width": 30.234375,
+            "height": 20,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 34,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 395.328125,
+          "height": 56
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/desktop-output-minimum.png"
+        }
+      },
+      "native": {
+        "id": "desktop-output-minimum",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 395.328125,
+          "height": 56
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 17.5,
+              "width": 109.388671875,
+              "height": 21
+            },
+            "width": 109.388671875,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "baseline": 33.0927734375
+          },
+          "pill": {
+            "rect": {
+              "x": 235.328125,
+              "y": 0,
+              "width": 160,
+              "height": 56
+            },
+            "width": 160,
+            "height": 56,
+            "background": "#232730ff",
+            "radius": 28,
+            "borderWidth": 0,
+            "borderColor": "#00000000"
+          },
+          "button-0": {
+            "rect": {
+              "x": 235.328125,
+              "y": 0,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56
+          },
+          "icon-0": {
+            "rect": {
+              "x": 251.328125,
+              "y": 16,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          },
+          "button-1": {
+            "rect": {
+              "x": 339.328125,
+              "y": 0,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56
+          },
+          "icon-1": {
+            "rect": {
+              "x": 355.328125,
+              "y": 16,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          },
+          "value": {
+            "rect": {
+              "x": 300.21105194091797,
+              "y": 16,
+              "width": 30.234146118164062,
+              "height": 24
+            },
+            "width": 30.234146118164062,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "baseline": 33.8203125
+          }
+        },
+        "raster": {
+          "changedPixels": 205,
+          "meanChannelDelta": 0.17912758537758539
+        },
+        "artifacts": {
+          "image": "flutter/desktop-output-minimum.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/desktop-output-minimum.png",
+        "flutter": "flutter/desktop-output-minimum.png",
+        "overlay": "overlay/desktop-output-minimum.png",
+        "diff": "diff/desktop-output-minimum.png"
+      },
+      "raster": {
+        "changedPixels": 205,
+        "meanChannelDelta": 0.17912758537758539
+      }
+    },
+    {
+      "id": "desktop-output-intermediate",
+      "title": "desktop · output · intermediate",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "desktop-output-intermediate",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 395.328125,
+          "height": 56
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 19.5,
+              "width": 109.390625,
+              "height": 17
+            },
+            "width": 109.390625,
+            "height": 17,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 33.5,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "pill": {
+            "rect": {
+              "x": 235.328125,
+              "y": 0,
+              "width": 160,
+              "height": 56
+            },
+            "width": 160,
+            "height": 56,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#232730ff",
+            "radius": 28,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 17,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "button-0": {
+            "rect": {
+              "x": 235.328125,
+              "y": 0,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 28,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 33,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "icon-0": {
+            "rect": {
+              "x": 251.328125,
+              "y": 16,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 44.10000038146973,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          },
+          "button-1": {
+            "rect": {
+              "x": 339.328125,
+              "y": 0,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 28,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 33,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "icon-1": {
+            "rect": {
+              "x": 355.328125,
+              "y": 16,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 37.10000038146973,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          },
+          "value": {
+            "rect": {
+              "x": 300.203125,
+              "y": 18,
+              "width": 30.234375,
+              "height": 20
+            },
+            "width": 30.234375,
+            "height": 20,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 34,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 395.328125,
+          "height": 56
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/desktop-output-intermediate.png"
+        }
+      },
+      "native": {
+        "id": "desktop-output-intermediate",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 395.328125,
+          "height": 56
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 17.5,
+              "width": 109.388671875,
+              "height": 21
+            },
+            "width": 109.388671875,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "baseline": 33.0927734375
+          },
+          "pill": {
+            "rect": {
+              "x": 235.328125,
+              "y": 0,
+              "width": 160,
+              "height": 56
+            },
+            "width": 160,
+            "height": 56,
+            "background": "#232730ff",
+            "radius": 28,
+            "borderWidth": 0,
+            "borderColor": "#00000000"
+          },
+          "button-0": {
+            "rect": {
+              "x": 235.328125,
+              "y": 0,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56
+          },
+          "icon-0": {
+            "rect": {
+              "x": 251.328125,
+              "y": 16,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          },
+          "button-1": {
+            "rect": {
+              "x": 339.328125,
+              "y": 0,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56
+          },
+          "icon-1": {
+            "rect": {
+              "x": 355.328125,
+              "y": 16,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          },
+          "value": {
+            "rect": {
+              "x": 300.21105194091797,
+              "y": 16,
+              "width": 30.234146118164062,
+              "height": 24
+            },
+            "width": 30.234146118164062,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "baseline": 33.8203125
+          }
+        },
+        "raster": {
+          "changedPixels": 207,
+          "meanChannelDelta": 0.18781565656565657
+        },
+        "artifacts": {
+          "image": "flutter/desktop-output-intermediate.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/desktop-output-intermediate.png",
+        "flutter": "flutter/desktop-output-intermediate.png",
+        "overlay": "overlay/desktop-output-intermediate.png",
+        "diff": "diff/desktop-output-intermediate.png"
+      },
+      "raster": {
+        "changedPixels": 207,
+        "meanChannelDelta": 0.18781565656565657
+      }
+    },
+    {
+      "id": "desktop-output-maximum",
+      "title": "desktop · output · maximum",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "desktop-output-maximum",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 395.328125,
+          "height": 56
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 19.5,
+              "width": 109.390625,
+              "height": 17
+            },
+            "width": 109.390625,
+            "height": 17,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 33.5,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "pill": {
+            "rect": {
+              "x": 235.328125,
+              "y": 0,
+              "width": 160,
+              "height": 56
+            },
+            "width": 160,
+            "height": 56,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#232730ff",
+            "radius": 28,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 17,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "button-0": {
+            "rect": {
+              "x": 235.328125,
+              "y": 0,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 28,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 33,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "icon-0": {
+            "rect": {
+              "x": 251.328125,
+              "y": 16,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 44.10000038146973,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          },
+          "button-1": {
+            "rect": {
+              "x": 339.328125,
+              "y": 0,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#969eacff",
+            "background": "#00000000",
+            "radius": 28,
+            "borderWidth": 0,
+            "borderColor": "#969eacff",
+            "baseline": 33,
+            "opacity": 0.4,
+            "strokeWidth": 1
+          },
+          "icon-1": {
+            "rect": {
+              "x": 355.328125,
+              "y": 16,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#969eacff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#969eacff",
+            "baseline": 37.10000038146973,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          },
+          "value": {
+            "rect": {
+              "x": 295.03125,
+              "y": 18,
+              "width": 40.59375,
+              "height": 20
+            },
+            "width": 40.59375,
+            "height": 20,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 34,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 395.328125,
+          "height": 56
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/desktop-output-maximum.png"
+        }
+      },
+      "native": {
+        "id": "desktop-output-maximum",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 395.328125,
+          "height": 56
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 17.5,
+              "width": 109.388671875,
+              "height": 21
+            },
+            "width": 109.388671875,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "baseline": 33.0927734375
+          },
+          "pill": {
+            "rect": {
+              "x": 235.328125,
+              "y": 0,
+              "width": 160,
+              "height": 56
+            },
+            "width": 160,
+            "height": 56,
+            "background": "#232730ff",
+            "radius": 28,
+            "borderWidth": 0,
+            "borderColor": "#00000000"
+          },
+          "button-0": {
+            "rect": {
+              "x": 235.328125,
+              "y": 0,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56
+          },
+          "icon-0": {
+            "rect": {
+              "x": 251.328125,
+              "y": 16,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          },
+          "button-1": {
+            "rect": {
+              "x": 339.328125,
+              "y": 0,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56
+          },
+          "icon-1": {
+            "rect": {
+              "x": 355.328125,
+              "y": 16,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          },
+          "value": {
+            "rect": {
+              "x": 295.03702545166016,
+              "y": 16,
+              "width": 40.58219909667969,
+              "height": 24
+            },
+            "width": 40.58219909667969,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "baseline": 33.8203125
+          }
+        },
+        "raster": {
+          "changedPixels": 203,
+          "meanChannelDelta": 0.11656746031746032
+        },
+        "artifacts": {
+          "image": "flutter/desktop-output-maximum.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/desktop-output-maximum.png",
+        "flutter": "flutter/desktop-output-maximum.png",
+        "overlay": "overlay/desktop-output-maximum.png",
+        "diff": "diff/desktop-output-maximum.png"
+      },
+      "raster": {
+        "changedPixels": 203,
+        "meanChannelDelta": 0.11656746031746032
+      }
+    },
+    {
+      "id": "desktop-input-minimum",
+      "title": "desktop · input · minimum",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "desktop-input-minimum",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 395.328125,
+          "height": 56
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 19.5,
+              "width": 94.015625,
+              "height": 17
+            },
+            "width": 94.015625,
+            "height": 17,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 33.5,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "pill": {
+            "rect": {
+              "x": 251.328125,
+              "y": 0,
+              "width": 144,
+              "height": 56
+            },
+            "width": 144,
+            "height": 56,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#232730ff",
+            "radius": 28,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 17,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "button-0": {
+            "rect": {
+              "x": 251.328125,
+              "y": 0,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 28,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 33,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "icon-0": {
+            "rect": {
+              "x": 267.328125,
+              "y": 16,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 44.10000038146973,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          },
+          "button-1": {
+            "rect": {
+              "x": 339.328125,
+              "y": 0,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 28,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 33,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "icon-1": {
+            "rect": {
+              "x": 355.328125,
+              "y": 16,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 37.10000038146973,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          },
+          "value": {
+            "rect": {
+              "x": 307.328125,
+              "y": 16,
+              "width": 32,
+              "height": 24
+            },
+            "width": 32,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 34,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 395.328125,
+          "height": 56
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/desktop-input-minimum.png"
+        }
+      },
+      "native": {
+        "id": "desktop-input-minimum",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 395.328125,
+          "height": 56
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 17.5,
+              "width": 94.0009765625,
+              "height": 21
+            },
+            "width": 94.0009765625,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "baseline": 33.0927734375
+          },
+          "pill": {
+            "rect": {
+              "x": 251.328125,
+              "y": 0,
+              "width": 144,
+              "height": 56
+            },
+            "width": 144,
+            "height": 56,
+            "background": "#232730ff",
+            "radius": 28,
+            "borderWidth": 0,
+            "borderColor": "#00000000"
+          },
+          "button-0": {
+            "rect": {
+              "x": 251.328125,
+              "y": 0,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56
+          },
+          "icon-0": {
+            "rect": {
+              "x": 267.328125,
+              "y": 16,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          },
+          "button-1": {
+            "rect": {
+              "x": 339.328125,
+              "y": 0,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56
+          },
+          "icon-1": {
+            "rect": {
+              "x": 355.328125,
+              "y": 16,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          },
+          "value": {
+            "rect": {
+              "x": 307.328125,
+              "y": 16,
+              "width": 32,
+              "height": 24
+            },
+            "width": 10.348052978515625,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "baseline": 33.8203125
+          }
+        },
+        "raster": {
+          "changedPixels": 316,
+          "meanChannelDelta": 0.7284752284752285
+        },
+        "artifacts": {
+          "image": "flutter/desktop-input-minimum.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/desktop-input-minimum.png",
+        "flutter": "flutter/desktop-input-minimum.png",
+        "overlay": "overlay/desktop-input-minimum.png",
+        "diff": "diff/desktop-input-minimum.png"
+      },
+      "raster": {
+        "changedPixels": 316,
+        "meanChannelDelta": 0.7284752284752285
+      }
+    },
+    {
+      "id": "desktop-input-intermediate",
+      "title": "desktop · input · intermediate",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "desktop-input-intermediate",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 395.328125,
+          "height": 56
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 19.5,
+              "width": 94.015625,
+              "height": 17
+            },
+            "width": 94.015625,
+            "height": 17,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 33.5,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "pill": {
+            "rect": {
+              "x": 251.328125,
+              "y": 0,
+              "width": 144,
+              "height": 56
+            },
+            "width": 144,
+            "height": 56,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#232730ff",
+            "radius": 28,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 17,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "button-0": {
+            "rect": {
+              "x": 251.328125,
+              "y": 0,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 28,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 33,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "icon-0": {
+            "rect": {
+              "x": 267.328125,
+              "y": 16,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 44.10000038146973,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          },
+          "button-1": {
+            "rect": {
+              "x": 339.328125,
+              "y": 0,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 28,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 33,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "icon-1": {
+            "rect": {
+              "x": 355.328125,
+              "y": 16,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 37.10000038146973,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          },
+          "value": {
+            "rect": {
+              "x": 307.328125,
+              "y": 16,
+              "width": 32,
+              "height": 24
+            },
+            "width": 32,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 34,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 395.328125,
+          "height": 56
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/desktop-input-intermediate.png"
+        }
+      },
+      "native": {
+        "id": "desktop-input-intermediate",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 395.328125,
+          "height": 56
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 17.5,
+              "width": 94.0009765625,
+              "height": 21
+            },
+            "width": 94.0009765625,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "baseline": 33.0927734375
+          },
+          "pill": {
+            "rect": {
+              "x": 251.328125,
+              "y": 0,
+              "width": 144,
+              "height": 56
+            },
+            "width": 144,
+            "height": 56,
+            "background": "#232730ff",
+            "radius": 28,
+            "borderWidth": 0,
+            "borderColor": "#00000000"
+          },
+          "button-0": {
+            "rect": {
+              "x": 251.328125,
+              "y": 0,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56
+          },
+          "icon-0": {
+            "rect": {
+              "x": 267.328125,
+              "y": 16,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          },
+          "button-1": {
+            "rect": {
+              "x": 339.328125,
+              "y": 0,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56
+          },
+          "icon-1": {
+            "rect": {
+              "x": 355.328125,
+              "y": 16,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          },
+          "value": {
+            "rect": {
+              "x": 307.328125,
+              "y": 16,
+              "width": 32,
+              "height": 24
+            },
+            "width": 10.348052978515625,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "baseline": 33.8203125
+          }
+        },
+        "raster": {
+          "changedPixels": 265,
+          "meanChannelDelta": 0.519164862914863
+        },
+        "artifacts": {
+          "image": "flutter/desktop-input-intermediate.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/desktop-input-intermediate.png",
+        "flutter": "flutter/desktop-input-intermediate.png",
+        "overlay": "overlay/desktop-input-intermediate.png",
+        "diff": "diff/desktop-input-intermediate.png"
+      },
+      "raster": {
+        "changedPixels": 265,
+        "meanChannelDelta": 0.519164862914863
+      }
+    },
+    {
+      "id": "desktop-input-maximum",
+      "title": "desktop · input · maximum",
+      "expectedFailure": null,
+      "status": "pass",
+      "findings": [],
+      "web": {
+        "id": "desktop-input-maximum",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 395.328125,
+          "height": 56
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 19.5,
+              "width": 94.015625,
+              "height": 17
+            },
+            "width": 94.015625,
+            "height": 17,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#b8bec9ff",
+            "baseline": 33.5,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "pill": {
+            "rect": {
+              "x": 251.328125,
+              "y": 0,
+              "width": 144,
+              "height": 56
+            },
+            "width": 144,
+            "height": 56,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#232730ff",
+            "radius": 28,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 17,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "button-0": {
+            "rect": {
+              "x": 251.328125,
+              "y": 0,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 28,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 33,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "icon-0": {
+            "rect": {
+              "x": 267.328125,
+              "y": 16,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 44.10000038146973,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          },
+          "button-1": {
+            "rect": {
+              "x": 339.328125,
+              "y": 0,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 28,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 33,
+            "opacity": 1,
+            "strokeWidth": 1
+          },
+          "icon-1": {
+            "rect": {
+              "x": 355.328125,
+              "y": 16,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24,
+            "fontSize": 18,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 37.10000038146973,
+            "opacity": 1,
+            "strokeWidth": 1.8
+          },
+          "value": {
+            "rect": {
+              "x": 307.328125,
+              "y": 16,
+              "width": 32,
+              "height": 24
+            },
+            "width": 32,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "background": "#00000000",
+            "radius": 0,
+            "borderWidth": 0,
+            "borderColor": "#f4f2eeff",
+            "baseline": 34,
+            "opacity": 1,
+            "strokeWidth": 1
+          }
+        },
+        "originalRoot": {
+          "width": 395.328125,
+          "height": 56
+        },
+        "pageX": 0,
+        "pageY": 0,
+        "artifacts": {
+          "image": "web/desktop-input-maximum.png"
+        }
+      },
+      "native": {
+        "id": "desktop-input-maximum",
+        "root": {
+          "x": 0,
+          "y": 0,
+          "width": 395.328125,
+          "height": 56
+        },
+        "controls": {
+          "label": {
+            "rect": {
+              "x": 0,
+              "y": 17.5,
+              "width": 94.0009765625,
+              "height": 21
+            },
+            "width": 94.0009765625,
+            "height": 21,
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 1.5,
+            "color": "#b8bec9ff",
+            "baseline": 33.0927734375
+          },
+          "pill": {
+            "rect": {
+              "x": 251.328125,
+              "y": 0,
+              "width": 144,
+              "height": 56
+            },
+            "width": 144,
+            "height": 56,
+            "background": "#232730ff",
+            "radius": 28,
+            "borderWidth": 0,
+            "borderColor": "#00000000"
+          },
+          "button-0": {
+            "rect": {
+              "x": 251.328125,
+              "y": 0,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56
+          },
+          "icon-0": {
+            "rect": {
+              "x": 267.328125,
+              "y": 16,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          },
+          "button-1": {
+            "rect": {
+              "x": 339.328125,
+              "y": 0,
+              "width": 56,
+              "height": 56
+            },
+            "width": 56,
+            "height": 56
+          },
+          "icon-1": {
+            "rect": {
+              "x": 355.328125,
+              "y": 16,
+              "width": 24,
+              "height": 24
+            },
+            "width": 24,
+            "height": 24
+          },
+          "value": {
+            "rect": {
+              "x": 307.328125,
+              "y": 16,
+              "width": 32,
+              "height": 24
+            },
+            "width": 10.348052978515625,
+            "height": 24,
+            "fontSize": 16,
+            "fontWeight": 600,
+            "lineHeight": 1.5,
+            "color": "#f4f2eeff",
+            "baseline": 33.8203125
+          }
+        },
+        "raster": {
+          "changedPixels": 286,
+          "meanChannelDelta": 0.5651605339105339
+        },
+        "artifacts": {
+          "image": "flutter/desktop-input-maximum.png"
+        }
+      },
+      "artifacts": {
+        "web": "web/desktop-input-maximum.png",
+        "flutter": "flutter/desktop-input-maximum.png",
+        "overlay": "overlay/desktop-input-maximum.png",
+        "diff": "diff/desktop-input-maximum.png"
+      },
+      "raster": {
+        "changedPixels": 286,
+        "meanChannelDelta": 0.5651605339105339
+      }
+    }
+  ],
+  "error": null,
+  "runId": "2026-11-07T19:52:08.878Z"
+}

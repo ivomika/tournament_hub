@@ -300,4 +300,30 @@ class FoundationLocalizationsRu extends FoundationLocalizations {
 
   @override
   String get segmentRr => 'RR';
+
+  @override
+  String get stepperFormatLabel => 'Основная сетка';
+
+  @override
+  String get stepperScoreLabel => 'Счёт Алексея';
+
+  @override
+  String stepperDecrease(String label) {
+    return 'Уменьшить $label';
+  }
+
+  @override
+  String stepperIncrease(String label) {
+    return 'Увеличить $label';
+  }
+
+  @override
+  String stepperFt(int value) {
+    return 'FT$value';
+  }
+
+  @override
+  String stepperNumber(int value) {
+    return '$value';
+  }
 }

@@ -2,11 +2,11 @@
 
 ## Статус и этап
 
-🟣 Запланирована
+✅ Выполнена
 
-- Mode: PLANNING_ONLY; будущая реализация — CODE в этом же номере.
+- Mode: CODE; будущая реализация — CODE в этом же номере.
 - TestGate: NOT_REQUIRED для заявленного visual/theme/layout scope. App state/controllers, вычисления, валидация, сериализация, данные и app routing исключены; при расширении scope классификация пересматривается до кода.
-- Stage: SPEC_READY.
+- Stage: DONE.
 - Specification:1; plan:0 (черновая последовательность ниже); test scenarios:1, NOT_RUN.
 - Реализация не начата; отдельного разрешения на логический gate этой постановкой не получено.
 
@@ -53,12 +53,12 @@ UI kit содержит mobile pill/desktop canvas, min state и явно вос
 
 ## Acceptance Criteria
 
-- [ ] AC-54.1: AppNumberStepper реализован/расширен в указанном scope; нет параллельной копии уже существующей сущности, ссылку на HTML-эталон можно проследить.
-- [ ] AC-54.2: все визуальные параметры приходят из собственной темы и общих токенов, API типизирован; raw styling/строковые discriminators/бизнес-правила отсутствуют.
-- [ ] AC-54.3: именованные Widgetbook use cases показывают реальный элемент: Минимум (decrease=null); середина; максимум (increase=null); обе стороны disabled; multi-digit value; keyboard/focus; mobile/desktop.
-- [ ] AC-54.4: Widgetbook и golden используют одинаковые fixtures/именованные builders/темы; native baselines созданы/сверены, diffs просмотрены, comparison после update выполнен без update.
-- [ ] AC-54.5: проверены constraints, значимые states, локализованные labels/semantics и content limits; совпадение visual identity Desktop/Mobile подтверждено, отклонения записаны.
-- [ ] AC-54.6: manifest/owning docs/scenario registrations актуальны; analyze/tests/architecture checks по impact PASS либо честный blocker с NOT_RUN. Результат показан пользователю.
+- [x] AC-54.1: AppNumberStepper реализован/расширен в указанном scope; нет параллельной копии уже существующей сущности, ссылку на HTML-эталон можно проследить.
+- [x] AC-54.2: все визуальные параметры приходят из собственной темы и общих токенов, API типизирован; raw styling/строковые discriminators/бизнес-правила отсутствуют.
+- [x] AC-54.3: именованные Widgetbook use cases показывают реальный элемент: Минимум (decrease=null); середина; максимум (increase=null); обе стороны disabled; multi-digit value; keyboard/focus; mobile/desktop.
+- [x] AC-54.4: Widgetbook и golden используют одинаковые fixtures/именованные builders/темы; native baselines созданы/сверены, diffs просмотрены, comparison после update выполнен без update.
+- [x] AC-54.5: проверены constraints, значимые states, локализованные labels/semantics и content limits; совпадение visual identity Desktop/Mobile подтверждено, отклонения записаны.
+- [x] AC-54.6: manifest/owning docs/scenario registrations актуальны; analyze/tests/architecture checks по impact PASS либо честный blocker с NOT_RUN. Результат показан пользователю.
 
 ## Ошибки и крайние случаи
 
@@ -117,10 +117,31 @@ UI kit содержит mobile pill/desktop canvas, min state и явно вос
 
 ## Final Verification
 
-- [ ] Все AC подтверждены при реализации; тесты фактически запущены.
-- [ ] Theme/scenarios/goldens/docs согласованы, визуальный результат показан.
-- [ ] Нет бизнес-логики/запрещённых dependencies/raw styling.
+- [x] Все AC подтверждены при реализации; тесты фактически запущены.
+- [x] Theme/scenarios/goldens/docs согласованы, визуальный результат показан.
+- [x] Нет бизнес-логики/запрещённых dependencies/raw styling.
 
 ## Итог
 
 Постановка создана; 🟣. Реализация и выполнение Flutter-проверок не начаты.
+
+### Новая очередь переноса после RosterRow
+
+Prompt пользователя (дословно):
+
+> выглядит хорошо. Обнови задачи по реализации компонентов, посмотри что уже выполнено, а что еще требует реализации и реализуй каждый компонент по новому flow делая коммит для каждого компонента без push
+
+Обязательный flow текущей итерации: сверить существующий runtime и итоговый CSS UI kit → определить реальные состояния/адаптацию и контрольные узлы → typed runtime WidgetTheme без primitives в consumers → scoped Widgetbook/shared fixture → декларация общего comparison pipeline → source/native/overlay/diff и native goldens → осмотр и исправление внутренних различий → повтор без update, tests/analyzer/architecture → отдельный локальный коммит компонента без push. Существующая реализация не дублируется. Наличие tokens в72 не равно выполнению всех старых AC foundation.
+Факт сверки: отдельного production компонента и comparison declaration пока нет; задача остаётся в очереди реализации.
+
+### План54
+
+Актуальный source отменяет старую desktop canvas: controls одинаковые56/48 FT или56/32 input. AppNumberStepper.output/input принимает внешний output/controller, callbacks доступности и localized action labels. Никаких numeric limits/calculations/validation. Label может переноситься по local constraint330 как в source, сам stepper не меняется от viewport. Native callbacks/typing/null/keyboard/theme/scaled и source min/mid/max+adaptation обоих видов. Visual NOT_REQUIRED.
+
+### Реализация54 —7 ноября2026
+
+Prompt пользователя (дословно):
+
+> продолжи
+
+AppNumberStepper.output/input реализован с внешним value/controller и nullable onDecrease/onIncrease, onChanged/onSubmitted. Геометрия контролов одинакова mobile/desktop56/48/32, local label layout330 сохраняет источник. Доступность и пределы не вычисляются production компонентом. Собственная runtime тема и AppStepperMetrics, shared fixtures/Widgetbook. Source12/12 PASS после update и обычного comparison; native3 tests PASS без update, включая keyboard intents/typing/null и одинаковые размеры. Overlay просмотрены. Numeric slot сравнивается rect/style/baseline; browser Canvas не поддерживает CSS tabular features в measureText. Проверка document.fonts использует явный font string, потому что shorthand пуст при tabular-nums. Analyzer no issues, architecture189 files PASS, engine37 PASS. MacOS Widgetbook перезапущен; другие ОС NOT_RUN. Итог текущей итерации: выполнено.

@@ -188,3 +188,7 @@ Mobile открывает showModalBottomSheet с AppSelectSheet (то же де
 ## Segmented choice — реализация53
 
 AppSegmentedChoice<T>/AppSegment<T> — controlled single selection без знания формата турнира. Height64 из source --format-control-height=--s6 (AppSpacing.space64), horizontal/gap8, selected vertical inset8 даёт48; pill radius из AppShape. Background surface/selected raised; selected label16/600/onSurface, normal16/400/onSurfaceVariant, disabled muted. Все роли из текущих ThemeData/extensions через AppSegmentedChoiceTheme. Pointer и стрелки только делегируют value, RTL учитывается; маршрут/расчёт формата отсутствует. Source ::before подложка измеряется отдельно от48/64 hit area.
+
+## NumberStepper — реализация54
+
+AppNumberStepper.output/input — одинаковая геометрия на всех viewport: actions56, output48, input32, pill raised. Внешние callbacks задают доступность; вычисления и limits вне DS. AppStepperMetrics содержит local label stack threshold330, disabled format opacity0.4 и numeric features. Source score disabled сохраняет ink/opacity1, format muted/opacity0.4. Label caption14/gap8 на узком контейнере; широкий контейнер размещает label/stepper в строку с gap16. Изменение viewport само по себе не меняет контрол. Numeric input сравнивает32px slot: browser Canvas не учитывает CSS tabular-nums при измерении отдельной цифры, raster/overlay проверяется отдельно.

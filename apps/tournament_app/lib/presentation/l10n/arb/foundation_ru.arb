@@ -119,5 +119,39 @@
   "segmentedLabel": "Формат турнира",
   "segmentDe": "DE",
   "segmentSe": "SE",
-  "segmentRr": "RR"
+  "segmentRr": "RR",
+  "stepperFormatLabel": "Основная сетка",
+  "stepperScoreLabel": "Счёт Алексея",
+  "stepperDecrease": "Уменьшить {label}",
+  "stepperIncrease": "Увеличить {label}",
+  "stepperFt": "FT{value}",
+  "stepperNumber": "{value}",
+  "@stepperDecrease": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "@stepperIncrease": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "@stepperFt": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "@stepperNumber": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  }
 }
