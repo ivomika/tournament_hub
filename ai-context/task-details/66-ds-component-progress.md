@@ -7,20 +7,20 @@
 - Mode: PLANNING_ONLY; будущая реализация — CODE в этом же номере.
 - TestGate: NOT_REQUIRED для заявленного visual/theme/layout scope. App state/controllers, вычисления, валидация, сериализация, данные и app routing исключены; при расширении scope классификация пересматривается до кода.
 - Stage: SPEC_READY.
-- Specification:1; plan:0 (черновая последовательность ниже); test scenarios:1, NOT_RUN.
+- Specification:3; plan:0 (черновая последовательность ниже); test scenarios:1, NOT_RUN.
 - Реализация не начата; отдельного разрешения на логический gate этой постановкой не получено.
 
 ## Цель и контекст
 
 Один результат задачи: **AppProgressIndicator**, scope `components/progress_indicator`. Добавление/расширение именно одного элемента вместе с его темой, scoped Widgetbook и проверками; не набор новых компонентов экранов.
 
-В HTML indeterminate waveform с reduced-motion; процентов/успешного progress нет.
+Текущий HTML waveform признан пользователем неверным эталоном. В приложении использовать штатный Material3 ProgressIndicator с оформлением из FlutterTheme/ProgressIndicatorThemeData. Кастомную геометрию/анимацию HTML не переносить. Это уточнение отменяет предыдущее решение о кастомном AppProgressIndicator. AppProgressIndicator может оставаться тонким тематизированным facade, но не собственным painter.
 
 Эталон: [UI kit](../../docs/design/prototype/ui-kit.html#c-progress), [описание и ограничения](../../docs/design/ui-kit.md), [mapping источников](../../docs/design/prototype/ui-kit-mapping.json). Уже реализованная основа: [foundation](../../docs/design/foundation.md), [manifest](../../docs/design/tokens-manifest.md). Рабочий порядок: [добавление DS-компонента](../../docs/development/design-system-component-workflow.md), [visual workflow](../../docs/development/visual-workflow.md).
 
 ## Scope и non-goals
 
-- Входит: Один themed indeterminate waveform из исходного визуального языка. Animation controller относится только к визуальной фазе; label локализован. Предусмотреть deterministic capture normal/reduced motion.
+- Входит: Штатный Material3 progress indicator; параметры через FlutterTheme/ProgressIndicatorThemeData, локализованный semantics label и deterministic capture. Собственный waveform/painter не реализовывать.
 - Входит: собственная типизированная тема, trace к foundation tokens и обновление manifest/docs по затронутым решениям.
 - Входит: реальные use cases в Widgetbook, shared deterministic scenarios и executable native golden visual samples; meaningful interaction/semantics tests по риску.
 - Не входит: перенос экранов, изменение HTML UI kit/прототипов, бизнес-правила, use cases, DI/сеть/БД, новая локаль, новая светлая тема, Widgetbook Cloud/generator или обновление SDK.
@@ -124,3 +124,22 @@
 ## Итог
 
 Постановка создана; 🟣. Реализация и выполнение Flutter-проверок не начаты.
+
+
+### Уточнение7 ноября2026 — кастомный индикатор
+
+Prompt пользователя (дословно):
+
+> прогресс индикатор не копирует material 3 после переноса это будет кастомный индикатор
+
+Spec v2: сохранить собственную waveform-анимацию/геометрию прототипа и normal/reduced-motion states как кастомный компонент. Material3 не является источником обязательной геометрии/таймингов и не требуется pixel-match с его индикаторами. Реализация Flutter не возобновлялась; статус остаётся planning-only. Проверка: согласованность с текущим SVG/CSS fixture и owning docs, rules/diff.
+
+
+### Уточнение7 ноября2026 — отмена кастомного индикатора
+
+Prompt пользователя (дословно):
+
+> еще одно уточнение. ProgressIndicator в html не верный и кастомный. А в приложении должен использоваться material3 прогресс индикатор.
+Второе давай закомитим изменения ui kit и перенесем foundation в flutter проект. Главное условие переноса foundation, будущие виджеты не должны использовать константы, а должны использовать стандартную тему или свою тему. Использовать в виджетах заготовленные константы тупиковая ветвь. Все должно реагировать на изменения основной темы. Поэтому флоу такой: promitive const -> FlutterTheme -> WidgetTheme -> Widget. я запрещаю использовать константные TextStyle или Colors внутри итоговых виджетах (Text( style: const bodySmall)). Это решение необходимо занести в тему и необходимо добавить проверку чтобы примитивы не попадали в production код
+
+Spec v3: для приложения штатный Material3 ProgressIndicator, HTML waveform неверен и не является источником геометрии/анимации. Тема следует primitive const → FlutterTheme → WidgetTheme → Widget. Предыдущее custom-решение отменено пользователем. Flutter-реализация не начата.

@@ -1,40 +1,151 @@
-import * as C from './ui-kit-library.js';
+import * as C from './ui-kit-library.js?v=21';
+import {mountMobileSelectSheet} from './ui-kit-select.js?v=21';
+import {mountRosterConfirmation} from './ui-kit-roster.js?v=21';
 const {Style,State,Density,Identity,Row}=C;
 const e=C.esc;
-// Лист состоит из одних и тех же публичных шаблонов, что и recipes ниже.
-function sample(html,{title='',desktop=false,context='',wide=false}={}){return `<div class="kit-specimen ${wide?'kit-specimen-wide':''}">${title?`<div class="kit-caption">${e(title)}</div>`:''}<div class="kit-scope ${desktop?'desktop-gallery':''}"><div class="kit-context flow-screen ${desktop?'desktop-screen':''} ${context}">${html}</div></div></div>`;}
-function pair(mobile,desktop,{context='',mt='Mobile',dt='Desktop'}={}){return `<div class="kit-pair">${sample(mobile,{title:mt,context})}${sample(desktop,{title:dt,desktop:true,context})}</div>`;}
-function family(id,name,html,props,note,span=''){return `<article id="c-${id}" class="kit-family ${span}"><header class="kit-family-header"><h3>${e(name)}</h3><a href="#m-${id}" aria-label="Источники ${e(name)}">↗</a></header>${html}<details class="kit-spec"><summary>Свойства и правила</summary><code>${e(props)}</code><p>${e(note)}</p></details></article>`;}
+let partCount=0;
+function sample(html,{title='',desktop=false,context=''}={}){return `<div class="kit-specimen"><div class="kit-caption">${e(title)}</div><div class="kit-scope ${desktop?'desktop-gallery':''}"><div class="kit-context flow-screen ${desktop?'desktop-screen':''} ${context}">${html}</div></div></div>`;}
+function variant(title,html,options={}){return sample(html,{title,...options});}
+function part(name,purpose,rows,render,{context='',note='',desktopRender=render}={}){
+ const id=`kit-part-${++partCount}`;
+ const adaptation=render?`<details class="kit-adaptation" open><summary>Адаптация</summary>${sample(render(),{title:'Mobile',context})}${sample(desktopRender(),{title:'Desktop',desktop:true,context})}</details>`:'';
+ return `<section class="kit-component" aria-labelledby="${id}"><header><span class="kit-component-mark">◇</span><h4 id="${id}">${e(name)}</h4></header><p class="kit-purpose">${e(purpose)}</p><div class="kit-component-states">${rows.join('')}</div>${adaptation}${note?`<p class="kit-note">${e(note)}</p>`:''}</section>`;
+}
 const families=[];
-const states=[['Default',State.default],['Hover · CSS',State.hover],['Pressed · CSS',State.pressed],['Focus · CSS',State.focus],['Disabled',State.disabled]];
-families.push(family('button','Button',`<div class="kit-variants">${sample(C.button({iconName:'arrow'}),{title:'Primary · trailing icon'})}${sample(C.button({text:'Отмена',style:Style.secondary}),{title:'Secondary · text'})}${sample(C.button({text:'Снять участника',style:Style.danger}),{title:'Destructive'})}<div class="kit-specimen"><div class="kit-caption">Icon only · neutral / accent</div><div class="kit-inline">${C.button({style:Style.icon,text:'Назад',iconName:'back'})}${C.button({style:Style.accentIcon,text:'Сохранить',iconName:'check'})}</div></div></div><div class="kit-state-grid">${states.map(([title,state])=>sample(C.button({text:'Продолжить',state}),{title})).join('')}</div><div class="kit-adapt-strip"><span>Icon only</span>${C.button({style:Style.icon,text:'Назад · mobile56',iconName:'back'})}<span>56 →</span><span class="desktop-screen">${C.button({style:Style.icon,text:'Назад · desktop48',iconName:'back'})}</span><span>48 px</span></div>`,'appearance=primary|secondary|destructive|icon; label; icon slot; width=content|fill; state','Текст и конкретная иконка не создают сущность. Матрица состояний относится к Primary; для остальных в исходнике заданы только применимые состояния. Модальные действия меняют radius через контекст Dialog.','kit-span-all'));
-families.push(family('field','Field',`<div class="kit-state-grid kit-field-grid">${sample(C.field(),{title:'Single line · Default'})}${sample(C.field({state:State.focus}),{title:'Focus · CSS'})}${sample(C.field({state:State.invalid,error:'Проверь название'}),{title:'Invalid · предложено¹'})}${sample(C.field({label:'Сообщение',value:'Хочу предложить улучшение…',multiline:true}),{title:'Multiline · Default'})}${sample(C.field({value:'',label:'Название'}),{title:'Empty · проверка данных'})}${sample(C.field({state:State.disabled}),{title:'Disabled · предложено²'})}</div>${pair(C.field({label:'Имя',value:'Иван М.'}),C.field({label:'Имя',value:'Иван М.'}),{mt:'Mobile · surface fill',dt:'Desktop · canvas fill'})}`,'multiline; label; value; supportingText; readonly; disabled; invalid','Input и TextArea используют общий field chrome и разные контролы ввода. Ошибка сохранения операции — Notice, а не invalid. ¹Border invalid уже определён в CSS; связь с текстом ошибки и пример сообщения предложены. ²Disabled fill/text восстановлены по существующим raised/muted ролям. Readonly сохраняет тот же внешний вид, поэтому не дублируется.','kit-span-all'));
-families.push(family('select','Select',sample(C.select(),{title:'Desktop · native select',desktop:true})+'<p class="kit-note">Mobile: в исходнике статичное значение. Интерактивную версию не придумываем.</p>','label; options; selected; disabled','Один платформенный native control. Focus/hover уже предусмотрены source CSS; сохранение темы/языка отсутствует в прототипе.'));
-families.push(family('segmented','Segmented choice',pair(C.segmented(),C.segmented(),{mt:'Mobile · selected DE',dt:'Desktop · selected DE'})+'<p class="kit-note">DE / SE / RR — содержимое; описание формата относится к layout-рецепту.</p>','items; selected; labels','Одна группа вариантов. В прототипах это переходы между макетами. Клавиатурный контракт окончательного выбора ещё требует реализации.'));
-families.push(family('stepper','Number stepper',pair(C.stepper(),C.stepper())+`<div class="kit-variants">${sample(C.stepper({value:5}),{title:'Промежуточное · восстановлено²'})}${sample(C.stepper({value:10}),{title:'Граница max · предложено²'})}</div>`,'label; value; min; max; step; decrease/increase','Общий механизм +/−. ²Состояния собраны из исходного контролa и disabled-кнопки; значения min/max показаны как параметры, не как утверждение правил FT. Шаг и допустимый диапазон задаёт приложение.','kit-span-all'));
-families.push(family('score-choice','Score choice',sample(C.scoreChoice(),{title:'FT1 · selected / unselected',context:'competition competition-result'})+'<p class="kit-note">Два взаимоисключающих результата; адаптация ширины без отдельного компонента.</p>','options; selected; labels','Структура и selected outline взяты из исходника. Native checkbox semantics браузерного прототипа не считаются финальной моделью выбора.'));
-families.push(family('score','Score',`<div class="kit-variants">${sample(C.score(),{title:'Read only · pair',context:'competition'})}${sample(C.score({left:'2',fixed:true}),{title:'Fixed winner'})}${sample(C.stepper({label:'Счёт Алексея',value:1,min:0,max:2,score:true}),{title:'Editable · NumberStepper'})}</div>`,'left; right; fixed; value; min/max from application','ScoreInput = фиксированный Score + NumberStepper. FT2/FT3/FT10 — данные и тест разрядности, не новые компоненты.'));
-families.push(family('avatar','Avatar',`<div class="kit-avatar-line">${[C.avatar({initials:'И',tone:'unassigned'}),C.avatar(),C.avatar({initials:'SC',tone:'fire'}),C.avatar({initials:'KT',tone:'fan'}),C.avatar({initials:'RD',tone:'storm'})].join('')}</div><div class="kit-inline kit-space-top"><div class="flow-fighter">${C.avatar({portrait:true})}</div><div class="profile-current-identity">${C.avatar({initials:'И',profile:true})}</div></div><p class="kit-note">Base 64 px · portrait 112 px · profile 96 px. Слот списка — 40/48; это размеры применения.</p>`,'initials/image; character tone; size; shape by slot','Цвет персонажа — данные, не отдельный компонент. Портрет и инициалы — один визуальный идентификатор; соседнее имя предотвращает дублирование доступного текста.'));
-families.push(family('identity','Identity',`<div class="kit-variants">${sample(C.identity(),{title:'Inline · character + player'})}${sample(C.identity({layout:Identity.fighter}),{title:'Stack · fighter',context:'competition'})}</div>`,'avatar slot; primary; secondary; direction=row|column','ProfileIdentity собирается из Avatar и Heading в layout профиля; высокая Desktop-плитка не становится новым атомарным компонентом.'));
-families.push(family('metric','Metric',pair(C.metric({accent:true,value:'3',label:'Победы в турнирах'}),C.metric({accent:true,value:'3',label:'Победы в турнирах',desktop:true}),{context:'profile-current profile-current-view',mt:'Achievement · Mobile',dt:'Achievement · Desktop'})+pair(C.metric(),C.metric({desktop:true}),{mt:'Plain · Mobile',dt:'Plain · Desktop'}),'value; label; emphasis=plain|achievement; icon slot','Группа метрик — layout. Число и подпись — один компонент. Золотой фон Desktop Achievement — зафиксированное отличие; унификация цвета без решения не выполнялась.','kit-span-all'));
-families.push(family('navigation','Navigation item',pair(`<nav class="profile-menu">${C.navigation()}</nav>`,C.navigation({desktop:true}),{mt:'Mobile · row',dt:'Desktop · tile'}),'label; icon slot; destination; layout','Настройки/связь/информация — разные данные одного элемента. Плитка и строка используют общую анатомию.'));
-families.push(family('header','Section header',pair(C.header({title:'Редактирование',action:true}),C.header({title:'Редактирование',action:true})),'title; leading action; trailing action slot','Общая композиция из Heading и Button. Mobile title по центру; Desktop слева. Device chrome, statusbar и browser frame исключены.'));
-families.push(family('row','List row',`<div class="kit-pair">${sample(C.surface(C.row({kind:Row.roster})),{title:'Roster · default'})}${sample(C.surface(C.row({kind:Row.roster,revealed:true})),{title:'Roster · reveal'})}${sample(C.row(),{title:'Assignment'})}${sample(C.row({kind:Row.ranking}),{title:'Ranking',context:'competition competition-results'})}${sample(C.row({kind:Row.ranking,place:'3–4'}),{title:'Shared place · данные',context:'competition competition-results'})}${sample(C.row({kind:Row.history}),{title:'History recipe'})}</div>`,'identity slot; leading/trailing slot; row kind; action/reveal','Общая строковая композиция со слотами, не один универсальный бизнес-widget. Удаление состава, место, дата истории принадлежат соответствующим recipes. Тексты не образуют новые варианты.','kit-span-all'));
-families.push(family('status','Status / outcome',`<div class="kit-status-list">${C.status()}${C.status({text:'Техническая победа',dot:false})}${C.status({text:'Техническое поражение',dot:false,error:true})}<span class="competition-points-badge">2 очка</span></div>`,'text; tone; leading indicator','В исходнике это компактный текст/точка, не универсальный badge с придуманной подложкой. Исход результата и очки — предметные данные.'));
-families.push(family('disclosure','Disclosure',sample(C.disclosure()+C.disclosure({open:true}),{context:'competition'}),'summary; content slot; expanded','Closed/open — состояния одного компонента. Контент правил, таблица и управление не порождают новые виды Disclosure. В раскрытом состоянии высота следует содержимому.'));
-families.push(family('notice','Notice / supporting text',`<div class="kit-stack">${C.notice()}${C.notice({text:'Не удалось сохранить. Повтори.',error:true,inline:true})}${C.notice({text:'Действие недоступно после зависимого матча.',error:true})}</div>`,'message; tone; inline/container; icon slot','Ошибка операции отделена от ошибки ввода Field. SupportingText — текстовая часть поля; Notice — сообщение области. Цвета и иконки только из прототипов.'));
-families.push(family('progress','Progress indicator','<div id="kit-progress"></div><p class="kit-note">Indeterminate · исходная волна. Reduced motion предусмотрен source CSS.</p>','accessible label; motion preference','Не добавляем проценты и success-progress, которых нет в приложении. Загрузка/раздача/повтор используют один индикатор.'));
-families.push(family('surface','Surface',`<div class="kit-pair">${sample(C.surface('<p class="flow-caption">Поверхность</p>'),{title:'Surface · inset24 / radius24'})}${sample(C.surface('<p class="flow-caption">Приподнятая область</p>',{raised:true}),{title:'Raised · роль токена¹'})}</div><p class="kit-note">¹Композиционный образец роли raised, не новый вид карточки продукта.</p>`,'content slot; surface role; inset; shape','Card — поверхность и слоты. ActiveTournament/RecentResult/StatePanel — recipes, а не новая сущность на каждый экран. Hover применяется только к interactive surface.'));
-families.push(family('table','Table',sample(C.standings(),{context:'competition'}),'columns; rows; caption; row identity; numeric cells','Заголовки и соответствие колонок сохраняются на обеих платформах. Сортировка, места и очки рассчитаны приложением. Большой объём принадлежит scroll-контейнеру.'));
-families.push(family('bracket','Bracket node',`<div class="kit-node-grid">${C.bracketNode()}${C.bracketNode({current:true})}${C.bracketNode({pending:true})}</div>`,'match label; participant slots; state=ready|current|pending','Связи графа, zoom/pan и порядок раундов — Layout BracketMap. Selected/finished/technical требуют отдельной спецификации; эти состояния не выданы за существующие.','kit-span-all'));
-families.push(family('dialog','Dialog',pair(C.dialog(),C.dialog(),{mt:'Mobile · confirmation',dt:'Desktop · confirmation'}),'title; content slot; actions; presentation=dialog|sheet','Показана поверхность без затемнения и устройства. В production overlay должен управлять initial focus, Tab/Escape и возвратом фокуса; здесь статический образец. ResultEditor — составной рецепт тела, не ещё один Modal.','kit-span-all'));
-families.push(family('qr','QR / access code','<div id="kit-qr"></div><p class="kit-note">Исходный демонстрационный QR. Назначение доступа и код — данные.</p>','graphic; accessible description; optional session code','Participant и spectator разделены назначением доступа. Новый QR не генерируется, рабочая сессия не создаётся.'));
-families.push(family('share','Share link',sample(C.share())+'<div class="kit-space-top">'+C.share({url:'http://host.local/spectator/tournament-with-a-long-session-address'})+'</div>','url; role explanation; copy action','Длинный адрес проверяет перенос без вытеснения copy. Copied/error отсутствуют в исходнике; полноценный clipboard contract пока не реализован.'));
+function family(id,name,parts,note=''){families.push(`<article id="c-${id}" class="kit-family kit-span-all"><header class="kit-family-header"><div><span class="kit-family-number">${String(families.length+1).padStart(2,'0')}</span><h3>${e(name)}</h3></div><a href="#m-${id}" aria-label="Источники ${e(name)}">Источники ↗</a></header><div class="kit-component-boards">${parts.join('')}</div>${note?`<p class="kit-note">${e(note)}</p>`:''}</article>`);}
+function buttonPart(name,purpose,options,states,note=''){
+ const render=()=>C.button(options);
+ return part(name,purpose,states.map(([title,state])=>variant(title,C.button({...options,state}))),render,{note});
+}
+const baseStates=[['Default',State.default],['Hover · CSS',State.hover],['Pressed · CSS',State.pressed],['Focus · CSS',State.focus],['Disabled · CSS',State.disabled]];
+const neutralStates=[['Default',State.default],['Hover · CSS',State.hover],['Focus · CSS',State.focus]];
+const staticStates=[['Default',State.default],['Focus · CSS',State.focus]];
+family('button','Buttons',[
+ buttonPart('Primary action','Главное действие: продолжение или подтверждение.',{text:'Продолжить',iconName:'arrow'},baseStates),
+ buttonPart('Secondary action','Альтернативное действие рядом с основным.',{text:'Отмена',style:Style.secondary},neutralStates,'Pressed/disabled отдельно не определены исходником.'),
+ buttonPart('Destructive action','Подтверждение необратимого действия в диалоге.',{text:'Снять участника',style:Style.danger},staticStates,'В исходнике нет отдельных hover/pressed/disabled образцов.'),
+ buttonPart('Icon button · neutral','Навигация назад и нейтральные действия без текста.',{text:'Назад',style:Style.icon,iconName:'back'},neutralStates,'Hit area: Mobile56 / Desktop48. Иконка — входные данные.'),
+ buttonPart('Icon button · accent','Акцентное сохранение или подтверждение.',{text:'Сохранить',style:Style.accentIcon,iconName:'check'},staticStates,'Акцентная кнопка имеет собственное назначение и собственный набор состояний.'),
+ buttonPart('Text action','Вторичное текстовое действие без подложки.',{text:'Исправить результат',style:Style.link},staticStates),
+]);
+function fieldPart(name,purpose,options){const render=()=>C.field(options);return part(name,purpose,[variant('Filled',render()),variant('Empty',C.field({...options,value:''})),variant('Read only',C.field({...options,readonly:true})),variant('Focus · CSS',C.field({...options,state:State.focus})),variant('Invalid · предложено',C.field({...options,state:State.invalid,error:'Проверь значение'})),variant('Disabled · предложено',C.field({...options,state:State.disabled}))],render,{note:'Mobile/Desktop: единая заливка surface, граница и радиус. Размеры адаптируются. Invalid message/disabled восстановлены по ролям прототипа.'});}
+family('field','Fields',[
+ fieldPart('Text input','Однострочный ввод названия или имени.',{label:'Название',value:'Пятничный турнир'}),
+ fieldPart('Text area','Многострочное сообщение с собственной высотой.',{label:'Сообщение',value:'Хочу предложить улучшение…',multiline:true}),
+]);
+family('select','Select',[
+ part('Theme select','Выбор одного значения из списка.',[variant('Default · Desktop',C.select(),{desktop:true}),variant('Focus · CSS',C.select().replace('<select ','<select class="kit-focus" '),{desktop:true}),variant('Disabled · Desktop · предложено',C.select({disabled:true}),{desktop:true}),variant('Default · Mobile',C.mobileSelect()),variant('Focus · Mobile',C.mobileSelect({state:State.focus})),variant('Disabled · Mobile · предложено',C.mobileSelect({state:State.disabled}))],()=>C.mobileSelect(),{desktopRender:()=>C.select(),note:'Mobile: рабочая строка настроек из прототипа. Desktop: поле выбора. Mobile открывает bottom sheet с выбором; Desktop — native select. Тема приложения не меняется.'}),
+]);
+family('segmented','Segmented choices',[
+ part('Tournament format','Взаимоисключающий выбор формата.',['DE','SE','RR'].map((x,i)=>variant(`Selected ${x}`,C.segmented({selected:i}))),()=>C.segmented(),{note:'Текст вариантов — данные. Группа сохраняет анатомию; отступы меняются по платформе.'}),
+]);
+family('stepper','Steppers',[
+ part('Format stepper','Изменение количества побед FT в настройках.',[variant('Minimum · decrease disabled',C.stepper()),variant('Intermediate · восстановлено',C.stepper({value:5})),variant('Maximum · предложено',C.stepper({value:10}))],()=>C.stepper(),{note:'Mobile = Desktop: геометрия, заливка и кнопки одинаковы. min/max задаёт приложение; значения демонстрационные.'}),
+ part('Score stepper','Ввод результата одного игрока.',[variant('Zero',C.stepper({label:'Счёт Алексея',value:0,min:0,max:2,score:true})),variant('Editable',C.stepper({label:'Счёт Алексея',value:1,min:0,max:2,score:true})),variant('Upper boundary · данные',C.stepper({label:'Счёт Алексея',value:2,min:0,max:2,score:true}))],()=>C.stepper({label:'Счёт Алексея',value:1,min:0,max:2,score:true}),{note:'Mobile = Desktop: один размер и оформление без платформенных overrides.'}),
+]);
+family('score-choice','Score choices',[
+ part('FT1 result choice','Выбор победителя матча из двух результатов.',[variant('Left selected',C.scoreChoice()),variant('Right selected',C.scoreChoice({selected:1}))],()=>C.scoreChoice(),{context:'competition competition-result',note:'Оба состояния одной группы. Loading/error отсутствуют в эталоне.'}),
+]);
+family('score','Scores',[
+ part('Match score','Пара результатов матча, только чтение.',[variant('Initial',C.score(),{context:'competition'}),variant('Result · данные',C.score({left:'2',right:'1'}),{context:'competition'}),variant('Two digits · данные',C.score({left:'10',right:'8'}),{context:'competition'})],()=>C.score(),{context:'competition'}),
+ part('Fixed winner score','Фиксированная часть результата победителя.',[variant('Value',C.score({left:'2',fixed:true})),variant('Two digits · данные',C.score({left:'10',fixed:true}))],()=>C.score({left:'2',fixed:true})),
+]);
+function sizedAvatar(size,{round=false,withText=false,longName=false}={}) {
+ const content=withText?C.identity({initials:'И',tone:'unassigned',character:'Иван',name:longName?'Александр Константинопольский':'Участник турнира',layout:size<=64?Identity.inline:Identity.fighter}):C.avatar({initials:'И',tone:'unassigned',profile:round});
+ return `<div class="kit-avatar-size kit-avatar-size-${size} ${withText?'kit-avatar-composition':''}">${content}</div>`;
+}
+family('avatar','Avatars',[
+ ...[
+  [28,'Компактный слот турнирной сетки.'],
+  [40,'Небольшая строка списка.'],
+  [48,'Состав, таблица и результаты.'],
+  [64,'Основной аватар участника.'],
+  [96,'Профиль и выделенный участник.'],
+  [112,'Портрет в карточке матча.'],
+  [128,'Крупный аватар профиля.'],
+ ].map(([size,purpose])=>part(`Avatar · ${size} px`,purpose,[
+  variant('Без подписи',sizedAvatar(size)),
+  variant('Круглая форма',sizedAvatar(size,{round:true})),
+  variant('С именем и подписью',sizedAvatar(size,{withText:true})),
+  ...(size===64?[variant('Длинная подпись · данные',sizedAvatar(size,{withText:true,longName:true}))]:[]),
+ ],()=>sizedAvatar(size,{withText:true}),{note:'Один размер на Mobile и Desktop. Форма и подпись — варианты композиции; цвета персонажей не создают компоненты. Без рамки.'})),
+]);
+family('metric','Metrics',[
+ part('Achievement metric','Победы в турнирах с акцентом и trophy.',[variant('Zero · данные',C.metric({value:'0',label:'Победы в турнирах',accent:true})),variant('Populated',C.metric({value:'3',label:'Победы в турнирах',accent:true}))],()=>C.metric({value:'3',label:'Победы в турнирах',accent:true}),{desktopRender:()=>C.metric({value:'3',label:'Победы в турнирах',accent:true,desktop:true}),note:'Desktop меняет emphasis на золотую плитку. Mobile сохраняет тёмную поверхность.'}),
+ part('Plain metric','Число и подпись статистики без акцентной иконки.',[variant('Zero · данные',C.metric({value:'0'})),variant('Populated',C.metric())],()=>C.metric(),{desktopRender:()=>C.metric({desktop:true})}),
+]);
+const navigation=(desktop=false)=>desktop?C.navigation({desktop:true}):`<nav class="profile-menu">${C.navigation()}</nav>`;
+family('navigation','Navigation',[
+ part('Profile navigation item','Переход в раздел из профиля.',[variant('Default',navigation()),variant('Hover · CSS',navigation().replace('profile-menu-item','profile-menu-item kit-hover')),variant('Focus · CSS',navigation().replace('profile-menu-item','profile-menu-item kit-focus'))],()=>navigation(),{desktopRender:()=>navigation(true),note:'Одна цель перехода: Mobile row / Desktop tile. Иконка и подпись — данные.'}),
+]);
+family('header','Section headers',[
+ part('Back header','Заголовок с навигацией назад.',[variant('Default',C.header()),variant('Long title · данные',C.header({title:'Параметры пятничного турнира'}))],()=>C.header()),
+ part('Save header','Редактирование с акцентным действием сохранения.',[variant('Default',C.header({title:'Редактирование',action:true}))],()=>C.header({title:'Редактирование',action:true})),
+ part('Edit header','Просмотр с нейтральным действием редактирования.',[variant('Default',C.header({title:'Профиль',action:true,trailingIcon:'edit',accent:false}))],()=>C.header({title:'Профиль',action:true,trailingIcon:'edit',accent:false})),
+]);
+family('row','List rows',[
+ part('Roster row · Mobile','Строка 72 px · аватар 48 px · имя 18 px. Потяни справа налево.',[
+  variant('Default',C.row({kind:Row.roster})),
+  variant('Revealed · справа, на всю высоту',C.row({kind:Row.roster,revealed:true})),
+ ],null,{note:'Отдельная строка без внешнего padding списка. Delete начинается у правого края и занимает всю высоту 72 px. Ширина строки следует контейнеру.'}),
+ part('Roster card · Desktop','Плитка 208 px. Удаление — явная кнопка, без свайпа.',[
+  variant('Default · кнопка доступна сразу',`<div class="bento-roster kit-roster-example">${C.row({kind:Row.roster,desktop:true})}</div>`,{desktop:true}),
+  variant('Keyboard focus',`<div class="bento-roster kit-roster-example">${C.row({kind:Row.roster,desktop:true}).replace('class="flow-roster-remove"','class="flow-roster-remove kit-focus"')}</div>`,{desktop:true}),
+ ],null,{note:'Кнопка корзины 40×40 px всегда доступна. Нажатие открывает подтверждение; пример можно восстановить после удаления.'}),
+ part('Assignment row','Сопоставление игрока и персонажа.',[variant('Default',C.row()),variant('Long name · данные',C.row({name:'Александр Константинопольский'}))],()=>C.row()),
+ part('Ranking row','Позиция участника в результатах турнира.',[variant('Place',C.row({kind:Row.ranking}),{context:'competition competition-results'}),variant('Shared place · данные',C.row({kind:Row.ranking,place:'3–4'}),{context:'competition competition-results'}),variant('Points · данные',C.row({kind:Row.ranking,points:'12'}),{context:'competition competition-results competition-results-points'})],()=>C.row({kind:Row.ranking}),{context:'competition competition-results'}),
+ part('History row','Запись турнира с датой и победителем.',[variant('Default',C.row({kind:Row.history})),variant('Long title · данные',C.row({kind:Row.history,title:'Пятничный турнир клуба Mortal Kombat'}))],()=>C.row({kind:Row.history})),
+]);
+family('status','Statuses and outcomes',[
+ part('Live status','Текущий процесс с live indicator.',[variant('In progress',C.status())],()=>C.status()),
+ part('Technical outcome','Текстовый исход без дополнительной подложки.',[variant('Win',C.status({text:'Техническая победа',dot:false})),variant('Loss',C.status({text:'Техническое поражение',dot:false,error:true}))],()=>C.status({text:'Техническая победа',dot:false})),
+ part('Points label','Число очков результата.',[variant('Value', '<span class="competition-points-badge">2 очка</span>')],()=>'<span class="competition-points-badge">2 очка</span>'),
+]);
+family('disclosure','Disclosures',[
+ part('Disclosure','Раскрытие дополнительного содержимого в потоке.',[variant('Closed',C.disclosure(),{context:'competition'}),variant('Open',C.disclosure({open:true}),{context:'competition'})],()=>C.disclosure({open:true}),{context:'competition',note:'Можно раскрыть/свернуть нативный details. Высота зависит от содержимого.'}),
+]);
+family('notice','Messages',[
+ part('Information notice','Пояснение к настройке или области.',[variant('Default',C.notice()),variant('Long content · данные',C.notice({text:'Bracket Reset включён всегда. Второй финал проводится при победе участника из нижней сетки.'}))],()=>C.notice()),
+ part('Operation error','Ошибка действия в области интерфейса.',[variant('Default',C.notice({text:'Не удалось сохранить. Повтори.',error:true}))],()=>C.notice({text:'Не удалось сохранить. Повтори.',error:true})),
+ part('Inline error','Компактное сообщение рядом с контентом.',[variant('Default',C.notice({text:'Не удалось сохранить. Повтори.',error:true,inline:true}))],()=>C.notice({text:'Не удалось сохранить. Повтори.',error:true,inline:true})),
+]);
+function source(id,code=true){const wrapper=document.createElement('div');wrapper.append(document.querySelector(`#kit-source-${id}`).content.cloneNode(true));if(!code)wrapper.querySelector('.flow-qr-session')?.remove();return wrapper.innerHTML;}
+family('progress','Progress',[
+ part('Indeterminate progress','Исходная волна загрузки без процента.',[variant('Animated',source('progress')),variant('Reduced motion · CSS',`<div class="kit-reduced-motion">${source('progress')}</div>`)],()=>source('progress'),{note:'HTML waveform — ошибочный исторический образец. В приложении нужен штатный Material 3 ProgressIndicator из основной темы; эту волну не переносить.'}),
+]);
+family('surface','Surfaces',[
+ part('Panel surface','Основная контейнерная поверхность.',[variant('Default',C.surface('<p class="flow-caption">Поверхность</p>'))],()=>C.surface('<p class="flow-caption">Поверхность</p>'),{note:'Read only. Hover применим только при отдельном интерактивном контракте.'}),
+ part('Raised surface','Вложенная приподнятая поверхность.',[variant('Proposed · token role',C.surface('<p class="flow-caption">Приподнятая область</p>',{raised:true}))],()=>C.surface('<p class="flow-caption">Приподнятая область</p>',{raised:true}),{note:'Композиционный образец существующего токена raised; предложено.'}),
+]);
+family('table','Tables',[
+ part('Standings table','Участники, очки и количество матчей.',[variant('Populated',C.standings(),{context:'competition'})],()=>C.standings(),{context:'competition',note:'Сохраняет заголовки и соответствие колонок. Empty/loading/error не определены исходником.'}),
+]);
+family('bracket','Bracket nodes',[
+ part('Match node','Один матч сетки и его участники.',[variant('Ready',C.bracketNode()),variant('Current',C.bracketNode({current:true})),variant('Pending',C.bracketNode({pending:true}))],()=>C.bracketNode(),{note:'Связи, zoom/pan и раунды принадлежат layout. Selected/finished не специфицированы.'}),
+]);
+family('dialog','Dialogs',[
+ part('Destructive confirmation','Подтверждение снятия участника.',[variant('Default',C.dialog()),variant('Action unavailable · предложено',C.dialog({disabled:true}))],()=>C.dialog(),{note:'Mobile/Desktop поверхности без device frame. Modal focus/clipboard здесь не реализуются.'}),
+]);
+family('qr','QR and access',[
+ part('Participant access code','QR с текстовым кодом подключения.',[variant('Static demonstration',source('qr'))],()=>source('qr'),{note:'Исходный демонстрационный QR. Генерация сессии не выполняется.'}),
+ part('QR graphic','Графический QR без текстового кода.',[variant('Without code · slot variant',source('qr',false))],()=>source('qr',false),{note:'Вариант optional code slot, не новая схема доступа.'}),
+]);
+family('share','Share links',[
+ part('Spectator share link','Адрес просмотра с действием копирования.',[variant('Short address',C.share()),variant('Long address · данные',C.share({url:'http://host.local/spectator/tournament-with-a-long-session-address'}))],()=>C.share(),{note:'Copied/error отсутствуют в исходнике. Длинный адрес переносится, copy сохраняет место.'}),
+]);
 document.querySelector('#kit-components').innerHTML=families.join('');
+// Старые ссылки Identity ведут к единой категории Avatar.
+const identityAnchor=document.createElement('span');identityAnchor.id='c-identity';identityAnchor.setAttribute('aria-hidden','true');document.querySelector('#c-avatar').prepend(identityAnchor);
+const index=document.createElement('nav');index.className='kit-component-index';index.setAttribute('aria-label','Категории компонентов');index.innerHTML=families.map(html=>{const doc=new DOMParser().parseFromString(html,'text/html');const article=doc.querySelector('article');return `<a href="#${article.id}">${e(article.querySelector('h3').textContent)}</a>`;}).join('');document.querySelector('#kit-components').before(index);
 document.querySelector('#kit-setup-mobile').innerHTML=C.setupRecipe(Density.mobile);
 document.querySelector('#kit-setup-desktop').innerHTML=C.setupRecipe(Density.desktop);
 document.querySelector('#kit-profile-mobile').innerHTML=C.profileRecipe(Density.mobile);
 document.querySelector('#kit-profile-desktop').innerHTML=C.profileRecipe(Density.desktop);
 document.querySelector('#kit-family-count').textContent=String(families.length);
-// SVG и motion эталоны инертны, извлечены на этапе подготовки листа.
-for(const id of ['progress','qr']){const template=document.querySelector(`#kit-source-${id}`);document.querySelector(`#kit-${id}`).append(template.content.cloneNode(true));}
+document.querySelector('#components .kit-section-intro').textContent=`${families.length} категории · ${partCount} отдельных компонентов по назначению. У каждого — собственные состояния или варианты данных и адаптация. Исходный внешний вид сохранён; отсутствующие состояния отмечены явно.`;
+
+mountMobileSelectSheet();
+
+const rosterScript=document.createElement('script');rosterScript.src='roster-gestures.js?v=21';document.body.append(rosterScript);
+
+mountRosterConfirmation();

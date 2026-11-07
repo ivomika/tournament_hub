@@ -43,7 +43,6 @@ html:has(.desktop-gallery){scroll-behavior:auto}
 .desktop-screen .field textarea{min-height:220px}
 .desktop-screen .flow-format-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
 .desktop-screen .flow-format-options>*{min-width:0;white-space:normal}
-.desktop-screen .flow-ft-stepper{background:var(--background)}
 .desktop-screen .flow-ft-field{flex-wrap:wrap;gap:16px}
 .desktop-screen .flow-empty{padding:0;min-height:0;flex:1;justify-content:center;align-items:flex-start;gap:24px}
 .desktop-screen .flow-empty>.flow-caption{min-height:0}
@@ -121,7 +120,6 @@ html:has(.desktop-gallery){scroll-behavior:auto}
 .desktop-screen .flow-sheet>.flow-pair{grid-column:1/-1;grid-row:auto;padding:24px 12px;background:var(--raised);border-radius:20px;gap:16px;max-width:600px;width:100%;justify-self:center}
 .desktop-screen .flow-sheet .flow-fighter .portrait{width:104px}
 .desktop-screen .flow-sheet>.competition-score-field,.desktop-screen .flow-sheet>.result-score-inputs{grid-column:1/-1;width:100%;max-width:600px;justify-self:center;align-self:center}
-.desktop-screen .flow-sheet .result-score-stepper{background:var(--background)}
 .desktop-screen .flow-sheet .flow-score-options{gap:12px}
 .desktop-screen .flow-sheet .flow-score-options>button{min-height:64px}
 .desktop-screen .flow-sheet:not(:has(.competition-score-field,.result-score-inputs))>.flow-pair{grid-column:1/-1;max-width:500px;justify-self:center;width:100%}
@@ -303,7 +301,6 @@ html:has(.desktop-gallery){scroll-behavior:auto}
 .bento-roster>.desktop-command{flex-direction:row;align-items:center}
 .bento-roster .desktop-command .primary-action{flex:1;min-width:0}
 .desktop-screen .bento-roster .flow-roster>li{position:relative;overflow:hidden}
-.desktop-screen .bento-roster .flow-roster-remove{right:16px}
 
 /* QR остаётся цельным и читаемым; адрес не теряется в текстовом блоке. */
 .bento-access{grid-template-rows:minmax(300px,1fr) auto}
@@ -447,10 +444,6 @@ html:has(.desktop-gallery){scroll-behavior:auto}
 .desktop-screen .bento-setup-format .flow-format-field{justify-content:flex-start;gap:16px}
 .desktop-screen .bento-setup-format .flow-format-field>div:last-child{margin-top:auto;display:flex;flex-direction:column;gap:8px}
 .desktop-screen .bento-setup-format .flow-options{padding:0;max-width:none}
-.desktop-screen .flow-ft-field{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:16px}
-.desktop-screen .flow-ft-stepper{width:160px;justify-content:space-between}
-.desktop-screen .flow-ft-stepper>button{width:48px}
-.desktop-screen .flow-ft-stepper>output{min-width:48px}
 .desktop-screen .profile-bento-recent{padding-right:140px}
 .desktop-screen .profile-bento-achievement .profile-achievement{padding:0;gap:16px}
 .desktop-screen .profile-bento-link{gap:16px}
@@ -473,9 +466,8 @@ html:has(.desktop-gallery){scroll-behavior:auto}
 .desktop-screen .bento-assigned .flow-person>span:last-child{gap:4px}
 
 /* Desktop reveal: компактное действие, без мобильного сдвига padded-карточки. */
-.desktop-screen .bento-roster>.flow-roster>li{padding:0;display:grid;min-height:208px;background:var(--surface);isolation:isolate}
-.desktop-screen .bento-roster .flow-roster .flow-person{display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:16px;width:100%;height:auto;min-height:208px;padding:24px;margin:0;background:var(--surface);border-radius:24px;overflow-wrap:anywhere;transform:none!important}
-.desktop-screen .bento-roster .flow-roster .flow-roster-remove{inset:24px 24px auto auto;width:96px;height:48px;padding:0;justify-content:center;border-radius:999px;z-index:2}
+.desktop-screen .bento-roster>.flow-roster>li{padding:0;display:grid;grid-template-columns:minmax(0,1fr);justify-content:stretch;min-height:208px;background:var(--surface);isolation:isolate}
+.desktop-screen .bento-roster .flow-roster .flow-person{display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:16px;width:100%;height:auto;min-height:208px;padding:24px;margin:0;background:var(--surface);border-radius:24px;overflow-wrap:anywhere}
 
 /* Длинные списки имеют собственную прокрутку; соседние действия остаются видимы. */
 .desktop-screen :is(.bento-roster,.bento-distribution,.bento-results){grid-template-rows:minmax(0,1fr) auto;align-content:stretch;flex:1;min-height:0}
@@ -537,3 +529,10 @@ html:has(.desktop-gallery){scroll-behavior:auto}
  .desktop-gallery.is-density-preview #history-list .desktop-primary h2{font-size:32px}
  .desktop-gallery.is-density-preview #history-list .desktop-secondary{grid-column:1;grid-row:2}
 }
+
+/* Desktop: явное доступное действие, без предварительного свайпа. */
+.desktop-screen .bento-roster .flow-roster .flow-roster-remove{inset:24px 24px auto auto;width:40px;height:40px;padding:0;display:grid;place-items:center;justify-content:center;border:0;border-radius:50%;z-index:2;background:var(--raised);color:var(--secondary);opacity:1;pointer-events:auto;cursor:pointer}
+.desktop-screen .bento-roster .flow-roster .flow-roster-remove:hover{background:var(--danger-surface);color:var(--danger)}
+.desktop-screen .bento-roster .flow-roster .flow-roster-remove:focus-visible{outline:2px solid var(--focus);outline-offset:4px}
+.desktop-screen .bento-roster .flow-roster .flow-person{transform:none}
+.desktop-screen .bento-roster .flow-roster-gesture{touch-action:auto;user-select:text;-webkit-user-select:text}

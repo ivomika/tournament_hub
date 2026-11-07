@@ -50,12 +50,11 @@
 .flow-roster-guests .flow-player-row{position:relative;min-height:var(--flow-roster-row-height);padding:0;gap:var(--s1);overflow:hidden;border-radius:var(--s2);touch-action:pan-y}
 .flow-roster-guests .flow-player-row+.flow-player-row{padding-top:0;border-top:0}
 .flow-roster-guests .flow-person{position:relative;z-index:1;flex:1;min-height:var(--flow-roster-row-height);padding:var(--s1) 0;background:var(--surface);transition:transform var(--flow-roster-reveal-duration) ease}
-.flow-roster-gesture.is-revealed .flow-person,.flow-roster-gesture:focus-within .flow-person{transform:translateX(calc(-1 * var(--flow-roster-action-width)))}
+.flow-roster-gesture.is-revealed .flow-person{transform:translateX(calc(-1 * var(--flow-roster-action-width)))}
 .flow-roster-guests .flow-avatar{width:var(--flow-roster-avatar-size);height:var(--flow-roster-avatar-size);border:0;border-radius:var(--pill);font:600 var(--body)/1 var(--font-ui)}
 .flow-roster-guests .flow-person strong{font:600 var(--body)/1.4 var(--font-ui);min-width:0}
 .flow-roster-remove{position:absolute;inset:0;display:flex;align-items:center;justify-content:flex-end;padding-right:var(--s2);border-radius:0;color:var(--danger);background:var(--danger-surface);font-size:var(--caption);opacity:0;pointer-events:none;transition:opacity var(--flow-roster-reveal-duration) ease}
-.flow-roster-gesture.is-revealed .flow-roster-remove,.flow-roster-gesture:focus-within .flow-roster-remove{opacity:1;pointer-events:auto}
-@media(hover:hover) and (pointer:fine){.flow-roster-gesture:hover .flow-person{transform:translateX(calc(-1 * var(--flow-roster-action-width)))}.flow-roster-gesture:hover .flow-roster-remove{opacity:1;pointer-events:auto}}
+.flow-roster-gesture.is-revealed .flow-roster-remove{opacity:1;pointer-events:auto}
 @media(prefers-reduced-motion:reduce){.flow-roster-guests .flow-person,.flow-roster-remove{transition:none}}
 .flow-lobby-actions{flex-direction:row;align-items:center;gap:var(--s2)}
 .flow-lobby-actions .primary-action{flex:1;min-width:0;justify-content:center;padding:0 var(--s2)}
@@ -173,3 +172,9 @@
 .home-active .primary-action{padding-inline:var(--s2);gap:var(--s1)}
 @container(max-width:600px){.flow-spectator-main{grid-template-columns:minmax(0,1fr)}.flow-spectator-header{align-items:flex-start;flex-direction:column}.flow-spectator .screen-content{padding:var(--s3)}}
 @media(prefers-reduced-motion:reduce){.flow-screen *{scroll-behavior:auto}}
+
+/* Drag раскрывает действие; hover не меняет состояние строки. */
+.flow-roster-gesture{user-select:none;-webkit-user-select:none}
+.flow-roster-gesture.is-dragging .flow-person{transform:translateX(var(--roster-drag-offset));transition:none}
+.flow-roster-gesture.is-dragging .flow-roster-remove{opacity:1}
+.flow-roster-gesture:focus-visible{outline:2px solid var(--focus);outline-offset:2px}

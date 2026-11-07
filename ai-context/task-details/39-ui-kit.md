@@ -124,3 +124,170 @@ AC7.1–7.6 выполнены в заявленных границах визу
 Сравнение4 компонентов (Button/Field/NumberStepper/mobile Achievement) с исходником по13 computed параметрам: различий0. Временная token-probe проверка: palette-gold-400→green обновил Button и Metric accent; space-md→30px обновил padding Button/Field/Metric. Probe удалён.1443 локальные ссылки/ресурса проверены на существование файлов/anchors.98 scenario mappings,222 class mappings,13 исходных файлов SHA256 неизменны. В финальном JSON удалены5 неиспользуемых definitions, чтобы реестр содержал только222 наблюдаемых класса.
 
 Команды: node --check ui-kit-library.js/ui-kit.js; node tools/check_rules.cjs; git diff --check — PASS. Проверки DOM/source hashes/links/computed evidence выполнены Python и CUA. Screenshot результата: outputs/tournament-ui-kit.jpg текущего чата. Полный pixel diff, production accessibility/modal focus/clipboard и Flutter/build/commit/push не выполнялись. Изменения source prototypes/shared CSS не вносились.
+
+
+## Итерация8 — отдельные компоненты с собственными состояниями,7 ноября2026
+
+Prompt пользователя (дословно):
+
+> так ui kit получился слишком абстрактным. Разбей компоненты. Каждый компонент должен получить свое место и отображать свои состояния и адаптацию. Не нужно обьеденять все кнопки в один общий контейнер кнопки. Я приложил пример. Это все еще одна страница Buttons, но у каждой кнопки есть свое назначение и свои состояния. Сделай так для каждого компонента дизайн системы
+
+Mode CODE; TestGate NOT_REQUIRED: изменение организации визуального HTML-каталога. Scope: UI kit, исходные шаблоны и styling стенда; исходные mobile/desktop прототипы и Flutter не изменяются. Core R-001/002/004/007 прочитаны; Flutter scope отсутствует, иных conditional rules нет.
+
+План v8: сохранить23 семантические категории, внутри каждой выделить самостоятельные карточки по назначению/анатомии; каждой дать название, назначение, собственные состояния/варианты данных и Mobile/Desktop previews. Primary/Secondary/Destructive/нейтральная icon/акцентная icon/ссылка получают собственные матрицы. Аналогично поля ввода, степперы, метрики, строки, аватары и остальные категории. Не добавлять несуществующие product states; proposed отмечать явно. Проверки: JS syntax, source hashes, DOM coverage/IDs/overflow, визуальный desktop/mobile проход, правила/diff.
+
+
+Итерация8 завершена:23 категории/47 самостоятельных component sets. Каждый набор имеет имя, назначение, собственные states/content variants и открытый блок Mobile/Desktop adaptation; у Select Mobile показан исходный static setting вместо выдуманного native select. Добавлен индекс категорий. Примеры используют прежнюю ui-kit-library.js, source graphics/CSS и templates; изменено только оформление/состав стенда. Owning docs: docs/design/ui-kit.md.
+
+Проверки7 ноября2026: browser DOM на1440/1000/390px —47 component cards и47 adaptation blocks; в contexts нет горизонтального overflow, body overflow отсутствует, duplicate IDs0. Console errors/warnings0. Визуально просмотрены desktop Buttons/Fields, mobile Steppers и intermediate Metrics; это выбранные проверки, а не полный pixel diff всех47 наборов. JS syntax, rules checker, git diff --check PASS; SHA256 всех13 source prototype files совпадает с mapping. Новые runtime tests и Flutter checks не нужны для этого HTML visual scope. Коммит/push не выполнялись.
+
+
+## Итерация9 — единая заливка TextField,7 ноября2026
+
+Prompt пользователя (дословно):
+
+> давай лучше унифицируем textfield для обоих вариантов адаптации
+
+Mode CODE, TestGate NOT_REQUIRED: visual CSS-only изменение. План: зафиксировать единый surface fill для input/textarea в Mobile/Desktop UI kit, сохранив размеры и error/focus/disabled states. Переопределение изолировано kit-page; исходные прототипы остаются историческим эталоном. Core R-001/002/004/007 применимы; Flutter scope отсутствует. Проверка: computed fill/border/radius, визуальный screenshot и diff/rules.
+
+
+Итерация9 завершена. В computed styles Mobile/Desktop input и textarea одинаковы: fill rgb(23,26,32), border1px solid rgb(58,65,78), radius24px. Визуально проверены адаптация Text input и состояния Text area; disabled остаётся отдельной заливкой. JS syntax/rules/diff PASS. Новые tests не добавлялись для локальной visual CSS правки. Коммит/push не выполнялись.
+
+
+## Итерация10 — интерактивный Mobile Select,7 ноября2026
+
+Prompt пользователя (дословно):
+
+> select в мобильной адаптации не рабочий
+
+Mode CODE; TestGate NOT_REQUIRED: нативное визуальное взаимодействие без app state/сохранения. План: заменить статичную mobile setting строку общим C.select(), распространить оформление на обе адаптации и проверить выбор клавиатурой/браузером; обновить docs. Core R-001/002/004/007 применимы; Flutter scope отсутствует.
+
+
+Итерация10 завершена: Mobile и Desktop используют общий C.select(). На390px в браузере Mobile select успешно изменён с «Тёмное» на «Светлое» через выбор option; disabled=false, ширина316px, Desktop sample сохраняет независимое значение. Проверены native control и disabled sample; JS syntax/rules/diff PASS. Сохранение темы не входит в visual scope. Коммит/push не выполнялись.
+
+
+## Итерация11 — рабочая строка Select из mobile-прототипа,7 ноября2026
+
+Prompt пользователя (дословно):
+
+> ну вот сделай оформление из прототипа рабочим в ui kit
+
+Mode CODE, TestGate NOT_REQUIRED: native visual interaction. План: сохранить flow-panel/flow-setting-row исходного Mobile, заменить strong-value нативным select с тем же визуальным оформлением. Desktop оставить полем выбора. Добавить mobile default/focus/disabled examples, проверить изменение native value и внешний вид. Core R-001/002/004/007 применимы, Flutter/conditional scope отсутствует.
+
+
+Итерация11 завершена: C.mobileSelect() сохраняет source flow-panel/flow-setting-row, подпись слева и strong-style значение справа. Добавлены default/focus/disabled Mobile образцы; Desktop остаётся отдельным полем. В браузере значение адаптации изменено на «Светлое», panel background rgb(23,26,32), body overflow отсутствует,47 карточек загружаются. Найден и устранён cache mismatch новой функции через версионированный module import. JS syntax/rules/diff PASS. Коммит/push не выполнялись.
+
+
+## Итерация12 — Mobile Select bottom sheet,7 ноября2026
+
+Prompt пользователя (дословно):
+
+> даввай сделаем мобильный select который открывает bottomSheet
+
+Mode CODE, TestGate NOT_REQUIRED: visual interaction HTML preview, без app state/прикладной логики. План: сохранить source-строку как button trigger, добавить общий native dialog bottom sheet с вариантами и отметкой выбора; обновлять только выбранный образец. Проверить выбор, повторное открытие, Escape/backdrop/close, disabled, возврат focus. Core R-001/002/004/007 применимы; Flutter scope отсутствует.
+
+
+Итерация12 завершена: mobile trigger открывает общий dialog bottom sheet с3 вариантами, галочкой выбранного значения и закрытием по выбору/крестику/backdrop/Escape. Scroll lock и focus return реализованы, disabled trigger недоступен. В браузере390px проверены opening/focus inside, выбор «Светлое» и обновление trigger, повторное открытие с выбранным значением, Escape/backdrop/close button; все результаты PASS. Проверены возврат focus и снятие scroll lock. Панель показана также в обычной ширине окна и оставлена открытой пользователю. JS syntax/rules/diff PASS. Тема приложения/сохранение не добавлялись; commit/push не выполнялись.
+
+
+## Итерация13 — одинаковые Mobile/Desktop steppers,7 ноября2026
+
+Prompt пользователя (дословно):
+
+> stepper не должен адаптироваться. Это ошибка прототипа как они есть на mobile такие же должны быть для desktop
+
+Mode CODE, TestGate NOT_REQUIRED: visual CSS изменение. План: устранить ошибочные desktop-only overrides FT/score stepper в исходном desktop.css, чтобы UI kit и Desktop prototype наследовали Mobile оформление. Контракт/состояния не меняются; parent screen layout вне степпера сохраняется. Проверить computed styles двух адаптаций, размеры кнопок/значения/заливку и отсутствие overflow. Core R-001/002/004/007 применимы; Flutter scope отсутствует. Изменение source desktop.css явно следует уточнению пользователя об ошибке прототипа; source mapping обновляется с объяснением.
+
+
+Итерация13 завершена: ошибочные Desktop overrides удалены из desktop.css; desktop.html получил cache version CSS, актуальные hashes этих2 source-файлов обновлены в mapping. В browser computed styles Mobile/Desktop совпали: FT160×56, кнопки56/value48; score144×56, кнопки56/value32; у обоих background rgb(35,39,48). Проверены также gap/justify и визуальный вид обеих карточек. JS syntax/rules/diff PASS. Коммит/push не выполнялись.
+
+
+## Итерация14 — Avatar по размерам и без рамок,7 ноября2026
+
+Prompt пользователя (дословно):
+
+> мне кажется или Avatars и Identities по факту один и тот же компонент? Если да давай разделять компонент не по непонятным "Ice", "Fire" и тд, а по размерам, а еще убери бордер у всех типов
+
+Mode CODE, TestGate NOT_REQUIRED: визуальная организация UI kit. План: единая категория Avatar; семь source-backed размеров28/40/48/64/96/112/128, внутри графика/круглая монограмма/композиция с подписью. Identity остаётся reuse анатомии в библиотеке, отдельной повторяющейся категории нет. Размеры фиксированы и совпадают в Mobile/Desktop; убрать border/outline аватаров на всём листе, включая compositions/recipes. Прототипы в этой итерации не меняются. Core R-001/002/004/007 применимы, Flutter scope отсутствует. Проверки: DOM/размеры/границы, responsive overflow, JS/rules/diff, browser visual.
+
+
+Итерация14 завершена: единая категория Avatar с7 размерами,22 категории/48 карточек в текущем UI kit. Исходная reuse-функция identity сохранена для compositions, старый anchor c-identity ведёт в Avatar. Browser computed размеры всех7 Mobile/Desktop пар совпали, borders0 у всех flow-avatar/profile-monogram/bracket-map-avatar на листе; Avatar contexts не переполняются в обычной ширине и390px, body overflow на390px отсутствует. Визуально просмотрены новые карточки, раздел оставлен открытым. JS syntax/rules/diff PASS. Коммит/push не выполнялись.
+
+
+## Итерация15 — Roster row source anatomy и swipe,7 ноября2026
+
+Prompt пользователя (дословно):
+
+> Roster row определен не правильно. Во первых не совпадает с прототипом во вторых удалить должно появлятсья не при hover а при протягивание карточкиа с права на лево
+
+Mode CODE, TestGate NOT_REQUIRED: визуальное pointer/keyboard взаимодействие без изменения состава/данных. План: source flow-panel/flow-roster Mobile inset16 и Desktop bento tile, убрать лишнюю outer surface; использовать общий roster-gestures script в UI kit/исходных прототипах. Удалить hover/focus auto-reveal, добавить continuous left-drag и reverse/cancel/Escape/keyboard arrow controls, hidden action не участвует в Tab. Удаление данных не добавляется. Core R-001/002/004/007 применимы; Flutter scope отсутствует. Проверки: browser hover/drag/reverse/keyboard, source anatomy, syntax/rules/diff и актуальные hashes.
+
+
+Итерация15 завершена: в UI kit восстановлены Mobile72/avatar48/inset16 и Desktop208/avatar64 source-анатомии; source hover/focus reveal удалён. Общий drag script подключён после динамического рендера UI kit; исходные Mobile/Desktop используют тот же файл. Browser pointer drag проверен: hover/click/focus без reveal; левый drag Mobile раскрывает на88px, обратный закрывает; ArrowLeft/Escape работают, скрытый action tabindex=-1. Desktop pointer drag после исправления shrink grid раскрывает на112px, front width совпадает с row309.5px. Overflow в проверенной ширине отсутствует. JS syntax/rules/diff PASS; hashes5 намеренно исправленных source файлов актуализированы. Реальный touch-device/скринридер не проверялся; удаление данных не реализуется. Коммит/push не выполнялись.
+
+
+## Итерация16 — Roster row bounds и отдельная Desktop tile,7 ноября2026
+
+Prompt пользователя (дословно):
+
+> на мобильном варанте удалить должно занимать всю высоту карточки и начинаться от самого края справа, а еще мне кажется размереры перенесены не верно. А desktop по моему вообще другой
+
+Mode CODE, TestGate NOT_REQUIRED: visual component extraction. Выполнена прямая browser-сверка исходных index.html/desktop.html: Mobile row72/avatar48/name Inter18/600, padding списка16; Desktop tile208/avatar64/inset24/gap16/name Inter22/600, width fluid. План: убрать list wrapper padding из отдельной Mobile row, перенести horizontal inset16 во front, action flush/full-height72; выделить Mobile row и Desktop tile разными specimen sets. Восстановить original Desktop delete pill96×48 inset24; после swipe front возвращается, pill раскрывается. Общий drag/keyboard сохраняется, hover отсутствует. Core R-001/002/004/007 применимы, Flutter scope отсутствует. Проверить geometry/default/revealed обеих платформ, реальный drag и screenshots.
+
+
+Итерация16 завершена: Mobile row и Desktop tile выделены в разные sets (текущий UI kit22 категории/49 cards). Browser geometry и pointer drag PASS: Mobile row72/avatar48/name18; action88×72 с top/right inset0, front shift−88. Desktop tile208/avatar64/name22/inset24; action96×48 top/right inset24, после drag front transform:none. Default/revealed обеих платформ визуально просмотрены и сверены с исходными экранами; временные source tabs закрыты, UI kit оставлен открытым. JS syntax/rules/diff PASS; source hashes обновлены для desktop.css и HTML cache-links. Коммит/push не выполнялись.
+
+
+## Итерация17 — явное Desktop удаление,7 ноября2026
+
+Prompt пользователя (дословно):
+
+> давай переработает на desktop механику удаления. Это не логично и не привычно для desktop
+
+Mode CODE, TestGate NOT_REQUIRED: визуальный UI prototype interaction. План: Desktop убрать из swipe-script; постоянно доступная trash icon button40px top/right24, hover/focus состояния. UI kit открывает modal confirmation, cancel/Escape возвращает focus, confirm скрывает только demo row с восстановлением примера. Mobile swipe сохраняется. Source Desktop action ведёт к существующему guest-remove макету. App data/domain/state не затрагиваются. Core R-001/002/004/007 применимы; Flutter scope отсутствует. Проверки: Desktop без drag, keyboard/button/confirmation/cancel/restore и Mobile swipe regression, browser+syntax/rules/diff.
+
+
+Итерация17 завершена: Desktop trash action40px всегда видим/доступен, source Desktop ведёт к guest-remove; Desktop исключён из swipe attachment. UI kit использует отдельный native confirmation module. Browser PASS: visible opacity1/tabindex0; cancel с focus return; confirm hides demo row и restore возвращает её; Desktop drag не раскрывает swipe; modal Escape закрывает; Mobile pointer swipe регрессия PASS. Диалог initial focus на Cancel. Код/DOM затрагивает только визуальные примеры. JS syntax/rules/diff PASS; source hashes актуализированы. Коммит/push не выполнялись.
+
+
+## Итерация18 — Points ranking layout,7 ноября2026
+
+Prompt пользователя (дословно):
+
+> здесь явно что то поплыло
+
+Приложен screenshot Points-строки с посимвольным переносом Sub-Zero/Иван. Причина: fixture не добавлял исходный competition-results-points context, identity попадала в fixed32px place-column обычного ranking. Mode CODE; TestGate NOT_REQUIRED: визуальная конфигурация specimen. План: добавить source points-context только к Points sample; browser проверить identity ширину/height текста, правую компактную колонку очков на обычной/390px ширинах. Core R-001/002/004/007 применимы; Flutter scope отсутствует.
+
+
+Итерация18 завершена: Points sample использует source competition-results-points, остальные строки не затронуты. Browser ordinary viewport: identity269px/points32px/name height23.4px (одна строка). На390px row316px, columns275.8/32.2px, имя остаётся одной строкой, body overflow отсутствует. Screenshot исправленной строки просмотрен. JS syntax/rules/diff PASS. Коммит/push не выполнялись.
+
+
+## Итерация19 — общий размер иконки Inline error,7 ноября2026
+
+Prompt пользователя (дословно):
+
+> давай размер иконки в Inline error выровняем с остальными
+
+Mode CODE, TestGate NOT_REQUIRED: visual CSS-only. Source error-copy имеет20px, flow-notice24px. План: единый24px через существующий space24 token в UI kit для error-copy icons, включая field supporting errors. Выравнивание/gap/цвет сохранить. Проверить computed dimensions и визуально; core R-001/002/004/007 применимы, Flutter scope отсутствует.
+
+
+Итерация19 завершена: browser measured Information/Operation/Inline иконки24×24 во всех состояниях/адаптациях. Выравнивание source top/gap8 сохранено. Screenshot просмотрен, diff/rules PASS. Тесты не добавлялись для локальной визуальной CSS правки. Коммит/push не выполнялись.
+
+
+## Итерация20 — классификация ProgressIndicator,7 ноября2026
+
+Prompt пользователя (дословно):
+
+> прогресс индикатор не копирует material 3 после переноса это будет кастомный индикатор
+
+Mode DOCUMENTATION; подтверждён существующий кастомный waveform, без изменения rendering/runtime. Core R-001/002/004/007 применимы; Flutter code scope отсутствует. План и результат: owning docs и planning-only task66 spec v2 фиксируют собственный ProgressIndicator без требования копировать Material3. HTML не менялся; Flutter не возобновлялся. Проверки: прочитаны source SVG/CSS и task66, rules/diff PASS; runtime tests не нужны. Коммит/push не выполнялись.
+
+
+## Итерация21 — фиксация UI kit и исправление ProgressIndicator,7 ноября2026
+
+Prompt пользователя (дословно):
+
+> еще одно уточнение. ProgressIndicator в html не верный и кастомный. А в приложении должен использоваться material3 прогресс индикатор.
+Второе давай закомитим изменения ui kit и перенесем foundation в flutter проект. Главное условие переноса foundation, будущие виджеты не должны использовать константы, а должны использовать стандартную тему или свою тему. Использовать в виджетах заготовленные константы тупиковая ветвь. Все должно реагировать на изменения основной темы. Поэтому флоу такой: promitive const -> FlutterTheme -> WidgetTheme -> Widget. я запрещаю использовать константные TextStyle или Colors внутри итоговых виджетах (Text( style: const bodySmall)). Это решение необходимо занести в тему и необходимо добавить проверку чтобы примитивы не попадали в production код
+
+Результат UI kit подготовлен к отдельному коммиту: все ранее проверенные component sets, унификации, Mobile Select bottom sheet, avatar sizes, Mobile/Desktop roster mechanics, points-grid и error icon. ProgressIndicator HTML помечен ошибочным эталоном: в Flutter только штатный Material3, предыдущее custom-решение отменено. Scope Flutter foundation и guard продолжается отдельно в задачах переноса/архитектуры. Коммит UI kit явно авторизован пользователем; push не разрешён и не выполняется. JS syntax/source hashes/rules/diff проверяются перед коммитом.

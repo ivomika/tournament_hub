@@ -42,3 +42,83 @@ Browser:1280/1000/390px; отсутствие body/family/rebuild overflow и du
 ## Постановка переноса в приложение
 
 1 ноября2026 по запросу пользователя добавлены отдельные planning-only задачи: сначала9 foundation scopes, затем23 семейства Components. Номера, зависимости, критерии и текущее состояние — только в [едином реестре задач](../../ai-context/task-list.md) и его карточках. Существующие Colors/Typography задачи36 переиспользуются и сверяются с UI kit, а не создаются повторно. Реализация Flutter в рамках постановки не выполняется. [Порядок добавления DS-компонента и Widgetbook](../development/design-system-component-workflow.md) описывает применение действующих project rules и прочитанных официальных гайдлайнов.
+
+
+## Отдельные component sets —7 ноября2026
+
+23 категории содержат47 самостоятельных карточек по назначению/анатомии. Категория Buttons содержит отдельные Primary action, Secondary action, Destructive action, Neutral icon, Accent icon и Text action: у каждой собственная вертикальная матрица состояний и Mobile/Desktop previews. Общая матрица Primary больше не выступает состояниями всех кнопок.
+
+Аналогично разделены Text input/Text area; Format/Score stepper; Character avatar/Portrait/Profile monogram; Inline/Fighter/Profile identity; Achievement/Plain metric; Back/Save/Edit header; Roster/Assignment/Ranking/History row; Information/Operation error/Inline error. Остальные самостоятельные элементы также имеют свою карточку, назначение, варианты и адаптацию. Нажатие по категории в локальном индексе ведёт к её наборам.
+
+Для read-only элементов показаны варианты данных вместо выдуманных interaction states. Отсутствующие состояния явно описаны; восстановленные/предложенные помечены. Select сохраняет реальное различие исходников: native Desktop и статичная Mobile строка. Шаблоны ui-kit-library.js и исходные prototype CSS остаются источником внешнего вида; новые рамки и заголовки принадлежат только стенду.
+
+
+### Унификация TextField —7 ноября2026
+
+По запросу пользователя input и textarea в UI kit используют одинаковую непрозрачную заливку `surface` (`#171a20`) в обеих адаптациях. Border/radius и семантика focus/error общие; disabled сохраняет raised/muted. Desktop больше не переключает fill на canvas. Высота textarea и остальные source-размеры остаются адаптивными. Решение применяется к component sets и обратным сборкам UI kit; исходные прототипы сохраняют исторические значения.
+
+
+### Mobile Select —7 ноября2026
+
+Mobile preview заменён с исходной static setting строки на общий рабочий native Select. Обе адаптации используют C.select(), единые оформление и набор опций. Выбор меняет локальное значение образца, не сохраняет настройки и не переключает тему приложения. Это утверждённое пользователем развитие UI kit относительно исторического mobile-прототипа.
+
+
+### Select в исходном Mobile-оформлении —7 ноября2026
+
+Предыдущее решение с одинаковым полем на обеих платформах уточнено пользователем: Mobile сохраняет исходную анатомию flow-panel/flow-setting-row («Оформление» слева, выбранное значение справа). Значение теперь нативный select, оформленный как прежний strong-text; раскрытие и изменение значения работают без ручного дублирования текста. Desktop сохраняет отдельное поле с chevron. Mobile default/focus/disabled показаны в карточке. Изменение значения образца не применяет тему приложения.
+
+
+### Mobile Select с bottom sheet —7 ноября2026
+
+По запросу пользователя Mobile сохраняет исходную строку настроек как button trigger; раскрытие реализовано через модальный dialog, оформленный нижней панелью. Варианты показывают текущий выбор галочкой/выделением. Выбор обновляет только вызвавший образец и закрывает панель; крестик, backdrop и Escape закрывают без изменения. Нативный dialog удерживает focus внутри и блокирует фон, после закрытия focus возвращается к trigger. Disabled trigger недоступен. Desktop остаётся native select. Реализация взаимодействия изолирована в ui-kit-select.js; новые app settings/state/сохранение не добавляются.
+
+
+### Stepper без платформенных различий —7 ноября2026
+
+По уточнению пользователя desktop-адаптация Stepper признана ошибкой прототипа. Из desktop.css удалены переопределения заливки/ширины/кнопок/value FT, фон score stepper в sheet и отдельный layout wrapper FT. Оба варианта используют существующие shared Mobile-стили flow.css/competition.css: raised fill, высота56px, кнопки56px, FT value min-width48px. Score input сохраняет shared source width32px. UI kit и исходный Desktop prototype теперь показывают одинаковые контролы. Прежние source-документы о canvas fill FT относятся к историческому варианту и заменены этим решением.
+
+
+### Avatar по размерам —7 ноября2026
+
+Визуальные категории Avatar/Identity объединены. Базовый Avatar — графика/монограмма, Identity — композиция того же Avatar с именем и подписью, а не второй графический компонент. Каталог теперь группирует Avatar по размерам28/40/48/64/96/112/128px. В каждой карточке показаны без подписи, круглая форма и композиция с подписью; на Mobile/Desktop размер одинаков. Цвета Ice/Fire и другие больше не служат названием типа. Рамки/outline удалены у всех Avatar в UI kit, включая row/identity/recipe uses. Исходные prototype assets этой итерацией не меняются.
+
+
+### Roster row: source anatomy и swipe —7 ноября2026
+
+Roster row использует исходные `flow-panel flow-roster flow-roster-guests`: Mobile inset16, row72/avatar48; Desktop — bento tile208/avatar64 с24px inset (20px в source compact media). Убрана лишняя outer surface UI kit. Desktop specimen показывает одну исходную карточку без screen grid.
+
+Общий roster-gestures.js используется прототипами и UI kit. Действие не раскрывается от hover/focus: горизонтальный drag справа налево двигает передний слой, отпускает в revealed после24px; обратный drag закрывает. Вертикальное намерение сохраняет scroll, pointercancel возвращает исходное состояние. Keyboard: ArrowLeft раскрывает, ArrowRight/Escape закрывают. Скрытое удаление исключено из Tab/AT. Состав турнира не меняется. Desktop delete pill заменён правой reveal-областью; удалён transform:none, ширина grid переднего слоя зафиксирована в1fr.
+
+
+### Границы Mobile row и Desktop tile —7 ноября2026
+
+Предыдущее извлечение ошибочно включало padding16 всего списка в размер отдельной Mobile-строки, показывая104px вместо72px. Standalone Mobile Roster row теперь72px с avatar48 и именем Inter18/600; padding8px/16px находится внутри переднего слоя, контейнер списка не добавляет размер. Правая delete-область88×72px без inset, от края до края по высоте.
+
+Desktop выделен отдельно: tile208px/avatar64/inset24/gap16/name Inter22/600, ширина fluid. Восстановлена исходная compact delete-кнопка96×48px в верхнем правом углу с inset24. Она появляется после свайпа; передний слой возвращается на место, в отличие от Mobile. Неверная Desktop-полоса из предыдущей итерации отменена. Обе версии показаны самостоятельными sets с default/revealed, проверены напрямую по исходным browser specimens.
+
+
+### Desktop удаление без жестов —7 ноября2026
+
+Предыдущее Desktop swipe-решение отменено по запросу пользователя. Desktop tile показывает постоянно доступную neutral trash-кнопку40×40px в верхнем правом углу; hover добавляет danger emphasis, keyboard focus — outline. Desktop rows исключены из roster-gestures.js, действие сразу участвует в Tab. Source Desktop ссылка ведёт к существующему guest-remove макету.
+
+В UI kit нажатие открывает native modal confirmation с initial focus на «Отмена», Escape/cancel возвращают focus к trigger. Подтверждение скрывает только demo-card и показывает «Восстановить пример»; восстановление возвращает карточку и focus. Эта механика изолирована в ui-kit-roster.js и не меняет данные турнира. Mobile swipe и геометрия72px остаются прежними.
+
+
+### Points ranking context —7 ноября2026
+
+В образце Points исправлен ошибочный context: вариант без номера места использует исходный competition-results-points с grid `minmax(0,1fr) auto`. Identity получает свободную ширину, очки остаются компактной правой колонкой. Обычные Place/Shared place сохраняют собственную place-column. Shared prototype CSS не менялся.
+
+
+### Иконки сообщений —7 ноября2026
+
+Inline error/error-copy в UI kit использует24×24px (space24), как Information/Operation error. Унификация распространяется на supporting error поля. Исходные source CSS сохраняют историческое20px значение; UI kit задаёт согласованное значение поверх него.
+
+
+### Кастомный ProgressIndicator —7 ноября2026
+
+По уточнению пользователя waveform-индикатор является кастомным компонентом TournamentHUB, не копией Material3. При будущем переносе сохраняются его собственные геометрия/анимация и normal/reduced-motion states; штатный Flutter LinearProgressIndicator не подменяет этот визуальный контракт. Текущий HTML SVG/CSS остаётся эталоном. Уточнение отражено в постановке задачи66; Flutter-реализация не начиналась.
+
+
+### ProgressIndicator: исправленное требование к приложению —7 ноября2026
+
+Пользователь уточнил и отменил предыдущее решение: HTML waveform неверен. В Flutter нужен штатный Material3 progress indicator, настроенный через основную ThemeData/ProgressIndicatorThemeData. Кастомная отрисовка/анимация волны не переносится. Исторический HTML образец помечен неканоническим для Flutter; он не определяет геометрию приложения. Task66 обновлена до spec v3.

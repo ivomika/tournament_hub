@@ -1,17 +1,17 @@
 {
   "scope": "Source HTML class mapping and visual component coverage; not production behavioral certification",
   "sources": {
-    "desktop.html": "99487dab957f8a57f1ece22a1cf7e08c110394bf23db4a67ec4a9672ca1b91da",
+    "desktop.html": "b91a9324cf83464c617c53e2c2cfde9980977285f2a2c6b80c6c18aacb059252",
     "bracket-map.js": "48d0184337762c5674530d55d0d33686b19401d9452da37578cd484476a8487d",
-    "index.html": "c304ad4bb496187ae8837d07885e30436c5b0437f432ec5d0d7f49be1ddb2c92",
+    "index.html": "710c4f1dae1f557677fd0105c1040c417583c26a163b87cc73f7151dea2e6ec4",
     "desktop-density.js": "440ba8257d863ab91720327433e236025d60a00a840d3a07a59f5fb8eec5a61f",
     "bracket-map.css": "ad7e3c9169d58efa9627ae63e60fab3421fdc4e60ee157eab248cd37036d4009",
     "gallery.css": "771090c08365c09e90fd99e99a7d1c10dbb1e5d4812e09a92b7bc7827572d771",
-    "desktop.css": "791e07336bd93ca535ba8514e2aafc3396e46cea6141eafa70ede1b2ab0d6e00",
+    "desktop.css": "dca1a18624887f56003d25a49b0bb89836c28b83e7b889f21884075ff7508ed5",
     "tokens.css": "8790d4e8336be823c78a8580312e9516eac7f49edfebe2696c61a8ce3a93f978",
     "screens.css": "269c698560f4db5e76d7e1541459e76749165de527aa0bbe058fd009f0ba10b8",
-    "roster-gestures.js": "00d288047215b7fcfc914a8bcd2f791e7fb4cb87270e51af3dce088f4694830d",
-    "flow.css": "f6394e2df0e4a0c684084f2e2570739f5bf861d4b7b98cf73b037cbaba262052",
+    "roster-gestures.js": "55fd4771278bb90a3ad5a32164fc5b450131aaf26154b67aeea29df57f1308cc",
+    "flow.css": "483c3080d9fbf642710ea67cd596b1b129e919ae59b0bb7df9b8921017fda475",
     "components.css": "0a718fcaec799c329936e19f61233815e0dc62b03d60753c4a13a8c790392837",
     "competition.css": "c4bb3a9bab89fef391f3652715129d3c70ca9478bd1919c7f3419adcc79e76c7"
   },

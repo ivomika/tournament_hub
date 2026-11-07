@@ -82,3 +82,97 @@
 .kit-context,.kit-rebuild{font:400 var(--body)/1.5 var(--font-ui)}
 @media(max-width:1100px){.kit-family:not(.kit-span-all)>.kit-variants{grid-template-columns:1fr}}
 @media(max-width:740px){.kit-state-grid,.kit-field-grid{grid-template-columns:1fr}}
+
+/* Категории содержат самостоятельные component sets: собственные states и adaptation. */
+.kit-component-grid{display:block}
+.kit-family{border:0;border-top:1px solid var(--border);border-radius:0;padding:32px 0 48px;margin-top:24px;background:none}
+.kit-family-header{align-items:center;padding-bottom:24px}.kit-family-header>div{display:flex;align-items:baseline;gap:16px}.kit-family-header h3{font:600 26px/1.3 var(--font-ui)}.kit-family-header>a{font-size:12px}.kit-family-number{font:500 12px var(--font-ui);color:var(--gold)}
+.kit-component-index{display:flex;gap:8px;flex-wrap:wrap;margin:24px 0 40px}.kit-component-index a{font-size:12px;border:1px solid var(--border);border-radius:999px;padding:7px 12px;color:var(--secondary)}.kit-component-index a:hover{border-color:var(--gold);color:var(--ink)}
+.kit-component-boards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;align-items:start}
+.kit-component{min-width:0;border:1px dashed #6b6145;border-radius:12px;padding:20px;background:var(--background)}
+.kit-component>header{display:flex;gap:10px;align-items:baseline;margin-bottom:12px}.kit-component h4{font:600 16px/1.4 var(--font-ui);letter-spacing:normal;margin:0;overflow-wrap:anywhere}.kit-component-mark{color:var(--gold)}
+.kit-purpose{font:400 12px/1.6 var(--font-ui);color:var(--secondary);min-height:40px;margin-bottom:28px}
+.kit-component-states{display:flex;flex-direction:column;gap:28px}.kit-component .kit-caption{font-size:11px;margin-bottom:12px;color:var(--muted)}
+.kit-component .kit-note{font-size:11px;line-height:1.6;margin-top:20px}
+.kit-adaptation{border-top:1px solid var(--border);margin-top:28px;padding-top:16px}.kit-adaptation>summary{font:500 12px/1.5 var(--font-ui);color:var(--secondary);cursor:pointer;margin-bottom:24px}.kit-adaptation>.kit-specimen{margin-top:24px}
+.kit-component .kit-context{overflow-wrap:anywhere}.kit-component .flow-header{gap:8px}.kit-component .flow-header>h2{min-width:0;overflow-wrap:anywhere}
+.kit-component .flow-table-wrap{overflow:auto;max-width:100%}.kit-component .bracket-map-match{position:relative;inset:auto;transform:none;max-width:100%}
+.kit-component .profile-current-identity{flex-wrap:wrap}.kit-component .flow-history-row{min-width:0}.kit-component .flow-person{min-width:0}.kit-component .flow-person>span{min-width:0}
+.kit-page .secondary-action.kit-hover,.kit-page .orb.kit-hover{background:var(--border)}
+.kit-page .profile-menu-item.kit-hover{background:var(--raised)}
+.kit-reduced-motion *{animation:none!important;transition:none!important}
+@media(max-width:1100px){.kit-component-boards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:740px){.kit-component-boards{grid-template-columns:1fr}.kit-family{padding:24px 0 32px}.kit-component{padding:20px}.kit-family-header h3{font-size:23px}.kit-purpose{min-height:0}.kit-component-index{gap:6px}.kit-component-index a{font-size:11px}}
+
+/* Утверждённая унификация TextField: fill не зависит от платформы/подложки. */
+.kit-page .field input:not(:disabled),.kit-page .field textarea:not(:disabled){background:var(--surface)}
+
+/* Общий нативный Select в обеих адаптациях UI kit. */
+.kit-page .settings-select-shell select{appearance:none;display:block;width:100%;min-width:0;min-height:56px;padding:12px 56px 12px 20px;border:1px solid var(--border);border-radius:16px;background:var(--raised);color:var(--ink);font:500 18px/1.4 var(--font-ui);cursor:pointer}
+.kit-page .settings-select-shell select:hover:not(:disabled){border-color:var(--secondary)}
+.kit-page .settings-select-shell select:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+.kit-page .settings-select-shell select:disabled{color:var(--muted);cursor:default}
+
+/* Mobile Select сохраняет анатомию исходной строки Оформление — значение. */
+.kit-page .kit-setting-select{cursor:pointer}
+.kit-page .kit-setting-select:focus-within{outline:2px solid var(--focus);outline-offset:4px;border-radius:8px}
+
+/* Mobile Select: исходная строка вызывает модальную нижнюю панель. */
+.kit-page button.kit-setting-select{width:100%;padding:0;border:0;background:transparent;color:var(--ink);font:400 var(--label)/1.5 var(--font-ui);text-align:left}
+.kit-page button.kit-setting-select strong{font-weight:700;text-align:right}
+.kit-page button.kit-setting-select:disabled{color:var(--muted);cursor:default}
+.kit-sheet-open{overflow:hidden}
+.kit-select-sheet{position:fixed;inset:auto 0 0;width:min(100%,480px);max-width:100%;max-height:85dvh;margin:0 auto;padding:12px 24px max(28px,env(safe-area-inset-bottom));border:1px solid var(--border);border-bottom:0;border-radius:24px 24px 0 0;background:var(--surface);color:var(--ink);box-shadow:0 -16px 48px #07080b60;overflow:auto}
+.kit-select-sheet::backdrop{background:#07080bb8}
+.kit-sheet-handle{width:40px;height:4px;margin:0 auto 20px;border-radius:999px;background:var(--border)}
+.kit-select-sheet header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.kit-select-sheet h2{font:600 22px/1.3 var(--font-ui);letter-spacing:normal;margin:0}
+.kit-sheet-close{display:grid;place-items:center;width:44px;height:44px;flex:none;border:0;border-radius:50%;background:var(--raised);color:var(--ink);cursor:pointer}
+.kit-sheet-description{font:400 14px/1.5 var(--font-ui);color:var(--secondary);margin:12px 0 24px}
+.kit-sheet-options{display:flex;flex-direction:column;gap:8px}
+.kit-sheet-option{display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%;min-height:56px;padding:16px;border:1px solid transparent;border-radius:16px;background:transparent;color:var(--ink);font:500 16px/1.5 var(--font-ui);text-align:left;cursor:pointer}
+.kit-sheet-option .icon{visibility:hidden;color:var(--gold)}
+.kit-sheet-option[aria-pressed=true]{background:var(--raised);border-color:var(--gold)}
+.kit-sheet-option[aria-pressed=true] .icon{visibility:visible}
+.kit-sheet-option:hover{background:var(--raised)}
+.kit-sheet-option:focus-visible,.kit-sheet-close:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+
+/* Avatar — один элемент по размерам; подпись является композицией. */
+.kit-page .flow-avatar,.kit-page .profile-monogram,.kit-page .bracket-map-avatar,.kit-page .flow-fighter .portrait{border:0;outline:none;box-shadow:none}
+.kit-avatar-size-28{--kit-avatar-size:28px;--kit-avatar-font:12px}
+.kit-avatar-size-40{--kit-avatar-size:40px;--kit-avatar-font:16px}
+.kit-avatar-size-48{--kit-avatar-size:48px;--kit-avatar-font:18px}
+.kit-avatar-size-64{--kit-avatar-size:64px;--kit-avatar-font:26px}
+.kit-avatar-size-96{--kit-avatar-size:96px;--kit-avatar-font:36px}
+.kit-avatar-size-112{--kit-avatar-size:112px;--kit-avatar-font:40px}
+.kit-avatar-size-128{--kit-avatar-size:128px;--kit-avatar-font:44px}
+.kit-page .kit-avatar-size .flow-avatar,.kit-page .kit-avatar-size .profile-monogram{width:var(--kit-avatar-size);height:var(--kit-avatar-size);font-size:var(--kit-avatar-font);border:0;outline:none;box-shadow:none;flex-shrink:0}
+.kit-page .kit-avatar-size .flow-avatar{border-radius:min(16px,calc(var(--kit-avatar-size)/4))}
+.kit-page .kit-avatar-size .profile-monogram{border-radius:50%}
+.kit-avatar-composition .flow-person{max-width:100%}
+.kit-avatar-composition .flow-fighter{align-items:flex-start}
+.kit-avatar-composition .flow-fighter>strong,.kit-avatar-composition .flow-fighter>span:not(.portrait){text-align:left}
+
+/* Размер карточки — source Desktop, сетка списка — вне одного specimen. */
+.kit-page .kit-roster-example.bento-roster{display:block;min-width:0}
+.kit-page .kit-roster-example>.flow-roster{display:block;grid-column:auto;grid-row:auto;margin:0;padding:0;overflow:visible;scrollbar-gutter:auto}
+.kit-page .kit-roster-example .flow-roster-gesture{min-height:208px}
+
+
+/* Standalone Mobile row исключает padding контейнера списка из своего размера. */
+.kit-page .kit-context:not(.desktop-screen) .kit-roster-list{padding:0;background:transparent}
+.kit-page .kit-context:not(.desktop-screen) .kit-roster-list .flow-person{padding:8px 16px;min-height:72px}
+.kit-page .kit-context:not(.desktop-screen) .kit-roster-list .flow-roster-gesture{height:auto;min-height:72px;border-radius:16px}
+.kit-page .kit-context:not(.desktop-screen) .kit-roster-list .flow-roster-remove{inset:0 0 0 auto;width:var(--flow-roster-action-width);margin:0;padding:0;justify-content:center;min-height:72px;border-radius:0}
+/* Desktop specimen фиксирует component inset, а не breakpoint всего окна стенда. */
+.kit-page .desktop-screen .kit-roster-example .flow-roster .flow-person{padding:24px;min-height:208px}
+
+/* Desktop confirmation в UI kit. Cancel получает initial focus. */
+.kit-roster-confirm{position:fixed;inset:0;width:min(480px,calc(100% - 32px));max-height:calc(100dvh - 32px);margin:auto;padding:0;border:0;border-radius:24px;background:var(--surface);color:var(--ink);overflow:auto}
+.kit-roster-confirm::backdrop{background:#07080bb8}
+.kit-roster-confirm .kit-dialog{position:relative;inset:auto;transform:none;width:100%;max-width:none;max-height:none;margin:0;padding:24px;box-shadow:none}
+.kit-page .kit-roster-example [hidden]{display:none!important}
+.kit-roster-removed{list-style:none;padding:24px;border:1px dashed var(--border);border-radius:24px;min-height:208px;display:flex;flex-direction:column;gap:24px;align-items:flex-start;justify-content:center}
+
+/* Единая иконка сообщений, включая inline error и supporting error поля. */
+.kit-page .error-copy .icon{width:var(--s3);height:var(--s3)}
