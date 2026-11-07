@@ -1,3 +1,6 @@
+import 'package:tournament_app/presentation/widgetbook/widgets/dialog/default/default_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/widgets/dialog/disabled/disabled_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/widgets/dialog/overlay/overlay_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/widgets/bracket_node/ready/ready_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/widgets/bracket_node/current/current_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/widgets/bracket_node/pending/pending_use_case.dart';
@@ -281,6 +284,14 @@ final widgetbookCatalog = <WidgetbookNode>[
           bracketReadyUseCase,
           bracketCurrentUseCase,
           bracketPendingUseCase,
+        ],
+      ),
+      WidgetbookComponent(
+        name: 'Dialog',
+        useCases: [
+          dialogDefaultUseCase,
+          dialogDisabledUseCase,
+          dialogOverlayUseCase,
         ],
       ),
       WidgetbookComponent(

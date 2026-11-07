@@ -83,7 +83,7 @@ ColorPrimitives содержит static const Color. Суффикс — свет
 | AppResponsive | mobileToDesktopWidth 740, compactDesktopWidth 1000, wideCompositionWidth 1100; compactControlHeight 48 / touchControlHeight 56 |
 | AppResponsive avatars | extraSmall 28, small 40, medium 48, large 64, profile 96, portrait 112, hero 128; размер выбирается явно, не подменяется breakpoint |
 | AppMotion | reveal 160 ms, reduced 0 ms, curve ease; component theme выбирает reduced при отключённой анимации |
-| AppElevation | floating offset(0,8)/blur24/#8007080B; sheet offset(0,−16)/blur48/#6007080B; dialog offset(0,20)/blur64/#5507080B |
+| AppElevation | floating offset(0,8)/blur24/#8007080B; sheet offset(0,−16)/blur48/#6007080B; dialog offset(0,24)/blur80/#88000000 |
 | AppStatusColors | success/warning и их container/onContainer пары; characterIce #92C9ED, characterFan #C6B4EE, characterStorm #A7D6D1 |
 
 Значения AppThemeColors получаются из текущей темы: background → scaffoldBackgroundColor; surface/raised → surface/surfaceContainerHigh; border/strong → outlineVariant/outline; textPrimary/secondary → onSurface/onSurfaceVariant; muted/disabledContent → disabledColor; accent/hovered/pressed/focus → primary/hoverColor/highlightColor/focusColor. Information использует secondary, danger — error; success/warning — AppStatusColors. Остальные container/onContainer пары следуют соответствующим ColorScheme ролям.
@@ -238,3 +238,9 @@ AppDataTable typed columns/rows/text-or-identity cells; caption/headers, чис�
 AppBracketNode ready/current/pending, готовые label и2 typed participant/placeholder slots, nullable intent. Width220/min116, surface/radius16/border1 outlineVariant/current2 primary; inset12+border/gap8. Compact AppIdentity переиспользует AppAvatar28/radius8/Inter11bold, primary14bold/secondary11regular; text column занимает остаток строки. Label12medium/1.3, unknown13/28min. AppBracketMetrics собирается основной темой.
 
 Compact Identity exactLineBoxes сохраняет дробную высоту runtime style.fontSize×height×textScaler (15.6/16.5px), убирая накопление1.406px округления; не вводятся pixel offsets или фиксированные raster высоты. Геометрия сравнивается с.5px, baseline estimate1.25px. Старые Identity/Table fixtures остаются без exactLineBoxes и проверяются регрессией.
+
+## Dialog — реализация69
+
+AppDialog: mobile radius32/inset24/title18/1.35, desktop radius24/inset28+border1/title22/1.3. Body16 regular/24, gap16, action gap8 и дополнительные8 перед действиями. Реальные AppButton contextual dialogDestructive/dialogCancel сохраняют radius16/no shadow/center16semibold, danger surface/error и transparent/secondary. Внешние callbacks не удаляют участника.
+
+Source CSS уточнил AppElevation.dialog: offset24/blur80/#0008; исправлены единственные primitives и обновлён owning native shadows showcase. Реальный Widgetbook showDialog использует cancel initial focus/closed-loop Tab/Escape/return focus, семантику route. Source-компонент без device/overlay chrome сравнивается отдельно, настоящая modal проверяется native interaction test.

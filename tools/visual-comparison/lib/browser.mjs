@@ -61,9 +61,9 @@ function measure(scenario){
  const mask=document.createElement('div');Object.assign(mask.style,{position:'fixed',inset:'0',width:Math.max(innerWidth,original.width+captureInset*2)+'px',height:Math.max(innerHeight,original.height+captureInset*2)+'px',background:getComputedStyle(document.body).backgroundColor,zIndex:'2147483646'});document.body.append(mask);
  // Normalize only capture placement. Keep the original DOM ancestry, SVG
  // symbols, state classes and measured width; never replace component CSS.
- root.style.position=getComputedStyle(root).display==='inline'?'relative':'fixed';root.style.left='0px';root.style.top='0px';root.style.margin='0px';root.style.width=`${original.width}px`;root.style.zIndex='2147483647';
+ root.style.setProperty('position',getComputedStyle(root).display==='inline'?'relative':'fixed','important');root.style.setProperty('left','0px','important');root.style.setProperty('top','0px','important');root.style.setProperty('margin','0px','important');root.style.setProperty('width',`${original.width}px`,'important');root.style.setProperty('z-index','2147483647','important');
  for(let parent=root.parentElement;parent&&parent!==document.body;parent=parent.parentElement)parent.style.overflow='visible';
- let placed=root.getBoundingClientRect();root.style.left=`${captureInset-placed.left}px`;root.style.top=`${captureInset-placed.top}px`;
+ let placed=root.getBoundingClientRect();root.style.setProperty('left',`${captureInset-placed.left}px`,'important');root.style.setProperty('top',`${captureInset-placed.top}px`,'important');
  const r=root.getBoundingClientRect();
  if(Math.abs(r.width-original.width)>0.25||Math.abs(r.height-original.height)>0.25)throw Error('Isolation changed source component dimensions');
  const rect=(box)=>({x:box.left-r.left,y:box.top-r.top,width:box.width,height:box.height});

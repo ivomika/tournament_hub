@@ -34,8 +34,8 @@ abstract final class FoundationPrimitives {
   );
   static const elevationDialog = BoxShadow(
     color: ColorPrimitives.dialogShadow,
-    offset: Offset(0, 20),
-    blurRadius: 64,
+    offset: Offset(0, 24),
+    blurRadius: 80,
   );
   static const layoutPagePadding = EdgeInsets.all(24);
   static const layoutTilePadding = EdgeInsets.all(20);

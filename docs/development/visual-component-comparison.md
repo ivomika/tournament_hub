@@ -30,3 +30,5 @@ Native goldens расположены рядом с DS-элементом в `go
 ComparisonControl.webPseudo — typed before/after; browser читает оригинальный getComputedStyle(node,pseudo) и фактический rect из computed inset/width/height. Это не DOM-копия подложки. Segmented choice отдельно сравнивает ::before выбранного сегмента и полную область нажатия.
 
 Для исходного display:inline capture использует relative positioning, сохраняя inline formatting и glyph box. Fixed превратил бы span в block и изменил высоту; прежняя проверка isolation dimensions это обнаруживает. Прочие roots остаются fixed.
+
+Служебные capture position/left/top/margin/width/z-index применяются с important: CSS source .kit-dialog содержит !important, который иначе оставлял root под capture mask. Layout/style компонента не переписываются; isolation dimension guard остаётся. Native image driver отбрасывает source PNG, полностью совпадающий с фоном: пустой снимок не может дать ложный PASS по одним DOM metrics.

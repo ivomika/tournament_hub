@@ -218,5 +218,10 @@
   "bracketCurrent": "W5 · Сейчас",
   "bracketPending": "W6 · Полуфинал",
   "bracketUnknownFirst": "Победитель W3",
-  "bracketUnknownSecond": "Победитель W4"
+  "bracketUnknownSecond": "Победитель W4",
+  "dialogTitle": "Снять Алексея с турнира?",
+  "dialogContent": "Прошлые результаты сохранятся. Вернуть игрока в турнир нельзя.",
+  "dialogConfirm": "Снять участника",
+  "dialogCancel": "Отмена",
+  "dialogOpen": "Открыть диалог"
 }

@@ -290,6 +290,16 @@ abstract final class _ComparisonDriver {
     var changed = 0, total = 0;
     final bg = canvas.toARGB32();
     final background = [(bg >> 16) & 255, (bg >> 8) & 255, bg & 255];
+    var sourceVisible = false;
+    for (var i = 0; i < expectedBytes.length; i += 4) {
+      if (expectedBytes[i] != background[0] ||
+          expectedBytes[i + 1] != background[1] ||
+          expectedBytes[i + 2] != background[2]) {
+        sourceVisible = true;
+        break;
+      }
+    }
+    if (!sourceVisible) throw StateError('Source capture is blank: $id');
     for (var y = 0; y < height; y++) {
       for (var x = 0; x < width; x++) {
         final i = (y * width + x) * 4;

@@ -1,0 +1,1419 @@
+<!doctype html><html lang="ru"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AppDialog · Web ↔ Flutter</title><style>
+ :root{color-scheme:dark;font-family:system-ui;background:#0e1014;color:#f4f2ee}*{box-sizing:border-box}body{max-width:1600px;margin:auto;padding:32px}h1{font-size:36px}a{color:#f1c75b}p{color:#b8bec9;line-height:1.5}.stats,nav{display:flex;gap:20px;flex-wrap:wrap}nav{position:sticky;top:0;background:#0e1014ee;padding:16px 0;z-index:1}.stats>div{border:1px solid #3a414e;border-radius:12px;padding:16px}.stats strong{display:block;font-size:28px}.case{padding:20px;margin:24px 0;background:#171a20;border:1px solid #3a414e;border-radius:16px}.case header{display:flex;justify-content:space-between;gap:16px}.pass{color:#78d7a5}.fail{color:#ff968e}.shots{display:grid;grid-template-columns:repeat(4,minmax(180px,1fr));gap:12px;overflow:auto}figure{margin:0;background:#0e1014;padding:12px;display:flex;flex-direction:column;align-items:center;gap:20px;min-height:200px}figcaption{color:#b8bec9;font-size:13px}img{max-width:100%;height:auto;image-rendering:pixelated}figure a{margin:auto}table{border-collapse:collapse;width:100%;font-size:12px}th,td{text-align:left;padding:9px;border-bottom:1px solid #3a414e}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px;color:#b8bec9}.table{overflow:auto}.finding{color:#ff968e}small{color:#969eac}@media(max-width:800px){body{padding:16px}.shots{grid-template-columns:repeat(4,280px)}}
+ </style><header><small>TOURNAMENT HUB / ОБЩЕЕ ВИЗУАЛЬНОЕ СРАВНЕНИЕ</small><h1>AppDialog · Web ↔ Flutter</h1><p>Сценарии и контрольные элементы заданы декларацией компонента. Геометрия, типографика и цвета проверяются отдельно; diff показывает остаточную разницу рендереров. Нажмите PNG, чтобы открыть исходное разрешение.</p></header>
+ <div class="stats"><div><strong>4</strong>сценариев</div><div><strong class="pass">4/4</strong>прошли контракт контролей</div><div><strong>36</strong>контрольных элементов</div></div>
+ <nav><a href="#state-default">Default</a><a href="#state-disabled">Unavailable</a><a href="#mobile-dialog">mobile · dialog</a><a href="#desktop-dialog">desktop · dialog</a><a href="http://127.0.0.1:8094/ui-kit.html">Web-эталон ↗</a></nav>
+ <article class="case" id="state-default"><header><h2>Default</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/state-default.png"><img alt="state-default Web" src="web/state-default.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/state-default.png"><img alt="state-default Flutter" src="flutter/state-default.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/state-default.png"><img alt="state-default Наложение 50/50" src="overlay/state-default.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/state-default.png"><img alt="state-default Diff ×4" src="diff/state-default.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 3546 изменённых пикселей; mean channel delta 0.5707/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;state-default&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 280.296875
+    },
+    &quot;controls&quot;: {
+      &quot;surface&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 280.296875
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 280.296875,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 32,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 41,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;title&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 24,
+          &quot;y&quot;: 24,
+          &quot;width&quot;: 268,
+          &quot;height&quot;: 24.296875
+        },
+        &quot;width&quot;: 268,
+        &quot;height&quot;: 24.296875,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.35,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 42,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;body&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 24,
+          &quot;y&quot;: 64.296875,
+          &quot;width&quot;: 268,
+          &quot;height&quot;: 48
+        },
+        &quot;width&quot;: 268,
+        &quot;height&quot;: 48,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 82.296875,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;button-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 24,
+          &quot;y&quot;: 136.296875,
+          &quot;width&quot;: 268,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 268,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#ff968eff&quot;,
+        &quot;background&quot;: &quot;#632a2aff&quot;,
+        &quot;radius&quot;: 16,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#ff968eff&quot;,
+        &quot;baseline&quot;: 170.296875,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;button-style-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 24,
+          &quot;y&quot;: 136.296875,
+          &quot;width&quot;: 268,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 268,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#ff968eff&quot;,
+        &quot;background&quot;: &quot;#632a2aff&quot;,
+        &quot;radius&quot;: 16,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#ff968eff&quot;,
+        &quot;baseline&quot;: 170.296875,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;button-label-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 90.65625,
+          &quot;y&quot;: 154.296875,
+          &quot;width&quot;: 134.671875,
+          &quot;height&quot;: 20
+        },
+        &quot;width&quot;: 134.671875,
+        &quot;height&quot;: 20,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#ff968eff&quot;,
+        &quot;background&quot;: &quot;#632a2aff&quot;,
+        &quot;radius&quot;: 16,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#ff968eff&quot;,
+        &quot;baseline&quot;: 170.296875,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;button-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 24,
+          &quot;y&quot;: 200.296875,
+          &quot;width&quot;: 268,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 268,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 16,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 234.296875,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;button-style-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 24,
+          &quot;y&quot;: 200.296875,
+          &quot;width&quot;: 268,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 268,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 16,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 234.296875,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;button-label-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 127.359375,
+          &quot;y&quot;: 218.296875,
+          &quot;width&quot;: 61.265625,
+          &quot;height&quot;: 20
+        },
+        &quot;width&quot;: 61.265625,
+        &quot;height&quot;: 20,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 16,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 234.296875,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 280.296875
+    },
+    &quot;pageX&quot;: 128,
+    &quot;pageY&quot;: 128,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/state-default.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;state-default&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 280
+    },
+    &quot;controls&quot;: {
+      &quot;surface&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 280
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 280,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 32,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;
+      },
+      &quot;title&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 24,
+          &quot;y&quot;: 24,
+          &quot;width&quot;: 268,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 268,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.35,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 42.397850036621094
+      },
+      &quot;body&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 24,
+          &quot;y&quot;: 64,
+          &quot;width&quot;: 268,
+          &quot;height&quot;: 48
+        },
+        &quot;width&quot;: 268,
+        &quot;height&quot;: 48,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 81.8203125
+      },
+      &quot;button-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 24,
+          &quot;y&quot;: 136,
+          &quot;width&quot;: 268,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 268,
+        &quot;height&quot;: 56
+      },
+      &quot;button-style-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 24,
+          &quot;y&quot;: 136,
+          &quot;width&quot;: 268,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 268,
+        &quot;height&quot;: 56,
+        &quot;background&quot;: &quot;#632a2aff&quot;,
+        &quot;radius&quot;: 16,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#00000000&quot;
+      },
+      &quot;button-label-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 90.67169189453125,
+          &quot;y&quot;: 152,
+          &quot;width&quot;: 134.6566162109375,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 134.6566162109375,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#ff968eff&quot;,
+        &quot;baseline&quot;: 169.8203125
+      },
+      &quot;button-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 24,
+          &quot;y&quot;: 200,
+          &quot;width&quot;: 268,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 268,
+        &quot;height&quot;: 56
+      },
+      &quot;button-style-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 24,
+          &quot;y&quot;: 200,
+          &quot;width&quot;: 268,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 268,
+        &quot;height&quot;: 56,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 16,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#00000000&quot;
+      },
+      &quot;button-label-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 127.36732482910156,
+          &quot;y&quot;: 216,
+          &quot;width&quot;: 61.265350341796875,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 61.265350341796875,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 233.8203125
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 3546,
+      &quot;meanChannelDelta&quot;: 0.5707168374766141
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/state-default.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="state-disabled"><header><h2>Unavailable</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/state-disabled.png"><img alt="state-disabled Web" src="web/state-disabled.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/state-disabled.png"><img alt="state-disabled Flutter" src="flutter/state-disabled.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/state-disabled.png"><img alt="state-disabled Наложение 50/50" src="overlay/state-disabled.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/state-disabled.png"><img alt="state-disabled Diff ×4" src="diff/state-disabled.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 3546 изменённых пикселей; mean channel delta 0.5707/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;state-disabled&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 280.296875
+    },
+    &quot;controls&quot;: {
+      &quot;surface&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 280.296875
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 280.296875,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 32,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 41,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;title&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 24,
+          &quot;y&quot;: 24,
+          &quot;width&quot;: 268,
+          &quot;height&quot;: 24.296875
+        },
+        &quot;width&quot;: 268,
+        &quot;height&quot;: 24.296875,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.35,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 42,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;body&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 24,
+          &quot;y&quot;: 64.296875,
+          &quot;width&quot;: 268,
+          &quot;height&quot;: 48
+        },
+        &quot;width&quot;: 268,
+        &quot;height&quot;: 48,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 82.296875,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;button-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 24,
+          &quot;y&quot;: 136.296875,
+          &quot;width&quot;: 268,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 268,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#ff968eff&quot;,
+        &quot;background&quot;: &quot;#632a2aff&quot;,
+        &quot;radius&quot;: 16,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#ff968eff&quot;,
+        &quot;baseline&quot;: 170.296875,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;button-style-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 24,
+          &quot;y&quot;: 136.296875,
+          &quot;width&quot;: 268,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 268,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#ff968eff&quot;,
+        &quot;background&quot;: &quot;#632a2aff&quot;,
+        &quot;radius&quot;: 16,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#ff968eff&quot;,
+        &quot;baseline&quot;: 170.296875,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;button-label-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 90.65625,
+          &quot;y&quot;: 154.296875,
+          &quot;width&quot;: 134.671875,
+          &quot;height&quot;: 20
+        },
+        &quot;width&quot;: 134.671875,
+        &quot;height&quot;: 20,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#ff968eff&quot;,
+        &quot;background&quot;: &quot;#632a2aff&quot;,
+        &quot;radius&quot;: 16,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#ff968eff&quot;,
+        &quot;baseline&quot;: 170.296875,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;button-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 24,
+          &quot;y&quot;: 200.296875,
+          &quot;width&quot;: 268,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 268,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 16,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 234.296875,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;button-style-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 24,
+          &quot;y&quot;: 200.296875,
+          &quot;width&quot;: 268,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 268,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 16,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 234.296875,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;button-label-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 127.359375,
+          &quot;y&quot;: 218.296875,
+          &quot;width&quot;: 61.265625,
+          &quot;height&quot;: 20
+        },
+        &quot;width&quot;: 61.265625,
+        &quot;height&quot;: 20,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 16,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 234.296875,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 280.296875
+    },
+    &quot;pageX&quot;: 128,
+    &quot;pageY&quot;: 128,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/state-disabled.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;state-disabled&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 280
+    },
+    &quot;controls&quot;: {
+      &quot;surface&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 280
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 280,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 32,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;
+      },
+      &quot;title&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 24,
+          &quot;y&quot;: 24,
+          &quot;width&quot;: 268,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 268,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.35,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 42.397850036621094
+      },
+      &quot;body&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 24,
+          &quot;y&quot;: 64,
+          &quot;width&quot;: 268,
+          &quot;height&quot;: 48
+        },
+        &quot;width&quot;: 268,
+        &quot;height&quot;: 48,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 81.8203125
+      },
+      &quot;button-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 24,
+          &quot;y&quot;: 136,
+          &quot;width&quot;: 268,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 268,
+        &quot;height&quot;: 56
+      },
+      &quot;button-style-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 24,
+          &quot;y&quot;: 136,
+          &quot;width&quot;: 268,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 268,
+        &quot;height&quot;: 56,
+        &quot;background&quot;: &quot;#632a2aff&quot;,
+        &quot;radius&quot;: 16,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#00000000&quot;
+      },
+      &quot;button-label-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 90.67169189453125,
+          &quot;y&quot;: 152,
+          &quot;width&quot;: 134.6566162109375,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 134.6566162109375,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#ff968eff&quot;,
+        &quot;baseline&quot;: 169.8203125
+      },
+      &quot;button-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 24,
+          &quot;y&quot;: 200,
+          &quot;width&quot;: 268,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 268,
+        &quot;height&quot;: 56
+      },
+      &quot;button-style-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 24,
+          &quot;y&quot;: 200,
+          &quot;width&quot;: 268,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 268,
+        &quot;height&quot;: 56,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 16,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#00000000&quot;
+      },
+      &quot;button-label-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 127.36732482910156,
+          &quot;y&quot;: 216,
+          &quot;width&quot;: 61.265350341796875,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 61.265350341796875,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 233.8203125
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 3546,
+      &quot;meanChannelDelta&quot;: 0.5707168374766141
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/state-disabled.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="mobile-dialog"><header><h2>mobile · dialog</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/mobile-dialog.png"><img alt="mobile-dialog Web" src="web/mobile-dialog.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/mobile-dialog.png"><img alt="mobile-dialog Flutter" src="flutter/mobile-dialog.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/mobile-dialog.png"><img alt="mobile-dialog Наложение 50/50" src="overlay/mobile-dialog.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/mobile-dialog.png"><img alt="mobile-dialog Diff ×4" src="diff/mobile-dialog.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 3546 изменённых пикселей; mean channel delta 0.5707/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;mobile-dialog&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 280.296875
+    },
+    &quot;controls&quot;: {
+      &quot;surface&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 280.296875
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 280.296875,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 32,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 41,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;title&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 24,
+          &quot;y&quot;: 24,
+          &quot;width&quot;: 268,
+          &quot;height&quot;: 24.296875
+        },
+        &quot;width&quot;: 268,
+        &quot;height&quot;: 24.296875,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.35,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 42,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;body&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 24,
+          &quot;y&quot;: 64.296875,
+          &quot;width&quot;: 268,
+          &quot;height&quot;: 48
+        },
+        &quot;width&quot;: 268,
+        &quot;height&quot;: 48,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 82.296875,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;button-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 24,
+          &quot;y&quot;: 136.296875,
+          &quot;width&quot;: 268,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 268,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#ff968eff&quot;,
+        &quot;background&quot;: &quot;#632a2aff&quot;,
+        &quot;radius&quot;: 16,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#ff968eff&quot;,
+        &quot;baseline&quot;: 170.296875,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;button-style-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 24,
+          &quot;y&quot;: 136.296875,
+          &quot;width&quot;: 268,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 268,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#ff968eff&quot;,
+        &quot;background&quot;: &quot;#632a2aff&quot;,
+        &quot;radius&quot;: 16,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#ff968eff&quot;,
+        &quot;baseline&quot;: 170.296875,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;button-label-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 90.65625,
+          &quot;y&quot;: 154.296875,
+          &quot;width&quot;: 134.671875,
+          &quot;height&quot;: 20
+        },
+        &quot;width&quot;: 134.671875,
+        &quot;height&quot;: 20,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#ff968eff&quot;,
+        &quot;background&quot;: &quot;#632a2aff&quot;,
+        &quot;radius&quot;: 16,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#ff968eff&quot;,
+        &quot;baseline&quot;: 170.296875,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;button-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 24,
+          &quot;y&quot;: 200.296875,
+          &quot;width&quot;: 268,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 268,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 16,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 234.296875,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;button-style-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 24,
+          &quot;y&quot;: 200.296875,
+          &quot;width&quot;: 268,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 268,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 16,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 234.296875,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;button-label-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 127.359375,
+          &quot;y&quot;: 218.296875,
+          &quot;width&quot;: 61.265625,
+          &quot;height&quot;: 20
+        },
+        &quot;width&quot;: 61.265625,
+        &quot;height&quot;: 20,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 16,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 234.296875,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 280.296875
+    },
+    &quot;pageX&quot;: 128,
+    &quot;pageY&quot;: 128,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/mobile-dialog.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;mobile-dialog&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 316,
+      &quot;height&quot;: 280
+    },
+    &quot;controls&quot;: {
+      &quot;surface&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 316,
+          &quot;height&quot;: 280
+        },
+        &quot;width&quot;: 316,
+        &quot;height&quot;: 280,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 32,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;
+      },
+      &quot;title&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 24,
+          &quot;y&quot;: 24,
+          &quot;width&quot;: 268,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 268,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.35,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 42.397850036621094
+      },
+      &quot;body&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 24,
+          &quot;y&quot;: 64,
+          &quot;width&quot;: 268,
+          &quot;height&quot;: 48
+        },
+        &quot;width&quot;: 268,
+        &quot;height&quot;: 48,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 81.8203125
+      },
+      &quot;button-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 24,
+          &quot;y&quot;: 136,
+          &quot;width&quot;: 268,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 268,
+        &quot;height&quot;: 56
+      },
+      &quot;button-style-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 24,
+          &quot;y&quot;: 136,
+          &quot;width&quot;: 268,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 268,
+        &quot;height&quot;: 56,
+        &quot;background&quot;: &quot;#632a2aff&quot;,
+        &quot;radius&quot;: 16,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#00000000&quot;
+      },
+      &quot;button-label-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 90.67169189453125,
+          &quot;y&quot;: 152,
+          &quot;width&quot;: 134.6566162109375,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 134.6566162109375,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#ff968eff&quot;,
+        &quot;baseline&quot;: 169.8203125
+      },
+      &quot;button-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 24,
+          &quot;y&quot;: 200,
+          &quot;width&quot;: 268,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 268,
+        &quot;height&quot;: 56
+      },
+      &quot;button-style-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 24,
+          &quot;y&quot;: 200,
+          &quot;width&quot;: 268,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 268,
+        &quot;height&quot;: 56,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 16,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#00000000&quot;
+      },
+      &quot;button-label-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 127.36732482910156,
+          &quot;y&quot;: 216,
+          &quot;width&quot;: 61.265350341796875,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 61.265350341796875,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 233.8203125
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 3546,
+      &quot;meanChannelDelta&quot;: 0.5707168374766141
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/mobile-dialog.png&quot;
+    }
+  }
+}</pre></details></article><article class="case" id="desktop-dialog"><header><h2>desktop · dialog</h2><b class="pass">pass</b></header><div class="shots"><figure><figcaption>Web</figcaption><a href="web/desktop-dialog.png"><img alt="desktop-dialog Web" src="web/desktop-dialog.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/desktop-dialog.png"><img alt="desktop-dialog Flutter" src="flutter/desktop-dialog.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/desktop-dialog.png"><img alt="desktop-dialog Наложение 50/50" src="overlay/desktop-dialog.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/desktop-dialog.png"><img alt="desktop-dialog Diff ×4" src="diff/desktop-dialog.png"></a></figure></div>
+ <p class="pass">Границы и свойства всех заданных контролей совпали в явных допусках.</p>
+ <p>Raster: 1220 изменённых пикселей; mean channel delta 0.2652/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
+  &quot;web&quot;: {
+    &quot;id&quot;: &quot;desktop-dialog&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 395.328125,
+      &quot;height&quot;: 294.59375
+    },
+    &quot;controls&quot;: {
+      &quot;surface&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 395.328125,
+          &quot;height&quot;: 294.59375
+        },
+        &quot;width&quot;: 395.328125,
+        &quot;height&quot;: 294.59375,
+        &quot;fontSize&quot;: 18,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;,
+        &quot;baseline&quot;: 46,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;title&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 29,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 337.328125,
+          &quot;height&quot;: 28.59375
+        },
+        &quot;width&quot;: 337.328125,
+        &quot;height&quot;: 28.59375,
+        &quot;fontSize&quot;: 22,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.3,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 51,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;body&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 29,
+          &quot;y&quot;: 73.59375,
+          &quot;width&quot;: 337.328125,
+          &quot;height&quot;: 48
+        },
+        &quot;width&quot;: 337.328125,
+        &quot;height&quot;: 48,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 0,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 91.59375,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;button-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 29,
+          &quot;y&quot;: 145.59375,
+          &quot;width&quot;: 337.328125,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 337.328125,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#ff968eff&quot;,
+        &quot;background&quot;: &quot;#632a2aff&quot;,
+        &quot;radius&quot;: 16,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#ff968eff&quot;,
+        &quot;baseline&quot;: 179.59375,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;button-style-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 29,
+          &quot;y&quot;: 145.59375,
+          &quot;width&quot;: 337.328125,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 337.328125,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#ff968eff&quot;,
+        &quot;background&quot;: &quot;#632a2aff&quot;,
+        &quot;radius&quot;: 16,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#ff968eff&quot;,
+        &quot;baseline&quot;: 179.59375,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;button-label-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 130.328125,
+          &quot;y&quot;: 163.59375,
+          &quot;width&quot;: 134.671875,
+          &quot;height&quot;: 20
+        },
+        &quot;width&quot;: 134.671875,
+        &quot;height&quot;: 20,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#ff968eff&quot;,
+        &quot;background&quot;: &quot;#632a2aff&quot;,
+        &quot;radius&quot;: 16,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#ff968eff&quot;,
+        &quot;baseline&quot;: 179.59375,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;button-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 29,
+          &quot;y&quot;: 209.59375,
+          &quot;width&quot;: 337.328125,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 337.328125,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 16,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 243.59375,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;button-style-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 29,
+          &quot;y&quot;: 209.59375,
+          &quot;width&quot;: 337.328125,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 337.328125,
+        &quot;height&quot;: 56,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 16,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 243.59375,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      },
+      &quot;button-label-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 167.03125,
+          &quot;y&quot;: 227.59375,
+          &quot;width&quot;: 61.265625,
+          &quot;height&quot;: 20
+        },
+        &quot;width&quot;: 61.265625,
+        &quot;height&quot;: 20,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 16,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 243.59375,
+        &quot;opacity&quot;: 1,
+        &quot;strokeWidth&quot;: 1
+      }
+    },
+    &quot;originalRoot&quot;: {
+      &quot;width&quot;: 395.328125,
+      &quot;height&quot;: 294.59375
+    },
+    &quot;pageX&quot;: 128,
+    &quot;pageY&quot;: 128,
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;web/desktop-dialog.png&quot;
+    }
+  },
+  &quot;native&quot;: {
+    &quot;id&quot;: &quot;desktop-dialog&quot;,
+    &quot;root&quot;: {
+      &quot;x&quot;: 0,
+      &quot;y&quot;: 0,
+      &quot;width&quot;: 395.328125,
+      &quot;height&quot;: 295
+    },
+    &quot;controls&quot;: {
+      &quot;surface&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 0,
+          &quot;y&quot;: 0,
+          &quot;width&quot;: 395.328125,
+          &quot;height&quot;: 295
+        },
+        &quot;width&quot;: 395.328125,
+        &quot;height&quot;: 295,
+        &quot;background&quot;: &quot;#171a20ff&quot;,
+        &quot;radius&quot;: 24,
+        &quot;borderWidth&quot;: 1,
+        &quot;borderColor&quot;: &quot;#3a414eff&quot;
+      },
+      &quot;title&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 29,
+          &quot;y&quot;: 29,
+          &quot;width&quot;: 337.328125,
+          &quot;height&quot;: 29
+        },
+        &quot;width&quot;: 337.328125,
+        &quot;height&quot;: 29,
+        &quot;fontSize&quot;: 22,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.3,
+        &quot;color&quot;: &quot;#f4f2eeff&quot;,
+        &quot;baseline&quot;: 51.70293045043945
+      },
+      &quot;body&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 29,
+          &quot;y&quot;: 74,
+          &quot;width&quot;: 337.328125,
+          &quot;height&quot;: 48
+        },
+        &quot;width&quot;: 337.328125,
+        &quot;height&quot;: 48,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 400,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 91.8203125
+      },
+      &quot;button-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 29,
+          &quot;y&quot;: 146,
+          &quot;width&quot;: 337.328125,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 337.328125,
+        &quot;height&quot;: 56
+      },
+      &quot;button-style-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 29,
+          &quot;y&quot;: 146,
+          &quot;width&quot;: 337.328125,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 337.328125,
+        &quot;height&quot;: 56,
+        &quot;background&quot;: &quot;#632a2aff&quot;,
+        &quot;radius&quot;: 16,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#00000000&quot;
+      },
+      &quot;button-label-0&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 130.33575439453125,
+          &quot;y&quot;: 162,
+          &quot;width&quot;: 134.6566162109375,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 134.6566162109375,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#ff968eff&quot;,
+        &quot;baseline&quot;: 179.8203125
+      },
+      &quot;button-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 29,
+          &quot;y&quot;: 210,
+          &quot;width&quot;: 337.328125,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 337.328125,
+        &quot;height&quot;: 56
+      },
+      &quot;button-style-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 29,
+          &quot;y&quot;: 210,
+          &quot;width&quot;: 337.328125,
+          &quot;height&quot;: 56
+        },
+        &quot;width&quot;: 337.328125,
+        &quot;height&quot;: 56,
+        &quot;background&quot;: &quot;#00000000&quot;,
+        &quot;radius&quot;: 16,
+        &quot;borderWidth&quot;: 0,
+        &quot;borderColor&quot;: &quot;#00000000&quot;
+      },
+      &quot;button-label-1&quot;: {
+        &quot;rect&quot;: {
+          &quot;x&quot;: 167.03138732910156,
+          &quot;y&quot;: 226,
+          &quot;width&quot;: 61.265350341796875,
+          &quot;height&quot;: 24
+        },
+        &quot;width&quot;: 61.265350341796875,
+        &quot;height&quot;: 24,
+        &quot;fontSize&quot;: 16,
+        &quot;fontWeight&quot;: 600,
+        &quot;lineHeight&quot;: 1.5,
+        &quot;color&quot;: &quot;#b8bec9ff&quot;,
+        &quot;baseline&quot;: 243.8203125
+      }
+    },
+    &quot;raster&quot;: {
+      &quot;changedPixels&quot;: 1220,
+      &quot;meanChannelDelta&quot;: 0.26517690460549515
+    },
+    &quot;artifacts&quot;: {
+      &quot;image&quot;: &quot;flutter/desktop-dialog.png&quot;
+    }
+  }
+}</pre></details></article>
+ <footer><small>Run 2026-11-07T20:49:06.767Z. <a href="results.json">Полный JSON</a> · <a href="spec.json">Декларация</a>. Native goldens проверяются отдельно; отчёт не объявляет pixel-perfect при остаточной raster-разнице.</small></footer></html>

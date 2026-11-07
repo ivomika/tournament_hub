@@ -448,4 +448,20 @@ class FoundationLocalizationsRu extends FoundationLocalizations {
 
   @override
   String get bracketUnknownSecond => 'Победитель W4';
+
+  @override
+  String get dialogTitle => 'Снять Алексея с турнира?';
+
+  @override
+  String get dialogContent =>
+      'Прошлые результаты сохранятся. Вернуть игрока в турнир нельзя.';
+
+  @override
+  String get dialogConfirm => 'Снять участника';
+
+  @override
+  String get dialogCancel => 'Отмена';
+
+  @override
+  String get dialogOpen => 'Открыть диалог';
 }

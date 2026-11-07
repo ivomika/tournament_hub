@@ -15,6 +15,8 @@ enum AppButtonKind {
   accentIcon,
   removeIcon,
   removeSwipe,
+  dialogDestructive,
+  dialogCancel,
 }
 
 class AppButtonTheme {
@@ -51,6 +53,9 @@ class AppButtonTheme {
         disabled = states.contains(WidgetState.disabled),
         hovered = states.contains(WidgetState.hovered),
         pressed = states.contains(WidgetState.pressed);
+    final dialog =
+        kind == AppButtonKind.dialogDestructive ||
+        kind == AppButtonKind.dialogCancel;
     final circular =
         kind == AppButtonKind.icon ||
         kind == AppButtonKind.accentIcon ||
@@ -59,6 +64,7 @@ class AppButtonTheme {
         kind == AppButtonKind.primary || kind == AppButtonKind.accentIcon;
     final danger =
         kind == AppButtonKind.destructive ||
+        kind == AppButtonKind.dialogDestructive ||
         kind == AppButtonKind.removeSwipe ||
         (kind == AppButtonKind.removeIcon && hovered);
     final regular =
@@ -70,13 +76,13 @@ class AppButtonTheme {
         : circular && desktop
         ? r.compactControlHeight
         : r.touchControlHeight;
-    final foreground = disabled
+    final foreground = disabled && !dialog
         ? t.disabledColor
         : danger
         ? t.colorScheme.error
         : accent
         ? t.colorScheme.onPrimary
-        : kind == AppButtonKind.removeIcon
+        : kind == AppButtonKind.removeIcon || kind == AppButtonKind.dialogCancel
         ? t.colorScheme.onSurfaceVariant
         : t.colorScheme.onSurface;
     return AppButtonTheme(
@@ -90,10 +96,14 @@ class AppButtonTheme {
       padding: EdgeInsets.symmetric(
         horizontal: circular || kind == AppButtonKind.removeSwipe
             ? s.space0
+            : dialog
+            ? s.space16
             : s.space24,
       ),
       gap: s.space16,
-      background: disabled
+      background: kind == AppButtonKind.dialogCancel
+          ? (hovered ? t.colorScheme.surfaceContainerHigh : m.transparent)
+          : disabled && !dialog
           ? t.colorScheme.surfaceContainerHigh
           : danger
           ? t.colorScheme.errorContainer
@@ -118,13 +128,15 @@ class AppButtonTheme {
               fontVariations: regular ? m.regularVariations : null,
             ),
       ),
-      radius: kind == AppButtonKind.removeSwipe
+      radius: dialog
+          ? shape.nested
+          : kind == AppButtonKind.removeSwipe
           ? BorderRadius.circular(s.space0)
           : shape.pill,
       circular: circular,
       justify: kind == AppButtonKind.primary ? m.spaceBetween : m.center,
       cross: m.centerCross,
-      shadows: !desktop && !disabled && !danger
+      shadows: !dialog && !desktop && !disabled && !danger
           ? [t.extension<AppElevation>()!.floating]
           : [],
       focusColor: t.focusColor,

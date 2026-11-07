@@ -1,3 +1,5 @@
+import 'package:tournament_app/presentation/design_system/foundation/primitives/dialog_primitives.dart';
+import 'package:tournament_app/presentation/design_system/foundation/responsive/app_dialog_metrics.dart';
 import 'package:tournament_app/presentation/design_system/foundation/primitives/bracket_primitives.dart';
 import 'package:tournament_app/presentation/design_system/foundation/responsive/app_bracket_metrics.dart';
 import 'package:tournament_app/presentation/design_system/foundation/primitives/table_primitives.dart';
@@ -123,6 +125,13 @@ abstract final class AppTheme {
         const AppTextMetrics(
           compactHeaderLine: TypographyPrimitives.compactHeaderLine,
           comfortableHeaderLine: TypographyPrimitives.comfortableHeaderLine,
+        ),
+        const AppDialogMetrics(
+          desktopInset: DialogPrimitives.desktopInset,
+          maxWidth: DialogPrimitives.maxWidth,
+          mobileTitleLine: DialogPrimitives.mobileTitleLine,
+          desktopTitleLine: DialogPrimitives.desktopTitleLine,
+          desktopTitleSize: DialogPrimitives.desktopTitleSize,
         ),
         const AppBracketMetrics(
           width: BracketPrimitives.width,

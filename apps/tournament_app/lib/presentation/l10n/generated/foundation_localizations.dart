@@ -912,6 +912,36 @@ abstract class FoundationLocalizations {
   /// In ru, this message translates to:
   /// **'Победитель W4'**
   String get bracketUnknownSecond;
+
+  /// No description provided for @dialogTitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'Снять Алексея с турнира?'**
+  String get dialogTitle;
+
+  /// No description provided for @dialogContent.
+  ///
+  /// In ru, this message translates to:
+  /// **'Прошлые результаты сохранятся. Вернуть игрока в турнир нельзя.'**
+  String get dialogContent;
+
+  /// No description provided for @dialogConfirm.
+  ///
+  /// In ru, this message translates to:
+  /// **'Снять участника'**
+  String get dialogConfirm;
+
+  /// No description provided for @dialogCancel.
+  ///
+  /// In ru, this message translates to:
+  /// **'Отмена'**
+  String get dialogCancel;
+
+  /// No description provided for @dialogOpen.
+  ///
+  /// In ru, this message translates to:
+  /// **'Открыть диалог'**
+  String get dialogOpen;
 }
 
 class _FoundationLocalizationsDelegate
