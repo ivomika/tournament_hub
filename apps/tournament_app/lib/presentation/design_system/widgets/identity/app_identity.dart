@@ -1,3 +1,4 @@
+import 'package:tournament_app/presentation/design_system/components/avatar/app_avatar_size.dart';
 import 'package:flutter/material.dart';
 import 'package:tournament_app/presentation/design_system/components/avatar/app_avatar.dart';
 import 'package:tournament_app/presentation/design_system/widgets/identity/app_identity_theme.dart';
@@ -11,6 +12,7 @@ class AppIdentity extends StatelessWidget {
     this.layout = AppIdentityLayout.inline,
     this.avatarForeground,
     this.theme,
+    this.size,
     super.key,
   });
   final String primary, initials;
@@ -19,12 +21,19 @@ class AppIdentity extends StatelessWidget {
   final AppIdentityLayout layout;
   final Color? avatarForeground;
   final AppIdentityTheme? theme;
+  final AppAvatarSize? size;
   @override
   Widget build(BuildContext context) => LayoutBuilder(builder: _buildLayout);
   Widget _buildLayout(BuildContext context, BoxConstraints constraints) {
     final theme =
         this.theme ??
-        AppIdentityTheme.of(context, kind, layout, constraints.maxWidth);
+        AppIdentityTheme.of(
+          context,
+          kind,
+          layout,
+          constraints.maxWidth,
+          avatarSize: size,
+        );
     return MergeSemantics(
       child: SizedBox(
         width: constraints.maxWidth,

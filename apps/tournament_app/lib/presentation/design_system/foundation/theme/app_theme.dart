@@ -122,6 +122,8 @@ abstract final class AppTheme {
       ),
       extensions: [
         const AppScreenMetrics(
+          profileLinkHeight: ScreenPrimitives.profileLinkHeight,
+          profileNameSize: ScreenPrimitives.profileNameSize,
           homeMetaSize: ScreenPrimitives.homeMetaSize,
           homePrimaryFlex: ScreenPrimitives.homePrimaryFlex,
           homeSecondaryFlex: ScreenPrimitives.homeSecondaryFlex,

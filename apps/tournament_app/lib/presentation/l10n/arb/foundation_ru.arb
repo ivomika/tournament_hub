@@ -250,5 +250,17 @@
   "screenTournaments": "Турниры",
   "screenNew": "Новый",
   "screenContinue": "Продолжить",
-  "screenLive": "В процессе"
+  "screenLive": "В процессе",
+  "screenProfileTitle": "Профиль",
+  "screenEditName": "Изменить имя",
+  "screenWins": "Победы в турнирах",
+  "screenTournamentCount": "Турниры",
+  "screenMatches": "Схватки",
+  "screenLastTournament": "Последний турнир",
+  "screenSettings": "Настройки",
+  "screenAbout": "О приложении",
+  "screenContact": "Связь",
+  "screenAhead": "Всё ещё впереди",
+  "screenAheadNote": "Здесь появятся результаты твоих турниров.",
+  "screenPlace": " место"
 }

@@ -545,4 +545,40 @@ class FoundationLocalizationsRu extends FoundationLocalizations {
 
   @override
   String get screenLive => 'В процессе';
+
+  @override
+  String get screenProfileTitle => 'Профиль';
+
+  @override
+  String get screenEditName => 'Изменить имя';
+
+  @override
+  String get screenWins => 'Победы в турнирах';
+
+  @override
+  String get screenTournamentCount => 'Турниры';
+
+  @override
+  String get screenMatches => 'Схватки';
+
+  @override
+  String get screenLastTournament => 'Последний турнир';
+
+  @override
+  String get screenSettings => 'Настройки';
+
+  @override
+  String get screenAbout => 'О приложении';
+
+  @override
+  String get screenContact => 'Связь';
+
+  @override
+  String get screenAhead => 'Всё ещё впереди';
+
+  @override
+  String get screenAheadNote => 'Здесь появятся результаты твоих турниров.';
+
+  @override
+  String get screenPlace => ' место';
 }

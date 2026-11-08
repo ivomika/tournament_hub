@@ -28,6 +28,8 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
     required this.homeMetaSize,
     required this.homePrimaryFlex,
     required this.homeSecondaryFlex,
+    required this.profileLinkHeight,
+    required this.profileNameSize,
     required this.utilityWidth,
     required this.utilityHeight,
     required this.utilityTop,
@@ -56,6 +58,8 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
   final MainAxisSize max;
   final TextAlign centerText;
   final TextAlign leftText;
+  final double profileLinkHeight;
+  final double profileNameSize;
   final double homeMetaSize;
   final int homePrimaryFlex;
   final int homeSecondaryFlex;
@@ -104,6 +108,8 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
     double? homeMetaSize,
     int? homePrimaryFlex,
     int? homeSecondaryFlex,
+    double? profileLinkHeight,
+    double? profileNameSize,
     double? utilityWidth,
     double? utilityHeight,
     double? utilityTop,
@@ -142,6 +148,8 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
     homeMetaSize: homeMetaSize ?? this.homeMetaSize,
     homePrimaryFlex: homePrimaryFlex ?? this.homePrimaryFlex,
     homeSecondaryFlex: homeSecondaryFlex ?? this.homeSecondaryFlex,
+    profileLinkHeight: profileLinkHeight ?? this.profileLinkHeight,
+    profileNameSize: profileNameSize ?? this.profileNameSize,
     utilityWidth: utilityWidth ?? this.utilityWidth,
     utilityHeight: utilityHeight ?? this.utilityHeight,
     utilityTop: utilityTop ?? this.utilityTop,
@@ -195,6 +203,16 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
           homeSecondaryFlex: t < 0.5
               ? homeSecondaryFlex
               : other.homeSecondaryFlex,
+          profileLinkHeight: lerpDouble(
+            profileLinkHeight,
+            other.profileLinkHeight,
+            t,
+          )!,
+          profileNameSize: lerpDouble(
+            profileNameSize,
+            other.profileNameSize,
+            t,
+          )!,
           utilityWidth: lerpDouble(utilityWidth, other.utilityWidth, t)!,
           utilityHeight: lerpDouble(utilityHeight, other.utilityHeight, t)!,
           utilityTop: lerpDouble(utilityTop, other.utilityTop, t)!,

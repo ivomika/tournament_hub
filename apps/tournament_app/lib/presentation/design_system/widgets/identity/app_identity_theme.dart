@@ -32,8 +32,9 @@ class AppIdentityTheme {
     BuildContext context,
     AppIdentityKind kind,
     AppIdentityLayout layout,
-    double availableWidth,
-  ) {
+    double availableWidth, {
+    AppAvatarSize? avatarSize,
+  }) {
     final t = Theme.of(context),
         s = t.extension<AppSpacing>()!,
         m = t.extension<AppIdentityMetrics>()!,
@@ -43,14 +44,21 @@ class AppIdentityTheme {
         control = t.extension<AppControlMetrics>()!;
     final stack = layout == AppIdentityLayout.stacked,
         participant = kind == AppIdentityKind.participant;
-    final size = participant
-        ? (stack ? AppAvatarSize.large : AppAvatarSize.medium)
-        : (stack ? AppAvatarSize.portrait : AppAvatarSize.large);
+    final size =
+        avatarSize ??
+        (participant
+            ? (stack ? AppAvatarSize.large : AppAvatarSize.medium)
+            : (stack ? AppAvatarSize.portrait : AppAvatarSize.large));
     final shape = participant && !stack
         ? AppAvatarShape.round
         : AppAvatarShape.tile;
     final source = AppAvatarTheme.of(context, size, shape);
-    final primary = participant
+    final compact =
+        avatarSize == AppAvatarSize.extraSmall ||
+        avatarSize == AppAvatarSize.small;
+    final primary = compact
+        ? type.interfaceStyle(t.textTheme.labelLarge!)
+        : participant
         ? type.interfaceStyle(
             t.textTheme.bodyMedium!.copyWith(
               fontSize: stack

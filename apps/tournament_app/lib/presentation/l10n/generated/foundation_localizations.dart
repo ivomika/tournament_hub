@@ -1104,6 +1104,78 @@ abstract class FoundationLocalizations {
   /// In ru, this message translates to:
   /// **'В процессе'**
   String get screenLive;
+
+  /// No description provided for @screenProfileTitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'Профиль'**
+  String get screenProfileTitle;
+
+  /// No description provided for @screenEditName.
+  ///
+  /// In ru, this message translates to:
+  /// **'Изменить имя'**
+  String get screenEditName;
+
+  /// No description provided for @screenWins.
+  ///
+  /// In ru, this message translates to:
+  /// **'Победы в турнирах'**
+  String get screenWins;
+
+  /// No description provided for @screenTournamentCount.
+  ///
+  /// In ru, this message translates to:
+  /// **'Турниры'**
+  String get screenTournamentCount;
+
+  /// No description provided for @screenMatches.
+  ///
+  /// In ru, this message translates to:
+  /// **'Схватки'**
+  String get screenMatches;
+
+  /// No description provided for @screenLastTournament.
+  ///
+  /// In ru, this message translates to:
+  /// **'Последний турнир'**
+  String get screenLastTournament;
+
+  /// No description provided for @screenSettings.
+  ///
+  /// In ru, this message translates to:
+  /// **'Настройки'**
+  String get screenSettings;
+
+  /// No description provided for @screenAbout.
+  ///
+  /// In ru, this message translates to:
+  /// **'О приложении'**
+  String get screenAbout;
+
+  /// No description provided for @screenContact.
+  ///
+  /// In ru, this message translates to:
+  /// **'Связь'**
+  String get screenContact;
+
+  /// No description provided for @screenAhead.
+  ///
+  /// In ru, this message translates to:
+  /// **'Всё ещё впереди'**
+  String get screenAhead;
+
+  /// No description provided for @screenAheadNote.
+  ///
+  /// In ru, this message translates to:
+  /// **'Здесь появятся результаты твоих турниров.'**
+  String get screenAheadNote;
+
+  /// No description provided for @screenPlace.
+  ///
+  /// In ru, this message translates to:
+  /// **' место'**
+  String get screenPlace;
 }
 
 class _FoundationLocalizationsDelegate
