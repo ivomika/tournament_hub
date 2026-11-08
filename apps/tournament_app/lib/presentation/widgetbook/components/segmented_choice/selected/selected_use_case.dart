@@ -10,5 +10,5 @@ final segmentedSelectedUseCase = WidgetbookUseCase(
 
 abstract final class SegmentedSelectedUseCase {
   static Widget build(BuildContext context) =>
-      const ComponentPreview(child: SegmentedFixture());
+      const ComponentPreview(padded: true, child: SegmentedFixture());
 }

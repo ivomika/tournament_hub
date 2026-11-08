@@ -155,3 +155,11 @@ Prompt пользователя (дословно):
 Stage IMPLEMENTING; TestGate NOT_REQUIRED: layout-only исправление. Причина: полноэкранный tight viewport + внутренний Center без heightFactor. Решение: natural heightFactor через WidgetTheme, minHeight64 сохраняется с ростом под текст; общий ComponentPreview Align снимает tight constraints в use case. Без фиксированной высоты стенда или IntrinsicHeight. Регрессия через real Workbench Mobile/Desktop.
 
 Stage DONE. RED actual844px вместо64px подтверждён в реальном Mobile viewport. Center.heightFactor из WidgetTheme + scoped use cases с общим ComponentPreview/Align дают64px и в Mobile, и Desktop. Высота не зафиксирована сверху: textScale3 увеличивает компонент, проверено. Старые focused/disabled/scaled baselines были ошибочно240×1800; намеренно заменены240×64, просмотрены. После update обычные5 component tests PASS; real viewport regression PASS; source comparison PASS без update; analyzer/architecture326 files PASS. Документирован sizing-контракт. Отдельный локальный коммит, без push.
+
+### Аудит76: preview bounds
+Prompt пользователя (дословно):
+> Проверь остальные компоненты в Widgetbook на такие же проблемы с размерами в Mobile и Desktop. Исправь найденное, каждый компонент отдельным коммитом без push.
+
+Stage IMPLEMENTING; TestGate NOT_REQUIRED layout-only. Theme inset16 сохраняет внешний focus outline внутри viewport; размеры production компонентов не меняются.
+
+Stage DONE. Полный audit101×2 presets при textScale1.6 PASS, safe inset assertions PASS. Native screenshots просмотрены: focus outline целиком внутри viewport. Production sizes не менялись. No push.

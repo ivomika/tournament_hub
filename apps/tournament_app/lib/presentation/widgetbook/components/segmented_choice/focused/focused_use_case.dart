@@ -9,6 +9,8 @@ final segmentedFocusedUseCase = WidgetbookUseCase(
 );
 
 abstract final class SegmentedFocusedUseCase {
-  static Widget build(BuildContext context) =>
-      const ComponentPreview(child: SegmentedFixture(focused: true));
+  static Widget build(BuildContext context) => const ComponentPreview(
+    padded: true,
+    child: SegmentedFixture(focused: true),
+  );
 }

@@ -9,6 +9,8 @@ final segmentedDisabledUseCase = WidgetbookUseCase(
 );
 
 abstract final class SegmentedDisabledUseCase {
-  static Widget build(BuildContext context) =>
-      const ComponentPreview(child: SegmentedFixture(disabled: true));
+  static Widget build(BuildContext context) => const ComponentPreview(
+    padded: true,
+    child: SegmentedFixture(disabled: true),
+  );
 }
