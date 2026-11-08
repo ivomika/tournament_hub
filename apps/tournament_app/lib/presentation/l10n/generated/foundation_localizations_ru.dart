@@ -581,4 +581,16 @@ class FoundationLocalizationsRu extends FoundationLocalizations {
 
   @override
   String get screenPlace => ' место';
+
+  @override
+  String get screenEditing => 'Редактирование';
+
+  @override
+  String get screenSaveName => 'Сохранить имя';
+
+  @override
+  String get screenName => 'Имя';
+
+  @override
+  String get screenSaveError => 'Не удалось сохранить';
 }

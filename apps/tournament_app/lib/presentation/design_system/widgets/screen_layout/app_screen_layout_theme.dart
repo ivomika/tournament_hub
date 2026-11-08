@@ -33,6 +33,10 @@ class AppScreenLayoutTheme {
     homeSecondaryFlex = m.homeSecondaryFlex;
     profileLinkHeight = m.profileLinkHeight;
     profileNameSize = m.profileNameSize;
+    simpleWidth = m.simpleWidth;
+    simplePadding = m.simplePadding;
+    simpleIntroFlex = m.simpleIntroFlex;
+    simpleFormFlex = m.simpleFormFlex;
     desktop = MediaQuery.sizeOf(context).width > r.mobileToDesktopWidth;
     inset = EdgeInsets.all(desktop ? s.space32 : s.space24);
     brandInset = EdgeInsets.symmetric(horizontal: s.space32);
@@ -91,6 +95,10 @@ class AppScreenLayoutTheme {
   late final int homeSecondaryFlex;
   late final double profileLinkHeight;
   late final double profileNameSize;
+  late final double simpleWidth;
+  late final double simplePadding;
+  late final int simpleIntroFlex;
+  late final int simpleFormFlex;
   late final bool desktop;
   late final EdgeInsets inset, tileInset, brandInset;
   late final double utilityWidth,

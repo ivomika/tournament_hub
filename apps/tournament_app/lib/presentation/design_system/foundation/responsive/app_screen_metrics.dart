@@ -30,6 +30,10 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
     required this.homeSecondaryFlex,
     required this.profileLinkHeight,
     required this.profileNameSize,
+    required this.simpleWidth,
+    required this.simplePadding,
+    required this.simpleIntroFlex,
+    required this.simpleFormFlex,
     required this.utilityWidth,
     required this.utilityHeight,
     required this.utilityTop,
@@ -58,6 +62,10 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
   final MainAxisSize max;
   final TextAlign centerText;
   final TextAlign leftText;
+  final double simpleWidth;
+  final double simplePadding;
+  final int simpleIntroFlex;
+  final int simpleFormFlex;
   final double profileLinkHeight;
   final double profileNameSize;
   final double homeMetaSize;
@@ -110,6 +118,10 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
     int? homeSecondaryFlex,
     double? profileLinkHeight,
     double? profileNameSize,
+    double? simpleWidth,
+    double? simplePadding,
+    int? simpleIntroFlex,
+    int? simpleFormFlex,
     double? utilityWidth,
     double? utilityHeight,
     double? utilityTop,
@@ -150,6 +162,10 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
     homeSecondaryFlex: homeSecondaryFlex ?? this.homeSecondaryFlex,
     profileLinkHeight: profileLinkHeight ?? this.profileLinkHeight,
     profileNameSize: profileNameSize ?? this.profileNameSize,
+    simpleWidth: simpleWidth ?? this.simpleWidth,
+    simplePadding: simplePadding ?? this.simplePadding,
+    simpleIntroFlex: simpleIntroFlex ?? this.simpleIntroFlex,
+    simpleFormFlex: simpleFormFlex ?? this.simpleFormFlex,
     utilityWidth: utilityWidth ?? this.utilityWidth,
     utilityHeight: utilityHeight ?? this.utilityHeight,
     utilityTop: utilityTop ?? this.utilityTop,
@@ -213,6 +229,10 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
             other.profileNameSize,
             t,
           )!,
+          simpleWidth: lerpDouble(simpleWidth, other.simpleWidth, t)!,
+          simplePadding: lerpDouble(simplePadding, other.simplePadding, t)!,
+          simpleIntroFlex: t < 0.5 ? simpleIntroFlex : other.simpleIntroFlex,
+          simpleFormFlex: t < 0.5 ? simpleFormFlex : other.simpleFormFlex,
           utilityWidth: lerpDouble(utilityWidth, other.utilityWidth, t)!,
           utilityHeight: lerpDouble(utilityHeight, other.utilityHeight, t)!,
           utilityTop: lerpDouble(utilityTop, other.utilityTop, t)!,

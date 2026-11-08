@@ -262,5 +262,9 @@
   "screenContact": "Связь",
   "screenAhead": "Всё ещё впереди",
   "screenAheadNote": "Здесь появятся результаты твоих турниров.",
-  "screenPlace": " место"
+  "screenPlace": " место",
+  "screenEditing": "Редактирование",
+  "screenSaveName": "Сохранить имя",
+  "screenName": "Имя",
+  "screenSaveError": "Не удалось сохранить"
 }

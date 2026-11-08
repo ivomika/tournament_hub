@@ -1,4 +1,8 @@
 abstract final class ScreenPrimitives {
+  static const simpleWidth = 880.0;
+  static const simplePadding = 40.0;
+  static const simpleIntroFlex = 8;
+  static const simpleFormFlex = 12;
   static const profileLinkHeight = 112.0;
   static const profileNameSize = 64.0;
   static const homeMetaSize = 22.0;

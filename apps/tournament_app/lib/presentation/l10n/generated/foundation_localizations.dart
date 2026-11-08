@@ -1176,6 +1176,30 @@ abstract class FoundationLocalizations {
   /// In ru, this message translates to:
   /// **' место'**
   String get screenPlace;
+
+  /// No description provided for @screenEditing.
+  ///
+  /// In ru, this message translates to:
+  /// **'Редактирование'**
+  String get screenEditing;
+
+  /// No description provided for @screenSaveName.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сохранить имя'**
+  String get screenSaveName;
+
+  /// No description provided for @screenName.
+  ///
+  /// In ru, this message translates to:
+  /// **'Имя'**
+  String get screenName;
+
+  /// No description provided for @screenSaveError.
+  ///
+  /// In ru, this message translates to:
+  /// **'Не удалось сохранить'**
+  String get screenSaveError;
 }
 
 class _FoundationLocalizationsDelegate
