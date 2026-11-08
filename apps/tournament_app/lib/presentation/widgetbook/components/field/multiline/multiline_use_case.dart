@@ -1,3 +1,4 @@
+import 'package:tournament_app/presentation/design_system/foundation/spacing/app_spacing.dart';
 import 'package:flutter/material.dart';
 import 'package:widgetbook/widgetbook.dart';
 import 'package:tournament_app/presentation/design_system/components/field/app_field.dart';
@@ -10,6 +11,7 @@ final fieldMultilineUseCase = WidgetbookUseCase(
 
 abstract final class FieldMultilineUseCase {
   static Widget build(BuildContext context) => SingleChildScrollView(
+    padding: EdgeInsets.all(Theme.of(context).extension<AppSpacing>()!.space16),
     child: Column(
       mainAxisSize: MainAxisSize.min,
       children: [

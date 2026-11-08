@@ -149,3 +149,11 @@ AppField на настоящем TextField: single/multiline, controller, readon
 Comparison действительно нашёл неверные text roles20/18 вместо18/16, неверный borderStrong вместо outlineVariant и отличие textarea invalid border. Исправлены, overlay просмотрены; textarea invalid сохраняет обычную границу по source, note это объясняет. TextRange измеряет сам текст, включая EditableText, отдельный borderColor control+engine regression. Native scaled1.6 PNG и реальные editing/delegation/readonly/disabled/theme propagation tests4 PASS. Source16/16 PASS +1 expected negative verified после update и повторно без update.
 
 Analyzer no issues; architecture fixtures49/51/35 PASS,159 files без нарушений; engine35 PASS; macOS hot restart выполнен. Другие ОС NOT_RUN. Отчёт docs/design/prototype/comparison/field/index.html. Итог текущей итерации: выполнено.
+
+### Аудит76: preview bounds
+Prompt пользователя (дословно):
+> Проверь остальные компоненты в Widgetbook на такие же проблемы с размерами в Mobile и Desktop. Исправь найденное, каждый компонент отдельным коммитом без push.
+
+Stage IMPLEMENTING; TestGate NOT_REQUIRED layout-only. Theme inset16 сохраняет внешний focus outline внутри viewport; размеры production компонентов не меняются.
+
+Stage DONE. Полный audit101×2 presets при textScale1.6 PASS, safe inset assertions PASS. Native screenshots просмотрены: focus outline целиком внутри viewport. Production sizes не менялись. No push.
