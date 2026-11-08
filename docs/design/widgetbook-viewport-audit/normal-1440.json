@@ -1,0 +1,2397 @@
+[
+  {
+    "path": "foundation/responsive/consumers",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/000.png",
+    "widgets": [
+      {
+        "type": "AppSurface",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 376.0
+      },
+      {
+        "type": "AppButton",
+        "x": 24.0,
+        "y": 24.0,
+        "width": 1392.0,
+        "height": 56.0
+      },
+      {
+        "type": "AppButton",
+        "x": 696.0,
+        "y": 80.0,
+        "width": 48.0,
+        "height": 48.0
+      },
+      {
+        "type": "AppRosterRow",
+        "x": 24.0,
+        "y": 144.0,
+        "width": 1392.0,
+        "height": 208.0
+      },
+      {
+        "type": "AppSurface",
+        "x": 24.0,
+        "y": 144.0,
+        "width": 1392.0,
+        "height": 208.0
+      },
+      {
+        "type": "AppSurface",
+        "x": 24.0,
+        "y": 144.0,
+        "width": 1392.0,
+        "height": 208.0
+      },
+      {
+        "type": "AppIdentity",
+        "x": 48.0,
+        "y": 168.0,
+        "width": 1344.0,
+        "height": 160.0
+      },
+      {
+        "type": "AppAvatar",
+        "x": 48.0,
+        "y": 168.0,
+        "width": 64.0,
+        "height": 64.0
+      },
+      {
+        "type": "AppButton",
+        "x": 1352.0,
+        "y": 168.0,
+        "width": 40.0,
+        "height": 40.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "foundation/responsive/text_scale",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/001.png",
+    "widgets": [
+      {
+        "type": "AppSurface",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 376.0
+      },
+      {
+        "type": "AppButton",
+        "x": 24.0,
+        "y": 24.0,
+        "width": 1392.0,
+        "height": 56.0
+      },
+      {
+        "type": "AppButton",
+        "x": 696.0,
+        "y": 80.0,
+        "width": 48.0,
+        "height": 48.0
+      },
+      {
+        "type": "AppRosterRow",
+        "x": 24.0,
+        "y": 144.0,
+        "width": 1392.0,
+        "height": 208.0
+      },
+      {
+        "type": "AppSurface",
+        "x": 24.0,
+        "y": 144.0,
+        "width": 1392.0,
+        "height": 208.0
+      },
+      {
+        "type": "AppSurface",
+        "x": 24.0,
+        "y": 144.0,
+        "width": 1392.0,
+        "height": 208.0
+      },
+      {
+        "type": "AppIdentity",
+        "x": 48.0,
+        "y": 168.0,
+        "width": 1344.0,
+        "height": 160.0
+      },
+      {
+        "type": "AppAvatar",
+        "x": 48.0,
+        "y": 168.0,
+        "width": 64.0,
+        "height": 64.0
+      },
+      {
+        "type": "AppButton",
+        "x": 1352.0,
+        "y": 168.0,
+        "width": 40.0,
+        "height": 40.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "foundation/motion/normal-reveal",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/002.png",
+    "widgets": [
+      {
+        "type": "AppRosterRow",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 72.0
+      },
+      {
+        "type": "AppSurface",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 72.0
+      },
+      {
+        "type": "AppButton",
+        "x": 1352.0,
+        "y": 0.0,
+        "width": 88.0,
+        "height": 72.0
+      },
+      {
+        "type": "AppSurface",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 72.0
+      },
+      {
+        "type": "AppIdentity",
+        "x": 16.0,
+        "y": 8.0,
+        "width": 1408.0,
+        "height": 56.0
+      },
+      {
+        "type": "AppAvatar",
+        "x": 16.0,
+        "y": 12.0,
+        "width": 48.0,
+        "height": 48.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "foundation/motion/reduced-reveal",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/003.png",
+    "widgets": [
+      {
+        "type": "AppRosterRow",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 72.0
+      },
+      {
+        "type": "AppSurface",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 72.0
+      },
+      {
+        "type": "AppButton",
+        "x": 1352.0,
+        "y": 0.0,
+        "width": 88.0,
+        "height": 72.0
+      },
+      {
+        "type": "AppSurface",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 72.0
+      },
+      {
+        "type": "AppIdentity",
+        "x": 16.0,
+        "y": 8.0,
+        "width": 1408.0,
+        "height": 56.0
+      },
+      {
+        "type": "AppAvatar",
+        "x": 16.0,
+        "y": 12.0,
+        "width": 48.0,
+        "height": 48.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "foundation/motion/material3-progress",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/004.png",
+    "widgets": [
+      {
+        "type": "AppProgressIndicator",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 240.0,
+        "height": 10.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "foundation/elevation/floating-/-sheet-/-dialog",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/005.png",
+    "widgets": [],
+    "errors": []
+  },
+  {
+    "path": "foundation/elevation/scrim-/-surface-/-raised",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/006.png",
+    "widgets": [],
+    "errors": []
+  },
+  {
+    "path": "foundation/borders/border-roles-/-selected-/-error",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/007.png",
+    "widgets": [],
+    "errors": []
+  },
+  {
+    "path": "foundation/borders/actual-button-focus",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/008.png",
+    "widgets": [
+      {
+        "type": "AppButton",
+        "x": 16.0,
+        "y": 16.0,
+        "width": 1408.0,
+        "height": 56.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "foundation/shape/source-shapes",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/009.png",
+    "widgets": [],
+    "errors": []
+  },
+  {
+    "path": "foundation/shape/sheet-/-upper-corners",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/010.png",
+    "widgets": [
+      {
+        "type": "AppSurface",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 137.9609375,
+        "height": 69.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "foundation/shape/sheet-/-upper-corners32",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/011.png",
+    "widgets": [
+      {
+        "type": "AppSurface",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 137.9609375,
+        "height": 69.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "foundation/spacing/source-scale",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/012.png",
+    "widgets": [],
+    "errors": []
+  },
+  {
+    "path": "foundation/spacing/inset-/-identity-gap",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/013.png",
+    "widgets": [
+      {
+        "type": "AppSurface",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 112.0
+      },
+      {
+        "type": "AppIdentity",
+        "x": 24.0,
+        "y": 24.0,
+        "width": 1392.0,
+        "height": 64.0
+      },
+      {
+        "type": "AppAvatar",
+        "x": 24.0,
+        "y": 24.0,
+        "width": 64.0,
+        "height": 64.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "foundation/colors/primitive-scales",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/014.png",
+    "widgets": [],
+    "errors": []
+  },
+  {
+    "path": "foundation/colors/dark-palette",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/015.png",
+    "widgets": [],
+    "errors": []
+  },
+  {
+    "path": "foundation/colors/source-roles-/-comparison",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/016.png",
+    "widgets": [],
+    "errors": []
+  },
+  {
+    "path": "foundation/icons/исходные-glyphs",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/017.png",
+    "widgets": [],
+    "errors": []
+  },
+  {
+    "path": "foundation/icons/slots-/-colors-/-rtl",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/018.png",
+    "widgets": [],
+    "errors": []
+  },
+  {
+    "path": "foundation/typography/text-styles",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/019.png",
+    "widgets": [],
+    "errors": []
+  },
+  {
+    "path": "foundation/typography/source-roles-/-comparison",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/020.png",
+    "widgets": [],
+    "errors": []
+  },
+  {
+    "path": "components/qr-code/access",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/021.png",
+    "widgets": [
+      {
+        "type": "AppQrCode",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 320.0,
+        "height": 375.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "components/qr-code/graphic",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/022.png",
+    "widgets": [
+      {
+        "type": "AppQrCode",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 320.0,
+        "height": 320.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "components/qr-code/short-link",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/023.png",
+    "widgets": [
+      {
+        "type": "AppQrCode",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 320.0,
+        "height": 320.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "components/qr-code/long-link",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/024.png",
+    "widgets": [
+      {
+        "type": "AppQrCode",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 320.0,
+        "height": 320.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "components/qr-code/unicode-link",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/025.png",
+    "widgets": [
+      {
+        "type": "AppQrCode",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 320.0,
+        "height": 320.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "components/progress-indicator/animated",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/026.png",
+    "widgets": [
+      {
+        "type": "AppProgressIndicator",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 240.0,
+        "height": 10.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "components/progress-indicator/reduced",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/027.png",
+    "widgets": [
+      {
+        "type": "AppProgressIndicator",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 240.0,
+        "height": 10.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "components/progress-indicator/fixed_phase",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/028.png",
+    "widgets": [
+      {
+        "type": "AppProgressIndicator",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 240.0,
+        "height": 10.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "components/notice/information",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/029.png",
+    "widgets": [
+      {
+        "type": "AppNotice",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 24.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "components/notice/operation_error",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/030.png",
+    "widgets": [
+      {
+        "type": "AppNotice",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 24.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "components/notice/inline_error",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/031.png",
+    "widgets": [
+      {
+        "type": "AppNotice",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 24.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "components/status-label/live",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/032.png",
+    "widgets": [
+      {
+        "type": "AppStatusLabel",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 21.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "components/status-label/win",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/033.png",
+    "widgets": [
+      {
+        "type": "AppStatusLabel",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 142.57931518554688,
+        "height": 17.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "components/status-label/loss",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/034.png",
+    "widgets": [
+      {
+        "type": "AppStatusLabel",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 171.0519561767578,
+        "height": 17.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "components/status-label/points",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/035.png",
+    "widgets": [
+      {
+        "type": "AppStatusLabel",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 44.92411804199219,
+        "height": 17.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "components/navigation-item/default",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/036.png",
+    "widgets": [
+      {
+        "type": "AppNavigationItem",
+        "x": 16.0,
+        "y": 16.0,
+        "width": 1408.0,
+        "height": 80.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "components/navigation-item/hovered",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/037.png",
+    "widgets": [
+      {
+        "type": "AppNavigationItem",
+        "x": 16.0,
+        "y": 16.0,
+        "width": 1408.0,
+        "height": 80.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "components/navigation-item/focused",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/038.png",
+    "widgets": [
+      {
+        "type": "AppNavigationItem",
+        "x": 16.0,
+        "y": 16.0,
+        "width": 1408.0,
+        "height": 80.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "components/navigation-item/disabled",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/039.png",
+    "widgets": [
+      {
+        "type": "AppNavigationItem",
+        "x": 16.0,
+        "y": 16.0,
+        "width": 1408.0,
+        "height": 80.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "components/metric/achievement",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/040.png",
+    "widgets": [
+      {
+        "type": "AppMetric",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 182.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "components/metric/plain",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/041.png",
+    "widgets": [
+      {
+        "type": "AppMetric",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 160.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "components/score-choice/left",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/042.png",
+    "widgets": [
+      {
+        "type": "AppScoreChoice<ScoreChoiceValue>",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 56.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "components/score-choice/right",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/043.png",
+    "widgets": [
+      {
+        "type": "AppScoreChoice<ScoreChoiceValue>",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 56.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "components/score-choice/disabled",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/044.png",
+    "widgets": [
+      {
+        "type": "AppScoreChoice<ScoreChoiceValue>",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 56.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "components/score/pair",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/045.png",
+    "widgets": [
+      {
+        "type": "AppScore",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 80.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "components/score/fixed",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/046.png",
+    "widgets": [
+      {
+        "type": "AppScore",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 60.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "components/score/two_digits",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/047.png",
+    "widgets": [
+      {
+        "type": "AppScore",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 80.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "components/number-stepper/format",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/048.png",
+    "widgets": [
+      {
+        "type": "AppNumberStepper",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 56.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "components/number-stepper/score",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/049.png",
+    "widgets": [
+      {
+        "type": "AppNumberStepper",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 56.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "components/segmented-choice/selected",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/050.png",
+    "widgets": [
+      {
+        "type": "AppSegmentedChoice<SegmentValue>",
+        "x": 16.0,
+        "y": 16.0,
+        "width": 1408.0,
+        "height": 64.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "components/segmented-choice/focused",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/051.png",
+    "widgets": [
+      {
+        "type": "AppSegmentedChoice<SegmentValue>",
+        "x": 16.0,
+        "y": 16.0,
+        "width": 1408.0,
+        "height": 64.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "components/segmented-choice/disabled",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/052.png",
+    "widgets": [
+      {
+        "type": "AppSegmentedChoice<SegmentValue>",
+        "x": 16.0,
+        "y": 16.0,
+        "width": 1408.0,
+        "height": 64.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "components/select/closed",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/053.png",
+    "widgets": [
+      {
+        "type": "AppSelect<SelectValue>",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 85.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "components/select/focused",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/054.png",
+    "widgets": [
+      {
+        "type": "AppSelect<SelectValue>",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 85.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "components/select/disabled",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/055.png",
+    "widgets": [
+      {
+        "type": "AppSelect<SelectValue>",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 85.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "components/select/sheet",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/056.png",
+    "widgets": [
+      {
+        "type": "AppSelectSheet<SelectValue>",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 480.0,
+        "height": 356.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "components/field/single_line",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/057.png",
+    "widgets": [
+      {
+        "type": "AppField",
+        "x": 16.0,
+        "y": 16.0,
+        "width": 1408.0,
+        "height": 85.0
+      },
+      {
+        "type": "AppField",
+        "x": 16.0,
+        "y": 101.0,
+        "width": 1408.0,
+        "height": 85.0
+      },
+      {
+        "type": "AppField",
+        "x": 16.0,
+        "y": 186.0,
+        "width": 1408.0,
+        "height": 85.0
+      },
+      {
+        "type": "AppField",
+        "x": 16.0,
+        "y": 271.0,
+        "width": 1408.0,
+        "height": 85.0
+      },
+      {
+        "type": "AppField",
+        "x": 16.0,
+        "y": 356.0,
+        "width": 1408.0,
+        "height": 117.0
+      },
+      {
+        "type": "AppField",
+        "x": 16.0,
+        "y": 473.0,
+        "width": 1408.0,
+        "height": 85.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "components/field/multiline",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/058.png",
+    "widgets": [
+      {
+        "type": "AppField",
+        "x": 16.0,
+        "y": 16.0,
+        "width": 1408.0,
+        "height": 249.0
+      },
+      {
+        "type": "AppField",
+        "x": 16.0,
+        "y": 265.0,
+        "width": 1408.0,
+        "height": 249.0
+      },
+      {
+        "type": "AppField",
+        "x": 16.0,
+        "y": 514.0,
+        "width": 1408.0,
+        "height": 249.0
+      },
+      {
+        "type": "AppField",
+        "x": 16.0,
+        "y": 763.0,
+        "width": 1408.0,
+        "height": 249.0
+      },
+      {
+        "type": "AppField",
+        "x": 16.0,
+        "y": 1012.0,
+        "width": 1408.0,
+        "height": 281.0
+      },
+      {
+        "type": "AppField",
+        "x": 16.0,
+        "y": 1293.0,
+        "width": 1408.0,
+        "height": 249.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "components/button/primary",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/059.png",
+    "widgets": [
+      {
+        "type": "AppButton",
+        "x": 12.0,
+        "y": 12.0,
+        "width": 1416.0,
+        "height": 56.0
+      },
+      {
+        "type": "AppButton",
+        "x": 12.0,
+        "y": 92.0,
+        "width": 1416.0,
+        "height": 56.0
+      },
+      {
+        "type": "AppButton",
+        "x": 12.0,
+        "y": 172.0,
+        "width": 1416.0,
+        "height": 56.0
+      },
+      {
+        "type": "AppButton",
+        "x": 12.0,
+        "y": 252.0,
+        "width": 1416.0,
+        "height": 56.0
+      },
+      {
+        "type": "AppButton",
+        "x": 12.0,
+        "y": 332.0,
+        "width": 1416.0,
+        "height": 56.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "components/button/content-/-long-label",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/060.png",
+    "widgets": [
+      {
+        "type": "AppButton",
+        "x": 625.4540023803711,
+        "y": 0.0,
+        "width": 189.0919952392578,
+        "height": 56.0
+      },
+      {
+        "type": "AppButton",
+        "x": 0.0,
+        "y": 80.0,
+        "width": 1440.0,
+        "height": 56.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "components/button/secondary",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/061.png",
+    "widgets": [
+      {
+        "type": "AppButton",
+        "x": 12.0,
+        "y": 12.0,
+        "width": 1416.0,
+        "height": 56.0
+      },
+      {
+        "type": "AppButton",
+        "x": 12.0,
+        "y": 92.0,
+        "width": 1416.0,
+        "height": 56.0
+      },
+      {
+        "type": "AppButton",
+        "x": 12.0,
+        "y": 172.0,
+        "width": 1416.0,
+        "height": 56.0
+      },
+      {
+        "type": "AppButton",
+        "x": 12.0,
+        "y": 252.0,
+        "width": 1416.0,
+        "height": 56.0
+      },
+      {
+        "type": "AppButton",
+        "x": 12.0,
+        "y": 332.0,
+        "width": 1416.0,
+        "height": 56.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "components/button/destructive",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/062.png",
+    "widgets": [
+      {
+        "type": "AppButton",
+        "x": 12.0,
+        "y": 12.0,
+        "width": 1416.0,
+        "height": 56.0
+      },
+      {
+        "type": "AppButton",
+        "x": 12.0,
+        "y": 92.0,
+        "width": 1416.0,
+        "height": 56.0
+      },
+      {
+        "type": "AppButton",
+        "x": 12.0,
+        "y": 172.0,
+        "width": 1416.0,
+        "height": 56.0
+      },
+      {
+        "type": "AppButton",
+        "x": 12.0,
+        "y": 252.0,
+        "width": 1416.0,
+        "height": 56.0
+      },
+      {
+        "type": "AppButton",
+        "x": 12.0,
+        "y": 332.0,
+        "width": 1416.0,
+        "height": 56.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "components/button/icon",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/063.png",
+    "widgets": [
+      {
+        "type": "AppButton",
+        "x": 12.0,
+        "y": 12.0,
+        "width": 48.0,
+        "height": 48.0
+      },
+      {
+        "type": "AppButton",
+        "x": 12.0,
+        "y": 84.0,
+        "width": 48.0,
+        "height": 48.0
+      },
+      {
+        "type": "AppButton",
+        "x": 12.0,
+        "y": 156.0,
+        "width": 48.0,
+        "height": 48.0
+      },
+      {
+        "type": "AppButton",
+        "x": 12.0,
+        "y": 228.0,
+        "width": 48.0,
+        "height": 48.0
+      },
+      {
+        "type": "AppButton",
+        "x": 12.0,
+        "y": 300.0,
+        "width": 48.0,
+        "height": 48.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "components/button/accenticon",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/064.png",
+    "widgets": [
+      {
+        "type": "AppButton",
+        "x": 12.0,
+        "y": 12.0,
+        "width": 48.0,
+        "height": 48.0
+      },
+      {
+        "type": "AppButton",
+        "x": 12.0,
+        "y": 84.0,
+        "width": 48.0,
+        "height": 48.0
+      },
+      {
+        "type": "AppButton",
+        "x": 12.0,
+        "y": 156.0,
+        "width": 48.0,
+        "height": 48.0
+      },
+      {
+        "type": "AppButton",
+        "x": 12.0,
+        "y": 228.0,
+        "width": 48.0,
+        "height": 48.0
+      },
+      {
+        "type": "AppButton",
+        "x": 12.0,
+        "y": 300.0,
+        "width": 48.0,
+        "height": 48.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "components/surface/panel",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/065.png",
+    "widgets": [
+      {
+        "type": "AppSurface",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 69.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "components/surface/nested",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/066.png",
+    "widgets": [
+      {
+        "type": "AppSurface",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 138.0
+      },
+      {
+        "type": "AppSurface",
+        "x": 362.14990234375,
+        "y": 45.0,
+        "width": 715.7001953125,
+        "height": 69.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "components/avatar/28-px",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/067.png",
+    "widgets": [
+      {
+        "type": "AppAvatar",
+        "x": 24.0,
+        "y": 24.0,
+        "width": 28.0,
+        "height": 28.0
+      },
+      {
+        "type": "AppAvatar",
+        "x": 76.0,
+        "y": 24.0,
+        "width": 28.0,
+        "height": 28.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "components/avatar/40-px",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/068.png",
+    "widgets": [
+      {
+        "type": "AppAvatar",
+        "x": 24.0,
+        "y": 24.0,
+        "width": 40.0,
+        "height": 40.0
+      },
+      {
+        "type": "AppAvatar",
+        "x": 88.0,
+        "y": 24.0,
+        "width": 40.0,
+        "height": 40.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "components/avatar/48-px",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/069.png",
+    "widgets": [
+      {
+        "type": "AppAvatar",
+        "x": 24.0,
+        "y": 24.0,
+        "width": 48.0,
+        "height": 48.0
+      },
+      {
+        "type": "AppAvatar",
+        "x": 96.0,
+        "y": 24.0,
+        "width": 48.0,
+        "height": 48.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "components/avatar/64-px",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/070.png",
+    "widgets": [
+      {
+        "type": "AppAvatar",
+        "x": 24.0,
+        "y": 24.0,
+        "width": 64.0,
+        "height": 64.0
+      },
+      {
+        "type": "AppAvatar",
+        "x": 112.0,
+        "y": 24.0,
+        "width": 64.0,
+        "height": 64.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "components/avatar/96-px",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/071.png",
+    "widgets": [
+      {
+        "type": "AppAvatar",
+        "x": 24.0,
+        "y": 24.0,
+        "width": 96.0,
+        "height": 96.0
+      },
+      {
+        "type": "AppAvatar",
+        "x": 144.0,
+        "y": 24.0,
+        "width": 96.0,
+        "height": 96.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "components/avatar/112-px",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/072.png",
+    "widgets": [
+      {
+        "type": "AppAvatar",
+        "x": 24.0,
+        "y": 24.0,
+        "width": 112.0,
+        "height": 112.0
+      },
+      {
+        "type": "AppAvatar",
+        "x": 160.0,
+        "y": 24.0,
+        "width": 112.0,
+        "height": 112.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "components/avatar/128-px",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/073.png",
+    "widgets": [
+      {
+        "type": "AppAvatar",
+        "x": 24.0,
+        "y": 24.0,
+        "width": 128.0,
+        "height": 128.0
+      },
+      {
+        "type": "AppAvatar",
+        "x": 176.0,
+        "y": 24.0,
+        "width": 128.0,
+        "height": 128.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "components/avatar/данные-·-пусто,-sz,-цвет",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/074.png",
+    "widgets": [
+      {
+        "type": "AppAvatar",
+        "x": 24.0,
+        "y": 24.0,
+        "width": 64.0,
+        "height": 64.0
+      },
+      {
+        "type": "AppAvatar",
+        "x": 112.0,
+        "y": 24.0,
+        "width": 64.0,
+        "height": 64.0
+      },
+      {
+        "type": "AppAvatar",
+        "x": 200.0,
+        "y": 24.0,
+        "width": 64.0,
+        "height": 64.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "widgets/section-header/back",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/075.png",
+    "widgets": [
+      {
+        "type": "AppSectionHeader",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 48.0
+      },
+      {
+        "type": "AppButton",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 48.0,
+        "height": 48.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "widgets/section-header/save",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/076.png",
+    "widgets": [
+      {
+        "type": "AppSectionHeader",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 48.0
+      },
+      {
+        "type": "AppButton",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 48.0,
+        "height": 48.0
+      },
+      {
+        "type": "AppButton",
+        "x": 1392.0,
+        "y": 0.0,
+        "width": 48.0,
+        "height": 48.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "widgets/section-header/edit",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/077.png",
+    "widgets": [
+      {
+        "type": "AppSectionHeader",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 48.0
+      },
+      {
+        "type": "AppButton",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 48.0,
+        "height": 48.0
+      },
+      {
+        "type": "AppButton",
+        "x": 1392.0,
+        "y": 0.0,
+        "width": 48.0,
+        "height": 48.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "widgets/section-header/long",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/078.png",
+    "widgets": [
+      {
+        "type": "AppSectionHeader",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 48.0
+      },
+      {
+        "type": "AppButton",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 48.0,
+        "height": 48.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "widgets/disclosure/closed",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/079.png",
+    "widgets": [
+      {
+        "type": "AppDisclosure",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 56.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "widgets/disclosure/open",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/080.png",
+    "widgets": [
+      {
+        "type": "AppDisclosure",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 101.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "widgets/disclosure/disabled",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/081.png",
+    "widgets": [
+      {
+        "type": "AppDisclosure",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 56.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "widgets/data-table/standings",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/082.png",
+    "widgets": [
+      {
+        "type": "AppDataTable",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 324.0
+      },
+      {
+        "type": "AppIdentity",
+        "x": 8.0,
+        "y": 106.0,
+        "width": 881.7527560179375,
+        "height": 46.0
+      },
+      {
+        "type": "AppAvatar",
+        "x": 8.0,
+        "y": 109.0,
+        "width": 40.0,
+        "height": 40.0
+      },
+      {
+        "type": "AppIdentity",
+        "x": 8.0,
+        "y": 184.0,
+        "width": 881.7527560179375,
+        "height": 46.0
+      },
+      {
+        "type": "AppAvatar",
+        "x": 8.0,
+        "y": 187.0,
+        "width": 40.0,
+        "height": 40.0
+      },
+      {
+        "type": "AppIdentity",
+        "x": 8.0,
+        "y": 262.0,
+        "width": 881.7527560179375,
+        "height": 46.0
+      },
+      {
+        "type": "AppAvatar",
+        "x": 8.0,
+        "y": 265.0,
+        "width": 40.0,
+        "height": 40.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "widgets/bracket-node/ready",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/083.png",
+    "widgets": [
+      {
+        "type": "AppBracketNode",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 220.0,
+        "height": 132.6
+      },
+      {
+        "type": "AppIdentity",
+        "x": 13.0,
+        "y": 36.6,
+        "width": 194.0,
+        "height": 37.49999999999999
+      },
+      {
+        "type": "AppAvatar",
+        "x": 13.0,
+        "y": 41.35,
+        "width": 28.0,
+        "height": 27.999999999999993
+      },
+      {
+        "type": "AppIdentity",
+        "x": 13.0,
+        "y": 82.1,
+        "width": 194.0,
+        "height": 37.5
+      },
+      {
+        "type": "AppAvatar",
+        "x": 13.0,
+        "y": 86.85,
+        "width": 28.0,
+        "height": 28.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "widgets/bracket-node/current",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/084.png",
+    "widgets": [
+      {
+        "type": "AppBracketNode",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 220.0,
+        "height": 134.6
+      },
+      {
+        "type": "AppIdentity",
+        "x": 14.0,
+        "y": 37.6,
+        "width": 192.0,
+        "height": 37.49999999999999
+      },
+      {
+        "type": "AppAvatar",
+        "x": 14.0,
+        "y": 42.35,
+        "width": 28.0,
+        "height": 27.999999999999993
+      },
+      {
+        "type": "AppIdentity",
+        "x": 14.0,
+        "y": 83.1,
+        "width": 192.0,
+        "height": 37.5
+      },
+      {
+        "type": "AppAvatar",
+        "x": 14.0,
+        "y": 87.85,
+        "width": 28.0,
+        "height": 28.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "widgets/bracket-node/pending",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/085.png",
+    "widgets": [
+      {
+        "type": "AppBracketNode",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 220.0,
+        "height": 116.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "widgets/dialog/default",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/086.png",
+    "widgets": [
+      {
+        "type": "AppDialog",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 420.0,
+        "height": 295.0
+      },
+      {
+        "type": "AppButton",
+        "x": 29.0,
+        "y": 146.0,
+        "width": 362.0,
+        "height": 56.0
+      },
+      {
+        "type": "AppButton",
+        "x": 29.0,
+        "y": 210.0,
+        "width": 362.0,
+        "height": 56.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "widgets/dialog/disabled",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/087.png",
+    "widgets": [
+      {
+        "type": "AppDialog",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 420.0,
+        "height": 295.0
+      },
+      {
+        "type": "AppButton",
+        "x": 29.0,
+        "y": 146.0,
+        "width": 362.0,
+        "height": 56.0
+      },
+      {
+        "type": "AppButton",
+        "x": 29.0,
+        "y": 210.0,
+        "width": 362.0,
+        "height": 56.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "widgets/dialog/actual-modal-overlay",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/088.png",
+    "widgets": [
+      {
+        "type": "AppButton",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 56.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "widgets/share-link/short",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/089.png",
+    "widgets": [
+      {
+        "type": "AppShareLink",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 80.0
+      },
+      {
+        "type": "AppButton",
+        "x": 1376.0,
+        "y": 16.0,
+        "width": 48.0,
+        "height": 48.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "widgets/share-link/long",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/090.png",
+    "widgets": [
+      {
+        "type": "AppShareLink",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 80.0
+      },
+      {
+        "type": "AppButton",
+        "x": 1376.0,
+        "y": 16.0,
+        "width": 48.0,
+        "height": 48.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "widgets/share-link/disabled",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/091.png",
+    "widgets": [
+      {
+        "type": "AppShareLink",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 80.0
+      },
+      {
+        "type": "AppButton",
+        "x": 1376.0,
+        "y": 16.0,
+        "width": 48.0,
+        "height": 48.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "widgets/roster-row/default",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/092.png",
+    "widgets": [
+      {
+        "type": "AppRosterRow",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 208.0
+      },
+      {
+        "type": "AppSurface",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 208.0
+      },
+      {
+        "type": "AppSurface",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 208.0
+      },
+      {
+        "type": "AppIdentity",
+        "x": 24.0,
+        "y": 24.0,
+        "width": 1392.0,
+        "height": 160.0
+      },
+      {
+        "type": "AppAvatar",
+        "x": 24.0,
+        "y": 24.0,
+        "width": 64.0,
+        "height": 64.0
+      },
+      {
+        "type": "AppButton",
+        "x": 1376.0,
+        "y": 24.0,
+        "width": 40.0,
+        "height": 40.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "widgets/roster-row/revealed",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/093.png",
+    "widgets": [
+      {
+        "type": "AppRosterRow",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 208.0
+      },
+      {
+        "type": "AppSurface",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 208.0
+      },
+      {
+        "type": "AppSurface",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 208.0
+      },
+      {
+        "type": "AppIdentity",
+        "x": 24.0,
+        "y": 24.0,
+        "width": 1392.0,
+        "height": 160.0
+      },
+      {
+        "type": "AppAvatar",
+        "x": 24.0,
+        "y": 24.0,
+        "width": 64.0,
+        "height": 64.0
+      },
+      {
+        "type": "AppButton",
+        "x": 1376.0,
+        "y": 24.0,
+        "width": 40.0,
+        "height": 40.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "widgets/roster-row/focus",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/094.png",
+    "widgets": [
+      {
+        "type": "AppRosterRow",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 208.0
+      },
+      {
+        "type": "AppSurface",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 208.0
+      },
+      {
+        "type": "AppSurface",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 208.0
+      },
+      {
+        "type": "AppIdentity",
+        "x": 24.0,
+        "y": 24.0,
+        "width": 1392.0,
+        "height": 160.0
+      },
+      {
+        "type": "AppAvatar",
+        "x": 24.0,
+        "y": 24.0,
+        "width": 64.0,
+        "height": 64.0
+      },
+      {
+        "type": "AppButton",
+        "x": 1376.0,
+        "y": 24.0,
+        "width": 40.0,
+        "height": 40.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "widgets/roster-row/disabled",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/095.png",
+    "widgets": [
+      {
+        "type": "AppRosterRow",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 208.0
+      },
+      {
+        "type": "AppSurface",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 208.0
+      },
+      {
+        "type": "AppSurface",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 208.0
+      },
+      {
+        "type": "AppIdentity",
+        "x": 24.0,
+        "y": 24.0,
+        "width": 1392.0,
+        "height": 160.0
+      },
+      {
+        "type": "AppAvatar",
+        "x": 24.0,
+        "y": 24.0,
+        "width": 64.0,
+        "height": 64.0
+      },
+      {
+        "type": "AppButton",
+        "x": 1376.0,
+        "y": 24.0,
+        "width": 40.0,
+        "height": 40.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "widgets/roster-row/long",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/096.png",
+    "widgets": [
+      {
+        "type": "AppRosterRow",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 208.0
+      },
+      {
+        "type": "AppSurface",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 208.0
+      },
+      {
+        "type": "AppSurface",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 208.0
+      },
+      {
+        "type": "AppIdentity",
+        "x": 24.0,
+        "y": 24.0,
+        "width": 1392.0,
+        "height": 160.0
+      },
+      {
+        "type": "AppAvatar",
+        "x": 24.0,
+        "y": 24.0,
+        "width": 64.0,
+        "height": 64.0
+      },
+      {
+        "type": "AppButton",
+        "x": 1376.0,
+        "y": 24.0,
+        "width": 40.0,
+        "height": 40.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "widgets/identity/inline",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/097.png",
+    "widgets": [
+      {
+        "type": "AppIdentity",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 64.0
+      },
+      {
+        "type": "AppAvatar",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 64.0,
+        "height": 64.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "widgets/identity/stacked",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/098.png",
+    "widgets": [
+      {
+        "type": "AppIdentity",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 181.0
+      },
+      {
+        "type": "AppAvatar",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 112.0,
+        "height": 112.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "widgets/identity/participant",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/099.png",
+    "widgets": [
+      {
+        "type": "AppIdentity",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 48.0
+      },
+      {
+        "type": "AppAvatar",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 48.0,
+        "height": 48.0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "path": "widgets/identity/long",
+    "width": 1440.0,
+    "height": 900.0,
+    "image": "1440/100.png",
+    "widgets": [
+      {
+        "type": "AppIdentity",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 1440.0,
+        "height": 48.0
+      },
+      {
+        "type": "AppAvatar",
+        "x": 0.0,
+        "y": 0.0,
+        "width": 48.0,
+        "height": 48.0
+      }
+    ],
+    "errors": []
+  }
+]
