@@ -34,6 +34,7 @@ class AppSegmentedChoiceTheme {
     focusOffset = b.focusOffset;
     focusColor = t.focusColor;
     half = c.half;
+    contentHeightFactor = c.half + c.half;
     zero = c.zero;
   }
   late final Color background,
@@ -43,7 +44,13 @@ class AppSegmentedChoiceTheme {
       secondary,
       disabled,
       focusColor;
-  late final double height, gap, focusWidth, focusOffset, half, zero;
+  late final double height,
+      gap,
+      focusWidth,
+      focusOffset,
+      half,
+      zero,
+      contentHeightFactor;
   late final EdgeInsets padding, selectedInset;
   late final BorderRadius radius;
   late final TextStyle selectedStyle, normalStyle;

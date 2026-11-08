@@ -163,6 +163,7 @@ class _Segment<T extends Object> extends StatelessWidget {
                   borderRadius: t.radius,
                 ),
                 child: Center(
+                  heightFactor: t.contentHeightFactor,
                   child: Text(
                     option.label,
                     style: (selected ? t.selectedStyle : t.normalStyle)

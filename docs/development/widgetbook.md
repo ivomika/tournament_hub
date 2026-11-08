@@ -52,3 +52,9 @@ Widget-тест вызывает main_widgetbook.main через package import 
 В QR code добавлены фиксированные use cases **Short link**, **Long link**, **Unicode link**. Они используют общий QrPayloadSample и показывают реальные разные данные; `QR payload` остаётся редактируемым. Их mobile/desktop native baselines используют те же fixtures.
 
 Progress indicator и Foundation/Motion/Material3 progress показывают один линейный волнистый M3 Expressive adapter. Reduced motion — статичная волна без показателя процента.
+
+## Естественный размер standalone controls
+
+Viewport задаёт окружение экрана, а не высоту контрола. Для отдельных контролов `ComponentPreview` использует Align: child получает loose constraints. В самом контроле Center с heightFactor из WidgetTheme сохраняет естественную высоту; minHeight задаёт базовый размер и допускает рост под увеличенный текст. Не фиксировать высоту use case числом ради устранения дефекта и не применять IntrinsicHeight к этой простой композиции. Screens со Scaffold сохраняют собственный full-size layout.
+
+Основание: [Flutter constraints](https://docs.flutter.dev/ui/layout/constraints), [Center sizing](https://api.flutter.dev/flutter/widgets/Center-class.html). Регрессия должна запускать реальный Workbench с Mobile/Desktop preset и проверять размер самого контрола, а не только отсутствие exception. Ошибочная высокая картинка в golden сама по себе не доказывает правильность layout.

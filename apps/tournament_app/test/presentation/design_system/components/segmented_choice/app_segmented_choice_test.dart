@@ -19,6 +19,10 @@ abstract final class _SegmentTests {
     testWidgets('RTL follows visual direction', _rtl);
     testWidgets('current main theme colors and text reach consumers', _theme);
     testWidgets('focused disabled scaled native goldens', _goldens);
+    testWidgets(
+      'large accessibility text can grow beyond minimum height',
+      _largeText,
+    );
   }
 
   static Future<void> _pump(
@@ -114,6 +118,18 @@ abstract final class _SegmentTests {
     expect(text.style!.fontSize, 20);
   }
 
+  static Future<void> _largeText(WidgetTester tester) async {
+    await _pump(tester, scale: 3);
+    expect(
+      tester.getSize(find.byKey(const ValueKey('segmented'))).height,
+      greaterThan(64),
+    );
+    expect(
+      tester.getSize(find.byKey(const ValueKey('segmented'))).height,
+      lessThan(150),
+    );
+  }
+
   static Future<void> _goldens(WidgetTester tester) async {
     for (final mode in ['focused', 'disabled', 'scaled']) {
       await _pump(
@@ -121,6 +137,10 @@ abstract final class _SegmentTests {
         focused: mode == 'focused',
         disabled: mode == 'disabled',
         scale: mode == 'scaled' ? 1.6 : 1,
+      );
+      expect(
+        tester.getSize(find.byKey(const ValueKey('segmented'))).height,
+        64,
       );
       await expectLater(
         find.byKey(const ValueKey('segmented')),

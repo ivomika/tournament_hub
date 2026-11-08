@@ -147,3 +147,11 @@ Prompt пользователя (дословно):
 Controlled AppSegmentedChoice<T>/AppSegment<T> с собственной runtime WidgetTheme. Pointer и стрелки с wrap/RTL только делегируют выбранное значение. Нет бизнес-формата/навигации. Shared selected/focused/disabled fixtures; actual CSS ::before измеряется generic typed webPseudo. Source6/6 PASS после update и повторно без update; сравнение нашло неверную начальную высоту48 вместо64, исправлено по актуальному --format-control-height=--s6. Selected fill48/inset8 и label внутренности подтверждены, overlay просмотрен.
 
 Native4 tests PASS без update: pointer/keyboard/disabled, RTL, theme replacement, focused/disabled/scaled PNG. Analyzer no issues; architecture180 files без нарушений, engine37 PASS; предыдущие architecture fixtures49/51/35 PASS. MacOS Widgetbook hot restart выполнен; другие ОС NOT_RUN. Отчёт docs/design/prototype/comparison/segmented-choice/index.html. Итог текущей итерации: выполнено.
+
+### Высота в Widgetbook viewport
+Prompt пользователя (дословно):
+> степпер и choice в виджет буке отображаются так. Нужно либо задать высоту компонента либо ограничить высоту в useCase смотря как правльней будет по лучшим практикам
+
+Stage IMPLEMENTING; TestGate NOT_REQUIRED: layout-only исправление. Причина: полноэкранный tight viewport + внутренний Center без heightFactor. Решение: natural heightFactor через WidgetTheme, minHeight64 сохраняется с ростом под текст; общий ComponentPreview Align снимает tight constraints в use case. Без фиксированной высоты стенда или IntrinsicHeight. Регрессия через real Workbench Mobile/Desktop.
+
+Stage DONE. RED actual844px вместо64px подтверждён в реальном Mobile viewport. Center.heightFactor из WidgetTheme + scoped use cases с общим ComponentPreview/Align дают64px и в Mobile, и Desktop. Высота не зафиксирована сверху: textScale3 увеличивает компонент, проверено. Старые focused/disabled/scaled baselines были ошибочно240×1800; намеренно заменены240×64, просмотрены. После update обычные5 component tests PASS; real viewport regression PASS; source comparison PASS без update; analyzer/architecture326 files PASS. Документирован sizing-контракт. Отдельный локальный коммит, без push.

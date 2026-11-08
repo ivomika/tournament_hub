@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:tournament_app/presentation/widgetbook/components/segmented_choice/segmented_fixture.dart';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter/material.dart';
 import 'package:tournament_app/presentation/widgetbook/foundation/borders/catalog/catalog_use_case.dart';
@@ -13,6 +15,10 @@ void main() => _WidgetbookBootstrapTests.run();
 
 abstract final class _WidgetbookBootstrapTests {
   static void run() {
+    testWidgets(
+      'segmented preview keeps natural height in mobile and desktop viewport',
+      _segmentedViewport,
+    );
     testWidgets(
       'Widgetbook starts with foundation catalogue',
       _startsFoundationCatalogue,
@@ -125,6 +131,32 @@ abstract final class _WidgetbookBootstrapTests {
       final box = tester.renderObject<RenderBox>(fixture);
       expect(box.constraints.maxWidth, preset.width);
       expect(box.constraints.maxHeight, preset.height);
+      expect(tester.takeException(), isNull);
+    }
+  }
+
+  static Future<void> _segmentedViewport(WidgetTester tester) async {
+    await tester.binding.setSurfaceSize(const Size(1600, 1200));
+    addTearDown(() => tester.binding.setSurfaceSize(null));
+    for (final preset in WidgetbookViewports.values.skip(1)) {
+      await tester.pumpWidget(const SizedBox.shrink());
+      await tester.pumpWidget(
+        TournamentWidgetbookApp(
+          theme: AppTheme.dark(),
+          initialRoute: Uri(
+            path: '/',
+            queryParameters: {
+              'path': 'components/segmented-choice/selected',
+              'viewport': '{name:${Uri.encodeComponent(preset.name)}}',
+            },
+          ).toString(),
+        ),
+      );
+      await tester.pumpAndSettle();
+      final fixture = find.byType(SegmentedFixture);
+      expect(fixture, findsOneWidget);
+      expect(MediaQuery.sizeOf(tester.element(fixture)), preset.size);
+      expect(tester.getSize(fixture).height, 64);
       expect(tester.takeException(), isNull);
     }
   }

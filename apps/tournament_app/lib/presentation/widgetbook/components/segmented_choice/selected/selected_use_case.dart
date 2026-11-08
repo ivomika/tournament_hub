@@ -1,3 +1,4 @@
+import 'package:tournament_app/presentation/widgetbook/components/component_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:widgetbook/widgetbook.dart';
 import 'package:tournament_app/presentation/widgetbook/components/segmented_choice/segmented_fixture.dart';
@@ -8,5 +9,6 @@ final segmentedSelectedUseCase = WidgetbookUseCase(
 );
 
 abstract final class SegmentedSelectedUseCase {
-  static Widget build(BuildContext context) => const SegmentedFixture();
+  static Widget build(BuildContext context) =>
+      const ComponentPreview(child: SegmentedFixture());
 }
