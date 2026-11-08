@@ -13,9 +13,11 @@ class AppDialog extends StatelessWidget {
     required this.onCancel,
     this.confirmFocus,
     this.cancelFocus,
+    this.leading,
     super.key,
   });
   final String title, content, confirmLabel, cancelLabel;
+  final Widget? leading;
   final VoidCallback? onConfirm, onCancel;
   final FocusNode? confirmFocus, cancelFocus;
   @override
@@ -32,7 +34,7 @@ class AppDialog extends StatelessWidget {
           decoration: BoxDecoration(
             color: t.background,
             borderRadius: t.radius,
-            border: Border.all(color: t.borderColor, width: t.borderWidth),
+            border: t.border,
             boxShadow: t.shadows,
           ),
           child: Padding(
@@ -46,6 +48,7 @@ class AppDialog extends StatelessWidget {
                   child: Text(title, style: t.titleStyle),
                 ),
                 SizedBox(height: t.gap),
+                if (leading != null) ...[leading!, SizedBox(height: t.gap)],
                 Text(content, style: t.bodyStyle),
                 SizedBox(height: t.gap + t.actionGap),
                 AppButton(

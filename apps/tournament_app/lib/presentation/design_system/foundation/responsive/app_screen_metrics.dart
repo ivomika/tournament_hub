@@ -47,6 +47,9 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
     required this.widePaneFlex,
     required this.narrowPaneFlex,
     required this.rosterContextHeight,
+    required this.modalSheetWidth,
+    required this.modalViewportInset,
+    required this.modalMobileMinHeight,
     required this.utilityWidth,
     required this.utilityHeight,
     required this.utilityTop,
@@ -79,6 +82,9 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
   final int stackColumns;
   final int widePaneFlex;
   final int narrowPaneFlex;
+  final double modalSheetWidth;
+  final double modalViewportInset;
+  final double modalMobileMinHeight;
   final double rosterContextHeight;
   final double historyFeatureHeight;
   final double historyCardHeight;
@@ -161,6 +167,9 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
     int? widePaneFlex,
     int? narrowPaneFlex,
     double? rosterContextHeight,
+    double? modalSheetWidth,
+    double? modalViewportInset,
+    double? modalMobileMinHeight,
     double? utilityWidth,
     double? utilityHeight,
     double? utilityTop,
@@ -219,6 +228,9 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
     widePaneFlex: widePaneFlex ?? this.widePaneFlex,
     narrowPaneFlex: narrowPaneFlex ?? this.narrowPaneFlex,
     rosterContextHeight: rosterContextHeight ?? this.rosterContextHeight,
+    modalSheetWidth: modalSheetWidth ?? this.modalSheetWidth,
+    modalViewportInset: modalViewportInset ?? this.modalViewportInset,
+    modalMobileMinHeight: modalMobileMinHeight ?? this.modalMobileMinHeight,
     utilityWidth: utilityWidth ?? this.utilityWidth,
     utilityHeight: utilityHeight ?? this.utilityHeight,
     utilityTop: utilityTop ?? this.utilityTop,
@@ -325,6 +337,21 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
           rosterContextHeight: lerpDouble(
             rosterContextHeight,
             other.rosterContextHeight,
+            t,
+          )!,
+          modalSheetWidth: lerpDouble(
+            modalSheetWidth,
+            other.modalSheetWidth,
+            t,
+          )!,
+          modalViewportInset: lerpDouble(
+            modalViewportInset,
+            other.modalViewportInset,
+            t,
+          )!,
+          modalMobileMinHeight: lerpDouble(
+            modalMobileMinHeight,
+            other.modalMobileMinHeight,
             t,
           )!,
           utilityWidth: lerpDouble(utilityWidth, other.utilityWidth, t)!,

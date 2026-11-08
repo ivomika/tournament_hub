@@ -149,3 +149,11 @@ Dialog surface/title/content композирует реальные AppButton c
 Source4/4 PASS после update и обычного comparison. Ручной просмотр нашёл пустой source PNG при CSS!important: generic capture positioning исправлено, добавлен blank source guard, прежний false PASS не принят. Новый Web/native/overlay просмотрены и совпадают; DOM controls проверяют surface/title/body/actions/styles/labels.
 
 Native Dialog+Elevation+Button7 tests PASS без update: actual overlay cancel initial focus/Tab/Escape/return focus, scaled/disabled/main theme и регрессия. Analyzer no issues, architecture297 files PASS, engine37 PASS. MacOS hot restart выполнен, другие ОС NOT_RUN. Итог текущей итерации: выполнено.
+
+### Перенос GuestRemove89: mobile border
+Prompt пользователя (дословно):
+> отлично теперь собери экраны из прототипов. Экраны должны быть независимы и отображать только переданное состояние и данные, никакой логику внутри экранов. Они должны быть плоскими и повторять прототипы. Каждый экран атомарная еденица. Каждый экран сопровождается коммитом без пуш
+
+Stage IMPLEMENTING; TestGate NOT_REQUIRED visual-only. Source .flow-alert mobile без border. В native width0 давал hairline. AppDialogTheme отдаёт border:null для mobile и theme border для desktop; optional leading composition slot нужен подтверждениям с персонажем.
+
+Stage DONE: Dialog2+GuestRemove1 tests PASS после intentional mobile golden update и без update. General source comparison dialog PASS в обычном прогоне; analyzer no issues. Mobile border отсутствует и совпадает с CSS.

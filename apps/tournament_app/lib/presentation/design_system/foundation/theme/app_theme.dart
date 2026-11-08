@@ -122,6 +122,9 @@ abstract final class AppTheme {
       ),
       extensions: [
         const AppScreenMetrics(
+          modalSheetWidth: ScreenPrimitives.modalSheetWidth,
+          modalViewportInset: ScreenPrimitives.modalViewportInset,
+          modalMobileMinHeight: ScreenPrimitives.modalMobileMinHeight,
           rosterContextHeight: ScreenPrimitives.rosterContextHeight,
           widePaneFlex: ScreenPrimitives.widePaneFlex,
           narrowPaneFlex: ScreenPrimitives.narrowPaneFlex,

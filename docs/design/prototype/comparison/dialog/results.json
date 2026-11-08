@@ -672,7 +672,7 @@
             "background": "#171a20ff",
             "radius": 32,
             "borderWidth": 0,
-            "borderColor": "#3a414eff"
+            "borderColor": "#00000000"
           },
           "title": {
             "rect": {
@@ -784,8 +784,8 @@
           }
         },
         "raster": {
-          "changedPixels": 3546,
-          "meanChannelDelta": 0.5707168374766141
+          "changedPixels": 1349,
+          "meanChannelDelta": 0.40714840714840717
         },
         "artifacts": {
           "image": "flutter/state-default.png"
@@ -798,8 +798,8 @@
         "diff": "diff/state-default.png"
       },
       "raster": {
-        "changedPixels": 3546,
-        "meanChannelDelta": 0.5707168374766141
+        "changedPixels": 1349,
+        "meanChannelDelta": 0.40714840714840717
       }
     },
     {
@@ -1038,7 +1038,7 @@
             "background": "#171a20ff",
             "radius": 32,
             "borderWidth": 0,
-            "borderColor": "#3a414eff"
+            "borderColor": "#00000000"
           },
           "title": {
             "rect": {
@@ -1150,8 +1150,8 @@
           }
         },
         "raster": {
-          "changedPixels": 3546,
-          "meanChannelDelta": 0.5707168374766141
+          "changedPixels": 1349,
+          "meanChannelDelta": 0.40714840714840717
         },
         "artifacts": {
           "image": "flutter/state-disabled.png"
@@ -1164,8 +1164,8 @@
         "diff": "diff/state-disabled.png"
       },
       "raster": {
-        "changedPixels": 3546,
-        "meanChannelDelta": 0.5707168374766141
+        "changedPixels": 1349,
+        "meanChannelDelta": 0.40714840714840717
       }
     },
     {
@@ -1404,7 +1404,7 @@
             "background": "#171a20ff",
             "radius": 32,
             "borderWidth": 0,
-            "borderColor": "#3a414eff"
+            "borderColor": "#00000000"
           },
           "title": {
             "rect": {
@@ -1516,8 +1516,8 @@
           }
         },
         "raster": {
-          "changedPixels": 3546,
-          "meanChannelDelta": 0.5707168374766141
+          "changedPixels": 1349,
+          "meanChannelDelta": 0.40714840714840717
         },
         "artifacts": {
           "image": "flutter/mobile-dialog.png"
@@ -1530,8 +1530,8 @@
         "diff": "diff/mobile-dialog.png"
       },
       "raster": {
-        "changedPixels": 3546,
-        "meanChannelDelta": 0.5707168374766141
+        "changedPixels": 1349,
+        "meanChannelDelta": 0.40714840714840717
       }
     },
     {
@@ -1902,5 +1902,5 @@
     }
   ],
   "error": null,
-  "runId": "2026-11-07T20:49:06.767Z"
+  "runId": "2026-11-08T12:21:43.104Z"
 }

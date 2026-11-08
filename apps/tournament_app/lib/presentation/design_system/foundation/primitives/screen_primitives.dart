@@ -1,4 +1,7 @@
 abstract final class ScreenPrimitives {
+  static const modalSheetWidth = 760.0;
+  static const modalViewportInset = 120.0;
+  static const modalMobileMinHeight = 540.0;
   static const rosterContextHeight = 300.0;
   static const widePaneFlex = 7;
   static const narrowPaneFlex = 5;

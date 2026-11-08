@@ -332,5 +332,30 @@
   "screenQrSpectatorLabel": "QR-код просмотра турнира",
   "screenCopySpectator": "Скопировать ссылку зрителя",
   "screenJoinTitle": "Присоединиться\nк турниру.",
-  "screenWatchTitle": "Смотреть\nтурнир."
+  "screenWatchTitle": "Смотреть\nтурнир.",
+  "screenCancel": "Отмена",
+  "screenDelete": "Удалить",
+  "screenRemoveGuestTitle": "Удалить участника?",
+  "screenRemoveGuestNote": "Он будет исключён из состава турнира.",
+  "screenTournament": "Турнир",
+  "screenWithdrawTitle": "Снять {name} с турнира?",
+  "@screenWithdrawTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "screenWithdrawNote": "Прошлые результаты сохранятся. Вернуть игрока в турнир нельзя.",
+  "screenWithdrawAction": "Снять участника",
+  "screenForfeitTitle": "Засчитать {name} поражение?",
+  "@screenForfeitTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "screenForfeitNote": "Это поражение в текущем матче. Дальнейшее участие определяется правилами турнира.",
+  "screenForfeitAction": "Засчитать поражение"
 }

@@ -797,4 +797,43 @@ class FoundationLocalizationsRu extends FoundationLocalizations {
 
   @override
   String get screenWatchTitle => 'Смотреть\nтурнир.';
+
+  @override
+  String get screenCancel => 'Отмена';
+
+  @override
+  String get screenDelete => 'Удалить';
+
+  @override
+  String get screenRemoveGuestTitle => 'Удалить участника?';
+
+  @override
+  String get screenRemoveGuestNote => 'Он будет исключён из состава турнира.';
+
+  @override
+  String get screenTournament => 'Турнир';
+
+  @override
+  String screenWithdrawTitle(String name) {
+    return 'Снять $name с турнира?';
+  }
+
+  @override
+  String get screenWithdrawNote =>
+      'Прошлые результаты сохранятся. Вернуть игрока в турнир нельзя.';
+
+  @override
+  String get screenWithdrawAction => 'Снять участника';
+
+  @override
+  String screenForfeitTitle(String name) {
+    return 'Засчитать $name поражение?';
+  }
+
+  @override
+  String get screenForfeitNote =>
+      'Это поражение в текущем матче. Дальнейшее участие определяется правилами турнира.';
+
+  @override
+  String get screenForfeitAction => 'Засчитать поражение';
 }

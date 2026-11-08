@@ -50,6 +50,9 @@ class AppScreenLayoutTheme {
     widePaneFlex = m.widePaneFlex;
     narrowPaneFlex = m.narrowPaneFlex;
     rosterContextHeight = m.rosterContextHeight;
+    modalSheetWidth = m.modalSheetWidth;
+    modalViewportInset = m.modalViewportInset;
+    modalMobileMinHeight = m.modalMobileMinHeight;
     desktop = MediaQuery.sizeOf(context).width > r.mobileToDesktopWidth;
     inset = EdgeInsets.all(desktop ? s.space32 : s.space24);
     brandInset = EdgeInsets.symmetric(horizontal: s.space32);
@@ -125,6 +128,9 @@ class AppScreenLayoutTheme {
   late final int widePaneFlex;
   late final int narrowPaneFlex;
   late final double rosterContextHeight;
+  late final double modalSheetWidth;
+  late final double modalViewportInset;
+  late final double modalMobileMinHeight;
   late final bool desktop;
   late final EdgeInsets inset, tileInset, brandInset;
   late final double utilityWidth,

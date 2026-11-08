@@ -1596,6 +1596,72 @@ abstract class FoundationLocalizations {
   /// In ru, this message translates to:
   /// **'Смотреть\nтурнир.'**
   String get screenWatchTitle;
+
+  /// No description provided for @screenCancel.
+  ///
+  /// In ru, this message translates to:
+  /// **'Отмена'**
+  String get screenCancel;
+
+  /// No description provided for @screenDelete.
+  ///
+  /// In ru, this message translates to:
+  /// **'Удалить'**
+  String get screenDelete;
+
+  /// No description provided for @screenRemoveGuestTitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'Удалить участника?'**
+  String get screenRemoveGuestTitle;
+
+  /// No description provided for @screenRemoveGuestNote.
+  ///
+  /// In ru, this message translates to:
+  /// **'Он будет исключён из состава турнира.'**
+  String get screenRemoveGuestNote;
+
+  /// No description provided for @screenTournament.
+  ///
+  /// In ru, this message translates to:
+  /// **'Турнир'**
+  String get screenTournament;
+
+  /// No description provided for @screenWithdrawTitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'Снять {name} с турнира?'**
+  String screenWithdrawTitle(String name);
+
+  /// No description provided for @screenWithdrawNote.
+  ///
+  /// In ru, this message translates to:
+  /// **'Прошлые результаты сохранятся. Вернуть игрока в турнир нельзя.'**
+  String get screenWithdrawNote;
+
+  /// No description provided for @screenWithdrawAction.
+  ///
+  /// In ru, this message translates to:
+  /// **'Снять участника'**
+  String get screenWithdrawAction;
+
+  /// No description provided for @screenForfeitTitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'Засчитать {name} поражение?'**
+  String screenForfeitTitle(String name);
+
+  /// No description provided for @screenForfeitNote.
+  ///
+  /// In ru, this message translates to:
+  /// **'Это поражение в текущем матче. Дальнейшее участие определяется правилами турнира.'**
+  String get screenForfeitNote;
+
+  /// No description provided for @screenForfeitAction.
+  ///
+  /// In ru, this message translates to:
+  /// **'Засчитать поражение'**
+  String get screenForfeitAction;
 }
 
 class _FoundationLocalizationsDelegate

@@ -27,6 +27,9 @@ class AppDialogTheme {
     actionGap = s.space8;
     borderWidth = desktop ? b.hairline : s.space0;
     borderColor = t.colorScheme.outlineVariant;
+    border = desktop
+        ? Border.all(color: borderColor, width: borderWidth)
+        : null;
     background = t.colorScheme.surface;
     radius = desktop ? shape.surface : shape.panel;
     padding = EdgeInsets.all(desktop ? m.desktopInset + b.hairline : s.space24);
@@ -51,6 +54,7 @@ class AppDialogTheme {
   }
   late final double maxWidth, gap, actionGap, borderWidth;
   late final Color borderColor, background;
+  late final Border? border;
   late final BorderRadius radius;
   late final EdgeInsets padding;
   late final List<BoxShadow> shadows;
