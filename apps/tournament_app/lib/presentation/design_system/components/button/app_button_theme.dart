@@ -46,6 +46,7 @@ class AppButtonTheme {
     AppButtonKind kind,
     Set<WidgetState> states, {
     String? label,
+    bool glyphLeading = false,
   }) {
     final t = Theme.of(context),
         m = t.extension<AppControlMetrics>()!,
@@ -129,7 +130,7 @@ class AppButtonTheme {
             ? s.space16
             : s.space24,
       ),
-      gap: s.space16,
+      gap: glyphLeading ? s.space8 : s.space16,
       background: kind == AppButtonKind.dialogCancel
           ? (hovered ? t.colorScheme.surfaceContainerHigh : m.transparent)
           : disabled && !dialog

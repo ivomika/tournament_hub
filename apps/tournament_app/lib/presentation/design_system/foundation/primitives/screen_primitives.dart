@@ -1,4 +1,9 @@
 abstract final class ScreenPrimitives {
+  static const homeMetaSize = 22.0;
+  static const homePrimaryFlex = 2;
+  static const homeSecondaryFlex = 1;
+  static const homeTitleWidth = 480.0;
+  static const homeActionHeight = 80.0;
   static const bootTop = 144.0;
   static const bootBrandHeight = 160.0;
   static const bootCueHeight = 64.0;

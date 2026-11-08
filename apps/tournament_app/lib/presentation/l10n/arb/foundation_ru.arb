@@ -240,5 +240,15 @@
   "screenRetry": "Повторить",
   "screenBootPreparing": "Подготавливаем\nприложение…",
   "screenBootError": "Не удалось запустить",
-  "screenBootRetrying": "Пробуем снова…"
+  "screenBootRetrying": "Пробуем снова…",
+  "screenHistory": "История",
+  "screenProfile": "Открыть профиль",
+  "screenYourNext": "Твой\nследующий",
+  "screenTournamentAccent": "турнир.",
+  "screenNoActive": "Пока нет активного турнира",
+  "screenCreate": "Создать турнир",
+  "screenTournaments": "Турниры",
+  "screenNew": "Новый",
+  "screenContinue": "Продолжить",
+  "screenLive": "В процессе"
 }

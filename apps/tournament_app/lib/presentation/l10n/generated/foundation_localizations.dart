@@ -1044,6 +1044,66 @@ abstract class FoundationLocalizations {
   /// In ru, this message translates to:
   /// **'Пробуем снова…'**
   String get screenBootRetrying;
+
+  /// No description provided for @screenHistory.
+  ///
+  /// In ru, this message translates to:
+  /// **'История'**
+  String get screenHistory;
+
+  /// No description provided for @screenProfile.
+  ///
+  /// In ru, this message translates to:
+  /// **'Открыть профиль'**
+  String get screenProfile;
+
+  /// No description provided for @screenYourNext.
+  ///
+  /// In ru, this message translates to:
+  /// **'Твой\nследующий'**
+  String get screenYourNext;
+
+  /// No description provided for @screenTournamentAccent.
+  ///
+  /// In ru, this message translates to:
+  /// **'турнир.'**
+  String get screenTournamentAccent;
+
+  /// No description provided for @screenNoActive.
+  ///
+  /// In ru, this message translates to:
+  /// **'Пока нет активного турнира'**
+  String get screenNoActive;
+
+  /// No description provided for @screenCreate.
+  ///
+  /// In ru, this message translates to:
+  /// **'Создать турнир'**
+  String get screenCreate;
+
+  /// No description provided for @screenTournaments.
+  ///
+  /// In ru, this message translates to:
+  /// **'Турниры'**
+  String get screenTournaments;
+
+  /// No description provided for @screenNew.
+  ///
+  /// In ru, this message translates to:
+  /// **'Новый'**
+  String get screenNew;
+
+  /// No description provided for @screenContinue.
+  ///
+  /// In ru, this message translates to:
+  /// **'Продолжить'**
+  String get screenContinue;
+
+  /// No description provided for @screenLive.
+  ///
+  /// In ru, this message translates to:
+  /// **'В процессе'**
+  String get screenLive;
 }
 
 class _FoundationLocalizationsDelegate

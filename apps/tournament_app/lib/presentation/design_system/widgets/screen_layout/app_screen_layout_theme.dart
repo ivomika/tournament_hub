@@ -1,3 +1,4 @@
+import 'package:tournament_app/presentation/design_system/foundation/layout/foundation_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:tournament_app/presentation/design_system/foundation/responsive/app_responsive.dart';
 import 'package:tournament_app/presentation/design_system/foundation/responsive/app_screen_metrics.dart';
@@ -23,6 +24,13 @@ class AppScreenLayoutTheme {
     max = m.max;
     centerText = m.centerText;
     leftText = m.leftText;
+    fullWidth = theme.extension<FoundationLayout>()!.fullWidth;
+    bottomAlign = m.bottomAlign;
+    homeTitleWidth = m.homeTitleWidth;
+    homeActionHeight = m.homeActionHeight;
+    homeMetaSize = m.homeMetaSize;
+    homePrimaryFlex = m.homePrimaryFlex;
+    homeSecondaryFlex = m.homeSecondaryFlex;
     desktop = MediaQuery.sizeOf(context).width > r.mobileToDesktopWidth;
     inset = EdgeInsets.all(desktop ? s.space32 : s.space24);
     brandInset = EdgeInsets.symmetric(horizontal: s.space32);
@@ -72,6 +80,13 @@ class AppScreenLayoutTheme {
   late final MainAxisSize max;
   late final TextAlign centerText;
   late final TextAlign leftText;
+  late final Alignment bottomAlign;
+  late final double fullWidth;
+  late final double homeTitleWidth;
+  late final double homeActionHeight;
+  late final double homeMetaSize;
+  late final int homePrimaryFlex;
+  late final int homeSecondaryFlex;
   late final bool desktop;
   late final EdgeInsets inset, tileInset, brandInset;
   late final double utilityWidth,

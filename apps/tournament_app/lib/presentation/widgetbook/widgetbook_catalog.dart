@@ -1,3 +1,4 @@
+import 'package:tournament_app/presentation/widgetbook/components/stage_progress/current/current_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/screens/screen_catalog.dart';
 import 'package:tournament_app/presentation/widgetbook/components/qr_code/short_link/short_link_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/components/qr_code/long_link/long_link_use_case.dart';
@@ -159,6 +160,10 @@ final widgetbookCatalog = <WidgetbookNode>[
     name: 'Components',
     isInitiallyExpanded: true,
     children: [
+      WidgetbookComponent(
+        name: 'Stage progress',
+        useCases: [stageProgressCurrentUseCase],
+      ),
       WidgetbookComponent(
         name: 'QR code',
         useCases: [

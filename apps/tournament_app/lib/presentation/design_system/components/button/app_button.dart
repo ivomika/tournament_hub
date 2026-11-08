@@ -11,6 +11,7 @@ class AppButton extends StatefulWidget {
     required this.onPressed,
     this.kind = AppButtonKind.primary,
     this.glyph,
+    this.glyphLeading = false,
     this.fill = true,
     this.statesController,
     this.focusNode,
@@ -21,7 +22,7 @@ class AppButton extends StatefulWidget {
   final VoidCallback? onPressed;
   final AppButtonKind kind;
   final AppGlyph? glyph;
-  final bool fill, autofocus;
+  final bool fill, autofocus, glyphLeading;
   final WidgetStatesController? statesController;
   final FocusNode? focusNode;
   @override
@@ -80,6 +81,7 @@ class _AppButtonState extends State<AppButton> {
       widget.kind,
       states,
       label: widget.label,
+      glyphLeading: widget.glyphLeading,
     );
     return Semantics(
       button: true,
@@ -136,11 +138,18 @@ class _AppButtonState extends State<AppButton> {
                       mainAxisAlignment: theme.justify,
                       crossAxisAlignment: theme.cross,
                       children: [
+                        if (widget.glyphLeading &&
+                            widget.glyph != null &&
+                            !theme.circular) ...[
+                          AppIcon(widget.glyph!, color: theme.foreground),
+                          SizedBox(width: theme.gap),
+                        ],
                         if (!theme.circular)
                           Flexible(
                             child: Text(widget.label, style: theme.text),
                           ),
-                        if (widget.glyph != null) ...[
+                        if (widget.glyph != null &&
+                            (!widget.glyphLeading || theme.circular)) ...[
                           if (!theme.circular) SizedBox(width: theme.gap),
                           AppIcon(widget.glyph!, color: theme.foreground),
                         ],

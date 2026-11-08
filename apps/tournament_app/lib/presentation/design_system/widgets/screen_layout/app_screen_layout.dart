@@ -138,19 +138,24 @@ class AppScreenTile extends StatelessWidget {
   const AppScreenTile({
     required this.child,
     this.transparent = false,
+    this.padding,
+    this.raised = false,
     super.key,
   });
-  final bool transparent;
+  final bool transparent, raised;
+  final EdgeInsets? padding;
   final Widget child;
   @override
   Widget build(BuildContext context) {
     final t = AppScreenLayoutTheme.of(context);
     return DecoratedBox(
       decoration: BoxDecoration(
-        color: t.desktop && !transparent ? t.surface : t.background,
+        color: t.desktop && !transparent
+            ? (raised ? t.raised : t.surface)
+            : t.background,
         borderRadius: t.radius,
       ),
-      child: Padding(padding: t.tileInset, child: child),
+      child: Padding(padding: padding ?? t.tileInset, child: child),
     );
   }
 }

@@ -11,6 +11,7 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
     required this.startMain,
     required this.spaceBetween,
     required this.centerAlign,
+    required this.bottomAlign,
     required this.rightAlign,
     required this.topLeft,
     required this.min,
@@ -22,6 +23,11 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
     required this.bootCueHeight,
     required this.bootFont,
     required this.bootGap,
+    required this.homeTitleWidth,
+    required this.homeActionHeight,
+    required this.homeMetaSize,
+    required this.homePrimaryFlex,
+    required this.homeSecondaryFlex,
     required this.utilityWidth,
     required this.utilityHeight,
     required this.utilityTop,
@@ -43,12 +49,18 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
   final MainAxisAlignment startMain;
   final MainAxisAlignment spaceBetween;
   final Alignment centerAlign;
+  final Alignment bottomAlign;
   final Alignment rightAlign;
   final Alignment topLeft;
   final MainAxisSize min;
   final MainAxisSize max;
   final TextAlign centerText;
   final TextAlign leftText;
+  final double homeMetaSize;
+  final int homePrimaryFlex;
+  final int homeSecondaryFlex;
+  final double homeTitleWidth;
+  final double homeActionHeight;
   final double bootTop,
       bootBrandHeight,
       bootCueHeight,
@@ -75,6 +87,7 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
     MainAxisAlignment? startMain,
     MainAxisAlignment? spaceBetween,
     Alignment? centerAlign,
+    Alignment? bottomAlign,
     Alignment? rightAlign,
     Alignment? topLeft,
     MainAxisSize? min,
@@ -86,6 +99,11 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
     double? bootCueHeight,
     double? bootFont,
     double? bootGap,
+    double? homeTitleWidth,
+    double? homeActionHeight,
+    double? homeMetaSize,
+    int? homePrimaryFlex,
+    int? homeSecondaryFlex,
     double? utilityWidth,
     double? utilityHeight,
     double? utilityTop,
@@ -107,6 +125,7 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
     startMain: startMain ?? this.startMain,
     spaceBetween: spaceBetween ?? this.spaceBetween,
     centerAlign: centerAlign ?? this.centerAlign,
+    bottomAlign: bottomAlign ?? this.bottomAlign,
     rightAlign: rightAlign ?? this.rightAlign,
     topLeft: topLeft ?? this.topLeft,
     min: min ?? this.min,
@@ -118,6 +137,11 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
     bootCueHeight: bootCueHeight ?? this.bootCueHeight,
     bootFont: bootFont ?? this.bootFont,
     bootGap: bootGap ?? this.bootGap,
+    homeTitleWidth: homeTitleWidth ?? this.homeTitleWidth,
+    homeActionHeight: homeActionHeight ?? this.homeActionHeight,
+    homeMetaSize: homeMetaSize ?? this.homeMetaSize,
+    homePrimaryFlex: homePrimaryFlex ?? this.homePrimaryFlex,
+    homeSecondaryFlex: homeSecondaryFlex ?? this.homeSecondaryFlex,
     utilityWidth: utilityWidth ?? this.utilityWidth,
     utilityHeight: utilityHeight ?? this.utilityHeight,
     utilityTop: utilityTop ?? this.utilityTop,
@@ -144,6 +168,7 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
           startMain: startMain,
           spaceBetween: spaceBetween,
           centerAlign: centerAlign,
+          bottomAlign: bottomAlign,
           rightAlign: rightAlign,
           topLeft: topLeft,
           min: min,
@@ -159,6 +184,17 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
           bootCueHeight: lerpDouble(bootCueHeight, other.bootCueHeight, t)!,
           bootFont: lerpDouble(bootFont, other.bootFont, t)!,
           bootGap: lerpDouble(bootGap, other.bootGap, t)!,
+          homeTitleWidth: lerpDouble(homeTitleWidth, other.homeTitleWidth, t)!,
+          homeActionHeight: lerpDouble(
+            homeActionHeight,
+            other.homeActionHeight,
+            t,
+          )!,
+          homeMetaSize: lerpDouble(homeMetaSize, other.homeMetaSize, t)!,
+          homePrimaryFlex: t < 0.5 ? homePrimaryFlex : other.homePrimaryFlex,
+          homeSecondaryFlex: t < 0.5
+              ? homeSecondaryFlex
+              : other.homeSecondaryFlex,
           utilityWidth: lerpDouble(utilityWidth, other.utilityWidth, t)!,
           utilityHeight: lerpDouble(utilityHeight, other.utilityHeight, t)!,
           utilityTop: lerpDouble(utilityTop, other.utilityTop, t)!,

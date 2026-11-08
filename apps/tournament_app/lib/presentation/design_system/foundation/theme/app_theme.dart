@@ -122,6 +122,11 @@ abstract final class AppTheme {
       ),
       extensions: [
         const AppScreenMetrics(
+          homeMetaSize: ScreenPrimitives.homeMetaSize,
+          homePrimaryFlex: ScreenPrimitives.homePrimaryFlex,
+          homeSecondaryFlex: ScreenPrimitives.homeSecondaryFlex,
+          homeTitleWidth: ScreenPrimitives.homeTitleWidth,
+          homeActionHeight: ScreenPrimitives.homeActionHeight,
           bootTop: ScreenPrimitives.bootTop,
           bootBrandHeight: ScreenPrimitives.bootBrandHeight,
           bootCueHeight: ScreenPrimitives.bootCueHeight,
@@ -134,6 +139,7 @@ abstract final class AppTheme {
           startMain: MainAxisAlignment.start,
           spaceBetween: MainAxisAlignment.spaceBetween,
           centerAlign: Alignment.center,
+          bottomAlign: Alignment.bottomRight,
           rightAlign: Alignment.centerRight,
           topLeft: Alignment.topLeft,
           min: MainAxisSize.min,

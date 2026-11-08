@@ -258,3 +258,6 @@ PNG-маска больше не используется runtime. При изм
 ## ShareLink — реализация71
 
 AppShareLink показывает переданные role/address и композирует AppButton.shareIcon; Clipboard/services отсутствуют, onCopy — внешний nullable intent. Caption14/1.5 из TextTheme, padding16/gap8/radius24 из extensions; surface mobile/background desktop; copy56/48 без тени. Для соответствия CSS overflow-wrap:anywhere адрес подавляет Unicode line-break после slash через word joiner: длинный сегмент переносится внутри строки. Исходные данные и semanticsLabel остаются без служебных символов. Четыре source сценария + native scaled/theme/keyboard/null checks.
+
+## Screen layout
+`ScreenPrimitives → AppScreenMetrics → <Screen>ScreenTheme / AppScreenLayoutTheme → Screen`. Runtime extension содержит adaptive hero, bento flex, product brand bar, centered utility width/height, bootstrap spacing и Home title/action geometry. ColorScheme/TextTheme/Spacing/Shape остаются источниками цветов, текста и поверхностей. Device chrome не входит в screens.
