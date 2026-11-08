@@ -226,5 +226,16 @@
   "dialogOpen": "Открыть диалог",
   "qrDescription": "Демонстрационный QR подключения участников",
   "shareRole": "Только просмотр",
-  "shareCopy": "Скопировать ссылку"
+  "shareCopy": "Скопировать ссылку",
+  "screenBrand": "TOURNAMENT",
+  "screenBrandAccent": "HUB.",
+  "screenBack": "Назад",
+  "screenLoading": "Загрузка",
+  "screenLoadingHero": "Загружаем",
+  "screenLoadingAccent": "данные.",
+  "screenLoadingNote": "Это займёт немного времени.",
+  "screenLoadErrorHero": "Не удалось",
+  "screenLoadErrorAccent": "загрузить.",
+  "screenRetryNote": "Попробуй ещё раз.",
+  "screenRetry": "Повторить"
 }

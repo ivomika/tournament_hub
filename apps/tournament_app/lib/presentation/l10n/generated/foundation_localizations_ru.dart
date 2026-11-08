@@ -473,4 +473,37 @@ class FoundationLocalizationsRu extends FoundationLocalizations {
 
   @override
   String get shareCopy => 'Скопировать ссылку';
+
+  @override
+  String get screenBrand => 'TOURNAMENT';
+
+  @override
+  String get screenBrandAccent => 'HUB.';
+
+  @override
+  String get screenBack => 'Назад';
+
+  @override
+  String get screenLoading => 'Загрузка';
+
+  @override
+  String get screenLoadingHero => 'Загружаем';
+
+  @override
+  String get screenLoadingAccent => 'данные.';
+
+  @override
+  String get screenLoadingNote => 'Это займёт немного времени.';
+
+  @override
+  String get screenLoadErrorHero => 'Не удалось';
+
+  @override
+  String get screenLoadErrorAccent => 'загрузить.';
+
+  @override
+  String get screenRetryNote => 'Попробуй ещё раз.';
+
+  @override
+  String get screenRetry => 'Повторить';
 }

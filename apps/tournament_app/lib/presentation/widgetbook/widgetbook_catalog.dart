@@ -1,3 +1,4 @@
+import 'package:tournament_app/presentation/widgetbook/screens/screen_catalog.dart';
 import 'package:tournament_app/presentation/widgetbook/components/qr_code/short_link/short_link_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/components/qr_code/long_link/long_link_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/components/qr_code/unicode_link/unicode_link_use_case.dart';
@@ -103,6 +104,7 @@ import 'package:tournament_app/presentation/widgetbook/foundation/typography/tex
 
 /// Регистрации добавляются из папок конкретных scoped use cases.
 final widgetbookCatalog = <WidgetbookNode>[
+  WidgetbookFolder(name: 'Screens', children: screenCatalog),
   WidgetbookFolder(
     name: 'Foundation',
     isInitiallyExpanded: true,

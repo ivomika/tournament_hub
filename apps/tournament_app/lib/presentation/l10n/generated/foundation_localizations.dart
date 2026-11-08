@@ -960,6 +960,72 @@ abstract class FoundationLocalizations {
   /// In ru, this message translates to:
   /// **'Скопировать ссылку'**
   String get shareCopy;
+
+  /// No description provided for @screenBrand.
+  ///
+  /// In ru, this message translates to:
+  /// **'TOURNAMENT'**
+  String get screenBrand;
+
+  /// No description provided for @screenBrandAccent.
+  ///
+  /// In ru, this message translates to:
+  /// **'HUB.'**
+  String get screenBrandAccent;
+
+  /// No description provided for @screenBack.
+  ///
+  /// In ru, this message translates to:
+  /// **'Назад'**
+  String get screenBack;
+
+  /// No description provided for @screenLoading.
+  ///
+  /// In ru, this message translates to:
+  /// **'Загрузка'**
+  String get screenLoading;
+
+  /// No description provided for @screenLoadingHero.
+  ///
+  /// In ru, this message translates to:
+  /// **'Загружаем'**
+  String get screenLoadingHero;
+
+  /// No description provided for @screenLoadingAccent.
+  ///
+  /// In ru, this message translates to:
+  /// **'данные.'**
+  String get screenLoadingAccent;
+
+  /// No description provided for @screenLoadingNote.
+  ///
+  /// In ru, this message translates to:
+  /// **'Это займёт немного времени.'**
+  String get screenLoadingNote;
+
+  /// No description provided for @screenLoadErrorHero.
+  ///
+  /// In ru, this message translates to:
+  /// **'Не удалось'**
+  String get screenLoadErrorHero;
+
+  /// No description provided for @screenLoadErrorAccent.
+  ///
+  /// In ru, this message translates to:
+  /// **'загрузить.'**
+  String get screenLoadErrorAccent;
+
+  /// No description provided for @screenRetryNote.
+  ///
+  /// In ru, this message translates to:
+  /// **'Попробуй ещё раз.'**
+  String get screenRetryNote;
+
+  /// No description provided for @screenRetry.
+  ///
+  /// In ru, this message translates to:
+  /// **'Повторить'**
+  String get screenRetry;
 }
 
 class _FoundationLocalizationsDelegate

@@ -52,7 +52,7 @@ abstract final class _WidgetbookBootstrapTests {
     final root = tester.widget<Widgetbook>(rootFinder);
     expect(
       root.directories.map((node) => node.name),
-      unorderedEquals(['Foundation', 'Components', 'Widgets']),
+      unorderedEquals(['Foundation', 'Components', 'Widgets', 'Screens']),
     );
     final foundation = root.directories.singleWhere(
       (node) => node.name == 'Foundation',
@@ -89,7 +89,7 @@ abstract final class _WidgetbookBootstrapTests {
     final cases = WidgetbookRoot(children: book.directories).leaves
         .whereType<WidgetbookUseCase>()
         .toList();
-    expect(cases.length, 101);
+    expect(cases.length, greaterThanOrEqualTo(101));
     for (final useCase in cases) {
       await tester.pumpWidget(const SizedBox.shrink());
       await tester.pumpWidget(

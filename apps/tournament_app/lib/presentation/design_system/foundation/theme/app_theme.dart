@@ -1,3 +1,5 @@
+import 'package:tournament_app/presentation/design_system/foundation/primitives/screen_primitives.dart';
+import 'package:tournament_app/presentation/design_system/foundation/responsive/app_screen_metrics.dart';
 import 'package:tournament_app/presentation/design_system/foundation/primitives/progress_primitives.dart';
 import 'package:tournament_app/presentation/design_system/foundation/motion/app_progress_metrics.dart';
 import 'package:tournament_app/presentation/design_system/foundation/primitives/qr_primitives.dart';
@@ -119,6 +121,34 @@ abstract final class AppTheme {
         year2023: false,
       ),
       extensions: [
+        const AppScreenMetrics(
+          start: CrossAxisAlignment.start,
+          stretch: CrossAxisAlignment.stretch,
+          centerCross: CrossAxisAlignment.center,
+          centerMain: MainAxisAlignment.center,
+          startMain: MainAxisAlignment.start,
+          spaceBetween: MainAxisAlignment.spaceBetween,
+          centerAlign: Alignment.center,
+          rightAlign: Alignment.centerRight,
+          topLeft: Alignment.topLeft,
+          min: MainAxisSize.min,
+          max: MainAxisSize.max,
+          centerText: TextAlign.center,
+          leftText: TextAlign.left,
+          utilityWidth: ScreenPrimitives.utilityWidth,
+          utilityHeight: ScreenPrimitives.utilityHeight,
+          utilityTop: ScreenPrimitives.utilityTop,
+          utilityReserve: ScreenPrimitives.utilityReserve,
+          utilityAction: ScreenPrimitives.utilityAction,
+          desktopHero: ScreenPrimitives.desktopHero,
+          mobileHero: ScreenPrimitives.mobileHero,
+          heroLine: ScreenPrimitives.heroLine,
+          heroTracking: ScreenPrimitives.heroTracking,
+          primaryFlex: ScreenPrimitives.primaryFlex,
+          secondaryFlex: ScreenPrimitives.secondaryFlex,
+          brandHeight: ScreenPrimitives.brandHeight,
+          formWidth: ScreenPrimitives.formWidth,
+        ),
         const AppProgressMetrics(
           height: ProgressPrimitives.height,
           width: ProgressPrimitives.width,
