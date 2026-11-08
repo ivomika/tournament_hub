@@ -145,3 +145,11 @@ Prompt пользователя (дословно):
 > продолжи
 
 NavigationItem row/tile использует текущую WidgetTheme и nullable action, app routing отсутствует. Source5/5 PASS после update и обычного comparison; frame/label/две icons, overlay просмотрен. Native2 tests PASS без update: pointer/keyboard/null/runtime color и4 long/scaled PNG. Тест смены доступности выявил synchronous states-controller rebuild через Material TextButton; исправлено собственной FocusableActionDetector оболочкой, повтор прошёл. Analyzer no issues, architecture225 files PASS, macOS hot restart выполнен. Другие ОС NOT_RUN. Итог текущей итерации: выполнено.
+
+### Аудит76: preview bounds
+Prompt пользователя (дословно):
+> Проверь остальные компоненты в Widgetbook на такие же проблемы с размерами в Mobile и Desktop. Исправь найденное, каждый компонент отдельным коммитом без push.
+
+Stage IMPLEMENTING; TestGate NOT_REQUIRED layout-only. Theme inset16 сохраняет внешний focus outline внутри viewport; размеры production компонентов не меняются.
+
+Stage DONE. Полный audit101×2 presets при textScale1.6 PASS, safe inset assertions PASS. Native screenshots просмотрены: focus outline целиком внутри viewport. Production sizes не менялись. No push.
