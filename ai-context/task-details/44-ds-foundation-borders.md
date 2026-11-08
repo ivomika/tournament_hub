@@ -141,3 +141,11 @@ Runtime AppBorderMetrics уже существует; убрать дублир�
 ### Итог44
 
 Реальные Button читают highContrastFocus из AppBorderMetrics вместо дублирующего ControlMetrics.focusWidth; дубликат удалён из primitive/assembly/extension.8 source cases (decorative1 и actual primary/secondary/icon focus ×2 viewport) PASS с update и без. Border roles catalog selected2/error1/focus3 и replacement focus5/offset6 PNG PASS; настоящий consumer реагирует на замену main theme. Source focus outline лично сверяется overlay, автоматический report явно ограничен заданными controls и не заявляет измерение outline. Analyzer/architecture-check PASS;5 border/button tests PASS без update. Native replacement PNG просмотрен; macOS only, прочие ОС NOT_RUN. Отдельный коммит44 без push.
+
+### Аудит76: focus preview
+Prompt пользователя (дословно):
+> Проверь остальные компоненты в Widgetbook на такие же проблемы с размерами в Mobile и Desktop. Исправь найденное, каждый компонент отдельным коммитом без push.
+
+Stage IMPLEMENTING; TestGate NOT_REQUIRED layout-only. Actual button focus стоял в0,0 и обрезал внешний outline. Общий ComponentPreview получает optional theme inset16, Borders включает его. Production focus/размеры не меняются.
+
+Stage DONE. Mobile/Desktop viewport regression2 PASS: focus preview имеет safe inset16. Production geometry не изменена. No push.
