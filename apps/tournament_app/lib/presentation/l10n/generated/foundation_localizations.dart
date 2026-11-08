@@ -1356,6 +1356,126 @@ abstract class FoundationLocalizations {
   /// In ru, this message translates to:
   /// **'Завершённые турниры появятся здесь.'**
   String get screenHistoryEmptyNote;
+
+  /// No description provided for @screenNewTournament.
+  ///
+  /// In ru, this message translates to:
+  /// **'Новый турнир'**
+  String get screenNewTournament;
+
+  /// No description provided for @screenTournamentName.
+  ///
+  /// In ru, this message translates to:
+  /// **'Название'**
+  String get screenTournamentName;
+
+  /// No description provided for @screenFormat.
+  ///
+  /// In ru, this message translates to:
+  /// **'Формат'**
+  String get screenFormat;
+
+  /// No description provided for @screenDe.
+  ///
+  /// In ru, this message translates to:
+  /// **'DE'**
+  String get screenDe;
+
+  /// No description provided for @screenSe.
+  ///
+  /// In ru, this message translates to:
+  /// **'SE'**
+  String get screenSe;
+
+  /// No description provided for @screenRr.
+  ///
+  /// In ru, this message translates to:
+  /// **'RR'**
+  String get screenRr;
+
+  /// No description provided for @screenDeTitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'Double Elimination'**
+  String get screenDeTitle;
+
+  /// No description provided for @screenSeTitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'Single Elimination'**
+  String get screenSeTitle;
+
+  /// No description provided for @screenRrTitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'Round Robin'**
+  String get screenRrTitle;
+
+  /// No description provided for @screenDeHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Два поражения — вылет'**
+  String get screenDeHint;
+
+  /// No description provided for @screenSeHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Одно поражение — вылет'**
+  String get screenSeHint;
+
+  /// No description provided for @screenRrHint.
+  ///
+  /// In ru, this message translates to:
+  /// **'Каждый с каждым · FT2'**
+  String get screenRrHint;
+
+  /// No description provided for @screenMainBracket.
+  ///
+  /// In ru, this message translates to:
+  /// **'Основная сетка'**
+  String get screenMainBracket;
+
+  /// No description provided for @screenGrandFinal.
+  ///
+  /// In ru, this message translates to:
+  /// **'Grand Final / Reset'**
+  String get screenGrandFinal;
+
+  /// No description provided for @screenFinal.
+  ///
+  /// In ru, this message translates to:
+  /// **'Финал'**
+  String get screenFinal;
+
+  /// No description provided for @screenDeNote.
+  ///
+  /// In ru, this message translates to:
+  /// **'Bracket Reset включён всегда.'**
+  String get screenDeNote;
+
+  /// No description provided for @screenRrNote.
+  ///
+  /// In ru, this message translates to:
+  /// **'FT2 фиксирован. Очки за результат: 3 / 2 / 1 / 0.'**
+  String get screenRrNote;
+
+  /// No description provided for @screenToRoster.
+  ///
+  /// In ru, this message translates to:
+  /// **'К участникам'**
+  String get screenToRoster;
+
+  /// No description provided for @screenDecreaseFt.
+  ///
+  /// In ru, this message translates to:
+  /// **'Уменьшить FT'**
+  String get screenDecreaseFt;
+
+  /// No description provided for @screenIncreaseFt.
+  ///
+  /// In ru, this message translates to:
+  /// **'Увеличить FT'**
+  String get screenIncreaseFt;
 }
 
 class _FoundationLocalizationsDelegate

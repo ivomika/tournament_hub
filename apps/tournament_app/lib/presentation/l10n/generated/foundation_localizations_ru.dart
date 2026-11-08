@@ -675,4 +675,65 @@ class FoundationLocalizationsRu extends FoundationLocalizations {
 
   @override
   String get screenHistoryEmptyNote => 'Завершённые турниры появятся здесь.';
+
+  @override
+  String get screenNewTournament => 'Новый турнир';
+
+  @override
+  String get screenTournamentName => 'Название';
+
+  @override
+  String get screenFormat => 'Формат';
+
+  @override
+  String get screenDe => 'DE';
+
+  @override
+  String get screenSe => 'SE';
+
+  @override
+  String get screenRr => 'RR';
+
+  @override
+  String get screenDeTitle => 'Double Elimination';
+
+  @override
+  String get screenSeTitle => 'Single Elimination';
+
+  @override
+  String get screenRrTitle => 'Round Robin';
+
+  @override
+  String get screenDeHint => 'Два поражения — вылет';
+
+  @override
+  String get screenSeHint => 'Одно поражение — вылет';
+
+  @override
+  String get screenRrHint => 'Каждый с каждым · FT2';
+
+  @override
+  String get screenMainBracket => 'Основная сетка';
+
+  @override
+  String get screenGrandFinal => 'Grand Final / Reset';
+
+  @override
+  String get screenFinal => 'Финал';
+
+  @override
+  String get screenDeNote => 'Bracket Reset включён всегда.';
+
+  @override
+  String get screenRrNote =>
+      'FT2 фиксирован. Очки за результат: 3 / 2 / 1 / 0.';
+
+  @override
+  String get screenToRoster => 'К участникам';
+
+  @override
+  String get screenDecreaseFt => 'Уменьшить FT';
+
+  @override
+  String get screenIncreaseFt => 'Увеличить FT';
 }

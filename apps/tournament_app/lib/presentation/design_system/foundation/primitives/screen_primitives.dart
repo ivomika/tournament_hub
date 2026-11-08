@@ -1,4 +1,6 @@
 abstract final class ScreenPrimitives {
+  static const widePaneFlex = 7;
+  static const narrowPaneFlex = 5;
   static const gridColumns = 2;
   static const stackColumns = 1;
   static const historyFeatureHeight = 260.0;

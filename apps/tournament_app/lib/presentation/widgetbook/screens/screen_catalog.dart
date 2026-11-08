@@ -1,3 +1,6 @@
+import 'package:tournament_app/presentation/widgetbook/screens/setup/de/de_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/screens/setup/se/se_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/screens/setup/rr/rr_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/screens/history/list/list_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/screens/history/empty/empty_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/screens/contact/unavailable/unavailable_use_case.dart';
@@ -18,6 +21,10 @@ import 'package:tournament_app/presentation/widgetbook/screens/utility/loading/l
 import 'package:tournament_app/presentation/widgetbook/screens/utility/error/error_use_case.dart';
 
 final screenCatalog = <WidgetbookNode>[
+  WidgetbookComponent(
+    name: 'Setup',
+    useCases: [setupDeUseCase, setupSeUseCase, setupRrUseCase],
+  ),
   WidgetbookComponent(
     name: 'History',
     useCases: [historyListUseCase, historyEmptyUseCase],

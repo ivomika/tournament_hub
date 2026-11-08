@@ -91,7 +91,7 @@
 - ✅ 83. Screen О приложении — независимая композиция прототипов. [Детали](task-details/83-screen-about.md)
 - ✅ 84. Screen Связь — независимая композиция прототипов. [Детали](task-details/84-screen-contact.md)
 - ✅ 85. Screen История — независимая композиция прототипов. [Детали](task-details/85-screen-history.md)
-- 🟣 86. Screen Настройка турнира — независимая композиция прототипов. [Детали](task-details/86-screen-setup.md)
+- ✅ 86. Screen Настройка турнира — независимая композиция прототипов. [Детали](task-details/86-screen-setup.md)
 - 🟣 87. Screen Состав турнира — независимая композиция прототипов. [Детали](task-details/87-screen-roster.md)
 - 🟣 88. Screen Подключение участников — независимая композиция прототипов. [Детали](task-details/88-screen-participant-access.md)
 - 🟣 89. Screen Удаление гостя — независимая композиция прототипов. [Детали](task-details/89-screen-guest-remove.md)

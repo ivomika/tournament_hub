@@ -44,6 +44,8 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
     required this.historyFeatureHeight,
     required this.historyCardHeight,
     required this.historyProminentHeight,
+    required this.widePaneFlex,
+    required this.narrowPaneFlex,
     required this.utilityWidth,
     required this.utilityHeight,
     required this.utilityTop,
@@ -74,6 +76,8 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
   final TextAlign leftText;
   final int gridColumns;
   final int stackColumns;
+  final int widePaneFlex;
+  final int narrowPaneFlex;
   final double historyFeatureHeight;
   final double historyCardHeight;
   final double historyProminentHeight;
@@ -152,6 +156,8 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
     double? historyFeatureHeight,
     double? historyCardHeight,
     double? historyProminentHeight,
+    int? widePaneFlex,
+    int? narrowPaneFlex,
     double? utilityWidth,
     double? utilityHeight,
     double? utilityTop,
@@ -207,6 +213,8 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
     historyCardHeight: historyCardHeight ?? this.historyCardHeight,
     historyProminentHeight:
         historyProminentHeight ?? this.historyProminentHeight,
+    widePaneFlex: widePaneFlex ?? this.widePaneFlex,
+    narrowPaneFlex: narrowPaneFlex ?? this.narrowPaneFlex,
     utilityWidth: utilityWidth ?? this.utilityWidth,
     utilityHeight: utilityHeight ?? this.utilityHeight,
     utilityTop: utilityTop ?? this.utilityTop,
@@ -308,6 +316,8 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
             other.historyProminentHeight,
             t,
           )!,
+          widePaneFlex: t < 0.5 ? widePaneFlex : other.widePaneFlex,
+          narrowPaneFlex: t < 0.5 ? narrowPaneFlex : other.narrowPaneFlex,
           utilityWidth: lerpDouble(utilityWidth, other.utilityWidth, t)!,
           utilityHeight: lerpDouble(utilityHeight, other.utilityHeight, t)!,
           utilityTop: lerpDouble(utilityTop, other.utilityTop, t)!,
