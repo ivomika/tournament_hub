@@ -155,3 +155,11 @@ Stage IMPLEMENTING; TestGate NOT_REQUIRED: layout-only. Проверить forma
 Stage DONE. RED format/Mobile844px вместо56px воспроизведён. Output Center использует heightFactor из WidgetTheme; format/score use cases используют общий ComponentPreview/Align. Root natural height56px при full viewport, в узких constraints label корректно добавляет строку сверху; высота капсулы всегда56px при обычном шрифте. Native goldens Stepper сохранены без update, source comparison PASS без update.
 
 Проверки:2 real Workbench viewport tests PASS (segmented+stepper, оба presets; stepper format/score). Component suite8 PASS (Stepper3+Segmented5) с ordinary goldens. В общем прогоне каталог101 и остальные bootstrap tests прошли, но одна новая assertion ошибочно требовала56px от всего narrow block с label; исправлена на высоту капсулы, component suite повторно GREEN. Analyzer PASS, architecture326 файлов PASS, rules/diff PASS. Native Widgetbook перезапущен, Stepper/format выбран через UI, Mobile390×844 включён; визуально подтверждён обычный горизонтальный control вместо растянутой капсулы. No push.
+
+### Аудит76: FT label при увеличенном тексте
+Prompt пользователя (дословно):
+> Проверь остальные компоненты в Widgetbook на такие же проблемы с размерами в Mobile и Desktop. Исправь найденное, каждый компонент отдельным коммитом без push.
+
+Stage IMPLEMENTING; TestGate NOT_REQUIRED visual layout. Audit1.6 показал переносFT1 внутри фиксированного output slot48px. Slot должен иметь minimum48 и расти по текущему шрифту/textScaler, FT остаётся одной строкой. Размер56 action buttons и baseline не меняются.
+
+Stage DONE. Output slot измеряется по текущему themed TextStyle и textScaler, minimum48 сохранён; FT1 остаётся одной строкой при1.6. Component suite4 PASS, source comparison PASS без изменения обычной геометрии; обновлён только scaled golden. No push.

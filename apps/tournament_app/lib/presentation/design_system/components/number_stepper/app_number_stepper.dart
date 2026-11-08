@@ -88,12 +88,17 @@ class _StepperBody extends StatelessWidget {
             ),
             SizedBox(
               width: spec.kind == AppStepperKind.output
-                  ? t.outputWidth
+                  ? t.outputExtent(context, spec.valueLabel!)
                   : t.inputWidth,
               child: spec.kind == AppStepperKind.output
                   ? Center(
                       heightFactor: t.contentHeightFactor,
-                      child: Text(spec.valueLabel!, style: t.valueStyle),
+                      child: Text(
+                        spec.valueLabel!,
+                        style: t.valueStyle,
+                        softWrap: false,
+                        maxLines: t.singleLine,
+                      ),
                     )
                   : Semantics(
                       label: spec.label,

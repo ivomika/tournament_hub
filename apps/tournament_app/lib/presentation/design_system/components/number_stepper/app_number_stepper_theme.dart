@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:tournament_app/presentation/design_system/foundation/borders/app_border_metrics.dart';
 import 'package:flutter/material.dart';
 import 'package:tournament_app/presentation/design_system/foundation/spacing/app_spacing.dart';
@@ -49,6 +51,17 @@ class AppNumberStepperTheme {
     spaceBetween = c.spaceBetween;
     singleLine = t.extension<AppFieldMetrics>()!.singleLine;
   }
+  double outputExtent(BuildContext context, String value) {
+    final painter = TextPainter(
+      text: TextSpan(text: value, style: valueStyle),
+      textDirection: Directionality.of(context),
+      textScaler: MediaQuery.textScalerOf(context),
+    )..layout();
+    final width = math.max(outputWidth, painter.width.ceilToDouble());
+    painter.dispose();
+    return width;
+  }
+
   late final double focusWidth, focusOffset, half, contentHeightFactor;
   late final Color focusColor;
   late final double height,

@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:flutter/rendering.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -17,6 +19,7 @@ abstract final class _StepperTests {
   static void _increase() => increase++;
   static void _typed(String value) => typed = value;
   static void run() {
+    testWidgets('FT output remains one line with large text', _largeOutput);
     testWidgets('delegates intents and respects null actions', _actions);
     testWidgets(
       'editable controller delegates without numeric validation',
@@ -126,6 +129,18 @@ abstract final class _StepperTests {
     await tester.enterText(find.byType(TextField), '123');
     expect(c.text, '123');
     expect(typed, '123');
+  }
+
+  static Future<void> _largeOutput(WidgetTester tester) async {
+    addTearDown(tester.view.reset);
+    await _pump(tester, const StepperFixture(), scale: 1.6, width: 390);
+    final paragraph = tester.renderObject<RenderParagraph>(find.text('FT1'));
+    expect(
+      paragraph.getBoxesForSelection(
+        const TextSelection(baseOffset: 0, extentOffset: 3),
+      ),
+      hasLength(1),
+    );
   }
 
   static Future<void> _goldens(WidgetTester tester) async {
