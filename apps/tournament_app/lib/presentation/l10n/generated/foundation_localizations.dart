@@ -1338,6 +1338,24 @@ abstract class FoundationLocalizations {
   /// In ru, this message translates to:
   /// **'Канал связи ещё не настроен. Отправка в макете недоступна.'**
   String get screenContactNote;
+
+  /// No description provided for @screenYourTournaments.
+  ///
+  /// In ru, this message translates to:
+  /// **'Твои\nтурниры.'**
+  String get screenYourTournaments;
+
+  /// No description provided for @screenHistoryEmpty.
+  ///
+  /// In ru, this message translates to:
+  /// **'Первый турнир\nещё впереди.'**
+  String get screenHistoryEmpty;
+
+  /// No description provided for @screenHistoryEmptyNote.
+  ///
+  /// In ru, this message translates to:
+  /// **'Завершённые турниры появятся здесь.'**
+  String get screenHistoryEmptyNote;
 }
 
 class _FoundationLocalizationsDelegate

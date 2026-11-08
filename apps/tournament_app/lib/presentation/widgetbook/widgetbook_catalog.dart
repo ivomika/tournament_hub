@@ -1,3 +1,5 @@
+import 'package:tournament_app/presentation/widgetbook/widgets/adaptive_grid/default/default_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/widgets/history_entry/default/default_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/components/stage_progress/current/current_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/screens/screen_catalog.dart';
 import 'package:tournament_app/presentation/widgetbook/components/qr_code/short_link/short_link_use_case.dart';
@@ -282,6 +284,14 @@ final widgetbookCatalog = <WidgetbookNode>[
   WidgetbookFolder(
     name: 'Widgets',
     children: [
+      WidgetbookComponent(
+        name: 'History entry',
+        useCases: [historyEntryDefaultUseCase],
+      ),
+      WidgetbookComponent(
+        name: 'Adaptive grid',
+        useCases: [adaptiveGridDefaultUseCase],
+      ),
       WidgetbookComponent(
         name: 'Section header',
         useCases: [

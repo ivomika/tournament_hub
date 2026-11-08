@@ -42,6 +42,11 @@ class AppScreenLayoutTheme {
     aboutHeight = m.aboutHeight;
     aboutVersionHeight = m.aboutVersionHeight;
     aboutRulesHeight = m.aboutRulesHeight;
+    gridColumns = m.gridColumns;
+    stackColumns = m.stackColumns;
+    historyFeatureHeight = m.historyFeatureHeight;
+    historyCardHeight = m.historyCardHeight;
+    historyProminentHeight = m.historyProminentHeight;
     desktop = MediaQuery.sizeOf(context).width > r.mobileToDesktopWidth;
     inset = EdgeInsets.all(desktop ? s.space32 : s.space24);
     brandInset = EdgeInsets.symmetric(horizontal: s.space32);
@@ -109,6 +114,11 @@ class AppScreenLayoutTheme {
   late final double aboutHeight;
   late final double aboutVersionHeight;
   late final double aboutRulesHeight;
+  late final int gridColumns;
+  late final int stackColumns;
+  late final double historyFeatureHeight;
+  late final double historyCardHeight;
+  late final double historyProminentHeight;
   late final bool desktop;
   late final EdgeInsets inset, tileInset, brandInset;
   late final double utilityWidth,

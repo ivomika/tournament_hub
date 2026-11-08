@@ -1,4 +1,9 @@
 abstract final class ScreenPrimitives {
+  static const gridColumns = 2;
+  static const stackColumns = 1;
+  static const historyFeatureHeight = 260.0;
+  static const historyCardHeight = 172.0;
+  static const historyProminentHeight = 220.0;
   static const aboutVersionHeight = 140.0;
   static const aboutRulesHeight = 280.0;
   static const aboutHeight = 460.0;

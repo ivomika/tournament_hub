@@ -39,6 +39,11 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
     required this.aboutHeight,
     required this.aboutVersionHeight,
     required this.aboutRulesHeight,
+    required this.gridColumns,
+    required this.stackColumns,
+    required this.historyFeatureHeight,
+    required this.historyCardHeight,
+    required this.historyProminentHeight,
     required this.utilityWidth,
     required this.utilityHeight,
     required this.utilityTop,
@@ -67,6 +72,11 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
   final MainAxisSize max;
   final TextAlign centerText;
   final TextAlign leftText;
+  final int gridColumns;
+  final int stackColumns;
+  final double historyFeatureHeight;
+  final double historyCardHeight;
+  final double historyProminentHeight;
   final double aboutVersionHeight;
   final double aboutRulesHeight;
   final double aboutHeight;
@@ -137,6 +147,11 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
     double? aboutHeight,
     double? aboutVersionHeight,
     double? aboutRulesHeight,
+    int? gridColumns,
+    int? stackColumns,
+    double? historyFeatureHeight,
+    double? historyCardHeight,
+    double? historyProminentHeight,
     double? utilityWidth,
     double? utilityHeight,
     double? utilityTop,
@@ -186,6 +201,12 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
     aboutHeight: aboutHeight ?? this.aboutHeight,
     aboutVersionHeight: aboutVersionHeight ?? this.aboutVersionHeight,
     aboutRulesHeight: aboutRulesHeight ?? this.aboutRulesHeight,
+    gridColumns: gridColumns ?? this.gridColumns,
+    stackColumns: stackColumns ?? this.stackColumns,
+    historyFeatureHeight: historyFeatureHeight ?? this.historyFeatureHeight,
+    historyCardHeight: historyCardHeight ?? this.historyCardHeight,
+    historyProminentHeight:
+        historyProminentHeight ?? this.historyProminentHeight,
     utilityWidth: utilityWidth ?? this.utilityWidth,
     utilityHeight: utilityHeight ?? this.utilityHeight,
     utilityTop: utilityTop ?? this.utilityTop,
@@ -268,6 +289,23 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
           aboutRulesHeight: lerpDouble(
             aboutRulesHeight,
             other.aboutRulesHeight,
+            t,
+          )!,
+          gridColumns: t < 0.5 ? gridColumns : other.gridColumns,
+          stackColumns: t < 0.5 ? stackColumns : other.stackColumns,
+          historyFeatureHeight: lerpDouble(
+            historyFeatureHeight,
+            other.historyFeatureHeight,
+            t,
+          )!,
+          historyCardHeight: lerpDouble(
+            historyCardHeight,
+            other.historyCardHeight,
+            t,
+          )!,
+          historyProminentHeight: lerpDouble(
+            historyProminentHeight,
+            other.historyProminentHeight,
             t,
           )!,
           utilityWidth: lerpDouble(utilityWidth, other.utilityWidth, t)!,

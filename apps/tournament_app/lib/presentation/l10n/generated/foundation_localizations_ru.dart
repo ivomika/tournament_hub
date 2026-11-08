@@ -666,4 +666,13 @@ class FoundationLocalizationsRu extends FoundationLocalizations {
   @override
   String get screenContactNote =>
       'Канал связи ещё не настроен. Отправка в макете недоступна.';
+
+  @override
+  String get screenYourTournaments => 'Твои\nтурниры.';
+
+  @override
+  String get screenHistoryEmpty => 'Первый турнир\nещё впереди.';
+
+  @override
+  String get screenHistoryEmptyNote => 'Завершённые турниры появятся здесь.';
 }

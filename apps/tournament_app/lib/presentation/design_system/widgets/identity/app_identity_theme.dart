@@ -126,6 +126,35 @@ class AppIdentityTheme {
       textAlign: m.textLeading,
     );
   }
+  AppIdentityTheme copyWith({
+    AppAvatarTheme? avatar,
+    AppAvatarSize? size,
+    AppAvatarShape? shape,
+    TextStyle? primary,
+    TextStyle? secondary,
+    double? gap,
+    double? textGap,
+    CrossAxisAlignment? leading,
+    CrossAxisAlignment? stretch,
+    CrossAxisAlignment? center,
+    TextAlign? textAlign,
+    bool? fillText,
+    bool? exactLineBoxes,
+  }) => AppIdentityTheme(
+    avatar: avatar ?? this.avatar,
+    size: size ?? this.size,
+    shape: shape ?? this.shape,
+    primary: primary ?? this.primary,
+    secondary: secondary ?? this.secondary,
+    gap: gap ?? this.gap,
+    textGap: textGap ?? this.textGap,
+    leading: leading ?? this.leading,
+    stretch: stretch ?? this.stretch,
+    center: center ?? this.center,
+    textAlign: textAlign ?? this.textAlign,
+    fillText: fillText ?? this.fillText,
+    exactLineBoxes: exactLineBoxes ?? this.exactLineBoxes,
+  );
   final AppAvatarTheme avatar;
   final AppAvatarSize size;
   final AppAvatarShape shape;

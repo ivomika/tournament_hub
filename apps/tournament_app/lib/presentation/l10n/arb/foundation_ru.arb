@@ -289,5 +289,8 @@
   "screenTell": "Расскажи.",
   "screenMessage": "Сообщение",
   "screenSend": "Отправить",
-  "screenContactNote": "Канал связи ещё не настроен. Отправка в макете недоступна."
+  "screenContactNote": "Канал связи ещё не настроен. Отправка в макете недоступна.",
+  "screenYourTournaments": "Твои\nтурниры.",
+  "screenHistoryEmpty": "Первый турнир\nещё впереди.",
+  "screenHistoryEmptyNote": "Завершённые турниры появятся здесь."
 }
