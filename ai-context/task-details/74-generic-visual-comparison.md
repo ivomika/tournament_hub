@@ -121,3 +121,13 @@ Prompt пользователя (дословно):
 - `flutter analyze --no-pub` — PASS. `make architecture-test` —49 function fixtures,51 dependency fixtures,35 theme fixtures PASS; checker315 файлов без нарушений. `node --test tools/visual-comparison/test/*.test.mjs` —37 PASS. `node tools/check_rules.cjs` и `git diff --check` — PASS. Native Widgetbook hot restart выполнен.
 - Source/native/overlay/diff отчёты находятся в docs/design/prototype/comparison/<component>/index.html; report хранит raster delta отдельно от измеряемых контрактов, PASS не означает побитового совпадения растеризации. ProgressIndicator — намеренное утверждённое отличие: стандартный Material3 вместо неверного HTML waveform.
 - Проверены только native macOS baselines; Windows/Linux NOT_RUN. Реализованы presentation-компоненты и callback intents; сеть, Clipboard и бизнес-сценарии приложения в scope переноса не входят.
+
+### Ошибка реальной оболочки Widgetbook — 8 ноября2026
+
+Prompt пользователя (дословно):
+
+> открывая widgetbook я почти везде вижу это
+
+Stage IMPLEMENTING; TestGate NOT_REQUIRED: исправление preview theme/localization wrapper, без прикладной логики. Причина: Widgetbook.darkTheme настраивает chrome, default materialAppBuilder создаёт отдельную стандартную тему без extensions/intl. План: передать именованный appBuilder с существующим FoundationScenarioHost и явной основной темой; регрессия открывает каждый use case через настоящий WidgetbookState/Workbench, затем analyze/checker и hot restart.
+
+Завершение follow-up: Stage DONE. Именованный appBuilder явно передаёт main ThemeData в FoundationScenarioHost, включая localization. Галереи singleLine/multiline полей прокручиваются; тест реального Workbench обнаружил multiline overflow и теперь проходит все98 публичных initialRoute. `flutter test --no-pub test/widgetbook_bootstrap_test.dart`:3 PASS (98 сценариев внутри smoke test), `flutter analyze --no-pub` PASS, architecture-check315 файлов PASS, rules/diff PASS. Native приложение перезапущено, Responsive consumers выбран через UI и визуально отображается без red screen. Production DS/PNG не изменялись; golden update не требуется. Изолированные goldens ранее проверяли fixtures, но не их подключение в реальную оболочку — этот пробел закрыт регрессией. Локальный коммит без push.

@@ -9,11 +9,13 @@ final fieldSingleLineUseCase = WidgetbookUseCase(
 );
 
 abstract final class FieldSingleLineUseCase {
-  static Widget build(BuildContext context) => Column(
-    mainAxisSize: MainAxisSize.min,
-    children: [
-      for (final sample in FieldSample.values)
-        FieldFixture(kind: AppFieldKind.singleLine, sample: sample),
-    ],
+  static Widget build(BuildContext context) => SingleChildScrollView(
+    child: Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        for (final sample in FieldSample.values)
+          FieldFixture(kind: AppFieldKind.singleLine, sample: sample),
+      ],
+    ),
   );
 }

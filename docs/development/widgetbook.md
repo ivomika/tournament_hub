@@ -34,3 +34,9 @@ Widget-тест вызывает main_widgetbook.main через package import 
 ## Перенос компонентов из UI kit
 
 Для поставленных задач переноса применяется [памятка добавления DS-компонента](design-system-component-workflow.md): реальный элемент и собственная тема, use case в отдельной scoped папке, общие fixtures/builders с native golden. Knobs дополняют фиксированные сценарии; новая генерация/Cloud не подразумеваются. Задачи сначала расширяют уже существующие foundations, затем добавляют компоненты; их статусы ведутся только в [реестре](../../ai-context/task-list.md).
+
+## Контекст реального preview
+
+`Widgetbook.darkTheme` оформляет оболочку каталога. Каждый use case открывается во вложенном приложении: `TournamentWidgetbookApp.appBuilder` обязан передавать основную ThemeData в `FoundationScenarioHost` вместе с intl delegates/locale. Default materialAppBuilder Widgetbook создаёт стандартную тему и теряет наши ThemeExtension; назначение только darkTheme недостаточно.
+
+`flutter test --no-pub test/widgetbook_bootstrap_test.dart` открывает все зарегистрированные use cases через публичный initialRoute настоящего Workbench и проверяет отсутствие build/layout exceptions. Это дополняет standalone comparison/golden tests, которые сами создают корректный контекст и не обнаруживают ошибку подключения каталога. Длинные галереи состояний полей имеют собственную прокрутку.

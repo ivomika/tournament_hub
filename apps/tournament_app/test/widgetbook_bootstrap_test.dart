@@ -2,6 +2,9 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:flutter/material.dart';
+import 'package:tournament_app/presentation/widgetbook/widgetbook_app.dart';
+import 'package:tournament_app/presentation/design_system/foundation/theme/app_theme.dart';
 import 'package:tournament_app/main_widgetbook.dart' as widgetbook_entrypoint;
 import 'package:widgetbook/widgetbook.dart';
 
@@ -12,6 +15,10 @@ abstract final class _WidgetbookBootstrapTests {
     testWidgets(
       'Widgetbook starts with foundation catalogue',
       _startsFoundationCatalogue,
+    );
+    testWidgets(
+      'every registered use case opens in actual workbench',
+      _opensEveryUseCase,
     );
     test(
       'VS Code launches app and Widgetbook independently',
@@ -54,6 +61,38 @@ abstract final class _WidgetbookBootstrapTests {
     expect(root.addons, anyOf(isNull, isEmpty));
     expect(root.integrations, anyOf(isNull, isEmpty));
     expect(tester.takeException(), isNull);
+  }
+
+  static Future<void> _opensEveryUseCase(WidgetTester tester) async {
+    await tester.binding.setSurfaceSize(const Size(1440, 1200));
+    addTearDown(() => tester.binding.setSurfaceSize(null));
+    widgetbook_entrypoint.main();
+    await tester.pumpAndSettle();
+    final book = tester.widget<Widgetbook>(find.byType(Widgetbook));
+    final cases = WidgetbookRoot(children: book.directories).leaves
+        .whereType<WidgetbookUseCase>()
+        .toList();
+    expect(cases.length, 98);
+    for (final useCase in cases) {
+      await tester.pumpWidget(const SizedBox.shrink());
+      await tester.pumpWidget(
+        TournamentWidgetbookApp(
+          theme: AppTheme.dark(),
+          initialRoute: Uri(
+            path: '/',
+            queryParameters: {'path': useCase.path},
+          ).toString(),
+        ),
+      );
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 300));
+      expect(
+        tester.takeException(),
+        isNull,
+        reason: 'Use case: ${useCase.path}',
+      );
+    }
+    await tester.pumpWidget(const SizedBox.shrink());
   }
 
   static void _launchesSeparateEntrypoints() {
