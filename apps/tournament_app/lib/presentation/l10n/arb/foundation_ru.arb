@@ -266,5 +266,17 @@
   "screenEditing": "Редактирование",
   "screenSaveName": "Сохранить имя",
   "screenName": "Имя",
-  "screenSaveError": "Не удалось сохранить"
+  "screenSaveError": "Не удалось сохранить",
+  "screenSettingsHero": "Твой",
+  "screenSettingsAccent": "интерфейс.",
+  "screenAppearance": "Оформление",
+  "screenLanguage": "Язык",
+  "screenDark": "Тёмное",
+  "screenLight": "Светлое",
+  "screenSystem": "Как в системе",
+  "screenRussian": "Русский",
+  "screenEnglish": "English",
+  "screenClose": "Закрыть",
+  "screenSettingsNote": "Выбор демонстрационный: значения не сохраняются и не меняют остальные макеты.",
+  "screenSettingsTournamentNote": "Формат и FT задаются при создании турнира, не здесь."
 }

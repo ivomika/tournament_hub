@@ -1,4 +1,6 @@
 abstract final class ScreenPrimitives {
+  static const settingsHeight = 340.0;
+  static const secondaryHeroSize = 64.0;
   static const simpleWidth = 880.0;
   static const simplePadding = 40.0;
   static const simpleIntroFlex = 8;

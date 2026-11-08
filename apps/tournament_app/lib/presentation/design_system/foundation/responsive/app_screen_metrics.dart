@@ -34,6 +34,8 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
     required this.simplePadding,
     required this.simpleIntroFlex,
     required this.simpleFormFlex,
+    required this.settingsHeight,
+    required this.secondaryHeroSize,
     required this.utilityWidth,
     required this.utilityHeight,
     required this.utilityTop,
@@ -62,6 +64,8 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
   final MainAxisSize max;
   final TextAlign centerText;
   final TextAlign leftText;
+  final double settingsHeight;
+  final double secondaryHeroSize;
   final double simpleWidth;
   final double simplePadding;
   final int simpleIntroFlex;
@@ -122,6 +126,8 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
     double? simplePadding,
     int? simpleIntroFlex,
     int? simpleFormFlex,
+    double? settingsHeight,
+    double? secondaryHeroSize,
     double? utilityWidth,
     double? utilityHeight,
     double? utilityTop,
@@ -166,6 +172,8 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
     simplePadding: simplePadding ?? this.simplePadding,
     simpleIntroFlex: simpleIntroFlex ?? this.simpleIntroFlex,
     simpleFormFlex: simpleFormFlex ?? this.simpleFormFlex,
+    settingsHeight: settingsHeight ?? this.settingsHeight,
+    secondaryHeroSize: secondaryHeroSize ?? this.secondaryHeroSize,
     utilityWidth: utilityWidth ?? this.utilityWidth,
     utilityHeight: utilityHeight ?? this.utilityHeight,
     utilityTop: utilityTop ?? this.utilityTop,
@@ -233,6 +241,12 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
           simplePadding: lerpDouble(simplePadding, other.simplePadding, t)!,
           simpleIntroFlex: t < 0.5 ? simpleIntroFlex : other.simpleIntroFlex,
           simpleFormFlex: t < 0.5 ? simpleFormFlex : other.simpleFormFlex,
+          settingsHeight: lerpDouble(settingsHeight, other.settingsHeight, t)!,
+          secondaryHeroSize: lerpDouble(
+            secondaryHeroSize,
+            other.secondaryHeroSize,
+            t,
+          )!,
           utilityWidth: lerpDouble(utilityWidth, other.utilityWidth, t)!,
           utilityHeight: lerpDouble(utilityHeight, other.utilityHeight, t)!,
           utilityTop: lerpDouble(utilityTop, other.utilityTop, t)!,

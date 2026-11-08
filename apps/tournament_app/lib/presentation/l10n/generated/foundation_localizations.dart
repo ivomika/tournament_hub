@@ -1200,6 +1200,78 @@ abstract class FoundationLocalizations {
   /// In ru, this message translates to:
   /// **'Не удалось сохранить'**
   String get screenSaveError;
+
+  /// No description provided for @screenSettingsHero.
+  ///
+  /// In ru, this message translates to:
+  /// **'Твой'**
+  String get screenSettingsHero;
+
+  /// No description provided for @screenSettingsAccent.
+  ///
+  /// In ru, this message translates to:
+  /// **'интерфейс.'**
+  String get screenSettingsAccent;
+
+  /// No description provided for @screenAppearance.
+  ///
+  /// In ru, this message translates to:
+  /// **'Оформление'**
+  String get screenAppearance;
+
+  /// No description provided for @screenLanguage.
+  ///
+  /// In ru, this message translates to:
+  /// **'Язык'**
+  String get screenLanguage;
+
+  /// No description provided for @screenDark.
+  ///
+  /// In ru, this message translates to:
+  /// **'Тёмное'**
+  String get screenDark;
+
+  /// No description provided for @screenLight.
+  ///
+  /// In ru, this message translates to:
+  /// **'Светлое'**
+  String get screenLight;
+
+  /// No description provided for @screenSystem.
+  ///
+  /// In ru, this message translates to:
+  /// **'Как в системе'**
+  String get screenSystem;
+
+  /// No description provided for @screenRussian.
+  ///
+  /// In ru, this message translates to:
+  /// **'Русский'**
+  String get screenRussian;
+
+  /// No description provided for @screenEnglish.
+  ///
+  /// In ru, this message translates to:
+  /// **'English'**
+  String get screenEnglish;
+
+  /// No description provided for @screenClose.
+  ///
+  /// In ru, this message translates to:
+  /// **'Закрыть'**
+  String get screenClose;
+
+  /// No description provided for @screenSettingsNote.
+  ///
+  /// In ru, this message translates to:
+  /// **'Выбор демонстрационный: значения не сохраняются и не меняют остальные макеты.'**
+  String get screenSettingsNote;
+
+  /// No description provided for @screenSettingsTournamentNote.
+  ///
+  /// In ru, this message translates to:
+  /// **'Формат и FT задаются при создании турнира, не здесь.'**
+  String get screenSettingsTournamentNote;
 }
 
 class _FoundationLocalizationsDelegate

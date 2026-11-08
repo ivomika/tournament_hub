@@ -593,4 +593,42 @@ class FoundationLocalizationsRu extends FoundationLocalizations {
 
   @override
   String get screenSaveError => 'Не удалось сохранить';
+
+  @override
+  String get screenSettingsHero => 'Твой';
+
+  @override
+  String get screenSettingsAccent => 'интерфейс.';
+
+  @override
+  String get screenAppearance => 'Оформление';
+
+  @override
+  String get screenLanguage => 'Язык';
+
+  @override
+  String get screenDark => 'Тёмное';
+
+  @override
+  String get screenLight => 'Светлое';
+
+  @override
+  String get screenSystem => 'Как в системе';
+
+  @override
+  String get screenRussian => 'Русский';
+
+  @override
+  String get screenEnglish => 'English';
+
+  @override
+  String get screenClose => 'Закрыть';
+
+  @override
+  String get screenSettingsNote =>
+      'Выбор демонстрационный: значения не сохраняются и не меняют остальные макеты.';
+
+  @override
+  String get screenSettingsTournamentNote =>
+      'Формат и FT задаются при создании турнира, не здесь.';
 }
