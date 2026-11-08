@@ -1512,6 +1512,90 @@ abstract class FoundationLocalizations {
   /// In ru, this message translates to:
   /// **'Раздать персонажей'**
   String get screenDeal;
+
+  /// No description provided for @screenConnection.
+  ///
+  /// In ru, this message translates to:
+  /// **'Подключение'**
+  String get screenConnection;
+
+  /// No description provided for @screenJoin.
+  ///
+  /// In ru, this message translates to:
+  /// **'Присоединиться'**
+  String get screenJoin;
+
+  /// No description provided for @screenJoinAccent.
+  ///
+  /// In ru, this message translates to:
+  /// **'к турниру.'**
+  String get screenJoinAccent;
+
+  /// No description provided for @screenScan.
+  ///
+  /// In ru, this message translates to:
+  /// **'Отсканируй камерой телефона.'**
+  String get screenScan;
+
+  /// No description provided for @screenSpectators.
+  ///
+  /// In ru, this message translates to:
+  /// **'Зрители'**
+  String get screenSpectators;
+
+  /// No description provided for @screenWatch.
+  ///
+  /// In ru, this message translates to:
+  /// **'Смотреть'**
+  String get screenWatch;
+
+  /// No description provided for @screenWatchAccent.
+  ///
+  /// In ru, this message translates to:
+  /// **'турнир.'**
+  String get screenWatchAccent;
+
+  /// No description provided for @screenViewOnly.
+  ///
+  /// In ru, this message translates to:
+  /// **'Только просмотр'**
+  String get screenViewOnly;
+
+  /// No description provided for @screenSpectatorNote.
+  ///
+  /// In ru, this message translates to:
+  /// **'Зрители видят матчи, сетку и результаты. Без управления турниром.'**
+  String get screenSpectatorNote;
+
+  /// No description provided for @screenQrParticipantLabel.
+  ///
+  /// In ru, this message translates to:
+  /// **'QR-код подключения участников'**
+  String get screenQrParticipantLabel;
+
+  /// No description provided for @screenQrSpectatorLabel.
+  ///
+  /// In ru, this message translates to:
+  /// **'QR-код просмотра турнира'**
+  String get screenQrSpectatorLabel;
+
+  /// No description provided for @screenCopySpectator.
+  ///
+  /// In ru, this message translates to:
+  /// **'Скопировать ссылку зрителя'**
+  String get screenCopySpectator;
+
+  /// No description provided for @screenJoinTitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'Присоединиться\nк турниру.'**
+  String get screenJoinTitle;
+
+  /// No description provided for @screenWatchTitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'Смотреть\nтурнир.'**
+  String get screenWatchTitle;
 }
 
 class _FoundationLocalizationsDelegate

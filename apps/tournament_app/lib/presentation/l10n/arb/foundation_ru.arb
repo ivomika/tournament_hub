@@ -318,5 +318,19 @@
   "screenWhoPlays": "Кто играет?",
   "screenNoCharacters": "Персонажи появятся после раздачи.",
   "screenConnectParticipants": "Подключить участников",
-  "screenDeal": "Раздать персонажей"
+  "screenDeal": "Раздать персонажей",
+  "screenConnection": "Подключение",
+  "screenJoin": "Присоединиться",
+  "screenJoinAccent": "к турниру.",
+  "screenScan": "Отсканируй камерой телефона.",
+  "screenSpectators": "Зрители",
+  "screenWatch": "Смотреть",
+  "screenWatchAccent": "турнир.",
+  "screenViewOnly": "Только просмотр",
+  "screenSpectatorNote": "Зрители видят матчи, сетку и результаты. Без управления турниром.",
+  "screenQrParticipantLabel": "QR-код подключения участников",
+  "screenQrSpectatorLabel": "QR-код просмотра турнира",
+  "screenCopySpectator": "Скопировать ссылку зрителя",
+  "screenJoinTitle": "Присоединиться\nк турниру.",
+  "screenWatchTitle": "Смотреть\nтурнир."
 }

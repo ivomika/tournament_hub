@@ -754,4 +754,47 @@ class FoundationLocalizationsRu extends FoundationLocalizations {
 
   @override
   String get screenDeal => 'Раздать персонажей';
+
+  @override
+  String get screenConnection => 'Подключение';
+
+  @override
+  String get screenJoin => 'Присоединиться';
+
+  @override
+  String get screenJoinAccent => 'к турниру.';
+
+  @override
+  String get screenScan => 'Отсканируй камерой телефона.';
+
+  @override
+  String get screenSpectators => 'Зрители';
+
+  @override
+  String get screenWatch => 'Смотреть';
+
+  @override
+  String get screenWatchAccent => 'турнир.';
+
+  @override
+  String get screenViewOnly => 'Только просмотр';
+
+  @override
+  String get screenSpectatorNote =>
+      'Зрители видят матчи, сетку и результаты. Без управления турниром.';
+
+  @override
+  String get screenQrParticipantLabel => 'QR-код подключения участников';
+
+  @override
+  String get screenQrSpectatorLabel => 'QR-код просмотра турнира';
+
+  @override
+  String get screenCopySpectator => 'Скопировать ссылку зрителя';
+
+  @override
+  String get screenJoinTitle => 'Присоединиться\nк турниру.';
+
+  @override
+  String get screenWatchTitle => 'Смотреть\nтурнир.';
 }
