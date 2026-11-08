@@ -7,7 +7,7 @@ class ProgressFixture extends StatelessWidget {
   final bool frozen, reduced;
   @override
   Widget build(BuildContext context) => MediaQuery(
-    data: MediaQuery.of(context).copyWith(disableAnimations: reduced),
+    data: MediaQuery.of(context).copyWith(disableAnimations: reduced || frozen),
     child: TickerMode(
       enabled: !frozen,
       child: AppProgressIndicator(

@@ -20,9 +20,9 @@ abstract final class ProgressComparison {
           controls: const [],
           expectedFailure: const ComparisonExpectedFailure(
             controlId: 'root',
-            property: 'rect.width',
+            property: 'rect.height',
           ),
-          note: 'Утверждённое пользователем отличие: ошибочный HTML waveform не переносится. Справа штатный Material3 CircularProgressIndicator из текущей ProgressIndicatorThemeData. Expected mismatch подтверждает различие, не совпадение. Фазы start/mid проверяются native golden.',
+          note: 'Утверждённое пользователем отличие: ошибочный HTML waveform не переносится. Справа линейный волнистый Material3 Expressive из m3e_progress_indicator, оформленный текущей ProgressIndicatorThemeData/AppProgressMetrics. Expected mismatch подтверждает различие, не совпадение. Фазы start/mid проверяются native golden.',
         ),
     ],
   );

@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:m3e_progress_indicator/m3e_progress_indicator.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tournament_app/presentation/design_system/foundation/theme/app_theme.dart';
@@ -60,8 +62,9 @@ abstract final class _ProgressTests {
     await _capture(tester, 'start');
     await tester.pump(const Duration(milliseconds: 600));
     await _capture(tester, 'mid');
-    await tester.pumpWidget(const SizedBox());
     await _pump(tester, reduced: true);
+    await _capture(tester, 'reduced');
+    await tester.pump(const Duration(seconds: 1));
     await _capture(tester, 'reduced');
     await tester.pumpWidget(const SizedBox());
     final base = AppTheme.dark();
@@ -74,7 +77,7 @@ abstract final class _ProgressTests {
       ),
     );
     expect(
-      Theme.of(tester.element(find.byType(CircularProgressIndicator)))
+      Theme.of(tester.element(find.byType(M3ELinearWavyProgressIndicator)))
           .progressIndicatorTheme
           .color,
       Colors.cyan,

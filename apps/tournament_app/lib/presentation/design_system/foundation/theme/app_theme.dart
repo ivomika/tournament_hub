@@ -1,3 +1,5 @@
+import 'package:tournament_app/presentation/design_system/foundation/primitives/progress_primitives.dart';
+import 'package:tournament_app/presentation/design_system/foundation/motion/app_progress_metrics.dart';
 import 'package:tournament_app/presentation/design_system/foundation/primitives/qr_primitives.dart';
 import 'package:tournament_app/presentation/design_system/foundation/responsive/app_qr_metrics.dart';
 import 'package:tournament_app/presentation/design_system/foundation/primitives/dialog_primitives.dart';
@@ -117,6 +119,15 @@ abstract final class AppTheme {
         year2023: false,
       ),
       extensions: [
+        const AppProgressMetrics(
+          height: ProgressPrimitives.height,
+          width: ProgressPrimitives.width,
+          strokeWidth: ProgressPrimitives.strokeWidth,
+          trackStrokeWidth: ProgressPrimitives.trackStrokeWidth,
+          wavelength: ProgressPrimitives.wavelength,
+          waveSpeed: ProgressPrimitives.waveSpeed,
+          staticValue: ProgressPrimitives.staticValue,
+        ),
         const FoundationSampleMetrics(
           barHeight: FoundationPrimitives.sampleBarHeight,
           barRadius: FoundationPrimitives.sampleBarRadius,

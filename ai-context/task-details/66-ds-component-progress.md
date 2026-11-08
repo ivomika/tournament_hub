@@ -123,7 +123,7 @@
 
 ## Итог
 
-Постановка создана; 🟣. Реализация и выполнение Flutter-проверок не начаты.
+Текущий результат: линейный волнистый M3 Expressive progress с runtime темой, accessibility и проверенными native эталонами. Подробности — в завершающей итерации.
 
 
 ### Уточнение7 ноября2026 — кастомный индикатор
@@ -165,3 +165,18 @@ Prompt пользователя (дословно):
 > продолжи
 
 Прямое требование Material3 имеет приоритет над старым HTML waveform: AppProgressIndicator — стандартный CircularProgressIndicator и semantics. Оформление через текущую ProgressIndicatorThemeData, никакой собственной геометрии. Shared animated/reduced/fixed fixtures. Общий source отчёт2 expected root.width mismatches verified; это утверждённое отличие, не совпадение (явная note). Native baseline собственных start/mid/reduced/replacement phases, test PASS повторно без update; изображения просмотрены. Analyzer no issues, architecture268 files PASS, macOS hot restart выполнен. Другие ОС NOT_RUN. Итог текущей итерации: выполнено.
+
+### Линейный волнистый индикатор
+Prompt пользователя (дословно):
+> отлично теперь вместо circuler progress должен быть в линию и волнистый
+
+Stage IMPLEMENTING; TestGate NOT_REQUIRED: visual animation adapter, без прикладной логики. Установленный SDK не содержит linear wavy shape; используем isolated presentation adapter к реализации M3 Expressive, тема и geometry из main ThemeData/WidgetTheme. План: подключить пакет, заменить runtime и Motion preview на единый AppProgressIndicator, обновить native phases/theme/source reports, проверить reduced motion и каталог. Push запрещён.
+
+### Завершение linear wavy
+Stage DONE. AppProgressIndicator — linear wavy adapter к m3e_progress_indicator0.0.3 (MIT), совместимому с текущим Flutter. Внешние типы не выходят в контракт; собственный painter не добавлялся. Standard SDK year2023:false не даёт волну; это явно отражено в docs/design/progress-indicator.md.
+
+Main ProgressIndicatorThemeData colors + AppProgressMetrics(width240,height10,stroke4,track4,wavelength20,speed20), gap/stop AppSpacing4 → WidgetTheme → adapter. Reduced motion статичен, семантика локализованной загрузки без ложного процента; динамическое включение reduced проверяется без пересоздания внешнего компонента. Foundation/Motion использует тот же компонент.
+
+8 tests PASS без update: progress phase/theme/reduced, Motion и bootstrap (все101 use cases); intentional6 native snapshots обновлены и затем сравнены обычным запуском, reduced snapshot одинаков после1секунды. Analyzer PASS; architecture325 файлов PASS; rules/diff PASS. Source comparison2/2 PASS после update и без update; ожидаемое отличие root.height24/10 записано явно. Финальные mid/reduced PNG просмотрены: реальная волна по заданной ширине, track gap/end stop. Изначально проверенный иной adapter оставлял только80px графики внутри240px; заменён до завершения, artifact того варианта не принят.
+
+Документы: docs/design/progress-indicator.md, manifest, Widgetbook. Native macOS, другие ОС NOT_RUN. Локальный коммит без push.

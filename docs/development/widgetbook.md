@@ -50,3 +50,5 @@ Widget-тест вызывает main_widgetbook.main через package import 
 В Components → QR code → access / graphic поле **Knobs → QR payload** меняет кодируемую ссылку; код генерируется заново. Viewport Mobile/Desktop задаёт окружение.
 
 В QR code добавлены фиксированные use cases **Short link**, **Long link**, **Unicode link**. Они используют общий QrPayloadSample и показывают реальные разные данные; `QR payload` остаётся редактируемым. Их mobile/desktop native baselines используют те же fixtures.
+
+Progress indicator и Foundation/Motion/Material3 progress показывают один линейный волнистый M3 Expressive adapter. Reduced motion — статичная волна без показателя процента.

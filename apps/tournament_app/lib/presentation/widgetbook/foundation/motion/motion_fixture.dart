@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tournament_app/presentation/widgetbook/components/progress_indicator/progress_fixture.dart';
 import 'package:tournament_app/presentation/widgetbook/widgets/roster_row/roster_fixture.dart';
 import 'package:tournament_app/presentation/widgetbook/visual_viewport.dart';
 
@@ -13,9 +14,9 @@ class MotionFixture extends StatelessWidget {
   );
 }
 
-/// Native Material3 animation; the HTML waveform is deliberately not copied.
+/// Same M3 Expressive indicator as the component catalogue.
 class MotionProgressFixture extends StatelessWidget {
   const MotionProgressFixture({super.key});
   @override
-  Widget build(BuildContext context) => const CircularProgressIndicator();
+  Widget build(BuildContext context) => const ProgressFixture();
 }

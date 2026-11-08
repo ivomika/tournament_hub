@@ -3,9 +3,9 @@
  </style><header><small>TOURNAMENT HUB / ОБЩЕЕ ВИЗУАЛЬНОЕ СРАВНЕНИЕ</small><h1>Material3 ProgressIndicator · утверждённое отличие от HTML · Web ↔ Flutter</h1><p>Сценарии и контрольные элементы заданы декларацией компонента. Геометрия, типографика и цвета проверяются отдельно; diff показывает остаточную разницу рендереров. Нажмите PNG, чтобы открыть исходное разрешение.</p></header>
  <div class="stats"><div><strong>2</strong>сценариев</div><div><strong class="pass">0/0</strong>прошли контракт контролей</div><div><strong>0</strong>контрольных элементов</div></div>
  <nav><a href="#mobile-material3">mobile · Material3</a><a href="#desktop-material3">desktop · Material3</a><a href="http://127.0.0.1:8094/ui-kit.html">Web-эталон ↗</a></nav>
- <article class="case" id="mobile-material3"><header><h2>mobile · Material3</h2><b class="fail">Контрольный дефект обнаружен</b></header><p>Утверждённое пользователем отличие: ошибочный HTML waveform не переносится. Справа штатный Material3 CircularProgressIndicator из текущей ProgressIndicatorThemeData. Expected mismatch подтверждает различие, не совпадение. Фазы start/mid проверяются native golden.</p><div class="shots"><figure><figcaption>Web</figcaption><a href="web/mobile-material3.png"><img alt="mobile-material3 Web" src="web/mobile-material3.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/mobile-material3.png"><img alt="mobile-material3 Flutter" src="flutter/mobile-material3.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/mobile-material3.png"><img alt="mobile-material3 Наложение 50/50" src="overlay/mobile-material3.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/mobile-material3.png"><img alt="mobile-material3 Diff ×4" src="diff/mobile-material3.png"></a></figure></div>
- <div class="table"><table><thead><tr><th>Контроль</th><th>Свойство</th><th>Web</th><th>Flutter</th><th>Δ / допуск</th></tr></thead><tbody><tr class="finding"><td>root</td><td>rect.width</td><td>160</td><td>48</td><td>112 / 0.25</td></tr><tr class="finding"><td>root</td><td>rect.height</td><td>24</td><td>48</td><td>24 / 0.25</td></tr></tbody></table></div>
- <p>Raster: 656 изменённых пикселей; mean channel delta 2.2410/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+ <article class="case" id="mobile-material3"><header><h2>mobile · Material3</h2><b class="fail">Контрольный дефект обнаружен</b></header><p>Утверждённое пользователем отличие: ошибочный HTML waveform не переносится. Справа линейный волнистый Material3 Expressive из m3e_progress_indicator, оформленный текущей ProgressIndicatorThemeData/AppProgressMetrics. Expected mismatch подтверждает различие, не совпадение. Фазы start/mid проверяются native golden.</p><div class="shots"><figure><figcaption>Web</figcaption><a href="web/mobile-material3.png"><img alt="mobile-material3 Web" src="web/mobile-material3.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/mobile-material3.png"><img alt="mobile-material3 Flutter" src="flutter/mobile-material3.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/mobile-material3.png"><img alt="mobile-material3 Наложение 50/50" src="overlay/mobile-material3.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/mobile-material3.png"><img alt="mobile-material3 Diff ×4" src="diff/mobile-material3.png"></a></figure></div>
+ <div class="table"><table><thead><tr><th>Контроль</th><th>Свойство</th><th>Web</th><th>Flutter</th><th>Δ / допуск</th></tr></thead><tbody><tr class="finding"><td>root</td><td>rect.height</td><td>24</td><td>10</td><td>14 / 0.25</td></tr></tbody></table></div>
+ <p>Raster: 1435 изменённых пикселей; mean channel delta 25.1012/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
  <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
   &quot;web&quot;: {
     &quot;id&quot;: &quot;mobile-material3&quot;,
@@ -31,21 +31,21 @@
     &quot;root&quot;: {
       &quot;x&quot;: 0,
       &quot;y&quot;: 0,
-      &quot;width&quot;: 48,
-      &quot;height&quot;: 48
+      &quot;width&quot;: 160,
+      &quot;height&quot;: 10
     },
     &quot;controls&quot;: {},
     &quot;raster&quot;: {
-      &quot;changedPixels&quot;: 656,
-      &quot;meanChannelDelta&quot;: 2.240972222222222
+      &quot;changedPixels&quot;: 1435,
+      &quot;meanChannelDelta&quot;: 25.10121527777778
     },
     &quot;artifacts&quot;: {
       &quot;image&quot;: &quot;flutter/mobile-material3.png&quot;
     }
   }
-}</pre></details></article><article class="case" id="desktop-material3"><header><h2>desktop · Material3</h2><b class="fail">Контрольный дефект обнаружен</b></header><p>Утверждённое пользователем отличие: ошибочный HTML waveform не переносится. Справа штатный Material3 CircularProgressIndicator из текущей ProgressIndicatorThemeData. Expected mismatch подтверждает различие, не совпадение. Фазы start/mid проверяются native golden.</p><div class="shots"><figure><figcaption>Web</figcaption><a href="web/desktop-material3.png"><img alt="desktop-material3 Web" src="web/desktop-material3.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/desktop-material3.png"><img alt="desktop-material3 Flutter" src="flutter/desktop-material3.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/desktop-material3.png"><img alt="desktop-material3 Наложение 50/50" src="overlay/desktop-material3.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/desktop-material3.png"><img alt="desktop-material3 Diff ×4" src="diff/desktop-material3.png"></a></figure></div>
- <div class="table"><table><thead><tr><th>Контроль</th><th>Свойство</th><th>Web</th><th>Flutter</th><th>Δ / допуск</th></tr></thead><tbody><tr class="finding"><td>root</td><td>rect.width</td><td>160</td><td>48</td><td>112 / 0.25</td></tr><tr class="finding"><td>root</td><td>rect.height</td><td>24</td><td>48</td><td>24 / 0.25</td></tr></tbody></table></div>
- <p>Raster: 656 изменённых пикселей; mean channel delta 2.2410/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
+}</pre></details></article><article class="case" id="desktop-material3"><header><h2>desktop · Material3</h2><b class="fail">Контрольный дефект обнаружен</b></header><p>Утверждённое пользователем отличие: ошибочный HTML waveform не переносится. Справа линейный волнистый Material3 Expressive из m3e_progress_indicator, оформленный текущей ProgressIndicatorThemeData/AppProgressMetrics. Expected mismatch подтверждает различие, не совпадение. Фазы start/mid проверяются native golden.</p><div class="shots"><figure><figcaption>Web</figcaption><a href="web/desktop-material3.png"><img alt="desktop-material3 Web" src="web/desktop-material3.png"></a></figure><figure><figcaption>Flutter</figcaption><a href="flutter/desktop-material3.png"><img alt="desktop-material3 Flutter" src="flutter/desktop-material3.png"></a></figure><figure><figcaption>Наложение 50/50</figcaption><a href="overlay/desktop-material3.png"><img alt="desktop-material3 Наложение 50/50" src="overlay/desktop-material3.png"></a></figure><figure><figcaption>Diff ×4</figcaption><a href="diff/desktop-material3.png"><img alt="desktop-material3 Diff ×4" src="diff/desktop-material3.png"></a></figure></div>
+ <div class="table"><table><thead><tr><th>Контроль</th><th>Свойство</th><th>Web</th><th>Flutter</th><th>Δ / допуск</th></tr></thead><tbody><tr class="finding"><td>root</td><td>rect.height</td><td>24</td><td>10</td><td>14 / 0.25</td></tr></tbody></table></div>
+ <p>Raster: 1435 изменённых пикселей; mean channel delta 25.1012/255. Это самостоятельная диагностика, не подмена проверки компоновки.</p>
  <details><summary>Все измерения и положения внутренних элементов</summary><pre>{
   &quot;web&quot;: {
     &quot;id&quot;: &quot;desktop-material3&quot;,
@@ -71,17 +71,17 @@
     &quot;root&quot;: {
       &quot;x&quot;: 0,
       &quot;y&quot;: 0,
-      &quot;width&quot;: 48,
-      &quot;height&quot;: 48
+      &quot;width&quot;: 160,
+      &quot;height&quot;: 10
     },
     &quot;controls&quot;: {},
     &quot;raster&quot;: {
-      &quot;changedPixels&quot;: 656,
-      &quot;meanChannelDelta&quot;: 2.240972222222222
+      &quot;changedPixels&quot;: 1435,
+      &quot;meanChannelDelta&quot;: 25.10121527777778
     },
     &quot;artifacts&quot;: {
       &quot;image&quot;: &quot;flutter/desktop-material3.png&quot;
     }
   }
 }</pre></details></article>
- <footer><small>Run 2026-11-07T20:25:24.040Z. <a href="results.json">Полный JSON</a> · <a href="spec.json">Декларация</a>. Native goldens проверяются отдельно; отчёт не объявляет pixel-perfect при остаточной raster-разнице.</small></footer></html>
+ <footer><small>Run 2026-11-08T09:19:46.970Z. <a href="results.json">Полный JSON</a> · <a href="spec.json">Декларация</a>. Native goldens проверяются отдельно; отчёт не объявляет pixel-perfect при остаточной raster-разнице.</small></footer></html>
