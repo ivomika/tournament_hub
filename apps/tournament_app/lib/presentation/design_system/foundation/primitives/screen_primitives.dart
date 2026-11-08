@@ -1,4 +1,5 @@
 abstract final class ScreenPrimitives {
+  static const rosterContextHeight = 300.0;
   static const widePaneFlex = 7;
   static const narrowPaneFlex = 5;
   static const gridColumns = 2;

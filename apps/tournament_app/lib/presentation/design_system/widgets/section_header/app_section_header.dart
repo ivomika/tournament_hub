@@ -4,7 +4,15 @@ import 'package:tournament_app/presentation/design_system/components/button/app_
 import 'package:tournament_app/presentation/design_system/components/button/app_button_theme.dart';
 import 'package:tournament_app/presentation/design_system/foundation/icons/app_glyph.dart';
 
-enum AppHeaderActionKind { save, edit }
+enum AppHeaderActionKind {
+  save(AppGlyph.check),
+  edit(AppGlyph.edit),
+  add(AppGlyph.plus),
+  share(AppGlyph.qr);
+
+  const AppHeaderActionKind(this.glyph);
+  final AppGlyph glyph;
+}
 
 class AppHeaderAction {
   const AppHeaderAction({
@@ -23,11 +31,13 @@ class AppSectionHeader extends StatelessWidget {
     required this.backLabel,
     required this.onBack,
     this.action,
+    this.leadingGlyph,
     super.key,
   });
   final String title, backLabel;
   final VoidCallback? onBack;
   final AppHeaderAction? action;
+  final AppGlyph? leadingGlyph;
   @override
   Widget build(BuildContext context) {
     final t = AppSectionHeaderTheme.of(context);
@@ -38,7 +48,7 @@ class AppSectionHeader extends StatelessWidget {
           child: AppButton(
             label: backLabel,
             kind: AppButtonKind.icon,
-            glyph: AppGlyph.back,
+            glyph: leadingGlyph ?? AppGlyph.back,
             onPressed: onBack,
           ),
         ),
@@ -59,9 +69,7 @@ class AppSectionHeader extends StatelessWidget {
                   kind: action!.kind == AppHeaderActionKind.save
                       ? AppButtonKind.accentIcon
                       : AppButtonKind.icon,
-                  glyph: action!.kind == AppHeaderActionKind.save
-                      ? AppGlyph.check
-                      : AppGlyph.edit,
+                  glyph: action!.kind.glyph,
                   onPressed: action!.onPressed,
                 ),
         ),

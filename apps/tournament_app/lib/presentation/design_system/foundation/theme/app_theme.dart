@@ -122,6 +122,7 @@ abstract final class AppTheme {
       ),
       extensions: [
         const AppScreenMetrics(
+          rosterContextHeight: ScreenPrimitives.rosterContextHeight,
           widePaneFlex: ScreenPrimitives.widePaneFlex,
           narrowPaneFlex: ScreenPrimitives.narrowPaneFlex,
           gridColumns: ScreenPrimitives.gridColumns,

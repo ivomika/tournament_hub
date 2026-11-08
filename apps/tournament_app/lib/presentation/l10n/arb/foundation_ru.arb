@@ -312,5 +312,11 @@
   "screenRrNote": "FT2 фиксирован. Очки за результат: 3 / 2 / 1 / 0.",
   "screenToRoster": "К участникам",
   "screenDecreaseFt": "Уменьшить FT",
-  "screenIncreaseFt": "Увеличить FT"
+  "screenIncreaseFt": "Увеличить FT",
+  "screenParticipants": "Участники",
+  "screenAddGuest": "Добавить гостя",
+  "screenWhoPlays": "Кто играет?",
+  "screenNoCharacters": "Персонажи появятся после раздачи.",
+  "screenConnectParticipants": "Подключить участников",
+  "screenDeal": "Раздать персонажей"
 }

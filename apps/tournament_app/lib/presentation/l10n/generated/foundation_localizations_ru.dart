@@ -736,4 +736,22 @@ class FoundationLocalizationsRu extends FoundationLocalizations {
 
   @override
   String get screenIncreaseFt => 'Увеличить FT';
+
+  @override
+  String get screenParticipants => 'Участники';
+
+  @override
+  String get screenAddGuest => 'Добавить гостя';
+
+  @override
+  String get screenWhoPlays => 'Кто играет?';
+
+  @override
+  String get screenNoCharacters => 'Персонажи появятся после раздачи.';
+
+  @override
+  String get screenConnectParticipants => 'Подключить участников';
+
+  @override
+  String get screenDeal => 'Раздать персонажей';
 }

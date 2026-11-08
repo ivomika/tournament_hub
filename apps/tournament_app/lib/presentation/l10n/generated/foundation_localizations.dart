@@ -1476,6 +1476,42 @@ abstract class FoundationLocalizations {
   /// In ru, this message translates to:
   /// **'Увеличить FT'**
   String get screenIncreaseFt;
+
+  /// No description provided for @screenParticipants.
+  ///
+  /// In ru, this message translates to:
+  /// **'Участники'**
+  String get screenParticipants;
+
+  /// No description provided for @screenAddGuest.
+  ///
+  /// In ru, this message translates to:
+  /// **'Добавить гостя'**
+  String get screenAddGuest;
+
+  /// No description provided for @screenWhoPlays.
+  ///
+  /// In ru, this message translates to:
+  /// **'Кто играет?'**
+  String get screenWhoPlays;
+
+  /// No description provided for @screenNoCharacters.
+  ///
+  /// In ru, this message translates to:
+  /// **'Персонажи появятся после раздачи.'**
+  String get screenNoCharacters;
+
+  /// No description provided for @screenConnectParticipants.
+  ///
+  /// In ru, this message translates to:
+  /// **'Подключить участников'**
+  String get screenConnectParticipants;
+
+  /// No description provided for @screenDeal.
+  ///
+  /// In ru, this message translates to:
+  /// **'Раздать персонажей'**
+  String get screenDeal;
 }
 
 class _FoundationLocalizationsDelegate

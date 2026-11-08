@@ -46,6 +46,7 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
     required this.historyProminentHeight,
     required this.widePaneFlex,
     required this.narrowPaneFlex,
+    required this.rosterContextHeight,
     required this.utilityWidth,
     required this.utilityHeight,
     required this.utilityTop,
@@ -78,6 +79,7 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
   final int stackColumns;
   final int widePaneFlex;
   final int narrowPaneFlex;
+  final double rosterContextHeight;
   final double historyFeatureHeight;
   final double historyCardHeight;
   final double historyProminentHeight;
@@ -158,6 +160,7 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
     double? historyProminentHeight,
     int? widePaneFlex,
     int? narrowPaneFlex,
+    double? rosterContextHeight,
     double? utilityWidth,
     double? utilityHeight,
     double? utilityTop,
@@ -215,6 +218,7 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
         historyProminentHeight ?? this.historyProminentHeight,
     widePaneFlex: widePaneFlex ?? this.widePaneFlex,
     narrowPaneFlex: narrowPaneFlex ?? this.narrowPaneFlex,
+    rosterContextHeight: rosterContextHeight ?? this.rosterContextHeight,
     utilityWidth: utilityWidth ?? this.utilityWidth,
     utilityHeight: utilityHeight ?? this.utilityHeight,
     utilityTop: utilityTop ?? this.utilityTop,
@@ -318,6 +322,11 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
           )!,
           widePaneFlex: t < 0.5 ? widePaneFlex : other.widePaneFlex,
           narrowPaneFlex: t < 0.5 ? narrowPaneFlex : other.narrowPaneFlex,
+          rosterContextHeight: lerpDouble(
+            rosterContextHeight,
+            other.rosterContextHeight,
+            t,
+          )!,
           utilityWidth: lerpDouble(utilityWidth, other.utilityWidth, t)!,
           utilityHeight: lerpDouble(utilityHeight, other.utilityHeight, t)!,
           utilityTop: lerpDouble(utilityTop, other.utilityTop, t)!,
