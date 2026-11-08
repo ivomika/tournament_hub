@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:tournament_app/presentation/widgetbook/components/number_stepper/stepper_fixture.dart';
+
 import 'package:tournament_app/presentation/widgetbook/components/segmented_choice/segmented_fixture.dart';
 
 import 'package:flutter_test/flutter_test.dart';
@@ -15,6 +17,10 @@ void main() => _WidgetbookBootstrapTests.run();
 
 abstract final class _WidgetbookBootstrapTests {
   static void run() {
+    testWidgets(
+      'stepper preview keeps natural height in mobile and desktop viewport',
+      _stepperViewport,
+    );
     testWidgets(
       'segmented preview keeps natural height in mobile and desktop viewport',
       _segmentedViewport,
@@ -158,6 +164,38 @@ abstract final class _WidgetbookBootstrapTests {
       expect(MediaQuery.sizeOf(tester.element(fixture)), preset.size);
       expect(tester.getSize(fixture).height, 64);
       expect(tester.takeException(), isNull);
+    }
+  }
+
+  static Future<void> _stepperViewport(WidgetTester tester) async {
+    await tester.binding.setSurfaceSize(const Size(1600, 1200));
+    addTearDown(() => tester.binding.setSurfaceSize(null));
+    for (final preset in WidgetbookViewports.values.skip(1)) {
+      for (final useCase in ['format', 'score']) {
+        await tester.pumpWidget(const SizedBox.shrink());
+        await tester.pumpWidget(
+          TournamentWidgetbookApp(
+            theme: AppTheme.dark(),
+            initialRoute: Uri(
+              path: '/',
+              queryParameters: {
+                'path': 'components/number-stepper/$useCase',
+                'viewport': '{name:${Uri.encodeComponent(preset.name)}}',
+              },
+            ).toString(),
+          ),
+        );
+        await tester.pumpAndSettle();
+        final fixture = find.byType(StepperFixture);
+        expect(fixture, findsOneWidget);
+        expect(MediaQuery.sizeOf(tester.element(fixture)), preset.size);
+        expect(
+          tester.getSize(fixture).height,
+          56,
+          reason: '$useCase / ${preset.name}',
+        );
+        expect(tester.takeException(), isNull);
+      }
     }
   }
 

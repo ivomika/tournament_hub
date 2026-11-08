@@ -145,3 +145,13 @@ Prompt пользователя (дословно):
 > продолжи
 
 AppNumberStepper.output/input реализован с внешним value/controller и nullable onDecrease/onIncrease, onChanged/onSubmitted. Геометрия контролов одинакова mobile/desktop56/48/32, local label layout330 сохраняет источник. Доступность и пределы не вычисляются production компонентом. Собственная runtime тема и AppStepperMetrics, shared fixtures/Widgetbook. Source12/12 PASS после update и обычного comparison; native3 tests PASS без update, включая keyboard intents/typing/null и одинаковые размеры. Overlay просмотрены. Numeric slot сравнивается rect/style/baseline; browser Canvas не поддерживает CSS tabular features в measureText. Проверка document.fonts использует явный font string, потому что shorthand пуст при tabular-nums. Analyzer no issues, architecture189 files PASS, engine37 PASS. MacOS Widgetbook перезапущен; другие ОС NOT_RUN. Итог текущей итерации: выполнено.
+
+### Высота в Widgetbook viewport
+Prompt пользователя (дословно):
+> степпер и choice в виджет буке отображаются так. Нужно либо задать высоту компонента либо ограничить высоту в useCase смотря как правльней будет по лучшим практикам
+
+Stage IMPLEMENTING; TestGate NOT_REQUIRED: layout-only. Проверить format/score через настоящий Mobile/Desktop viewport; использовать общий ComponentPreview из53 и natural contentHeightFactor для output Center. Размер кнопок56 не меняется, фиксированная высота use case не вводится; source/goldens сохранить.
+
+Stage DONE. RED format/Mobile844px вместо56px воспроизведён. Output Center использует heightFactor из WidgetTheme; format/score use cases используют общий ComponentPreview/Align. Root natural height56px при full viewport, в узких constraints label корректно добавляет строку сверху; высота капсулы всегда56px при обычном шрифте. Native goldens Stepper сохранены без update, source comparison PASS без update.
+
+Проверки:2 real Workbench viewport tests PASS (segmented+stepper, оба presets; stepper format/score). Component suite8 PASS (Stepper3+Segmented5) с ordinary goldens. В общем прогоне каталог101 и остальные bootstrap tests прошли, но одна новая assertion ошибочно требовала56px от всего narrow block с label; исправлена на высоту капсулы, component suite повторно GREEN. Analyzer PASS, architecture326 файлов PASS, rules/diff PASS. Native Widgetbook перезапущен, Stepper/format выбран через UI, Mobile390×844 включён; визуально подтверждён обычный горизонтальный control вместо растянутой капсулы. No push.

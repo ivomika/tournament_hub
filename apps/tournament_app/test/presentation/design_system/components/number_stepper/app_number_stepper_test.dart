@@ -137,6 +137,7 @@ abstract final class _StepperTests {
           tester.getSize(find.byType(IconButton).first),
           const Size.square(56),
         );
+        expect(tester.getSize(find.byType(DecoratedBox).first).height, 56);
         final box = tester.widget<DecoratedBox>(
           find.byType(DecoratedBox).first,
         );

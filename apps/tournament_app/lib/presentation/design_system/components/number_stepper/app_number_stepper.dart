@@ -91,7 +91,10 @@ class _StepperBody extends StatelessWidget {
                   ? t.outputWidth
                   : t.inputWidth,
               child: spec.kind == AppStepperKind.output
-                  ? Center(child: Text(spec.valueLabel!, style: t.valueStyle))
+                  ? Center(
+                      heightFactor: t.contentHeightFactor,
+                      child: Text(spec.valueLabel!, style: t.valueStyle),
+                    )
                   : Semantics(
                       label: spec.label,
                       child: TextField(

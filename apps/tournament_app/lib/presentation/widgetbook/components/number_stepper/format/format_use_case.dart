@@ -1,3 +1,4 @@
+import 'package:tournament_app/presentation/widgetbook/components/component_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:widgetbook/widgetbook.dart';
 import 'package:tournament_app/presentation/design_system/components/number_stepper/app_number_stepper.dart';
@@ -9,6 +10,7 @@ final stepperFormatUseCase = WidgetbookUseCase(
 );
 
 abstract final class StepperFormatUseCase {
-  static Widget build(BuildContext context) =>
-      const StepperFixture(kind: AppStepperKind.output);
+  static Widget build(BuildContext context) => const ComponentPreview(
+    child: StepperFixture(kind: AppStepperKind.output),
+  );
 }

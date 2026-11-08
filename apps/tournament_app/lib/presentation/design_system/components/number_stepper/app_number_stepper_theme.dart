@@ -20,6 +20,7 @@ class AppNumberStepperTheme {
     focusOffset = b.focusOffset;
     focusColor = t.focusColor;
     half = c.half;
+    contentHeightFactor = c.half + c.half;
     height = t.extension<AppResponsive>()!.touchControlHeight;
     buttonSize = Size.square(height);
     outputWidth = s.space48;
@@ -48,7 +49,7 @@ class AppNumberStepperTheme {
     spaceBetween = c.spaceBetween;
     singleLine = t.extension<AppFieldMetrics>()!.singleLine;
   }
-  late final double focusWidth, focusOffset, half;
+  late final double focusWidth, focusOffset, half, contentHeightFactor;
   late final Color focusColor;
   late final double height,
       outputWidth,

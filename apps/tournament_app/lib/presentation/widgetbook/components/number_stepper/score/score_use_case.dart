@@ -1,3 +1,4 @@
+import 'package:tournament_app/presentation/widgetbook/components/component_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:widgetbook/widgetbook.dart';
 import 'package:tournament_app/presentation/design_system/components/number_stepper/app_number_stepper.dart';
@@ -10,5 +11,5 @@ final stepperScoreUseCase = WidgetbookUseCase(
 
 abstract final class StepperScoreUseCase {
   static Widget build(BuildContext context) =>
-      const StepperFixture(kind: AppStepperKind.input);
+      const ComponentPreview(child: StepperFixture(kind: AppStepperKind.input));
 }
