@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter/material.dart';
+import 'package:tournament_app/presentation/widgetbook/foundation/borders/catalog/catalog_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/widgetbook_app.dart';
 import 'package:tournament_app/presentation/design_system/foundation/theme/app_theme.dart';
 import 'package:tournament_app/main_widgetbook.dart' as widgetbook_entrypoint;
@@ -19,6 +20,10 @@ abstract final class _WidgetbookBootstrapTests {
     testWidgets(
       'every registered use case opens in actual workbench',
       _opensEveryUseCase,
+    );
+    testWidgets(
+      'viewport presets reach actual preview constraints and MediaQuery',
+      _viewports,
     );
     test(
       'VS Code launches app and Widgetbook independently',
@@ -58,7 +63,7 @@ abstract final class _WidgetbookBootstrapTests {
       widgets.children!.map((node) => node.name),
       containsAll(['Identity', 'Roster row']),
     );
-    expect(root.addons, anyOf(isNull, isEmpty));
+    expect(root.addons!.whereType<ViewportAddon>(), hasLength(1));
     expect(root.integrations, anyOf(isNull, isEmpty));
     expect(tester.takeException(), isNull);
   }
@@ -93,6 +98,35 @@ abstract final class _WidgetbookBootstrapTests {
       );
     }
     await tester.pumpWidget(const SizedBox.shrink());
+  }
+
+  static Future<void> _viewports(WidgetTester tester) async {
+    await tester.binding.setSurfaceSize(const Size(1600, 1200));
+    addTearDown(() => tester.binding.setSurfaceSize(null));
+    for (final preset in WidgetbookViewports.values.skip(1)) {
+      await tester.pumpWidget(const SizedBox.shrink());
+      await tester.pumpWidget(
+        TournamentWidgetbookApp(
+          theme: AppTheme.dark(),
+          initialRoute: Uri(
+            path: '/',
+            queryParameters: {
+              'path': 'foundation/borders/border-roles-/-selected-/-error',
+              'viewport': '{name:${Uri.encodeComponent(preset.name)}}',
+            },
+          ).toString(),
+        ),
+      );
+      await tester.pumpAndSettle();
+      final fixture = find.byType(BorderCatalogFixture);
+      expect(fixture, findsOneWidget);
+      final context = tester.element(fixture);
+      expect(MediaQuery.sizeOf(context), preset.size);
+      final box = tester.renderObject<RenderBox>(fixture);
+      expect(box.constraints.maxWidth, preset.width);
+      expect(box.constraints.maxHeight, preset.height);
+      expect(tester.takeException(), isNull);
+    }
   }
 
   static void _launchesSeparateEntrypoints() {

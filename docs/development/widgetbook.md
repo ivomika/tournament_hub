@@ -40,3 +40,9 @@ Widget-тест вызывает main_widgetbook.main через package import 
 `Widgetbook.darkTheme` оформляет оболочку каталога. Каждый use case открывается во вложенном приложении: `TournamentWidgetbookApp.appBuilder` обязан передавать основную ThemeData в `FoundationScenarioHost` вместе с intl delegates/locale. Default materialAppBuilder Widgetbook создаёт стандартную тему и теряет наши ThemeExtension; назначение только darkTheme недостаточно.
 
 `flutter test --no-pub test/widgetbook_bootstrap_test.dart` открывает все зарегистрированные use cases через публичный initialRoute настоящего Workbench и проверяет отсутствие build/layout exceptions. Это дополняет standalone comparison/golden tests, которые сами создают корректный контекст и не обнаруживают ошибку подключения каталога. Длинные галереи состояний полей имеют собственную прокрутку.
+
+## Размер preview: Mobile / Desktop
+
+Откройте нужный use case, затем **Addons → Viewport → name**. Доступны `Mobile 390 × 844`, `Desktop 1440 × 900` и `None` (использовать свободную область окна). Это параметры окружения preview в штатном ViewportAddon, поэтому они находятся в Addons, а не в компонентных Knobs. Новых экранов приложения не создаётся.
+
+Размеры берутся из общего `VisualViewport`, совпадают с comparison. Addon меняет constraints и MediaQuery, задаёт DPR1 и платформу Android/macOS; большая область автоматически масштабируется под окно без изменения логического viewport. Bottom sheets/dialogs открываются внутри выбранной области. Основная тема и intl остаются из preview host.

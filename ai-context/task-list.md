@@ -77,3 +77,5 @@
 - ✅ 72. Перенести foundation через FlutterTheme и запретить обход темы в production UI. [Детали](task-details/72-runtime-theme-foundation.md)
 - ✅ 73. Запретить верхнеуровневые Dart-функции и добавить AST checker с миграцией lib/test. [Детали](task-details/73-class-owned-functions.md)
 - ✅ 74. Обобщить визуальное сравнение Web/Flutter: декларации сценариев/контролей и одна команда. [Детали](task-details/74-generic-visual-comparison.md)
+
+- ✅ 75. Добавить Desktop/Mobile размеры preview в Widgetbook. [Детали](task-details/75-widgetbook-viewports.md)
