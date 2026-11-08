@@ -48,3 +48,5 @@ Widget-тест вызывает main_widgetbook.main через package import 
 Размеры берутся из общего `VisualViewport`, совпадают с comparison. Addon меняет constraints и MediaQuery, задаёт DPR1 и платформу Android/macOS; большая область автоматически масштабируется под окно без изменения логического viewport. Bottom sheets/dialogs открываются внутри выбранной области. Основная тема и intl остаются из preview host.
 
 В Components → QR code → access / graphic поле **Knobs → QR payload** меняет кодируемую ссылку; код генерируется заново. Viewport Mobile/Desktop задаёт окружение.
+
+В QR code добавлены фиксированные use cases **Short link**, **Long link**, **Unicode link**. Они используют общий QrPayloadSample и показывают реальные разные данные; `QR payload` остаётся редактируемым. Их mobile/desktop native baselines используют те же fixtures.

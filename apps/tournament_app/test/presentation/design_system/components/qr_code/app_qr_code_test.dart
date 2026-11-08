@@ -1,4 +1,7 @@
 import 'dart:io';
+
+import 'package:tournament_app/presentation/widgetbook/components/qr_code/qr_payload_sample.dart';
+
 import 'dart:convert';
 import 'dart:typed_data';
 import 'dart:ui' as ui;
@@ -18,6 +21,10 @@ void main() => _QrTests.run();
 
 abstract final class _QrTests {
   static void run() {
+    testWidgets(
+      'named payload scenarios native mobile and desktop goldens',
+      _payloadGoldens,
+    );
     testWidgets(
       'generated QR current theme semantics scaled native goldens',
       _samples,
@@ -91,6 +98,47 @@ abstract final class _QrTests {
       return utf8.decode(Uint8List.fromList(segments.single));
     } finally {
       image.dispose();
+    }
+  }
+
+  static Future<void> _payloadGoldens(WidgetTester tester) async {
+    for (final sample in QrPayloadSample.values) {
+      for (final desktop in [false, true]) {
+        await tester.pumpWidget(
+          MaterialApp(
+            theme: AppTheme.dark(),
+            localizationsDelegates:
+                FoundationLocalizations.localizationsDelegates,
+            supportedLocales: FoundationLocalizations.supportedLocales,
+            home: Scaffold(
+              body: Align(
+                alignment: Alignment.topLeft,
+                child: MediaQuery(
+                  data: MediaQueryData(
+                    size: desktop
+                        ? const Size(1440, 900)
+                        : const Size(390, 844),
+                  ),
+                  child: RepaintBoundary(
+                    key: const ValueKey('payload'),
+                    child: QrFixture(withCode: false, data: sample.data),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+        expect(tester.takeException(), isNull);
+        await expectLater(
+          find.byKey(const ValueKey('payload')),
+          matchesGoldenFile(
+            Uri.file(
+              '${Directory.current.path}/lib/presentation/design_system/components/qr_code/golden/${Platform.operatingSystem}/${sample.name}-${desktop ? 'desktop' : 'mobile'}.png',
+            ),
+          ),
+        );
+      }
     }
   }
 

@@ -175,3 +175,11 @@ Stage DONE. AppQrCode.data кодируется через qr4.0.1 → собс�
 - Web/native4 source сценария PASS после обновления и обычного запуска, отдельные web/native картинки просмотрены. Исправлены antialias seams единым compound Path. Raster узор намеренно другой при сохранённой геометрии; нет утверждения побитового совпадения с картинкой.
 - Widgetbook/foundation regression18 PASS, включая98 use cases. QR payload knob в access/graphic позволяет менять ссылку. analyze PASS; architecture49+51+35 fixture tests PASS, checker318 файлов без нарушений; rules/diff PASS. Native macOS runtime запущен, hot reload1/1330 libraries330ms выполнен. Другие ОС NOT_RUN; физическая камера не проверялась.
 - Отчёт docs/design/prototype/comparison/qr-code/index.html; docs/design/qr-generation.md и manifest актуальны. Сохранение оформления проверяется source controls/native goldens, считывание — независимым raster decoder. Локальный коммит, без push до ревью.
+
+### Именованные QR payload use cases
+Prompt пользователя (дословно):
+> покажи в widgetbook usecase несколько вариантов данных в qr
+
+Stage IMPLEMENTING; TestGate NOT_REQUIRED: fixed visual scenarios без нового encoding/данных приложения. План: короткая/длинная/Unicode ссылка в отдельных scoped use cases, общий typed sample для Widgetbook/native goldens; проверить каталог и previews.
+
+Stage DONE. Добавлены три scoped use cases: Short link, Long link, Unicode link; typed QrPayloadSample общий с6 mobile/desktop goldens. Каждый показывает реальный QrFixture и предоставляет QR payload knob. Новые native baselines созданы намеренно, затем обычный suite13 PASS (включая все101 use case каталога, QR scans и goldens без update). Analyzer PASS, architecture322 файлов PASS, rules/diff PASS. Production encoder/painter не менялись. Локальный коммит без push.

@@ -77,7 +77,7 @@ abstract final class _WidgetbookBootstrapTests {
     final cases = WidgetbookRoot(children: book.directories).leaves
         .whereType<WidgetbookUseCase>()
         .toList();
-    expect(cases.length, 98);
+    expect(cases.length, 101);
     for (final useCase in cases) {
       await tester.pumpWidget(const SizedBox.shrink());
       await tester.pumpWidget(
