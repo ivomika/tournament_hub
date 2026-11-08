@@ -74,8 +74,13 @@ class _AppRosterRowState extends State<AppRosterRow> {
     setState(_noop);
   }
 
+  AppRosterRowTheme _theme() => AppRosterRowTheme.of(
+    context,
+    removeLabel: FoundationLocalizations.of(context).rosterDelete,
+  );
+
   void _end(DragEndDetails details) {
-    final t = AppRosterRowTheme.of(context);
+    final t = _theme();
     if (_distance.abs() >= t.threshold) {
       _revealed = _distance < 0;
     }
@@ -103,8 +108,7 @@ class _AppRosterRowState extends State<AppRosterRow> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = AppRosterRowTheme.of(context),
-        l = FoundationLocalizations.of(context);
+    final theme = _theme(), l = FoundationLocalizations.of(context);
     final label = l.rosterRemove(widget.name);
     final offset = theme.desktop
         ? theme.zero

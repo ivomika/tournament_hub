@@ -182,3 +182,11 @@ Prompt пользователя (дословно):
 
 Обязательный flow текущей итерации: сверить существующий runtime и итоговый CSS UI kit → определить реальные состояния/адаптацию и контрольные узлы → typed runtime WidgetTheme без primitives в consumers → scoped Widgetbook/shared fixture → декларация общего comparison pipeline → source/native/overlay/diff и native goldens → осмотр и исправление внутренних различий → повтор без update, tests/analyzer/architecture → отдельный локальный коммит компонента без push. Существующая реализация не дублируется. Наличие tokens в72 не равно выполнению всех старых AC foundation.
 Факт сверки: компонент уже реализован и имеет comparison declaration/отчёт и native проверки; повторная реализация не нужна. Изменять только при обнаруженном расхождении.
+
+### Аудит76: раскрытый action при увеличенном шрифте
+Prompt пользователя (дословно):
+> Проверь остальные компоненты в Widgetbook на такие же проблемы с размерами в Mobile и Desktop. Исправь найденное, каждый компонент отдельным коммитом без push.
+
+Stage IMPLEMENTING; TestGate NOT_REQUIRED layout-only. Ширина reveal должна совпадать с content-aware ButtonTheme, full-height/right-edge поведение сохраняется.
+
+Stage DONE. Reveal width берётся из ButtonTheme с localized delete label; edge/full-height сохранены. Button+Roster10 tests PASS, обычные goldens неизменны, только mobile_scaled обновлён. Source comparison PASS. No push.

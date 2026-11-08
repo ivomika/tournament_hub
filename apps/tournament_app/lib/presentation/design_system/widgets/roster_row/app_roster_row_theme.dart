@@ -1,3 +1,4 @@
+import 'package:tournament_app/presentation/design_system/components/button/app_button_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:tournament_app/presentation/design_system/foundation/responsive/app_roster_metrics.dart';
 import 'package:tournament_app/presentation/design_system/foundation/responsive/app_responsive.dart';
@@ -20,7 +21,10 @@ class AppRosterRowTheme {
     required this.reduced,
     required this.curve,
   });
-  factory AppRosterRowTheme.of(BuildContext context) {
+  factory AppRosterRowTheme.of(
+    BuildContext context, {
+    required String removeLabel,
+  }) {
     final t = Theme.of(context),
         r = t.extension<AppResponsive>()!,
         s = t.extension<AppSpacing>()!,
@@ -36,7 +40,12 @@ class AppRosterRowTheme {
           ? EdgeInsets.all(s.space24)
           : EdgeInsets.symmetric(horizontal: s.space16, vertical: s.space8),
       actionInset: s.space24,
-      actionWidth: c.removeWidth,
+      actionWidth: AppButtonTheme.of(
+        context,
+        AppButtonKind.removeSwipe,
+        {},
+        label: removeLabel,
+      ).width!,
       radius: desktop ? shape.surface : shape.nested,
       zero: s.space0,
       threshold: m.swipeThreshold,

@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/semantics.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tournament_app/presentation/design_system/components/avatar/app_avatar.dart';
 import 'package:tournament_app/presentation/design_system/components/button/app_button.dart';
@@ -25,7 +26,31 @@ abstract final class _RosterTests {
     testWidgets('mobile keyboard and accessible custom action', _keyboard);
     testWidgets('desktop persistent action keyboard and disabled', _desktop);
     testWidgets('runtime theme and responsive metrics', _theme);
+    testWidgets('scaled revealed action fits on one line', _scaledReveal);
     testWidgets('long disabled narrow and scaled native goldens', _goldens);
+  }
+
+  static Future<void> _scaledReveal(WidgetTester tester) async {
+    tester.binding.platformDispatcher.textScaleFactorTestValue = 1.6;
+    addTearDown(
+      tester.binding.platformDispatcher.clearTextScaleFactorTestValue,
+    );
+    addTearDown(tester.view.resetPhysicalSize);
+    await _pump(tester, revealed: true);
+    final paragraph = tester.renderObject<RenderParagraph>(
+      find.text('Удалить'),
+    );
+    expect(
+      paragraph.getBoxesForSelection(
+        const TextSelection(baseOffset: 0, extentOffset: 7),
+      ),
+      hasLength(1),
+    );
+    final row = tester.getRect(find.byType(AppRosterRow));
+    final button = tester.getRect(find.byType(AppButton));
+    expect(button.right, row.right);
+    expect(button.height, row.height);
+    expect(button.width, greaterThan(88));
   }
 
   static Future<void> _pump(
