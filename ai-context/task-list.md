@@ -89,7 +89,7 @@
 - ✅ 81. Screen Редактирование профиля — независимая композиция прототипов. [Детали](task-details/81-screen-profile-edit.md)
 - ✅ 82. Screen Настройки — независимая композиция прототипов. [Детали](task-details/82-screen-settings.md)
 - ✅ 83. Screen О приложении — независимая композиция прототипов. [Детали](task-details/83-screen-about.md)
-- 🟣 84. Screen Связь — независимая композиция прототипов. [Детали](task-details/84-screen-contact.md)
+- ✅ 84. Screen Связь — независимая композиция прототипов. [Детали](task-details/84-screen-contact.md)
 - 🟣 85. Screen История — независимая композиция прототипов. [Детали](task-details/85-screen-history.md)
 - 🟣 86. Screen Настройка турнира — независимая композиция прототипов. [Детали](task-details/86-screen-setup.md)
 - 🟣 87. Screen Состав турнира — независимая композиция прототипов. [Детали](task-details/87-screen-roster.md)

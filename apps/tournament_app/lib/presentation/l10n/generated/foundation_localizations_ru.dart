@@ -650,4 +650,20 @@ class FoundationLocalizationsRu extends FoundationLocalizations {
   @override
   String get screenRulesCopy =>
       'DE: два поражения, Bracket Reset обязателен. SE: одно поражение, места 3–4 общие. RR: каждый с каждым, FT2 и очки 3/2/1/0.';
+
+  @override
+  String get screenIdea => 'Есть идея?';
+
+  @override
+  String get screenTell => 'Расскажи.';
+
+  @override
+  String get screenMessage => 'Сообщение';
+
+  @override
+  String get screenSend => 'Отправить';
+
+  @override
+  String get screenContactNote =>
+      'Канал связи ещё не настроен. Отправка в макете недоступна.';
 }

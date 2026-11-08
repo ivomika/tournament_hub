@@ -1308,6 +1308,36 @@ abstract class FoundationLocalizations {
   /// In ru, this message translates to:
   /// **'DE: два поражения, Bracket Reset обязателен. SE: одно поражение, места 3–4 общие. RR: каждый с каждым, FT2 и очки 3/2/1/0.'**
   String get screenRulesCopy;
+
+  /// No description provided for @screenIdea.
+  ///
+  /// In ru, this message translates to:
+  /// **'Есть идея?'**
+  String get screenIdea;
+
+  /// No description provided for @screenTell.
+  ///
+  /// In ru, this message translates to:
+  /// **'Расскажи.'**
+  String get screenTell;
+
+  /// No description provided for @screenMessage.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сообщение'**
+  String get screenMessage;
+
+  /// No description provided for @screenSend.
+  ///
+  /// In ru, this message translates to:
+  /// **'Отправить'**
+  String get screenSend;
+
+  /// No description provided for @screenContactNote.
+  ///
+  /// In ru, this message translates to:
+  /// **'Канал связи ещё не настроен. Отправка в макете недоступна.'**
+  String get screenContactNote;
 }
 
 class _FoundationLocalizationsDelegate

@@ -73,7 +73,7 @@ class AppSimpleFormLayout extends StatelessWidget {
                                     SizedBox(height: t.gap),
                                   ],
                                   form,
-                                  if (footer != null) ...[
+                                  if (t.desktop && footer != null) ...[
                                     SizedBox(height: t.gap),
                                     footer!,
                                   ],
@@ -86,6 +86,10 @@ class AppSimpleFormLayout extends StatelessWidget {
               ),
             ),
           ),
+          if (!t.desktop && footer != null) ...[
+            SizedBox(height: t.gap),
+            footer!,
+          ],
         ],
       ),
     );

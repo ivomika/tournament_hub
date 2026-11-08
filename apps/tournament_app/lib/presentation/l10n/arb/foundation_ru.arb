@@ -284,5 +284,10 @@
   "screenAboutMark": "TH.",
   "screenAboutDescription": "Локальные турниры по Mortal Kombat 11.",
   "screenRules": "Базовые правила MK11",
-  "screenRulesCopy": "DE: два поражения, Bracket Reset обязателен. SE: одно поражение, места 3–4 общие. RR: каждый с каждым, FT2 и очки 3/2/1/0."
+  "screenRulesCopy": "DE: два поражения, Bracket Reset обязателен. SE: одно поражение, места 3–4 общие. RR: каждый с каждым, FT2 и очки 3/2/1/0.",
+  "screenIdea": "Есть идея?",
+  "screenTell": "Расскажи.",
+  "screenMessage": "Сообщение",
+  "screenSend": "Отправить",
+  "screenContactNote": "Канал связи ещё не настроен. Отправка в макете недоступна."
 }
