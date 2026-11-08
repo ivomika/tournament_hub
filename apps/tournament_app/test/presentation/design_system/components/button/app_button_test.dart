@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tournament_app/presentation/design_system/components/button/app_button.dart';
 import 'package:tournament_app/presentation/design_system/components/button/app_button_theme.dart';
@@ -17,7 +18,42 @@ abstract final class _ButtonTests {
   static void run() {
     testWidgets('pointer keyboard disabled and semantics', _actions);
     testWidgets('main theme replacement', _theme);
+    testWidgets('swipe delete fits scaled text on one line', _scaledDelete);
     testWidgets('long label and content width golden', _golden);
+  }
+
+  static Future<void> _scaledDelete(WidgetTester tester) async {
+    tester.binding.platformDispatcher.textScaleFactorTestValue = 1.6;
+    addTearDown(
+      tester.binding.platformDispatcher.clearTextScaleFactorTestValue,
+    );
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: AppTheme.dark(),
+        home: Scaffold(
+          body: Align(
+            alignment: Alignment.topLeft,
+            child: AppButton(
+              label: 'Удалить',
+              kind: AppButtonKind.removeSwipe,
+              onPressed: _press,
+            ),
+          ),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    final paragraph = tester.renderObject<RenderParagraph>(
+      find.text('Удалить'),
+    );
+    expect(
+      paragraph.getBoxesForSelection(
+        const TextSelection(baseOffset: 0, extentOffset: 7),
+      ),
+      hasLength(1),
+    );
+    expect(tester.getSize(find.byType(AppButton)).width, greaterThan(88));
+    expect(tester.takeException(), isNull);
   }
 
   static Future<void> _actions(WidgetTester tester) async {

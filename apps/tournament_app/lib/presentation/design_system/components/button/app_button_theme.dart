@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:tournament_app/presentation/design_system/foundation/responsive/app_control_metrics.dart';
 import 'package:tournament_app/presentation/design_system/foundation/responsive/app_responsive.dart';
@@ -42,8 +44,9 @@ class AppButtonTheme {
   factory AppButtonTheme.of(
     BuildContext context,
     AppButtonKind kind,
-    Set<WidgetState> states,
-  ) {
+    Set<WidgetState> states, {
+    String? label,
+  }) {
     final t = Theme.of(context),
         m = t.extension<AppControlMetrics>()!,
         r = t.extension<AppResponsive>()!,
@@ -87,13 +90,37 @@ class AppButtonTheme {
         : kind == AppButtonKind.removeIcon || kind == AppButtonKind.dialogCancel
         ? t.colorScheme.onSurfaceVariant
         : t.colorScheme.onSurface;
+    final text = t.extension<AppTypeRoles>()!.interfaceStyle(
+      (kind == AppButtonKind.removeSwipe
+              ? t.textTheme.bodySmall!
+              : t.textTheme.labelLarge!)
+          .copyWith(
+            color: foreground,
+            letterSpacing: t.extension<AppTypeRoles>()!.normalTracking,
+            fontWeight: regular ? m.regularWeight : null,
+            fontVariations: regular ? m.regularVariations : null,
+          ),
+    );
+    var removeWidth = m.removeWidth;
+    if (kind == AppButtonKind.removeSwipe && label != null) {
+      final painter = TextPainter(
+        text: TextSpan(text: label, style: text),
+        textDirection: Directionality.of(context),
+        textScaler: MediaQuery.textScalerOf(context),
+      )..layout();
+      removeWidth = math.max(
+        removeWidth,
+        painter.width.ceilToDouble() + s.space12 + s.space12,
+      );
+      painter.dispose();
+    }
     return AppButtonTheme(
       half: m.half,
       height: height,
       width: circular
           ? height
           : kind == AppButtonKind.removeSwipe
-          ? m.removeWidth
+          ? removeWidth
           : null,
       padding: EdgeInsets.symmetric(
         horizontal: circular || kind == AppButtonKind.removeSwipe
@@ -119,17 +146,7 @@ class AppButtonTheme {
           ? t.colorScheme.outlineVariant
           : t.colorScheme.surfaceContainerHigh,
       foreground: foreground,
-      text: t.extension<AppTypeRoles>()!.interfaceStyle(
-        (kind == AppButtonKind.removeSwipe
-                ? t.textTheme.bodySmall!
-                : t.textTheme.labelLarge!)
-            .copyWith(
-              color: foreground,
-              letterSpacing: t.extension<AppTypeRoles>()!.normalTracking,
-              fontWeight: regular ? m.regularWeight : null,
-              fontVariations: regular ? m.regularVariations : null,
-            ),
-      ),
+      text: text,
       radius: dialog
           ? shape.nested
           : kind == AppButtonKind.removeSwipe

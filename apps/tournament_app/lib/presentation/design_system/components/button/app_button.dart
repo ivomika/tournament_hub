@@ -75,7 +75,12 @@ class _AppButtonState extends State<AppButton> {
       ..._states.value,
       if (widget.onPressed == null) WidgetState.disabled,
     };
-    final theme = AppButtonTheme.of(context, widget.kind, states);
+    final theme = AppButtonTheme.of(
+      context,
+      widget.kind,
+      states,
+      label: widget.label,
+    );
     return Semantics(
       button: true,
       enabled: widget.onPressed != null,
