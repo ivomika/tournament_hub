@@ -79,3 +79,5 @@
 - ✅ 74. Обобщить визуальное сравнение Web/Flutter: декларации сценариев/контролей и одна команда. [Детали](task-details/74-generic-visual-comparison.md)
 
 - ✅ 75. Добавить Desktop/Mobile размеры preview в Widgetbook. [Детали](task-details/75-widgetbook-viewports.md)
+
+- 🚧 76. Проверить размеры всех Widgetbook previews в Mobile/Desktop и устранить layout-дефекты. [Детали](task-details/76-widgetbook-viewport-audit.md)

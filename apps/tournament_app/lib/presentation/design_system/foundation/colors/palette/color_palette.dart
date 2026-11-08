@@ -41,50 +41,54 @@ class ColorPalette extends StatelessWidget {
                 for (final sample in samples)
                   SizedBox(
                     width: layout.tileWidth,
-                    height: layout.colorTileHeight,
-                    child: DecoratedBox(
-                      decoration: BoxDecoration(
-                        color: theme.colors.surface,
-                        borderRadius: layout.cornerRadius,
-                        border: Border.all(
-                          color: theme.colors.border,
-                          width: layout.borderWidth,
-                        ),
+                    child: ConstrainedBox(
+                      constraints: BoxConstraints(
+                        minHeight: layout.colorTileHeight,
                       ),
-                      child: Padding(
-                        padding: layout.tilePadding,
-                        child: Row(
-                          children: [
-                            SizedBox(
-                              width: layout.swatchSize,
-                              height: layout.swatchSize,
-                              child: DecoratedBox(
-                                decoration: BoxDecoration(
-                                  color: sample.value,
-                                  borderRadius: layout.swatchRadius,
-                                  border: Border.all(
-                                    color: theme.colors.border,
-                                    width: layout.borderWidth,
+                      child: DecoratedBox(
+                        decoration: BoxDecoration(
+                          color: theme.colors.surface,
+                          borderRadius: layout.cornerRadius,
+                          border: Border.all(
+                            color: theme.colors.border,
+                            width: layout.borderWidth,
+                          ),
+                        ),
+                        child: Padding(
+                          padding: layout.tilePadding,
+                          child: Row(
+                            children: [
+                              SizedBox(
+                                width: layout.swatchSize,
+                                height: layout.swatchSize,
+                                child: DecoratedBox(
+                                  decoration: BoxDecoration(
+                                    color: sample.value,
+                                    borderRadius: layout.swatchRadius,
+                                    border: Border.all(
+                                      color: theme.colors.border,
+                                      width: layout.borderWidth,
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                            SizedBox(width: layout.gap),
-                            Expanded(
-                              child: Column(
-                                mainAxisAlignment: layout.centered,
-                                crossAxisAlignment: layout.textAlignment,
-                                children: [
-                                  Text(sample.label, style: theme.tokenLabel),
-                                  SizedBox(height: layout.smallGap),
-                                  Text(
-                                    _hex(sample.value),
-                                    style: theme.tokenValue,
-                                  ),
-                                ],
+                              SizedBox(width: layout.gap),
+                              Expanded(
+                                child: Column(
+                                  mainAxisAlignment: layout.centered,
+                                  crossAxisAlignment: layout.textAlignment,
+                                  children: [
+                                    Text(sample.label, style: theme.tokenLabel),
+                                    SizedBox(height: layout.smallGap),
+                                    Text(
+                                      _hex(sample.value),
+                                      style: theme.tokenValue,
+                                    ),
+                                  ],
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                     ),

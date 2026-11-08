@@ -164,3 +164,11 @@ Plan1: использовать существующие AppThemeColors/ColorPal
 ### Итог40
 
 32 source/native color samples PASS с update и без; существующие palette/typography/scales previews и theme propagation PASS19; analyzer No issues, architecture-check116 файлов без findings. Цвета/hex/alpha не менялись: foundation72 уже совпадал. Добавлены3 character роли в существующий palette preview и общий source fixture/use case. Native macOS palette screenshots просмотрены. Остальные ОС NOT_RUN. Source report: comparison/colors/index.html. Отдельный коммит без push.
+
+### Аудит viewport76: крупный текст
+Prompt пользователя (дословно):
+> Проверь остальные компоненты в Widgetbook на такие же проблемы с размерами в Mobile и Desktop. Исправь найденное, каждый компонент отдельным коммитом без push.
+
+Stage IMPLEMENTING; TestGate NOT_REQUIRED visual layout. Реальный202-case audit с textScale1.6 выявил RenderFlex overflow22/60px в Dark palette в обоих viewport: карточки имели жёсткую высоту. Использовать текущую высоту как minimum, содержимое растёт; обычный вид сохраняется. Проверить scroll и scoped scaled goldens.
+
+Stage DONE. Fixed palette tile height заменена minimum через текущий FoundationLayout; обычные snapshots сохранились без update. Добавлены2 scaled palette native goldens с проверкой scroll top/middle/bottom.16 tests PASS, включая исходные foundation preview goldens; изображение просмотрено. Отдельный component commit, без push.
