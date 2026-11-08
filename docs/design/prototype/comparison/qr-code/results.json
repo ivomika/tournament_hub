@@ -52,7 +52,7 @@
           }
         ],
         "capturePadding": 0,
-        "note": "Реальный Flutter surface/code; graphic — готовая alpha-mask исходного SVG fixture. Encoder/создание сессии не входят в DS.",
+        "note": "QR генерируется из ссылки; узор отличается от статичного SVG, сравниваются размеры/стиль/подпись. Rounded modules/finders и quiet zone сохранены; считывание raster проверяется отдельно.",
         "freezeMilliseconds": 0
       },
       {
@@ -84,7 +84,7 @@
           }
         ],
         "capturePadding": 0,
-        "note": "Реальный Flutter surface/code; graphic — готовая alpha-mask исходного SVG fixture. Encoder/создание сессии не входят в DS.",
+        "note": "QR генерируется из ссылки; узор отличается от статичного SVG, сравниваются размеры/стиль/подпись. Rounded modules/finders и quiet zone сохранены; считывание raster проверяется отдельно.",
         "freezeMilliseconds": 0
       },
       {
@@ -127,7 +127,7 @@
           }
         ],
         "capturePadding": 0,
-        "note": "Реальный Flutter surface/code; graphic — готовая alpha-mask исходного SVG fixture. Encoder/создание сессии не входят в DS.",
+        "note": "QR генерируется из ссылки; узор отличается от статичного SVG, сравниваются размеры/стиль/подпись. Rounded modules/finders и quiet zone сохранены; считывание raster проверяется отдельно.",
         "freezeMilliseconds": 0
       },
       {
@@ -159,7 +159,7 @@
           }
         ],
         "capturePadding": 0,
-        "note": "Реальный Flutter surface/code; graphic — готовая alpha-mask исходного SVG fixture. Encoder/создание сессии не входят в DS.",
+        "note": "QR генерируется из ссылки; узор отличается от статичного SVG, сравниваются размеры/стиль/подпись. Rounded modules/finders и quiet zone сохранены; считывание raster проверяется отдельно.",
         "freezeMilliseconds": 0
       }
     ]
@@ -301,8 +301,8 @@
           }
         },
         "raster": {
-          "changedPixels": 3354,
-          "meanChannelDelta": 1.0545015371102329
+          "changedPixels": 13968,
+          "meanChannelDelta": 41.363801054018445
         },
         "artifacts": {
           "image": "flutter/mobile-access.png"
@@ -315,8 +315,8 @@
         "diff": "diff/mobile-access.png"
       },
       "raster": {
-        "changedPixels": 3354,
-        "meanChannelDelta": 1.0545015371102329
+        "changedPixels": 13968,
+        "meanChannelDelta": 41.363801054018445
       }
     },
     {
@@ -419,8 +419,8 @@
           }
         },
         "raster": {
-          "changedPixels": 3460,
-          "meanChannelDelta": 1.389862258953168
+          "changedPixels": 13968,
+          "meanChannelDelta": 51.88480027548209
         },
         "artifacts": {
           "image": "flutter/mobile-graphic.png"
@@ -433,8 +433,8 @@
         "diff": "diff/mobile-graphic.png"
       },
       "raster": {
-        "changedPixels": 3460,
-        "meanChannelDelta": 1.389862258953168
+        "changedPixels": 13968,
+        "meanChannelDelta": 51.88480027548209
       }
     },
     {
@@ -573,8 +573,8 @@
           }
         },
         "raster": {
-          "changedPixels": 3354,
-          "meanChannelDelta": 1.0545015371102329
+          "changedPixels": 13968,
+          "meanChannelDelta": 41.363801054018445
         },
         "artifacts": {
           "image": "flutter/desktop-access.png"
@@ -587,8 +587,8 @@
         "diff": "diff/desktop-access.png"
       },
       "raster": {
-        "changedPixels": 3354,
-        "meanChannelDelta": 1.0545015371102329
+        "changedPixels": 13968,
+        "meanChannelDelta": 41.363801054018445
       }
     },
     {
@@ -691,8 +691,8 @@
           }
         },
         "raster": {
-          "changedPixels": 3460,
-          "meanChannelDelta": 1.389862258953168
+          "changedPixels": 13968,
+          "meanChannelDelta": 51.88480027548209
         },
         "artifacts": {
           "image": "flutter/desktop-graphic.png"
@@ -705,11 +705,11 @@
         "diff": "diff/desktop-graphic.png"
       },
       "raster": {
-        "changedPixels": 3460,
-        "meanChannelDelta": 1.389862258953168
+        "changedPixels": 13968,
+        "meanChannelDelta": 51.88480027548209
       }
     }
   ],
   "error": null,
-  "runId": "2026-11-07T20:55:11.830Z"
+  "runId": "2026-11-08T08:08:39.356Z"
 }

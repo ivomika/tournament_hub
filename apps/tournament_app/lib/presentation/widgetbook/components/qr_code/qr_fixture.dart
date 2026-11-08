@@ -3,13 +3,16 @@ import 'package:tournament_app/presentation/design_system/components/qr_code/app
 import 'package:tournament_app/presentation/l10n/generated/foundation_localizations.dart';
 
 class QrFixture extends StatelessWidget {
-  const QrFixture({this.withCode = true, super.key});
+  const QrFixture({
+    this.withCode = true,
+    this.data = 'http://host.local/spectator',
+    super.key,
+  });
+  final String data;
   final bool withCode;
   @override
   Widget build(BuildContext context) => AppQrCode(
-    graphic: const AppQrGraphic(
-      mask: AssetImage('assets/fixtures/qr_demo_mask.png'),
-    ),
+    data: data,
     semanticLabel: FoundationLocalizations.of(context).qrDescription,
     code: withCode ? '4827 1930 615' : null,
   );

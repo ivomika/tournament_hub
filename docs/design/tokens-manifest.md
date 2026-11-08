@@ -247,9 +247,11 @@ Source CSS уточнил AppElevation.dialog: offset24/blur80/#0008; испра
 
 ## QR code — реализация70
 
-AppQrCode принимает готовую AppQrGraphic module alpha-mask ImageProvider, semanticLabel и optional code. Encoder/session/network отсутствуют. Module mask включает quiet zone/finder geometry; runtime theme задаёт foreground=scaffoldBackgroundColor/background=onSurface, radius32, preferred288 mobile/320 desktop. UI kit ограничивает preview220, comparison сохраняет это внешнее constraint. Code condensed26/700/1.2 и padding horizontal16/bottom24; FittedBox.scaleDown поддерживает увеличенный текст без обрезания.
+AppQrCode принимает data (текст ссылки), semanticLabel и optional code; генерирует QR через изолированный qr4.0.1 adapter, без сети/создания сессии. Минимальная version4 сохраняет исходные33×33 модуля; длинные данные автоматически увеличивают сетку. ECC-M, явный UTF8 ECI. Собственная immutable матрица не раскрывает типы библиотеки.
 
-Fixture qr_demo_mask.png880×880 экспортирован из исходного SVG UI kit, source SVG SHA256 fc443865687060b0a68f2ca61a4afefd3141e307228fafc2116daf91441bfa88. Это графические данные, не screenshot surface/code: маска перекрашивается через текущую тему. На production можно передавать другую готовую mask с quiet zone.
+Renderer соединяет модули одним Path, радиус exposed corners.32; finder outer1/gap.65/center.5, quiet zone4 в module units. Эти proportions идут primitive → AppTheme/AppQrMetrics → AppQrCodeTheme → painter. Runtime foreground=scaffoldBackgroundColor/background=onSurface, radius32, preferred288 mobile/320 desktop. Source preview220 остаётся внешним constraint; подпись condensed26/700/1.2 и padding horizontal16/bottom24.
+
+PNG-маска больше не используется runtime. При изменении payload изменяется реальный QR pattern; source comparison проверяет прежнюю геометрию и подпись, raster отличается от статичного SVG намеренно. Независимый decoder проверяет готовое изображение220/320px для короткой, длинной и UTF8 ссылки. Контракт и ограничение тестового decoder: [генерация QR](qr-generation.md).
 
 ## ShareLink — реализация71
 

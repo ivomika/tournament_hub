@@ -8,5 +8,11 @@ final qrGraphicUseCase = WidgetbookUseCase(
 );
 
 abstract final class QrGraphicUseCase {
-  static Widget build(BuildContext context) => const QrFixture(withCode: false);
+  static Widget build(BuildContext context) => QrFixture(
+    withCode: false,
+    data: context.knobs.string(
+      label: 'QR payload',
+      initialValue: 'http://host.local/spectator',
+    ),
+  );
 }

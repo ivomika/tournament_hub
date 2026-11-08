@@ -129,6 +129,12 @@ abstract final class AppTheme {
           comfortableHeaderLine: TypographyPrimitives.comfortableHeaderLine,
         ),
         const AppQrMetrics(
+          moduleRadius: QrPrimitives.moduleRadius,
+          finderOuterRadius: QrPrimitives.finderOuterRadius,
+          finderGapRadius: QrPrimitives.finderGapRadius,
+          finderCenterRadius: QrPrimitives.finderCenterRadius,
+          quietZone: QrPrimitives.quietZone,
+
           mobileExtent: QrPrimitives.mobileExtent,
           desktopExtent: QrPrimitives.desktopExtent,
           aspectRatio: QrPrimitives.aspectRatio,

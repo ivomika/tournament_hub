@@ -1,20 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:tournament_app/presentation/design_system/components/qr_code/app_qr_painter.dart';
+import 'package:tournament_app/presentation/design_system/components/qr_code/encoding/app_qr_matrix_encoder.dart';
 import 'package:tournament_app/presentation/design_system/components/qr_code/app_qr_code_theme.dart';
-
-/// Supplied module alpha-mask includes quiet zone. Encoding belongs upstream.
-class AppQrGraphic {
-  const AppQrGraphic({required this.mask});
-  final ImageProvider<Object> mask;
-}
 
 class AppQrCode extends StatelessWidget {
   const AppQrCode({
-    required this.graphic,
+    required this.data,
     required this.semanticLabel,
     this.code,
     super.key,
   });
-  final AppQrGraphic graphic;
+  final String data;
   final String semanticLabel;
   final String? code;
   @override
@@ -36,10 +32,11 @@ class AppQrCode extends StatelessWidget {
                 child: ExcludeSemantics(
                   child: AspectRatio(
                     aspectRatio: t.aspectRatio,
-                    child: Image(
-                      image: graphic.mask,
-                      color: t.foreground,
-                      colorBlendMode: t.blendMode,
+                    child: CustomPaint(
+                      painter: AppQrPainter(
+                        matrix: AppQrMatrixEncoder.encode(data),
+                        theme: t,
+                      ),
                     ),
                   ),
                 ),

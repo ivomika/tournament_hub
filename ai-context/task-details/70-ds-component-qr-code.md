@@ -4,11 +4,11 @@
 
 ✅ Выполнена
 
-- Mode: CODE; будущая реализация — CODE в этом же номере.
-- TestGate: NOT_REQUIRED для заявленного visual/theme/layout scope. App state/controllers, вычисления, валидация, сериализация, данные и app routing исключены; при расширении scope классификация пересматривается до кода.
+- Mode: CODE; динамическая генерация и themed renderer реализованы.
+- TestGate: REQUIRED для encoder/data; RED и approval пользователя получены8 ноября2026. Visual scope NOT_REQUIRED.
 - Stage: DONE.
-- Specification:1; plan:0 (черновая последовательность ниже); test scenarios:1, NOT_RUN.
-- Реализация не начата; отдельного разрешения на логический gate этой постановкой не получено.
+- Specification:1; plan:1; encoder/raster/source/native проверки выполнены.
+- Encoder и векторная отрисовка реализованы после approval; push запрещён до ревью.
 
 ## Цель и контекст
 
@@ -123,7 +123,7 @@ UI kit содержит исходный демонстрационный QR; pa
 
 ## Итог
 
-Постановка создана; 🟣. Реализация и выполнение Flutter-проверок не начаты.
+Компонент реализован; текущий контракт — динамическая генерация из data с сохранением оформления и проверкой считывания. См. завершающую итерацию ниже.
 
 ### Новая очередь переноса после RosterRow
 
@@ -145,3 +145,33 @@ Prompt пользователя (дословно):
 > продолжи
 
 AppQrCode display получает готовую AppQrGraphic alpha-mask/semanticLabel/optional code, без encoder/session/network. Fixture mask экспортирована из исходного SVG880px; hash/происхождение в manifest. Runtime цвета перекрашивают mask, code — Flutter Text. Source4/4 PASS после update и обычного comparison, overlay просмотрен. Первый baseline не содержал decoded graphic: ordinary golden обнаружил31% diff, baseline исправлен, повтор прошёл. Driver ждёт precacheImage и проверяет RawImage.image!=null. Native theme/semantics/scaled test PASS без update; analyzer no issues, architecture307 files PASS, engine37 PASS. MacOS hot restart выполнен, другие ОС NOT_RUN. Итог: выполнено.
+
+### Динамическая генерация QR —8 ноября2026
+
+Prompt пользователя (дословно):
+> давай сделаем чтобы он генерировался, но визуально должен сохранить свой вид
+
+> не пуш до моего ревью
+
+Stage: TESTS_PREPARING; Mode CODE; TestGate REQUIRED для кодирования/контракта данных QR. Визуальная отрисовка NOT_REQUIRED; encoder требует RED и approval по canonical workflow. Push запрещён.
+
+Specification1 / Plan1: ввод — произвольный текст ссылки; изолированный QR encoder возвращает собственную immutable матрицу bool без library types. Компонент рисует реальные модули; скругления модулей и finder patterns, quiet zone4, текущие цвета и typography/radius остаются. При другой ссылке узор меняется, а не остаётся PNG. Без генерации самой spectator-ссылки/сервера/сети. QR library кодирует стандарт, CustomPainter воспроизводит существующую форму; не заменять стандарт случайной псевдосеткой.
+
+План: независимые decode roundtrip tests для короткой/длинной/UTF8 ссылки, determinism/изменения payload, immutable square matrix; RED. После approval — изолированный encoder, themed vector renderer, замена fixture asset на текст ссылки, scanning rendered PNG через независимый decoder, intentional baselines и source comparison (узор может отличаться от старого fixture, геометрия и стиль сохраняются), analyze/architecture/runtime preview. Собственные API на границе: AppQrMatrixEncoder.encode(String) → AppQrMatrix.modules (deep immutable List<List<bool>>).
+
+### Test gate1
+Stage AWAITING_APPROVAL. `flutter pub get --offline` —PASS, добавлен только dev decoder zxing2 0.2.4 (cached). `flutter test --no-pub test/presentation/design_system/components/qr_code/qr_matrix_encoder_test.dart` —ожидаемый compile RED: отсутствует AppQrMatrixEncoder/production API; остальные decoder imports/API компилируются. Пять сценариев:3 roundtrip, determinism/change, deep immutability. Production QR не изменён. Specification/plan: docs/design/qr-generation.md. После approval реализовать encoding/rendering, выполнить независимое декодирование PNG и визуальные сравнения. Коммит с failing tests не создавался; push отсутствует.
+
+Approval пользователя (дословно):
+> Подтверждаю, реализуй генерацию QR с сохранением текущего оформления и проверкой считывания. Без push до моего ревью.
+
+Stage IMPLEMENTING; approved specification1/plan1/test set1.
+
+### Завершение динамической генерации —8 ноября2026
+
+Stage DONE. AppQrCode.data кодируется через qr4.0.1 → собственную deep immutable матрицу → themed vector painter. PNG-mask и asset registration удалены. Preserved: версия минимум4 (33×33), finder7/5/3 с радиусами1/.65/.5, module radius.32, quiet zone4, surface radius/colors/code text/padding. Большие данные увеличивают version; превышение ёмкости40 оборачивается ArgumentError. Payload не обрезается.
+
+-8 QR tests PASS без update:3 независимых matrix roundtrip (short/long/UTF8), determinism/change, immutable rows, oversized error, themed/scaled native goldens, raster decode6 реальных изображений220/320px. zxing signed Int8List→Utf8Codec bug документирован: сравниваются независимо декодированные byteSegments, нормализованные unsigned, без hints.
+- Web/native4 source сценария PASS после обновления и обычного запуска, отдельные web/native картинки просмотрены. Исправлены antialias seams единым compound Path. Raster узор намеренно другой при сохранённой геометрии; нет утверждения побитового совпадения с картинкой.
+- Widgetbook/foundation regression18 PASS, включая98 use cases. QR payload knob в access/graphic позволяет менять ссылку. analyze PASS; architecture49+51+35 fixture tests PASS, checker318 файлов без нарушений; rules/diff PASS. Native macOS runtime запущен, hot reload1/1330 libraries330ms выполнен. Другие ОС NOT_RUN; физическая камера не проверялась.
+- Отчёт docs/design/prototype/comparison/qr-code/index.html; docs/design/qr-generation.md и manifest актуальны. Сохранение оформления проверяется source controls/native goldens, считывание — независимым raster decoder. Локальный коммит, без push до ревью.

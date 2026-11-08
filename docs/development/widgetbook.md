@@ -46,3 +46,5 @@ Widget-тест вызывает main_widgetbook.main через package import 
 Откройте нужный use case, затем **Addons → Viewport → name**. Доступны `Mobile 390 × 844`, `Desktop 1440 × 900` и `None` (использовать свободную область окна). Это параметры окружения preview в штатном ViewportAddon, поэтому они находятся в Addons, а не в компонентных Knobs. Новых экранов приложения не создаётся.
 
 Размеры берутся из общего `VisualViewport`, совпадают с comparison. Addon меняет constraints и MediaQuery, задаёт DPR1 и платформу Android/macOS; большая область автоматически масштабируется под окно без изменения логического viewport. Bottom sheets/dialogs открываются внутри выбранной области. Основная тема и intl остаются из preview host.
+
+В Components → QR code → access / graphic поле **Knobs → QR payload** меняет кодируемую ссылку; код генерируется заново. Viewport Mobile/Desktop задаёт окружение.

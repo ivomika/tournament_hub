@@ -33,7 +33,7 @@ abstract final class QrComparison {
               const ComparisonControl.type(
                 id: 'graphic',
                 webSelector: 'svg',
-                type: Image,
+                type: CustomPaint,
                 properties: [ComparisonProperty.rect],
               ),
               if (code)
@@ -50,7 +50,7 @@ abstract final class QrComparison {
                   ],
                 ),
             ],
-            note: 'Реальный Flutter surface/code; graphic — готовая alpha-mask исходного SVG fixture. Encoder/создание сессии не входят в DS.',
+            note: 'QR генерируется из ссылки; узор отличается от статичного SVG, сравниваются размеры/стиль/подпись. Rounded modules/finders и quiet zone сохранены; считывание raster проверяется отдельно.',
           ),
     ],
   );

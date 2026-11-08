@@ -13,9 +13,15 @@ class AppQrCodeTheme {
         m = t.extension<AppQrMetrics>()!,
         r = t.extension<AppResponsive>()!,
         roles = t.extension<AppTypeRoles>()!;
+    moduleRadius = m.moduleRadius;
+    finderOuterRadius = m.finderOuterRadius;
+    finderGapRadius = m.finderGapRadius;
+    finderCenterRadius = m.finderCenterRadius;
+    quietZone = m.quietZone;
     extent = MediaQuery.sizeOf(context).width > r.mobileToDesktopWidth
         ? m.desktopExtent
         : m.mobileExtent;
+    squareRadius = Radius.circular(s.space0);
     aspectRatio = m.aspectRatio;
     codeFit = m.codeFit;
     blendMode = m.blendMode;
@@ -34,11 +40,17 @@ class AppQrCodeTheme {
     );
     stretch = t.extension<AppFieldMetrics>()!.stretch;
   }
+  late final double moduleRadius,
+      finderOuterRadius,
+      finderGapRadius,
+      finderCenterRadius,
+      quietZone;
   late final double extent, aspectRatio;
   late final BoxFit codeFit;
   late final BlendMode blendMode;
   late final Color background, foreground;
   late final BorderRadius radius;
+  late final Radius squareRadius;
   late final TextStyle codeStyle;
   late final EdgeInsets codePadding;
   late final CrossAxisAlignment stretch;

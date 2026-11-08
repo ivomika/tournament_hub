@@ -7,4 +7,9 @@ abstract final class QrPrimitives {
   static const codeLine = 1.2;
   static const codeFit = BoxFit.scaleDown;
   static const blendMode = BlendMode.srcIn;
+  static const moduleRadius = .32;
+  static const finderOuterRadius = 1.0;
+  static const finderGapRadius = .65;
+  static const finderCenterRadius = .5;
+  static const quietZone = 4.0;
 }
