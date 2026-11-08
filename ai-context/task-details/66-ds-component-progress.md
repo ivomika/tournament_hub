@@ -180,3 +180,14 @@ Main ProgressIndicatorThemeData colors + AppProgressMetrics(width240,height10,st
 8 tests PASS без update: progress phase/theme/reduced, Motion и bootstrap (все101 use cases); intentional6 native snapshots обновлены и затем сравнены обычным запуском, reduced snapshot одинаков после1секунды. Analyzer PASS; architecture325 файлов PASS; rules/diff PASS. Source comparison2/2 PASS после update и без update; ожидаемое отличие root.height24/10 записано явно. Финальные mid/reduced PNG просмотрены: реальная волна по заданной ширине, track gap/end stop. Изначально проверенный иной adapter оставлял только80px графики внутри240px; заменён до завершения, artifact того варианта не принят.
 
 Документы: docs/design/progress-indicator.md, manifest, Widgetbook. Native macOS, другие ОС NOT_RUN. Локальный коммит без push.
+
+### Замедление волны
+Prompt пользователя (дословно):
+> быстро как то
+
+На уточнение «Ты про анимацию индикатора — волна слишком быстро движется?» ответ:
+> да
+
+Stage IMPLEMENTING; TestGate NOT_REQUIRED: visual motion tuning. WaveSpeed20→10px/s через primitive/main theme; цикл волны20px теперь2секунды. Проход активного участка1750ms принадлежит библиотеке и отдельно не настраивается её API; глобальный timeDilation не применяется. Проверить затронутые phase goldens и hot restart.
+
+Stage DONE. Скорость волны10px/s (цикл2секунды вместо1). Обновлены только2 mid snapshots, изображение просмотрено; обычный suite4 PASS без update, architecture325 файлов PASS, diff PASS. Source fixed/reduced capture не меняется, повторное обновление report не требуется. Локальный коммит без push.

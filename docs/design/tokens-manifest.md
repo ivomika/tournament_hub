@@ -227,7 +227,7 @@ AppNotice information/operationError/inlineError использует caption14/
 
 ## ProgressIndicator — реализация66
 
-AppProgressIndicator — изолированный visual adapter к M3ELinearWavyProgressIndicator (m3e_progress_indicator0.0.3, MIT). В установленном Flutter SDK волнистого LinearProgressIndicator ещё нет; пакет не выдаётся за штатный SDK widget. Основная ProgressIndicatorThemeData задаёт active/track цвета; AppProgressMetrics задаёт область240×10, stroke4/track4, wavelength20, speed20px/s; gap/stop из AppSpacing.space4. Primitive → AppTheme extensions → WidgetTheme → adapter.
+AppProgressIndicator — изолированный visual adapter к M3ELinearWavyProgressIndicator (m3e_progress_indicator0.0.3, MIT). В установленном Flutter SDK волнистого LinearProgressIndicator ещё нет; пакет не выдаётся за штатный SDK widget. Основная ProgressIndicatorThemeData задаёт active/track цвета; AppProgressMetrics задаёт область240×10, stroke4/track4, wavelength20, speed10px/s; gap/stop из AppSpacing.space4. Primitive → AppTheme extensions → WidgetTheme → adapter.
 
 При disableAnimations используется статичная фаза.6 и TickerMode=false; semantics сообщает только локализованную загрузку, а не60% завершения. Смена reduced mode пересоздаёт только внутренний визуальный adapter для немедленного применения. Motion и Components показывают один и тот же компонент. HTML waveform не считается стандартом: source отчёт явно ожидает только отличие высоты24→10, native start/mid/reduced/theme — основной baseline.
 
