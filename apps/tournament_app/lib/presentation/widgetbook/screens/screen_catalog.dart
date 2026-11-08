@@ -1,3 +1,5 @@
+import 'package:tournament_app/presentation/widgetbook/screens/about/collapsed/collapsed_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/screens/about/rules/rules_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/screens/settings/dark_russian/dark_russian_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/screens/profile_edit/editing/editing_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/screens/profile_edit/error/error_use_case.dart';
@@ -13,6 +15,10 @@ import 'package:tournament_app/presentation/widgetbook/screens/utility/loading/l
 import 'package:tournament_app/presentation/widgetbook/screens/utility/error/error_use_case.dart';
 
 final screenCatalog = <WidgetbookNode>[
+  WidgetbookComponent(
+    name: 'About',
+    useCases: [aboutCollapsedUseCase, aboutRulesUseCase],
+  ),
   WidgetbookComponent(name: 'Settings', useCases: [settingsDarkRussianUseCase]),
   WidgetbookComponent(
     name: 'ProfileEdit',

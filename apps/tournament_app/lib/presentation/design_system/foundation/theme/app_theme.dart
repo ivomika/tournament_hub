@@ -122,6 +122,9 @@ abstract final class AppTheme {
       ),
       extensions: [
         const AppScreenMetrics(
+          aboutVersionHeight: ScreenPrimitives.aboutVersionHeight,
+          aboutRulesHeight: ScreenPrimitives.aboutRulesHeight,
+          aboutHeight: ScreenPrimitives.aboutHeight,
           settingsHeight: ScreenPrimitives.settingsHeight,
           secondaryHeroSize: ScreenPrimitives.secondaryHeroSize,
           simpleWidth: ScreenPrimitives.simpleWidth,

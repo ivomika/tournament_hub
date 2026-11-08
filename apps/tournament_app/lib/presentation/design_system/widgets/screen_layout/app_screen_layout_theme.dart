@@ -39,6 +39,9 @@ class AppScreenLayoutTheme {
     simpleFormFlex = m.simpleFormFlex;
     settingsHeight = m.settingsHeight;
     secondaryHeroSize = m.secondaryHeroSize;
+    aboutHeight = m.aboutHeight;
+    aboutVersionHeight = m.aboutVersionHeight;
+    aboutRulesHeight = m.aboutRulesHeight;
     desktop = MediaQuery.sizeOf(context).width > r.mobileToDesktopWidth;
     inset = EdgeInsets.all(desktop ? s.space32 : s.space24);
     brandInset = EdgeInsets.symmetric(horizontal: s.space32);
@@ -103,6 +106,9 @@ class AppScreenLayoutTheme {
   late final int simpleFormFlex;
   late final double settingsHeight;
   late final double secondaryHeroSize;
+  late final double aboutHeight;
+  late final double aboutVersionHeight;
+  late final double aboutRulesHeight;
   late final bool desktop;
   late final EdgeInsets inset, tileInset, brandInset;
   late final double utilityWidth,

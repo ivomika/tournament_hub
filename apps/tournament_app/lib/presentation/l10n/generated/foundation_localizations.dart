@@ -1272,6 +1272,42 @@ abstract class FoundationLocalizations {
   /// In ru, this message translates to:
   /// **'Формат и FT задаются при создании турнира, не здесь.'**
   String get screenSettingsTournamentNote;
+
+  /// No description provided for @screenAboutProduct.
+  ///
+  /// In ru, this message translates to:
+  /// **'Tournament'**
+  String get screenAboutProduct;
+
+  /// No description provided for @screenAboutAccent.
+  ///
+  /// In ru, this message translates to:
+  /// **'HUB.'**
+  String get screenAboutAccent;
+
+  /// No description provided for @screenAboutMark.
+  ///
+  /// In ru, this message translates to:
+  /// **'TH.'**
+  String get screenAboutMark;
+
+  /// No description provided for @screenAboutDescription.
+  ///
+  /// In ru, this message translates to:
+  /// **'Локальные турниры по Mortal Kombat 11.'**
+  String get screenAboutDescription;
+
+  /// No description provided for @screenRules.
+  ///
+  /// In ru, this message translates to:
+  /// **'Базовые правила MK11'**
+  String get screenRules;
+
+  /// No description provided for @screenRulesCopy.
+  ///
+  /// In ru, this message translates to:
+  /// **'DE: два поражения, Bracket Reset обязателен. SE: одно поражение, места 3–4 общие. RR: каждый с каждым, FT2 и очки 3/2/1/0.'**
+  String get screenRulesCopy;
 }
 
 class _FoundationLocalizationsDelegate

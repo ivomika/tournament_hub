@@ -631,4 +631,23 @@ class FoundationLocalizationsRu extends FoundationLocalizations {
   @override
   String get screenSettingsTournamentNote =>
       'Формат и FT задаются при создании турнира, не здесь.';
+
+  @override
+  String get screenAboutProduct => 'Tournament';
+
+  @override
+  String get screenAboutAccent => 'HUB.';
+
+  @override
+  String get screenAboutMark => 'TH.';
+
+  @override
+  String get screenAboutDescription => 'Локальные турниры по Mortal Kombat 11.';
+
+  @override
+  String get screenRules => 'Базовые правила MK11';
+
+  @override
+  String get screenRulesCopy =>
+      'DE: два поражения, Bracket Reset обязателен. SE: одно поражение, места 3–4 общие. RR: каждый с каждым, FT2 и очки 3/2/1/0.';
 }

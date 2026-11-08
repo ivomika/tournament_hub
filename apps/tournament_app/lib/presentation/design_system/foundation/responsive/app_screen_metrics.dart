@@ -36,6 +36,9 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
     required this.simpleFormFlex,
     required this.settingsHeight,
     required this.secondaryHeroSize,
+    required this.aboutHeight,
+    required this.aboutVersionHeight,
+    required this.aboutRulesHeight,
     required this.utilityWidth,
     required this.utilityHeight,
     required this.utilityTop,
@@ -64,6 +67,9 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
   final MainAxisSize max;
   final TextAlign centerText;
   final TextAlign leftText;
+  final double aboutVersionHeight;
+  final double aboutRulesHeight;
+  final double aboutHeight;
   final double settingsHeight;
   final double secondaryHeroSize;
   final double simpleWidth;
@@ -128,6 +134,9 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
     int? simpleFormFlex,
     double? settingsHeight,
     double? secondaryHeroSize,
+    double? aboutHeight,
+    double? aboutVersionHeight,
+    double? aboutRulesHeight,
     double? utilityWidth,
     double? utilityHeight,
     double? utilityTop,
@@ -174,6 +183,9 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
     simpleFormFlex: simpleFormFlex ?? this.simpleFormFlex,
     settingsHeight: settingsHeight ?? this.settingsHeight,
     secondaryHeroSize: secondaryHeroSize ?? this.secondaryHeroSize,
+    aboutHeight: aboutHeight ?? this.aboutHeight,
+    aboutVersionHeight: aboutVersionHeight ?? this.aboutVersionHeight,
+    aboutRulesHeight: aboutRulesHeight ?? this.aboutRulesHeight,
     utilityWidth: utilityWidth ?? this.utilityWidth,
     utilityHeight: utilityHeight ?? this.utilityHeight,
     utilityTop: utilityTop ?? this.utilityTop,
@@ -245,6 +257,17 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
           secondaryHeroSize: lerpDouble(
             secondaryHeroSize,
             other.secondaryHeroSize,
+            t,
+          )!,
+          aboutHeight: lerpDouble(aboutHeight, other.aboutHeight, t)!,
+          aboutVersionHeight: lerpDouble(
+            aboutVersionHeight,
+            other.aboutVersionHeight,
+            t,
+          )!,
+          aboutRulesHeight: lerpDouble(
+            aboutRulesHeight,
+            other.aboutRulesHeight,
             t,
           )!,
           utilityWidth: lerpDouble(utilityWidth, other.utilityWidth, t)!,

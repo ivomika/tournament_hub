@@ -1,4 +1,7 @@
 abstract final class ScreenPrimitives {
+  static const aboutVersionHeight = 140.0;
+  static const aboutRulesHeight = 280.0;
+  static const aboutHeight = 460.0;
   static const settingsHeight = 340.0;
   static const secondaryHeroSize = 64.0;
   static const simpleWidth = 880.0;
