@@ -506,4 +506,13 @@ class FoundationLocalizationsRu extends FoundationLocalizations {
 
   @override
   String get screenRetry => 'Повторить';
+
+  @override
+  String get screenBootPreparing => 'Подготавливаем\nприложение…';
+
+  @override
+  String get screenBootError => 'Не удалось запустить';
+
+  @override
+  String get screenBootRetrying => 'Пробуем снова…';
 }

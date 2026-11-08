@@ -1,4 +1,9 @@
 abstract final class ScreenPrimitives {
+  static const bootTop = 144.0;
+  static const bootBrandHeight = 160.0;
+  static const bootCueHeight = 64.0;
+  static const bootFont = 56.0;
+  static const bootGap = 48.0;
   static const utilityWidth = 640.0;
   static const utilityHeight = 360.0;
   static const utilityTop = 64.0;

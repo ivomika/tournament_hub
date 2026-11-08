@@ -1026,6 +1026,24 @@ abstract class FoundationLocalizations {
   /// In ru, this message translates to:
   /// **'Повторить'**
   String get screenRetry;
+
+  /// No description provided for @screenBootPreparing.
+  ///
+  /// In ru, this message translates to:
+  /// **'Подготавливаем\nприложение…'**
+  String get screenBootPreparing;
+
+  /// No description provided for @screenBootError.
+  ///
+  /// In ru, this message translates to:
+  /// **'Не удалось запустить'**
+  String get screenBootError;
+
+  /// No description provided for @screenBootRetrying.
+  ///
+  /// In ru, this message translates to:
+  /// **'Пробуем снова…'**
+  String get screenBootRetrying;
 }
 
 class _FoundationLocalizationsDelegate

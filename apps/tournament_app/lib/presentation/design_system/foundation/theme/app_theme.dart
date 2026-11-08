@@ -122,6 +122,11 @@ abstract final class AppTheme {
       ),
       extensions: [
         const AppScreenMetrics(
+          bootTop: ScreenPrimitives.bootTop,
+          bootBrandHeight: ScreenPrimitives.bootBrandHeight,
+          bootCueHeight: ScreenPrimitives.bootCueHeight,
+          bootFont: ScreenPrimitives.bootFont,
+          bootGap: ScreenPrimitives.bootGap,
           start: CrossAxisAlignment.start,
           stretch: CrossAxisAlignment.stretch,
           centerCross: CrossAxisAlignment.center,

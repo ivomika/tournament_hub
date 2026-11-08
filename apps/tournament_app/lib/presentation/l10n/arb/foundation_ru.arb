@@ -237,5 +237,8 @@
   "screenLoadErrorHero": "Не удалось",
   "screenLoadErrorAccent": "загрузить.",
   "screenRetryNote": "Попробуй ещё раз.",
-  "screenRetry": "Повторить"
+  "screenRetry": "Повторить",
+  "screenBootPreparing": "Подготавливаем\nприложение…",
+  "screenBootError": "Не удалось запустить",
+  "screenBootRetrying": "Пробуем снова…"
 }

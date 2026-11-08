@@ -10,11 +10,13 @@ class AppScreenLayout extends StatelessWidget {
     this.secondary,
     this.footer,
     this.brand = true,
+    this.centerPrimary = false,
+    this.primarySurface = true,
     super.key,
   });
   final Widget primary;
   final Widget? header, secondary, footer;
-  final bool brand;
+  final bool brand, centerPrimary, primarySurface;
   @override
   Widget build(BuildContext context) {
     final t = AppScreenLayoutTheme.of(context),
@@ -58,7 +60,10 @@ class AppScreenLayout extends StatelessWidget {
                               children: [
                                 Expanded(
                                   flex: t.primaryFlex,
-                                  child: AppScreenTile(child: primary),
+                                  child: AppScreenTile(
+                                    transparent: !primarySurface,
+                                    child: primary,
+                                  ),
                                 ),
                                 if (secondary != null || footer != null) ...[
                                   SizedBox(width: t.gap),
@@ -87,18 +92,29 @@ class AppScreenLayout extends StatelessWidget {
                               crossAxisAlignment: t.stretch,
                               children: [
                                 Expanded(
-                                  child: SingleChildScrollView(
-                                    child: Column(
-                                      crossAxisAlignment: t.stretch,
-                                      children: [
-                                        primary,
-                                        if (secondary != null) ...[
-                                          SizedBox(height: t.gap),
-                                          secondary!,
-                                        ],
-                                      ],
-                                    ),
-                                  ),
+                                  child: centerPrimary
+                                      ? Column(
+                                          crossAxisAlignment: t.stretch,
+                                          children: [
+                                            Expanded(child: primary),
+                                            if (secondary != null) ...[
+                                              SizedBox(height: t.gap),
+                                              secondary!,
+                                            ],
+                                          ],
+                                        )
+                                      : SingleChildScrollView(
+                                          child: Column(
+                                            crossAxisAlignment: t.stretch,
+                                            children: [
+                                              primary,
+                                              if (secondary != null) ...[
+                                                SizedBox(height: t.gap),
+                                                secondary!,
+                                              ],
+                                            ],
+                                          ),
+                                        ),
                                 ),
                                 if (footer != null) ...[
                                   SizedBox(height: t.gap),
@@ -119,14 +135,19 @@ class AppScreenLayout extends StatelessWidget {
 }
 
 class AppScreenTile extends StatelessWidget {
-  const AppScreenTile({required this.child, super.key});
+  const AppScreenTile({
+    required this.child,
+    this.transparent = false,
+    super.key,
+  });
+  final bool transparent;
   final Widget child;
   @override
   Widget build(BuildContext context) {
     final t = AppScreenLayoutTheme.of(context);
     return DecoratedBox(
       decoration: BoxDecoration(
-        color: t.desktop ? t.surface : t.background,
+        color: t.desktop && !transparent ? t.surface : t.background,
         borderRadius: t.radius,
       ),
       child: Padding(padding: t.tileInset, child: child),
