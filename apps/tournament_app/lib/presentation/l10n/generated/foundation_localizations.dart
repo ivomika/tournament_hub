@@ -1722,6 +1722,12 @@ abstract class FoundationLocalizations {
   /// In ru, this message translates to:
   /// **'Начать турнир'**
   String get screenStartTournament;
+
+  /// No description provided for @screenSpectatorDistributionNote.
+  ///
+  /// In ru, this message translates to:
+  /// **'Матчи, сетка и результаты. Без управления.'**
+  String get screenSpectatorDistributionNote;
 }
 
 class _FoundationLocalizationsDelegate

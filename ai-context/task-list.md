@@ -97,7 +97,7 @@
 - ✅ 89. Screen Удаление гостя — независимая композиция прототипов. [Детали](task-details/89-screen-guest-remove.md)
 - ✅ 90. Screen Добавление гостя — независимая композиция прототипов. [Детали](task-details/90-screen-guest-add.md)
 - ✅ 91. Screen Распределение персонажей — независимая композиция прототипов. [Детали](task-details/91-screen-distribution.md)
-- 🟣 92. Screen Доступ зрителей — независимая композиция прототипов. [Детали](task-details/92-screen-spectator-access.md)
+- ✅ 92. Screen Доступ зрителей — независимая композиция прототипов. [Детали](task-details/92-screen-spectator-access.md)
 - 🟣 93. Screen Проведение турнира — независимая композиция прототипов. [Детали](task-details/93-screen-tournament.md)
 - 🟣 94. Screen Переигровка — независимая композиция прототипов. [Детали](task-details/94-screen-tie.md)
 - 🟣 95. Screen Снятие участника — независимая композиция прототипов. [Детали](task-details/95-screen-withdraw.md)

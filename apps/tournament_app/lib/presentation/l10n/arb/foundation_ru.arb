@@ -367,5 +367,6 @@
   "screenNoRepeats": "Раздаём без повторений.",
   "screenRosterReady": "Состав\nготов.",
   "screenEachCharacter": "Каждому — свой персонаж.",
-  "screenStartTournament": "Начать турнир"
+  "screenStartTournament": "Начать турнир",
+  "screenSpectatorDistributionNote": "Матчи, сетка и результаты. Без управления."
 }

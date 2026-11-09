@@ -866,4 +866,8 @@ class FoundationLocalizationsRu extends FoundationLocalizations {
 
   @override
   String get screenStartTournament => 'Начать турнир';
+
+  @override
+  String get screenSpectatorDistributionNote =>
+      'Матчи, сетка и результаты. Без управления.';
 }

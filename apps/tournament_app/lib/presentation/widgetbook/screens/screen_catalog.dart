@@ -1,3 +1,5 @@
+import 'package:tournament_app/presentation/widgetbook/screens/spectator_access/distribution/distribution_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/screens/spectator_access/tournament/tournament_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/screens/distribution/working/working_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/screens/distribution/ready/ready_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/screens/guest_add/name/name_use_case.dart';
@@ -27,6 +29,13 @@ import 'package:tournament_app/presentation/widgetbook/screens/utility/loading/l
 import 'package:tournament_app/presentation/widgetbook/screens/utility/error/error_use_case.dart';
 
 final screenCatalog = <WidgetbookNode>[
+  WidgetbookComponent(
+    name: 'SpectatorAccess',
+    useCases: [
+      spectatorAccessDistributionUseCase,
+      spectatorAccessTournamentUseCase,
+    ],
+  ),
   WidgetbookComponent(
     name: 'Distribution',
     useCases: [distributionWorkingUseCase, distributionReadyUseCase],
