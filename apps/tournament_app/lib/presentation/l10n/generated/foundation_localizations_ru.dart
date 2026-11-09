@@ -845,4 +845,25 @@ class FoundationLocalizationsRu extends FoundationLocalizations {
 
   @override
   String get screenGuestBeforeStart => 'Можно добавить до старта турнира.';
+
+  @override
+  String get screenDistribution => 'Распределение';
+
+  @override
+  String get screenDealing => 'Распределение персонажей';
+
+  @override
+  String get screenWhoCharacter => 'Кто твой\nперсонаж?';
+
+  @override
+  String get screenNoRepeats => 'Раздаём без повторений.';
+
+  @override
+  String get screenRosterReady => 'Состав\nготов.';
+
+  @override
+  String get screenEachCharacter => 'Каждому — свой персонаж.';
+
+  @override
+  String get screenStartTournament => 'Начать турнир';
 }

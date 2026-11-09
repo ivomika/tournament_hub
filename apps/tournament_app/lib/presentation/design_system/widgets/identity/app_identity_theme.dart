@@ -58,6 +58,12 @@ class AppIdentityTheme {
         avatarSize == AppAvatarSize.small;
     final primary = compact
         ? type.interfaceStyle(t.textTheme.labelLarge!)
+        : avatarSize == AppAvatarSize.large && stack
+        ? t.textTheme.headlineLarge!.copyWith(
+            fontSize: m.cardNameSize,
+            height: m.stackedLine,
+            letterSpacing: type.normalTracking,
+          )
         : participant
         ? type.interfaceStyle(
             t.textTheme.bodyMedium!.copyWith(

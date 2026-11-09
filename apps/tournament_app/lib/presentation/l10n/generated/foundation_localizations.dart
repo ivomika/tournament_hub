@@ -1680,6 +1680,48 @@ abstract class FoundationLocalizations {
   /// In ru, this message translates to:
   /// **'Можно добавить до старта турнира.'**
   String get screenGuestBeforeStart;
+
+  /// No description provided for @screenDistribution.
+  ///
+  /// In ru, this message translates to:
+  /// **'Распределение'**
+  String get screenDistribution;
+
+  /// No description provided for @screenDealing.
+  ///
+  /// In ru, this message translates to:
+  /// **'Распределение персонажей'**
+  String get screenDealing;
+
+  /// No description provided for @screenWhoCharacter.
+  ///
+  /// In ru, this message translates to:
+  /// **'Кто твой\nперсонаж?'**
+  String get screenWhoCharacter;
+
+  /// No description provided for @screenNoRepeats.
+  ///
+  /// In ru, this message translates to:
+  /// **'Раздаём без повторений.'**
+  String get screenNoRepeats;
+
+  /// No description provided for @screenRosterReady.
+  ///
+  /// In ru, this message translates to:
+  /// **'Состав\nготов.'**
+  String get screenRosterReady;
+
+  /// No description provided for @screenEachCharacter.
+  ///
+  /// In ru, this message translates to:
+  /// **'Каждому — свой персонаж.'**
+  String get screenEachCharacter;
+
+  /// No description provided for @screenStartTournament.
+  ///
+  /// In ru, this message translates to:
+  /// **'Начать турнир'**
+  String get screenStartTournament;
 }
 
 class _FoundationLocalizationsDelegate

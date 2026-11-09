@@ -360,5 +360,12 @@
   "screenForfeitAction": "Засчитать поражение",
   "screenNewGuest": "Новый гость",
   "screenAdd": "Добавить",
-  "screenGuestBeforeStart": "Можно добавить до старта турнира."
+  "screenGuestBeforeStart": "Можно добавить до старта турнира.",
+  "screenDistribution": "Распределение",
+  "screenDealing": "Распределение персонажей",
+  "screenWhoCharacter": "Кто твой\nперсонаж?",
+  "screenNoRepeats": "Раздаём без повторений.",
+  "screenRosterReady": "Состав\nготов.",
+  "screenEachCharacter": "Каждому — свой персонаж.",
+  "screenStartTournament": "Начать турнир"
 }
