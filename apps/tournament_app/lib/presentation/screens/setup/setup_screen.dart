@@ -139,13 +139,15 @@ class SetupScreen extends StatelessWidget {
                               SizedBox(width: t.layoutGap),
                               Expanded(
                                 flex: t.narrowPaneFlex,
-                                child: Column(
-                                  crossAxisAlignment: t.stretch,
-                                  children: [
-                                    controls,
-                                    SizedBox(height: t.layoutGap),
-                                    action,
-                                  ],
+                                child: SingleChildScrollView(
+                                  child: Column(
+                                    crossAxisAlignment: t.stretch,
+                                    children: [
+                                      controls,
+                                      SizedBox(height: t.layoutGap),
+                                      action,
+                                    ],
+                                  ),
                                 ),
                               ),
                             ],

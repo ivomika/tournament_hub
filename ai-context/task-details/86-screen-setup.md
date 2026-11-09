@@ -19,3 +19,8 @@ Prompt пользователя (дословно):
 > отлично теперь собери экраны из прототипов. Экраны должны быть независимы и отображать только переданное состояние и данные, никакой логику внутри экранов. Они должны быть плоскими и повторять прототипы. Каждый экран атомарная еденица. Каждый экран сопровождается коммитом без пуш
 
 Итог: Setup DE/SE/RR: внешний nameController, typed selected format, готовые подписи/controls/notice и callbacks. Не вычисляет FT, ограничения или переходы.6 native PNG,3 tests PASS без update, analyzer no issues. Source/native просмотрены; отдельные FT-плитки и группы format header/title восстановлены. No push.
+
+Аудит реального Widgetbook: подтверждено переполнение при textScale1.6 (Setup: рабочая область свободного viewport). Исправление ограничений/прокрутки, без изменения presentation-контракта или бизнес-логики. Повторить native goldens и реальный viewport audit.
+
+Уточнение пользователя (дословно): «продолжи».
+Исправление: Desktop controls scroll within their bounded pane at narrower actual workbench width. Проверки: 12 targeted native tests, 152 full DS/screens/real Widgetbook tests, all-screen Mobile/Desktop audit textScale1.6 passed; analyzer clean. No push.
