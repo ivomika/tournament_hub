@@ -23,3 +23,5 @@ Prompt пользователя (дословно):
 Повторная проверка общей обвязки: финальные CSS desktop задают inset24/gap20; header brand Condensed24 с разделителем. Центрированные состояния используют общий Canvas, mobile footer входит в резерв128. Проверки: полные native goldens и viewport audit normal/1.6.
 
 Итог: Shared final-CSS refinement: Desktop tile inset24/gap20, Condensed24 brand/separator, mobile footer reserve, isolated preview keys; utility error cue restored. All 51 native screen tests and analyzer passed. Workbench audit found separate Bootstrap/Setup issues, addressed in their own tasks. No push.
+
+Итоговая проверка набора 77–101: 25 screens / 50 scoped scenarios / 100 native macOS PNG. Full DS/screens/Widgetbook 152 passed, full Mobile/Desktop audit normal и 1.6 passed; analyzer clean; architecture 533 files passed. Подробности: docs/design/prototype-screens.md. Нативный Widgetbook hot restarted, runtime errors отсутствуют. Оконная визуальная проверка ограничена заблокированным Mac. No push.
