@@ -1,4 +1,12 @@
 abstract final class ScreenPrimitives {
+static const bracketGrid=20.0;
+static const bracketDot=0.7;
+static const bracketStroke=1.5;
+static const bracketScaleMin=0.2;
+static const bracketScaleMax=1.6;
+static const bracketScaleStep=0.15;
+static const bracketNodeHalf=110.0;
+static const bracketNodeHalfHeight=58.0;
   static const matchDesktopNameSize = 36.0;
   static const matchMobileNameFactor = 0.06;
   static const matchDesktopAvatar = 144.0;

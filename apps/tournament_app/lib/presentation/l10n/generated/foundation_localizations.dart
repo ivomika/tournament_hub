@@ -1842,6 +1842,36 @@ abstract class FoundationLocalizations {
   /// In ru, this message translates to:
   /// **'Следующий зависимый матч уже сыгран. Этот результат нельзя исправить.'**
   String get screenLockedReason;
+
+  /// No description provided for @screenMapControls.
+  ///
+  /// In ru, this message translates to:
+  /// **'Управление сеткой'**
+  String get screenMapControls;
+
+  /// No description provided for @screenMapFit.
+  ///
+  /// In ru, this message translates to:
+  /// **'Вся сетка'**
+  String get screenMapFit;
+
+  /// No description provided for @screenMapCurrent.
+  ///
+  /// In ru, this message translates to:
+  /// **'К текущему'**
+  String get screenMapCurrent;
+
+  /// No description provided for @screenZoomOut.
+  ///
+  /// In ru, this message translates to:
+  /// **'Уменьшить'**
+  String get screenZoomOut;
+
+  /// No description provided for @screenZoomIn.
+  ///
+  /// In ru, this message translates to:
+  /// **'Увеличить'**
+  String get screenZoomIn;
 }
 
 class _FoundationLocalizationsDelegate

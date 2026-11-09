@@ -931,4 +931,19 @@ class FoundationLocalizationsRu extends FoundationLocalizations {
   @override
   String get screenLockedReason =>
       'Следующий зависимый матч уже сыгран. Этот результат нельзя исправить.';
+
+  @override
+  String get screenMapControls => 'Управление сеткой';
+
+  @override
+  String get screenMapFit => 'Вся сетка';
+
+  @override
+  String get screenMapCurrent => 'К текущему';
+
+  @override
+  String get screenZoomOut => 'Уменьшить';
+
+  @override
+  String get screenZoomIn => 'Увеличить';
 }

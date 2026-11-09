@@ -54,7 +54,7 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
     required this.matchMobileNameFactor,
     required this.matchDesktopAvatar,
     required this.matchMobileAvatar,
-    required this.utilityWidth,
+    required this.bracketGrid,required this.bracketDot,required this.bracketStroke,required this.bracketScaleMin,required this.bracketScaleMax,required this.bracketScaleStep,required this.bracketNodeHalf,required this.bracketNodeHalfHeight,required this.utilityWidth,
     required this.utilityHeight,
     required this.utilityTop,
     required this.utilityReserve,
@@ -86,7 +86,7 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
   final int stackColumns;
   final int widePaneFlex;
   final int narrowPaneFlex;
-  final double matchDesktopNameSize;
+final double bracketGrid;final double bracketDot;final double bracketStroke;final double bracketScaleMin;final double bracketScaleMax;final double bracketScaleStep;final double bracketNodeHalf;final double bracketNodeHalfHeight;  final double matchDesktopNameSize;
   final double matchMobileNameFactor;
   final double matchDesktopAvatar;
   final double matchMobileAvatar;
@@ -182,7 +182,7 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
     double? matchMobileNameFactor,
     double? matchDesktopAvatar,
     double? matchMobileAvatar,
-    double? utilityWidth,
+    double? bracketGrid,double? bracketDot,double? bracketStroke,double? bracketScaleMin,double? bracketScaleMax,double? bracketScaleStep,double? bracketNodeHalf,double? bracketNodeHalfHeight,double? utilityWidth,
     double? utilityHeight,
     double? utilityTop,
     double? utilityReserve,
@@ -247,7 +247,7 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
     matchMobileNameFactor: matchMobileNameFactor ?? this.matchMobileNameFactor,
     matchDesktopAvatar: matchDesktopAvatar ?? this.matchDesktopAvatar,
     matchMobileAvatar: matchMobileAvatar ?? this.matchMobileAvatar,
-    utilityWidth: utilityWidth ?? this.utilityWidth,
+    bracketGrid:bracketGrid??this.bracketGrid,bracketDot:bracketDot??this.bracketDot,bracketStroke:bracketStroke??this.bracketStroke,bracketScaleMin:bracketScaleMin??this.bracketScaleMin,bracketScaleMax:bracketScaleMax??this.bracketScaleMax,bracketScaleStep:bracketScaleStep??this.bracketScaleStep,bracketNodeHalf:bracketNodeHalf??this.bracketNodeHalf,bracketNodeHalfHeight:bracketNodeHalfHeight??this.bracketNodeHalfHeight,utilityWidth: utilityWidth ?? this.utilityWidth,
     utilityHeight: utilityHeight ?? this.utilityHeight,
     utilityTop: utilityTop ?? this.utilityTop,
     utilityReserve: utilityReserve ?? this.utilityReserve,
@@ -390,7 +390,7 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
             other.matchMobileAvatar,
             t,
           )!,
-          utilityWidth: lerpDouble(utilityWidth, other.utilityWidth, t)!,
+          bracketGrid:lerpDouble(bracketGrid,other.bracketGrid,t)!,bracketDot:lerpDouble(bracketDot,other.bracketDot,t)!,bracketStroke:lerpDouble(bracketStroke,other.bracketStroke,t)!,bracketScaleMin:lerpDouble(bracketScaleMin,other.bracketScaleMin,t)!,bracketScaleMax:lerpDouble(bracketScaleMax,other.bracketScaleMax,t)!,bracketScaleStep:lerpDouble(bracketScaleStep,other.bracketScaleStep,t)!,bracketNodeHalf:lerpDouble(bracketNodeHalf,other.bracketNodeHalf,t)!,bracketNodeHalfHeight:lerpDouble(bracketNodeHalfHeight,other.bracketNodeHalfHeight,t)!,utilityWidth: lerpDouble(utilityWidth, other.utilityWidth, t)!,
           utilityHeight: lerpDouble(utilityHeight, other.utilityHeight, t)!,
           utilityTop: lerpDouble(utilityTop, other.utilityTop, t)!,
           utilityReserve: lerpDouble(utilityReserve, other.utilityReserve, t)!,

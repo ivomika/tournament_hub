@@ -121,7 +121,7 @@ abstract final class AppTheme {
         year2023: false,
       ),
       extensions: [
-        const AppScreenMetrics(
+        const AppScreenMetrics(bracketGrid:ScreenPrimitives.bracketGrid,bracketDot:ScreenPrimitives.bracketDot,bracketStroke:ScreenPrimitives.bracketStroke,bracketScaleMin:ScreenPrimitives.bracketScaleMin,bracketScaleMax:ScreenPrimitives.bracketScaleMax,bracketScaleStep:ScreenPrimitives.bracketScaleStep,bracketNodeHalf:ScreenPrimitives.bracketNodeHalf,bracketNodeHalfHeight:ScreenPrimitives.bracketNodeHalfHeight,
           matchDesktopNameSize: ScreenPrimitives.matchDesktopNameSize,
           matchMobileNameFactor: ScreenPrimitives.matchMobileNameFactor,
           matchDesktopAvatar: ScreenPrimitives.matchDesktopAvatar,

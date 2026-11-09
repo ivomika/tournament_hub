@@ -387,5 +387,10 @@
   "screenReplayRules": "Правила переигровки",
   "screenReplayRulesCopy": "Участники с равными очками сыграют Mini Round Robin. FT2 и очки 3 / 2 / 1 / 0 сохраняются.",
   "screenStartReplay": "Начать переигровку",
-  "screenLockedReason": "Следующий зависимый матч уже сыгран. Этот результат нельзя исправить."
+  "screenLockedReason": "Следующий зависимый матч уже сыгран. Этот результат нельзя исправить.",
+  "screenMapControls": "Управление сеткой",
+  "screenMapFit": "Вся сетка",
+  "screenMapCurrent": "К текущему",
+  "screenZoomOut": "Уменьшить",
+  "screenZoomIn": "Увеличить"
 }
