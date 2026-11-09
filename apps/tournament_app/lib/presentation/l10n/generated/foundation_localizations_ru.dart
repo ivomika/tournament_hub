@@ -836,4 +836,13 @@ class FoundationLocalizationsRu extends FoundationLocalizations {
 
   @override
   String get screenForfeitAction => 'Засчитать поражение';
+
+  @override
+  String get screenNewGuest => 'Новый гость';
+
+  @override
+  String get screenAdd => 'Добавить';
+
+  @override
+  String get screenGuestBeforeStart => 'Можно добавить до старта турнира.';
 }

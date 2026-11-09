@@ -1,3 +1,4 @@
+import 'package:tournament_app/presentation/widgetbook/screens/guest_add/name/name_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/screens/guest_remove/confirmation/confirmation_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/screens/participant_access/code/code_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/screens/roster/guests/guests_use_case.dart';
@@ -24,6 +25,7 @@ import 'package:tournament_app/presentation/widgetbook/screens/utility/loading/l
 import 'package:tournament_app/presentation/widgetbook/screens/utility/error/error_use_case.dart';
 
 final screenCatalog = <WidgetbookNode>[
+  WidgetbookComponent(name: 'GuestAdd', useCases: [guestAddNameUseCase]),
   WidgetbookComponent(
     name: 'GuestRemove',
     useCases: [guestRemoveConfirmationUseCase],

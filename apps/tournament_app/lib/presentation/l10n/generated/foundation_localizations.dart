@@ -1662,6 +1662,24 @@ abstract class FoundationLocalizations {
   /// In ru, this message translates to:
   /// **'Засчитать поражение'**
   String get screenForfeitAction;
+
+  /// No description provided for @screenNewGuest.
+  ///
+  /// In ru, this message translates to:
+  /// **'Новый гость'**
+  String get screenNewGuest;
+
+  /// No description provided for @screenAdd.
+  ///
+  /// In ru, this message translates to:
+  /// **'Добавить'**
+  String get screenAdd;
+
+  /// No description provided for @screenGuestBeforeStart.
+  ///
+  /// In ru, this message translates to:
+  /// **'Можно добавить до старта турнира.'**
+  String get screenGuestBeforeStart;
 }
 
 class _FoundationLocalizationsDelegate

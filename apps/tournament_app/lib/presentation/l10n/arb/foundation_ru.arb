@@ -357,5 +357,8 @@
     }
   },
   "screenForfeitNote": "Это поражение в текущем матче. Дальнейшее участие определяется правилами турнира.",
-  "screenForfeitAction": "Засчитать поражение"
+  "screenForfeitAction": "Засчитать поражение",
+  "screenNewGuest": "Новый гость",
+  "screenAdd": "Добавить",
+  "screenGuestBeforeStart": "Можно добавить до старта турнира."
 }

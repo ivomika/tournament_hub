@@ -95,7 +95,7 @@
 - ✅ 87. Screen Состав турнира — независимая композиция прототипов. [Детали](task-details/87-screen-roster.md)
 - ✅ 88. Screen Подключение участников — независимая композиция прототипов. [Детали](task-details/88-screen-participant-access.md)
 - ✅ 89. Screen Удаление гостя — независимая композиция прототипов. [Детали](task-details/89-screen-guest-remove.md)
-- 🟣 90. Screen Добавление гостя — независимая композиция прототипов. [Детали](task-details/90-screen-guest-add.md)
+- ✅ 90. Screen Добавление гостя — независимая композиция прототипов. [Детали](task-details/90-screen-guest-add.md)
 - 🟣 91. Screen Распределение персонажей — независимая композиция прототипов. [Детали](task-details/91-screen-distribution.md)
 - 🟣 92. Screen Доступ зрителей — независимая композиция прототипов. [Детали](task-details/92-screen-spectator-access.md)
 - 🟣 93. Screen Проведение турнира — независимая композиция прототипов. [Детали](task-details/93-screen-tournament.md)
