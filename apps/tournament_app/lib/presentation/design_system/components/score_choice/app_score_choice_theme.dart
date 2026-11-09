@@ -27,7 +27,9 @@ class AppScoreChoiceTheme {
     focusColor = t.focusColor;
     half = c.half;
     zero = c.zero;
-    style = t.extension<AppTypeRoles>()!.score.copyWith(fontSize: t.textTheme.headlineLarge!.fontSize);
+    style = t.extension<AppTypeRoles>()!.score.copyWith(
+      fontSize: t.textTheme.headlineLarge!.fontSize,
+    );
     padding = EdgeInsets.all(s.space8);
     shape = RoundedRectangleBorder(borderRadius: radius);
     minimumSize = Size(c.zero, height);

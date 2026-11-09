@@ -870,4 +870,39 @@ class FoundationLocalizationsRu extends FoundationLocalizations {
   @override
   String get screenSpectatorDistributionNote =>
       'Матчи, сетка и результаты. Без управления.';
+
+  @override
+  String get screenNext => 'Кто далее';
+
+  @override
+  String get screenBracket => 'Сетка турнира';
+
+  @override
+  String get screenEnterResult => 'Внести результат';
+
+  @override
+  String get screenManagement => 'Управление турниром';
+
+  @override
+  String get screenStandings => 'Таблица · 3 участника';
+
+  @override
+  String get screenMatchResults => 'Результаты матчей';
+
+  @override
+  String get screenHowPlaces => 'Как определяются места';
+
+  @override
+  String get screenTiebreakDetails =>
+      'Итоговые места определяются результатами переигровки.';
+
+  @override
+  String get screenCurrentScore => 'Текущий счёт';
+
+  @override
+  String get screenResultCorrect => 'Исправить результат';
+
+  @override
+  String get screenStandingsResultsNote =>
+      'Игровые и технические результаты основного этапа.';
 }

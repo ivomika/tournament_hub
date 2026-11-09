@@ -1,4 +1,8 @@
 abstract final class ScreenPrimitives {
+  static const matchDesktopNameSize = 36.0;
+  static const matchMobileNameFactor = 0.06;
+  static const matchDesktopAvatar = 144.0;
+  static const matchMobileAvatar = 112.0;
   static const modalSheetWidth = 760.0;
   static const modalViewportInset = 120.0;
   static const modalMobileMinHeight = 540.0;

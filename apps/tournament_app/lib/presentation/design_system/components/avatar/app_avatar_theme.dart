@@ -76,6 +76,21 @@ class AppAvatarTheme {
       ),
     );
   }
+  AppAvatarTheme copyWith({
+    double? extent,
+    Alignment? contentAlignment,
+    BorderRadius? tileRadius,
+    Color? background,
+    Color? foreground,
+    TextStyle? typography,
+  }) => AppAvatarTheme(
+    extent: extent ?? this.extent,
+    contentAlignment: contentAlignment ?? this.contentAlignment,
+    tileRadius: tileRadius ?? this.tileRadius,
+    background: background ?? this.background,
+    foreground: foreground ?? this.foreground,
+    typography: typography ?? this.typography,
+  );
   final Alignment contentAlignment;
   final double extent;
   final BorderRadius tileRadius;

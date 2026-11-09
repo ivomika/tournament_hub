@@ -68,7 +68,7 @@ class AppMetricTheme {
                   ? styles.compactHeader.height
                   : styles.compactHeader.height,
             );
-    unrestrictedWidth=t.extension<FoundationLayout>()!.fullWidth;
+    unrestrictedWidth = t.extension<FoundationLayout>()!.fullWidth;
     minHeight = desktop
         ? (achievement ? m.achievementMinHeight : m.plainMinHeight)
         : c.zero;
@@ -100,7 +100,7 @@ class AppMetricTheme {
   late final EdgeInsets padding;
   late final BorderRadius radius;
   late final TextStyle valueStyle, labelStyle;
-  late final double fullWidth,unrestrictedWidth;
+  late final double fullWidth, unrestrictedWidth;
   late final double minHeight,
       gap,
       contentGap,

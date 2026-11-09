@@ -368,5 +368,16 @@
   "screenRosterReady": "Состав\nготов.",
   "screenEachCharacter": "Каждому — свой персонаж.",
   "screenStartTournament": "Начать турнир",
-  "screenSpectatorDistributionNote": "Матчи, сетка и результаты. Без управления."
+  "screenSpectatorDistributionNote": "Матчи, сетка и результаты. Без управления.",
+  "screenNext": "Кто далее",
+  "screenBracket": "Сетка турнира",
+  "screenEnterResult": "Внести результат",
+  "screenManagement": "Управление турниром",
+  "screenStandings": "Таблица · 3 участника",
+  "screenMatchResults": "Результаты матчей",
+  "screenHowPlaces": "Как определяются места",
+  "screenTiebreakDetails": "Итоговые места определяются результатами переигровки.",
+  "screenCurrentScore": "Текущий счёт",
+  "screenResultCorrect": "Исправить результат",
+  "screenStandingsResultsNote": "Игровые и технические результаты основного этапа."
 }

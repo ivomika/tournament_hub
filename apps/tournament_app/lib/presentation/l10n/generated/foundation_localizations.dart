@@ -1728,6 +1728,72 @@ abstract class FoundationLocalizations {
   /// In ru, this message translates to:
   /// **'Матчи, сетка и результаты. Без управления.'**
   String get screenSpectatorDistributionNote;
+
+  /// No description provided for @screenNext.
+  ///
+  /// In ru, this message translates to:
+  /// **'Кто далее'**
+  String get screenNext;
+
+  /// No description provided for @screenBracket.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сетка турнира'**
+  String get screenBracket;
+
+  /// No description provided for @screenEnterResult.
+  ///
+  /// In ru, this message translates to:
+  /// **'Внести результат'**
+  String get screenEnterResult;
+
+  /// No description provided for @screenManagement.
+  ///
+  /// In ru, this message translates to:
+  /// **'Управление турниром'**
+  String get screenManagement;
+
+  /// No description provided for @screenStandings.
+  ///
+  /// In ru, this message translates to:
+  /// **'Таблица · 3 участника'**
+  String get screenStandings;
+
+  /// No description provided for @screenMatchResults.
+  ///
+  /// In ru, this message translates to:
+  /// **'Результаты матчей'**
+  String get screenMatchResults;
+
+  /// No description provided for @screenHowPlaces.
+  ///
+  /// In ru, this message translates to:
+  /// **'Как определяются места'**
+  String get screenHowPlaces;
+
+  /// No description provided for @screenTiebreakDetails.
+  ///
+  /// In ru, this message translates to:
+  /// **'Итоговые места определяются результатами переигровки.'**
+  String get screenTiebreakDetails;
+
+  /// No description provided for @screenCurrentScore.
+  ///
+  /// In ru, this message translates to:
+  /// **'Текущий счёт'**
+  String get screenCurrentScore;
+
+  /// No description provided for @screenResultCorrect.
+  ///
+  /// In ru, this message translates to:
+  /// **'Исправить результат'**
+  String get screenResultCorrect;
+
+  /// No description provided for @screenStandingsResultsNote.
+  ///
+  /// In ru, this message translates to:
+  /// **'Игровые и технические результаты основного этапа.'**
+  String get screenStandingsResultsNote;
 }
 
 class _FoundationLocalizationsDelegate

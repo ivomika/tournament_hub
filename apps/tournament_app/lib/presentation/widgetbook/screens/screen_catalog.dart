@@ -1,3 +1,7 @@
+import 'package:tournament_app/presentation/widgetbook/screens/tournament/de/de_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/screens/tournament/se/se_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/screens/tournament/rr/rr_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/screens/tournament/tiebreak/tiebreak_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/screens/spectator_access/distribution/distribution_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/screens/spectator_access/tournament/tournament_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/screens/distribution/working/working_use_case.dart';
@@ -29,6 +33,15 @@ import 'package:tournament_app/presentation/widgetbook/screens/utility/loading/l
 import 'package:tournament_app/presentation/widgetbook/screens/utility/error/error_use_case.dart';
 
 final screenCatalog = <WidgetbookNode>[
+  WidgetbookComponent(
+    name: 'Tournament',
+    useCases: [
+      tournamentDeUseCase,
+      tournamentSeUseCase,
+      tournamentRrUseCase,
+      tournamentTiebreakUseCase,
+    ],
+  ),
   WidgetbookComponent(
     name: 'SpectatorAccess',
     useCases: [

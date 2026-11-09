@@ -122,6 +122,10 @@ abstract final class AppTheme {
       ),
       extensions: [
         const AppScreenMetrics(
+          matchDesktopNameSize: ScreenPrimitives.matchDesktopNameSize,
+          matchMobileNameFactor: ScreenPrimitives.matchMobileNameFactor,
+          matchDesktopAvatar: ScreenPrimitives.matchDesktopAvatar,
+          matchMobileAvatar: ScreenPrimitives.matchMobileAvatar,
           modalSheetWidth: ScreenPrimitives.modalSheetWidth,
           modalViewportInset: ScreenPrimitives.modalViewportInset,
           modalMobileMinHeight: ScreenPrimitives.modalMobileMinHeight,

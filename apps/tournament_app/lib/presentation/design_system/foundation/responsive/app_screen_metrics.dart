@@ -50,6 +50,10 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
     required this.modalSheetWidth,
     required this.modalViewportInset,
     required this.modalMobileMinHeight,
+    required this.matchDesktopNameSize,
+    required this.matchMobileNameFactor,
+    required this.matchDesktopAvatar,
+    required this.matchMobileAvatar,
     required this.utilityWidth,
     required this.utilityHeight,
     required this.utilityTop,
@@ -82,6 +86,10 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
   final int stackColumns;
   final int widePaneFlex;
   final int narrowPaneFlex;
+  final double matchDesktopNameSize;
+  final double matchMobileNameFactor;
+  final double matchDesktopAvatar;
+  final double matchMobileAvatar;
   final double modalSheetWidth;
   final double modalViewportInset;
   final double modalMobileMinHeight;
@@ -170,6 +178,10 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
     double? modalSheetWidth,
     double? modalViewportInset,
     double? modalMobileMinHeight,
+    double? matchDesktopNameSize,
+    double? matchMobileNameFactor,
+    double? matchDesktopAvatar,
+    double? matchMobileAvatar,
     double? utilityWidth,
     double? utilityHeight,
     double? utilityTop,
@@ -231,6 +243,10 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
     modalSheetWidth: modalSheetWidth ?? this.modalSheetWidth,
     modalViewportInset: modalViewportInset ?? this.modalViewportInset,
     modalMobileMinHeight: modalMobileMinHeight ?? this.modalMobileMinHeight,
+    matchDesktopNameSize: matchDesktopNameSize ?? this.matchDesktopNameSize,
+    matchMobileNameFactor: matchMobileNameFactor ?? this.matchMobileNameFactor,
+    matchDesktopAvatar: matchDesktopAvatar ?? this.matchDesktopAvatar,
+    matchMobileAvatar: matchMobileAvatar ?? this.matchMobileAvatar,
     utilityWidth: utilityWidth ?? this.utilityWidth,
     utilityHeight: utilityHeight ?? this.utilityHeight,
     utilityTop: utilityTop ?? this.utilityTop,
@@ -352,6 +368,26 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
           modalMobileMinHeight: lerpDouble(
             modalMobileMinHeight,
             other.modalMobileMinHeight,
+            t,
+          )!,
+          matchDesktopNameSize: lerpDouble(
+            matchDesktopNameSize,
+            other.matchDesktopNameSize,
+            t,
+          )!,
+          matchMobileNameFactor: lerpDouble(
+            matchMobileNameFactor,
+            other.matchMobileNameFactor,
+            t,
+          )!,
+          matchDesktopAvatar: lerpDouble(
+            matchDesktopAvatar,
+            other.matchDesktopAvatar,
+            t,
+          )!,
+          matchMobileAvatar: lerpDouble(
+            matchMobileAvatar,
+            other.matchMobileAvatar,
             t,
           )!,
           utilityWidth: lerpDouble(utilityWidth, other.utilityWidth, t)!,

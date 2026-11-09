@@ -11,6 +11,7 @@ import 'package:tournament_app/presentation/design_system/foundation/typography/
 
 enum AppButtonKind {
   primary,
+  textLink,
   secondary,
   destructive,
   icon,
@@ -88,7 +89,9 @@ class AppButtonTheme {
         ? t.colorScheme.error
         : accent
         ? t.colorScheme.onPrimary
-        : kind == AppButtonKind.removeIcon || kind == AppButtonKind.dialogCancel
+        : kind == AppButtonKind.removeIcon ||
+              kind == AppButtonKind.dialogCancel ||
+              kind == AppButtonKind.textLink
         ? t.colorScheme.onSurfaceVariant
         : t.colorScheme.onSurface;
     final text = t.extension<AppTypeRoles>()!.interfaceStyle(
@@ -124,14 +127,19 @@ class AppButtonTheme {
           ? removeWidth
           : null,
       padding: EdgeInsets.symmetric(
-        horizontal: circular || kind == AppButtonKind.removeSwipe
+        horizontal:
+            circular ||
+                kind == AppButtonKind.removeSwipe ||
+                kind == AppButtonKind.textLink
             ? s.space0
             : dialog
             ? s.space16
             : s.space24,
       ),
       gap: glyphLeading ? s.space8 : s.space16,
-      background: kind == AppButtonKind.dialogCancel
+      background: kind == AppButtonKind.textLink
+          ? m.transparent
+          : kind == AppButtonKind.dialogCancel
           ? (hovered ? t.colorScheme.surfaceContainerHigh : m.transparent)
           : disabled && !dialog
           ? t.colorScheme.surfaceContainerHigh
@@ -154,10 +162,13 @@ class AppButtonTheme {
           ? BorderRadius.circular(s.space0)
           : shape.pill,
       circular: circular,
-      justify: kind == AppButtonKind.primary ? m.spaceBetween : m.center,
+      justify: kind == AppButtonKind.primary || kind == AppButtonKind.textLink
+          ? m.spaceBetween
+          : m.center,
       cross: m.centerCross,
       shadows:
-          kind != AppButtonKind.shareIcon &&
+          kind != AppButtonKind.textLink &&
+              kind != AppButtonKind.shareIcon &&
               !dialog &&
               !desktop &&
               !disabled &&
