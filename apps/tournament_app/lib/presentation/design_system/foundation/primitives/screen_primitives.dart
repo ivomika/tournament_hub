@@ -1,4 +1,7 @@
 abstract final class ScreenPrimitives {
+static const resultDesktopAvatar=104.0;
+static const resultContentWidth=600.0;
+static const resultOutcomeFactor=2.8;
 static const bracketGrid=20.0;
 static const bracketDot=0.7;
 static const bracketStroke=1.5;

@@ -946,4 +946,61 @@ class FoundationLocalizationsRu extends FoundationLocalizations {
 
   @override
   String get screenZoomIn => 'Увеличить';
+
+  @override
+  String get screenResult => 'Результат';
+
+  @override
+  String get screenCorrection => 'Исправление';
+
+  @override
+  String get screenSaveResult => 'Сохранить результат';
+
+  @override
+  String get screenRetrySave => 'Повторить сохранение';
+
+  @override
+  String get screenCancelResult => 'Отменить ввод результата';
+
+  @override
+  String get screenCancelCorrection => 'Отменить исправление';
+
+  @override
+  String get screenOtherActions => 'Другие действия';
+
+  @override
+  String get screenAboutCorrection => 'Об исправлении';
+
+  @override
+  String get screenCorrectionNote =>
+      'Результат можно исправить, пока не сыгран следующий зависимый матч.';
+
+  @override
+  String get screenResultSaveError => 'Не удалось сохранить. Повтори.';
+
+  @override
+  String get screenTechnicalResult => 'Технический результат';
+
+  @override
+  String get screenTechnicalWin => 'Техническая победа';
+
+  @override
+  String get screenTechnicalLoss => 'Техническое поражение';
+
+  @override
+  String get screenTechnicalAction => 'Техническое поражение';
+
+  @override
+  String get screenTechnicalRrNote =>
+      'Без игрового счёта. В RR: 3 очка победителю, 0 — сопернику.';
+
+  @override
+  String get screenTechnicalDeNote =>
+      'Без игрового счёта. Поражение учитывается по правилам DE.';
+
+  @override
+  String get screenDecreaseScore => 'Уменьшить счёт';
+
+  @override
+  String get screenIncreaseScore => 'Увеличить счёт';
 }

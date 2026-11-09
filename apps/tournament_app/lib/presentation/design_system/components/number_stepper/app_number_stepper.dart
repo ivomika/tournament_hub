@@ -8,6 +8,7 @@ enum AppStepperKind { output, input }
 class AppNumberStepper extends StatelessWidget {
   const AppNumberStepper.output({
     required this.label,
+    this.showLabel = true,
     required this.valueLabel,
     required this.decreaseLabel,
     required this.increaseLabel,
@@ -20,6 +21,7 @@ class AppNumberStepper extends StatelessWidget {
        onSubmitted = null;
   const AppNumberStepper.input({
     required this.label,
+    this.showLabel = true,
     required this.controller,
     required this.decreaseLabel,
     required this.increaseLabel,
@@ -32,12 +34,16 @@ class AppNumberStepper extends StatelessWidget {
        valueLabel = null;
   final AppStepperKind kind;
   final String label, decreaseLabel, increaseLabel;
+  final bool showLabel;
   final String? valueLabel;
   final TextEditingController? controller;
   final VoidCallback? onDecrease, onIncrease;
   final ValueChanged<String>? onChanged, onSubmitted;
   @override
   Widget build(BuildContext context) {
+    if (!showLabel) {
+      return _StepperBody(spec: this);
+    }
     final t = AppNumberStepperTheme.of(context);
     return LayoutBuilder(
       builder: (context, constraints) =>

@@ -1872,6 +1872,114 @@ abstract class FoundationLocalizations {
   /// In ru, this message translates to:
   /// **'Увеличить'**
   String get screenZoomIn;
+
+  /// No description provided for @screenResult.
+  ///
+  /// In ru, this message translates to:
+  /// **'Результат'**
+  String get screenResult;
+
+  /// No description provided for @screenCorrection.
+  ///
+  /// In ru, this message translates to:
+  /// **'Исправление'**
+  String get screenCorrection;
+
+  /// No description provided for @screenSaveResult.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сохранить результат'**
+  String get screenSaveResult;
+
+  /// No description provided for @screenRetrySave.
+  ///
+  /// In ru, this message translates to:
+  /// **'Повторить сохранение'**
+  String get screenRetrySave;
+
+  /// No description provided for @screenCancelResult.
+  ///
+  /// In ru, this message translates to:
+  /// **'Отменить ввод результата'**
+  String get screenCancelResult;
+
+  /// No description provided for @screenCancelCorrection.
+  ///
+  /// In ru, this message translates to:
+  /// **'Отменить исправление'**
+  String get screenCancelCorrection;
+
+  /// No description provided for @screenOtherActions.
+  ///
+  /// In ru, this message translates to:
+  /// **'Другие действия'**
+  String get screenOtherActions;
+
+  /// No description provided for @screenAboutCorrection.
+  ///
+  /// In ru, this message translates to:
+  /// **'Об исправлении'**
+  String get screenAboutCorrection;
+
+  /// No description provided for @screenCorrectionNote.
+  ///
+  /// In ru, this message translates to:
+  /// **'Результат можно исправить, пока не сыгран следующий зависимый матч.'**
+  String get screenCorrectionNote;
+
+  /// No description provided for @screenResultSaveError.
+  ///
+  /// In ru, this message translates to:
+  /// **'Не удалось сохранить. Повтори.'**
+  String get screenResultSaveError;
+
+  /// No description provided for @screenTechnicalResult.
+  ///
+  /// In ru, this message translates to:
+  /// **'Технический результат'**
+  String get screenTechnicalResult;
+
+  /// No description provided for @screenTechnicalWin.
+  ///
+  /// In ru, this message translates to:
+  /// **'Техническая победа'**
+  String get screenTechnicalWin;
+
+  /// No description provided for @screenTechnicalLoss.
+  ///
+  /// In ru, this message translates to:
+  /// **'Техническое поражение'**
+  String get screenTechnicalLoss;
+
+  /// No description provided for @screenTechnicalAction.
+  ///
+  /// In ru, this message translates to:
+  /// **'Техническое поражение'**
+  String get screenTechnicalAction;
+
+  /// No description provided for @screenTechnicalRrNote.
+  ///
+  /// In ru, this message translates to:
+  /// **'Без игрового счёта. В RR: 3 очка победителю, 0 — сопернику.'**
+  String get screenTechnicalRrNote;
+
+  /// No description provided for @screenTechnicalDeNote.
+  ///
+  /// In ru, this message translates to:
+  /// **'Без игрового счёта. Поражение учитывается по правилам DE.'**
+  String get screenTechnicalDeNote;
+
+  /// No description provided for @screenDecreaseScore.
+  ///
+  /// In ru, this message translates to:
+  /// **'Уменьшить счёт'**
+  String get screenDecreaseScore;
+
+  /// No description provided for @screenIncreaseScore.
+  ///
+  /// In ru, this message translates to:
+  /// **'Увеличить счёт'**
+  String get screenIncreaseScore;
 }
 
 class _FoundationLocalizationsDelegate

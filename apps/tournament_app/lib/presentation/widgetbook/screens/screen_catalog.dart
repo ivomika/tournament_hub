@@ -1,3 +1,11 @@
+import 'package:tournament_app/presentation/widgetbook/screens/match_result/ft1/ft1_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/screens/match_result/ft2/ft2_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/screens/match_result/ft3/ft3_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/screens/match_result/ft10/ft10_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/screens/match_result/correction/correction_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/screens/match_result/save_error/save_error_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/screens/match_result/technical_rr/technical_rr_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/screens/match_result/technical_de/technical_de_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/screens/bracket/de/de_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/screens/bracket/se/se_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/screens/result_locked/dependent_match/dependent_match_use_case.dart';
@@ -38,6 +46,19 @@ import 'package:tournament_app/presentation/widgetbook/screens/utility/loading/l
 import 'package:tournament_app/presentation/widgetbook/screens/utility/error/error_use_case.dart';
 
 final screenCatalog = <WidgetbookNode>[
+  WidgetbookComponent(
+    name: 'MatchResult',
+    useCases: [
+      matchResultFt1UseCase,
+      matchResultFt2UseCase,
+      matchResultFt3UseCase,
+      matchResultFt10UseCase,
+      matchResultCorrectionUseCase,
+      matchResultSaveErrorUseCase,
+      matchResultTechnicalRrUseCase,
+      matchResultTechnicalDeUseCase,
+    ],
+  ),
   WidgetbookComponent(
     name: 'Bracket',
     useCases: [bracketDeUseCase, bracketSeUseCase],
