@@ -8,8 +8,11 @@ final bracketSeUseCase = WidgetbookUseCase(
 );
 
 abstract final class BracketSeUseCase {
-  static Widget build(BuildContext context) => BracketFixture(
-    sample: BracketSample.se,
-    key: const ValueKey(BracketSample.se),
+  static Widget build(BuildContext context) => KeyedSubtree(
+    key: const ValueKey<Type>(BracketSeUseCase),
+    child: BracketFixture(
+      sample: BracketSample.se,
+      key: const ValueKey(BracketSample.se),
+    ),
   );
 }

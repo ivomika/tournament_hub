@@ -8,5 +8,8 @@ final rosterGuestsUseCase = WidgetbookUseCase(
 );
 
 abstract final class RosterGuestsUseCase {
-  static Widget build(BuildContext context) => RosterFixture();
+  static Widget build(BuildContext context) => KeyedSubtree(
+    key: const ValueKey<Type>(RosterGuestsUseCase),
+    child: RosterFixture(),
+  );
 }

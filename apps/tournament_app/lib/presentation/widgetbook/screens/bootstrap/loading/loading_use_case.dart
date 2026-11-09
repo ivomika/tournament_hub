@@ -8,6 +8,8 @@ final bootstrapLoadingUseCase = WidgetbookUseCase(
 );
 
 abstract final class BootstrapLoadingUseCase {
-  static Widget build(BuildContext context) =>
-      BootstrapFixture(phase: BootstrapPhase.loading);
+  static Widget build(BuildContext context) => KeyedSubtree(
+    key: const ValueKey<Type>(BootstrapLoadingUseCase),
+    child: BootstrapFixture(phase: BootstrapPhase.loading),
+  );
 }

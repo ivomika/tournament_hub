@@ -8,6 +8,8 @@ final bootstrapErrorUseCase = WidgetbookUseCase(
 );
 
 abstract final class BootstrapErrorUseCase {
-  static Widget build(BuildContext context) =>
-      BootstrapFixture(phase: BootstrapPhase.error);
+  static Widget build(BuildContext context) => KeyedSubtree(
+    key: const ValueKey<Type>(BootstrapErrorUseCase),
+    child: BootstrapFixture(phase: BootstrapPhase.error),
+  );
 }

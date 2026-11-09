@@ -8,5 +8,8 @@ final participantAccessCodeUseCase = WidgetbookUseCase(
 );
 
 abstract final class ParticipantAccessCodeUseCase {
-  static Widget build(BuildContext context) => ParticipantAccessFixture();
+  static Widget build(BuildContext context) => KeyedSubtree(
+    key: const ValueKey<Type>(ParticipantAccessCodeUseCase),
+    child: ParticipantAccessFixture(),
+  );
 }

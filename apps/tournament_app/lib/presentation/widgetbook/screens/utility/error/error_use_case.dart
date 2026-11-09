@@ -11,9 +11,12 @@ final utilityErrorUseCase = WidgetbookUseCase(
 abstract final class UtilityErrorUseCase {
   static void back() {}
   static void retry() {}
-  static Widget build(BuildContext context) => UtilityScreen(
-    state: const UtilityScreenState(phase: UtilityPhase.error),
-    onBack: back,
-    onRetry: retry,
+  static Widget build(BuildContext context) => KeyedSubtree(
+    key: const ValueKey<Type>(UtilityErrorUseCase),
+    child: UtilityScreen(
+      state: const UtilityScreenState(phase: UtilityPhase.error),
+      onBack: back,
+      onRetry: retry,
+    ),
   );
 }

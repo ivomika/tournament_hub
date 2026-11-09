@@ -8,5 +8,8 @@ final tieEqualPointsUseCase = WidgetbookUseCase(
 );
 
 abstract final class TieEqualPointsUseCase {
-  static Widget build(BuildContext context) => TieFixture();
+  static Widget build(BuildContext context) => KeyedSubtree(
+    key: const ValueKey<Type>(TieEqualPointsUseCase),
+    child: TieFixture(),
+  );
 }

@@ -8,8 +8,11 @@ final matchResultFt10UseCase = WidgetbookUseCase(
 );
 
 abstract final class MatchResultFt10UseCase {
-  static Widget build(BuildContext context) => MatchResultFixture(
-    key: const ValueKey(MatchResultSample.ft10),
-    sample: MatchResultSample.ft10,
+  static Widget build(BuildContext context) => KeyedSubtree(
+    key: const ValueKey<Type>(MatchResultFt10UseCase),
+    child: MatchResultFixture(
+      key: const ValueKey(MatchResultSample.ft10),
+      sample: MatchResultSample.ft10,
+    ),
   );
 }

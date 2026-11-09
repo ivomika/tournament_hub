@@ -8,6 +8,8 @@ final profileEditEditingUseCase = WidgetbookUseCase(
 );
 
 abstract final class ProfileEditEditingUseCase {
-  static Widget build(BuildContext context) =>
-      ProfileEditFixture(phase: ProfileEditPhase.editing);
+  static Widget build(BuildContext context) => KeyedSubtree(
+    key: const ValueKey<Type>(ProfileEditEditingUseCase),
+    child: ProfileEditFixture(phase: ProfileEditPhase.editing),
+  );
 }

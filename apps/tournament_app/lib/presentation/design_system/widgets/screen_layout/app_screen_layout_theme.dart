@@ -1,3 +1,4 @@
+import 'package:tournament_app/presentation/design_system/foundation/borders/app_border_metrics.dart';
 import 'package:tournament_app/presentation/design_system/foundation/layout/foundation_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:tournament_app/presentation/design_system/foundation/responsive/app_responsive.dart';
@@ -57,11 +58,36 @@ class AppScreenLayoutTheme {
     matchMobileNameFactor = m.matchMobileNameFactor;
     matchDesktopAvatar = m.matchDesktopAvatar;
     matchMobileAvatar = m.matchMobileAvatar;
-    bracketGrid=m.bracketGrid;bracketDot=m.bracketDot;bracketStroke=m.bracketStroke;bracketScaleMin=m.bracketScaleMin;bracketScaleMax=m.bracketScaleMax;bracketScaleStep=m.bracketScaleStep;bracketNodeHalf=m.bracketNodeHalf;bracketNodeHalfHeight=m.bracketNodeHalfHeight;resultDesktopAvatar=m.resultDesktopAvatar;resultContentWidth=m.resultContentWidth;resultOutcomeFactor=m.resultOutcomeFactor;championDesktopAvatar=m.championDesktopAvatar;championMobileAvatar=m.championMobileAvatar;championDesktopNameSize=m.championDesktopNameSize;championMobileNameSize=m.championMobileNameSize;championHeight=m.championHeight;championContextTitleSize=m.championContextTitleSize;rankFeaturedHeight=m.rankFeaturedHeight;rankRegularHeight=m.rankRegularHeight;rankFeaturedName=m.rankFeaturedName;rankFeaturedValue=m.rankFeaturedValue;resultsContextTitleSize=m.resultsContextTitleSize;desktop = MediaQuery.sizeOf(context).width > r.mobileToDesktopWidth;
+    bracketGrid = m.bracketGrid;
+    bracketDot = m.bracketDot;
+    bracketStroke = m.bracketStroke;
+    bracketScaleMin = m.bracketScaleMin;
+    bracketScaleMax = m.bracketScaleMax;
+    bracketScaleStep = m.bracketScaleStep;
+    bracketNodeHalf = m.bracketNodeHalf;
+    bracketNodeHalfHeight = m.bracketNodeHalfHeight;
+    resultDesktopAvatar = m.resultDesktopAvatar;
+    resultContentWidth = m.resultContentWidth;
+    resultOutcomeFactor = m.resultOutcomeFactor;
+    championDesktopAvatar = m.championDesktopAvatar;
+    championMobileAvatar = m.championMobileAvatar;
+    championDesktopNameSize = m.championDesktopNameSize;
+    championMobileNameSize = m.championMobileNameSize;
+    championHeight = m.championHeight;
+    championContextTitleSize = m.championContextTitleSize;
+    rankFeaturedHeight = m.rankFeaturedHeight;
+    rankRegularHeight = m.rankRegularHeight;
+    rankFeaturedName = m.rankFeaturedName;
+    rankFeaturedValue = m.rankFeaturedValue;
+    resultsContextTitleSize = m.resultsContextTitleSize;
+    screenBrandSize = m.screenBrandSize;
+    screenBrandLine = m.screenBrandLine;
+    screenBrandTracking = m.screenBrandTracking;
+    desktop = MediaQuery.sizeOf(context).width > r.mobileToDesktopWidth;
     inset = EdgeInsets.all(desktop ? s.space32 : s.space24);
     brandInset = EdgeInsets.symmetric(horizontal: s.space32);
-    tileInset = EdgeInsets.all(desktop ? s.space32 : s.space0);
-    gap = desktop ? s.space24 : s.space24;
+    tileInset = EdgeInsets.all(desktop ? s.space24 : s.space0);
+    gap = desktop ? s.space20 : s.space24;
     small = s.space16;
     zero = s.space0;
     background = theme.scaffoldBackgroundColor;
@@ -81,7 +107,17 @@ class AppScreenLayoutTheme {
     caption = theme.textTheme.bodySmall!.copyWith(
       color: theme.colorScheme.onSurfaceVariant,
     );
-    brand = theme.textTheme.headlineSmall!;
+    brand = theme.textTheme.headlineLarge!.copyWith(
+      fontSize: m.screenBrandSize,
+      height: m.screenBrandLine,
+      letterSpacing: m.screenBrandSize * m.screenBrandTracking,
+    );
+    brandBorder = Border(
+      bottom: BorderSide(
+        color: theme.colorScheme.outline,
+        width: theme.extension<AppBorderMetrics>()!.hairline,
+      ),
+    );
     accentBrand = brand.copyWith(color: theme.colorScheme.primary);
     utilityWidth = m.utilityWidth;
     utilityHeight = m.utilityHeight;
@@ -93,6 +129,7 @@ class AppScreenLayoutTheme {
     brandHeight = m.brandHeight;
     formWidth = m.formWidth;
   }
+  late final Border brandBorder;
   late final CrossAxisAlignment start;
   late final CrossAxisAlignment stretch;
   late final CrossAxisAlignment centerCross;
@@ -139,7 +176,32 @@ class AppScreenLayoutTheme {
   late final double matchMobileNameFactor;
   late final double matchDesktopAvatar;
   late final double matchMobileAvatar;
-late final double bracketGrid;late final double bracketDot;late final double bracketStroke;late final double bracketScaleMin;late final double bracketScaleMax;late final double bracketScaleStep;late final double bracketNodeHalf;late final double bracketNodeHalfHeight;late final double resultDesktopAvatar;late final double resultContentWidth;late final double resultOutcomeFactor;late final double championDesktopAvatar;late final double championMobileAvatar;late final double championDesktopNameSize;late final double championMobileNameSize;late final double championHeight;late final double championContextTitleSize;late final double rankFeaturedHeight;late final double rankRegularHeight;late final double rankFeaturedName;late final double rankFeaturedValue;late final double resultsContextTitleSize;  late final bool desktop;
+  late final double bracketGrid;
+  late final double bracketDot;
+  late final double bracketStroke;
+  late final double bracketScaleMin;
+  late final double bracketScaleMax;
+  late final double bracketScaleStep;
+  late final double bracketNodeHalf;
+  late final double bracketNodeHalfHeight;
+  late final double resultDesktopAvatar;
+  late final double resultContentWidth;
+  late final double resultOutcomeFactor;
+  late final double championDesktopAvatar;
+  late final double championMobileAvatar;
+  late final double championDesktopNameSize;
+  late final double championMobileNameSize;
+  late final double championHeight;
+  late final double championContextTitleSize;
+  late final double rankFeaturedHeight;
+  late final double rankRegularHeight;
+  late final double rankFeaturedName;
+  late final double rankFeaturedValue;
+  late final double resultsContextTitleSize;
+  late final double screenBrandSize;
+  late final double screenBrandLine;
+  late final double screenBrandTracking;
+  late final bool desktop;
   late final EdgeInsets inset, tileInset, brandInset;
   late final double utilityWidth,
       utilityHeight,

@@ -8,8 +8,11 @@ final matchResultCorrectionUseCase = WidgetbookUseCase(
 );
 
 abstract final class MatchResultCorrectionUseCase {
-  static Widget build(BuildContext context) => MatchResultFixture(
-    key: const ValueKey(MatchResultSample.correction),
-    sample: MatchResultSample.correction,
+  static Widget build(BuildContext context) => KeyedSubtree(
+    key: const ValueKey<Type>(MatchResultCorrectionUseCase),
+    child: MatchResultFixture(
+      key: const ValueKey(MatchResultSample.correction),
+      sample: MatchResultSample.correction,
+    ),
   );
 }

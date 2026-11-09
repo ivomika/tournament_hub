@@ -8,5 +8,8 @@ final homeEmptyUseCase = WidgetbookUseCase(
 );
 
 abstract final class HomeEmptyUseCase {
-  static Widget build(BuildContext context) => HomeFixture(active: false);
+  static Widget build(BuildContext context) => KeyedSubtree(
+    key: const ValueKey<Type>(HomeEmptyUseCase),
+    child: HomeFixture(active: false),
+  );
 }

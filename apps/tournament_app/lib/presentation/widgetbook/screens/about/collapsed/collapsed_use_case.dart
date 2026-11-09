@@ -8,5 +8,8 @@ final aboutCollapsedUseCase = WidgetbookUseCase(
 );
 
 abstract final class AboutCollapsedUseCase {
-  static Widget build(BuildContext context) => AboutFixture(expanded: false);
+  static Widget build(BuildContext context) => KeyedSubtree(
+    key: const ValueKey<Type>(AboutCollapsedUseCase),
+    child: AboutFixture(expanded: false),
+  );
 }

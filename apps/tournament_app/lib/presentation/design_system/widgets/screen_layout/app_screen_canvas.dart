@@ -16,7 +16,8 @@ class AppScreenCanvas extends StatelessWidget {
           crossAxisAlignment: t.stretch,
           children: [
             if (t.desktop)
-              SizedBox(
+              Container(
+                decoration: BoxDecoration(border: t.brandBorder),
                 height: t.brandHeight,
                 child: Padding(
                   padding: t.brandInset,

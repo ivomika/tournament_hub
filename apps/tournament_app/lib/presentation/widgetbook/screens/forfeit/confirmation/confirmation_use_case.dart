@@ -8,5 +8,8 @@ final forfeitConfirmationUseCase = WidgetbookUseCase(
 );
 
 abstract final class ForfeitConfirmationUseCase {
-  static Widget build(BuildContext context) => ForfeitFixture();
+  static Widget build(BuildContext context) => KeyedSubtree(
+    key: const ValueKey<Type>(ForfeitConfirmationUseCase),
+    child: ForfeitFixture(),
+  );
 }

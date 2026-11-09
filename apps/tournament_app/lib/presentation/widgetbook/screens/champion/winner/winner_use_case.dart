@@ -8,5 +8,8 @@ final championWinnerUseCase = WidgetbookUseCase(
 );
 
 abstract final class ChampionWinnerUseCase {
-  static Widget build(BuildContext context) => ChampionFixture();
+  static Widget build(BuildContext context) => KeyedSubtree(
+    key: const ValueKey<Type>(ChampionWinnerUseCase),
+    child: ChampionFixture(),
+  );
 }

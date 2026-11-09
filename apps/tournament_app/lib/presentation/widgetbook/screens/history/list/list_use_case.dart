@@ -8,5 +8,8 @@ final historyListUseCase = WidgetbookUseCase(
 );
 
 abstract final class HistoryListUseCase {
-  static Widget build(BuildContext context) => HistoryFixture(empty: false);
+  static Widget build(BuildContext context) => KeyedSubtree(
+    key: const ValueKey<Type>(HistoryListUseCase),
+    child: HistoryFixture(empty: false),
+  );
 }

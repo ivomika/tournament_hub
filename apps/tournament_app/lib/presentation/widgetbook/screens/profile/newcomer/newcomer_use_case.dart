@@ -8,5 +8,8 @@ final profileNewcomerUseCase = WidgetbookUseCase(
 );
 
 abstract final class ProfileNewcomerUseCase {
-  static Widget build(BuildContext context) => ProfileFixture(newcomer: true);
+  static Widget build(BuildContext context) => KeyedSubtree(
+    key: const ValueKey<Type>(ProfileNewcomerUseCase),
+    child: ProfileFixture(newcomer: true),
+  );
 }

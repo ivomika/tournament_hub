@@ -8,5 +8,8 @@ final withdrawConfirmationUseCase = WidgetbookUseCase(
 );
 
 abstract final class WithdrawConfirmationUseCase {
-  static Widget build(BuildContext context) => WithdrawFixture();
+  static Widget build(BuildContext context) => KeyedSubtree(
+    key: const ValueKey<Type>(WithdrawConfirmationUseCase),
+    child: WithdrawFixture(),
+  );
 }

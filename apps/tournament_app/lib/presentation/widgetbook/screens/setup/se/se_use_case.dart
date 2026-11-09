@@ -8,6 +8,8 @@ final setupSeUseCase = WidgetbookUseCase(
 );
 
 abstract final class SetupSeUseCase {
-  static Widget build(BuildContext context) =>
-      SetupFixture(format: TournamentFormatDisplay.singleElimination);
+  static Widget build(BuildContext context) => KeyedSubtree(
+    key: const ValueKey<Type>(SetupSeUseCase),
+    child: SetupFixture(format: TournamentFormatDisplay.singleElimination),
+  );
 }

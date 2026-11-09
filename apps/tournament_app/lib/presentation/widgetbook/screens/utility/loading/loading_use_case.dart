@@ -10,9 +10,12 @@ final utilityLoadingUseCase = WidgetbookUseCase(
 
 abstract final class UtilityLoadingUseCase {
   static void back() {}
-  static Widget build(BuildContext context) => UtilityScreen(
-    state: const UtilityScreenState(phase: UtilityPhase.loading),
-    onBack: back,
-    onRetry: null,
+  static Widget build(BuildContext context) => KeyedSubtree(
+    key: const ValueKey<Type>(UtilityLoadingUseCase),
+    child: UtilityScreen(
+      state: const UtilityScreenState(phase: UtilityPhase.loading),
+      onBack: back,
+      onRetry: null,
+    ),
   );
 }

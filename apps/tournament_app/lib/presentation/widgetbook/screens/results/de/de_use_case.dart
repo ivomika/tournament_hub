@@ -8,6 +8,8 @@ final resultsDeUseCase = WidgetbookUseCase(
 );
 
 abstract final class ResultsDeUseCase {
-  static Widget build(BuildContext context) =>
-      ResultsFixture(sample: ResultsSample.de);
+  static Widget build(BuildContext context) => KeyedSubtree(
+    key: const ValueKey<Type>(ResultsDeUseCase),
+    child: ResultsFixture(sample: ResultsSample.de),
+  );
 }

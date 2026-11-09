@@ -8,8 +8,11 @@ final matchResultSaveErrorUseCase = WidgetbookUseCase(
 );
 
 abstract final class MatchResultSaveErrorUseCase {
-  static Widget build(BuildContext context) => MatchResultFixture(
-    key: const ValueKey(MatchResultSample.error),
-    sample: MatchResultSample.error,
+  static Widget build(BuildContext context) => KeyedSubtree(
+    key: const ValueKey<Type>(MatchResultSaveErrorUseCase),
+    child: MatchResultFixture(
+      key: const ValueKey(MatchResultSample.error),
+      sample: MatchResultSample.error,
+    ),
   );
 }

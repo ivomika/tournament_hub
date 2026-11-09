@@ -8,5 +8,8 @@ final aboutRulesUseCase = WidgetbookUseCase(
 );
 
 abstract final class AboutRulesUseCase {
-  static Widget build(BuildContext context) => AboutFixture(expanded: true);
+  static Widget build(BuildContext context) => KeyedSubtree(
+    key: const ValueKey<Type>(AboutRulesUseCase),
+    child: AboutFixture(expanded: true),
+  );
 }

@@ -8,6 +8,8 @@ final profileEditErrorUseCase = WidgetbookUseCase(
 );
 
 abstract final class ProfileEditErrorUseCase {
-  static Widget build(BuildContext context) =>
-      ProfileEditFixture(phase: ProfileEditPhase.saveError);
+  static Widget build(BuildContext context) => KeyedSubtree(
+    key: const ValueKey<Type>(ProfileEditErrorUseCase),
+    child: ProfileEditFixture(phase: ProfileEditPhase.saveError),
+  );
 }

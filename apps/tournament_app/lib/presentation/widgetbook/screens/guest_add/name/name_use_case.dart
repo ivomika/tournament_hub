@@ -8,5 +8,8 @@ final guestAddNameUseCase = WidgetbookUseCase(
 );
 
 abstract final class GuestAddNameUseCase {
-  static Widget build(BuildContext context) => GuestAddFixture();
+  static Widget build(BuildContext context) => KeyedSubtree(
+    key: const ValueKey<Type>(GuestAddNameUseCase),
+    child: GuestAddFixture(),
+  );
 }

@@ -8,5 +8,8 @@ final contactUnavailableUseCase = WidgetbookUseCase(
 );
 
 abstract final class ContactUnavailableUseCase {
-  static Widget build(BuildContext context) => ContactFixture();
+  static Widget build(BuildContext context) => KeyedSubtree(
+    key: const ValueKey<Type>(ContactUnavailableUseCase),
+    child: ContactFixture(),
+  );
 }

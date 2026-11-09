@@ -8,5 +8,8 @@ final resultLockedDependentMatchUseCase = WidgetbookUseCase(
 );
 
 abstract final class ResultLockedDependentMatchUseCase {
-  static Widget build(BuildContext context) => ResultLockedFixture();
+  static Widget build(BuildContext context) => KeyedSubtree(
+    key: const ValueKey<Type>(ResultLockedDependentMatchUseCase),
+    child: ResultLockedFixture(),
+  );
 }

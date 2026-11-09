@@ -8,5 +8,8 @@ final settingsDarkRussianUseCase = WidgetbookUseCase(
 );
 
 abstract final class SettingsDarkRussianUseCase {
-  static Widget build(BuildContext context) => SettingsFixture();
+  static Widget build(BuildContext context) => KeyedSubtree(
+    key: const ValueKey<Type>(SettingsDarkRussianUseCase),
+    child: SettingsFixture(),
+  );
 }

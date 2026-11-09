@@ -8,6 +8,8 @@ final tournamentSeUseCase = WidgetbookUseCase(
 );
 
 abstract final class TournamentSeUseCase {
-  static Widget build(BuildContext context) =>
-      TournamentFixture(sample: TournamentSample.se);
+  static Widget build(BuildContext context) => KeyedSubtree(
+    key: const ValueKey<Type>(TournamentSeUseCase),
+    child: TournamentFixture(sample: TournamentSample.se),
+  );
 }

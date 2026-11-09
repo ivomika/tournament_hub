@@ -8,5 +8,8 @@ final guestRemoveConfirmationUseCase = WidgetbookUseCase(
 );
 
 abstract final class GuestRemoveConfirmationUseCase {
-  static Widget build(BuildContext context) => GuestRemoveFixture();
+  static Widget build(BuildContext context) => KeyedSubtree(
+    key: const ValueKey<Type>(GuestRemoveConfirmationUseCase),
+    child: GuestRemoveFixture(),
+  );
 }

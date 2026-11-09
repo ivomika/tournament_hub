@@ -8,8 +8,11 @@ final matchResultTechnicalDeUseCase = WidgetbookUseCase(
 );
 
 abstract final class MatchResultTechnicalDeUseCase {
-  static Widget build(BuildContext context) => MatchResultFixture(
-    key: const ValueKey(MatchResultSample.technicalDe),
-    sample: MatchResultSample.technicalDe,
+  static Widget build(BuildContext context) => KeyedSubtree(
+    key: const ValueKey<Type>(MatchResultTechnicalDeUseCase),
+    child: MatchResultFixture(
+      key: const ValueKey(MatchResultSample.technicalDe),
+      sample: MatchResultSample.technicalDe,
+    ),
   );
 }

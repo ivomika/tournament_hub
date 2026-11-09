@@ -8,6 +8,8 @@ final distributionWorkingUseCase = WidgetbookUseCase(
 );
 
 abstract final class DistributionWorkingUseCase {
-  static Widget build(BuildContext context) =>
-      DistributionFixture(phase: DistributionPhase.working);
+  static Widget build(BuildContext context) => KeyedSubtree(
+    key: const ValueKey<Type>(DistributionWorkingUseCase),
+    child: DistributionFixture(phase: DistributionPhase.working),
+  );
 }

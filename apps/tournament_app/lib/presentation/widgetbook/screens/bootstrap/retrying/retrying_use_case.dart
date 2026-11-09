@@ -8,6 +8,8 @@ final bootstrapRetryingUseCase = WidgetbookUseCase(
 );
 
 abstract final class BootstrapRetryingUseCase {
-  static Widget build(BuildContext context) =>
-      BootstrapFixture(phase: BootstrapPhase.retrying);
+  static Widget build(BuildContext context) => KeyedSubtree(
+    key: const ValueKey<Type>(BootstrapRetryingUseCase),
+    child: BootstrapFixture(phase: BootstrapPhase.retrying),
+  );
 }

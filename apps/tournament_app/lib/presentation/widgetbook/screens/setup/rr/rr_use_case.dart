@@ -8,6 +8,8 @@ final setupRrUseCase = WidgetbookUseCase(
 );
 
 abstract final class SetupRrUseCase {
-  static Widget build(BuildContext context) =>
-      SetupFixture(format: TournamentFormatDisplay.roundRobin);
+  static Widget build(BuildContext context) => KeyedSubtree(
+    key: const ValueKey<Type>(SetupRrUseCase),
+    child: SetupFixture(format: TournamentFormatDisplay.roundRobin),
+  );
 }

@@ -1,3 +1,4 @@
+import 'package:tournament_app/presentation/design_system/foundation/icons/app_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:tournament_app/presentation/l10n/generated/foundation_localizations.dart';
 import 'package:tournament_app/presentation/design_system/widgets/screen_layout/app_centered_screen.dart';
@@ -40,6 +41,7 @@ class UtilityScreen extends StatelessWidget {
         crossAxisAlignment: t.start,
         mainAxisAlignment: t.centerMain,
         children: [
+          if(failed)...[AppIcon(AppGlyph.alert,color:t.error),SizedBox(height:t.gap)],
           if (!failed) ...[
             AppProgressIndicator(semanticLabel: l.screenLoading),
             SizedBox(height: t.gap),
@@ -55,7 +57,7 @@ class UtilityScreen extends StatelessWidget {
           SizedBox(height: t.gap),
           Text(
             failed ? l.screenRetryNote : l.screenLoadingNote,
-            style: t.muted,
+            style: t.caption,
           ),
         ],
       ),

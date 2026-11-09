@@ -8,6 +8,8 @@ final spectatorAccessDistributionUseCase = WidgetbookUseCase(
 );
 
 abstract final class SpectatorAccessDistributionUseCase {
-  static Widget build(BuildContext context) =>
-      SpectatorAccessFixture(address: false);
+  static Widget build(BuildContext context) => KeyedSubtree(
+    key: const ValueKey<Type>(SpectatorAccessDistributionUseCase),
+    child: SpectatorAccessFixture(address: false),
+  );
 }

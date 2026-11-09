@@ -8,6 +8,8 @@ final tournamentTiebreakUseCase = WidgetbookUseCase(
 );
 
 abstract final class TournamentTiebreakUseCase {
-  static Widget build(BuildContext context) =>
-      TournamentFixture(sample: TournamentSample.tiebreak);
+  static Widget build(BuildContext context) => KeyedSubtree(
+    key: const ValueKey<Type>(TournamentTiebreakUseCase),
+    child: TournamentFixture(sample: TournamentSample.tiebreak),
+  );
 }
