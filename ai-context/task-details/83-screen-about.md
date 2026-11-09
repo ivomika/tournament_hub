@@ -19,3 +19,8 @@ Prompt пользователя (дословно):
 > отлично теперь собери экраны из прототипов. Экраны должны быть независимы и отображать только переданное состояние и данные, никакой логику внутри экранов. Они должны быть плоскими и повторять прототипы. Каждый экран атомарная еденица. Каждый экран сопровождается коммитом без пуш
 
 Итог: About collapsed/rules: только переданная версия и expanded state, onToggleRules внешний. Desktop отдельные hero/version/rules tiles, Mobile общая поверхность.4 native PNG,2 tests PASS без update; analyzer no issues. Правила и тексты сверены с оригинальным HTML, source/native просмотрены. No push.
+
+Аудит реального Widgetbook: подтверждено переполнение при textScale1.6 (Setup: рабочая область свободного viewport). Исправление ограничений/прокрутки, без изменения presentation-контракта или бизнес-логики. Повторить native goldens и реальный viewport audit.
+
+Уточнение пользователя (дословно): «продолжи».
+Исправление: Expanded rules scroll inside their source-height desktop card. Проверки: 12 targeted native tests, 152 full DS/screens/real Widgetbook tests, all-screen Mobile/Desktop audit textScale1.6 passed; analyzer clean. No push.

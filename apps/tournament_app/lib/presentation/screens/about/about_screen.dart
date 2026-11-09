@@ -82,7 +82,9 @@ class AboutScreen extends StatelessWidget {
                                 SizedBox(height: t.gap),
                                 SizedBox(
                                   height: t.aboutRulesHeight,
-                                  child: AppScreenTile(child: rules),
+                                  child: AppScreenTile(
+                                    child: SingleChildScrollView(child: rules),
+                                  ),
                                 ),
                               ],
                             ),
