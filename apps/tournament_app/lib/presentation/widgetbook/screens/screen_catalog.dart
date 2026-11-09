@@ -1,3 +1,4 @@
+import 'package:tournament_app/presentation/widgetbook/screens/result_locked/dependent_match/dependent_match_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/screens/withdraw/confirmation/confirmation_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/screens/tie/equal_points/equal_points_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/screens/tournament/de/de_use_case.dart';
@@ -35,6 +36,10 @@ import 'package:tournament_app/presentation/widgetbook/screens/utility/loading/l
 import 'package:tournament_app/presentation/widgetbook/screens/utility/error/error_use_case.dart';
 
 final screenCatalog = <WidgetbookNode>[
+  WidgetbookComponent(
+    name: 'ResultLocked',
+    useCases: [resultLockedDependentMatchUseCase],
+  ),
   WidgetbookComponent(
     name: 'Withdraw',
     useCases: [withdrawConfirmationUseCase],

@@ -101,7 +101,7 @@
 - ✅ 93. Screen Проведение турнира — независимая композиция прототипов. [Детали](task-details/93-screen-tournament.md)
 - ✅ 94. Screen Переигровка — независимая композиция прототипов. [Детали](task-details/94-screen-tie.md)
 - ✅ 95. Screen Снятие участника — независимая композиция прототипов. [Детали](task-details/95-screen-withdraw.md)
-- 🟣 96. Screen Недоступное исправление — независимая композиция прототипов. [Детали](task-details/96-screen-result-locked.md)
+- ✅ 96. Screen Недоступное исправление — независимая композиция прототипов. [Детали](task-details/96-screen-result-locked.md)
 - 🟣 97. Screen Турнирная сетка — независимая композиция прототипов. [Детали](task-details/97-screen-bracket.md)
 - 🟣 98. Screen Результат матча — независимая композиция прототипов. [Детали](task-details/98-screen-match-result.md)
 - 🟣 99. Screen Сдача матча — независимая композиция прототипов. [Детали](task-details/99-screen-forfeit.md)

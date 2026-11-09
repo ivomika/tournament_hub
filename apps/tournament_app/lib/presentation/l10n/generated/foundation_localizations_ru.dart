@@ -927,4 +927,8 @@ class FoundationLocalizationsRu extends FoundationLocalizations {
 
   @override
   String get screenStartReplay => 'Начать переигровку';
+
+  @override
+  String get screenLockedReason =>
+      'Следующий зависимый матч уже сыгран. Этот результат нельзя исправить.';
 }

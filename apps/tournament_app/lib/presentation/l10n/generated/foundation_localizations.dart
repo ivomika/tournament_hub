@@ -1836,6 +1836,12 @@ abstract class FoundationLocalizations {
   /// In ru, this message translates to:
   /// **'Начать переигровку'**
   String get screenStartReplay;
+
+  /// No description provided for @screenLockedReason.
+  ///
+  /// In ru, this message translates to:
+  /// **'Следующий зависимый матч уже сыгран. Этот результат нельзя исправить.'**
+  String get screenLockedReason;
 }
 
 class _FoundationLocalizationsDelegate
