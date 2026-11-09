@@ -19,3 +19,8 @@ Prompt пользователя (дословно):
 > отлично теперь собери экраны из прототипов. Экраны должны быть независимы и отображать только переданное состояние и данные, никакой логику внутри экранов. Они должны быть плоскими и повторять прототипы. Каждый экран атомарная еденица. Каждый экран сопровождается коммитом без пуш
 
 Итог: Profile view/newcomer: независимый Stateless screen, immutable external statistics/recent data, callbacks. Собственная Desktop bento hierarchy, Mobile scroll.4 native PNG, Profile2+Identity2 tests PASS без update; analyzer no issues. Source/native screenshots просмотрены. Identity получил optional avatar size для compact recent, default goldens сохранены. No push.
+
+Аудит реального Widgetbook: подтверждено переполнение при textScale1.6 (Setup: рабочая область свободного viewport). Исправление ограничений/прокрутки, без изменения presentation-контракта или бизнес-логики. Повторить native goldens и реальный viewport audit.
+
+Уточнение пользователя (дословно): «продолжи».
+Исправление: Recent tournament content scrolls within its allocated panel at large text without shifting normal layout. Проверки: 12 targeted native tests, 152 full DS/screens/real Widgetbook tests, all-screen Mobile/Desktop audit textScale1.6 passed; analyzer clean. No push.

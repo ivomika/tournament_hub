@@ -83,23 +83,27 @@ class ProfileScreen extends StatelessWidget {
               child: Row(
                 children: [
                   Expanded(
-                    child: Column(
-                      mainAxisSize: t.min,
-                      crossAxisAlignment: t.start,
-                      children: [
-                        Text(l.screenLastTournament, style: t.caption),
-                        SizedBox(height: t.small),
-                        Text(recent.name, style: t.title),
-                        SizedBox(height: t.small),
-                        AppIdentity(
-                          primary: recent.character,
-                          initials: recent.initials,
-                          secondary: state.name,
-                          size: AppAvatarSize.small,
+                    child: Center(
+                      child: SingleChildScrollView(
+                        child: Column(
+                          mainAxisSize: t.min,
+                          crossAxisAlignment: t.start,
+                          children: [
+                            Text(l.screenLastTournament, style: t.caption),
+                            SizedBox(height: t.small),
+                            Text(recent.name, style: t.title),
+                            SizedBox(height: t.small),
+                            AppIdentity(
+                              primary: recent.character,
+                              initials: recent.initials,
+                              secondary: state.name,
+                              size: AppAvatarSize.small,
+                            ),
+                            SizedBox(height: t.small),
+                            Text(recent.date, style: t.caption),
+                          ],
                         ),
-                        SizedBox(height: t.small),
-                        Text(recent.date, style: t.caption),
-                      ],
+                      ),
                     ),
                   ),
                   SizedBox(width: t.small),

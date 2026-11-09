@@ -85,7 +85,7 @@
 - ✅ 77. Screen Загрузка данных — независимая композиция прототипов. [Детали](task-details/77-screen-utility.md)
 - ✅ 78. Screen Инициализация — независимая композиция прототипов. [Детали](task-details/78-screen-bootstrap.md)
 - ✅ 79. Screen Главная — независимая композиция прототипов. [Детали](task-details/79-screen-home.md)
-- 🚧 80. Screen Профиль — независимая композиция прототипов. [Детали](task-details/80-screen-profile.md)
+- ✅ 80. Screen Профиль — независимая композиция прототипов. [Детали](task-details/80-screen-profile.md)
 - ✅ 81. Screen Редактирование профиля — независимая композиция прототипов. [Детали](task-details/81-screen-profile-edit.md)
 - ✅ 82. Screen Настройки — независимая композиция прототипов. [Детали](task-details/82-screen-settings.md)
 - 🚧 83. Screen О приложении — независимая композиция прототипов. [Детали](task-details/83-screen-about.md)
