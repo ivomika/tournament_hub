@@ -1998,6 +1998,36 @@ abstract class FoundationLocalizations {
   /// In ru, this message translates to:
   /// **'Итоги турнира'**
   String get screenTournamentResults;
+
+  /// No description provided for @screenResults.
+  ///
+  /// In ru, this message translates to:
+  /// **'Итоги'**
+  String get screenResults;
+
+  /// No description provided for @screenHome.
+  ///
+  /// In ru, this message translates to:
+  /// **'На главную'**
+  String get screenHome;
+
+  /// No description provided for @screenViewBracket.
+  ///
+  /// In ru, this message translates to:
+  /// **'Посмотреть сетку'**
+  String get screenViewBracket;
+
+  /// No description provided for @screenThirdPlaces.
+  ///
+  /// In ru, this message translates to:
+  /// **'Почему два третьих места?'**
+  String get screenThirdPlaces;
+
+  /// No description provided for @screenThirdPlacesCopy.
+  ///
+  /// In ru, this message translates to:
+  /// **'Оба полуфиналиста делят 3–4 места. Отдельного матча за третье место нет.'**
+  String get screenThirdPlacesCopy;
 }
 
 class _FoundationLocalizationsDelegate

@@ -1012,4 +1012,20 @@ class FoundationLocalizationsRu extends FoundationLocalizations {
 
   @override
   String get screenTournamentResults => 'Итоги турнира';
+
+  @override
+  String get screenResults => 'Итоги';
+
+  @override
+  String get screenHome => 'На главную';
+
+  @override
+  String get screenViewBracket => 'Посмотреть сетку';
+
+  @override
+  String get screenThirdPlaces => 'Почему два третьих места?';
+
+  @override
+  String get screenThirdPlacesCopy =>
+      'Оба полуфиналиста делят 3–4 места. Отдельного матча за третье место нет.';
 }

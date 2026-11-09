@@ -1,3 +1,4 @@
+import 'package:tournament_app/presentation/widgetbook/widgets/ranking_row/default/default_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/widgets/bracket_map/default/default_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/widgets/adaptive_grid/default/default_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/widgets/history_entry/default/default_use_case.dart';
@@ -288,6 +289,10 @@ final widgetbookCatalog = <WidgetbookNode>[
       WidgetbookComponent(
         name: 'BracketMap',
         useCases: [bracketMapDefaultUseCase],
+      ),
+      WidgetbookComponent(
+        name: 'Ranking row',
+        useCases: [rankingRowDefaultUseCase],
       ),
       WidgetbookComponent(
         name: 'History entry',

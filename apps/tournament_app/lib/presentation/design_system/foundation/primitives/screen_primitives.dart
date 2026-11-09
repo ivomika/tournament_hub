@@ -1,4 +1,9 @@
 abstract final class ScreenPrimitives {
+static const rankFeaturedHeight=220.0;
+static const rankRegularHeight=116.0;
+static const rankFeaturedName=36.0;
+static const rankFeaturedValue=56.0;
+static const resultsContextTitleSize=32.0;
 static const championContextTitleSize=32.0;
 static const championDesktopAvatar=180.0;
 static const championMobileAvatar=176.0;

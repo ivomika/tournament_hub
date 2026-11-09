@@ -413,5 +413,10 @@
   "screenIncreaseScore": "Увеличить счёт",
   "screenFinished": "Турнир завершён",
   "screenChampion": "Чемпион",
-  "screenTournamentResults": "Итоги турнира"
+  "screenTournamentResults": "Итоги турнира",
+  "screenResults": "Итоги",
+  "screenHome": "На главную",
+  "screenViewBracket": "Посмотреть сетку",
+  "screenThirdPlaces": "Почему два третьих места?",
+  "screenThirdPlacesCopy": "Оба полуфиналиста делят 3–4 места. Отдельного матча за третье место нет."
 }
