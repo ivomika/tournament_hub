@@ -19,3 +19,8 @@ Prompt пользователя (дословно):
 > отлично теперь собери экраны из прототипов. Экраны должны быть независимы и отображать только переданное состояние и данные, никакой логику внутри экранов. Они должны быть плоскими и повторять прототипы. Каждый экран атомарная еденица. Каждый экран сопровождается коммитом без пуш
 
 Итог: History list/empty: featured entry и остальные entries передаются отдельно; никаких сортировки, поиска первой записи или загрузки. Native4 PNG; History2+HistoryEntry2+AdaptiveGrid2 tests PASS без update. Analyzer no issues, architecture409 files PASS. Source/native просмотрены; актуальная bento-иерархия восстановлена. Reusable HistoryEntry/Grid имеют собственные fixtures/goldens. No push.
+
+Аудит реального Widgetbook: подтверждено переполнение при textScale1.6 (Setup: рабочая область свободного viewport). Исправление ограничений/прокрутки, без изменения presentation-контракта или бизнес-логики. Повторить native goldens и реальный viewport audit.
+
+Уточнение пользователя (дословно): «продолжи».
+Исправление: Featured history card grows naturally at large text; intro retains source minimum geometry. Проверки: 12 targeted native tests, 152 full DS/screens/real Widgetbook tests, all-screen Mobile/Desktop audit textScale1.6 passed; analyzer clean. No push.

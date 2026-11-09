@@ -88,12 +88,12 @@ class HistoryScreen extends StatelessWidget {
                 crossAxisAlignment: t.stretch,
                 children: [
                   if (t.desktop)
-                    SizedBox(
-                      height: t.historyFeatureHeight,
-                      child: Row(
-                        crossAxisAlignment: t.stretch,
-                        children: [
-                          Expanded(
+                    Row(
+                      crossAxisAlignment: t.start,
+                      children: [
+                        Expanded(
+                          child: SizedBox(
+                            height: t.historyFeatureHeight,
                             child: AppScreenTile(
                               child: Column(
                                 mainAxisAlignment: t.centerMain,
@@ -102,20 +102,20 @@ class HistoryScreen extends StatelessWidget {
                               ),
                             ),
                           ),
-                          SizedBox(width: t.gap),
-                          Expanded(
-                            flex: t.homePrimaryFlex,
-                            child: Column(
-                              crossAxisAlignment: t.stretch,
-                              children: [
-                                Text(state.periodLabel, style: t.caption),
-                                SizedBox(height: t.gap),
-                                if (first != null) Expanded(child: first),
-                              ],
-                            ),
+                        ),
+                        SizedBox(width: t.gap),
+                        Expanded(
+                          flex: t.homePrimaryFlex,
+                          child: Column(
+                            crossAxisAlignment: t.stretch,
+                            children: [
+                              Text(state.periodLabel, style: t.caption),
+                              SizedBox(height: t.gap),
+                              ?first,
+                            ],
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     )
                   else ...[
                     intro,
