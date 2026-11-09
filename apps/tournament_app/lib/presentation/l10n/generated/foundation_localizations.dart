@@ -1980,6 +1980,24 @@ abstract class FoundationLocalizations {
   /// In ru, this message translates to:
   /// **'Увеличить счёт'**
   String get screenIncreaseScore;
+
+  /// No description provided for @screenFinished.
+  ///
+  /// In ru, this message translates to:
+  /// **'Турнир завершён'**
+  String get screenFinished;
+
+  /// No description provided for @screenChampion.
+  ///
+  /// In ru, this message translates to:
+  /// **'Чемпион'**
+  String get screenChampion;
+
+  /// No description provided for @screenTournamentResults.
+  ///
+  /// In ru, this message translates to:
+  /// **'Итоги турнира'**
+  String get screenTournamentResults;
 }
 
 class _FoundationLocalizationsDelegate

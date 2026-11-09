@@ -1003,4 +1003,13 @@ class FoundationLocalizationsRu extends FoundationLocalizations {
 
   @override
   String get screenIncreaseScore => 'Увеличить счёт';
+
+  @override
+  String get screenFinished => 'Турнир завершён';
+
+  @override
+  String get screenChampion => 'Чемпион';
+
+  @override
+  String get screenTournamentResults => 'Итоги турнира';
 }

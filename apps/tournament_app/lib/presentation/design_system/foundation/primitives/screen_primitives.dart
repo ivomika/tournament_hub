@@ -1,4 +1,10 @@
 abstract final class ScreenPrimitives {
+static const championContextTitleSize=32.0;
+static const championDesktopAvatar=180.0;
+static const championMobileAvatar=176.0;
+static const championDesktopNameSize=56.0;
+static const championMobileNameSize=48.0;
+static const championHeight=500.0;
 static const resultDesktopAvatar=104.0;
 static const resultContentWidth=600.0;
 static const resultOutcomeFactor=2.8;

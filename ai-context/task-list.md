@@ -105,5 +105,5 @@
 - ✅ 97. Screen Турнирная сетка — независимая композиция прототипов. [Детали](task-details/97-screen-bracket.md)
 - ✅ 98. Screen Результат матча — независимая композиция прототипов. [Детали](task-details/98-screen-match-result.md)
 - ✅ 99. Screen Сдача матча — независимая композиция прототипов. [Детали](task-details/99-screen-forfeit.md)
-- 🟣 100. Screen Чемпион — независимая композиция прототипов. [Детали](task-details/100-screen-champion.md)
+- ✅ 100. Screen Чемпион — независимая композиция прототипов. [Детали](task-details/100-screen-champion.md)
 - 🟣 101. Screen Итоги — независимая композиция прототипов. [Детали](task-details/101-screen-results.md)

@@ -1,3 +1,4 @@
+import 'package:tournament_app/presentation/widgetbook/screens/champion/winner/winner_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/screens/forfeit/confirmation/confirmation_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/screens/match_result/ft1/ft1_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/screens/match_result/ft2/ft2_use_case.dart';
@@ -47,6 +48,7 @@ import 'package:tournament_app/presentation/widgetbook/screens/utility/loading/l
 import 'package:tournament_app/presentation/widgetbook/screens/utility/error/error_use_case.dart';
 
 final screenCatalog = <WidgetbookNode>[
+  WidgetbookComponent(name: 'Champion', useCases: [championWinnerUseCase]),
   WidgetbookComponent(name: 'Forfeit', useCases: [forfeitConfirmationUseCase]),
   WidgetbookComponent(
     name: 'MatchResult',

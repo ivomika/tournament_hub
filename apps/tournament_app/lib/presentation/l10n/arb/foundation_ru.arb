@@ -410,5 +410,8 @@
   "screenTechnicalRrNote": "Без игрового счёта. В RR: 3 очка победителю, 0 — сопернику.",
   "screenTechnicalDeNote": "Без игрового счёта. Поражение учитывается по правилам DE.",
   "screenDecreaseScore": "Уменьшить счёт",
-  "screenIncreaseScore": "Увеличить счёт"
+  "screenIncreaseScore": "Увеличить счёт",
+  "screenFinished": "Турнир завершён",
+  "screenChampion": "Чемпион",
+  "screenTournamentResults": "Итоги турнира"
 }
