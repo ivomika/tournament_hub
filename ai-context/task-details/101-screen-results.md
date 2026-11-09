@@ -19,3 +19,5 @@ Prompt пользователя (дословно):
 > отлично теперь собери экраны из прототипов. Экраны должны быть независимы и отображать только переданное состояние и данные, никакой логику внутри экранов. Они должны быть плоскими и повторять прототипы. Каждый экран атомарная еденица. Каждый экран сопровождается коммитом без пуш
 
 Итог: DE/SE/RR prepared rankings: 4 screen/ranking-row native tests passed; analyzer clean; no sorting or points calculation in screen. No push.
+
+Финальное уточнение: обновлён только desktop golden отдельного RankingRow preview после сверки общего gap20 с финальным CSS. Полная регрессия DS/screens/real Widgetbook: 152 passed; оформление компонента не менялось. No push.
