@@ -8,6 +8,8 @@ class BootstrapScreenTheme extends AppScreenLayoutTheme {
     final m = Theme.of(context).extension<AppScreenMetrics>()!;
     top = m.bootTop - inset.top;
     final s = Theme.of(context).extension<AppSpacing>()!;
+    error = Theme.of(context).colorScheme.error;
+    errorSize = s.space32;
     markWidth = s.space48;
     markHeight = s.space4;
     blockHeight = m.bootBrandHeight;
@@ -16,7 +18,9 @@ class BootstrapScreenTheme extends AppScreenLayoutTheme {
     logo = hero.copyWith(fontSize: m.bootFont);
     accentLogo = logo.copyWith(color: accentHero.color);
   }
-  late final double markWidth,
+  late final Color error;
+  late final double errorSize,
+      markWidth,
       markHeight,
       top,
       cueHeight,

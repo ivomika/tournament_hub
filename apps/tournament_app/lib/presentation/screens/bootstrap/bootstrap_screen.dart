@@ -1,3 +1,5 @@
+import 'package:tournament_app/presentation/design_system/foundation/icons/app_icon.dart';
+import 'package:tournament_app/presentation/design_system/foundation/icons/app_glyph.dart';
 import 'package:tournament_app/presentation/design_system/widgets/screen_layout/app_screen_canvas.dart';
 import 'package:flutter/material.dart';
 import 'package:tournament_app/presentation/l10n/generated/foundation_localizations.dart';
@@ -86,9 +88,10 @@ class BootstrapScreen extends StatelessWidget {
                 crossAxisAlignment: t.stretch,
                 children: [
                   SizedBox(height: t.top),
-                  SizedBox(
-                    height: t.blockHeight,
+                  ConstrainedBox(
+                    constraints: BoxConstraints(minHeight: t.blockHeight),
                     child: Column(
+                      mainAxisSize: t.min,
                       crossAxisAlignment: t.start,
                       children: [
                         SizedBox(
@@ -107,19 +110,26 @@ class BootstrapScreen extends StatelessWidget {
                     height: t.cueHeight,
                     child: Center(
                       child: state.phase == BootstrapPhase.error
-                          ? Text(l.screenBootError, style: t.muted)
+                          ? SizedBox(
+                              width: t.errorSize,
+                              height: t.errorSize,
+                              child: FittedBox(
+                                child: AppIcon(AppGlyph.alert, color: t.error),
+                              ),
+                            )
                           : AppProgressIndicator(
                               semanticLabel: l.screenBootPreparing,
                             ),
                     ),
                   ),
                   SizedBox(height: t.small),
-                  if (state.phase != BootstrapPhase.error)
-                    Text(
-                      l.screenBootPreparing,
-                      style: t.muted,
-                      textAlign: t.centerText,
-                    ),
+                  Text(
+                    state.phase == BootstrapPhase.error
+                        ? l.screenBootError
+                        : l.screenBootPreparing,
+                    style: t.muted,
+                    textAlign: t.centerText,
+                  ),
                   if (state.phase != BootstrapPhase.loading) ...[
                     SizedBox(height: t.gap),
                     AppButton(

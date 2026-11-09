@@ -19,3 +19,8 @@ Prompt пользователя (дословно):
 > отлично теперь собери экраны из прототипов. Экраны должны быть независимы и отображать только переданное состояние и данные, никакой логику внутри экранов. Они должны быть плоскими и повторять прототипы. Каждый экран атомарная еденица. Каждый экран сопровождается коммитом без пуш
 
 Итог: loading/error/retrying — собственная плоская композиция Bootstrap; основная тема передаёт brand/layout metrics, интерактивный retry callback внешний.6 native PNG;3 tests PASS без update; Utility3 tests PASS, analyzer no issues, architecture348 files PASS до последнего визуального brand refinement. Source/native screenshots просмотрены, общая bento-сетка заменена на отдельную композицию до коммита. No push.
+
+Аудит реального Widgetbook: подтверждено переполнение при textScale1.6 (Setup: рабочая область свободного viewport). Исправление ограничений/прокрутки, без изменения presentation-контракта или бизнес-логики. Повторить native goldens и реальный viewport audit.
+
+Уточнение пользователя (дословно): «продолжи».
+Исправление: Natural minimum brand block height supports large text; restored themed error cue. Проверки: 12 targeted native tests, 152 full DS/screens/real Widgetbook tests, all-screen Mobile/Desktop audit textScale1.6 passed; analyzer clean. No push.
