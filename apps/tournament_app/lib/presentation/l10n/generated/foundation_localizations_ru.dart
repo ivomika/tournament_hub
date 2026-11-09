@@ -905,4 +905,26 @@ class FoundationLocalizationsRu extends FoundationLocalizations {
   @override
   String get screenStandingsResultsNote =>
       'Игровые и технические результаты основного этапа.';
+
+  @override
+  String get screenReplay => 'Переигровка';
+
+  @override
+  String get screenMainFinished => 'Основной этап завершён';
+
+  @override
+  String get screenReplayPlaces => 'Разыграем\nместа.';
+
+  @override
+  String get screenReplayNote => 'Трое участников набрали по 3 очка.';
+
+  @override
+  String get screenReplayRules => 'Правила переигровки';
+
+  @override
+  String get screenReplayRulesCopy =>
+      'Участники с равными очками сыграют Mini Round Robin. FT2 и очки 3 / 2 / 1 / 0 сохраняются.';
+
+  @override
+  String get screenStartReplay => 'Начать переигровку';
 }

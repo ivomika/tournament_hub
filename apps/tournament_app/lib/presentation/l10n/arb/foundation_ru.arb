@@ -379,5 +379,12 @@
   "screenTiebreakDetails": "Итоговые места определяются результатами переигровки.",
   "screenCurrentScore": "Текущий счёт",
   "screenResultCorrect": "Исправить результат",
-  "screenStandingsResultsNote": "Игровые и технические результаты основного этапа."
+  "screenStandingsResultsNote": "Игровые и технические результаты основного этапа.",
+  "screenReplay": "Переигровка",
+  "screenMainFinished": "Основной этап завершён",
+  "screenReplayPlaces": "Разыграем\nместа.",
+  "screenReplayNote": "Трое участников набрали по 3 очка.",
+  "screenReplayRules": "Правила переигровки",
+  "screenReplayRulesCopy": "Участники с равными очками сыграют Mini Round Robin. FT2 и очки 3 / 2 / 1 / 0 сохраняются.",
+  "screenStartReplay": "Начать переигровку"
 }

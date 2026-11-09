@@ -1,3 +1,4 @@
+import 'package:tournament_app/presentation/widgetbook/screens/tie/equal_points/equal_points_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/screens/tournament/de/de_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/screens/tournament/se/se_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/screens/tournament/rr/rr_use_case.dart';
@@ -33,6 +34,7 @@ import 'package:tournament_app/presentation/widgetbook/screens/utility/loading/l
 import 'package:tournament_app/presentation/widgetbook/screens/utility/error/error_use_case.dart';
 
 final screenCatalog = <WidgetbookNode>[
+  WidgetbookComponent(name: 'Tie', useCases: [tieEqualPointsUseCase]),
   WidgetbookComponent(
     name: 'Tournament',
     useCases: [

@@ -1794,6 +1794,48 @@ abstract class FoundationLocalizations {
   /// In ru, this message translates to:
   /// **'Игровые и технические результаты основного этапа.'**
   String get screenStandingsResultsNote;
+
+  /// No description provided for @screenReplay.
+  ///
+  /// In ru, this message translates to:
+  /// **'Переигровка'**
+  String get screenReplay;
+
+  /// No description provided for @screenMainFinished.
+  ///
+  /// In ru, this message translates to:
+  /// **'Основной этап завершён'**
+  String get screenMainFinished;
+
+  /// No description provided for @screenReplayPlaces.
+  ///
+  /// In ru, this message translates to:
+  /// **'Разыграем\nместа.'**
+  String get screenReplayPlaces;
+
+  /// No description provided for @screenReplayNote.
+  ///
+  /// In ru, this message translates to:
+  /// **'Трое участников набрали по 3 очка.'**
+  String get screenReplayNote;
+
+  /// No description provided for @screenReplayRules.
+  ///
+  /// In ru, this message translates to:
+  /// **'Правила переигровки'**
+  String get screenReplayRules;
+
+  /// No description provided for @screenReplayRulesCopy.
+  ///
+  /// In ru, this message translates to:
+  /// **'Участники с равными очками сыграют Mini Round Robin. FT2 и очки 3 / 2 / 1 / 0 сохраняются.'**
+  String get screenReplayRulesCopy;
+
+  /// No description provided for @screenStartReplay.
+  ///
+  /// In ru, this message translates to:
+  /// **'Начать переигровку'**
+  String get screenStartReplay;
 }
 
 class _FoundationLocalizationsDelegate
