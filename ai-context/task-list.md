@@ -107,3 +107,5 @@
 - ✅ 99. Screen Сдача матча — независимая композиция прототипов. [Детали](task-details/99-screen-forfeit.md)
 - ✅ 100. Screen Чемпион — независимая композиция прототипов. [Детали](task-details/100-screen-champion.md)
 - ✅ 101. Screen Итоги — независимая композиция прототипов. [Детали](task-details/101-screen-results.md)
+
+- ✅ 102. Стабильный запуск macOS на Intel — диагностика renderer и настройка совместимого backend. [Детали](task-details/102-macos-intel-rendering.md)
