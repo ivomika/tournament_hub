@@ -16,39 +16,39 @@ class AppCenteredScreen extends StatelessWidget {
   final bool stretchContent;
   @override
   Widget build(BuildContext context) {
-    final t = AppScreenLayoutTheme.of(context);
+    final appearance = AppScreenLayoutTheme.of(context);
     return AppScreenCanvas(
       child: Column(
-        crossAxisAlignment: t.stretch,
+        crossAxisAlignment: appearance.stretch,
         children: [
           header,
-          SizedBox(height: t.gap),
-          if (t.desktop)
+          SizedBox(height: appearance.gap),
+          if (appearance.desktop)
             Expanded(
               child: SingleChildScrollView(
                 child: Column(
-                  crossAxisAlignment: t.stretch,
+                  crossAxisAlignment: appearance.stretch,
                   children: [
-                    SizedBox(height: t.utilityTop),
+                    SizedBox(height: appearance.utilityTop),
                     Center(
                       child: SizedBox(
-                        width: t.utilityWidth,
-                        height: t.utilityHeight,
+                        width: appearance.utilityWidth,
+                        height: appearance.utilityHeight,
                         child: AppScreenTile(
-                          padding: EdgeInsets.all(t.simplePadding),
+                          padding: EdgeInsets.all(appearance.simplePadding),
                           child: child,
                         ),
                       ),
                     ),
                     if (footer != null) ...[
-                      SizedBox(height: t.gap),
+                      SizedBox(height: appearance.gap),
                       Center(
                         child: SizedBox(
-                          width: t.utilityWidth,
+                          width: appearance.utilityWidth,
                           child: Align(
-                            alignment: t.rightAlign,
+                            alignment: appearance.rightAlign,
                             child: SizedBox(
-                              width: t.utilityAction,
+                              width: appearance.utilityAction,
                               child: footer,
                             ),
                           ),
@@ -64,14 +64,14 @@ class AppCenteredScreen extends StatelessWidget {
               child: Center(
                 child: SingleChildScrollView(
                   child: stretchContent
-                      ? SizedBox(width: t.fullWidth, child: child)
+                      ? SizedBox(width: appearance.fullWidth, child: child)
                       : child,
                 ),
               ),
             ),
             SizedBox(
-              height: t.utilityReserve,
-              child: Align(alignment: t.bottomAlign, child: footer),
+              height: appearance.utilityReserve,
+              child: Align(alignment: appearance.bottomAlign, child: footer),
             ),
           ],
         ],

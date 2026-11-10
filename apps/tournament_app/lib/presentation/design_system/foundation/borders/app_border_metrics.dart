@@ -26,17 +26,24 @@ class AppBorderMetrics extends ThemeExtension<AppBorderMetrics> {
     focusOffset: focusOffset ?? this.focusOffset,
   );
   @override
-  AppBorderMetrics lerp(covariant AppBorderMetrics? other, double t) {
+  AppBorderMetrics lerp(
+    covariant AppBorderMetrics? other,
+    double interpolationAmount,
+  ) {
     if (other == null) return this;
     return AppBorderMetrics(
-      hairline: lerpDouble(hairline, other.hairline, t)!,
-      emphasis: lerpDouble(emphasis, other.emphasis, t)!,
+      hairline: lerpDouble(hairline, other.hairline, interpolationAmount)!,
+      emphasis: lerpDouble(emphasis, other.emphasis, interpolationAmount)!,
       highContrastFocus: lerpDouble(
         highContrastFocus,
         other.highContrastFocus,
-        t,
+        interpolationAmount,
       )!,
-      focusOffset: lerpDouble(focusOffset, other.focusOffset, t)!,
+      focusOffset: lerpDouble(
+        focusOffset,
+        other.focusOffset,
+        interpolationAmount,
+      )!,
     );
   }
 }

@@ -36,18 +36,25 @@ class AppProgressMetrics extends ThemeExtension<AppProgressMetrics> {
     staticValue: staticValue ?? this.staticValue,
   );
   @override
-  AppProgressMetrics lerp(covariant AppProgressMetrics? other, double t) =>
-      other == null
-      ? this
-      : AppProgressMetrics(
-          height: height + (other.height - height) * t,
-          width: width + (other.width - width) * t,
-          strokeWidth: strokeWidth + (other.strokeWidth - strokeWidth) * t,
-          trackStrokeWidth:
-              trackStrokeWidth +
-              (other.trackStrokeWidth - trackStrokeWidth) * t,
-          wavelength: wavelength + (other.wavelength - wavelength) * t,
-          waveSpeed: waveSpeed + (other.waveSpeed - waveSpeed) * t,
-          staticValue: staticValue + (other.staticValue - staticValue) * t,
-        );
+  AppProgressMetrics lerp(
+    covariant AppProgressMetrics? other,
+    double interpolationAmount,
+  ) {
+    if (other == null) return this;
+    return AppProgressMetrics(
+      height: height + (other.height - height) * interpolationAmount,
+      width: width + (other.width - width) * interpolationAmount,
+      strokeWidth:
+          strokeWidth + (other.strokeWidth - strokeWidth) * interpolationAmount,
+      trackStrokeWidth:
+          trackStrokeWidth +
+          (other.trackStrokeWidth - trackStrokeWidth) * interpolationAmount,
+      wavelength:
+          wavelength + (other.wavelength - wavelength) * interpolationAmount,
+      waveSpeed:
+          waveSpeed + (other.waveSpeed - waveSpeed) * interpolationAmount,
+      staticValue:
+          staticValue + (other.staticValue - staticValue) * interpolationAmount,
+    );
+  }
 }

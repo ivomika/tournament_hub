@@ -73,7 +73,9 @@ class _SegmentedState<T extends Object> extends State<AppSegmentedChoice<T>> {
 
   Object? _move(_SegmentMoveIntent intent) {
     if (widget.onChanged == null || widget.options.isEmpty) return null;
-    final current = widget.options.indexWhere((o) => o.value == widget.value),
+    final current = widget.options.indexWhere(
+          (option) => option.value == widget.value,
+        ),
         rtl = Directionality.of(context) == TextDirection.rtl;
     final next =
         (current + ((intent.forward != rtl) ? 1 : -1) + widget.options.length) %
@@ -84,7 +86,10 @@ class _SegmentedState<T extends Object> extends State<AppSegmentedChoice<T>> {
 
   @override
   Widget build(BuildContext context) {
-    final t = AppSegmentedChoiceTheme.of(context, nested: widget.nested),
+    final appearance = AppSegmentedChoiceTheme.of(
+          context,
+          nested: widget.nested,
+        ),
         enabled = widget.onChanged != null;
     return Semantics(
       label: widget.label,
@@ -107,15 +112,15 @@ class _SegmentedState<T extends Object> extends State<AppSegmentedChoice<T>> {
         },
         child: DecoratedBox(
           decoration: BoxDecoration(
-            color: t.background,
-            borderRadius: t.radius,
+            color: appearance.background,
+            borderRadius: appearance.radius,
           ),
           child: Padding(
-            padding: t.padding,
+            padding: appearance.padding,
             child: Row(
               children: [
                 for (final (index, option) in widget.options.indexed) ...[
-                  if (index > 0) SizedBox(width: t.gap),
+                  if (index > 0) SizedBox(width: appearance.gap),
                   Expanded(
                     child: _Segment<T>(
                       option: option,
@@ -143,11 +148,17 @@ class _Segment<T extends Object> extends StatelessWidget {
   });
   final AppSegment<T> option;
   final bool selected, focused;
+  Color _resolveColor(AppSegmentedChoiceTheme theme) {
+    if (onSelected == null) return theme.disabled;
+    if (selected) return theme.foreground;
+    return theme.secondary;
+  }
+
   final ValueChanged<T>? onSelected;
   void _choose() => onSelected?.call(option.value);
   @override
   Widget build(BuildContext context) {
-    final t = AppSegmentedChoiceTheme.of(context);
+    final appearance = AppSegmentedChoiceTheme.of(context);
     return Semantics(
       checked: selected,
       inMutuallyExclusiveGroup: true,
@@ -159,36 +170,35 @@ class _Segment<T extends Object> extends StatelessWidget {
           foregroundPainter: focused
               ? AppFocusRingPainter(
                   AppFocusRingTheme(
-                    color: t.focusColor,
-                    width: t.focusWidth,
-                    offset: t.focusOffset,
+                    color: appearance.focusColor,
+                    width: appearance.focusWidth,
+                    offset: appearance.focusOffset,
                     radius: null,
                     capsule: true,
-                    half: t.half,
+                    half: appearance.half,
                   ),
                 )
               : null,
           child: ConstrainedBox(
-            constraints: BoxConstraints(minHeight: t.height),
+            constraints: BoxConstraints(minHeight: appearance.height),
             child: Padding(
-              padding: t.selectedInset,
+              padding: appearance.selectedInset,
               child: DecoratedBox(
                 decoration: BoxDecoration(
-                  color: selected ? t.selectedBackground : t.transparent,
-                  borderRadius: t.radius,
+                  color: selected
+                      ? appearance.selectedBackground
+                      : appearance.transparent,
+                  borderRadius: appearance.radius,
                 ),
                 child: Center(
-                  heightFactor: t.contentHeightFactor,
+                  heightFactor: appearance.contentHeightFactor,
                   child: Text(
                     option.label,
-                    style: (selected ? t.selectedStyle : t.normalStyle)
-                        .copyWith(
-                          color: onSelected == null
-                              ? t.disabled
-                              : selected
-                              ? t.foreground
-                              : t.secondary,
-                        ),
+                    style:
+                        (selected
+                                ? appearance.selectedStyle
+                                : appearance.normalStyle)
+                            .copyWith(color: _resolveColor(appearance)),
                   ),
                 ),
               ),

@@ -16,42 +16,44 @@ import 'package:tournament_app/presentation/design_system/widgets/identity/app_i
 
 class AppBracketNodeTheme {
   AppBracketNodeTheme.of(BuildContext context, AppBracketState state) {
-    final t = Theme.of(context),
-        s = t.extension<AppSpacing>()!,
-        m = t.extension<AppBracketMetrics>()!,
-        c = t.extension<AppControlMetrics>()!,
-        b = t.extension<AppBorderMetrics>()!,
-        roles = t.extension<AppTypeRoles>()!,
-        styles = AppTextStyles(t),
-        im = t.extension<AppIdentityMetrics>()!,
-        sm = t.extension<AppSelectMetrics>()!;
-    width = m.width;
-    minHeight = m.minHeight;
-    gap = s.space8;
-    zero = c.zero;
-    borderWidth = state == AppBracketState.current ? b.emphasis : b.hairline;
+    final runtimeTheme = Theme.of(context),
+        runtimeSpacing = runtimeTheme.extension<AppSpacing>()!,
+        runtimeBracketMetrics = runtimeTheme.extension<AppBracketMetrics>()!,
+        runtimeControlMetrics = runtimeTheme.extension<AppControlMetrics>()!,
+        runtimeBorderMetrics = runtimeTheme.extension<AppBorderMetrics>()!,
+        roles = runtimeTheme.extension<AppTypeRoles>()!,
+        styles = AppTextStyles(runtimeTheme),
+        im = runtimeTheme.extension<AppIdentityMetrics>()!,
+        sm = runtimeTheme.extension<AppSelectMetrics>()!;
+    width = runtimeBracketMetrics.width;
+    minHeight = runtimeBracketMetrics.minHeight;
+    gap = runtimeSpacing.space8;
+    zero = runtimeControlMetrics.zero;
+    borderWidth = state == AppBracketState.current
+        ? runtimeBorderMetrics.emphasis
+        : runtimeBorderMetrics.hairline;
     borderColor = state == AppBracketState.current
-        ? t.colorScheme.primary
-        : t.colorScheme.outlineVariant;
-    background = t.colorScheme.surface;
-    radius = t.extension<AppShape>()!.nested;
-    padding = EdgeInsets.all(s.space12 + borderWidth);
+        ? runtimeTheme.colorScheme.primary
+        : runtimeTheme.colorScheme.outlineVariant;
+    background = runtimeTheme.colorScheme.surface;
+    radius = runtimeTheme.extension<AppShape>()!.nested;
+    padding = EdgeInsets.all(runtimeSpacing.space12 + borderWidth);
     buttonPadding = EdgeInsets.all(zero);
-    start = t.extension<AppFieldMetrics>()!.stretch;
+    start = runtimeTheme.extension<AppFieldMetrics>()!.stretch;
     labelStyle = roles.interfaceStyle(
       styles.caption.copyWith(
-        fontSize: m.labelSize,
+        fontSize: runtimeBracketMetrics.labelSize,
         height: sm.sheetTitleLine,
         fontWeight: sm.optionWeight,
         color: state == AppBracketState.current
-            ? t.colorScheme.primary
-            : t.disabledColor,
+            ? runtimeTheme.colorScheme.primary
+            : runtimeTheme.disabledColor,
       ),
     );
     unknownStyle = roles.interfaceStyle(
       styles.caption.copyWith(
-        fontSize: m.unknownSize,
-        color: t.colorScheme.onSurfaceVariant,
+        fontSize: runtimeBracketMetrics.unknownSize,
+        color: runtimeTheme.colorScheme.onSurfaceVariant,
       ),
     );
     final source = AppAvatarTheme.of(
@@ -64,13 +66,13 @@ class AppBracketNodeTheme {
       contentAlignment: source.contentAlignment,
       tileRadius: source.tileRadius,
       background: source.background,
-      foreground: t.colorScheme.primary,
+      foreground: runtimeTheme.colorScheme.primary,
       typography: roles.interfaceStyle(
-        t.textTheme.labelLarge!.copyWith(
-          fontSize: m.smallSize,
+        runtimeTheme.textTheme.labelLarge!.copyWith(
+          fontSize: runtimeBracketMetrics.smallSize,
           height: roles.score.height,
           fontWeight: sm.selectedWeight,
-          color: t.colorScheme.primary,
+          color: runtimeTheme.colorScheme.primary,
         ),
       ),
     );
@@ -83,27 +85,27 @@ class AppBracketNodeTheme {
       primary: roles.interfaceStyle(
         styles.caption.copyWith(
           fontWeight: sm.selectedWeight,
-          color: t.colorScheme.onSurface,
+          color: runtimeTheme.colorScheme.onSurface,
         ),
       ),
       secondary: roles.interfaceStyle(
         styles.caption.copyWith(
-          fontSize: m.smallSize,
-          color: t.colorScheme.onSurfaceVariant,
+          fontSize: runtimeBracketMetrics.smallSize,
+          color: runtimeTheme.colorScheme.onSurfaceVariant,
         ),
       ),
-      gap: s.space8,
-      textGap: s.space0,
+      gap: runtimeSpacing.space8,
+      textGap: runtimeSpacing.space0,
       leading: im.leading,
       stretch: im.stretch,
-      center: c.centerCross,
+      center: runtimeControlMetrics.centerCross,
       textAlign: im.textLeading,
     );
     placeholderHeight = source.extent;
     shape = RoundedRectangleBorder(borderRadius: radius);
-    transparent = c.transparent;
+    transparent = runtimeControlMetrics.transparent;
     minimumSize = Size(zero, zero);
-    center = c.centerCross;
+    center = runtimeControlMetrics.centerCross;
   }
   late final double width, minHeight, gap, zero, borderWidth, placeholderHeight;
   late final Color borderColor, background, transparent;

@@ -28,16 +28,25 @@ class AppStepperMetrics extends ThemeExtension<AppStepperMetrics> {
     numericFeatures: numericFeatures ?? this.numericFeatures,
   );
   @override
-  AppStepperMetrics lerp(covariant AppStepperMetrics? other, double t) =>
-      other == null
-      ? this
-      : AppStepperMetrics(
-          labelStackWidth:
-              labelStackWidth + (other.labelStackWidth - labelStackWidth) * t,
-          disabledOpacity:
-              disabledOpacity + (other.disabledOpacity - disabledOpacity) * t,
-          valueAlignment: t < .5 ? valueAlignment : other.valueAlignment,
-          center: t < .5 ? center : other.center,
-          numericFeatures: t < .5 ? numericFeatures : other.numericFeatures,
-        );
+  AppStepperMetrics lerp(
+    covariant AppStepperMetrics? other,
+    double interpolationAmount,
+  ) {
+    if (other == null) return this;
+    return AppStepperMetrics(
+      labelStackWidth:
+          labelStackWidth +
+          (other.labelStackWidth - labelStackWidth) * interpolationAmount,
+      disabledOpacity:
+          disabledOpacity +
+          (other.disabledOpacity - disabledOpacity) * interpolationAmount,
+      valueAlignment: interpolationAmount < .5
+          ? valueAlignment
+          : other.valueAlignment,
+      center: interpolationAmount < .5 ? center : other.center,
+      numericFeatures: interpolationAmount < .5
+          ? numericFeatures
+          : other.numericFeatures,
+    );
+  }
 }

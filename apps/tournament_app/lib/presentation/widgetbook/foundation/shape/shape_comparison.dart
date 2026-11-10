@@ -77,33 +77,35 @@ class ShapeSampleFixture extends StatelessWidget {
   final ShapeSample sample;
   @override
   Widget build(BuildContext context) {
-    final t = Theme.of(context),
-        s = t.extension<AppShape>()!,
-        m = t.extension<FoundationSampleMetrics>()!;
+    final appearance = Theme.of(context),
+        runtimeShape = appearance.extension<AppShape>()!,
+        runtimeFoundationSampleMetrics = appearance
+            .extension<FoundationSampleMetrics>()!;
     final radius = switch (sample) {
-      ShapeSample.control => s.control,
-      ShapeSample.nested => s.nested,
-      ShapeSample.surface => s.surface,
-      ShapeSample.panel => s.panel,
-      ShapeSample.pill => s.pill,
+      ShapeSample.control => runtimeShape.control,
+      ShapeSample.nested => runtimeShape.nested,
+      ShapeSample.surface => runtimeShape.surface,
+      ShapeSample.panel => runtimeShape.panel,
+      ShapeSample.pill => runtimeShape.pill,
     };
     return SizedBox.square(
-      dimension: m.shapeExtent,
+      dimension: runtimeFoundationSampleMetrics.shapeExtent,
       child: DecoratedBox(
         decoration: BoxDecoration(
-          color: t.colorScheme.surfaceContainerHigh,
+          color: appearance.colorScheme.surfaceContainerHigh,
           borderRadius: radius,
           border: Border.all(
-            color: t.colorScheme.outlineVariant,
-            width: t.extension<AppBorderMetrics>()!.hairline,
+            color: appearance.colorScheme.outlineVariant,
+            width: appearance.extension<AppBorderMetrics>()!.hairline,
           ),
         ),
         child: Align(
-          alignment: m.center,
+          alignment: runtimeFoundationSampleMetrics.center,
           child: Text(
             FoundationLocalizations.of(context)
                 .foundationMetricValue(radius.topLeft.x),
-            style: AppTextStyles(t).caption.copyWith(fontSize: m.fontSize),
+            style: AppTextStyles(appearance).caption
+                .copyWith(fontSize: runtimeFoundationSampleMetrics.fontSize),
           ),
         ),
       ),

@@ -17,25 +17,25 @@ class GuestRemoveScreen extends StatelessWidget {
   final VoidCallback? onConfirm, onCancel;
   @override
   Widget build(BuildContext context) {
-    final t = GuestRemoveScreenTheme.of(context),
-        l = FoundationLocalizations.of(context);
+    final appearance = GuestRemoveScreenTheme.of(context),
+        localizations = FoundationLocalizations.of(context);
     return AppModalCanvas(
-      theme: t,
+      theme: appearance,
       underlay: Column(
-        crossAxisAlignment: t.stretch,
+        crossAxisAlignment: appearance.stretch,
         children: [
           AppSectionHeader(
-            title: l.screenParticipants,
-            backLabel: l.screenBack,
+            title: localizations.screenParticipants,
+            backLabel: localizations.screenBack,
             onBack: onCancel,
           ),
         ],
       ),
       child: AppDialog(
-        title: l.screenRemoveGuestTitle,
+        title: localizations.screenRemoveGuestTitle,
         content: state.description,
-        confirmLabel: l.screenDelete,
-        cancelLabel: l.screenCancel,
+        confirmLabel: localizations.screenDelete,
+        cancelLabel: localizations.screenCancel,
         onConfirm: onConfirm,
         onCancel: onCancel,
       ),

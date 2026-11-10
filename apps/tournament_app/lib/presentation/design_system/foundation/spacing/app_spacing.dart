@@ -50,19 +50,19 @@ class AppSpacing extends ThemeExtension<AppSpacing> {
     space64: space64 ?? this.space64,
   );
   @override
-  AppSpacing lerp(covariant AppSpacing? other, double t) {
+  AppSpacing lerp(covariant AppSpacing? other, double interpolationAmount) {
     if (other == null) return this;
     return AppSpacing(
-      space0: lerpDouble(space0, other.space0, t)!,
-      space4: lerpDouble(space4, other.space4, t)!,
-      space8: lerpDouble(space8, other.space8, t)!,
-      space12: lerpDouble(space12, other.space12, t)!,
-      space16: lerpDouble(space16, other.space16, t)!,
-      space20: lerpDouble(space20, other.space20, t)!,
-      space24: lerpDouble(space24, other.space24, t)!,
-      space32: lerpDouble(space32, other.space32, t)!,
-      space48: lerpDouble(space48, other.space48, t)!,
-      space64: lerpDouble(space64, other.space64, t)!,
+      space0: lerpDouble(space0, other.space0, interpolationAmount)!,
+      space4: lerpDouble(space4, other.space4, interpolationAmount)!,
+      space8: lerpDouble(space8, other.space8, interpolationAmount)!,
+      space12: lerpDouble(space12, other.space12, interpolationAmount)!,
+      space16: lerpDouble(space16, other.space16, interpolationAmount)!,
+      space20: lerpDouble(space20, other.space20, interpolationAmount)!,
+      space24: lerpDouble(space24, other.space24, interpolationAmount)!,
+      space32: lerpDouble(space32, other.space32, interpolationAmount)!,
+      space48: lerpDouble(space48, other.space48, interpolationAmount)!,
+      space64: lerpDouble(space64, other.space64, interpolationAmount)!,
     );
   }
 }

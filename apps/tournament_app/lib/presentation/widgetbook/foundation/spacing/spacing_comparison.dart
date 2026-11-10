@@ -53,27 +53,28 @@ class SpacingBarFixture extends StatelessWidget {
   final SpacingSample sample;
   @override
   Widget build(BuildContext context) {
-    final t = Theme.of(context),
-        s = t.extension<AppSpacing>()!,
-        m = t.extension<FoundationSampleMetrics>()!;
+    final appearance = Theme.of(context),
+        runtimeSpacing = appearance.extension<AppSpacing>()!,
+        runtimeFoundationSampleMetrics = appearance
+            .extension<FoundationSampleMetrics>()!;
     final extent = switch (sample) {
-      SpacingSample.space4 => s.space4,
-      SpacingSample.space8 => s.space8,
-      SpacingSample.space12 => s.space12,
-      SpacingSample.space16 => s.space16,
-      SpacingSample.space20 => s.space20,
-      SpacingSample.space24 => s.space24,
-      SpacingSample.space32 => s.space32,
-      SpacingSample.space48 => s.space48,
-      SpacingSample.space64 => s.space64,
+      SpacingSample.space4 => runtimeSpacing.space4,
+      SpacingSample.space8 => runtimeSpacing.space8,
+      SpacingSample.space12 => runtimeSpacing.space12,
+      SpacingSample.space16 => runtimeSpacing.space16,
+      SpacingSample.space20 => runtimeSpacing.space20,
+      SpacingSample.space24 => runtimeSpacing.space24,
+      SpacingSample.space32 => runtimeSpacing.space32,
+      SpacingSample.space48 => runtimeSpacing.space48,
+      SpacingSample.space64 => runtimeSpacing.space64,
     };
     return SizedBox(
       width: extent,
-      height: m.barHeight,
+      height: runtimeFoundationSampleMetrics.barHeight,
       child: DecoratedBox(
         decoration: BoxDecoration(
-          color: t.colorScheme.primary,
-          borderRadius: m.barRadius,
+          color: appearance.colorScheme.primary,
+          borderRadius: runtimeFoundationSampleMetrics.barRadius,
         ),
       ),
     );

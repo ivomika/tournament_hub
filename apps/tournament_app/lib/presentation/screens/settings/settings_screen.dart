@@ -21,63 +21,83 @@ class SettingsScreen extends StatelessWidget {
   final ValueChanged<LanguageChoice>? onLanguageChanged;
   @override
   Widget build(BuildContext context) {
-    final t = SettingsScreenTheme.of(context),
-        l = FoundationLocalizations.of(context);
+    final screenTheme = SettingsScreenTheme.of(context),
+        localizations = FoundationLocalizations.of(context);
     final hero = Column(
-      mainAxisSize: t.min,
-      mainAxisAlignment: t.centerMain,
-      crossAxisAlignment: t.start,
+      mainAxisSize: screenTheme.min,
+      mainAxisAlignment: screenTheme.centerMain,
+      crossAxisAlignment: screenTheme.start,
       children: [
-        Text(l.screenSettingsHero, style: t.heroHeading),
-        Text(l.screenSettingsAccent, style: t.heroHeading),
+        Text(localizations.screenSettingsHero, style: screenTheme.heroHeading),
+        Text(
+          localizations.screenSettingsAccent,
+          style: screenTheme.heroHeading,
+        ),
       ],
     );
     final appearance = AppSelect(
-      label: l.screenAppearance,
+      label: localizations.screenAppearance,
       options: [
-        AppSelectOption(value: AppearanceChoice.dark, label: l.screenDark),
-        AppSelectOption(value: AppearanceChoice.light, label: l.screenLight),
-        AppSelectOption(value: AppearanceChoice.system, label: l.screenSystem),
+        AppSelectOption(
+          value: AppearanceChoice.dark,
+          label: localizations.screenDark,
+        ),
+        AppSelectOption(
+          value: AppearanceChoice.light,
+          label: localizations.screenLight,
+        ),
+        AppSelectOption(
+          value: AppearanceChoice.system,
+          label: localizations.screenSystem,
+        ),
       ],
       value: state.appearance,
-      sheetDescription: l.screenAppearance,
-      closeLabel: l.screenClose,
+      sheetDescription: localizations.screenAppearance,
+      closeLabel: localizations.screenClose,
       onChanged: onAppearanceChanged,
     );
     final language = AppSelect(
-      label: l.screenLanguage,
+      label: localizations.screenLanguage,
       options: [
-        AppSelectOption(value: LanguageChoice.russian, label: l.screenRussian),
-        AppSelectOption(value: LanguageChoice.english, label: l.screenEnglish),
+        AppSelectOption(
+          value: LanguageChoice.russian,
+          label: localizations.screenRussian,
+        ),
+        AppSelectOption(
+          value: LanguageChoice.english,
+          label: localizations.screenEnglish,
+        ),
       ],
       value: state.language,
-      sheetDescription: l.screenLanguage,
-      closeLabel: l.screenClose,
+      sheetDescription: localizations.screenLanguage,
+      closeLabel: localizations.screenClose,
       onChanged: onLanguageChanged,
     );
     return AppScreenCanvas(
       child: Column(
-        crossAxisAlignment: t.stretch,
+        crossAxisAlignment: screenTheme.stretch,
         children: [
           AppSectionHeader(
-            title: l.screenSettings,
-            backLabel: l.screenBack,
+            title: localizations.screenSettings,
+            backLabel: localizations.screenBack,
             onBack: onBack,
           ),
-          SizedBox(height: t.gap),
+          SizedBox(height: screenTheme.gap),
           Expanded(
             child: SingleChildScrollView(
               child: Column(
-                crossAxisAlignment: t.stretch,
+                crossAxisAlignment: screenTheme.stretch,
                 children: [
-                  if (t.desktop)
+                  if (screenTheme.desktop)
                     SizedBox(
-                      height: t.settingsHeight * t.textScaleFactor,
+                      height:
+                          screenTheme.settingsHeight *
+                          screenTheme.textScaleFactor,
                       child: Row(
-                        crossAxisAlignment: t.stretch,
+                        crossAxisAlignment: screenTheme.stretch,
                         children: [
                           Expanded(child: AppScreenTile(child: hero)),
-                          SizedBox(width: t.gap),
+                          SizedBox(width: screenTheme.gap),
                           Expanded(
                             child: Column(
                               children: [
@@ -86,7 +106,7 @@ class SettingsScreen extends StatelessWidget {
                                     child: Center(child: appearance),
                                   ),
                                 ),
-                                SizedBox(height: t.gap),
+                                SizedBox(height: screenTheme.gap),
                                 Expanded(
                                   child: AppScreenTile(
                                     child: Center(child: language),
@@ -100,19 +120,25 @@ class SettingsScreen extends StatelessWidget {
                     )
                   else ...[
                     hero,
-                    SizedBox(height: t.gap),
+                    SizedBox(height: screenTheme.gap),
                     appearance,
-                    SizedBox(height: t.gap),
+                    SizedBox(height: screenTheme.gap),
                     language,
                   ],
-                  SizedBox(height: t.gap),
+                  SizedBox(height: screenTheme.gap),
                   AppScreenTile(
                     child: Column(
-                      crossAxisAlignment: t.start,
+                      crossAxisAlignment: screenTheme.start,
                       children: [
-                        Text(l.screenSettingsNote, style: t.caption),
-                        SizedBox(height: t.small),
-                        Text(l.screenSettingsTournamentNote, style: t.muted),
+                        Text(
+                          localizations.screenSettingsNote,
+                          style: screenTheme.caption,
+                        ),
+                        SizedBox(height: screenTheme.small),
+                        Text(
+                          localizations.screenSettingsTournamentNote,
+                          style: screenTheme.muted,
+                        ),
                       ],
                     ),
                   ),

@@ -11,11 +11,17 @@ enum SelectSample { normal, focused, disabled, sheet }
 
 abstract final class SelectOptions {
   static List<AppSelectOption<SelectValue>> of(BuildContext context) {
-    final l = FoundationLocalizations.of(context);
+    final localizations = FoundationLocalizations.of(context);
     return [
-      AppSelectOption(value: SelectValue.dark, label: l.selectDark),
-      AppSelectOption(value: SelectValue.light, label: l.selectLight),
-      AppSelectOption(value: SelectValue.system, label: l.selectSystem),
+      AppSelectOption(value: SelectValue.dark, label: localizations.selectDark),
+      AppSelectOption(
+        value: SelectValue.light,
+        label: localizations.selectLight,
+      ),
+      AppSelectOption(
+        value: SelectValue.system,
+        label: localizations.selectSystem,
+      ),
     ];
   }
 }
@@ -64,13 +70,13 @@ class _SelectFixtureState extends State<SelectFixture> {
 
   @override
   Widget build(BuildContext context) {
-    final l = FoundationLocalizations.of(context),
-        t = AppSelectTheme.of(context, true);
+    final localizations = FoundationLocalizations.of(context),
+        appearance = AppSelectTheme.of(context, true);
     if (widget.sample == SelectSample.sheet) {
       return AppSelectSheet<SelectValue>(
-        title: l.selectLabel,
-        description: l.selectDescription,
-        closeLabel: l.selectClose,
+        title: localizations.selectLabel,
+        description: localizations.selectDescription,
+        closeLabel: localizations.selectClose,
         options: SelectOptions.of(context),
         value: _value,
         onSelected: _choose,
@@ -78,11 +84,11 @@ class _SelectFixtureState extends State<SelectFixture> {
       );
     }
     return _SelectAdaptation(
-      desktop: t.desktop,
+      desktop: appearance.desktop,
       child: AppSelect<SelectValue>(
-        label: l.selectLabel,
-        sheetDescription: l.selectDescription,
-        closeLabel: l.selectClose,
+        label: localizations.selectLabel,
+        sheetDescription: localizations.selectDescription,
+        closeLabel: localizations.selectClose,
         options: SelectOptions.of(context),
         value: _value,
         focusNode: _focus,

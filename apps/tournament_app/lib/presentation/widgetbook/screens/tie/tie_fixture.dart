@@ -9,21 +9,21 @@ class TieFixture extends StatelessWidget {
   static void action() {}
   @override
   Widget build(BuildContext context) {
-    final l = FoundationLocalizations.of(context);
+    final localizations = FoundationLocalizations.of(context);
     return TieScreen(
       state: TieScreenState(
-        note: l.screenReplayNote,
+        note: localizations.screenReplayNote,
         rulesExpanded: false,
         columns: [
-          AppTableColumn(label: l.tableParticipant),
+          AppTableColumn(label: localizations.tableParticipant),
           AppTableColumn(
-            label: l.tablePoints,
+            label: localizations.tablePoints,
             alignment: AppTableAlignment.trailing,
           ),
           AppTableColumn(
-            label: l.tableMatches,
+            label: localizations.tableMatches,
             alignment: AppTableAlignment.trailing,
-            semanticLabel: l.tableMatchesFull,
+            semanticLabel: localizations.tableMatchesFull,
           ),
         ],
         rows: const [

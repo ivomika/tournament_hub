@@ -17,31 +17,31 @@ class AppStatusLabel extends StatelessWidget {
   final AppStatusTone tone;
   @override
   Widget build(BuildContext context) {
-    final t = AppStatusLabelTheme.of(context, kind, tone);
+    final appearance = AppStatusLabelTheme.of(context, kind, tone);
     return kind == AppStatusKind.live
         ? SizedBox(
-            width: t.fullWidth,
+            width: appearance.fullWidth,
             child: Row(
               children: [
                 SizedBox.square(
-                  dimension: t.dot,
+                  dimension: appearance.dot,
                   child: DecoratedBox(
                     decoration: BoxDecoration(
-                      color: t.color,
-                      borderRadius: t.radius,
+                      color: appearance.color,
+                      borderRadius: appearance.radius,
                     ),
                   ),
                 ),
-                SizedBox(width: t.gap),
-                Flexible(child: Text(text, style: t.style)),
+                SizedBox(width: appearance.gap),
+                Flexible(child: Text(text, style: appearance.style)),
               ],
             ),
           )
         : Text(
             text,
-            style: t.style,
+            style: appearance.style,
             textAlign: textAlign,
-            textHeightBehavior: t.heightBehavior,
+            textHeightBehavior: appearance.heightBehavior,
           );
   }
 }

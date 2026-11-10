@@ -4,6 +4,12 @@ import 'package:tournament_app/presentation/widgetbook/comparison/comparison_spe
 import 'package:tournament_app/presentation/widgetbook/visual_viewport.dart';
 
 abstract final class HeaderComparison {
+  static int _resolveSampleIndex(HeaderSample sample) {
+    if (sample == HeaderSample.save) return 2;
+    if (sample == HeaderSample.edit) return 3;
+    return 1;
+  }
+
   static final spec = ComparisonSpec(
     component: 'section-header',
     title: 'AppSectionHeader',
@@ -16,14 +22,12 @@ abstract final class HeaderComparison {
         ComparisonScenario(
           id: 'state-${sample.name}',
           title: sample.name,
-        note:sample==HeaderSample.long?'Две строки CSS44.781px / Flutter44px: высота округляется renderer, явный допуск1px только title.':null,
+          note: sample == HeaderSample.long
+              ? 'Две строки CSS44.781px / Flutter44px: высота округляется renderer, явный допуск1px только title.'
+              : null,
           viewport: VisualViewport.mobile,
           webSelector:
-              '#c-header .kit-component:nth-child(${sample == HeaderSample.save
-                  ? 2
-                  : sample == HeaderSample.edit
-                  ? 3
-                  : 1}) .kit-component-states .kit-specimen:nth-child(${sample == HeaderSample.long ? 2 : 1}) .flow-header',
+              '#c-header .kit-component:nth-child(${_resolveSampleIndex(sample)}) .kit-component-states .kit-specimen:nth-child(${sample == HeaderSample.long ? 2 : 1}) .flow-header',
           builder: (context) => HeaderFixture(sample: sample),
           controls: _controls(sample),
         ),
@@ -38,11 +42,7 @@ abstract final class HeaderComparison {
             title: '${viewport.name} · ${sample.name}',
             viewport: viewport,
             webSelector:
-                '#c-header .kit-component:nth-child(${sample == HeaderSample.save
-                    ? 2
-                    : sample == HeaderSample.edit
-                    ? 3
-                    : 1}) .kit-adaptation .kit-specimen:nth-of-type(${viewport == VisualViewport.desktop ? 2 : 1}) .flow-header',
+                '#c-header .kit-component:nth-child(${_resolveSampleIndex(sample)}) .kit-adaptation .kit-specimen:nth-of-type(${viewport == VisualViewport.desktop ? 2 : 1}) .flow-header',
             builder: (context) => HeaderFixture(sample: sample),
             controls: _controls(sample),
           ),
@@ -57,7 +57,7 @@ abstract final class HeaderComparison {
     ),
     ComparisonControl.text(
       id: 'title',
-        geometryTolerance:sample==HeaderSample.long?1:null,
+      geometryTolerance: sample == HeaderSample.long ? 1 : null,
       webSelector: 'h2',
       value: switch (sample) {
         HeaderSample.back => 'Новый турнир',

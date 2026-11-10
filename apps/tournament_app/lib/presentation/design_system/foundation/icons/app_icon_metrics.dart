@@ -34,15 +34,18 @@ class AppIconMetrics extends ThemeExtension<AppIconMetrics> {
     hero: hero ?? this.hero,
   );
   @override
-  AppIconMetrics lerp(covariant AppIconMetrics? other, double t) {
+  AppIconMetrics lerp(
+    covariant AppIconMetrics? other,
+    double interpolationAmount,
+  ) {
     if (other == null) return this;
     return AppIconMetrics(
-      small: lerpDouble(small, other.small, t)!,
-      medium: lerpDouble(medium, other.medium, t)!,
-      standard: lerpDouble(standard, other.standard, t)!,
-      large: lerpDouble(large, other.large, t)!,
-      display: lerpDouble(display, other.display, t)!,
-      hero: lerpDouble(hero, other.hero, t)!,
+      small: lerpDouble(small, other.small, interpolationAmount)!,
+      medium: lerpDouble(medium, other.medium, interpolationAmount)!,
+      standard: lerpDouble(standard, other.standard, interpolationAmount)!,
+      large: lerpDouble(large, other.large, interpolationAmount)!,
+      display: lerpDouble(display, other.display, interpolationAmount)!,
+      hero: lerpDouble(hero, other.hero, interpolationAmount)!,
     );
   }
 }

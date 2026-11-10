@@ -50,16 +50,16 @@ class _SegmentedFixtureState extends State<SegmentedFixture> {
 
   @override
   Widget build(BuildContext context) {
-    final l = FoundationLocalizations.of(context);
+    final localizations = FoundationLocalizations.of(context);
     return AppSegmentedChoice<SegmentValue>(
-      label: l.segmentedLabel,
+      label: localizations.segmentedLabel,
       value: _value,
       focusNode: _focus,
       onChanged: widget.disabled ? null : _select,
       options: [
-        AppSegment(value: SegmentValue.de, label: l.segmentDe),
-        AppSegment(value: SegmentValue.se, label: l.segmentSe),
-        AppSegment(value: SegmentValue.rr, label: l.segmentRr),
+        AppSegment(value: SegmentValue.de, label: localizations.segmentDe),
+        AppSegment(value: SegmentValue.se, label: localizations.segmentSe),
+        AppSegment(value: SegmentValue.rr, label: localizations.segmentRr),
       ],
     );
   }

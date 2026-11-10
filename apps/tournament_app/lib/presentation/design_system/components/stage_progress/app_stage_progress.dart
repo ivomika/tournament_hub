@@ -6,19 +6,19 @@ class AppStageProgress extends StatelessWidget {
   final List<bool> highlights;
   @override
   Widget build(BuildContext context) {
-    final t = AppStageProgressTheme.of(context);
+    final appearance = AppStageProgressTheme.of(context);
     return ExcludeSemantics(
       child: Row(
         children: [
           for (final (index, highlight) in highlights.indexed) ...[
-            if (index > 0) SizedBox(width: t.gap),
+            if (index > 0) SizedBox(width: appearance.gap),
             Expanded(
               child: SizedBox(
-                height: t.height,
+                height: appearance.height,
                 child: DecoratedBox(
                   decoration: BoxDecoration(
-                    color: highlight ? t.current : t.upcoming,
-                    borderRadius: t.radius,
+                    color: highlight ? appearance.current : appearance.upcoming,
+                    borderRadius: appearance.radius,
                   ),
                 ),
               ),

@@ -23,86 +23,89 @@ class ChampionScreen extends StatelessWidget {
   final VoidCallback? onBack, onShare, onResults;
   @override
   Widget build(BuildContext context) {
-    final t = ChampionScreenTheme.of(context),
-        l = FoundationLocalizations.of(context);
+    final appearance = ChampionScreenTheme.of(context),
+        localizations = FoundationLocalizations.of(context);
     final award = Row(
-      mainAxisSize: t.min,
-      mainAxisAlignment: t.centerMain,
+      mainAxisSize: appearance.min,
+      mainAxisAlignment: appearance.centerMain,
       children: [
-        AppIcon(AppGlyph.trophy, color: t.accentHero.color),
-        SizedBox(width: t.small),
-        Text(l.screenChampion, style: t.award),
+        AppIcon(AppGlyph.trophy, color: appearance.accentHero.color),
+        SizedBox(width: appearance.small),
+        Text(localizations.screenChampion, style: appearance.award),
       ],
     );
     final hero = Column(
-      mainAxisSize: t.min,
-      mainAxisAlignment: t.centerMain,
-      crossAxisAlignment: t.centerCross,
+      mainAxisSize: appearance.min,
+      mainAxisAlignment: appearance.centerMain,
+      crossAxisAlignment: appearance.centerCross,
       children: [
         award,
-        SizedBox(height: t.heroGap),
+        SizedBox(height: appearance.heroGap),
         AppIdentity(
           primary: state.winner.character,
           initials: state.winner.initials,
           secondary: state.winner.name,
           layout: AppIdentityLayout.stacked,
-          theme: t.championIdentity,
+          theme: appearance.championIdentity,
         ),
       ],
     );
     final action = AppButton(
-      label: l.screenTournamentResults,
+      label: localizations.screenTournamentResults,
       glyph: AppGlyph.arrow,
       onPressed: onResults,
     );
     return AppScreenCanvas(
       child: Column(
-        crossAxisAlignment: t.stretch,
+        crossAxisAlignment: appearance.stretch,
         children: [
           AppSectionHeader(
-            title: l.screenFinished,
-            backLabel: l.screenBack,
+            title: localizations.screenFinished,
+            backLabel: localizations.screenBack,
             onBack: onBack,
             action: AppHeaderAction(
               kind: AppHeaderActionKind.share,
-              label: l.screenSpectators,
+              label: localizations.screenSpectators,
               onPressed: onShare,
             ),
           ),
-          SizedBox(height: t.gap),
+          SizedBox(height: appearance.gap),
           Expanded(
-            child: t.desktop
+            child: appearance.desktop
                 ? SingleChildScrollView(
                     child: SizedBox(
-                      height: t.championHeight,
+                      height: appearance.championHeight,
                       child: Row(
-                        crossAxisAlignment: t.stretch,
+                        crossAxisAlignment: appearance.stretch,
                         children: [
                           Expanded(
-                            flex: t.homePrimaryFlex,
+                            flex: appearance.homePrimaryFlex,
                             child: AppScreenTile(
                               raised: true,
                               child: Center(child: hero),
                             ),
                           ),
-                          SizedBox(width: t.gap),
+                          SizedBox(width: appearance.gap),
                           Expanded(
                             child: Column(
-                              crossAxisAlignment: t.stretch,
+                              crossAxisAlignment: appearance.stretch,
                               children: [
                                 Expanded(
-                                  flex: t.homePrimaryFlex,
+                                  flex: appearance.homePrimaryFlex,
                                   child: AppScreenTile(
                                     child: Align(
-                                      alignment: t.contextAlignment,
-                                      child: Text(state.title, style: t.contextTitle),
+                                      alignment: appearance.contextAlignment,
+                                      child: Text(
+                                        state.title,
+                                        style: appearance.contextTitle,
+                                      ),
                                     ),
                                   ),
                                 ),
-                                SizedBox(height: t.gap),
+                                SizedBox(height: appearance.gap),
                                 Expanded(
                                   child: Align(
-                                    alignment: t.bottomAlign,
+                                    alignment: appearance.bottomAlign,
                                     child: action,
                                   ),
                                 ),
@@ -114,23 +117,23 @@ class ChampionScreen extends StatelessWidget {
                     ),
                   )
                 : Column(
-                    crossAxisAlignment: t.stretch,
+                    crossAxisAlignment: appearance.stretch,
                     children: [
                       Expanded(
                         child: Center(
                           child: SingleChildScrollView(
                             child: Column(
-                              mainAxisSize: t.min,
+                              mainAxisSize: appearance.min,
                               children: [
                                 hero,
-                                SizedBox(height: t.heroGap),
-                                Text(state.title, style: t.caption),
+                                SizedBox(height: appearance.heroGap),
+                                Text(state.title, style: appearance.caption),
                               ],
                             ),
                           ),
                         ),
                       ),
-                      SizedBox(height: t.gap),
+                      SizedBox(height: appearance.gap),
                       action,
                     ],
                   ),

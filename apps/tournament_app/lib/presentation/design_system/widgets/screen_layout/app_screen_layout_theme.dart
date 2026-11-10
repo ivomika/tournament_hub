@@ -9,96 +9,108 @@ import 'package:tournament_app/presentation/design_system/foundation/shape/app_s
 class AppScreenLayoutTheme {
   AppScreenLayoutTheme.of(BuildContext context) {
     final theme = Theme.of(context),
-        s = theme.extension<AppSpacing>()!,
-        r = theme.extension<AppResponsive>()!,
-        m = theme.extension<AppScreenMetrics>()!;
-    start = m.start;
-    stretch = m.stretch;
-    centerCross = m.centerCross;
-    centerMain = m.centerMain;
-    startMain = m.startMain;
-    spaceBetween = m.spaceBetween;
-    centerAlign = m.centerAlign;
-    rightAlign = m.rightAlign;
-    topLeft = m.topLeft;
-    min = m.min;
-    max = m.max;
-    centerText = m.centerText;
-    leftText = m.leftText;
+        runtimeSpacing = theme.extension<AppSpacing>()!,
+        runtimeResponsive = theme.extension<AppResponsive>()!,
+        runtimeScreenMetrics = theme.extension<AppScreenMetrics>()!;
+    start = runtimeScreenMetrics.start;
+    stretch = runtimeScreenMetrics.stretch;
+    centerCross = runtimeScreenMetrics.centerCross;
+    centerMain = runtimeScreenMetrics.centerMain;
+    startMain = runtimeScreenMetrics.startMain;
+    spaceBetween = runtimeScreenMetrics.spaceBetween;
+    centerAlign = runtimeScreenMetrics.centerAlign;
+    rightAlign = runtimeScreenMetrics.rightAlign;
+    topLeft = runtimeScreenMetrics.topLeft;
+    min = runtimeScreenMetrics.min;
+    max = runtimeScreenMetrics.max;
+    centerText = runtimeScreenMetrics.centerText;
+    leftText = runtimeScreenMetrics.leftText;
     fullWidth = theme.extension<FoundationLayout>()!.fullWidth;
-    bottomAlign = m.bottomAlign;
-    homeTitleWidth = m.homeTitleWidth;
-    homeActionHeight = m.homeActionHeight;
-    homeMetaSize = m.homeMetaSize;
-    homePrimaryFlex = m.homePrimaryFlex;
-    homeSecondaryFlex = m.homeSecondaryFlex;
-    profileLinkHeight = m.profileLinkHeight;
-    profileNameSize = m.profileNameSize;
-    simpleWidth = m.simpleWidth;
-    simplePadding = m.simplePadding;
-    simpleIntroFlex = m.simpleIntroFlex;
-    simpleFormFlex = m.simpleFormFlex;
-    settingsHeight = m.settingsHeight;
-    secondaryHeroSize = m.secondaryHeroSize;
-    aboutHeight = m.aboutHeight;
-    aboutVersionHeight = m.aboutVersionHeight;
-    aboutRulesHeight = m.aboutRulesHeight;
-    gridColumns = m.gridColumns;
-    stackColumns = m.stackColumns;
-    historyFeatureHeight = m.historyFeatureHeight;
-    historyCardHeight = m.historyCardHeight;
-    historyProminentHeight = m.historyProminentHeight;
-    widePaneFlex = m.widePaneFlex;
-    narrowPaneFlex = m.narrowPaneFlex;
-    rosterContextHeight = m.rosterContextHeight;
-    modalSheetWidth = m.modalSheetWidth;
-    modalViewportInset = m.modalViewportInset;
-    modalMobileMinHeight = m.modalMobileMinHeight;
-    matchDesktopNameSize = m.matchDesktopNameSize;
-    matchMobileNameFactor = m.matchMobileNameFactor;
-    matchDesktopAvatar = m.matchDesktopAvatar;
-    matchMobileAvatar = m.matchMobileAvatar;
-    bracketGrid = m.bracketGrid;
-    bracketDot = m.bracketDot;
-    bracketStroke = m.bracketStroke;
-    bracketScaleMin = m.bracketScaleMin;
-    bracketScaleMax = m.bracketScaleMax;
-    bracketScaleStep = m.bracketScaleStep;
-    bracketNodeHalf = m.bracketNodeHalf;
-    bracketNodeHalfHeight = m.bracketNodeHalfHeight;
-    resultDesktopAvatar = m.resultDesktopAvatar;
-    resultContentWidth = m.resultContentWidth;
-    resultOutcomeFactor = m.resultOutcomeFactor;
-    championDesktopAvatar = m.championDesktopAvatar;
-    championMobileAvatar = m.championMobileAvatar;
-    championDesktopNameSize = m.championDesktopNameSize;
-    championMobileNameSize = m.championMobileNameSize;
-    championHeight = m.championHeight;
-    championContextTitleSize = m.championContextTitleSize;
-    rankFeaturedHeight = m.rankFeaturedHeight;
-    rankRegularHeight = m.rankRegularHeight;
-    rankFeaturedName = m.rankFeaturedName;
-    rankFeaturedValue = m.rankFeaturedValue;
-    resultsContextTitleSize = m.resultsContextTitleSize;
-    screenBrandSize = m.screenBrandSize;
-    screenBrandLine = m.screenBrandLine;
-    screenBrandTracking = m.screenBrandTracking;
-    desktopContentMinHeight = m.desktopContentMinHeight;
-    desktop = MediaQuery.sizeOf(context).width > r.mobileToDesktopWidth;
-    inset = EdgeInsets.all(desktop ? s.space32 : s.space24);
-    brandInset = EdgeInsets.symmetric(horizontal: s.space32);
-    tileInset = EdgeInsets.all(desktop ? s.space24 : s.space0);
-    gap = desktop ? s.space20 : s.space24;
-    small = s.space16;
-    zero = s.space0;
+    bottomAlign = runtimeScreenMetrics.bottomAlign;
+    homeTitleWidth = runtimeScreenMetrics.homeTitleWidth;
+    homeActionHeight = runtimeScreenMetrics.homeActionHeight;
+    homeMetaSize = runtimeScreenMetrics.homeMetaSize;
+    homePrimaryFlex = runtimeScreenMetrics.homePrimaryFlex;
+    homeSecondaryFlex = runtimeScreenMetrics.homeSecondaryFlex;
+    profileLinkHeight = runtimeScreenMetrics.profileLinkHeight;
+    profileNameSize = runtimeScreenMetrics.profileNameSize;
+    simpleWidth = runtimeScreenMetrics.simpleWidth;
+    simplePadding = runtimeScreenMetrics.simplePadding;
+    simpleIntroFlex = runtimeScreenMetrics.simpleIntroFlex;
+    simpleFormFlex = runtimeScreenMetrics.simpleFormFlex;
+    settingsHeight = runtimeScreenMetrics.settingsHeight;
+    secondaryHeroSize = runtimeScreenMetrics.secondaryHeroSize;
+    aboutHeight = runtimeScreenMetrics.aboutHeight;
+    aboutVersionHeight = runtimeScreenMetrics.aboutVersionHeight;
+    aboutRulesHeight = runtimeScreenMetrics.aboutRulesHeight;
+    gridColumns = runtimeScreenMetrics.gridColumns;
+    stackColumns = runtimeScreenMetrics.stackColumns;
+    historyFeatureHeight = runtimeScreenMetrics.historyFeatureHeight;
+    historyCardHeight = runtimeScreenMetrics.historyCardHeight;
+    historyProminentHeight = runtimeScreenMetrics.historyProminentHeight;
+    widePaneFlex = runtimeScreenMetrics.widePaneFlex;
+    narrowPaneFlex = runtimeScreenMetrics.narrowPaneFlex;
+    rosterContextHeight = runtimeScreenMetrics.rosterContextHeight;
+    modalSheetWidth = runtimeScreenMetrics.modalSheetWidth;
+    modalViewportInset = runtimeScreenMetrics.modalViewportInset;
+    modalMobileMinHeight = runtimeScreenMetrics.modalMobileMinHeight;
+    matchDesktopNameSize = runtimeScreenMetrics.matchDesktopNameSize;
+    matchMobileNameFactor = runtimeScreenMetrics.matchMobileNameFactor;
+    matchDesktopAvatar = runtimeScreenMetrics.matchDesktopAvatar;
+    matchMobileAvatar = runtimeScreenMetrics.matchMobileAvatar;
+    bracketGrid = runtimeScreenMetrics.bracketGrid;
+    bracketDot = runtimeScreenMetrics.bracketDot;
+    bracketStroke = runtimeScreenMetrics.bracketStroke;
+    bracketScaleMin = runtimeScreenMetrics.bracketScaleMin;
+    bracketScaleMax = runtimeScreenMetrics.bracketScaleMax;
+    bracketScaleStep = runtimeScreenMetrics.bracketScaleStep;
+    bracketNodeHalf = runtimeScreenMetrics.bracketNodeHalf;
+    bracketNodeHalfHeight = runtimeScreenMetrics.bracketNodeHalfHeight;
+    resultDesktopAvatar = runtimeScreenMetrics.resultDesktopAvatar;
+    resultContentWidth = runtimeScreenMetrics.resultContentWidth;
+    resultOutcomeFactor = runtimeScreenMetrics.resultOutcomeFactor;
+    championDesktopAvatar = runtimeScreenMetrics.championDesktopAvatar;
+    championMobileAvatar = runtimeScreenMetrics.championMobileAvatar;
+    championDesktopNameSize = runtimeScreenMetrics.championDesktopNameSize;
+    championMobileNameSize = runtimeScreenMetrics.championMobileNameSize;
+    championHeight = runtimeScreenMetrics.championHeight;
+    championContextTitleSize = runtimeScreenMetrics.championContextTitleSize;
+    rankFeaturedHeight = runtimeScreenMetrics.rankFeaturedHeight;
+    rankRegularHeight = runtimeScreenMetrics.rankRegularHeight;
+    rankFeaturedName = runtimeScreenMetrics.rankFeaturedName;
+    rankFeaturedValue = runtimeScreenMetrics.rankFeaturedValue;
+    resultsContextTitleSize = runtimeScreenMetrics.resultsContextTitleSize;
+    screenBrandSize = runtimeScreenMetrics.screenBrandSize;
+    screenBrandLine = runtimeScreenMetrics.screenBrandLine;
+    screenBrandTracking = runtimeScreenMetrics.screenBrandTracking;
+    desktopContentMinHeight = runtimeScreenMetrics.desktopContentMinHeight;
+    desktop =
+        MediaQuery.sizeOf(context).width >
+        runtimeResponsive.mobileToDesktopWidth;
+    inset = EdgeInsets.all(
+      desktop ? runtimeSpacing.space32 : runtimeSpacing.space24,
+    );
+    brandInset = EdgeInsets.symmetric(horizontal: runtimeSpacing.space32);
+    tileInset = EdgeInsets.all(
+      desktop ? runtimeSpacing.space24 : runtimeSpacing.space0,
+    );
+    gap = desktop ? runtimeSpacing.space20 : runtimeSpacing.space24;
+    small = runtimeSpacing.space16;
+    zero = runtimeSpacing.space0;
     background = theme.scaffoldBackgroundColor;
     surface = theme.colorScheme.surface;
     raised = theme.colorScheme.surfaceContainerHigh;
     radius = theme.extension<AppShape>()!.surface;
     hero = theme.textTheme.displayLarge!.copyWith(
-      fontSize: desktop ? m.desktopHero : m.mobileHero,
-      height: m.heroLine,
-      letterSpacing: (desktop ? m.desktopHero : m.mobileHero) * m.heroTracking,
+      fontSize: desktop
+          ? runtimeScreenMetrics.desktopHero
+          : runtimeScreenMetrics.mobileHero,
+      height: runtimeScreenMetrics.heroLine,
+      letterSpacing:
+          (desktop
+              ? runtimeScreenMetrics.desktopHero
+              : runtimeScreenMetrics.mobileHero) *
+          runtimeScreenMetrics.heroTracking,
     );
     accentHero = hero.copyWith(color: theme.colorScheme.primary);
     heading = theme.textTheme.headlineLarge!;
@@ -112,11 +124,14 @@ class AppScreenLayoutTheme {
         MediaQuery.textScalerOf(context)
             .scale(theme.textTheme.bodyMedium!.fontSize!) /
         theme.textTheme.bodyMedium!.fontSize!;
-    scaledDesktopContentMinHeight = m.desktopContentMinHeight * textScaleFactor;
+    scaledDesktopContentMinHeight =
+        runtimeScreenMetrics.desktopContentMinHeight * textScaleFactor;
     brand = theme.textTheme.headlineLarge!.copyWith(
-      fontSize: m.screenBrandSize,
-      height: m.screenBrandLine,
-      letterSpacing: m.screenBrandSize * m.screenBrandTracking,
+      fontSize: runtimeScreenMetrics.screenBrandSize,
+      height: runtimeScreenMetrics.screenBrandLine,
+      letterSpacing:
+          runtimeScreenMetrics.screenBrandSize *
+          runtimeScreenMetrics.screenBrandTracking,
     );
     brandBorder = Border(
       bottom: BorderSide(
@@ -125,15 +140,15 @@ class AppScreenLayoutTheme {
       ),
     );
     accentBrand = brand.copyWith(color: theme.colorScheme.primary);
-    utilityWidth = m.utilityWidth;
-    utilityHeight = m.utilityHeight;
-    utilityTop = m.utilityTop;
-    utilityReserve = m.utilityReserve;
-    utilityAction = m.utilityAction;
-    primaryFlex = m.primaryFlex;
-    secondaryFlex = m.secondaryFlex;
-    brandHeight = m.brandHeight;
-    formWidth = m.formWidth;
+    utilityWidth = runtimeScreenMetrics.utilityWidth;
+    utilityHeight = runtimeScreenMetrics.utilityHeight;
+    utilityTop = runtimeScreenMetrics.utilityTop;
+    utilityReserve = runtimeScreenMetrics.utilityReserve;
+    utilityAction = runtimeScreenMetrics.utilityAction;
+    primaryFlex = runtimeScreenMetrics.primaryFlex;
+    secondaryFlex = runtimeScreenMetrics.secondaryFlex;
+    brandHeight = runtimeScreenMetrics.brandHeight;
+    formWidth = runtimeScreenMetrics.formWidth;
   }
   late final double scaledDesktopContentMinHeight, textScaleFactor;
   late final Border brandBorder;

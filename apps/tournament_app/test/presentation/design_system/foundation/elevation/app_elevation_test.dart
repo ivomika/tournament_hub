@@ -68,7 +68,10 @@ abstract final class _ElevationTests {
     final boxes = tester.widgetList<DecoratedBox>(find.byType(DecoratedBox));
     expect(
       boxes
-          .where((w) => (w.decoration as BoxDecoration).color == Colors.cyan)
+          .where(
+            (decoratedBox) =>
+                (decoratedBox.decoration as BoxDecoration).color == Colors.cyan,
+          )
           .length,
       2,
     );

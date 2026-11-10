@@ -19,33 +19,42 @@ class AppRankingRow extends StatelessWidget {
   final bool featured;
   @override
   Widget build(BuildContext context) {
-    final t = AppRankingRowTheme.of(context, featured, placement, value);
+    final appearance = AppRankingRowTheme.of(
+      context,
+      featured,
+      placement,
+      value,
+    );
     return ConstrainedBox(
-      constraints: BoxConstraints(minHeight: t.minHeight),
+      constraints: BoxConstraints(minHeight: appearance.minHeight),
       child: DecoratedBox(
-        decoration: t.decoration,
+        decoration: appearance.decoration,
         child: Padding(
-          padding: t.padding,
+          padding: appearance.padding,
           child: Row(
             children: [
               if (placement == AppRankValuePlacement.leading) ...[
                 SizedBox(
-                  width: t.valueWidth,
-                  child: Text(value, style: t.valueStyle, softWrap: false),
+                  width: appearance.valueWidth,
+                  child: Text(
+                    value,
+                    style: appearance.valueStyle,
+                    softWrap: false,
+                  ),
                 ),
-                SizedBox(width: t.small),
+                SizedBox(width: appearance.small),
               ],
               Expanded(
                 child: AppIdentity(
                   primary: primary,
                   initials: initials,
                   secondary: secondary,
-                  theme: t.identity,
+                  theme: appearance.identity,
                 ),
               ),
               if (placement == AppRankValuePlacement.trailing) ...[
-                SizedBox(width: t.small),
-                Text(value, style: t.valueStyle, softWrap: false),
+                SizedBox(width: appearance.small),
+                Text(value, style: appearance.valueStyle, softWrap: false),
               ],
             ],
           ),

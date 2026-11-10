@@ -62,7 +62,9 @@ abstract final class _SpacingTests {
     final base = AppTheme.dark(),
         theme = AppTheme.dark().copyWith(
           extensions: [
-            ...AppTheme.dark().extensions.values.where((e) => e is! AppSpacing),
+            ...AppTheme.dark().extensions.values.where(
+              (extension) => extension is! AppSpacing,
+            ),
             base.extension<AppSpacing>()!.copyWith(space16: 30),
           ],
         );

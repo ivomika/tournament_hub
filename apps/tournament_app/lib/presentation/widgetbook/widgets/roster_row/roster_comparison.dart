@@ -6,6 +6,18 @@ import 'package:tournament_app/presentation/widgetbook/comparison/comparison_spe
 import 'package:tournament_app/presentation/widgetbook/visual_viewport.dart';
 
 abstract final class RosterComparison {
+  static String _resolveStateName(bool desktop, bool state) {
+    if (!state) return 'default';
+    if (desktop) return 'focus';
+    return 'revealed';
+  }
+
+  static String _resolveStateTitle(bool desktop, bool state) {
+    if (!state) return 'Default';
+    if (desktop) return 'Focus';
+    return 'Revealed';
+  }
+
   static final spec = ComparisonSpec(
     component: 'roster-row',
     title: 'Строка участников · AppRosterRow',
@@ -19,9 +31,9 @@ abstract final class RosterComparison {
             note: desktop && state
                 ? 'Контур: CSS-демонстрация .kit-focus использует3px; Flutter использует2px из фактического desktop :focus-visible прототипа. Это явно принятое различие оформления, видно в diff.'
                 : null,
-            id: '${desktop ? 'desktop' : 'mobile'}-${state ? (desktop ? 'focus' : 'revealed') : 'default'}',
+            id: '${desktop ? 'desktop' : 'mobile'}-${_resolveStateName(desktop, state)}',
             title:
-                '${desktop ? 'Desktop' : 'Mobile'} · ${state ? (desktop ? 'Focus' : 'Revealed') : 'Default'}',
+                '${desktop ? 'Desktop' : 'Mobile'} · ${_resolveStateTitle(desktop, state)}',
             viewport: desktop ? VisualViewport.desktop : VisualViewport.mobile,
             webSelector:
                 '#c-row .kit-component:nth-child(${desktop ? 2 : 1}) .kit-specimen:nth-child(${state ? 2 : 1}) .flow-player-row',

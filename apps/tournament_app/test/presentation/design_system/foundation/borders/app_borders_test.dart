@@ -36,7 +36,9 @@ abstract final class _BordersTests {
     final base = AppTheme.dark();
     final theme = base.copyWith(
       extensions: [
-        ...base.extensions.values.where((e) => e is! AppBorderMetrics),
+        ...base.extensions.values.where(
+          (extension) => extension is! AppBorderMetrics,
+        ),
         base.extension<AppBorderMetrics>()!.copyWith(
           highContrastFocus: 5,
           focusOffset: 6,

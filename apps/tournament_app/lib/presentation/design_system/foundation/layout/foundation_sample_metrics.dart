@@ -29,14 +29,22 @@ class FoundationSampleMetrics extends ThemeExtension<FoundationSampleMetrics> {
   @override
   FoundationSampleMetrics lerp(
     covariant FoundationSampleMetrics? other,
-    double t,
+    double interpolationAmount,
   ) => other == null
       ? this
       : FoundationSampleMetrics(
-          barHeight: barHeight + (other.barHeight - barHeight) * t,
-          barRadius: BorderRadius.lerp(barRadius, other.barRadius, t)!,
-          shapeExtent: shapeExtent + (other.shapeExtent - shapeExtent) * t,
-          fontSize: fontSize + (other.fontSize - fontSize) * t,
-          center: Alignment.lerp(center, other.center, t)!,
+          barHeight:
+              barHeight + (other.barHeight - barHeight) * interpolationAmount,
+          barRadius: BorderRadius.lerp(
+            barRadius,
+            other.barRadius,
+            interpolationAmount,
+          )!,
+          shapeExtent:
+              shapeExtent +
+              (other.shapeExtent - shapeExtent) * interpolationAmount,
+          fontSize:
+              fontSize + (other.fontSize - fontSize) * interpolationAmount,
+          center: Alignment.lerp(center, other.center, interpolationAmount)!,
         );
 }

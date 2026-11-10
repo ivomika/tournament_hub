@@ -20,12 +20,12 @@ class AppElevation extends ThemeExtension<AppElevation> {
     dialog: dialog ?? this.dialog,
   );
   @override
-  AppElevation lerp(covariant AppElevation? other, double t) {
+  AppElevation lerp(covariant AppElevation? other, double interpolationAmount) {
     if (other == null) return this;
     return AppElevation(
-      floating: BoxShadow.lerp(floating, other.floating, t)!,
-      sheet: BoxShadow.lerp(sheet, other.sheet, t)!,
-      dialog: BoxShadow.lerp(dialog, other.dialog, t)!,
+      floating: BoxShadow.lerp(floating, other.floating, interpolationAmount)!,
+      sheet: BoxShadow.lerp(sheet, other.sheet, interpolationAmount)!,
+      dialog: BoxShadow.lerp(dialog, other.dialog, interpolationAmount)!,
     );
   }
 }

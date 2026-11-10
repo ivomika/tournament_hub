@@ -16,13 +16,16 @@ class AppTableMetrics extends ThemeExtension<AppTableMetrics> {
     verticalAlignment: verticalAlignment ?? this.verticalAlignment,
   );
   @override
-  AppTableMetrics lerp(covariant AppTableMetrics? other, double t) =>
-      other == null
-      ? this
-      : AppTableMetrics(
-          trailing: t < .5 ? trailing : other.trailing,
-          verticalAlignment: t < .5
-              ? verticalAlignment
-              : other.verticalAlignment,
-        );
+  AppTableMetrics lerp(
+    covariant AppTableMetrics? other,
+    double interpolationAmount,
+  ) {
+    if (other == null) return this;
+    return AppTableMetrics(
+      trailing: interpolationAmount < .5 ? trailing : other.trailing,
+      verticalAlignment: interpolationAmount < .5
+          ? verticalAlignment
+          : other.verticalAlignment,
+    );
+  }
 }

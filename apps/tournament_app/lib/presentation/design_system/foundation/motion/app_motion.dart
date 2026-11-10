@@ -19,24 +19,24 @@ class AppMotion extends ThemeExtension<AppMotion> {
         curve: curve ?? this.curve,
       );
   @override
-  AppMotion lerp(covariant AppMotion? other, double t) {
+  AppMotion lerp(covariant AppMotion? other, double interpolationAmount) {
     if (other == null) return this;
     return AppMotion(
       reveal: Duration(
         microseconds: lerpDouble(
           reveal.inMicroseconds,
           other.reveal.inMicroseconds,
-          t,
+          interpolationAmount,
         )!.round(),
       ),
       reduced: Duration(
         microseconds: lerpDouble(
           reduced.inMicroseconds,
           other.reduced.inMicroseconds,
-          t,
+          interpolationAmount,
         )!.round(),
       ),
-      curve: t < 0.5 ? curve : other.curve,
+      curve: interpolationAmount < 0.5 ? curve : other.curve,
     );
   }
 }

@@ -67,7 +67,7 @@ class _NavigationState extends State<AppNavigationItem> {
           ..._states.value,
           if (widget.onPressed == null) WidgetState.disabled,
         },
-        t = AppNavigationItemTheme.of(context, states);
+        appearance = AppNavigationItemTheme.of(context, states);
     return Semantics(
       button: true,
       enabled: widget.onPressed != null,
@@ -89,38 +89,40 @@ class _NavigationState extends State<AppNavigationItem> {
             foregroundPainter: states.contains(WidgetState.focused)
                 ? AppFocusRingPainter(
                     AppFocusRingTheme(
-                      color: t.focusColor,
-                      width: t.focusWidth,
-                      offset: t.focusOffset,
-                      radius: t.focusRadius,
+                      color: appearance.focusColor,
+                      width: appearance.focusWidth,
+                      offset: appearance.focusOffset,
+                      radius: appearance.focusRadius,
                       capsule: false,
-                      half: t.half,
+                      half: appearance.half,
                     ),
                   )
                 : null,
             child: DecoratedBox(
               decoration: BoxDecoration(
-                color: t.background,
-                borderRadius: t.radius,
+                color: appearance.background,
+                borderRadius: appearance.radius,
               ),
               child: ConstrainedBox(
-                constraints: BoxConstraints(minHeight: t.minHeight),
+                constraints: BoxConstraints(minHeight: appearance.minHeight),
                 child: Padding(
-                  padding: t.padding,
+                  padding: appearance.padding,
                   child: Row(
                     children: [
                       AppIcon(
                         widget.glyph,
-                        size: t.iconSize,
-                        color: t.iconColor,
+                        size: appearance.iconSize,
+                        color: appearance.iconColor,
                       ),
-                      SizedBox(width: t.gap),
-                      Expanded(child: Text(widget.label, style: t.labelStyle)),
-                      SizedBox(width: t.gap),
+                      SizedBox(width: appearance.gap),
+                      Expanded(
+                        child: Text(widget.label, style: appearance.labelStyle),
+                      ),
+                      SizedBox(width: appearance.gap),
                       AppIcon(
                         AppGlyph.chevron,
-                        size: t.chevronSize,
-                        color: t.chevronColor,
+                        size: appearance.chevronSize,
+                        color: appearance.chevronColor,
                       ),
                     ],
                   ),

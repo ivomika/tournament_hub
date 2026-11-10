@@ -24,38 +24,38 @@ class ContactScreen extends StatelessWidget {
   final ValueChanged<String>? onMessageChanged;
   @override
   Widget build(BuildContext context) {
-    final t = ContactScreenTheme.of(context),
-        l = FoundationLocalizations.of(context);
+    final appearance = ContactScreenTheme.of(context),
+        localizations = FoundationLocalizations.of(context);
     return AppSimpleFormLayout(
       header: AppSectionHeader(
-        title: l.screenContact,
-        backLabel: l.screenBack,
+        title: localizations.screenContact,
+        backLabel: localizations.screenBack,
         onBack: onBack,
       ),
       intro: Column(
-        mainAxisSize: t.min,
-        crossAxisAlignment: t.start,
+        mainAxisSize: appearance.min,
+        crossAxisAlignment: appearance.start,
         children: [
-          Text(l.screenIdea, style: t.heading),
-          Text(l.screenTell, style: t.heading),
+          Text(localizations.screenIdea, style: appearance.heading),
+          Text(localizations.screenTell, style: appearance.heading),
         ],
       ),
       form: Column(
-        mainAxisSize: t.min,
-        crossAxisAlignment: t.stretch,
+        mainAxisSize: appearance.min,
+        crossAxisAlignment: appearance.stretch,
         children: [
           AppField(
-            label: l.screenMessage,
+            label: localizations.screenMessage,
             controller: messageController,
             kind: AppFieldKind.multiline,
             onChanged: onMessageChanged,
           ),
-          SizedBox(height: t.gap),
+          SizedBox(height: appearance.gap),
           AppNotice(text: state.notice),
         ],
       ),
       footer: AppButton(
-        label: l.screenSend,
+        label: localizations.screenSend,
         glyph: AppGlyph.arrow,
         onPressed: onSend,
       ),

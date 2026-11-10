@@ -30,15 +30,15 @@ class _DisclosureFixtureState extends State<DisclosureFixture> {
   void _rebuild() {}
   @override
   Widget build(BuildContext context) {
-    final l = FoundationLocalizations.of(context);
+    final localizations = FoundationLocalizations.of(context);
     return AppDisclosure(
-      title: l.disclosureTitle,
+      title: localizations.disclosureTitle,
       expanded: _expanded,
       onToggle: widget.disabled ? null : _toggle,
       child: Text(
         widget.long
-            ? '${l.disclosureBody} ${l.disclosureBody}'
-            : l.disclosureBody,
+            ? '${localizations.disclosureBody} ${localizations.disclosureBody}'
+            : localizations.disclosureBody,
       ),
     );
   }

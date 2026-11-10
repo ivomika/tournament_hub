@@ -110,12 +110,12 @@ abstract final class SelectComparison {
             index: 0,
             properties: [ComparisonProperty.rect],
           ),
-          for (final i in [0, 1, 2])
+          for (final sampleIndex in [0, 1, 2])
             ComparisonControl.type(
-              id: 'option-frame-$i',
-              webSelector: '.kit-sheet-option:nth-child(${i + 1})',
+              id: 'option-frame-$sampleIndex',
+              webSelector: '.kit-sheet-option:nth-child(${sampleIndex + 1})',
               type: DecoratedBox,
-              index: i + 2,
+              index: sampleIndex + 2,
               properties: const [
                 ComparisonProperty.rect,
                 ComparisonProperty.background,
@@ -148,14 +148,15 @@ abstract final class SelectComparison {
               ComparisonProperty.color,
             ],
           ),
-          for (final (i, label) in [
+          for (final (sampleIndex, label) in [
             'Тёмное',
             'Светлое',
             'Как в системе',
           ].indexed)
             ComparisonControl.text(
-              id: 'option-$i',
-              webSelector: '.kit-sheet-option:nth-child(${i + 1})>span',
+              id: 'option-$sampleIndex',
+              webSelector:
+                  '.kit-sheet-option:nth-child(${sampleIndex + 1})>span',
               value: label,
               properties: const [
                 ComparisonProperty.fontSize,

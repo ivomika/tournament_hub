@@ -6,16 +6,18 @@ import 'package:tournament_app/presentation/design_system/foundation/responsive/
 
 class AppShareLinkTheme {
   AppShareLinkTheme.of(BuildContext context) {
-    final t = Theme.of(context),
-        s = t.extension<AppSpacing>()!,
-        r = t.extension<AppResponsive>()!;
-    background = MediaQuery.sizeOf(context).width > r.mobileToDesktopWidth
-        ? t.scaffoldBackgroundColor
-        : t.colorScheme.surface;
-    radius = t.extension<AppShape>()!.surface;
-    padding = EdgeInsets.all(s.space16);
-    gap = s.space8;
-    style = AppTextStyles(t).caption.copyWith(color: t.colorScheme.onSurface);
+    final theme = Theme.of(context),
+        spacing = theme.extension<AppSpacing>()!,
+        responsive = theme.extension<AppResponsive>()!;
+    background =
+        MediaQuery.sizeOf(context).width > responsive.mobileToDesktopWidth
+        ? theme.scaffoldBackgroundColor
+        : theme.colorScheme.surface;
+    radius = theme.extension<AppShape>()!.surface;
+    padding = EdgeInsets.all(spacing.space16);
+    gap = spacing.space8;
+    style = AppTextStyles(theme).caption
+        .copyWith(color: theme.colorScheme.onSurface);
   }
   late final Color background;
   late final BorderRadius radius;

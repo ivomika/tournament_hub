@@ -4,6 +4,18 @@ import 'package:tournament_app/presentation/widgetbook/comparison/comparison_spe
 import 'package:tournament_app/presentation/widgetbook/visual_viewport.dart';
 
 abstract final class StatusComparison {
+  static int _resolveComponentIndex(StatusSample sample) {
+    if (sample == StatusSample.live) return 1;
+    if (sample == StatusSample.points) return 3;
+    return 2;
+  }
+
+  static String _resolveClass(StatusSample sample) {
+    if (sample == StatusSample.live) return 'kit-status';
+    if (sample == StatusSample.points) return 'competition-points-badge';
+    return 'competition-outcome';
+  }
+
   static final spec = ComparisonSpec(
     component: 'status-label',
     title: 'AppStatusLabel',
@@ -19,15 +31,7 @@ abstract final class StatusComparison {
             title: '${viewport.name} · ${sample.name}',
             viewport: viewport,
             webSelector:
-                '#c-status .kit-component:nth-child(${sample == StatusSample.live
-                    ? 1
-                    : sample == StatusSample.points
-                    ? 3
-                    : 2}) .kit-component-states .kit-specimen:nth-child(${sample == StatusSample.loss ? 2 : 1}) .${sample == StatusSample.live
-                    ? 'kit-status'
-                    : sample == StatusSample.points
-                    ? 'competition-points-badge'
-                    : 'competition-outcome'}',
+                '#c-status .kit-component:nth-child(${_resolveComponentIndex(sample)}) .kit-component-states .kit-specimen:nth-child(${sample == StatusSample.loss ? 2 : 1}) .${_resolveClass(sample)}',
             builder: (context) => StatusFixture(sample: sample),
             controls: [
               ComparisonControl.text(

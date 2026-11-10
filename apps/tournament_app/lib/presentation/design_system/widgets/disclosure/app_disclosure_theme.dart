@@ -11,33 +11,42 @@ import 'package:tournament_app/presentation/design_system/foundation/shape/app_s
 
 class AppDisclosureTheme {
   AppDisclosureTheme.of(BuildContext context) {
-    final t = Theme.of(context),
-        s = t.extension<AppSpacing>()!,
-        r = t.extension<AppResponsive>()!,
-        c = t.extension<AppControlMetrics>()!,
-        b = t.extension<AppBorderMetrics>()!,
-        styles = AppTextStyles(t);
-    final desktop = MediaQuery.sizeOf(context).width > r.mobileToDesktopWidth;
-    titleStyle = t.extension<AppTypeRoles>()!.interfaceStyle(
+    final runtimeTheme = Theme.of(context),
+        runtimeSpacing = runtimeTheme.extension<AppSpacing>()!,
+        runtimeResponsive = runtimeTheme.extension<AppResponsive>()!,
+        runtimeControlMetrics = runtimeTheme.extension<AppControlMetrics>()!,
+        runtimeBorderMetrics = runtimeTheme.extension<AppBorderMetrics>()!,
+        styles = AppTextStyles(runtimeTheme);
+    final desktop =
+        MediaQuery.sizeOf(context).width >
+        runtimeResponsive.mobileToDesktopWidth;
+    titleStyle = runtimeTheme.extension<AppTypeRoles>()!.interfaceStyle(
       styles.compactHeader.copyWith(
-        fontWeight: t.extension<AppSelectMetrics>()!.optionWeight,
-        color: t.colorScheme.onSurfaceVariant,
+        fontWeight: runtimeTheme.extension<AppSelectMetrics>()!.optionWeight,
+        color: runtimeTheme.colorScheme.onSurfaceVariant,
       ),
     );
-    bodyStyle = styles.caption.copyWith(color: t.colorScheme.onSurfaceVariant);
-    padding = EdgeInsets.symmetric(horizontal: desktop ? s.space4 : s.space0);
-    bodyPadding = EdgeInsets.only(top: s.space8, bottom: s.space16);
-    buttonPadding = EdgeInsets.all(s.space0);
-    minSize = Size(s.space0, r.touchControlHeight);
-    gap = s.space16;
-    turns = t.extension<AppSelectMetrics>()!.chevronTurns;
-    stretch = t.extension<AppFieldMetrics>()!.stretch;
-    transparent = c.transparent;
-    focusWidth = b.highContrastFocus;
-    focusOffset = s.space4 * c.half;
-    focusColor = t.focusColor;
-    radius = t.extension<AppShape>()!.avatarTile;
-    half = c.half;
+    bodyStyle = styles.caption.copyWith(
+      color: runtimeTheme.colorScheme.onSurfaceVariant,
+    );
+    padding = EdgeInsets.symmetric(
+      horizontal: desktop ? runtimeSpacing.space4 : runtimeSpacing.space0,
+    );
+    bodyPadding = EdgeInsets.only(
+      top: runtimeSpacing.space8,
+      bottom: runtimeSpacing.space16,
+    );
+    buttonPadding = EdgeInsets.all(runtimeSpacing.space0);
+    minSize = Size(runtimeSpacing.space0, runtimeResponsive.touchControlHeight);
+    gap = runtimeSpacing.space16;
+    turns = runtimeTheme.extension<AppSelectMetrics>()!.chevronTurns;
+    stretch = runtimeTheme.extension<AppFieldMetrics>()!.stretch;
+    transparent = runtimeControlMetrics.transparent;
+    focusWidth = runtimeBorderMetrics.highContrastFocus;
+    focusOffset = runtimeSpacing.space4 * runtimeControlMetrics.half;
+    focusColor = runtimeTheme.focusColor;
+    radius = runtimeTheme.extension<AppShape>()!.avatarTile;
+    half = runtimeControlMetrics.half;
   }
   late final TextStyle titleStyle, bodyStyle;
   late final EdgeInsets padding, bodyPadding, buttonPadding;

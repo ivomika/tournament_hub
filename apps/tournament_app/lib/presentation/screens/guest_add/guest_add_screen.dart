@@ -23,30 +23,30 @@ class GuestAddScreen extends StatelessWidget {
   final ValueChanged<String>? onNameChanged;
   @override
   Widget build(BuildContext context) {
-    final t = GuestAddScreenTheme.of(context),
-        l = FoundationLocalizations.of(context);
+    final appearance = GuestAddScreenTheme.of(context),
+        localizations = FoundationLocalizations.of(context);
     return AppSimpleFormLayout(
       header: AppSectionHeader(
-        title: l.screenParticipants,
-        backLabel: l.screenBack,
+        title: localizations.screenParticipants,
+        backLabel: localizations.screenBack,
         onBack: onBack,
       ),
-      intro: Text(l.screenNewGuest, style: t.heading),
+      intro: Text(localizations.screenNewGuest, style: appearance.heading),
       form: Column(
-        mainAxisSize: t.min,
-        crossAxisAlignment: t.stretch,
+        mainAxisSize: appearance.min,
+        crossAxisAlignment: appearance.stretch,
         children: [
           AppField(
-            label: l.screenName,
+            label: localizations.screenName,
             controller: nameController,
             onChanged: onNameChanged,
           ),
-          SizedBox(height: t.gap),
-          Text(state.notice, style: t.caption),
+          SizedBox(height: appearance.gap),
+          Text(state.notice, style: appearance.caption),
         ],
       ),
       footer: AppButton(
-        label: l.screenAdd,
+        label: localizations.screenAdd,
         glyph: AppGlyph.arrow,
         onPressed: onAdd,
       ),

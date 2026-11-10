@@ -73,9 +73,9 @@ class SourceTextFixture extends StatelessWidget {
   final SourceTextRole role;
   @override
   Widget build(BuildContext context) {
-    final t = Theme.of(context),
-        styles = AppTextStyles(t),
-        l = FoundationLocalizations.of(context);
+    final appearance = Theme.of(context),
+        styles = AppTextStyles(appearance),
+        localizations = FoundationLocalizations.of(context);
     final style = switch (role) {
       SourceTextRole.display => styles.display,
       SourceTextRole.heading => styles.heading,
@@ -87,18 +87,21 @@ class SourceTextFixture extends StatelessWidget {
       SourceTextRole.comfortableHeader => styles.comfortableHeader,
     };
     final value = switch (role) {
-      SourceTextRole.display => l.typeSource0,
-      SourceTextRole.heading => l.typeSource1,
-      SourceTextRole.title => l.typeSource2,
-      SourceTextRole.body => l.typeSource3,
-      SourceTextRole.label => l.typeSource4,
-      SourceTextRole.caption => l.typeSource5,
-      SourceTextRole.compactHeader => l.typeSource6,
-      SourceTextRole.comfortableHeader => l.typeSource7,
+      SourceTextRole.display => localizations.typeSource0,
+      SourceTextRole.heading => localizations.typeSource1,
+      SourceTextRole.title => localizations.typeSource2,
+      SourceTextRole.body => localizations.typeSource3,
+      SourceTextRole.label => localizations.typeSource4,
+      SourceTextRole.caption => localizations.typeSource5,
+      SourceTextRole.compactHeader => localizations.typeSource6,
+      SourceTextRole.comfortableHeader => localizations.typeSource7,
     };
     return SizedBox(
-      width: t.extension<FoundationLayout>()!.fullWidth,
-      child: Text(value, style: style.copyWith(color: t.colorScheme.onSurface)),
+      width: appearance.extension<FoundationLayout>()!.fullWidth,
+      child: Text(
+        value,
+        style: style.copyWith(color: appearance.colorScheme.onSurface),
+      ),
     );
   }
 }

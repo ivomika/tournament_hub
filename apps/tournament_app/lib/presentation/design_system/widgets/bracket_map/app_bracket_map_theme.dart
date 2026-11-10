@@ -4,19 +4,20 @@ import 'package:tournament_app/presentation/design_system/foundation/responsive/
 
 class AppBracketMapTheme {
   AppBracketMapTheme.of(BuildContext context) {
-    final t = Theme.of(context), m = t.extension<AppScreenMetrics>()!;
-    grid = m.bracketGrid;
-    dot = m.bracketDot;
-    stroke = m.bracketStroke;
-    minScale = m.bracketScaleMin;
-    maxScale = m.bracketScaleMax;
-    zero = t.extension<AppControlMetrics>()!.zero;
-    gridColor = t.colorScheme.outlineVariant;
-    edgeColor = t.colorScheme.outline;
-    label = t.textTheme.bodySmall!.copyWith(
-      color: t.colorScheme.onSurfaceVariant,
+    final runtimeTheme = Theme.of(context),
+        runtimeScreenMetrics = runtimeTheme.extension<AppScreenMetrics>()!;
+    grid = runtimeScreenMetrics.bracketGrid;
+    dot = runtimeScreenMetrics.bracketDot;
+    stroke = runtimeScreenMetrics.bracketStroke;
+    minScale = runtimeScreenMetrics.bracketScaleMin;
+    maxScale = runtimeScreenMetrics.bracketScaleMax;
+    zero = runtimeTheme.extension<AppControlMetrics>()!.zero;
+    gridColor = runtimeTheme.colorScheme.outlineVariant;
+    edgeColor = runtimeTheme.colorScheme.outline;
+    label = runtimeTheme.textTheme.bodySmall!.copyWith(
+      color: runtimeTheme.colorScheme.onSurfaceVariant,
     );
-    origin = m.topLeft;
+    origin = runtimeScreenMetrics.topLeft;
   }
   late final double grid, dot, stroke, minScale, maxScale, zero;
   late final Color gridColor, edgeColor;

@@ -8,29 +8,29 @@ class AppProgressIndicator extends StatelessWidget {
   final String semanticLabel;
   @override
   Widget build(BuildContext context) {
-    final t = AppProgressIndicatorTheme.of(context);
+    final appearance = AppProgressIndicatorTheme.of(context);
     final reduced = MediaQuery.disableAnimationsOf(context);
     return Semantics(
       label: semanticLabel,
       child: ExcludeSemantics(
         child: SizedBox(
-          width: t.metrics.width,
-          height: t.metrics.height,
+          width: appearance.metrics.width,
+          height: appearance.metrics.height,
           child: TickerMode(
             enabled: !reduced,
             child: M3ELinearWavyProgressIndicator(
               key: ValueKey(reduced),
-              value: reduced ? t.metrics.staticValue : null,
-              width: t.metrics.width,
-              height: t.metrics.height,
-              gapSize: t.gap,
-              stopSize: t.gap,
-              color: t.color,
-              backgroundColor: t.track,
-              strokeWidth: t.metrics.strokeWidth,
-              trackStrokeWidth: t.metrics.trackStrokeWidth,
-              wavelength: t.metrics.wavelength,
-              waveSpeed: t.metrics.waveSpeed,
+              value: reduced ? appearance.metrics.staticValue : null,
+              width: appearance.metrics.width,
+              height: appearance.metrics.height,
+              gapSize: appearance.gap,
+              stopSize: appearance.gap,
+              color: appearance.color,
+              backgroundColor: appearance.track,
+              strokeWidth: appearance.metrics.strokeWidth,
+              trackStrokeWidth: appearance.metrics.trackStrokeWidth,
+              wavelength: appearance.metrics.wavelength,
+              waveSpeed: appearance.metrics.waveSpeed,
             ),
           ),
         ),

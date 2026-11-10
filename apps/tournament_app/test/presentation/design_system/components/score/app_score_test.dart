@@ -60,7 +60,9 @@ abstract final class _ScoreTests {
       theme: base.copyWith(
         colorScheme: base.colorScheme.copyWith(onSurface: Colors.cyan),
         extensions: [
-          ...base.extensions.values.where((e) => e is! AppTypeRoles),
+          ...base.extensions.values.where(
+            (extension) => extension is! AppTypeRoles,
+          ),
           base.extension<AppTypeRoles>()!.copyWith(
             score: base.extension<AppTypeRoles>()!.score.copyWith(fontSize: 64),
           ),

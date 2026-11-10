@@ -7,11 +7,14 @@ class AppGlyphMetrics extends ThemeExtension<AppGlyphMetrics> {
   AppGlyphMetrics copyWith({double? stroke, double? grid}) =>
       AppGlyphMetrics(stroke: stroke ?? this.stroke, grid: grid ?? this.grid);
   @override
-  AppGlyphMetrics lerp(covariant AppGlyphMetrics? other, double t) =>
-      other == null
-      ? this
-      : AppGlyphMetrics(
-          stroke: stroke + (other.stroke - stroke) * t,
-          grid: grid + (other.grid - grid) * t,
-        );
+  AppGlyphMetrics lerp(
+    covariant AppGlyphMetrics? other,
+    double interpolationAmount,
+  ) {
+    if (other == null) return this;
+    return AppGlyphMetrics(
+      stroke: stroke + (other.stroke - stroke) * interpolationAmount,
+      grid: grid + (other.grid - grid) * interpolationAmount,
+    );
+  }
 }

@@ -9,15 +9,15 @@ class SpectatorAccessFixture extends StatelessWidget {
   static void action() {}
   @override
   Widget build(BuildContext context) {
-    final l = FoundationLocalizations.of(context);
+    final localizations = FoundationLocalizations.of(context);
     return SpectatorAccessScreen(
       state: SpectatorAccessScreenState(
         qrPayload: 'http://host.local/spectator',
         note: address
-            ? l.screenSpectatorNote
-            : l.screenSpectatorDistributionNote,
+            ? localizations.screenSpectatorNote
+            : localizations.screenSpectatorDistributionNote,
         noteBelowCode: !address,
-        scanHint: address ? null : l.screenScan,
+        scanHint: address ? null : localizations.screenScan,
         address: address ? 'http://host.local/spectator' : null,
       ),
       onBack: action,

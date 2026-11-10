@@ -18,22 +18,20 @@ class AppRankingRowTheme extends AppScreenLayoutTheme {
     AppRankValuePlacement placement,
     String value,
   ) : super.of(context) {
-    final t = Theme.of(context),
-        s = t.extension<AppSpacing>()!,
-        r = t.extension<AppResponsive>()!;
+    final runtimeTheme = Theme.of(context),
+        runtimeSpacing = runtimeTheme.extension<AppSpacing>()!,
+        runtimeResponsive = runtimeTheme.extension<AppResponsive>()!;
     padding = desktop
-        ? EdgeInsets.all(s.space24)
-        : EdgeInsets.symmetric(vertical: s.space8);
-    minHeight = desktop
-        ? (featured ? rankFeaturedHeight : rankRegularHeight)
-        : (featured ? r.avatarProfile : r.touchControlHeight);
+        ? EdgeInsets.all(runtimeSpacing.space24)
+        : EdgeInsets.symmetric(vertical: runtimeSpacing.space8);
+    minHeight = _resolveHeight(featured, runtimeResponsive);
     decoration = BoxDecoration(
-      color: desktop ? (featured ? raised : surface) : background,
+      color: _resolveBackground(featured),
       borderRadius: radius,
       border: desktop && featured
           ? Border.all(
-              color: t.colorScheme.primary,
-              width: t.extension<AppBorderMetrics>()!.hairline,
+              color: runtimeTheme.colorScheme.primary,
+              width: runtimeTheme.extension<AppBorderMetrics>()!.hairline,
             )
           : null,
     );
@@ -50,36 +48,80 @@ class AppRankingRowTheme extends AppScreenLayoutTheme {
     );
     identity = base.copyWith(
       avatar: avatar,
-      primary: t.textTheme.bodyMedium!.copyWith(
-        fontSize: desktop
-            ? (featured ? rankFeaturedName : homeMetaSize)
-            : t.textTheme.bodyMedium!.fontSize,
-        fontWeight: t.textTheme.labelLarge!.fontWeight,
+      primary: runtimeTheme.textTheme.bodyMedium!.copyWith(
+        fontSize: _resolveNameSize(featured, runtimeTheme),
+        fontWeight: runtimeTheme.textTheme.labelLarge!.fontWeight,
       ),
-      textGap: s.space4,
+      textGap: runtimeSpacing.space4,
     );
-    valueStyle = placement == AppRankValuePlacement.trailing
-        ? t.textTheme.headlineLarge!.copyWith(
-            fontSize: t.textTheme.titleLarge!.fontSize,
-          )
-        : featured
-        ? t.textTheme.headlineLarge!.copyWith(
-            fontSize: desktop
-                ? rankFeaturedValue
-                : t.textTheme.headlineLarge!.fontSize,
-            color: t.colorScheme.primary,
-          )
-        : t.textTheme.labelLarge!.copyWith(
-            color: t.colorScheme.onSurfaceVariant,
-          );
+    valueStyle = _resolveValueStyle(placement, featured, runtimeTheme);
     final painter = TextPainter(
       text: TextSpan(text: value, style: valueStyle),
       textDirection: Directionality.of(context),
       textScaler: MediaQuery.textScalerOf(context),
     )..layout();
-    valueWidth = math.max(s.space32, painter.width.ceilToDouble());
+    valueWidth = math.max(runtimeSpacing.space32, painter.width.ceilToDouble());
     painter.dispose();
   }
+
+  double _resolveHeight(bool featured, AppResponsive responsive) {
+    if (desktop) {
+      if (featured) {
+        return rankFeaturedHeight;
+      } else {
+        return rankRegularHeight;
+      }
+    }
+    if (featured) {
+      return responsive.avatarProfile;
+    } else {
+      return responsive.touchControlHeight;
+    }
+  }
+
+  Color _resolveBackground(bool featured) {
+    if (!desktop) return background;
+    if (featured) {
+      return raised;
+    } else {
+      return surface;
+    }
+  }
+
+  double? _resolveNameSize(bool featured, ThemeData theme) {
+    if (desktop) {
+      if (featured) {
+        return rankFeaturedName;
+      } else {
+        return homeMetaSize;
+      }
+    }
+    return theme.textTheme.bodyMedium!.fontSize;
+  }
+
+  TextStyle _resolveValueStyle(
+    AppRankValuePlacement placement,
+    bool featured,
+    ThemeData runtimeTheme,
+  ) {
+    if (placement == AppRankValuePlacement.trailing) {
+      return runtimeTheme.textTheme.headlineLarge!.copyWith(
+        fontSize: runtimeTheme.textTheme.titleLarge!.fontSize,
+      );
+    }
+    if (featured) {
+      return runtimeTheme.textTheme.headlineLarge!.copyWith(
+        fontSize: desktop
+            ? rankFeaturedValue
+            : runtimeTheme.textTheme.headlineLarge!.fontSize,
+        color: runtimeTheme.colorScheme.primary,
+      );
+    }
+    return runtimeTheme.textTheme.labelLarge!.copyWith(
+      color: runtimeTheme.colorScheme.onSurfaceVariant,
+    );
+  }
+
   late final EdgeInsets padding;
   late final double minHeight, valueWidth;
   late final BoxDecoration decoration;

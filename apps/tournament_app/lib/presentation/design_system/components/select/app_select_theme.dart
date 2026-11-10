@@ -11,93 +11,108 @@ import 'package:tournament_app/presentation/design_system/foundation/typography/
 
 class AppSelectTheme {
   AppSelectTheme.of(BuildContext context, bool enabled) {
-    final t = Theme.of(context),
-        s = t.extension<AppSpacing>()!,
-        m = t.extension<AppSelectMetrics>()!,
-        r = t.extension<AppResponsive>()!,
-        b = t.extension<AppBorderMetrics>()!,
-        shape = t.extension<AppShape>()!,
-        c = t.extension<AppControlMetrics>()!,
-        f = t.extension<AppFieldMetrics>()!,
-        styles = AppTextStyles(t),
-        roles = t.extension<AppTypeRoles>()!;
-    desktop = MediaQuery.sizeOf(context).width > r.mobileToDesktopWidth;
-    zero = s.space0;
-    half = c.half;
-    color = enabled ? t.colorScheme.onSurface : t.disabledColor;
-    background = t.colorScheme.surfaceContainerHigh;
-    surface = t.colorScheme.surface;
-    border = t.colorScheme.outlineVariant;
-    accent = t.colorScheme.primary;
-    transparent = c.transparent;
-    focusColor = t.focusColor;
-    labelStyle = styles.caption.copyWith(color: t.colorScheme.onSurfaceVariant);
+    final runtimeTheme = Theme.of(context),
+        runtimeSpacing = runtimeTheme.extension<AppSpacing>()!,
+        runtimeSelectMetrics = runtimeTheme.extension<AppSelectMetrics>()!,
+        runtimeResponsive = runtimeTheme.extension<AppResponsive>()!,
+        runtimeBorderMetrics = runtimeTheme.extension<AppBorderMetrics>()!,
+        shape = runtimeTheme.extension<AppShape>()!,
+        runtimeControlMetrics = runtimeTheme.extension<AppControlMetrics>()!,
+        runtimeFieldMetrics = runtimeTheme.extension<AppFieldMetrics>()!,
+        styles = AppTextStyles(runtimeTheme),
+        roles = runtimeTheme.extension<AppTypeRoles>()!;
+    desktop =
+        MediaQuery.sizeOf(context).width >
+        runtimeResponsive.mobileToDesktopWidth;
+    zero = runtimeSpacing.space0;
+    half = runtimeControlMetrics.half;
+    color = enabled
+        ? runtimeTheme.colorScheme.onSurface
+        : runtimeTheme.disabledColor;
+    background = runtimeTheme.colorScheme.surfaceContainerHigh;
+    surface = runtimeTheme.colorScheme.surface;
+    border = runtimeTheme.colorScheme.outlineVariant;
+    accent = runtimeTheme.colorScheme.primary;
+    transparent = runtimeControlMetrics.transparent;
+    focusColor = runtimeTheme.focusColor;
+    labelStyle = styles.caption.copyWith(
+      color: runtimeTheme.colorScheme.onSurfaceVariant,
+    );
     mobileLabel = roles.interfaceStyle(
-      t.textTheme.labelLarge!.copyWith(
-        fontWeight: c.regularWeight,
+      runtimeTheme.textTheme.labelLarge!.copyWith(
+        fontWeight: runtimeControlMetrics.regularWeight,
         color: color,
       ),
     );
     selectedStyle = roles.interfaceStyle(
-      mobileLabel.copyWith(fontWeight: m.selectedWeight),
+      mobileLabel.copyWith(fontWeight: runtimeSelectMetrics.selectedWeight),
     );
     desktopStyle = roles.interfaceStyle(
-      t.textTheme.bodyMedium!.copyWith(
-        fontWeight: m.optionWeight,
-        height: m.desktopLine,
+      runtimeTheme.textTheme.bodyMedium!.copyWith(
+        fontWeight: runtimeSelectMetrics.optionWeight,
+        height: runtimeSelectMetrics.desktopLine,
         color: color,
       ),
     );
     titleStyle = roles.interfaceStyle(
-      t.textTheme.titleLarge!.copyWith(
-        fontSize: m.sheetTitleSize,
-        height: m.sheetTitleLine,
+      runtimeTheme.textTheme.titleLarge!.copyWith(
+        fontSize: runtimeSelectMetrics.sheetTitleSize,
+        height: runtimeSelectMetrics.sheetTitleLine,
         letterSpacing: roles.normalTracking,
       ),
     );
     optionStyle = roles.interfaceStyle(
-      t.textTheme.labelLarge!.copyWith(
-        fontWeight: m.optionWeight,
+      runtimeTheme.textTheme.labelLarge!.copyWith(
+        fontWeight: runtimeSelectMetrics.optionWeight,
         color: color,
       ),
     );
     descriptionStyle = styles.caption.copyWith(
-      color: t.colorScheme.onSurfaceVariant,
+      color: runtimeTheme.colorScheme.onSurfaceVariant,
     );
-    gap = s.space8;
-    sectionGap = s.space24;
-    headerGap = s.space16;
-    handleGap = s.space20;
-    descriptionTop = s.space12;
-    height = desktop ? r.touchControlHeight : r.compactControlHeight;
+    gap = runtimeSpacing.space8;
+    sectionGap = runtimeSpacing.space24;
+    headerGap = runtimeSpacing.space16;
+    handleGap = runtimeSpacing.space20;
+    descriptionTop = runtimeSpacing.space12;
+    height = desktop
+        ? runtimeResponsive.touchControlHeight
+        : runtimeResponsive.compactControlHeight;
     padding = desktop
-        ? EdgeInsets.only(left: s.space20 + b.hairline, right: s.space16)
+        ? EdgeInsets.only(
+            left: runtimeSpacing.space20 + runtimeBorderMetrics.hairline,
+            right: runtimeSpacing.space16,
+          )
         : EdgeInsets.all(zero);
-    radius = desktop ? shape.nested : BorderRadius.circular(s.space0);
-    borderWidth = desktop ? b.hairline : zero;
-    focusWidth = b.highContrastFocus;
-    focusOffset = b.focusOffset;
+    radius = desktop
+        ? shape.nested
+        : BorderRadius.circular(runtimeSpacing.space0);
+    borderWidth = desktop ? runtimeBorderMetrics.hairline : zero;
+    focusWidth = runtimeBorderMetrics.highContrastFocus;
+    focusOffset = runtimeBorderMetrics.focusOffset;
     sheetRadius = shape.sheet;
     sheetPadding = EdgeInsets.fromLTRB(
-      s.space24 + b.hairline,
-      s.space12 + b.hairline,
-      s.space24 + b.hairline,
-      m.sheetBottom + MediaQuery.paddingOf(context).bottom,
+      runtimeSpacing.space24 + runtimeBorderMetrics.hairline,
+      runtimeSpacing.space12 + runtimeBorderMetrics.hairline,
+      runtimeSpacing.space24 + runtimeBorderMetrics.hairline,
+      runtimeSelectMetrics.sheetBottom + MediaQuery.paddingOf(context).bottom,
     );
-    sheetBorder = b.hairline;
-    sheetMaxWidth = m.sheetMaxWidth;
-    closeExtent = m.closeExtent;
-    handleWidth = m.handleWidth;
-    handleHeight = m.handleHeight;
+    sheetBorder = runtimeBorderMetrics.hairline;
+    sheetMaxWidth = runtimeSelectMetrics.sheetMaxWidth;
+    closeExtent = runtimeSelectMetrics.closeExtent;
+    handleWidth = runtimeSelectMetrics.handleWidth;
+    handleHeight = runtimeSelectMetrics.handleHeight;
     handleRadius = shape.pill;
-    optionPadding = EdgeInsets.all(s.space16 + b.hairline);
+    optionPadding = EdgeInsets.all(
+      runtimeSpacing.space16 + runtimeBorderMetrics.hairline,
+    );
     optionRadius = shape.nested;
-    optionMinHeight = r.touchControlHeight;
-    chevronTurns = m.chevronTurns;
-    stretch = f.stretch;
-    start = f.start;
-    center = c.centerCross;
-    spaceBetween = c.spaceBetween;
+    optionMinHeight = runtimeResponsive.touchControlHeight;
+    chevronTurns = runtimeSelectMetrics.chevronTurns;
+    stretch = runtimeFieldMetrics.stretch;
+    start = runtimeFieldMetrics.start;
+    center = runtimeControlMetrics.centerCross;
+    spaceBetween = runtimeControlMetrics.spaceBetween;
   }
   late final bool desktop;
   late final int chevronTurns;

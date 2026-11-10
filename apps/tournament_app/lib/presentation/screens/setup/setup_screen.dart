@@ -29,54 +29,57 @@ class SetupScreen extends StatelessWidget {
   final ValueChanged<TournamentFormatDisplay>? onFormatChanged;
   @override
   Widget build(BuildContext context) {
-    final t = SetupScreenTheme.of(context),
-        l = FoundationLocalizations.of(context);
+    final appearance = SetupScreenTheme.of(context),
+        localizations = FoundationLocalizations.of(context);
     final format = Column(
-      mainAxisSize: t.desktop ? t.max : t.min,
-      crossAxisAlignment: t.stretch,
+      mainAxisSize: appearance.desktop ? appearance.max : appearance.min,
+      crossAxisAlignment: appearance.stretch,
       children: [
-        Text(l.screenFormat, style: t.caption),
-        SizedBox(height: t.small),
+        Text(localizations.screenFormat, style: appearance.caption),
+        SizedBox(height: appearance.small),
         AppSegmentedChoice<TournamentFormatDisplay>(
-          nested: t.desktop,
-          label: l.screenFormat,
+          nested: appearance.desktop,
+          label: localizations.screenFormat,
           options: [
             AppSegment(
               value: TournamentFormatDisplay.doubleElimination,
-              label: l.screenDe,
+              label: localizations.screenDe,
             ),
             AppSegment(
               value: TournamentFormatDisplay.singleElimination,
-              label: l.screenSe,
+              label: localizations.screenSe,
             ),
             AppSegment(
               value: TournamentFormatDisplay.roundRobin,
-              label: l.screenRr,
+              label: localizations.screenRr,
             ),
           ],
           value: state.format,
           onChanged: onFormatChanged,
         ),
-        if (t.desktop) const Spacer() else SizedBox(height: t.layoutGap),
-        Text(state.formatTitle, style: t.formatStyle),
-        SizedBox(height: t.small),
-        Text(state.formatHint, style: t.caption),
+        if (appearance.desktop)
+          const Spacer()
+        else
+          SizedBox(height: appearance.layoutGap),
+        Text(state.formatTitle, style: appearance.formatStyle),
+        SizedBox(height: appearance.small),
+        Text(state.formatHint, style: appearance.caption),
       ],
     );
     final controls = Column(
-      mainAxisSize: t.min,
-      crossAxisAlignment: t.stretch,
+      mainAxisSize: appearance.min,
+      crossAxisAlignment: appearance.stretch,
       children: [
         for (final (index, control) in state.controls.indexed) ...[
-          if (index > 0) SizedBox(height: t.layoutGap),
-          if (t.desktop)
+          if (index > 0) SizedBox(height: appearance.layoutGap),
+          if (appearance.desktop)
             AppScreenTile(
-              padding: t.panePadding,
+              padding: appearance.panePadding,
               child: AppNumberStepper.output(
                 label: control.label,
                 valueLabel: control.valueLabel,
-                decreaseLabel: l.screenDecreaseFt,
-                increaseLabel: l.screenIncreaseFt,
+                decreaseLabel: localizations.screenDecreaseFt,
+                increaseLabel: localizations.screenIncreaseFt,
                 onDecrease: control.onDecrease,
                 onIncrease: control.onIncrease,
               ),
@@ -85,67 +88,70 @@ class SetupScreen extends StatelessWidget {
             AppNumberStepper.output(
               label: control.label,
               valueLabel: control.valueLabel,
-              decreaseLabel: l.screenDecreaseFt,
-              increaseLabel: l.screenIncreaseFt,
+              decreaseLabel: localizations.screenDecreaseFt,
+              increaseLabel: localizations.screenIncreaseFt,
               onDecrease: control.onDecrease,
               onIncrease: control.onIncrease,
             ),
         ],
         if (state.notice != null) ...[
-          SizedBox(height: t.layoutGap),
+          SizedBox(height: appearance.layoutGap),
           AppNotice(text: state.notice!),
         ],
       ],
     );
     final action = AppButton(
-      label: l.screenToRoster,
+      label: localizations.screenToRoster,
       glyph: AppGlyph.arrow,
       onPressed: onContinue,
     );
     final field = AppField(
-      label: l.screenTournamentName,
+      label: localizations.screenTournamentName,
       controller: nameController,
       onChanged: onNameChanged,
     );
     return AppScreenCanvas(
       child: Column(
-        crossAxisAlignment: t.stretch,
+        crossAxisAlignment: appearance.stretch,
         children: [
           AppSectionHeader(
-            title: l.screenNewTournament,
-            backLabel: l.screenBack,
+            title: localizations.screenNewTournament,
+            backLabel: localizations.screenBack,
             onBack: onBack,
           ),
-          SizedBox(height: t.layoutGap),
+          SizedBox(height: appearance.layoutGap),
           Expanded(
-            child: t.desktop
+            child: appearance.desktop
                 ? SingleChildScrollView(
                     child: Column(
-                      crossAxisAlignment: t.stretch,
+                      crossAxisAlignment: appearance.stretch,
                       children: [
-                        AppScreenTile(padding: t.panePadding, child: field),
-                        SizedBox(height: t.layoutGap),
+                        AppScreenTile(
+                          padding: appearance.panePadding,
+                          child: field,
+                        ),
+                        SizedBox(height: appearance.layoutGap),
                         SizedBox(
-                          height: t.formatHeight,
+                          height: appearance.formatHeight,
                           child: Row(
-                            crossAxisAlignment: t.stretch,
+                            crossAxisAlignment: appearance.stretch,
                             children: [
                               Expanded(
-                                flex: t.widePaneFlex,
+                                flex: appearance.widePaneFlex,
                                 child: AppScreenTile(
-                                  padding: t.panePadding,
+                                  padding: appearance.panePadding,
                                   child: format,
                                 ),
                               ),
-                              SizedBox(width: t.layoutGap),
+                              SizedBox(width: appearance.layoutGap),
                               Expanded(
-                                flex: t.narrowPaneFlex,
+                                flex: appearance.narrowPaneFlex,
                                 child: SingleChildScrollView(
                                   child: Column(
-                                    crossAxisAlignment: t.stretch,
+                                    crossAxisAlignment: appearance.stretch,
                                     children: [
                                       controls,
-                                      SizedBox(height: t.layoutGap),
+                                      SizedBox(height: appearance.layoutGap),
                                       action,
                                     ],
                                   ),
@@ -158,23 +164,23 @@ class SetupScreen extends StatelessWidget {
                     ),
                   )
                 : Column(
-                    crossAxisAlignment: t.stretch,
+                    crossAxisAlignment: appearance.stretch,
                     children: [
                       Expanded(
                         child: SingleChildScrollView(
                           child: Column(
-                            crossAxisAlignment: t.stretch,
+                            crossAxisAlignment: appearance.stretch,
                             children: [
                               field,
-                              SizedBox(height: t.layoutGap),
+                              SizedBox(height: appearance.layoutGap),
                               format,
-                              SizedBox(height: t.layoutGap),
+                              SizedBox(height: appearance.layoutGap),
                               controls,
                             ],
                           ),
                         ),
                       ),
-                      SizedBox(height: t.layoutGap),
+                      SizedBox(height: appearance.layoutGap),
                       action,
                     ],
                   ),

@@ -17,12 +17,12 @@ class DialogFixture extends StatelessWidget {
   void _cancel() {}
   @override
   Widget build(BuildContext context) {
-    final l = FoundationLocalizations.of(context);
+    final localizations = FoundationLocalizations.of(context);
     return AppDialog(
-      title: l.dialogTitle,
-      content: l.dialogContent,
-      confirmLabel: l.dialogConfirm,
-      cancelLabel: l.dialogCancel,
+      title: localizations.dialogTitle,
+      content: localizations.dialogContent,
+      confirmLabel: localizations.dialogConfirm,
+      cancelLabel: localizations.dialogCancel,
       onConfirm: disabled ? null : onConfirm ?? _confirm,
       onCancel: onCancel ?? _cancel,
       cancelFocus: cancelFocus,

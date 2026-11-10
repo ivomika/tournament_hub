@@ -50,20 +50,21 @@ abstract final class StepperComparison {
                     ComparisonProperty.radius,
                   ],
                 ),
-                for (final i in [0, 1]) ...[
+                for (final sampleIndex in [0, 1]) ...[
                   ComparisonControl.type(
-                    id: 'button-$i',
-                    webSelector: 'button:${i == 0 ? 'first' : 'last'}-child',
+                    id: 'button-$sampleIndex',
+                    webSelector:
+                        'button:${sampleIndex == 0 ? 'first' : 'last'}-child',
                     type: IconButton,
-                    index: i,
+                    index: sampleIndex,
                     properties: const [ComparisonProperty.rect],
                   ),
                   ComparisonControl.type(
-                    id: 'icon-$i',
+                    id: 'icon-$sampleIndex',
                     webSelector:
-                        'button:${i == 0 ? 'first' : 'last'}-child .icon',
+                        'button:${sampleIndex == 0 ? 'first' : 'last'}-child .icon',
                     type: AppIcon,
-                    index: i,
+                    index: sampleIndex,
                     properties: const [ComparisonProperty.rect],
                   ),
                 ],

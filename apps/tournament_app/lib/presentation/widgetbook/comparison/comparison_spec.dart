@@ -63,7 +63,7 @@ class ComparisonControl {
   Map<String, Object?> toJson() => {
     'id': id,
     'webSelector': webSelector,
-    'properties': properties.map((p) => p.name).toList(),
+    'properties': properties.map((property) => property.name).toList(),
     'textRange': textRange,
     if (webPseudo != null) 'webPseudo': '::${webPseudo!.name}',
     if (geometryTolerance != null || baselineTolerance != null)
@@ -115,7 +115,7 @@ class ComparisonScenario {
     'title': title,
     'viewport': {'width': size.width, 'height': size.height, 'dpr': 1},
     'webSelector': webSelector,
-    'controls': controls.map((c) => c.toJson()).toList(),
+    'controls': controls.map((control) => control.toJson()).toList(),
     'capturePadding': capturePadding,
     if (note != null) 'note': note,
     if (expectedFailure != null) 'expectedFailure': expectedFailure!.toJson(),
@@ -152,7 +152,7 @@ class ComparisonSpec {
       'typography': 0.05,
       'baseline': baselineTolerance,
     },
-    'scenarios': scenarios.map((s) => s.toJson()).toList(),
+    'scenarios': scenarios.map((scenario) => scenario.toJson()).toList(),
   };
 }
 

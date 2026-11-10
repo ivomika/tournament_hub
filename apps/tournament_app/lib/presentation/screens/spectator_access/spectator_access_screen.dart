@@ -19,64 +19,65 @@ class SpectatorAccessScreen extends StatelessWidget {
   final VoidCallback? onBack, onCopy;
   @override
   Widget build(BuildContext context) {
-    final t = SpectatorAccessScreenTheme.of(context),
-        l = FoundationLocalizations.of(context);
+    final appearance = SpectatorAccessScreenTheme.of(context),
+        localizations = FoundationLocalizations.of(context);
     final intro = Column(
-      mainAxisSize: t.min,
-      crossAxisAlignment: t.start,
-      mainAxisAlignment: t.startMain,
+      mainAxisSize: appearance.min,
+      crossAxisAlignment: appearance.start,
+      mainAxisAlignment: appearance.startMain,
       children: [
-        Text(l.screenWatchTitle, style: t.heroHeading),
-        SizedBox(height: t.gap),
-        if (state.scanHint != null) Text(state.scanHint!, style: t.caption),
-        if (t.desktop || !state.noteBelowCode) ...[
-          SizedBox(height: t.gap),
-          Text(state.note, style: t.caption),
+        Text(localizations.screenWatchTitle, style: appearance.heroHeading),
+        SizedBox(height: appearance.gap),
+        if (state.scanHint != null)
+          Text(state.scanHint!, style: appearance.caption),
+        if (appearance.desktop || !state.noteBelowCode) ...[
+          SizedBox(height: appearance.gap),
+          Text(state.note, style: appearance.caption),
         ],
       ],
     );
     final code = AppQrCode(
       data: state.qrPayload,
-      semanticLabel: l.screenQrSpectatorLabel,
-      code: l.screenViewOnly,
+      semanticLabel: localizations.screenQrSpectatorLabel,
+      code: localizations.screenViewOnly,
     );
     final address = state.address == null
         ? null
         : AppShareLink(
-            role: l.screenViewOnly,
+            role: localizations.screenViewOnly,
             address: state.address!,
-            copyLabel: l.screenCopySpectator,
+            copyLabel: localizations.screenCopySpectator,
             onCopy: onCopy,
           );
     return AppScreenCanvas(
       scrollDesktop: true,
       child: Column(
-        crossAxisAlignment: t.stretch,
+        crossAxisAlignment: appearance.stretch,
         children: [
           AppSectionHeader(
-            title: l.screenSpectators,
-            backLabel: l.screenBack,
+            title: localizations.screenSpectators,
+            backLabel: localizations.screenBack,
             onBack: onBack,
           ),
-          SizedBox(height: t.gap),
+          SizedBox(height: appearance.gap),
           Expanded(
-            child: t.desktop
+            child: appearance.desktop
                 ? Row(
-                    crossAxisAlignment: t.stretch,
+                    crossAxisAlignment: appearance.stretch,
                     children: [
                       Expanded(
                         child: Column(
-                          crossAxisAlignment: t.stretch,
+                          crossAxisAlignment: appearance.stretch,
                           children: [
                             Expanded(child: AppScreenTile(child: intro)),
                             if (address != null) ...[
-                              SizedBox(height: t.gap),
+                              SizedBox(height: appearance.gap),
                               address,
                             ],
                           ],
                         ),
                       ),
-                      SizedBox(width: t.gap),
+                      SizedBox(width: appearance.gap),
                       Expanded(
                         child: AppScreenTile(child: Center(child: code)),
                       ),
@@ -84,17 +85,17 @@ class SpectatorAccessScreen extends StatelessWidget {
                   )
                 : SingleChildScrollView(
                     child: Column(
-                      crossAxisAlignment: t.stretch,
+                      crossAxisAlignment: appearance.stretch,
                       children: [
                         intro,
-                        SizedBox(height: t.gap),
+                        SizedBox(height: appearance.gap),
                         Center(child: code),
                         if (state.noteBelowCode) ...[
-                          SizedBox(height: t.gap),
-                          Text(state.note, style: t.caption),
+                          SizedBox(height: appearance.gap),
+                          Text(state.note, style: appearance.caption),
                         ],
                         if (address != null) ...[
-                          SizedBox(height: t.gap),
+                          SizedBox(height: appearance.gap),
                           address,
                         ],
                       ],

@@ -4,11 +4,13 @@ import 'package:tournament_app/presentation/design_system/foundation/spacing/app
 
 class AppAdaptiveGridTheme {
   AppAdaptiveGridTheme.of(BuildContext context, int columns, double maxWidth) {
-    final t = Theme.of(context),
-        m = t.extension<AppScreenMetrics>()!,
-        s = t.extension<AppSpacing>()!;
-    gap = s.space20;
-    width = (maxWidth - gap * (columns - m.stackColumns)) / columns;
+    final runtimeTheme = Theme.of(context),
+        runtimeScreenMetrics = runtimeTheme.extension<AppScreenMetrics>()!,
+        runtimeSpacing = runtimeTheme.extension<AppSpacing>()!;
+    gap = runtimeSpacing.space20;
+    width =
+        (maxWidth - gap * (columns - runtimeScreenMetrics.stackColumns)) /
+        columns;
   }
   late final double gap, width;
 }

@@ -23,61 +23,70 @@ class AppSelectSheet<T extends Object> extends StatelessWidget {
   final VoidCallback onClose;
   @override
   Widget build(BuildContext context) {
-    final t = AppSelectTheme.of(context, true);
+    final appearance = AppSelectTheme.of(context, true);
     return ConstrainedBox(
-      constraints: BoxConstraints(maxWidth: t.sheetMaxWidth),
+      constraints: BoxConstraints(maxWidth: appearance.sheetMaxWidth),
       child: DecoratedBox(
         decoration: BoxDecoration(
-          color: t.surface,
-          borderRadius: t.sheetRadius,
+          color: appearance.surface,
+          borderRadius: appearance.sheetRadius,
           border: Border(
-            top: BorderSide(color: t.border, width: t.sheetBorder),
-            left: BorderSide(color: t.border, width: t.sheetBorder),
-            right: BorderSide(color: t.border, width: t.sheetBorder),
+            top: BorderSide(
+              color: appearance.border,
+              width: appearance.sheetBorder,
+            ),
+            left: BorderSide(
+              color: appearance.border,
+              width: appearance.sheetBorder,
+            ),
+            right: BorderSide(
+              color: appearance.border,
+              width: appearance.sheetBorder,
+            ),
           ),
         ),
         child: Padding(
-          padding: t.sheetPadding,
+          padding: appearance.sheetPadding,
           child: Column(
             mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: t.stretch,
+            crossAxisAlignment: appearance.stretch,
             children: [
               Center(
                 child: SizedBox(
-                  width: t.handleWidth,
-                  height: t.handleHeight,
+                  width: appearance.handleWidth,
+                  height: appearance.handleHeight,
                   child: DecoratedBox(
                     decoration: BoxDecoration(
-                      color: t.border,
-                      borderRadius: t.handleRadius,
+                      color: appearance.border,
+                      borderRadius: appearance.handleRadius,
                     ),
                   ),
                 ),
               ),
-              SizedBox(height: t.handleGap),
+              SizedBox(height: appearance.handleGap),
               Row(
                 children: [
-                  Expanded(child: Text(title, style: t.titleStyle)),
-                  SizedBox(width: t.headerGap),
+                  Expanded(child: Text(title, style: appearance.titleStyle)),
+                  SizedBox(width: appearance.headerGap),
                   SizedBox.square(
-                    dimension: t.closeExtent,
+                    dimension: appearance.closeExtent,
                     child: IconButton(
                       onPressed: onClose,
                       tooltip: closeLabel,
                       style: IconButton.styleFrom(
-                        backgroundColor: t.background,
-                        padding: EdgeInsets.all(t.zero),
+                        backgroundColor: appearance.background,
+                        padding: EdgeInsets.all(appearance.zero),
                       ),
                       icon: const AppIcon(AppGlyph.close),
                     ),
                   ),
                 ],
               ),
-              SizedBox(height: t.descriptionTop),
-              Text(description, style: t.descriptionStyle),
-              SizedBox(height: t.sectionGap),
+              SizedBox(height: appearance.descriptionTop),
+              Text(description, style: appearance.descriptionStyle),
+              SizedBox(height: appearance.sectionGap),
               for (final (index, option) in options.indexed) ...[
-                if (index > 0) SizedBox(height: t.gap),
+                if (index > 0) SizedBox(height: appearance.gap),
                 _SelectOption<T>(
                   option: option,
                   selected: option.value == value,
@@ -104,36 +113,38 @@ class _SelectOption<T extends Object> extends StatelessWidget {
   void _choose() => onSelected(option.value);
   @override
   Widget build(BuildContext context) {
-    final t = AppSelectTheme.of(context, true);
+    final appearance = AppSelectTheme.of(context, true);
     return Semantics(
       selected: selected,
       button: true,
       child: DecoratedBox(
         decoration: BoxDecoration(
-          color: selected ? t.background : t.transparent,
-          borderRadius: t.optionRadius,
+          color: selected ? appearance.background : appearance.transparent,
+          borderRadius: appearance.optionRadius,
           border: Border.all(
-            color: selected ? t.accent : t.transparent,
-            width: t.sheetBorder,
+            color: selected ? appearance.accent : appearance.transparent,
+            width: appearance.sheetBorder,
           ),
         ),
         child: InkWell(
           onTap: _choose,
-          borderRadius: t.optionRadius,
+          borderRadius: appearance.optionRadius,
           child: ConstrainedBox(
-            constraints: BoxConstraints(minHeight: t.optionMinHeight),
+            constraints: BoxConstraints(minHeight: appearance.optionMinHeight),
             child: Padding(
-              padding: t.optionPadding,
+              padding: appearance.optionPadding,
               child: Row(
                 children: [
-                  Expanded(child: Text(option.label, style: t.optionStyle)),
-                  SizedBox(width: t.headerGap),
+                  Expanded(
+                    child: Text(option.label, style: appearance.optionStyle),
+                  ),
+                  SizedBox(width: appearance.headerGap),
                   Visibility(
                     visible: selected,
                     maintainSize: true,
                     maintainAnimation: true,
                     maintainState: true,
-                    child: AppIcon(AppGlyph.check, color: t.accent),
+                    child: AppIcon(AppGlyph.check, color: appearance.accent),
                   ),
                 ],
               ),

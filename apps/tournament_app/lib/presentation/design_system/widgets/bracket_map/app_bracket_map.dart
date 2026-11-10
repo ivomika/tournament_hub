@@ -52,16 +52,16 @@ class AppBracketMap extends StatelessWidget {
   final TransformationController controller;
   @override
   Widget build(BuildContext context) {
-    final t = AppBracketMapTheme.of(context);
+    final appearance = AppBracketMapTheme.of(context);
     return ClipRect(
       child: InteractiveViewer(
         transformationController: controller,
         constrained: false,
-        alignment: t.origin,
-        minScale: t.minScale,
-        maxScale: t.maxScale,
+        alignment: appearance.origin,
+        minScale: appearance.minScale,
+        maxScale: appearance.maxScale,
         child: CustomPaint(
-          painter: _BracketPainter(diagram, t),
+          painter: _BracketPainter(diagram, appearance),
           child: SizedBox.fromSize(
             size: diagram.size.size,
             child: Stack(
@@ -70,7 +70,7 @@ class AppBracketMap extends StatelessWidget {
                   Positioned(
                     left: label.position.dx,
                     top: label.position.dy,
-                    child: Text(label.text, style: t.label),
+                    child: Text(label.text, style: appearance.label),
                   ),
                 for (final node in diagram.nodes)
                   Positioned(
@@ -100,9 +100,21 @@ class _BracketPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final dot = Paint()..color = theme.gridColor;
-    for (var x = theme.zero; x < size.width; x += theme.grid) {
-      for (var y = theme.zero; y < size.height; y += theme.grid) {
-        canvas.drawCircle(Offset(x, y), theme.dot, dot);
+    for (
+      var gridHorizontalOffset = theme.zero;
+      gridHorizontalOffset < size.width;
+      gridHorizontalOffset += theme.grid
+    ) {
+      for (
+        var gridVerticalOffset = theme.zero;
+        gridVerticalOffset < size.height;
+        gridVerticalOffset += theme.grid
+      ) {
+        canvas.drawCircle(
+          Offset(gridHorizontalOffset, gridVerticalOffset),
+          theme.dot,
+          dot,
+        );
       }
     }
     final line = Paint()

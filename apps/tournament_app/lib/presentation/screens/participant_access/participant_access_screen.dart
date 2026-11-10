@@ -17,49 +17,49 @@ class ParticipantAccessScreen extends StatelessWidget {
   final VoidCallback? onBack;
   @override
   Widget build(BuildContext context) {
-    final t = ParticipantAccessScreenTheme.of(context),
-        l = FoundationLocalizations.of(context);
+    final appearance = ParticipantAccessScreenTheme.of(context),
+        localizations = FoundationLocalizations.of(context);
     final intro = Column(
-      mainAxisSize: t.min,
-      crossAxisAlignment: t.start,
-      mainAxisAlignment: t.startMain,
+      mainAxisSize: appearance.min,
+      crossAxisAlignment: appearance.start,
+      mainAxisAlignment: appearance.startMain,
       children: [
-        Text(l.screenJoinTitle, style: t.heroHeading),
-        SizedBox(height: t.gap),
-        Text(l.screenScan, style: t.caption),
+        Text(localizations.screenJoinTitle, style: appearance.heroHeading),
+        SizedBox(height: appearance.gap),
+        Text(localizations.screenScan, style: appearance.caption),
       ],
     );
     final code = AppQrCode(
       data: state.qrPayload,
-      semanticLabel: l.screenQrParticipantLabel,
+      semanticLabel: localizations.screenQrParticipantLabel,
       code: state.code,
     );
 
     return AppScreenCanvas(
       scrollDesktop: true,
       child: Column(
-        crossAxisAlignment: t.stretch,
+        crossAxisAlignment: appearance.stretch,
         children: [
           AppSectionHeader(
-            title: l.screenConnection,
-            backLabel: l.screenBack,
+            title: localizations.screenConnection,
+            backLabel: localizations.screenBack,
             onBack: onBack,
           ),
-          SizedBox(height: t.gap),
+          SizedBox(height: appearance.gap),
           Expanded(
-            child: t.desktop
+            child: appearance.desktop
                 ? Row(
-                    crossAxisAlignment: t.stretch,
+                    crossAxisAlignment: appearance.stretch,
                     children: [
                       Expanded(
                         child: Column(
-                          crossAxisAlignment: t.stretch,
+                          crossAxisAlignment: appearance.stretch,
                           children: [
                             Expanded(child: AppScreenTile(child: intro)),
                           ],
                         ),
                       ),
-                      SizedBox(width: t.gap),
+                      SizedBox(width: appearance.gap),
                       Expanded(
                         child: AppScreenTile(child: Center(child: code)),
                       ),
@@ -67,10 +67,10 @@ class ParticipantAccessScreen extends StatelessWidget {
                   )
                 : SingleChildScrollView(
                     child: Column(
-                      crossAxisAlignment: t.stretch,
+                      crossAxisAlignment: appearance.stretch,
                       children: [
                         intro,
-                        SizedBox(height: t.gap),
+                        SizedBox(height: appearance.gap),
                         Center(child: code),
                       ],
                     ),

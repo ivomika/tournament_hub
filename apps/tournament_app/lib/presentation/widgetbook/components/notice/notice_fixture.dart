@@ -10,14 +10,15 @@ class NoticeFixture extends StatelessWidget {
   });
   final AppNoticeKind kind;
   final bool long;
+  String _resolveText(FoundationLocalizations localizations) {
+    if (kind != AppNoticeKind.information) return localizations.noticeError;
+    if (long) return localizations.noticeInfoLong;
+    return localizations.noticeInfo;
+  }
+
   @override
   Widget build(BuildContext context) {
-    final l = FoundationLocalizations.of(context);
-    return AppNotice(
-      kind: kind,
-      text: kind == AppNoticeKind.information
-          ? (long ? l.noticeInfoLong : l.noticeInfo)
-          : l.noticeError,
-    );
+    final localizations = FoundationLocalizations.of(context);
+    return AppNotice(kind: kind, text: _resolveText(localizations));
   }
 }

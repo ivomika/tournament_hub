@@ -68,7 +68,7 @@ abstract final class _ShapeTests {
     final base = AppTheme.dark();
     final theme = base.copyWith(
       extensions: [
-        ...base.extensions.values.where((e) => e is! AppShape),
+        ...base.extensions.values.where((extension) => extension is! AppShape),
         base.extension<AppShape>()!.copyWith(
           control: BorderRadius.circular(12),
         ),

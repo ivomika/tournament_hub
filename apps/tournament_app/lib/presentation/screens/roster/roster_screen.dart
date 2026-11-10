@@ -24,10 +24,12 @@ class RosterScreen extends StatelessWidget {
   final VoidCallback? onBack, onAdd, onConnect, onDeal;
   @override
   Widget build(BuildContext context) {
-    final t = RosterScreenTheme.of(context),
-        l = FoundationLocalizations.of(context);
+    final appearance = RosterScreenTheme.of(context),
+        localizations = FoundationLocalizations.of(context);
     final list = AppAdaptiveGrid(
-      columns: t.desktop ? t.gridColumns : t.stackColumns,
+      columns: appearance.desktop
+          ? appearance.gridColumns
+          : appearance.stackColumns,
       children: [
         for (final guest in state.guests)
           AppRosterRow(
@@ -38,28 +40,28 @@ class RosterScreen extends StatelessWidget {
       ],
     );
     final contextCard = Column(
-      mainAxisSize: t.min,
-      crossAxisAlignment: t.start,
+      mainAxisSize: appearance.min,
+      crossAxisAlignment: appearance.start,
       children: [
-        Text(l.screenWhoPlays, style: t.heading),
-        SizedBox(height: t.gap),
-        Text(state.contextLabel, style: t.muted),
-        SizedBox(height: t.gap),
-        Text(l.screenNoCharacters, style: t.caption),
+        Text(localizations.screenWhoPlays, style: appearance.heading),
+        SizedBox(height: appearance.gap),
+        Text(state.contextLabel, style: appearance.muted),
+        SizedBox(height: appearance.gap),
+        Text(localizations.screenNoCharacters, style: appearance.caption),
       ],
     );
     final actions = Row(
       children: [
         AppButton(
-          label: l.screenConnectParticipants,
+          label: localizations.screenConnectParticipants,
           kind: AppButtonKind.icon,
           glyph: AppGlyph.qr,
           onPressed: onConnect,
         ),
-        SizedBox(width: t.small),
+        SizedBox(width: appearance.small),
         Expanded(
           child: AppButton(
-            label: l.screenDeal,
+            label: localizations.screenDeal,
             glyph: AppGlyph.arrow,
             onPressed: onDeal,
           ),
@@ -69,40 +71,40 @@ class RosterScreen extends StatelessWidget {
     return AppScreenCanvas(
       scrollDesktop: true,
       child: Column(
-        crossAxisAlignment: t.stretch,
+        crossAxisAlignment: appearance.stretch,
         children: [
           AppSectionHeader(
-            title: l.screenParticipants,
-            backLabel: l.screenBack,
+            title: localizations.screenParticipants,
+            backLabel: localizations.screenBack,
             onBack: onBack,
             action: AppHeaderAction(
               kind: AppHeaderActionKind.add,
-              label: l.screenAddGuest,
+              label: localizations.screenAddGuest,
               onPressed: onAdd,
             ),
           ),
-          SizedBox(height: t.gap),
+          SizedBox(height: appearance.gap),
           Expanded(
-            child: t.desktop
+            child: appearance.desktop
                 ? Row(
-                    crossAxisAlignment: t.start,
+                    crossAxisAlignment: appearance.start,
                     children: [
                       Expanded(
-                        flex: t.homePrimaryFlex,
+                        flex: appearance.homePrimaryFlex,
                         child: SingleChildScrollView(child: list),
                       ),
-                      SizedBox(width: t.gap),
+                      SizedBox(width: appearance.gap),
                       Expanded(
                         child: Column(
-                          crossAxisAlignment: t.stretch,
+                          crossAxisAlignment: appearance.stretch,
                           children: [
                             ConstrainedBox(
                               constraints: BoxConstraints(
-                                minHeight: t.rosterContextHeight,
+                                minHeight: appearance.rosterContextHeight,
                               ),
                               child: AppScreenTile(child: contextCard),
                             ),
-                            SizedBox(height: t.gap),
+                            SizedBox(height: appearance.gap),
                             actions,
                           ],
                         ),
@@ -110,10 +112,10 @@ class RosterScreen extends StatelessWidget {
                     ],
                   )
                 : Column(
-                    crossAxisAlignment: t.stretch,
+                    crossAxisAlignment: appearance.stretch,
                     children: [
                       Expanded(child: SingleChildScrollView(child: list)),
-                      SizedBox(height: t.gap),
+                      SizedBox(height: appearance.gap),
                       actions,
                     ],
                   ),

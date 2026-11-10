@@ -440,9 +440,13 @@ class _BracketFixtureState extends State<BracketFixture> {
     scale - Theme.of(context).extension<AppScreenMetrics>()!.bracketScaleStep,
   );
   void zoom(double next) {
-    final m = Theme.of(context).extension<AppScreenMetrics>()!;
+    final runtimeScreenMetrics = Theme.of(context)
+        .extension<AppScreenMetrics>()!;
     setState(() {
-      scale = next.clamp(m.bracketScaleMin, m.bracketScaleMax);
+      scale = next.clamp(
+        runtimeScreenMetrics.bracketScaleMin,
+        runtimeScreenMetrics.bracketScaleMax,
+      );
       controller.value = Matrix4.diagonal3Values(scale, scale, 1);
     });
   }

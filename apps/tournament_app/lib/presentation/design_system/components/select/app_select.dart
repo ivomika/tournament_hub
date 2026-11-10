@@ -67,17 +67,17 @@ class _AppSelectState<T extends Object> extends State<AppSelect<T>> {
 
   Future<void> _open() async {
     if (widget.onChanged == null) return;
-    final t = AppSelectTheme.of(context, true);
-    if (t.desktop) {
+    final appearance = AppSelectTheme.of(context, true);
+    if (appearance.desktop) {
       _menu.isOpen ? _menu.close() : _menu.open();
       return;
     }
     final value = await showModalBottomSheet<T>(
       context: context,
       isScrollControlled: true,
-      backgroundColor: t.transparent,
+      backgroundColor: appearance.transparent,
       barrierColor: Theme.of(context).colorScheme.scrim,
-      constraints: BoxConstraints(maxWidth: t.sheetMaxWidth),
+      constraints: BoxConstraints(maxWidth: appearance.sheetMaxWidth),
       builder: _sheet,
     );
     if (!mounted) return;
@@ -95,8 +95,10 @@ class _AppSelectState<T extends Object> extends State<AppSelect<T>> {
   @override
   Widget build(BuildContext context) {
     final enabled = widget.onChanged != null,
-        t = AppSelectTheme.of(context, enabled),
-        selected = widget.options.singleWhere((o) => o.value == widget.value);
+        appearance = AppSelectTheme.of(context, enabled),
+        selected = widget.options.singleWhere(
+          (option) => option.value == widget.value,
+        );
     return MenuAnchor(
       controller: _menu,
       childFocusNode: _focus,
@@ -106,11 +108,11 @@ class _AppSelectState<T extends Object> extends State<AppSelect<T>> {
       ],
       builder: (context, controller, child) => Column(
         mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: t.stretch,
+        crossAxisAlignment: appearance.stretch,
         children: [
-          if (t.desktop) ...[
-            Text(widget.label, style: t.labelStyle),
-            SizedBox(height: t.gap),
+          if (appearance.desktop) ...[
+            Text(widget.label, style: appearance.labelStyle),
+            SizedBox(height: appearance.gap),
           ],
           Semantics(
             button: true,
@@ -137,55 +139,63 @@ class _AppSelectState<T extends Object> extends State<AppSelect<T>> {
                   foregroundPainter: _focus.hasFocus
                       ? AppFocusRingPainter(
                           AppFocusRingTheme(
-                            color: t.focusColor,
-                            width: t.focusWidth,
-                            offset: t.focusOffset,
-                            radius: t.radius,
+                            color: appearance.focusColor,
+                            width: appearance.focusWidth,
+                            offset: appearance.focusOffset,
+                            radius: appearance.radius,
                             capsule: false,
-                            half: t.half,
+                            half: appearance.half,
                           ),
                         )
                       : null,
                   child: DecoratedBox(
                     decoration: BoxDecoration(
-                      color: t.desktop ? t.background : t.transparent,
-                      borderRadius: t.radius,
-                      border: t.desktop
-                          ? Border.all(color: t.border, width: t.borderWidth)
+                      color: appearance.desktop
+                          ? appearance.background
+                          : appearance.transparent,
+                      borderRadius: appearance.radius,
+                      border: appearance.desktop
+                          ? Border.all(
+                              color: appearance.border,
+                              width: appearance.borderWidth,
+                            )
                           : null,
                     ),
                     child: ConstrainedBox(
-                      constraints: BoxConstraints(minHeight: t.height),
+                      constraints: BoxConstraints(minHeight: appearance.height),
                       child: Padding(
-                        padding: t.padding,
+                        padding: appearance.padding,
                         child: Row(
-                          mainAxisAlignment: t.spaceBetween,
+                          mainAxisAlignment: appearance.spaceBetween,
                           children: [
-                            if (!t.desktop)
+                            if (!appearance.desktop)
                               Flexible(
-                                child: Text(widget.label, style: t.mobileLabel),
+                                child: Text(
+                                  widget.label,
+                                  style: appearance.mobileLabel,
+                                ),
                               ),
-                            if (t.desktop)
+                            if (appearance.desktop)
                               Expanded(
                                 child: Text(
                                   selected.label,
-                                  style: t.desktopStyle,
+                                  style: appearance.desktopStyle,
                                 ),
                               ),
-                            SizedBox(width: t.headerGap),
-                            if (t.desktop)
+                            SizedBox(width: appearance.headerGap),
+                            if (appearance.desktop)
                               RotatedBox(
-                                quarterTurns: t.chevronTurns,
+                                quarterTurns: appearance.chevronTurns,
                                 child: AppIcon(
                                   AppGlyph.chevron,
-                                  color: t.labelStyle.color,
+                                  color: appearance.labelStyle.color,
                                 ),
                               )
                             else
                               Flexible(
                                 child: Text(
                                   selected.label,
-                                  style: t.selectedStyle,
+                                  style: appearance.selectedStyle,
                                 ),
                               ),
                           ],

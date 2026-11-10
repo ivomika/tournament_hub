@@ -13,12 +13,17 @@ class AppRosterMetrics extends ThemeExtension<AppRosterMetrics> {
         swipeThreshold: swipeThreshold ?? this.swipeThreshold,
       );
   @override
-  AppRosterMetrics lerp(covariant AppRosterMetrics? other, double t) =>
-      other == null
-      ? this
-      : AppRosterMetrics(
-          cardHeight: cardHeight + (other.cardHeight - cardHeight) * t,
-          swipeThreshold:
-              swipeThreshold + (other.swipeThreshold - swipeThreshold) * t,
-        );
+  AppRosterMetrics lerp(
+    covariant AppRosterMetrics? other,
+    double interpolationAmount,
+  ) {
+    if (other == null) return this;
+    return AppRosterMetrics(
+      cardHeight:
+          cardHeight + (other.cardHeight - cardHeight) * interpolationAmount,
+      swipeThreshold:
+          swipeThreshold +
+          (other.swipeThreshold - swipeThreshold) * interpolationAmount,
+    );
+  }
 }

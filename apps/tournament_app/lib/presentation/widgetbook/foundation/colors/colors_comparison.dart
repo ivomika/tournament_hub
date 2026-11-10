@@ -357,17 +357,18 @@ class ColorRoleFixture extends StatelessWidget {
   final Color value;
   @override
   Widget build(BuildContext context) {
-    final t = Theme.of(context), s = t.extension<AppSpacing>()!;
+    final appearance = Theme.of(context),
+        runtimeSpacing = appearance.extension<AppSpacing>()!;
     return SizedBox(
-      width: t.extension<FoundationLayout>()!.fullWidth,
-      height: s.space64 + s.space24,
+      width: appearance.extension<FoundationLayout>()!.fullWidth,
+      height: runtimeSpacing.space64 + runtimeSpacing.space24,
       child: DecoratedBox(
         decoration: BoxDecoration(
           color: value,
           border: Border(
             bottom: BorderSide(
-              color: t.colorScheme.outlineVariant,
-              width: t.extension<AppBorderMetrics>()!.hairline,
+              color: appearance.colorScheme.outlineVariant,
+              width: appearance.extension<AppBorderMetrics>()!.hairline,
             ),
           ),
         ),

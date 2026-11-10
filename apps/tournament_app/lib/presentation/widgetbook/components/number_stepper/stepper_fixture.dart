@@ -20,8 +20,22 @@ class _StepperFixtureState extends State<StepperFixture> {
   final _controller = TextEditingController();
   late int _value;
   bool _initialized = false;
-  int get _min => widget.kind == AppStepperKind.output ? 1 : 0;
-  int get _max => widget.kind == AppStepperKind.output ? 10 : 2;
+  int get _min {
+    if (widget.kind == AppStepperKind.output) {
+      return 1;
+    } else {
+      return 0;
+    }
+  }
+
+  int get _max {
+    if (widget.kind == AppStepperKind.output) {
+      return 10;
+    } else {
+      return 2;
+    }
+  }
+
   void _reset() {
     _value = switch (widget.sample) {
       StepperSample.minimum => _min,
@@ -73,26 +87,28 @@ class _StepperFixtureState extends State<StepperFixture> {
 
   @override
   Widget build(BuildContext context) {
-    final l = FoundationLocalizations.of(context),
+    final localizations = FoundationLocalizations.of(context),
         label = widget.kind == AppStepperKind.output
-            ? l.stepperFormatLabel
-            : l.stepperScoreLabel;
-    return widget.kind == AppStepperKind.output
-        ? AppNumberStepper.output(
-            label: label,
-            valueLabel: l.stepperFt(_value),
-            decreaseLabel: l.stepperDecrease(label),
-            increaseLabel: l.stepperIncrease(label),
-            onDecrease: _value > _min ? _decrease : null,
-            onIncrease: _value < _max ? _increase : null,
-          )
-        : AppNumberStepper.input(
-            label: label,
-            controller: _controller,
-            decreaseLabel: l.stepperDecrease(label),
-            increaseLabel: l.stepperIncrease(label),
-            onDecrease: _value > _min ? _decrease : null,
-            onIncrease: _value < _max ? _increase : null,
-          );
+            ? localizations.stepperFormatLabel
+            : localizations.stepperScoreLabel;
+    if (widget.kind == AppStepperKind.output) {
+      return AppNumberStepper.output(
+        label: label,
+        valueLabel: localizations.stepperFt(_value),
+        decreaseLabel: localizations.stepperDecrease(label),
+        increaseLabel: localizations.stepperIncrease(label),
+        onDecrease: _value > _min ? _decrease : null,
+        onIncrease: _value < _max ? _increase : null,
+      );
+    } else {
+      return AppNumberStepper.input(
+        label: label,
+        controller: _controller,
+        decreaseLabel: localizations.stepperDecrease(label),
+        increaseLabel: localizations.stepperIncrease(label),
+        onDecrease: _value > _min ? _decrease : null,
+        onIncrease: _value < _max ? _increase : null,
+      );
+    }
   }
 }

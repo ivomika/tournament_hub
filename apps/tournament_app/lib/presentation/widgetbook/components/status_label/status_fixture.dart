@@ -9,13 +9,13 @@ class StatusFixture extends StatelessWidget {
   final StatusSample sample;
   @override
   Widget build(BuildContext context) {
-    final l = FoundationLocalizations.of(context);
+    final localizations = FoundationLocalizations.of(context);
     return AppStatusLabel(
       text: switch (sample) {
-        StatusSample.live => l.statusLive,
-        StatusSample.win => l.statusWin,
-        StatusSample.loss => l.statusLoss,
-        StatusSample.points => l.statusPoints,
+        StatusSample.live => localizations.statusLive,
+        StatusSample.win => localizations.statusWin,
+        StatusSample.loss => localizations.statusLoss,
+        StatusSample.points => localizations.statusPoints,
       },
       kind: switch (sample) {
         StatusSample.live => AppStatusKind.live,

@@ -4,10 +4,10 @@ import 'package:tournament_app/presentation/design_system/foundation/spacing/app
 
 class SetupScreenTheme extends AppScreenLayoutTheme {
   SetupScreenTheme.of(BuildContext context) : super.of(context) {
-    final s = Theme.of(context).extension<AppSpacing>()!;
+    final runtimeSpacing = Theme.of(context).extension<AppSpacing>()!;
     formatHeight = utilityHeight * textScaleFactor;
-    panePadding = EdgeInsets.all(s.space24);
-    layoutGap = desktop ? s.space20 : s.space24;
+    panePadding = EdgeInsets.all(runtimeSpacing.space24);
+    layoutGap = desktop ? runtimeSpacing.space20 : runtimeSpacing.space24;
     formatStyle = desktop ? Theme.of(context).textTheme.displayLarge! : heading;
   }
   late final EdgeInsets panePadding;

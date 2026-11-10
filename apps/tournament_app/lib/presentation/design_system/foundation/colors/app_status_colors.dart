@@ -44,34 +44,49 @@ class AppStatusColors extends ThemeExtension<AppStatusColors> {
     characterStorm: characterStorm ?? this.characterStorm,
   );
   @override
-  AppStatusColors lerp(covariant AppStatusColors? other, double t) {
+  AppStatusColors lerp(
+    covariant AppStatusColors? other,
+    double interpolationAmount,
+  ) {
     if (other == null) return this;
     return AppStatusColors(
-      success: Color.lerp(success, other.success, t)!,
+      success: Color.lerp(success, other.success, interpolationAmount)!,
       successContainer: Color.lerp(
         successContainer,
         other.successContainer,
-        t,
+        interpolationAmount,
       )!,
       onSuccessContainer: Color.lerp(
         onSuccessContainer,
         other.onSuccessContainer,
-        t,
+        interpolationAmount,
       )!,
-      warning: Color.lerp(warning, other.warning, t)!,
+      warning: Color.lerp(warning, other.warning, interpolationAmount)!,
       warningContainer: Color.lerp(
         warningContainer,
         other.warningContainer,
-        t,
+        interpolationAmount,
       )!,
       onWarningContainer: Color.lerp(
         onWarningContainer,
         other.onWarningContainer,
-        t,
+        interpolationAmount,
       )!,
-      characterIce: Color.lerp(characterIce, other.characterIce, t)!,
-      characterFan: Color.lerp(characterFan, other.characterFan, t)!,
-      characterStorm: Color.lerp(characterStorm, other.characterStorm, t)!,
+      characterIce: Color.lerp(
+        characterIce,
+        other.characterIce,
+        interpolationAmount,
+      )!,
+      characterFan: Color.lerp(
+        characterFan,
+        other.characterFan,
+        interpolationAmount,
+      )!,
+      characterStorm: Color.lerp(
+        characterStorm,
+        other.characterStorm,
+        interpolationAmount,
+      )!,
     );
   }
 }

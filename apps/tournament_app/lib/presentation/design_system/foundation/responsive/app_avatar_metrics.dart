@@ -82,37 +82,100 @@ class AppAvatarMetrics extends ThemeExtension<AppAvatarMetrics> {
     avatarTracking: avatarTracking ?? this.avatarTracking,
   );
   @override
-  AppAvatarMetrics lerp(covariant AppAvatarMetrics? other, double t) {
+  AppAvatarMetrics lerp(
+    covariant AppAvatarMetrics? other,
+    double interpolationAmount,
+  ) {
     if (other == null) return this;
     return AppAvatarMetrics(
-      leadingDistribution: t < 0.5
+      leadingDistribution: interpolationAmount < 0.5
           ? leadingDistribution
           : other.leadingDistribution,
       contentAlignment: Alignment.lerp(
         contentAlignment,
         other.contentAlignment,
-        t,
+        interpolationAmount,
       )!,
-      avatarFont28: lerpDouble(avatarFont28, other.avatarFont28, t)!,
-      avatarFont40: lerpDouble(avatarFont40, other.avatarFont40, t)!,
-      avatarFont48: lerpDouble(avatarFont48, other.avatarFont48, t)!,
-      avatarFont64: lerpDouble(avatarFont64, other.avatarFont64, t)!,
-      avatarFont96: lerpDouble(avatarFont96, other.avatarFont96, t)!,
-      avatarFont112: lerpDouble(avatarFont112, other.avatarFont112, t)!,
-      avatarFont128: lerpDouble(avatarFont128, other.avatarFont128, t)!,
-      avatarRadius28: lerpDouble(avatarRadius28, other.avatarRadius28, t)!,
-      avatarRadius40: lerpDouble(avatarRadius40, other.avatarRadius40, t)!,
-      avatarRadius48: lerpDouble(avatarRadius48, other.avatarRadius48, t)!,
-      avatarRadius64: lerpDouble(avatarRadius64, other.avatarRadius64, t)!,
-      avatarRadius96: lerpDouble(avatarRadius96, other.avatarRadius96, t)!,
-      avatarRadius112: lerpDouble(avatarRadius112, other.avatarRadius112, t)!,
-      avatarRadius128: lerpDouble(avatarRadius128, other.avatarRadius128, t)!,
+      avatarFont28: lerpDouble(
+        avatarFont28,
+        other.avatarFont28,
+        interpolationAmount,
+      )!,
+      avatarFont40: lerpDouble(
+        avatarFont40,
+        other.avatarFont40,
+        interpolationAmount,
+      )!,
+      avatarFont48: lerpDouble(
+        avatarFont48,
+        other.avatarFont48,
+        interpolationAmount,
+      )!,
+      avatarFont64: lerpDouble(
+        avatarFont64,
+        other.avatarFont64,
+        interpolationAmount,
+      )!,
+      avatarFont96: lerpDouble(
+        avatarFont96,
+        other.avatarFont96,
+        interpolationAmount,
+      )!,
+      avatarFont112: lerpDouble(
+        avatarFont112,
+        other.avatarFont112,
+        interpolationAmount,
+      )!,
+      avatarFont128: lerpDouble(
+        avatarFont128,
+        other.avatarFont128,
+        interpolationAmount,
+      )!,
+      avatarRadius28: lerpDouble(
+        avatarRadius28,
+        other.avatarRadius28,
+        interpolationAmount,
+      )!,
+      avatarRadius40: lerpDouble(
+        avatarRadius40,
+        other.avatarRadius40,
+        interpolationAmount,
+      )!,
+      avatarRadius48: lerpDouble(
+        avatarRadius48,
+        other.avatarRadius48,
+        interpolationAmount,
+      )!,
+      avatarRadius64: lerpDouble(
+        avatarRadius64,
+        other.avatarRadius64,
+        interpolationAmount,
+      )!,
+      avatarRadius96: lerpDouble(
+        avatarRadius96,
+        other.avatarRadius96,
+        interpolationAmount,
+      )!,
+      avatarRadius112: lerpDouble(
+        avatarRadius112,
+        other.avatarRadius112,
+        interpolationAmount,
+      )!,
+      avatarRadius128: lerpDouble(
+        avatarRadius128,
+        other.avatarRadius128,
+        interpolationAmount,
+      )!,
       avatarLineHeight: lerpDouble(
         avatarLineHeight,
         other.avatarLineHeight,
-        t,
+        interpolationAmount,
       )!,
-      avatarTracking: lerpDouble(avatarTracking, other.avatarTracking, t)!,
+      avatarTracking: lerpDouble(
+        avatarTracking,
+        other.avatarTracking,
+        interpolationAmount,
+      )!,
     );
   }
 }

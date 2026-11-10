@@ -35,235 +35,249 @@ class ProfileScreen extends StatelessWidget {
       onContact;
   @override
   Widget build(BuildContext context) {
-    final t = ProfileScreenTheme.of(context),
-        l = FoundationLocalizations.of(context);
+    final appearance = ProfileScreenTheme.of(context),
+        localizations = FoundationLocalizations.of(context);
     final statistics = state.statistics, recent = state.recent;
     final identity = Column(
-      mainAxisSize: t.desktop ? t.max : t.min,
-      mainAxisAlignment: t.desktop ? t.spaceBetween : t.centerMain,
-      crossAxisAlignment: t.desktop ? t.start : t.centerCross,
+      mainAxisSize: appearance.desktop ? appearance.max : appearance.min,
+      mainAxisAlignment: appearance.desktop
+          ? appearance.spaceBetween
+          : appearance.centerMain,
+      crossAxisAlignment: appearance.desktop
+          ? appearance.start
+          : appearance.centerCross,
       children: [
         AppAvatar(
           initials: state.initials,
           size: AppAvatarSize.profile,
-          shape: t.desktop ? AppAvatarShape.tile : AppAvatarShape.round,
-          foreground: t.muted.color,
+          shape: appearance.desktop
+              ? AppAvatarShape.tile
+              : AppAvatarShape.round,
+          foreground: appearance.muted.color,
         ),
-        SizedBox(height: t.gap),
-        Text(state.name, style: t.name),
+        SizedBox(height: appearance.gap),
+        Text(state.name, style: appearance.name),
       ],
     );
     final achievement = statistics == null
         ? null
         : AppMetric(
             value: statistics.wins,
-            label: l.screenWins,
-            semanticLabel: l.screenWins,
+            label: localizations.screenWins,
+            semanticLabel: localizations.screenWins,
             kind: AppMetricKind.achievement,
           );
     final tournaments = statistics == null
         ? null
         : AppMetric(
             value: statistics.tournaments,
-            label: l.screenTournamentCount,
-            semanticLabel: l.screenTournamentCount,
+            label: localizations.screenTournamentCount,
+            semanticLabel: localizations.screenTournamentCount,
           );
     final matches = statistics == null
         ? null
         : AppMetric(
             value: statistics.matches,
-            label: l.screenMatches,
-            semanticLabel: l.screenMatches,
+            label: localizations.screenMatches,
+            semanticLabel: localizations.screenMatches,
           );
-    final latest = recent == null
-        ? null
-        : ClipRRect(
-            borderRadius: t.recentRadius,
-            child: Material(
-              color: t.desktop ? t.surface : t.background,
-              child: InkWell(
-                hoverColor: t.recentHover,
-                highlightColor: t.recentHover,
-                borderRadius: t.recentRadius,
-                onTap: onRecent,
-                child: Padding(
-                  padding: t.tileInset,
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: Center(
-                          child: SingleChildScrollView(
-                            child: Column(
-                              mainAxisSize: t.min,
-                              crossAxisAlignment: t.start,
-                              children: [
-                                Text(l.screenLastTournament, style: t.caption),
-                                SizedBox(height: t.small),
-                                Text(recent.name, style: t.title),
-                                SizedBox(height: t.small),
-                                AppIdentity(
-                                  primary: recent.character,
-                                  initials: recent.initials,
-                                  secondary: state.name,
-                                  size: AppAvatarSize.small,
-                                ),
-                                SizedBox(height: t.small),
-                                Text(recent.date, style: t.caption),
-                              ],
+    Widget? latest;
+    if (recent != null) {
+      latest = ClipRRect(
+        borderRadius: appearance.recentRadius,
+        child: Material(
+          color: appearance.desktop
+              ? appearance.surface
+              : appearance.background,
+          child: InkWell(
+            hoverColor: appearance.recentHover,
+            highlightColor: appearance.recentHover,
+            borderRadius: appearance.recentRadius,
+            onTap: onRecent,
+            child: Padding(
+              padding: appearance.tileInset,
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Center(
+                      child: SingleChildScrollView(
+                        child: Column(
+                          mainAxisSize: appearance.min,
+                          crossAxisAlignment: appearance.start,
+                          children: [
+                            Text(
+                              localizations.screenLastTournament,
+                              style: appearance.caption,
                             ),
-                          ),
+                            SizedBox(height: appearance.small),
+                            Text(recent.name, style: appearance.title),
+                            SizedBox(height: appearance.small),
+                            AppIdentity(
+                              primary: recent.character,
+                              initials: recent.initials,
+                              secondary: state.name,
+                              size: AppAvatarSize.small,
+                            ),
+                            SizedBox(height: appearance.small),
+                            Text(recent.date, style: appearance.caption),
+                          ],
                         ),
                       ),
-                      SizedBox(width: t.small),
-                      Column(
-                        mainAxisSize: t.min,
-                        children: [
-                          Text(recent.place, style: t.accentHero),
-                          Text(l.screenPlace, style: t.caption),
-                        ],
+                    ),
+                  ),
+                  SizedBox(width: appearance.small),
+                  Column(
+                    mainAxisSize: appearance.min,
+                    children: [
+                      Text(recent.place, style: appearance.accentHero),
+                      Text(
+                        localizations.screenPlace,
+                        style: appearance.caption,
                       ),
                     ],
                   ),
-                ),
+                ],
               ),
             ),
-          );
+          ),
+        ),
+      );
+    }
     final empty = Column(
-      mainAxisSize: t.min,
-      crossAxisAlignment: t.start,
-      mainAxisAlignment: t.centerMain,
+      mainAxisSize: appearance.min,
+      crossAxisAlignment: appearance.start,
+      mainAxisAlignment: appearance.centerMain,
       children: [
-        Text(l.screenAhead, style: t.heading),
-        SizedBox(height: t.small),
-        Text(l.screenAheadNote, style: t.muted),
-        SizedBox(height: t.gap),
+        Text(localizations.screenAhead, style: appearance.heading),
+        SizedBox(height: appearance.small),
+        Text(localizations.screenAheadNote, style: appearance.muted),
+        SizedBox(height: appearance.gap),
         AppButton(
-          label: l.screenCreate,
+          label: localizations.screenCreate,
           glyph: AppGlyph.arrow,
           onPressed: onCreate,
         ),
       ],
     );
     final settings = AppNavigationItem(
-      label: l.screenSettings,
+      label: localizations.screenSettings,
       glyph: AppGlyph.settings,
       onPressed: onSettings,
     );
     final about = AppNavigationItem(
-      label: l.screenAbout,
+      label: localizations.screenAbout,
       glyph: AppGlyph.info,
       onPressed: onAbout,
     );
     final contact = AppNavigationItem(
-      label: l.screenContact,
+      label: localizations.screenContact,
       glyph: AppGlyph.contact,
       onPressed: onContact,
     );
+    final Widget? responsiveContent;
+    if (appearance.desktop) {
+      responsiveContent = Column(
+        crossAxisAlignment: appearance.stretch,
+        children: [
+          Expanded(
+            child: Row(
+              crossAxisAlignment: appearance.stretch,
+              children: [
+                Expanded(child: AppScreenTile(child: identity)),
+                SizedBox(width: appearance.gap),
+                Expanded(
+                  flex: appearance.homePrimaryFlex,
+                  child: statistics == null
+                      ? AppScreenTile(child: empty)
+                      : Column(
+                          crossAxisAlignment: appearance.stretch,
+                          children: [
+                            Expanded(
+                              child: Row(
+                                crossAxisAlignment: appearance.stretch,
+                                children: [
+                                  Expanded(
+                                    flex: appearance.homePrimaryFlex,
+                                    child: achievement!,
+                                  ),
+                                  SizedBox(width: appearance.gap),
+                                  Expanded(child: tournaments!),
+                                  SizedBox(width: appearance.gap),
+                                  Expanded(child: matches!),
+                                ],
+                              ),
+                            ),
+                            if (latest != null) ...[
+                              SizedBox(height: appearance.gap),
+                              Expanded(child: latest),
+                            ],
+                          ],
+                        ),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(height: appearance.gap),
+          SizedBox(
+            height: appearance.profileLinkHeight,
+            child: Row(
+              crossAxisAlignment: appearance.stretch,
+              children: [
+                Expanded(child: settings),
+                SizedBox(width: appearance.gap),
+                Expanded(child: about),
+                SizedBox(width: appearance.gap),
+                Expanded(child: contact),
+              ],
+            ),
+          ),
+        ],
+      );
+    } else {
+      responsiveContent = SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: appearance.stretch,
+          children: [
+            identity,
+            SizedBox(height: appearance.gap),
+            if (statistics != null) ...[
+              achievement!,
+              SizedBox(height: appearance.gap),
+              Row(
+                children: [
+                  Expanded(child: tournaments!),
+                  SizedBox(width: appearance.gap),
+                  Expanded(child: matches!),
+                ],
+              ),
+            ] else
+              empty,
+            if (latest != null) ...[SizedBox(height: appearance.gap), latest],
+            SizedBox(height: appearance.gap),
+            settings,
+            about,
+            contact,
+          ],
+        ),
+      );
+    }
     return AppScreenCanvas(
       scrollDesktop: true,
       child: Column(
-        crossAxisAlignment: t.stretch,
+        crossAxisAlignment: appearance.stretch,
         children: [
           AppSectionHeader(
-            title: l.screenProfileTitle,
-            backLabel: l.screenBack,
+            title: localizations.screenProfileTitle,
+            backLabel: localizations.screenBack,
             onBack: onBack,
             action: AppHeaderAction(
               kind: AppHeaderActionKind.edit,
-              label: l.screenEditName,
+              label: localizations.screenEditName,
               onPressed: onEdit,
             ),
           ),
-          SizedBox(height: t.gap),
-          Expanded(
-            child: t.desktop
-                ? Column(
-                    crossAxisAlignment: t.stretch,
-                    children: [
-                      Expanded(
-                        child: Row(
-                          crossAxisAlignment: t.stretch,
-                          children: [
-                            Expanded(child: AppScreenTile(child: identity)),
-                            SizedBox(width: t.gap),
-                            Expanded(
-                              flex: t.homePrimaryFlex,
-                              child: statistics == null
-                                  ? AppScreenTile(child: empty)
-                                  : Column(
-                                      crossAxisAlignment: t.stretch,
-                                      children: [
-                                        Expanded(
-                                          child: Row(
-                                            crossAxisAlignment: t.stretch,
-                                            children: [
-                                              Expanded(
-                                                flex: t.homePrimaryFlex,
-                                                child: achievement!,
-                                              ),
-                                              SizedBox(width: t.gap),
-                                              Expanded(child: tournaments!),
-                                              SizedBox(width: t.gap),
-                                              Expanded(child: matches!),
-                                            ],
-                                          ),
-                                        ),
-                                        if (latest != null) ...[
-                                          SizedBox(height: t.gap),
-                                          Expanded(child: latest),
-                                        ],
-                                      ],
-                                    ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      SizedBox(height: t.gap),
-                      SizedBox(
-                        height: t.profileLinkHeight,
-                        child: Row(
-                          crossAxisAlignment: t.stretch,
-                          children: [
-                            Expanded(child: settings),
-                            SizedBox(width: t.gap),
-                            Expanded(child: about),
-                            SizedBox(width: t.gap),
-                            Expanded(child: contact),
-                          ],
-                        ),
-                      ),
-                    ],
-                  )
-                : SingleChildScrollView(
-                    child: Column(
-                      crossAxisAlignment: t.stretch,
-                      children: [
-                        identity,
-                        SizedBox(height: t.gap),
-                        if (statistics != null) ...[
-                          achievement!,
-                          SizedBox(height: t.gap),
-                          Row(
-                            children: [
-                              Expanded(child: tournaments!),
-                              SizedBox(width: t.gap),
-                              Expanded(child: matches!),
-                            ],
-                          ),
-                        ] else
-                          empty,
-                        if (latest != null) ...[
-                          SizedBox(height: t.gap),
-                          latest,
-                        ],
-                        SizedBox(height: t.gap),
-                        settings,
-                        about,
-                        contact,
-                      ],
-                    ),
-                  ),
-          ),
+          SizedBox(height: appearance.gap),
+          Expanded(child: responsiveContent),
         ],
       ),
     );

@@ -19,27 +19,92 @@ class AppScreenLayout extends StatelessWidget {
   final bool brand, centerPrimary, primarySurface;
   @override
   Widget build(BuildContext context) {
-    final t = AppScreenLayoutTheme.of(context),
-        l = FoundationLocalizations.of(context);
+    final appearance = AppScreenLayoutTheme.of(context),
+        localizations = FoundationLocalizations.of(context);
+    final Widget? responsiveContent;
+    if (appearance.desktop) {
+      responsiveContent = Row(
+        crossAxisAlignment: appearance.stretch,
+        children: [
+          Expanded(
+            flex: appearance.primaryFlex,
+            child: AppScreenTile(transparent: !primarySurface, child: primary),
+          ),
+          if (secondary != null || footer != null) ...[
+            SizedBox(width: appearance.gap),
+            Expanded(
+              flex: appearance.secondaryFlex,
+              child: AppScreenTile(
+                child: Column(
+                  crossAxisAlignment: appearance.stretch,
+                  children: [
+                    if (secondary != null)
+                      Expanded(child: secondary!)
+                    else
+                      const Spacer(),
+                    if (footer != null) ...[
+                      SizedBox(height: appearance.gap),
+                      footer!,
+                    ],
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ],
+      );
+    } else {
+      responsiveContent = Column(
+        crossAxisAlignment: appearance.stretch,
+        children: [
+          Expanded(
+            child: centerPrimary
+                ? Column(
+                    crossAxisAlignment: appearance.stretch,
+                    children: [
+                      Expanded(child: primary),
+                      if (secondary != null) ...[
+                        SizedBox(height: appearance.gap),
+                        secondary!,
+                      ],
+                    ],
+                  )
+                : SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: appearance.stretch,
+                      children: [
+                        primary,
+                        if (secondary != null) ...[
+                          SizedBox(height: appearance.gap),
+                          secondary!,
+                        ],
+                      ],
+                    ),
+                  ),
+          ),
+          if (footer != null) ...[SizedBox(height: appearance.gap), footer!],
+        ],
+      );
+    }
     return Scaffold(
-      backgroundColor: t.background,
+      backgroundColor: appearance.background,
       body: SafeArea(
         child: Column(
-          crossAxisAlignment: t.stretch,
+          crossAxisAlignment: appearance.stretch,
           children: [
-            if (t.desktop && brand)
+            if (appearance.desktop && brand)
               SizedBox(
-                height: t.brandHeight,
+                height: appearance.brandHeight,
                 child: Padding(
-                  padding: t.brandInset,
+                  padding: appearance.brandInset,
                   child: RichText(
                     text: TextSpan(
-                      style: t.brand,
+                      style: appearance.brand,
                       children: [
-                        TextSpan(text: l.screenBrand),
+                        TextSpan(text: localizations.screenBrand),
                         TextSpan(
-                          text: l.screenBrandAccent,
-                          style: t.accentBrand,
+                          text: localizations.screenBrandAccent,
+                          style: appearance.accentBrand,
                         ),
                       ],
                     ),
@@ -48,81 +113,15 @@ class AppScreenLayout extends StatelessWidget {
               ),
             Expanded(
               child: Padding(
-                padding: t.inset,
+                padding: appearance.inset,
                 child: Column(
-                  crossAxisAlignment: t.stretch,
+                  crossAxisAlignment: appearance.stretch,
                   children: [
-                    if (header != null) ...[header!, SizedBox(height: t.gap)],
-                    Expanded(
-                      child: t.desktop
-                          ? Row(
-                              crossAxisAlignment: t.stretch,
-                              children: [
-                                Expanded(
-                                  flex: t.primaryFlex,
-                                  child: AppScreenTile(
-                                    transparent: !primarySurface,
-                                    child: primary,
-                                  ),
-                                ),
-                                if (secondary != null || footer != null) ...[
-                                  SizedBox(width: t.gap),
-                                  Expanded(
-                                    flex: t.secondaryFlex,
-                                    child: AppScreenTile(
-                                      child: Column(
-                                        crossAxisAlignment: t.stretch,
-                                        children: [
-                                          if (secondary != null)
-                                            Expanded(child: secondary!)
-                                          else
-                                            const Spacer(),
-                                          if (footer != null) ...[
-                                            SizedBox(height: t.gap),
-                                            footer!,
-                                          ],
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ],
-                            )
-                          : Column(
-                              crossAxisAlignment: t.stretch,
-                              children: [
-                                Expanded(
-                                  child: centerPrimary
-                                      ? Column(
-                                          crossAxisAlignment: t.stretch,
-                                          children: [
-                                            Expanded(child: primary),
-                                            if (secondary != null) ...[
-                                              SizedBox(height: t.gap),
-                                              secondary!,
-                                            ],
-                                          ],
-                                        )
-                                      : SingleChildScrollView(
-                                          child: Column(
-                                            crossAxisAlignment: t.stretch,
-                                            children: [
-                                              primary,
-                                              if (secondary != null) ...[
-                                                SizedBox(height: t.gap),
-                                                secondary!,
-                                              ],
-                                            ],
-                                          ),
-                                        ),
-                                ),
-                                if (footer != null) ...[
-                                  SizedBox(height: t.gap),
-                                  footer!,
-                                ],
-                              ],
-                            ),
-                    ),
+                    if (header != null) ...[
+                      header!,
+                      SizedBox(height: appearance.gap),
+                    ],
+                    Expanded(child: responsiveContent),
                   ],
                 ),
               ),
@@ -143,19 +142,23 @@ class AppScreenTile extends StatelessWidget {
     super.key,
   });
   final bool transparent, raised;
+  Color _resolveBackground(AppScreenLayoutTheme theme) {
+    if (!theme.desktop || transparent) return theme.background;
+    if (raised) return theme.raised;
+    return theme.surface;
+  }
+
   final EdgeInsets? padding;
   final Widget child;
   @override
   Widget build(BuildContext context) {
-    final t = AppScreenLayoutTheme.of(context);
+    final appearance = AppScreenLayoutTheme.of(context);
     return DecoratedBox(
       decoration: BoxDecoration(
-        color: t.desktop && !transparent
-            ? (raised ? t.raised : t.surface)
-            : t.background,
-        borderRadius: t.radius,
+        color: _resolveBackground(appearance),
+        borderRadius: appearance.radius,
       ),
-      child: Padding(padding: padding ?? t.tileInset, child: child),
+      child: Padding(padding: padding ?? appearance.tileInset, child: child),
     );
   }
 }

@@ -5,18 +5,19 @@ import 'package:tournament_app/presentation/design_system/foundation/responsive/
 
 class BootstrapScreenTheme extends AppScreenLayoutTheme {
   BootstrapScreenTheme.of(BuildContext context) : super.of(context) {
-    final m = Theme.of(context).extension<AppScreenMetrics>()!;
+    final runtimeScreenMetrics = Theme.of(context)
+        .extension<AppScreenMetrics>()!;
     centerLeft = Alignment(topLeft.x, centerAlign.y);
-    top = m.bootTop - inset.top;
-    final s = Theme.of(context).extension<AppSpacing>()!;
+    top = runtimeScreenMetrics.bootTop - inset.top;
+    final runtimeSpacing = Theme.of(context).extension<AppSpacing>()!;
     error = Theme.of(context).colorScheme.error;
-    errorSize = s.space32;
-    markWidth = s.space48;
-    markHeight = s.space4;
-    blockHeight = m.bootBrandHeight;
-    cueHeight = m.bootCueHeight;
-    blockGap = m.bootGap;
-    logo = hero.copyWith(fontSize: m.bootFont);
+    errorSize = runtimeSpacing.space32;
+    markWidth = runtimeSpacing.space48;
+    markHeight = runtimeSpacing.space4;
+    blockHeight = runtimeScreenMetrics.bootBrandHeight;
+    cueHeight = runtimeScreenMetrics.bootCueHeight;
+    blockGap = runtimeScreenMetrics.bootGap;
+    logo = hero.copyWith(fontSize: runtimeScreenMetrics.bootFont);
     accentLogo = logo.copyWith(color: accentHero.color);
   }
   late final Alignment centerLeft;

@@ -68,5 +68,5 @@ abstract final class ComparisonCatalog {
     RosterComparison.spec,
   ];
   static ComparisonSpec component(String id) =>
-      components.singleWhere((s) => s.component == id);
+      components.singleWhere((specification) => specification.component == id);
 }

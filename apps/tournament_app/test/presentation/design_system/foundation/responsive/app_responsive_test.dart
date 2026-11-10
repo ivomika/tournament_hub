@@ -83,7 +83,9 @@ abstract final class _ResponsiveTests {
     final base = AppTheme.dark();
     final theme = base.copyWith(
       extensions: [
-        ...base.extensions.values.where((e) => e is! AppResponsive),
+        ...base.extensions.values.where(
+          (extension) => extension is! AppResponsive,
+        ),
         base.extension<AppResponsive>()!.copyWith(mobileToDesktopWidth: 1500),
       ],
     );

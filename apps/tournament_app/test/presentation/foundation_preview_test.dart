@@ -106,9 +106,10 @@ abstract final class _FoundationPreviewTests {
   }
 
   static double _ratio(Color first, Color second) {
-    final a = first.computeLuminance();
-    final b = second.computeLuminance();
-    return (math.max(a, b) + 0.05) / (math.min(a, b) + 0.05);
+    final firstLuminance = first.computeLuminance();
+    final secondLuminance = second.computeLuminance();
+    return (math.max(firstLuminance, secondLuminance) + 0.05) /
+        (math.min(firstLuminance, secondLuminance) + 0.05);
   }
 
   static void _contrast() {

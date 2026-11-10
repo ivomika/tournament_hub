@@ -25,21 +25,28 @@ class AppRosterRowTheme {
     BuildContext context, {
     required String removeLabel,
   }) {
-    final t = Theme.of(context),
-        r = t.extension<AppResponsive>()!,
-        s = t.extension<AppSpacing>()!,
-        m = t.extension<AppRosterMetrics>()!,
-        motion = t.extension<AppMotion>()!,
-        c = t.extension<AppControlMetrics>()!,
-        shape = t.extension<AppShape>()!;
-    final desktop = MediaQuery.sizeOf(context).width > r.mobileToDesktopWidth;
+    final runtimeTheme = Theme.of(context),
+        runtimeResponsive = runtimeTheme.extension<AppResponsive>()!,
+        runtimeSpacing = runtimeTheme.extension<AppSpacing>()!,
+        runtimeRosterMetrics = runtimeTheme.extension<AppRosterMetrics>()!,
+        motion = runtimeTheme.extension<AppMotion>()!,
+        runtimeControlMetrics = runtimeTheme.extension<AppControlMetrics>()!,
+        shape = runtimeTheme.extension<AppShape>()!;
+    final desktop =
+        MediaQuery.sizeOf(context).width >
+        runtimeResponsive.mobileToDesktopWidth;
     return AppRosterRowTheme(
       desktop: desktop,
-      minHeight: desktop ? m.cardHeight : c.removeHeight,
+      minHeight: desktop
+          ? runtimeRosterMetrics.cardHeight
+          : runtimeControlMetrics.removeHeight,
       padding: desktop
-          ? EdgeInsets.all(s.space24)
-          : EdgeInsets.symmetric(horizontal: s.space16, vertical: s.space8),
-      actionInset: s.space24,
+          ? EdgeInsets.all(runtimeSpacing.space24)
+          : EdgeInsets.symmetric(
+              horizontal: runtimeSpacing.space16,
+              vertical: runtimeSpacing.space8,
+            ),
+      actionInset: runtimeSpacing.space24,
       actionWidth: AppButtonTheme.of(
         context,
         AppButtonKind.removeSwipe,
@@ -47,8 +54,8 @@ class AppRosterRowTheme {
         label: removeLabel,
       ).width!,
       radius: desktop ? shape.surface : shape.nested,
-      zero: s.space0,
-      threshold: m.swipeThreshold,
+      zero: runtimeSpacing.space0,
+      threshold: runtimeRosterMetrics.swipeThreshold,
       duration: MediaQuery.disableAnimationsOf(context)
           ? motion.reduced
           : motion.reveal,

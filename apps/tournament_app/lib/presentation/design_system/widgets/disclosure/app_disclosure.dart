@@ -55,12 +55,12 @@ class _DisclosureState extends State<AppDisclosure> {
 
   @override
   Widget build(BuildContext context) {
-    final t = AppDisclosureTheme.of(context);
+    final appearance = AppDisclosureTheme.of(context);
     return Padding(
-      padding: t.padding,
+      padding: appearance.padding,
       child: Column(
         mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: t.stretch,
+        crossAxisAlignment: appearance.stretch,
         children: [
           Semantics(
             expanded: widget.expanded,
@@ -68,12 +68,12 @@ class _DisclosureState extends State<AppDisclosure> {
               foregroundPainter: _focus.hasFocus
                   ? AppFocusRingPainter(
                       AppFocusRingTheme(
-                        color: t.focusColor,
-                        width: t.focusWidth,
-                        offset: t.focusOffset,
-                        radius: t.radius,
+                        color: appearance.focusColor,
+                        width: appearance.focusWidth,
+                        offset: appearance.focusOffset,
+                        radius: appearance.radius,
                         capsule: false,
-                        half: t.half,
+                        half: appearance.half,
                       ),
                     )
                   : null,
@@ -81,21 +81,23 @@ class _DisclosureState extends State<AppDisclosure> {
                 focusNode: _focus,
                 onPressed: widget.onToggle,
                 style: ButtonStyle(
-                  padding: WidgetStatePropertyAll(t.buttonPadding),
-                  minimumSize: WidgetStatePropertyAll(t.minSize),
-                  overlayColor: WidgetStatePropertyAll(t.transparent),
+                  padding: WidgetStatePropertyAll(appearance.buttonPadding),
+                  minimumSize: WidgetStatePropertyAll(appearance.minSize),
+                  overlayColor: WidgetStatePropertyAll(appearance.transparent),
                 ),
                 child: Row(
                   children: [
-                    Expanded(child: Text(widget.title, style: t.titleStyle)),
-                    SizedBox(width: t.gap),
+                    Expanded(
+                      child: Text(widget.title, style: appearance.titleStyle),
+                    ),
+                    SizedBox(width: appearance.gap),
                     RotatedBox(
                       quarterTurns: widget.expanded
-                          ? t.turns
-                          : t.turns - t.turns,
+                          ? appearance.turns
+                          : appearance.turns - appearance.turns,
                       child: AppIcon(
                         AppGlyph.chevron,
-                        color: t.titleStyle.color,
+                        color: appearance.titleStyle.color,
                       ),
                     ),
                   ],
@@ -105,8 +107,11 @@ class _DisclosureState extends State<AppDisclosure> {
           ),
           if (widget.expanded)
             Padding(
-              padding: t.bodyPadding,
-              child: DefaultTextStyle(style: t.bodyStyle, child: widget.child),
+              padding: appearance.bodyPadding,
+              child: DefaultTextStyle(
+                style: appearance.bodyStyle,
+                child: widget.child,
+              ),
             ),
         ],
       ),

@@ -15,27 +15,27 @@ class AppQrCode extends StatelessWidget {
   final String? code;
   @override
   Widget build(BuildContext context) {
-    final t = AppQrCodeTheme.of(context);
+    final appearance = AppQrCodeTheme.of(context);
     return ConstrainedBox(
-      constraints: BoxConstraints(maxWidth: t.extent),
+      constraints: BoxConstraints(maxWidth: appearance.extent),
       child: ClipRRect(
-        borderRadius: t.radius,
+        borderRadius: appearance.radius,
         child: ColoredBox(
-          color: t.background,
+          color: appearance.background,
           child: Column(
             mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: t.stretch,
+            crossAxisAlignment: appearance.stretch,
             children: [
               Semantics(
                 image: true,
                 label: semanticLabel,
                 child: ExcludeSemantics(
                   child: AspectRatio(
-                    aspectRatio: t.aspectRatio,
+                    aspectRatio: appearance.aspectRatio,
                     child: CustomPaint(
                       painter: AppQrPainter(
                         matrix: AppQrMatrixEncoder.encode(data),
-                        theme: t,
+                        theme: appearance,
                       ),
                     ),
                   ),
@@ -43,10 +43,14 @@ class AppQrCode extends StatelessWidget {
               ),
               if (code != null)
                 Padding(
-                  padding: t.codePadding,
+                  padding: appearance.codePadding,
                   child: FittedBox(
-                    fit: t.codeFit,
-                    child: Text(code!, style: t.codeStyle, softWrap: false),
+                    fit: appearance.codeFit,
+                    child: Text(
+                      code!,
+                      style: appearance.codeStyle,
+                      softWrap: false,
+                    ),
                   ),
                 ),
             ],

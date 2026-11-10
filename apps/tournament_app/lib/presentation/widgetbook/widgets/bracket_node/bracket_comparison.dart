@@ -54,20 +54,23 @@ abstract final class BracketComparison {
                 ],
               ),
               if (state != AppBracketState.pending)
-                for (final (i, name) in ['Sub-Zero', 'Scorpion'].indexed) ...[
+                for (final (participantIndex, name) in [
+                  'Sub-Zero',
+                  'Scorpion',
+                ].indexed) ...[
                   ComparisonControl.type(
-                    id: 'avatar-$i',
+                    id: 'avatar-$participantIndex',
                     webSelector:
-                        '.bracket-map-player:nth-of-type(${i + 2}) .bracket-map-avatar',
+                        '.bracket-map-player:nth-of-type(${participantIndex + 2}) .bracket-map-avatar',
                     type: AppAvatar,
-                    index: i,
+                    index: participantIndex,
                     properties: const [ComparisonProperty.rect],
                   ),
                   ComparisonControl.text(
-                    id: 'initials-$i',
+                    id: 'initials-$participantIndex',
                     webSelector:
-                        '.bracket-map-player:nth-of-type(${i + 2}) .bracket-map-avatar',
-                    value: i == 0 ? 'SZ' : 'SC',
+                        '.bracket-map-player:nth-of-type(${participantIndex + 2}) .bracket-map-avatar',
+                    value: participantIndex == 0 ? 'SZ' : 'SC',
                     properties: const [
                       ComparisonProperty.fontSize,
                       ComparisonProperty.fontWeight,
@@ -76,10 +79,10 @@ abstract final class BracketComparison {
                     ],
                   ),
                   ComparisonControl.text(
-                    id: 'secondary-$i',
+                    id: 'secondary-$participantIndex',
                     webSelector:
-                        '.bracket-map-player:nth-of-type(${i + 2}) small',
-                    value: i == 0 ? 'Иван' : 'Алексей',
+                        '.bracket-map-player:nth-of-type(${participantIndex + 2}) small',
+                    value: participantIndex == 0 ? 'Иван' : 'Алексей',
                     properties: const [
                       ComparisonProperty.rect,
                       ComparisonProperty.fontSize,
@@ -89,9 +92,9 @@ abstract final class BracketComparison {
                     ],
                   ),
                   ComparisonControl.text(
-                    id: 'name-$i',
+                    id: 'name-$participantIndex',
                     webSelector:
-                        '.bracket-map-player:nth-of-type(${i + 2}) strong',
+                        '.bracket-map-player:nth-of-type(${participantIndex + 2}) strong',
                     value: name,
                     properties: const [
                       ComparisonProperty.rect,
@@ -103,13 +106,14 @@ abstract final class BracketComparison {
                   ),
                 ],
               if (state == AppBracketState.pending)
-                for (final (i, text) in [
+                for (final (participantIndex, text) in [
                   'Победитель W3',
                   'Победитель W4',
                 ].indexed)
                   ComparisonControl.text(
-                    id: 'pending-$i',
-                    webSelector: '.bracket-map-unknown:nth-of-type(${i + 2})',
+                    id: 'pending-$participantIndex',
+                    webSelector:
+                        '.bracket-map-unknown:nth-of-type(${participantIndex + 2})',
                     textRange: true,
                     value: text,
                     properties: const [

@@ -80,8 +80,8 @@ class _AppRosterRowState extends State<AppRosterRow> {
   );
 
   void _end(DragEndDetails details) {
-    final t = _theme();
-    if (_distance.abs() >= t.threshold) {
+    final appearance = _theme();
+    if (_distance.abs() >= appearance.threshold) {
       _revealed = _distance < 0;
     }
     _resetDrag();
@@ -106,15 +106,18 @@ class _AppRosterRowState extends State<AppRosterRow> {
     return null;
   }
 
+  double _resolveOffset(AppRosterRowTheme theme) {
+    if (theme.desktop) return theme.zero;
+    final baseOffset = _revealed ? -theme.actionWidth : theme.zero;
+    final dragOffset = _dragging ? _distance : theme.zero;
+    return (baseOffset + dragOffset).clamp(-theme.actionWidth, theme.zero);
+  }
+
   @override
   Widget build(BuildContext context) {
-    final theme = _theme(), l = FoundationLocalizations.of(context);
-    final label = l.rosterRemove(widget.name);
-    final offset = theme.desktop
-        ? theme.zero
-        : ((_revealed ? -theme.actionWidth : theme.zero) +
-                  (_dragging ? _distance : theme.zero))
-              .clamp(-theme.actionWidth, theme.zero);
+    final theme = _theme(), localizations = FoundationLocalizations.of(context);
+    final label = localizations.rosterRemove(widget.name);
+    final offset = _resolveOffset(theme);
     return Semantics(
       customSemanticsActions: widget.onRemove == null
           ? null
@@ -161,7 +164,7 @@ class _AppRosterRowState extends State<AppRosterRow> {
                         child: ExcludeSemantics(
                           excluding: !_revealed,
                           child: AppButton(
-                            label: l.rosterDelete,
+                            label: localizations.rosterDelete,
                             kind: AppButtonKind.removeSwipe,
                             onPressed: widget.onRemove,
                             focusNode: widget.removeFocusNode,

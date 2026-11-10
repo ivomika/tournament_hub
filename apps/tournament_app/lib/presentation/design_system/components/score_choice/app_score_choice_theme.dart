@@ -8,31 +8,31 @@ import 'package:tournament_app/presentation/design_system/foundation/borders/app
 
 class AppScoreChoiceTheme {
   AppScoreChoiceTheme.of(BuildContext context) {
-    final t = Theme.of(context),
-        s = t.extension<AppSpacing>()!,
-        b = t.extension<AppBorderMetrics>()!,
-        c = t.extension<AppControlMetrics>()!;
-    background = t.colorScheme.surfaceContainerHigh;
-    selected = t.colorScheme.primary;
-    foreground = t.colorScheme.onSurface;
-    disabled = t.disabledColor;
-    transparent = c.transparent;
-    border = t.colorScheme.outlineVariant;
-    radius = t.extension<AppShape>()!.nested;
-    height = t.extension<AppResponsive>()!.touchControlHeight;
-    gap = s.space16;
-    borderWidth = b.hairline;
-    focusWidth = b.highContrastFocus;
-    focusOffset = b.focusOffset;
-    focusColor = t.focusColor;
-    half = c.half;
-    zero = c.zero;
-    style = t.extension<AppTypeRoles>()!.score.copyWith(
-      fontSize: t.textTheme.headlineLarge!.fontSize,
+    final runtimeTheme = Theme.of(context),
+        runtimeSpacing = runtimeTheme.extension<AppSpacing>()!,
+        runtimeBorderMetrics = runtimeTheme.extension<AppBorderMetrics>()!,
+        runtimeControlMetrics = runtimeTheme.extension<AppControlMetrics>()!;
+    background = runtimeTheme.colorScheme.surfaceContainerHigh;
+    selected = runtimeTheme.colorScheme.primary;
+    foreground = runtimeTheme.colorScheme.onSurface;
+    disabled = runtimeTheme.disabledColor;
+    transparent = runtimeControlMetrics.transparent;
+    border = runtimeTheme.colorScheme.outlineVariant;
+    radius = runtimeTheme.extension<AppShape>()!.nested;
+    height = runtimeTheme.extension<AppResponsive>()!.touchControlHeight;
+    gap = runtimeSpacing.space16;
+    borderWidth = runtimeBorderMetrics.hairline;
+    focusWidth = runtimeBorderMetrics.highContrastFocus;
+    focusOffset = runtimeBorderMetrics.focusOffset;
+    focusColor = runtimeTheme.focusColor;
+    half = runtimeControlMetrics.half;
+    zero = runtimeControlMetrics.zero;
+    style = runtimeTheme.extension<AppTypeRoles>()!.score.copyWith(
+      fontSize: runtimeTheme.textTheme.headlineLarge!.fontSize,
     );
-    padding = EdgeInsets.all(s.space8);
+    padding = EdgeInsets.all(runtimeSpacing.space8);
     shape = RoundedRectangleBorder(borderRadius: radius);
-    minimumSize = Size(c.zero, height);
+    minimumSize = Size(runtimeControlMetrics.zero, height);
   }
   late final Color border;
   late final Color background,

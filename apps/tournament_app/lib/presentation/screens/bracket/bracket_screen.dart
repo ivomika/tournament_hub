@@ -27,8 +27,8 @@ class BracketScreen extends StatelessWidget {
   final VoidCallback? onBack, onControls, onZoomOut, onZoomIn, onFit, onCurrent;
   @override
   Widget build(BuildContext context) {
-    final t = BracketScreenTheme.of(context),
-        l = FoundationLocalizations.of(context);
+    final appearance = BracketScreenTheme.of(context),
+        localizations = FoundationLocalizations.of(context);
     return AppScreenCanvas(
       padded: false,
       child: Stack(
@@ -40,53 +40,53 @@ class BracketScreen extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: t.inset,
+            padding: appearance.inset,
             child: AppSectionHeader(
-              title: l.screenBracket,
-              backLabel: l.screenBack,
+              title: localizations.screenBracket,
+              backLabel: localizations.screenBack,
               onBack: onBack,
             ),
           ),
           Padding(
-            padding: t.inset,
+            padding: appearance.inset,
             child: Align(
-              alignment: t.bottomRight,
+              alignment: appearance.bottomRight,
               child: Column(
-                mainAxisSize: t.min,
-                crossAxisAlignment: t.start,
+                mainAxisSize: appearance.min,
+                crossAxisAlignment: appearance.start,
                 children: [
                   if (state.controlsExpanded)
                     AppScreenTile(
                       child: Column(
-                        mainAxisSize: t.min,
+                        mainAxisSize: appearance.min,
                         children: [
                           Row(
-                            mainAxisSize: t.min,
+                            mainAxisSize: appearance.min,
                             children: [
                               AppButton(
                                 kind: AppButtonKind.icon,
                                 fill: false,
                                 glyph: AppGlyph.minus,
-                                label: l.screenZoomOut,
+                                label: localizations.screenZoomOut,
                                 onPressed: onZoomOut,
                               ),
-                              Text(state.zoomLabel, style: t.body),
+                              Text(state.zoomLabel, style: appearance.body),
                               AppButton(
                                 kind: AppButtonKind.icon,
                                 fill: false,
                                 glyph: AppGlyph.plus,
-                                label: l.screenZoomIn,
+                                label: localizations.screenZoomIn,
                                 onPressed: onZoomIn,
                               ),
                             ],
                           ),
                           AppButton(
-                            label: l.screenMapFit,
+                            label: localizations.screenMapFit,
                             kind: AppButtonKind.textLink,
                             onPressed: onFit,
                           ),
                           AppButton(
-                            label: l.screenMapCurrent,
+                            label: localizations.screenMapCurrent,
                             kind: AppButtonKind.textLink,
                             onPressed: onCurrent,
                           ),
@@ -97,11 +97,11 @@ class BracketScreen extends StatelessWidget {
                     kind: AppButtonKind.icon,
                     fill: false,
                     glyph: AppGlyph.settings,
-                    label: l.screenMapControls,
+                    label: localizations.screenMapControls,
                     onPressed: onControls,
                   ),
                   if (state.detail.isNotEmpty)
-                    Text(state.detail, style: t.caption),
+                    Text(state.detail, style: appearance.caption),
                 ],
               ),
             ),

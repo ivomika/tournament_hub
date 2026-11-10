@@ -37,33 +37,35 @@ class MatchResultScreen extends StatelessWidget {
   final ValueChanged<String>? onScoreChanged;
   @override
   Widget build(BuildContext context) {
-    final t = MatchResultScreenTheme.of(context),
-        l = FoundationLocalizations.of(context);
+    final appearance = MatchResultScreenTheme.of(context),
+        localizations = FoundationLocalizations.of(context);
     final entry = state.entry, details = state.details;
     final pair = Row(
-      crossAxisAlignment: t.start,
+      crossAxisAlignment: appearance.start,
       children: [
         Expanded(
           child: Column(
-            mainAxisSize: t.min,
+            mainAxisSize: appearance.min,
             children: [
               AppIdentity(
                 primary: state.left.character,
                 initials: state.left.initials,
                 secondary: state.left.name,
                 layout: AppIdentityLayout.stacked,
-                theme: t.playerIdentity,
+                theme: appearance.playerIdentity,
               ),
               if (entry case TechnicalResultEntry(
                 :final leftOutcome,
                 :final leftTone,
               )) ...[
-                SizedBox(height: t.small),
+                SizedBox(height: appearance.small),
                 ConstrainedBox(
-                  constraints: BoxConstraints(minHeight: t.outcomeHeight),
+                  constraints: BoxConstraints(
+                    minHeight: appearance.outcomeHeight,
+                  ),
                   child: AppStatusLabel(
                     text: leftOutcome,
-                    textAlign: t.centerText,
+                    textAlign: appearance.centerText,
                     kind: AppStatusKind.outcome,
                     tone: leftTone,
                   ),
@@ -72,28 +74,30 @@ class MatchResultScreen extends StatelessWidget {
             ],
           ),
         ),
-        SizedBox(width: t.gap),
+        SizedBox(width: appearance.gap),
         Expanded(
           child: Column(
-            mainAxisSize: t.min,
+            mainAxisSize: appearance.min,
             children: [
               AppIdentity(
                 primary: state.right.character,
                 initials: state.right.initials,
                 secondary: state.right.name,
                 layout: AppIdentityLayout.stacked,
-                theme: t.playerIdentity,
+                theme: appearance.playerIdentity,
               ),
               if (entry case TechnicalResultEntry(
                 :final rightOutcome,
                 :final rightTone,
               )) ...[
-                SizedBox(height: t.small),
+                SizedBox(height: appearance.small),
                 ConstrainedBox(
-                  constraints: BoxConstraints(minHeight: t.outcomeHeight),
+                  constraints: BoxConstraints(
+                    minHeight: appearance.outcomeHeight,
+                  ),
                   child: AppStatusLabel(
                     text: rightOutcome,
-                    textAlign: t.centerText,
+                    textAlign: appearance.centerText,
                     kind: AppStatusKind.outcome,
                     tone: rightTone,
                   ),
@@ -110,18 +114,24 @@ class MatchResultScreen extends StatelessWidget {
             label: state.inputLabel,
             showLabel: false,
             controller: loserController!,
-            decreaseLabel: l.screenDecreaseScore,
-            increaseLabel: l.screenIncreaseScore,
+            decreaseLabel: localizations.screenDecreaseScore,
+            increaseLabel: localizations.screenIncreaseScore,
             onDecrease: onDecrease,
             onIncrease: onIncrease,
             onChanged: onScoreChanged,
           );
     final editor = switch (entry) {
       ChoiceResultEntry(:final value) => AppScoreChoice<MatchSide>(
-        label: l.scoreChoiceLabel,
+        label: localizations.scoreChoiceLabel,
         options: [
-          AppScoreOption(value: MatchSide.left, label: l.scoreChoiceLeft),
-          AppScoreOption(value: MatchSide.right, label: l.scoreChoiceRight),
+          AppScoreOption(
+            value: MatchSide.left,
+            label: localizations.scoreChoiceLeft,
+          ),
+          AppScoreOption(
+            value: MatchSide.right,
+            label: localizations.scoreChoiceRight,
+          ),
         ],
         value: value,
         onChanged: onWinnerChanged,
@@ -132,16 +142,16 @@ class MatchResultScreen extends StatelessWidget {
             child: fixedSide == MatchSide.left
                 ? AppScore.fixed(
                     left: fixedScore,
-                    semanticLabel: l.scoreFixedLabel(fixedScore),
+                    semanticLabel: localizations.scoreFixedLabel(fixedScore),
                   )
                 : input!,
           ),
-          SizedBox(width: t.gap),
+          SizedBox(width: appearance.gap),
           Expanded(
             child: fixedSide == MatchSide.right
                 ? AppScore.fixed(
                     left: fixedScore,
-                    semanticLabel: l.scoreFixedLabel(fixedScore),
+                    semanticLabel: localizations.scoreFixedLabel(fixedScore),
                   )
                 : input!,
           ),
@@ -150,27 +160,29 @@ class MatchResultScreen extends StatelessWidget {
       TechnicalResultEntry() => const SizedBox.shrink(),
     };
     return AppModalCanvas(
-      theme: t,
+      theme: appearance,
       sheet: true,
       underlay: Column(
-        crossAxisAlignment: t.stretch,
+        crossAxisAlignment: appearance.stretch,
         children: [
           AppSectionHeader(
             title: state.tournamentTitle,
-            backLabel: l.screenBack,
+            backLabel: localizations.screenBack,
             onBack: onCancel,
           ),
         ],
       ),
       child: ConstrainedBox(
         constraints: BoxConstraints(
-          minHeight: t.desktop ? t.zero : t.modalMobileMinHeight,
+          minHeight: appearance.desktop
+              ? appearance.zero
+              : appearance.modalMobileMinHeight,
         ),
         child: AppSurface(
-          theme: t.sheetSurface,
+          theme: appearance.sheetSurface,
           child: Column(
-            mainAxisSize: t.min,
-            crossAxisAlignment: t.stretch,
+            mainAxisSize: appearance.min,
+            crossAxisAlignment: appearance.stretch,
             children: [
               AppSectionHeader(
                 title: state.title,
@@ -183,15 +195,20 @@ class MatchResultScreen extends StatelessWidget {
                   onPressed: onSave,
                 ),
               ),
-              SizedBox(height: t.gap),
+              SizedBox(height: appearance.gap),
               if (entry is TechnicalResultEntry) ...[
-                Text(l.screenTechnicalResult, style: t.caption),
-                SizedBox(height: t.gap),
+                Text(
+                  localizations.screenTechnicalResult,
+                  style: appearance.caption,
+                ),
+                SizedBox(height: appearance.gap),
               ],
               Center(
                 child: ConstrainedBox(
-                  constraints: BoxConstraints(maxWidth: t.resultContentWidth),
-                  child: t.desktop
+                  constraints: BoxConstraints(
+                    maxWidth: appearance.resultContentWidth,
+                  ),
+                  child: appearance.desktop
                       ? AppSurface(
                           tone: AppSurfaceTone.raised,
                           shape: AppSurfaceShape.nested,
@@ -200,25 +217,27 @@ class MatchResultScreen extends StatelessWidget {
                       : pair,
                 ),
               ),
-              SizedBox(height: t.gap),
+              SizedBox(height: appearance.gap),
               if (entry case TechnicalResultEntry(:final note))
-                Text(note, style: t.caption)
+                Text(note, style: appearance.caption)
               else
                 Center(
                   child: ConstrainedBox(
-                    constraints: BoxConstraints(maxWidth: t.resultContentWidth),
+                    constraints: BoxConstraints(
+                      maxWidth: appearance.resultContentWidth,
+                    ),
                     child: editor,
                   ),
                 ),
               if (state.errorText != null) ...[
-                SizedBox(height: t.gap),
+                SizedBox(height: appearance.gap),
                 AppNotice(
                   text: state.errorText!,
                   kind: AppNoticeKind.inlineError,
                 ),
               ],
               if (details != null) ...[
-                SizedBox(height: t.gap),
+                SizedBox(height: appearance.gap),
                 AppDisclosure(
                   title: details.title,
                   expanded: details.expanded,
@@ -226,23 +245,23 @@ class MatchResultScreen extends StatelessWidget {
                   child: switch (details) {
                     ResultExplanationDetails(:final text) => Text(
                       text,
-                      style: t.caption,
+                      style: appearance.caption,
                     ),
                     ResultActionsDetails(
                       :final onTechnical,
                       :final onWithdraw,
                     ) =>
                       Column(
-                        mainAxisSize: t.min,
+                        mainAxisSize: appearance.min,
                         children: [
                           AppButton(
-                            label: l.screenTechnicalAction,
+                            label: localizations.screenTechnicalAction,
                             kind: AppButtonKind.textLink,
                             glyph: AppGlyph.chevron,
                             onPressed: onTechnical,
                           ),
                           AppButton(
-                            label: l.screenWithdrawAction,
+                            label: localizations.screenWithdrawAction,
                             kind: AppButtonKind.textLink,
                             glyph: AppGlyph.chevron,
                             onPressed: onWithdraw,

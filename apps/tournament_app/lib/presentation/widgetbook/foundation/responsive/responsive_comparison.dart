@@ -17,8 +17,8 @@ abstract final class ResponsiveComparison {
         for (final source in [
           SurfaceComparison.spec.scenarios[size.width > 740 ? 2 : 0],
           ButtonComparison.spec.scenarios.singleWhere(
-            (s) =>
-                s.id ==
+            (scenario) =>
+                scenario.id ==
                 (size.width > 740 ? 'primary-desktop' : 'primary-mobile'),
           ),
           RosterComparison.spec.scenarios[size.width > 740 ? 2 : 0],

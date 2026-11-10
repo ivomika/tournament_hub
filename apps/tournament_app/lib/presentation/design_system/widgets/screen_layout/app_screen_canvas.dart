@@ -13,32 +13,32 @@ class AppScreenCanvas extends StatelessWidget {
   final bool padded, scrollDesktop;
   @override
   Widget build(BuildContext context) {
-    final t = AppScreenLayoutTheme.of(context),
-        l = FoundationLocalizations.of(context);
+    final appearance = AppScreenLayoutTheme.of(context),
+        localizations = FoundationLocalizations.of(context);
     return Scaffold(
-      backgroundColor: t.background,
+      backgroundColor: appearance.background,
       body: SafeArea(
         child: Column(
-          crossAxisAlignment: t.stretch,
+          crossAxisAlignment: appearance.stretch,
           children: [
-            if (t.desktop)
+            if (appearance.desktop)
               Container(
-                decoration: BoxDecoration(border: t.brandBorder),
-                height: t.brandHeight,
+                decoration: BoxDecoration(border: appearance.brandBorder),
+                height: appearance.brandHeight,
                 child: Padding(
-                  padding: t.brandInset,
+                  padding: appearance.brandInset,
                   child: Align(
-                    alignment: t.centerAlign,
+                    alignment: appearance.centerAlign,
                     child: Row(
                       children: [
                         RichText(
                           text: TextSpan(
-                            style: t.brand,
+                            style: appearance.brand,
                             children: [
-                              TextSpan(text: l.screenBrand),
+                              TextSpan(text: localizations.screenBrand),
                               TextSpan(
-                                text: l.screenBrandAccent,
-                                style: t.accentBrand,
+                                text: localizations.screenBrandAccent,
+                                style: appearance.accentBrand,
                               ),
                             ],
                           ),
@@ -50,16 +50,18 @@ class AppScreenCanvas extends StatelessWidget {
               ),
             Expanded(
               child: Padding(
-                padding: padded ? t.inset : EdgeInsets.all(t.zero),
-                child: scrollDesktop && t.desktop
+                padding: padded
+                    ? appearance.inset
+                    : EdgeInsets.all(appearance.zero),
+                child: scrollDesktop && appearance.desktop
                     ? LayoutBuilder(
                         builder: (context, constraints) =>
                             SingleChildScrollView(
                               child: SizedBox(
                                 height:
                                     constraints.maxHeight <
-                                        t.scaledDesktopContentMinHeight
-                                    ? t.scaledDesktopContentMinHeight
+                                        appearance.scaledDesktopContentMinHeight
+                                    ? appearance.scaledDesktopContentMinHeight
                                     : constraints.maxHeight,
                                 child: child,
                               ),

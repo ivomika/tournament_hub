@@ -21,47 +21,50 @@ class ResultLockedScreen extends StatelessWidget {
   final VoidCallback? onBack, onShare, onCorrect;
   @override
   Widget build(BuildContext context) {
-    final t = ResultLockedScreenTheme.of(context),
-        l = FoundationLocalizations.of(context);
+    final appearance = ResultLockedScreenTheme.of(context),
+        localizations = FoundationLocalizations.of(context);
     return AppScreenCanvas(
       child: Column(
-        crossAxisAlignment: t.stretch,
+        crossAxisAlignment: appearance.stretch,
         children: [
           AppSectionHeader(
             title: state.title,
-            backLabel: l.screenBack,
+            backLabel: localizations.screenBack,
             onBack: onBack,
             action: AppHeaderAction(
               kind: AppHeaderActionKind.share,
-              label: l.screenSpectators,
+              label: localizations.screenSpectators,
               onPressed: onShare,
             ),
           ),
-          SizedBox(height: t.gap),
+          SizedBox(height: appearance.gap),
           Expanded(
             child: SingleChildScrollView(
               child: Center(
                 child: ConstrainedBox(
-                  constraints: BoxConstraints(maxWidth: t.simpleWidth),
+                  constraints: BoxConstraints(maxWidth: appearance.simpleWidth),
                   child: AppSurface(
                     tone: AppSurfaceTone.surface,
                     child: Column(
-                      mainAxisSize: t.min,
-                      crossAxisAlignment: t.stretch,
+                      mainAxisSize: appearance.min,
+                      crossAxisAlignment: appearance.stretch,
                       children: [
-                        Text(l.screenMatchResults, style: t.heading),
-                        SizedBox(height: t.small),
-                        Text(state.matchLabel, style: t.caption),
-                        SizedBox(height: t.small),
-                        Text(state.pairingLabel, style: t.body),
-                        SizedBox(height: t.small),
+                        Text(
+                          localizations.screenMatchResults,
+                          style: appearance.heading,
+                        ),
+                        SizedBox(height: appearance.small),
+                        Text(state.matchLabel, style: appearance.caption),
+                        SizedBox(height: appearance.small),
+                        Text(state.pairingLabel, style: appearance.body),
+                        SizedBox(height: appearance.small),
                         AppButton(
-                          label: l.screenResultCorrect,
+                          label: localizations.screenResultCorrect,
                           kind: AppButtonKind.secondary,
                           onPressed: onCorrect,
                         ),
-                        SizedBox(height: t.small),
-                        Text(state.reason, style: t.caption),
+                        SizedBox(height: appearance.small),
+                        Text(state.reason, style: appearance.caption),
                       ],
                     ),
                   ),

@@ -48,7 +48,7 @@ class _DialogOverlayState extends State<DialogOverlayFixture> {
 
   void _close() => Navigator.of(context).pop();
   Widget _modal(BuildContext context) {
-    final t = AppDialogTheme.of(context);
+    final appearance = AppDialogTheme.of(context);
     return Center(
       child: SingleChildScrollView(
         child: Padding(
@@ -56,7 +56,7 @@ class _DialogOverlayState extends State<DialogOverlayFixture> {
             Theme.of(context).extension<AppSpacing>()!.space24,
           ),
           child: ConstrainedBox(
-            constraints: BoxConstraints(maxWidth: t.maxWidth),
+            constraints: BoxConstraints(maxWidth: appearance.maxWidth),
             child: DialogFixture(
               cancelFocus: _cancel,
               onConfirm: _close,

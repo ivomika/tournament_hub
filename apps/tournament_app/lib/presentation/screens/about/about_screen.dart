@@ -20,68 +20,70 @@ class AboutScreen extends StatelessWidget {
   final VoidCallback? onBack, onToggleRules;
   @override
   Widget build(BuildContext context) {
-    final t = AboutScreenTheme.of(context),
-        l = FoundationLocalizations.of(context);
+    final appearance = AboutScreenTheme.of(context),
+        localizations = FoundationLocalizations.of(context);
     final hero = Column(
-      mainAxisSize: t.min,
-      crossAxisAlignment: t.start,
-      mainAxisAlignment: t.centerMain,
+      mainAxisSize: appearance.min,
+      crossAxisAlignment: appearance.start,
+      mainAxisAlignment: appearance.centerMain,
       children: [
-        AppAvatar(initials: l.screenAboutMark),
-        SizedBox(height: t.gap),
-        Text(l.screenAboutProduct, style: t.heading),
+        AppAvatar(initials: localizations.screenAboutMark),
+        SizedBox(height: appearance.gap),
+        Text(localizations.screenAboutProduct, style: appearance.heading),
         Text(
-          l.screenAboutAccent,
-          style: t.heading.copyWith(color: t.accentHero.color),
+          localizations.screenAboutAccent,
+          style: appearance.heading.copyWith(
+            color: appearance.accentHero.color,
+          ),
         ),
-        SizedBox(height: t.gap),
-        Text(l.screenAboutDescription, style: t.caption),
+        SizedBox(height: appearance.gap),
+        Text(localizations.screenAboutDescription, style: appearance.caption),
       ],
     );
-    final version = Text(state.version, style: t.caption);
+    final version = Text(state.version, style: appearance.caption);
     final rules = AppDisclosure(
-      title: l.screenRules,
+      title: localizations.screenRules,
       expanded: state.rulesExpanded,
       onToggle: onToggleRules,
-      child: Text(l.screenRulesCopy, style: t.body),
+      child: Text(localizations.screenRulesCopy, style: appearance.body),
     );
     return AppScreenCanvas(
       child: Column(
-        crossAxisAlignment: t.stretch,
+        crossAxisAlignment: appearance.stretch,
         children: [
           AppSectionHeader(
-            title: l.screenAbout,
-            backLabel: l.screenBack,
+            title: localizations.screenAbout,
+            backLabel: localizations.screenBack,
             onBack: onBack,
           ),
-          SizedBox(height: t.gap),
+          SizedBox(height: appearance.gap),
           Expanded(
             child: SingleChildScrollView(
-              child: t.desktop
+              child: appearance.desktop
                   ? SizedBox(
-                      height: t.aboutHeight,
+                      height: appearance.aboutHeight,
                       child: Row(
-                        crossAxisAlignment: t.stretch,
+                        crossAxisAlignment: appearance.stretch,
                         children: [
                           Expanded(
-                            flex: t.primaryFlex,
+                            flex: appearance.primaryFlex,
                             child: AppScreenTile(child: hero),
                           ),
-                          SizedBox(width: t.gap),
+                          SizedBox(width: appearance.gap),
                           Expanded(
-                            flex: t.secondaryFlex,
+                            flex: appearance.secondaryFlex,
                             child: Column(
-                              crossAxisAlignment: t.stretch,
+                              crossAxisAlignment: appearance.stretch,
                               children: [
                                 SizedBox(
-                                  height: t.aboutVersionHeight,
+                                  height: appearance.aboutVersionHeight,
                                   child: AppScreenTile(
                                     child: Center(child: version),
                                   ),
                                 ),
-                                SizedBox(height: t.gap),
+                                SizedBox(height: appearance.gap),
                                 SizedBox(
-                                  height: t.aboutRulesHeight,
+                                  height: appearance.aboutRulesHeight,
                                   child: AppScreenTile(
                                     child: SingleChildScrollView(child: rules),
                                   ),
@@ -93,16 +95,16 @@ class AboutScreen extends StatelessWidget {
                       ),
                     )
                   : Column(
-                      crossAxisAlignment: t.stretch,
+                      crossAxisAlignment: appearance.stretch,
                       children: [
                         hero,
-                        SizedBox(height: t.gap),
+                        SizedBox(height: appearance.gap),
                         AppSurface(
                           child: Column(
-                            crossAxisAlignment: t.stretch,
+                            crossAxisAlignment: appearance.stretch,
                             children: [
                               version,
-                              SizedBox(height: t.gap),
+                              SizedBox(height: appearance.gap),
                               rules,
                             ],
                           ),

@@ -11,19 +11,86 @@ class ResultsFixture extends StatelessWidget {
   const ResultsFixture({required this.sample, super.key});
   final ResultsSample sample;
   static void action() {}
+
+  String _resolveMeta() {
+    if (sample == ResultsSample.rr) return 'RR · FT2 · 3 участника';
+    if (sample == ResultsSample.se) return 'SE · 4 участника';
+    return 'DE · 4 участника';
+  }
+
+  List<RankingGroup> _resolveGroups(bool rr, bool se) {
+    if (rr) {
+      return [
+        RankingGroup(
+          layout: RankingGroupLayout.paired,
+          entries: const [
+            RankingEntry(
+              player: PlayerDisplay(
+                character: 'Scorpion',
+                name: 'Алексей',
+                initials: 'SC',
+              ),
+              value: '3',
+            ),
+            RankingEntry(
+              player: PlayerDisplay(
+                character: 'Kitana',
+                name: 'Мария',
+                initials: 'KT',
+              ),
+              value: '0',
+            ),
+          ],
+        ),
+      ];
+    }
+    return [
+      RankingGroup(
+        layout: RankingGroupLayout.paired,
+        entries: [
+          const RankingEntry(
+            player: PlayerDisplay(
+              character: 'Sub-Zero',
+              name: 'Иван',
+              initials: 'SZ',
+            ),
+            value: '2',
+          ),
+          RankingEntry(
+            player: const PlayerDisplay(
+              character: 'Scorpion',
+              name: 'Алексей',
+              initials: 'SC',
+            ),
+            value: se ? '3–4' : '3',
+          ),
+        ],
+      ),
+      RankingGroup(
+        layout: RankingGroupLayout.single,
+        entries: [
+          RankingEntry(
+            player: const PlayerDisplay(
+              character: 'Raiden',
+              name: 'Олег',
+              initials: 'RD',
+            ),
+            value: se ? '3–4' : '4',
+          ),
+        ],
+      ),
+    ];
+  }
+
   @override
   Widget build(BuildContext context) {
-    final l = FoundationLocalizations.of(context),
+    final localizations = FoundationLocalizations.of(context),
         rr = sample == ResultsSample.rr,
         se = sample == ResultsSample.se;
     return ResultsScreen(
       state: ResultsScreenState(
         title: 'Пятничный турнир',
-        meta: rr
-            ? 'RR · FT2 · 3 участника'
-            : se
-            ? 'SE · 4 участника'
-            : 'DE · 4 участника',
+        meta: _resolveMeta(),
         featured: rr
             ? const RankingEntry(
                 player: PlayerDisplay(
@@ -45,70 +112,11 @@ class ResultsFixture extends StatelessWidget {
             ? AppRankValuePlacement.trailing
             : AppRankValuePlacement.leading,
         hasBracket: !rr && !se,
-        groups: rr
-            ? [
-                RankingGroup(
-                  layout: RankingGroupLayout.paired,
-                  entries: const [
-                    RankingEntry(
-                      player: PlayerDisplay(
-                        character: 'Scorpion',
-                        name: 'Алексей',
-                        initials: 'SC',
-                      ),
-                      value: '3',
-                    ),
-                    RankingEntry(
-                      player: PlayerDisplay(
-                        character: 'Kitana',
-                        name: 'Мария',
-                        initials: 'KT',
-                      ),
-                      value: '0',
-                    ),
-                  ],
-                ),
-              ]
-            : [
-                RankingGroup(
-                  layout: RankingGroupLayout.paired,
-                  entries: [
-                    const RankingEntry(
-                      player: PlayerDisplay(
-                        character: 'Sub-Zero',
-                        name: 'Иван',
-                        initials: 'SZ',
-                      ),
-                      value: '2',
-                    ),
-                    RankingEntry(
-                      player: const PlayerDisplay(
-                        character: 'Scorpion',
-                        name: 'Алексей',
-                        initials: 'SC',
-                      ),
-                      value: se ? '3–4' : '3',
-                    ),
-                  ],
-                ),
-                RankingGroup(
-                  layout: RankingGroupLayout.single,
-                  entries: [
-                    RankingEntry(
-                      player: const PlayerDisplay(
-                        character: 'Raiden',
-                        name: 'Олег',
-                        initials: 'RD',
-                      ),
-                      value: se ? '3–4' : '4',
-                    ),
-                  ],
-                ),
-              ],
+        groups: _resolveGroups(rr, se),
         explanation: se
             ? ResultsExplanation(
-                title: l.screenThirdPlaces,
-                text: l.screenThirdPlacesCopy,
+                title: localizations.screenThirdPlaces,
+                text: localizations.screenThirdPlacesCopy,
                 expanded: false,
                 onToggle: action,
               )

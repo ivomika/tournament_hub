@@ -104,7 +104,8 @@ abstract final class _AvatarVisualTests {
       ),
       extensions: [
         ...base.extensions.values.where(
-          (e) => e is! AppResponsive && e is! AppAvatarMetrics,
+          (extension) =>
+              extension is! AppResponsive && extension is! AppAvatarMetrics,
         ),
         base.extension<AppResponsive>()!.copyWith(avatarLarge: 80),
         base.extension<AppAvatarMetrics>()!.copyWith(

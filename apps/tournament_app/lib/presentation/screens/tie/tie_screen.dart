@@ -25,72 +25,75 @@ class TieScreen extends StatelessWidget {
   final VoidCallback? onBack, onShare, onToggleRules, onStart;
   @override
   Widget build(BuildContext context) {
-    final t = TieScreenTheme.of(context),
-        l = FoundationLocalizations.of(context);
+    final appearance = TieScreenTheme.of(context),
+        localizations = FoundationLocalizations.of(context);
     final table = AppDataTable(
-      caption: l.tableCaption,
+      caption: localizations.tableCaption,
       columns: state.columns,
       rows: state.rows,
     );
     final intro = Column(
-      mainAxisSize: t.min,
-      crossAxisAlignment: t.stretch,
+      mainAxisSize: appearance.min,
+      crossAxisAlignment: appearance.stretch,
       children: [
-        Text(l.screenMainFinished, style: t.caption),
-        SizedBox(height: t.small),
-        Text(l.screenReplayPlaces, style: t.heading),
-        SizedBox(height: t.small),
-        Text(state.note, style: t.caption),
+        Text(localizations.screenMainFinished, style: appearance.caption),
+        SizedBox(height: appearance.small),
+        Text(localizations.screenReplayPlaces, style: appearance.heading),
+        SizedBox(height: appearance.small),
+        Text(state.note, style: appearance.caption),
       ],
     );
     final rules = AppDisclosure(
-      title: l.screenReplayRules,
+      title: localizations.screenReplayRules,
       expanded: state.rulesExpanded,
       onToggle: onToggleRules,
-      child: Text(l.screenReplayRulesCopy, style: t.caption),
+      child: Text(
+        localizations.screenReplayRulesCopy,
+        style: appearance.caption,
+      ),
     );
     final action = AppButton(
-      label: l.screenStartReplay,
+      label: localizations.screenStartReplay,
       glyph: AppGlyph.arrow,
       onPressed: onStart,
     );
     return AppScreenCanvas(
       scrollDesktop: true,
       child: Column(
-        crossAxisAlignment: t.stretch,
+        crossAxisAlignment: appearance.stretch,
         children: [
           AppSectionHeader(
-            title: l.screenReplay,
-            backLabel: l.screenBack,
+            title: localizations.screenReplay,
+            backLabel: localizations.screenBack,
             onBack: onBack,
             action: AppHeaderAction(
               kind: AppHeaderActionKind.share,
-              label: l.screenSpectators,
+              label: localizations.screenSpectators,
               onPressed: onShare,
             ),
           ),
-          SizedBox(height: t.gap),
+          SizedBox(height: appearance.gap),
           Expanded(
-            child: t.desktop
+            child: appearance.desktop
                 ? Row(
-                    crossAxisAlignment: t.stretch,
+                    crossAxisAlignment: appearance.stretch,
                     children: [
                       Expanded(
-                        flex: t.homePrimaryFlex,
+                        flex: appearance.homePrimaryFlex,
                         child: AppScreenTile(
                           child: SingleChildScrollView(child: table),
                         ),
                       ),
-                      SizedBox(width: t.gap),
+                      SizedBox(width: appearance.gap),
                       Expanded(
                         child: Column(
-                          crossAxisAlignment: t.stretch,
+                          crossAxisAlignment: appearance.stretch,
                           children: [
                             AppSurface(
                               tone: AppSurfaceTone.surface,
                               child: intro,
                             ),
-                            SizedBox(height: t.gap),
+                            SizedBox(height: appearance.gap),
                             AppSurface(
                               tone: AppSurfaceTone.surface,
                               child: rules,
@@ -103,23 +106,23 @@ class TieScreen extends StatelessWidget {
                     ],
                   )
                 : Column(
-                    crossAxisAlignment: t.stretch,
+                    crossAxisAlignment: appearance.stretch,
                     children: [
                       Expanded(
                         child: SingleChildScrollView(
                           child: Column(
-                            crossAxisAlignment: t.stretch,
+                            crossAxisAlignment: appearance.stretch,
                             children: [
                               table,
-                              SizedBox(height: t.gap),
+                              SizedBox(height: appearance.gap),
                               intro,
-                              SizedBox(height: t.gap),
+                              SizedBox(height: appearance.gap),
                               rules,
                             ],
                           ),
                         ),
                       ),
-                      SizedBox(height: t.gap),
+                      SizedBox(height: appearance.gap),
                       action,
                     ],
                   ),

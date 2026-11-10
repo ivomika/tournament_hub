@@ -20,13 +20,16 @@ class AppTypeRoles extends ThemeExtension<AppTypeRoles> {
     score: score ?? this.score,
   );
   @override
-  AppTypeRoles lerp(covariant AppTypeRoles? other, double t) {
+  AppTypeRoles lerp(covariant AppTypeRoles? other, double interpolationAmount) {
     if (other == null) return this;
     return AppTypeRoles(
-      interfaceStyle: t < 0.5 ? interfaceStyle : other.interfaceStyle,
+      interfaceStyle: interpolationAmount < 0.5
+          ? interfaceStyle
+          : other.interfaceStyle,
       normalTracking:
-          normalTracking + (other.normalTracking - normalTracking) * t,
-      score: TextStyle.lerp(score, other.score, t)!,
+          normalTracking +
+          (other.normalTracking - normalTracking) * interpolationAmount,
+      score: TextStyle.lerp(score, other.score, interpolationAmount)!,
     );
   }
 }

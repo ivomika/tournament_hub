@@ -17,52 +17,58 @@ class AppFieldTheme {
     bool enabled,
     bool invalid,
   ) {
-    final t = Theme.of(context),
-        s = t.extension<AppSpacing>()!,
-        b = t.extension<AppBorderMetrics>()!,
-        r = t.extension<AppResponsive>()!,
-        m = t.extension<AppFieldMetrics>()!,
-        c = t.extension<AppControlMetrics>()!,
-        styles = AppTextStyles(t);
+    final theme = Theme.of(context),
+        spacing = theme.extension<AppSpacing>()!,
+        borders = theme.extension<AppBorderMetrics>()!,
+        responsive = theme.extension<AppResponsive>()!,
+        fieldMetrics = theme.extension<AppFieldMetrics>()!,
+        controlMetrics = theme.extension<AppControlMetrics>()!,
+        styles = AppTextStyles(theme);
     final multiline = kind == AppFieldKind.multiline;
-    minHeight = multiline
-        ? (MediaQuery.sizeOf(context).width > r.mobileToDesktopWidth
-              ? m.desktopMessageHeight
-              : m.mobileMessageHeight)
-        : r.touchControlHeight;
-    radius = t.extension<AppShape>()!.surface;
+    if (!multiline) {
+      minHeight = responsive.touchControlHeight;
+    } else if (MediaQuery.sizeOf(context).width >
+        responsive.mobileToDesktopWidth) {
+      minHeight = fieldMetrics.desktopMessageHeight;
+    } else {
+      minHeight = fieldMetrics.mobileMessageHeight;
+    }
+    radius = theme.extension<AppShape>()!.surface;
     background = enabled
-        ? t.colorScheme.surface
-        : t.colorScheme.surfaceContainerHigh;
+        ? theme.colorScheme.surface
+        : theme.colorScheme.surfaceContainerHigh;
     border = invalid && kind == AppFieldKind.singleLine
-        ? t.colorScheme.error
-        : t.colorScheme.outlineVariant;
-    foreground = enabled ? t.colorScheme.onSurface : t.disabledColor;
-    labelStyle = styles.caption.copyWith(color: t.colorScheme.onSurfaceVariant);
-    inputStyle = t.extension<AppTypeRoles>()!.interfaceStyle(
-      (multiline ? t.textTheme.labelLarge! : t.textTheme.bodyMedium!).copyWith(
-        color: foreground,
-        fontWeight: multiline
-            ? c.regularWeight
-            : t.textTheme.bodyMedium!.fontWeight,
-      ),
+        ? theme.colorScheme.error
+        : theme.colorScheme.outlineVariant;
+    foreground = enabled ? theme.colorScheme.onSurface : theme.disabledColor;
+    labelStyle = styles.caption.copyWith(
+      color: theme.colorScheme.onSurfaceVariant,
     );
-    errorStyle = styles.caption.copyWith(color: t.colorScheme.error);
+    inputStyle = theme.extension<AppTypeRoles>()!.interfaceStyle(
+      (multiline ? theme.textTheme.labelLarge! : theme.textTheme.bodyMedium!)
+          .copyWith(
+            color: foreground,
+            fontWeight: multiline
+                ? controlMetrics.regularWeight
+                : theme.textTheme.bodyMedium!.fontWeight,
+          ),
+    );
+    errorStyle = styles.caption.copyWith(color: theme.colorScheme.error);
     padding = multiline
-        ? EdgeInsets.all(s.space16 + b.hairline)
-        : EdgeInsets.symmetric(horizontal: s.space24 + b.hairline);
-    borderWidth = b.hairline;
-    gap = s.space8;
-    zero = s.space0;
-    focusWidth = b.highContrastFocus;
-    focusOffset = b.focusOffset;
-    half = c.half;
-    focusColor = t.focusColor;
-    errorColor = t.colorScheme.error;
-    align = multiline ? c.topLeft : m.centerLeft;
-    crossAxis = m.stretch;
-    supportingCrossAxis = m.start;
-    singleLine = m.singleLine;
+        ? EdgeInsets.all(spacing.space16 + borders.hairline)
+        : EdgeInsets.symmetric(horizontal: spacing.space24 + borders.hairline);
+    borderWidth = borders.hairline;
+    gap = spacing.space8;
+    zero = spacing.space0;
+    focusWidth = borders.highContrastFocus;
+    focusOffset = borders.focusOffset;
+    half = controlMetrics.half;
+    focusColor = theme.focusColor;
+    errorColor = theme.colorScheme.error;
+    align = multiline ? controlMetrics.topLeft : fieldMetrics.centerLeft;
+    crossAxis = fieldMetrics.stretch;
+    supportingCrossAxis = fieldMetrics.start;
+    singleLine = fieldMetrics.singleLine;
   }
   late final double minHeight,
       borderWidth,

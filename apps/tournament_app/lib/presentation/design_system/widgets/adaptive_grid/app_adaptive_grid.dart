@@ -12,12 +12,17 @@ class AppAdaptiveGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) => LayoutBuilder(builder: _layout);
   Widget _layout(BuildContext context, BoxConstraints constraints) {
-    final t = AppAdaptiveGridTheme.of(context, columns, constraints.maxWidth);
+    final appearance = AppAdaptiveGridTheme.of(
+      context,
+      columns,
+      constraints.maxWidth,
+    );
     return Wrap(
-      spacing: t.gap,
-      runSpacing: t.gap,
+      spacing: appearance.gap,
+      runSpacing: appearance.gap,
       children: [
-        for (final child in children) SizedBox(width: t.width, child: child),
+        for (final child in children)
+          SizedBox(width: appearance.width, child: child),
       ],
     );
   }

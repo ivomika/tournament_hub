@@ -10,11 +10,16 @@ class AppScoreMetrics extends ThemeExtension<AppScoreMetrics> {
         lineHeight: lineHeight ?? this.lineHeight,
       );
   @override
-  AppScoreMetrics lerp(covariant AppScoreMetrics? other, double t) =>
-      other == null
-      ? this
-      : AppScoreMetrics(
-          desktopSize: desktopSize + (other.desktopSize - desktopSize) * t,
-          lineHeight: lineHeight + (other.lineHeight - lineHeight) * t,
-        );
+  AppScoreMetrics lerp(
+    covariant AppScoreMetrics? other,
+    double interpolationAmount,
+  ) {
+    if (other == null) return this;
+    return AppScoreMetrics(
+      desktopSize:
+          desktopSize + (other.desktopSize - desktopSize) * interpolationAmount,
+      lineHeight:
+          lineHeight + (other.lineHeight - lineHeight) * interpolationAmount,
+    );
+  }
 }

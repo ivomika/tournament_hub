@@ -74,28 +74,34 @@ abstract final class DialogComparison {
         ComparisonProperty.baseline,
       ],
     ),
-    for (final (i, text) in ['Снять участника', 'Отмена'].indexed) ...[
+    for (final (participantIndex, text) in [
+      'Снять участника',
+      'Отмена',
+    ].indexed) ...[
       ComparisonControl.type(
-        id: 'button-$i',
-        webSelector: '.flow-alert-actions button:nth-child(${i + 1})',
+        id: 'button-$participantIndex',
+        webSelector:
+            '.flow-alert-actions button:nth-child(${participantIndex + 1})',
         type: AppButton,
-        index: i,
+        index: participantIndex,
         properties: const [ComparisonProperty.rect],
       ),
       ComparisonControl.type(
-        id: 'button-style-$i',
-        webSelector: '.flow-alert-actions button:nth-child(${i + 1})',
+        id: 'button-style-$participantIndex',
+        webSelector:
+            '.flow-alert-actions button:nth-child(${participantIndex + 1})',
         type: DecoratedBox,
         withinType: AppButton,
-        index: i,
+        index: participantIndex,
         properties: const [
           ComparisonProperty.background,
           ComparisonProperty.radius,
         ],
       ),
       ComparisonControl.text(
-        id: 'button-label-$i',
-        webSelector: '.flow-alert-actions button:nth-child(${i + 1})',
+        id: 'button-label-$participantIndex',
+        webSelector:
+            '.flow-alert-actions button:nth-child(${participantIndex + 1})',
         textRange: true,
         value: text,
         properties: const [

@@ -16,15 +16,15 @@ class AppNotice extends StatelessWidget {
   final bool liveRegion;
   @override
   Widget build(BuildContext context) {
-    final t = AppNoticeTheme.of(context, kind);
+    final appearance = AppNoticeTheme.of(context, kind);
     return Semantics(
       liveRegion: liveRegion,
       child: Row(
-        crossAxisAlignment: t.start,
+        crossAxisAlignment: appearance.start,
         children: [
-          AppIcon(t.glyph, color: t.color),
-          SizedBox(width: t.gap),
-          Flexible(child: Text(text, style: t.style)),
+          AppIcon(appearance.glyph, color: appearance.color),
+          SizedBox(width: appearance.gap),
+          Flexible(child: Text(text, style: appearance.style)),
         ],
       ),
     );

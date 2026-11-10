@@ -32,16 +32,19 @@ class _ScoreChoiceFixtureState extends State<ScoreChoiceFixture> {
   void _rebuild() {}
   @override
   Widget build(BuildContext context) {
-    final l = FoundationLocalizations.of(context);
+    final localizations = FoundationLocalizations.of(context);
     return AppScoreChoice<ScoreChoiceValue>(
-      label: l.scoreChoiceLabel,
+      label: localizations.scoreChoiceLabel,
       value: _value,
       onChanged: widget.disabled ? null : _choose,
       options: [
-        AppScoreOption(value: ScoreChoiceValue.left, label: l.scoreChoiceLeft),
+        AppScoreOption(
+          value: ScoreChoiceValue.left,
+          label: localizations.scoreChoiceLeft,
+        ),
         AppScoreOption(
           value: ScoreChoiceValue.right,
-          label: l.scoreChoiceRight,
+          label: localizations.scoreChoiceRight,
         ),
       ],
     );

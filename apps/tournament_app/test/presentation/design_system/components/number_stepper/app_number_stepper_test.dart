@@ -111,14 +111,14 @@ abstract final class _StepperTests {
 
   static Future<void> _input(WidgetTester tester) async {
     addTearDown(tester.view.reset);
-    final c = TextEditingController(text: '1');
-    addTearDown(c.dispose);
+    final textController = TextEditingController(text: '1');
+    addTearDown(textController.dispose);
     typed = null;
     await _pump(
       tester,
       AppNumberStepper.input(
         label: 'Счёт',
-        controller: c,
+        controller: textController,
         decreaseLabel: 'Меньше',
         increaseLabel: 'Больше',
         onDecrease: _decrease,
@@ -127,7 +127,7 @@ abstract final class _StepperTests {
       ),
     );
     await tester.enterText(find.byType(TextField), '123');
-    expect(c.text, '123');
+    expect(textController.text, '123');
     expect(typed, '123');
   }
 

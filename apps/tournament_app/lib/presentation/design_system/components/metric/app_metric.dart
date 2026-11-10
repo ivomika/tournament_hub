@@ -20,40 +20,43 @@ class AppMetric extends StatelessWidget {
   final AppGlyph glyph;
   @override
   Widget build(BuildContext context) {
-    final t = AppMetricTheme.of(context, kind);
+    final appearance = AppMetricTheme.of(context, kind);
     return Semantics(
       label: semanticLabel,
       excludeSemantics: true,
       child: DecoratedBox(
-        decoration: BoxDecoration(color: t.background, borderRadius: t.radius),
+        decoration: BoxDecoration(
+          color: appearance.background,
+          borderRadius: appearance.radius,
+        ),
         child: ConstrainedBox(
           constraints: BoxConstraints(
-            minHeight: t.minHeight,
-            minWidth: t.fullWidth,
+            minHeight: appearance.minHeight,
+            minWidth: appearance.fullWidth,
           ),
           child: Padding(
-            padding: t.padding,
-            child: t.achievement
+            padding: appearance.padding,
+            child: appearance.achievement
                 ? Row(
                     children: [
-                      if (!t.desktop) ...[
-                        _MetricIcon(theme: t, glyph: glyph),
-                        SizedBox(width: t.gap),
+                      if (!appearance.desktop) ...[
+                        _MetricIcon(theme: appearance, glyph: glyph),
+                        SizedBox(width: appearance.gap),
                       ],
                       Expanded(
                         child: _MetricText(
-                          theme: t,
+                          theme: appearance,
                           value: value,
                           label: label,
                         ),
                       ),
-                      if (t.desktop) ...[
-                        SizedBox(width: t.gap),
-                        _MetricIcon(theme: t, glyph: glyph),
+                      if (appearance.desktop) ...[
+                        SizedBox(width: appearance.gap),
+                        _MetricIcon(theme: appearance, glyph: glyph),
                       ],
                     ],
                   )
-                : _MetricText(theme: t, value: value, label: label),
+                : _MetricText(theme: appearance, value: value, label: label),
           ),
         ),
       ),
@@ -82,21 +85,33 @@ class _MetricText extends StatelessWidget {
   final String value, label;
   @override
   Widget build(BuildContext context) {
-    final t = theme;
+    final appearance = theme;
     return Column(
       mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: t.desktop || t.achievement ? t.start : t.stretch,
-      mainAxisAlignment: t.desktop && !t.achievement ? t.between : t.center,
+      crossAxisAlignment: appearance.desktop || appearance.achievement
+          ? appearance.start
+          : appearance.stretch,
+      mainAxisAlignment: appearance.desktop && !appearance.achievement
+          ? appearance.between
+          : appearance.center,
       children: [
-        Text(value, style: t.valueStyle, textAlign: t.textAlign),
-        SizedBox(height: t.contentGap),
+        Text(
+          value,
+          style: appearance.valueStyle,
+          textAlign: appearance.textAlign,
+        ),
+        SizedBox(height: appearance.contentGap),
         ConstrainedBox(
           constraints: BoxConstraints(
-            maxWidth: t.desktop && t.achievement
-                ? t.maxLabelWidth
-                : t.unrestrictedWidth,
+            maxWidth: appearance.desktop && appearance.achievement
+                ? appearance.maxLabelWidth
+                : appearance.unrestrictedWidth,
           ),
-          child: Text(label, style: t.labelStyle, textAlign: t.textAlign),
+          child: Text(
+            label,
+            style: appearance.labelStyle,
+            textAlign: appearance.textAlign,
+          ),
         ),
       ],
     );

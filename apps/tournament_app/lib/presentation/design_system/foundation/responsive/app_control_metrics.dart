@@ -60,26 +60,37 @@ class AppControlMetrics extends ThemeExtension<AppControlMetrics> {
     removeIconExtent: removeIconExtent ?? this.removeIconExtent,
   );
   @override
-  AppControlMetrics lerp(covariant AppControlMetrics? other, double t) =>
-      other == null
-      ? this
-      : AppControlMetrics(
-          half: half + (other.half - half) * t,
-          regularWeight: t < 0.5 ? regularWeight : other.regularWeight,
-          regularVariations: t < 0.5
-              ? regularVariations
-              : other.regularVariations,
-          regularLine: regularLine + (other.regularLine - regularLine) * t,
-          spaceBetween: t < 0.5 ? spaceBetween : other.spaceBetween,
-          center: t < 0.5 ? center : other.center,
-          centerCross: t < 0.5 ? centerCross : other.centerCross,
-          topLeft: t < 0.5 ? topLeft : other.topLeft,
-          zero: zero + (other.zero - zero) * t,
-          transparent: t < 0.5 ? transparent : other.transparent,
-          removeWidth: removeWidth + (other.removeWidth - removeWidth) * t,
-          removeHeight: removeHeight + (other.removeHeight - removeHeight) * t,
-          removeIconExtent:
-              removeIconExtent +
-              (other.removeIconExtent - removeIconExtent) * t,
-        );
+  AppControlMetrics lerp(
+    covariant AppControlMetrics? other,
+    double interpolationAmount,
+  ) {
+    if (other == null) return this;
+    return AppControlMetrics(
+      half: half + (other.half - half) * interpolationAmount,
+      regularWeight: interpolationAmount < 0.5
+          ? regularWeight
+          : other.regularWeight,
+      regularVariations: interpolationAmount < 0.5
+          ? regularVariations
+          : other.regularVariations,
+      regularLine:
+          regularLine + (other.regularLine - regularLine) * interpolationAmount,
+      spaceBetween: interpolationAmount < 0.5
+          ? spaceBetween
+          : other.spaceBetween,
+      center: interpolationAmount < 0.5 ? center : other.center,
+      centerCross: interpolationAmount < 0.5 ? centerCross : other.centerCross,
+      topLeft: interpolationAmount < 0.5 ? topLeft : other.topLeft,
+      zero: zero + (other.zero - zero) * interpolationAmount,
+      transparent: interpolationAmount < 0.5 ? transparent : other.transparent,
+      removeWidth:
+          removeWidth + (other.removeWidth - removeWidth) * interpolationAmount,
+      removeHeight:
+          removeHeight +
+          (other.removeHeight - removeHeight) * interpolationAmount,
+      removeIconExtent:
+          removeIconExtent +
+          (other.removeIconExtent - removeIconExtent) * interpolationAmount,
+    );
+  }
 }

@@ -23,14 +23,14 @@ class AppScoreChoice<T extends Object> extends StatelessWidget {
   final ValueChanged<T>? onChanged;
   @override
   Widget build(BuildContext context) {
-    final t = AppScoreChoiceTheme.of(context);
+    final appearance = AppScoreChoiceTheme.of(context);
     return Semantics(
       label: label,
       container: true,
       child: Row(
         children: [
           for (final (index, option) in options.indexed) ...[
-            if (index > 0) SizedBox(width: t.gap),
+            if (index > 0) SizedBox(width: appearance.gap),
             Expanded(
               child: _ScoreOption<T>(
                 option: option,
@@ -72,6 +72,12 @@ class _ScoreOptionState<T extends Object> extends State<_ScoreOption<T>> {
 
   void _rebuild() {}
   void _choose() => widget.onSelected?.call(widget.option.value);
+  Color _resolveColor(AppScoreChoiceTheme theme) {
+    if (widget.onSelected == null) return theme.disabled;
+    if (widget.selected) return theme.selected;
+    return theme.foreground;
+  }
+
   @override
   void dispose() {
     _focus.dispose();
@@ -80,12 +86,8 @@ class _ScoreOptionState<T extends Object> extends State<_ScoreOption<T>> {
 
   @override
   Widget build(BuildContext context) {
-    final t = AppScoreChoiceTheme.of(context),
-        color = widget.onSelected == null
-            ? t.disabled
-            : widget.selected
-            ? t.selected
-            : t.foreground;
+    final appearance = AppScoreChoiceTheme.of(context),
+        color = _resolveColor(appearance);
     return Semantics(
       selected: widget.selected,
       inMutuallyExclusiveGroup: true,
@@ -93,36 +95,36 @@ class _ScoreOptionState<T extends Object> extends State<_ScoreOption<T>> {
         foregroundPainter: _focus.hasFocus
             ? AppFocusRingPainter(
                 AppFocusRingTheme(
-                  color: t.focusColor,
-                  width: t.focusWidth,
-                  offset: t.focusOffset,
-                  radius: t.radius,
+                  color: appearance.focusColor,
+                  width: appearance.focusWidth,
+                  offset: appearance.focusOffset,
+                  radius: appearance.radius,
                   capsule: false,
-                  half: t.half,
+                  half: appearance.half,
                 ),
               )
             : null,
         child: DecoratedBox(
           decoration: BoxDecoration(
-            color: t.background,
-            borderRadius: t.radius,
+            color: appearance.background,
+            borderRadius: appearance.radius,
             border: Border.all(
-              color: widget.selected ? t.selected : t.border,
-              width: t.borderWidth,
+              color: widget.selected ? appearance.selected : appearance.border,
+              width: appearance.borderWidth,
             ),
           ),
           child: TextButton(
             focusNode: _focus,
             onPressed: widget.onSelected == null ? null : _choose,
             style: ButtonStyle(
-              minimumSize: WidgetStatePropertyAll(t.minimumSize),
-              padding: WidgetStatePropertyAll(t.padding),
-              shape: WidgetStatePropertyAll(t.shape),
-              overlayColor: WidgetStatePropertyAll(t.transparent),
+              minimumSize: WidgetStatePropertyAll(appearance.minimumSize),
+              padding: WidgetStatePropertyAll(appearance.padding),
+              shape: WidgetStatePropertyAll(appearance.shape),
+              overlayColor: WidgetStatePropertyAll(appearance.transparent),
             ),
             child: Text(
               widget.option.label,
-              style: t.style.copyWith(color: color),
+              style: appearance.style.copyWith(color: color),
             ),
           ),
         ),

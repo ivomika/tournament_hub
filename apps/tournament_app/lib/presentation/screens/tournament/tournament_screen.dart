@@ -27,44 +27,44 @@ class TournamentScreen extends StatelessWidget {
   final VoidCallback? onBack, onShare, onBracket, onResult;
   @override
   Widget build(BuildContext context) {
-    final t = TournamentScreenTheme.of(context),
-        l = FoundationLocalizations.of(context);
+    final appearance = TournamentScreenTheme.of(context),
+        localizations = FoundationLocalizations.of(context);
     final pair = Row(
-      crossAxisAlignment: t.start,
+      crossAxisAlignment: appearance.start,
       children: [
         Expanded(
           child: Column(
-            mainAxisSize: t.min,
+            mainAxisSize: appearance.min,
             children: [
               AppIdentity(
                 primary: state.left.character,
                 initials: state.left.initials,
                 secondary: state.left.name,
                 layout: AppIdentityLayout.stacked,
-                theme: t.currentIdentity,
+                theme: appearance.currentIdentity,
               ),
               if (state.leftPoints != null) ...[
-                SizedBox(height: t.small),
-                Text(state.leftPoints!, style: t.points),
+                SizedBox(height: appearance.small),
+                Text(state.leftPoints!, style: appearance.points),
               ],
             ],
           ),
         ),
-        SizedBox(width: t.gap),
+        SizedBox(width: appearance.gap),
         Expanded(
           child: Column(
-            mainAxisSize: t.min,
+            mainAxisSize: appearance.min,
             children: [
               AppIdentity(
                 primary: state.right.character,
                 initials: state.right.initials,
                 secondary: state.right.name,
                 layout: AppIdentityLayout.stacked,
-                theme: t.currentIdentity,
+                theme: appearance.currentIdentity,
               ),
               if (state.rightPoints != null) ...[
-                SizedBox(height: t.small),
-                Text(state.rightPoints!, style: t.points),
+                SizedBox(height: appearance.small),
+                Text(state.rightPoints!, style: appearance.points),
               ],
             ],
           ),
@@ -74,24 +74,24 @@ class TournamentScreen extends StatelessWidget {
     final score = AppScore.pair(
       left: state.leftScore,
       right: state.rightScore,
-      separator: l.scoreSeparator,
-      semanticLabel: l.screenCurrentScore,
+      separator: localizations.scoreSeparator,
+      semanticLabel: localizations.screenCurrentScore,
     );
     final next = Column(
-      mainAxisSize: t.min,
-      crossAxisAlignment: t.stretch,
+      mainAxisSize: appearance.min,
+      crossAxisAlignment: appearance.stretch,
       children: [
-        Text(l.screenNext, style: t.caption),
-        SizedBox(height: t.small),
-        if (t.desktop)
+        Text(localizations.screenNext, style: appearance.caption),
+        SizedBox(height: appearance.small),
+        if (appearance.desktop)
           for (final player in state.nextPlayers) ...[
             AppIdentity(
               primary: player.character,
               initials: player.initials,
               secondary: player.name,
-              theme: t.nextIdentity,
+              theme: appearance.nextIdentity,
             ),
-            SizedBox(height: t.small),
+            SizedBox(height: appearance.small),
           ]
         else
           Row(
@@ -102,7 +102,7 @@ class TournamentScreen extends StatelessWidget {
                     primary: player.character,
                     initials: player.initials,
                     secondary: player.name,
-                    theme: t.nextIdentity,
+                    theme: appearance.nextIdentity,
                   ),
                 ),
             ],
@@ -110,23 +110,23 @@ class TournamentScreen extends StatelessWidget {
       ],
     );
     final details = Column(
-      mainAxisSize: t.min,
-      crossAxisAlignment: t.stretch,
+      mainAxisSize: appearance.min,
+      crossAxisAlignment: appearance.stretch,
       children: [
         if (state.nextPlayers.isNotEmpty) ...[
-          if (t.desktop) AppScreenTile(child: next) else next,
-          SizedBox(height: t.gap),
+          if (appearance.desktop) AppScreenTile(child: next) else next,
+          SizedBox(height: appearance.gap),
         ],
         if (state.hasBracket) ...[
           AppScreenTile(
             child: AppButton(
-              label: l.screenBracket,
+              label: localizations.screenBracket,
               kind: AppButtonKind.textLink,
               glyph: AppGlyph.chevron,
               onPressed: onBracket,
             ),
           ),
-          SizedBox(height: t.gap),
+          SizedBox(height: appearance.gap),
         ],
         for (final detail in state.details) ...[
           AppScreenTile(
@@ -137,7 +137,7 @@ class TournamentScreen extends StatelessWidget {
               child: switch (detail.content) {
                 TournamentTextContent(:final text) => Text(
                   text,
-                  style: t.caption,
+                  style: appearance.caption,
                 ),
                 TournamentTableContent(
                   :final caption,
@@ -146,7 +146,7 @@ class TournamentScreen extends StatelessWidget {
                 ) =>
                   AppDataTable(caption: caption, columns: columns, rows: rows),
                 TournamentActionsContent(:final actions) => Column(
-                  mainAxisSize: t.min,
+                  mainAxisSize: appearance.min,
                   children: [
                     for (final action in actions)
                       AppButton(
@@ -160,52 +160,52 @@ class TournamentScreen extends StatelessWidget {
               },
             ),
           ),
-          SizedBox(height: t.gap),
+          SizedBox(height: appearance.gap),
         ],
       ],
     );
     final action = AppButton(
-      label: l.screenEnterResult,
+      label: localizations.screenEnterResult,
       glyph: AppGlyph.arrow,
       onPressed: onResult,
     );
     return AppScreenCanvas(
       child: Column(
-        crossAxisAlignment: t.stretch,
+        crossAxisAlignment: appearance.stretch,
         children: [
           AppSectionHeader(
             title: state.title,
-            backLabel: l.screenBack,
+            backLabel: localizations.screenBack,
             onBack: onBack,
             action: AppHeaderAction(
               kind: AppHeaderActionKind.share,
-              label: l.screenSpectators,
+              label: localizations.screenSpectators,
               onPressed: onShare,
             ),
           ),
-          SizedBox(height: t.gap),
+          SizedBox(height: appearance.gap),
           Expanded(
-            child: t.desktop
+            child: appearance.desktop
                 ? Row(
-                    crossAxisAlignment: t.stretch,
+                    crossAxisAlignment: appearance.stretch,
                     children: [
                       Expanded(
-                        flex: t.homePrimaryFlex,
+                        flex: appearance.homePrimaryFlex,
                         child: AppScreenTile(
                           child: Center(
                             child: SingleChildScrollView(
                               child: Column(
-                                mainAxisSize: t.min,
-                                mainAxisAlignment: t.centerMain,
+                                mainAxisSize: appearance.min,
+                                mainAxisAlignment: appearance.centerMain,
                                 children: [
                                   Text(
                                     state.roundLabel,
-                                    style: t.caption,
-                                    textAlign: t.centerText,
+                                    style: appearance.caption,
+                                    textAlign: appearance.centerText,
                                   ),
-                                  SizedBox(height: t.gap),
+                                  SizedBox(height: appearance.gap),
                                   pair,
-                                  SizedBox(height: t.gap),
+                                  SizedBox(height: appearance.gap),
                                   score,
                                 ],
                               ),
@@ -213,15 +213,15 @@ class TournamentScreen extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(width: t.gap),
+                      SizedBox(width: appearance.gap),
                       Expanded(
                         child: Column(
-                          crossAxisAlignment: t.stretch,
+                          crossAxisAlignment: appearance.stretch,
                           children: [
                             Expanded(
                               child: SingleChildScrollView(child: details),
                             ),
-                            SizedBox(height: t.gap),
+                            SizedBox(height: appearance.gap),
                             action,
                           ],
                         ),
@@ -229,29 +229,29 @@ class TournamentScreen extends StatelessWidget {
                     ],
                   )
                 : Column(
-                    crossAxisAlignment: t.stretch,
+                    crossAxisAlignment: appearance.stretch,
                     children: [
                       Expanded(
                         child: SingleChildScrollView(
                           child: Column(
-                            crossAxisAlignment: t.stretch,
+                            crossAxisAlignment: appearance.stretch,
                             children: [
                               Text(
                                 state.roundLabel,
-                                style: t.caption,
-                                textAlign: t.centerText,
+                                style: appearance.caption,
+                                textAlign: appearance.centerText,
                               ),
-                              SizedBox(height: t.gap),
+                              SizedBox(height: appearance.gap),
                               pair,
-                              SizedBox(height: t.gap),
+                              SizedBox(height: appearance.gap),
                               score,
-                              SizedBox(height: t.gap),
+                              SizedBox(height: appearance.gap),
                               details,
                             ],
                           ),
                         ),
                       ),
-                      SizedBox(height: t.gap),
+                      SizedBox(height: appearance.gap),
                       action,
                     ],
                   ),

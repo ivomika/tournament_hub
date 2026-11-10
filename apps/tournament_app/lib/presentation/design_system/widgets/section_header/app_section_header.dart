@@ -38,13 +38,20 @@ class AppSectionHeader extends StatelessWidget {
   final VoidCallback? onBack;
   final AppHeaderAction? action;
   final AppGlyph? leadingGlyph;
+  AppButtonKind _resolveActionKind() {
+    if (action?.kind == AppHeaderActionKind.save) {
+      return AppButtonKind.accentIcon;
+    }
+    return AppButtonKind.icon;
+  }
+
   @override
   Widget build(BuildContext context) {
-    final t = AppSectionHeaderTheme.of(context);
+    final appearance = AppSectionHeaderTheme.of(context);
     return Row(
       children: [
         SizedBox.square(
-          dimension: t.slot,
+          dimension: appearance.slot,
           child: AppButton(
             label: backLabel,
             kind: AppButtonKind.icon,
@@ -52,23 +59,25 @@ class AppSectionHeader extends StatelessWidget {
             onPressed: onBack,
           ),
         ),
-        SizedBox(width: t.gap),
+        SizedBox(width: appearance.gap),
         Expanded(
           child: Semantics(
             header: true,
-            child: Text(title, style: t.style, textAlign: t.textAlign),
+            child: Text(
+              title,
+              style: appearance.style,
+              textAlign: appearance.textAlign,
+            ),
           ),
         ),
-        SizedBox(width: t.gap),
+        SizedBox(width: appearance.gap),
         SizedBox.square(
-          dimension: t.slot,
+          dimension: appearance.slot,
           child: action == null
               ? null
               : AppButton(
                   label: action!.label,
-                  kind: action!.kind == AppHeaderActionKind.save
-                      ? AppButtonKind.accentIcon
-                      : AppButtonKind.icon,
+                  kind: _resolveActionKind(),
                   glyph: action!.kind.glyph,
                   onPressed: action!.onPressed,
                 ),

@@ -6,6 +6,12 @@ import 'package:tournament_app/presentation/widgetbook/comparison/comparison_spe
 import 'package:tournament_app/presentation/widgetbook/visual_viewport.dart';
 
 abstract final class BordersComparison {
+  static int _resolveButtonIndex(AppButtonKind kind) {
+    if (kind == AppButtonKind.primary) return 1;
+    if (kind == AppButtonKind.secondary) return 2;
+    return 4;
+  }
+
   static final spec = ComparisonSpec(
     component: 'borders',
     title: 'Foundation Borders / focus',
@@ -42,11 +48,7 @@ abstract final class BordersComparison {
             viewport: viewport,
             capturePadding: 12,
             webSelector:
-                '#c-button .kit-component:nth-child(${kind == AppButtonKind.primary
-                    ? 1
-                    : kind == AppButtonKind.secondary
-                    ? 2
-                    : 4}) .kit-adaptation .kit-specimen:nth-of-type(${viewport == VisualViewport.desktop ? 2 : 1}) button',
+                '#c-button .kit-component:nth-child(${_resolveButtonIndex(kind)}) .kit-adaptation .kit-specimen:nth-of-type(${viewport == VisualViewport.desktop ? 2 : 1}) button',
             webClass: 'kit-focus',
             builder: (context) =>
                 ButtonFixture(kind: kind, state: WidgetState.focused),

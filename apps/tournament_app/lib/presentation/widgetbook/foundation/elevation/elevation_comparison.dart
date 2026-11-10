@@ -71,36 +71,38 @@ class ShadowSampleFixture extends StatelessWidget {
   final bool source;
   @override
   Widget build(BuildContext context) {
-    final t = Theme.of(context),
-        e = t.extension<AppElevation>()!,
-        m = t.extension<FoundationSampleMetrics>()!,
-        l = FoundationLocalizations.of(context);
+    final appearance = Theme.of(context),
+        runtimeElevation = appearance.extension<AppElevation>()!,
+        runtimeFoundationSampleMetrics = appearance
+            .extension<FoundationSampleMetrics>()!,
+        localizations = FoundationLocalizations.of(context);
     final shadow = switch (sample) {
-      ElevationSample.floating => e.floating,
-      ElevationSample.sheet => e.sheet,
-      ElevationSample.dialog => e.dialog,
+      ElevationSample.floating => runtimeElevation.floating,
+      ElevationSample.sheet => runtimeElevation.sheet,
+      ElevationSample.dialog => runtimeElevation.dialog,
     };
     final label = source
-        ? l.elevationSource
+        ? localizations.elevationSource
         : switch (sample) {
-            ElevationSample.floating => l.elevationFloating,
-            ElevationSample.sheet => l.elevationSheet,
-            ElevationSample.dialog => l.elevationDialog,
+            ElevationSample.floating => localizations.elevationFloating,
+            ElevationSample.sheet => localizations.elevationSheet,
+            ElevationSample.dialog => localizations.elevationDialog,
           };
     return SizedBox(
-      width: t.extension<FoundationLayout>()!.fullWidth,
-      height: m.shapeExtent,
+      width: appearance.extension<FoundationLayout>()!.fullWidth,
+      height: runtimeFoundationSampleMetrics.shapeExtent,
       child: DecoratedBox(
         decoration: BoxDecoration(
-          color: t.colorScheme.surface,
-          borderRadius: t.extension<AppShape>()!.surface,
+          color: appearance.colorScheme.surface,
+          borderRadius: appearance.extension<AppShape>()!.surface,
           boxShadow: [shadow],
         ),
         child: Align(
-          alignment: m.center,
+          alignment: runtimeFoundationSampleMetrics.center,
           child: Text(
             label,
-            style: AppTextStyles(t).caption.copyWith(fontSize: m.fontSize),
+            style: AppTextStyles(appearance).caption
+                .copyWith(fontSize: runtimeFoundationSampleMetrics.fontSize),
           ),
         ),
       ),

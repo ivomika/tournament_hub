@@ -49,12 +49,14 @@ class _NavigationFixtureState extends State<NavigationFixture> {
 
   @override
   Widget build(BuildContext context) {
-    final l = FoundationLocalizations.of(context),
+    final localizations = FoundationLocalizations.of(context),
         desktop =
             MediaQuery.sizeOf(context).width >
             Theme.of(context).extension<AppResponsive>()!.mobileToDesktopWidth;
     final child = AppNavigationItem(
-      label: widget.long ? l.navigationLong : l.navigationSettings,
+      label: widget.long
+          ? localizations.navigationLong
+          : localizations.navigationSettings,
       glyph: AppGlyph.settings,
       onPressed: widget.disabled ? null : _open,
       statesController: _states,

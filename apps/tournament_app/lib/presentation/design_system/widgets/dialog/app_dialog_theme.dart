@@ -12,43 +12,53 @@ import 'package:tournament_app/presentation/design_system/foundation/elevation/a
 
 class AppDialogTheme {
   AppDialogTheme.of(BuildContext context) {
-    final t = Theme.of(context),
-        s = t.extension<AppSpacing>()!,
-        r = t.extension<AppResponsive>()!,
-        m = t.extension<AppDialogMetrics>()!,
-        c = t.extension<AppControlMetrics>()!,
-        b = t.extension<AppBorderMetrics>()!,
-        shape = t.extension<AppShape>()!,
-        roles = t.extension<AppTypeRoles>()!,
-        styles = AppTextStyles(t),
-        desktop = MediaQuery.sizeOf(context).width > r.mobileToDesktopWidth;
-    maxWidth = m.maxWidth;
-    gap = s.space16;
-    actionGap = s.space8;
-    borderWidth = desktop ? b.hairline : s.space0;
-    borderColor = t.colorScheme.outlineVariant;
+    final runtimeTheme = Theme.of(context),
+        runtimeSpacing = runtimeTheme.extension<AppSpacing>()!,
+        runtimeResponsive = runtimeTheme.extension<AppResponsive>()!,
+        runtimeDialogMetrics = runtimeTheme.extension<AppDialogMetrics>()!,
+        runtimeControlMetrics = runtimeTheme.extension<AppControlMetrics>()!,
+        runtimeBorderMetrics = runtimeTheme.extension<AppBorderMetrics>()!,
+        shape = runtimeTheme.extension<AppShape>()!,
+        roles = runtimeTheme.extension<AppTypeRoles>()!,
+        styles = AppTextStyles(runtimeTheme),
+        desktop =
+            MediaQuery.sizeOf(context).width >
+            runtimeResponsive.mobileToDesktopWidth;
+    maxWidth = runtimeDialogMetrics.maxWidth;
+    gap = runtimeSpacing.space16;
+    actionGap = runtimeSpacing.space8;
+    borderWidth = desktop
+        ? runtimeBorderMetrics.hairline
+        : runtimeSpacing.space0;
+    borderColor = runtimeTheme.colorScheme.outlineVariant;
     border = desktop
         ? Border.all(color: borderColor, width: borderWidth)
         : null;
-    background = t.colorScheme.surface;
+    background = runtimeTheme.colorScheme.surface;
     radius = desktop ? shape.surface : shape.panel;
-    padding = EdgeInsets.all(desktop ? m.desktopInset + b.hairline : s.space24);
-    shadows = desktop ? [t.extension<AppElevation>()!.dialog] : [];
-    stretch = t.extension<AppFieldMetrics>()!.stretch;
+    padding = EdgeInsets.all(
+      desktop
+          ? runtimeDialogMetrics.desktopInset + runtimeBorderMetrics.hairline
+          : runtimeSpacing.space24,
+    );
+    shadows = desktop ? [runtimeTheme.extension<AppElevation>()!.dialog] : [];
+    stretch = runtimeTheme.extension<AppFieldMetrics>()!.stretch;
     titleStyle = roles.interfaceStyle(
-      t.textTheme.bodyMedium!.copyWith(
+      runtimeTheme.textTheme.bodyMedium!.copyWith(
         fontSize: desktop
-            ? m.desktopTitleSize
-            : t.textTheme.bodyMedium!.fontSize,
-        fontWeight: t.textTheme.labelLarge!.fontWeight,
-        height: desktop ? m.desktopTitleLine : m.mobileTitleLine,
-        color: t.colorScheme.onSurface,
+            ? runtimeDialogMetrics.desktopTitleSize
+            : runtimeTheme.textTheme.bodyMedium!.fontSize,
+        fontWeight: runtimeTheme.textTheme.labelLarge!.fontWeight,
+        height: desktop
+            ? runtimeDialogMetrics.desktopTitleLine
+            : runtimeDialogMetrics.mobileTitleLine,
+        color: runtimeTheme.colorScheme.onSurface,
       ),
     );
     bodyStyle = roles.interfaceStyle(
       styles.label.copyWith(
-        fontWeight: c.regularWeight,
-        color: t.colorScheme.onSurfaceVariant,
+        fontWeight: runtimeControlMetrics.regularWeight,
+        color: runtimeTheme.colorScheme.onSurfaceVariant,
       ),
     );
   }

@@ -5,7 +5,8 @@ import 'package:tournament_app/presentation/design_system/foundation/spacing/app
 
 class ChampionScreenTheme extends AppScreenLayoutTheme {
   ChampionScreenTheme.of(BuildContext context) : super.of(context) {
-    final t = Theme.of(context), s = t.extension<AppSpacing>()!;
+    final appearance = Theme.of(context),
+        runtimeSpacing = appearance.extension<AppSpacing>()!;
     final base = AppIdentityTheme.of(
       context,
       AppIdentityKind.character,
@@ -18,7 +19,7 @@ class ChampionScreenTheme extends AppScreenLayoutTheme {
         typography: base.avatar.typography.copyWith(
           fontSize: desktop
               ? championDesktopNameSize
-              : t.textTheme.displayLarge!.fontSize,
+              : appearance.textTheme.displayLarge!.fontSize,
         ),
       ),
       primary: base.primary.copyWith(
@@ -26,21 +27,25 @@ class ChampionScreenTheme extends AppScreenLayoutTheme {
       ),
       secondary: desktop
           ? caption
-          : t.textTheme.bodyMedium!.copyWith(
-              fontSize: t.textTheme.titleLarge!.fontSize,
+          : appearance.textTheme.bodyMedium!.copyWith(
+              fontSize: appearance.textTheme.titleLarge!.fontSize,
             ),
       leading: centerCross,
       textAlign: centerText,
-      gap: s.space16,
-      textGap: s.space16,
+      gap: runtimeSpacing.space16,
+      textGap: runtimeSpacing.space16,
     );
-    contextTitle=t.textTheme.headlineSmall!.copyWith(fontSize:championContextTitleSize);
-contextAlignment=Alignment(topLeft.x,bottomAlign.y);
-heroGap = s.space32;
-    award = t.textTheme.labelLarge!.copyWith(color: t.colorScheme.primary);
+    contextTitle = appearance.textTheme.headlineSmall!.copyWith(
+      fontSize: championContextTitleSize,
+    );
+    contextAlignment = Alignment(topLeft.x, bottomAlign.y);
+    heroGap = runtimeSpacing.space32;
+    award = appearance.textTheme.labelLarge!.copyWith(
+      color: appearance.colorScheme.primary,
+    );
   }
   late final AppIdentityTheme championIdentity;
   late final double heroGap;
-  late final TextStyle award,contextTitle;
-late final Alignment contextAlignment;
+  late final TextStyle award, contextTitle;
+  late final Alignment contextAlignment;
 }

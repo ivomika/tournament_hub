@@ -23,19 +23,19 @@ class AppScore extends StatelessWidget {
   final String? right, separator;
   @override
   Widget build(BuildContext context) {
-    final t = AppScoreTheme.of(context, kind);
+    final appearance = AppScoreTheme.of(context, kind);
     return Semantics(
       label: semanticLabel,
       excludeSemantics: true,
       child: Row(
-        mainAxisAlignment: t.center,
+        mainAxisAlignment: appearance.center,
         children: [
-          Text(left, style: t.valueStyle),
+          Text(left, style: appearance.valueStyle),
           if (kind == AppScoreKind.pair) ...[
-            SizedBox(width: t.gap),
-            Text(separator!, style: t.separatorStyle),
-            SizedBox(width: t.gap),
-            Text(right!, style: t.valueStyle),
+            SizedBox(width: appearance.gap),
+            Text(separator!, style: appearance.separatorStyle),
+            SizedBox(width: appearance.gap),
+            Text(right!, style: appearance.valueStyle),
           ],
         ],
       ),

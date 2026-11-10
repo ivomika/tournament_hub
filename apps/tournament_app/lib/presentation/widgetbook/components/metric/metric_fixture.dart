@@ -11,22 +11,24 @@ class MetricFixture extends StatelessWidget {
   });
   final AppMetricKind kind;
   final bool zero, long;
+  String _resolveValue() {
+    if (zero) return '0';
+    if (kind == AppMetricKind.achievement) return '3';
+    return '12';
+  }
+
   @override
   Widget build(BuildContext context) {
-    final l = FoundationLocalizations.of(context),
+    final localizations = FoundationLocalizations.of(context),
         label = kind == AppMetricKind.achievement
-            ? l.metricWins
-            : l.metricTournaments,
-        value = zero
-            ? '0'
-            : kind == AppMetricKind.achievement
-            ? '3'
-            : '12';
+            ? localizations.metricWins
+            : localizations.metricTournaments,
+        value = _resolveValue();
     return AppMetric(
       kind: kind,
       value: value,
       label: long ? '$label $label' : label,
-      semanticLabel: l.metricSummary(label, value),
+      semanticLabel: localizations.metricSummary(label, value),
     );
   }
 }

@@ -95,7 +95,9 @@ abstract final class AvatarComparison {
     final responsive = theme.extension<AppResponsive>()!;
     return theme.copyWith(
       extensions: [
-        ...theme.extensions.values.where((e) => e is! AppAvatarMetrics),
+        ...theme.extensions.values.where(
+          (extension) => extension is! AppAvatarMetrics,
+        ),
         metrics.copyWith(
           contentAlignment: Alignment(
             metrics.contentAlignment.x,

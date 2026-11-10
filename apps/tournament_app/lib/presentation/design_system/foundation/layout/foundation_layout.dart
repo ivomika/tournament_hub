@@ -66,37 +66,64 @@ class FoundationLayout extends ThemeExtension<FoundationLayout> {
     centered: centered ?? this.centered,
   );
   @override
-  FoundationLayout lerp(covariant FoundationLayout? other, double t) {
+  FoundationLayout lerp(
+    covariant FoundationLayout? other,
+    double interpolationAmount,
+  ) {
     if (other == null) return this;
     return FoundationLayout(
-      pagePadding: EdgeInsets.lerp(pagePadding, other.pagePadding, t)!,
-      tilePadding: EdgeInsets.lerp(tilePadding, other.tilePadding, t)!,
+      pagePadding: EdgeInsets.lerp(
+        pagePadding,
+        other.pagePadding,
+        interpolationAmount,
+      )!,
+      tilePadding: EdgeInsets.lerp(
+        tilePadding,
+        other.tilePadding,
+        interpolationAmount,
+      )!,
       smallGap: smallGap == other.smallGap
           ? smallGap
-          : lerpDouble(smallGap, other.smallGap, t)!,
-      gap: gap == other.gap ? gap : lerpDouble(gap, other.gap, t)!,
+          : lerpDouble(smallGap, other.smallGap, interpolationAmount)!,
+      gap: gap == other.gap
+          ? gap
+          : lerpDouble(gap, other.gap, interpolationAmount)!,
       sectionGap: sectionGap == other.sectionGap
           ? sectionGap
-          : lerpDouble(sectionGap, other.sectionGap, t)!,
+          : lerpDouble(sectionGap, other.sectionGap, interpolationAmount)!,
       tileWidth: tileWidth == other.tileWidth
           ? tileWidth
-          : lerpDouble(tileWidth, other.tileWidth, t)!,
+          : lerpDouble(tileWidth, other.tileWidth, interpolationAmount)!,
       colorTileHeight: colorTileHeight == other.colorTileHeight
           ? colorTileHeight
-          : lerpDouble(colorTileHeight, other.colorTileHeight, t)!,
+          : lerpDouble(
+              colorTileHeight,
+              other.colorTileHeight,
+              interpolationAmount,
+            )!,
       swatchSize: swatchSize == other.swatchSize
           ? swatchSize
-          : lerpDouble(swatchSize, other.swatchSize, t)!,
+          : lerpDouble(swatchSize, other.swatchSize, interpolationAmount)!,
       borderWidth: borderWidth == other.borderWidth
           ? borderWidth
-          : lerpDouble(borderWidth, other.borderWidth, t)!,
-      cornerRadius: BorderRadius.lerp(cornerRadius, other.cornerRadius, t)!,
-      swatchRadius: BorderRadius.lerp(swatchRadius, other.swatchRadius, t)!,
+          : lerpDouble(borderWidth, other.borderWidth, interpolationAmount)!,
+      cornerRadius: BorderRadius.lerp(
+        cornerRadius,
+        other.cornerRadius,
+        interpolationAmount,
+      )!,
+      swatchRadius: BorderRadius.lerp(
+        swatchRadius,
+        other.swatchRadius,
+        interpolationAmount,
+      )!,
       fullWidth: fullWidth == other.fullWidth
           ? fullWidth
-          : lerpDouble(fullWidth, other.fullWidth, t)!,
-      textAlignment: t < 0.5 ? textAlignment : other.textAlignment,
-      centered: t < 0.5 ? centered : other.centered,
+          : lerpDouble(fullWidth, other.fullWidth, interpolationAmount)!,
+      textAlignment: interpolationAmount < 0.5
+          ? textAlignment
+          : other.textAlignment,
+      centered: interpolationAmount < 0.5 ? centered : other.centered,
     );
   }
 }

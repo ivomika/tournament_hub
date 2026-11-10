@@ -20,38 +20,41 @@ class AppHistoryEntry extends StatelessWidget {
   final bool prominent;
   @override
   Widget build(BuildContext context) {
-    final t = AppHistoryEntryTheme.of(context, prominent);
+    final appearance = AppHistoryEntryTheme.of(context, prominent);
     return InkWell(
       onTap: onOpen,
       child: ConstrainedBox(
-        constraints: BoxConstraints(minHeight: t.minHeight),
+        constraints: BoxConstraints(minHeight: appearance.minHeight),
         child: DecoratedBox(
-          decoration: t.decoration,
+          decoration: appearance.decoration,
           child: Padding(
-            padding: t.padding,
+            padding: appearance.padding,
             child: Column(
-              mainAxisSize: t.min,
-              crossAxisAlignment: t.stretch,
+              mainAxisSize: appearance.min,
+              crossAxisAlignment: appearance.stretch,
               children: [
-                Text(dateLabel, style: t.caption),
-                SizedBox(height: t.small),
-                Text(name, style: t.title),
-                SizedBox(height: t.small),
+                Text(dateLabel, style: appearance.caption),
+                SizedBox(height: appearance.small),
+                Text(name, style: appearance.title),
+                SizedBox(height: appearance.small),
                 Row(
                   children: [
-                    AppIcon(AppGlyph.trophy, color: t.accentHero.color),
-                    SizedBox(width: t.small),
+                    AppIcon(
+                      AppGlyph.trophy,
+                      color: appearance.accentHero.color,
+                    ),
+                    SizedBox(width: appearance.small),
                     Expanded(
                       child: AppIdentity(
                         primary: winnerCharacter,
                         initials: initials,
                         secondary: winnerName,
-                        theme: t.identity,
+                        theme: appearance.identity,
                       ),
                     ),
                     if (onOpen != null) ...[
-                      SizedBox(width: t.small),
-                      AppIcon(AppGlyph.chevron, color: t.body.color),
+                      SizedBox(width: appearance.small),
+                      AppIcon(AppGlyph.chevron, color: appearance.body.color),
                     ],
                   ],
                 ),

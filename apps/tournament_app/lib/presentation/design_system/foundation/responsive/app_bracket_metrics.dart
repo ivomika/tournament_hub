@@ -28,14 +28,21 @@ class AppBracketMetrics extends ThemeExtension<AppBracketMetrics> {
     unknownSize: unknownSize ?? this.unknownSize,
   );
   @override
-  AppBracketMetrics lerp(covariant AppBracketMetrics? other, double t) =>
-      other == null
-      ? this
-      : AppBracketMetrics(
-          width: width + (other.width - width) * t,
-          minHeight: minHeight + (other.minHeight - minHeight) * t,
-          labelSize: labelSize + (other.labelSize - labelSize) * t,
-          smallSize: smallSize + (other.smallSize - smallSize) * t,
-          unknownSize: unknownSize + (other.unknownSize - unknownSize) * t,
-        );
+  AppBracketMetrics lerp(
+    covariant AppBracketMetrics? other,
+    double interpolationAmount,
+  ) {
+    if (other == null) return this;
+    return AppBracketMetrics(
+      width: width + (other.width - width) * interpolationAmount,
+      minHeight:
+          minHeight + (other.minHeight - minHeight) * interpolationAmount,
+      labelSize:
+          labelSize + (other.labelSize - labelSize) * interpolationAmount,
+      smallSize:
+          smallSize + (other.smallSize - smallSize) * interpolationAmount,
+      unknownSize:
+          unknownSize + (other.unknownSize - unknownSize) * interpolationAmount,
+    );
+  }
 }

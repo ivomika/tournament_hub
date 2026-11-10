@@ -65,7 +65,7 @@ class _AppFieldState extends State<AppField> {
 
   @override
   Widget build(BuildContext context) {
-    final t = AppFieldTheme.of(
+    final appearance = AppFieldTheme.of(
           context,
           widget.kind,
           widget.enabled,
@@ -74,36 +74,43 @@ class _AppFieldState extends State<AppField> {
         multiline = widget.kind == AppFieldKind.multiline;
     return Column(
       mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: t.crossAxis,
+      crossAxisAlignment: appearance.crossAxis,
       children: [
-        ExcludeSemantics(child: Text(widget.label, style: t.labelStyle)),
-        SizedBox(height: t.gap),
+        ExcludeSemantics(
+          child: Text(widget.label, style: appearance.labelStyle),
+        ),
+        SizedBox(height: appearance.gap),
         CustomPaint(
           foregroundPainter: _focus.hasFocus && widget.enabled
               ? AppFocusRingPainter(
                   AppFocusRingTheme(
-                    color: t.focusColor,
-                    width: t.focusWidth,
-                    offset: t.focusOffset,
-                    radius: t.radius,
+                    color: appearance.focusColor,
+                    width: appearance.focusWidth,
+                    offset: appearance.focusOffset,
+                    radius: appearance.radius,
                     capsule: false,
-                    half: t.half,
+                    half: appearance.half,
                   ),
                 )
               : null,
           child: DecoratedBox(
             decoration: BoxDecoration(
-              color: t.background,
-              borderRadius: t.radius,
-              border: Border.all(color: t.border, width: t.borderWidth),
+              color: appearance.background,
+              borderRadius: appearance.radius,
+              border: Border.all(
+                color: appearance.border,
+                width: appearance.borderWidth,
+              ),
             ),
             child: ConstrainedBox(
-              constraints: BoxConstraints(minHeight: t.minHeight),
+              constraints: BoxConstraints(minHeight: appearance.minHeight),
               child: Padding(
-                padding: t.padding,
+                padding: appearance.padding,
                 child: Align(
-                  alignment: t.align,
-                  heightFactor: multiline ? null : t.half + t.half,
+                  alignment: appearance.align,
+                  heightFactor: multiline
+                      ? null
+                      : appearance.half + appearance.half,
                   child: Semantics(
                     label: widget.label,
                     child: TextField(
@@ -113,10 +120,10 @@ class _AppFieldState extends State<AppField> {
                       readOnly: widget.readOnly,
                       onChanged: widget.onChanged,
                       onSubmitted: widget.onSubmitted,
-                      maxLines: multiline ? null : t.singleLine,
-                      minLines: t.singleLine,
-                      style: t.inputStyle,
-                      cursorColor: t.foreground,
+                      maxLines: multiline ? null : appearance.singleLine,
+                      minLines: appearance.singleLine,
+                      style: appearance.inputStyle,
+                      cursorColor: appearance.foreground,
                       decoration: const InputDecoration(
                         isCollapsed: true,
                         border: InputBorder.none,
@@ -132,22 +139,22 @@ class _AppFieldState extends State<AppField> {
           ),
         ),
         if (widget.errorText != null || widget.supportingText != null) ...[
-          SizedBox(height: t.gap),
+          SizedBox(height: appearance.gap),
           Semantics(
             liveRegion: widget.errorText != null,
             child: Row(
-              crossAxisAlignment: t.supportingCrossAxis,
+              crossAxisAlignment: appearance.supportingCrossAxis,
               children: [
                 if (widget.errorText != null) ...[
-                  AppIcon(AppGlyph.alert, color: t.errorColor),
-                  SizedBox(width: t.gap),
+                  AppIcon(AppGlyph.alert, color: appearance.errorColor),
+                  SizedBox(width: appearance.gap),
                 ],
                 Expanded(
                   child: Text(
                     widget.errorText ?? widget.supportingText!,
                     style: widget.errorText != null
-                        ? t.errorStyle
-                        : t.labelStyle,
+                        ? appearance.errorStyle
+                        : appearance.labelStyle,
                   ),
                 ),
               ],

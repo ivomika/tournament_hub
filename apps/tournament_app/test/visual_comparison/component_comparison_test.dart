@@ -62,7 +62,7 @@ abstract final class _ComparisonDriver {
     ) as List<Object?>).cast<Map<String, Object?>>();
     final frames = <Map<String, Object?>>[];
     for (final scenario in spec.scenarios) {
-      final reference = web.singleWhere((f) => f['id'] == scenario.id);
+      final reference = web.singleWhere((frame) => frame['id'] == scenario.id);
       final sourceRoot = reference['root']! as Map<String, Object?>;
       final width = (sourceRoot['width']! as num).toDouble();
       tester.view.physicalSize = scenario.size;
@@ -311,33 +311,45 @@ abstract final class _ComparisonDriver {
     final bg = canvas.toARGB32();
     final background = [(bg >> 16) & 255, (bg >> 8) & 255, bg & 255];
     var sourceVisible = false;
-    for (var i = 0; i < expectedBytes.length; i += 4) {
-      if (expectedBytes[i] != background[0] ||
-          expectedBytes[i + 1] != background[1] ||
-          expectedBytes[i + 2] != background[2]) {
+    for (
+      var byteOffset = 0;
+      byteOffset < expectedBytes.length;
+      byteOffset += 4
+    ) {
+      if (expectedBytes[byteOffset] != background[0] ||
+          expectedBytes[byteOffset + 1] != background[1] ||
+          expectedBytes[byteOffset + 2] != background[2]) {
         sourceVisible = true;
         break;
       }
     }
     if (!sourceVisible) throw StateError('Source capture is blank: $id');
-    for (var y = 0; y < height; y++) {
-      for (var x = 0; x < width; x++) {
-        final i = (y * width + x) * 4;
+    for (var pixelRow = 0; pixelRow < height; pixelRow++) {
+      for (var pixelColumn = 0; pixelColumn < width; pixelColumn++) {
+        final byteOffset = (pixelRow * width + pixelColumn) * 4;
         var delta = 0;
-        for (var c = 0; c < 3; c++) {
-          final a = x < image.width && y < image.height
-              ? actualBytes[(y * image.width + x) * 4 + c]
-              : background[c];
-          final b = x < expected.width && y < expected.height
-              ? expectedBytes[(y * expected.width + x) * 4 + c]
-              : background[c];
-          final d = (a - b).abs();
-          delta += d;
-          overlay[i + c] = ((a + b) / 2).round();
-          diff[i + c] = math.min(255, d * 4);
+        for (var channelIndex = 0; channelIndex < 3; channelIndex++) {
+          final actualChannel =
+              pixelColumn < image.width && pixelRow < image.height
+              ? actualBytes[(pixelRow * image.width + pixelColumn) * 4 +
+                    channelIndex]
+              : background[channelIndex];
+          final expectedChannel =
+              pixelColumn < expected.width && pixelRow < expected.height
+              ? expectedBytes[(pixelRow * expected.width + pixelColumn) * 4 +
+                    channelIndex]
+              : background[channelIndex];
+          final channelDifference = (actualChannel - expectedChannel).abs();
+          delta += channelDifference;
+          overlay[byteOffset + channelIndex] =
+              ((actualChannel + expectedChannel) / 2).round();
+          diff[byteOffset + channelIndex] = math.min(
+            255,
+            channelDifference * 4,
+          );
         }
-        overlay[i + 3] = 255;
-        diff[i + 3] = 255;
+        overlay[byteOffset + 3] = 255;
+        diff[byteOffset + 3] = 255;
         if (delta > 12) changed++;
         total += delta;
       }

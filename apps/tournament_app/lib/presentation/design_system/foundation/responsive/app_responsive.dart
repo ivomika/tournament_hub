@@ -58,45 +58,72 @@ class AppResponsive extends ThemeExtension<AppResponsive> {
     avatarHero: avatarHero ?? this.avatarHero,
   );
   @override
-  AppResponsive lerp(covariant AppResponsive? other, double t) {
+  AppResponsive lerp(
+    covariant AppResponsive? other,
+    double interpolationAmount,
+  ) {
     if (other == null) return this;
     return AppResponsive(
       mobileToDesktopWidth: lerpDouble(
         mobileToDesktopWidth,
         other.mobileToDesktopWidth,
-        t,
+        interpolationAmount,
       )!,
       compactDesktopWidth: lerpDouble(
         compactDesktopWidth,
         other.compactDesktopWidth,
-        t,
+        interpolationAmount,
       )!,
       wideCompositionWidth: lerpDouble(
         wideCompositionWidth,
         other.wideCompositionWidth,
-        t,
+        interpolationAmount,
       )!,
       compactControlHeight: lerpDouble(
         compactControlHeight,
         other.compactControlHeight,
-        t,
+        interpolationAmount,
       )!,
       touchControlHeight: lerpDouble(
         touchControlHeight,
         other.touchControlHeight,
-        t,
+        interpolationAmount,
       )!,
       avatarExtraSmall: lerpDouble(
         avatarExtraSmall,
         other.avatarExtraSmall,
-        t,
+        interpolationAmount,
       )!,
-      avatarSmall: lerpDouble(avatarSmall, other.avatarSmall, t)!,
-      avatarMedium: lerpDouble(avatarMedium, other.avatarMedium, t)!,
-      avatarLarge: lerpDouble(avatarLarge, other.avatarLarge, t)!,
-      avatarProfile: lerpDouble(avatarProfile, other.avatarProfile, t)!,
-      avatarPortrait: lerpDouble(avatarPortrait, other.avatarPortrait, t)!,
-      avatarHero: lerpDouble(avatarHero, other.avatarHero, t)!,
+      avatarSmall: lerpDouble(
+        avatarSmall,
+        other.avatarSmall,
+        interpolationAmount,
+      )!,
+      avatarMedium: lerpDouble(
+        avatarMedium,
+        other.avatarMedium,
+        interpolationAmount,
+      )!,
+      avatarLarge: lerpDouble(
+        avatarLarge,
+        other.avatarLarge,
+        interpolationAmount,
+      )!,
+      avatarProfile: lerpDouble(
+        avatarProfile,
+        other.avatarProfile,
+        interpolationAmount,
+      )!,
+      avatarPortrait: lerpDouble(
+        avatarPortrait,
+        other.avatarPortrait,
+        interpolationAmount,
+      )!,
+      avatarHero: lerpDouble(
+        avatarHero,
+        other.avatarHero,
+        interpolationAmount,
+      )!,
     );
   }
 }

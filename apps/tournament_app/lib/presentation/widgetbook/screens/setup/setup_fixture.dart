@@ -22,40 +22,64 @@ class _FixtureState extends State<SetupFixture> {
     super.dispose();
   }
 
+  String _resolveFormatTitle(FoundationLocalizations localizations) {
+    if (widget.format == TournamentFormatDisplay.roundRobin) {
+      return localizations.screenRrTitle;
+    }
+    if (widget.format == TournamentFormatDisplay.doubleElimination) {
+      return localizations.screenDeTitle;
+    }
+    return localizations.screenSeTitle;
+  }
+
+  String _resolveFormatHint(FoundationLocalizations localizations) {
+    if (widget.format == TournamentFormatDisplay.roundRobin) {
+      return localizations.screenRrHint;
+    }
+    if (widget.format == TournamentFormatDisplay.doubleElimination) {
+      return localizations.screenDeHint;
+    }
+    return localizations.screenSeHint;
+  }
+
+  String? _resolveNotice(FoundationLocalizations localizations) {
+    if (widget.format == TournamentFormatDisplay.roundRobin) {
+      return localizations.screenRrNote;
+    }
+    if (widget.format == TournamentFormatDisplay.doubleElimination) {
+      return localizations.screenDeNote;
+    }
+    return null;
+  }
+
+  String _resolveFinalLabel(FoundationLocalizations localizations) {
+    if (widget.format == TournamentFormatDisplay.doubleElimination) {
+      return localizations.screenGrandFinal;
+    }
+    return localizations.screenFinal;
+  }
+
   @override
   Widget build(BuildContext context) {
-    final l = FoundationLocalizations.of(context);
-    final de = widget.format == TournamentFormatDisplay.doubleElimination,
-        rr = widget.format == TournamentFormatDisplay.roundRobin;
+    final localizations = FoundationLocalizations.of(context);
+    final rr = widget.format == TournamentFormatDisplay.roundRobin;
     return SetupScreen(
       state: SetupScreenState(
         format: widget.format,
-        formatTitle: rr
-            ? l.screenRrTitle
-            : de
-            ? l.screenDeTitle
-            : l.screenSeTitle,
-        formatHint: rr
-            ? l.screenRrHint
-            : de
-            ? l.screenDeHint
-            : l.screenSeHint,
-        notice: rr
-            ? l.screenRrNote
-            : de
-            ? l.screenDeNote
-            : null,
+        formatTitle: _resolveFormatTitle(localizations),
+        formatHint: _resolveFormatHint(localizations),
+        notice: _resolveNotice(localizations),
         controls: rr
             ? []
             : [
                 SetupFtControl(
-                  label: l.screenMainBracket,
+                  label: localizations.screenMainBracket,
                   valueLabel: 'FT1',
                   onDecrease: null,
                   onIncrease: action,
                 ),
                 SetupFtControl(
-                  label: de ? l.screenGrandFinal : l.screenFinal,
+                  label: _resolveFinalLabel(localizations),
                   valueLabel: 'FT1',
                   onDecrease: null,
                   onIncrease: action,

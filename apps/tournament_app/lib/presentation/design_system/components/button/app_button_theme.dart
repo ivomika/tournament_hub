@@ -49,13 +49,15 @@ class AppButtonTheme {
     String? label,
     bool glyphLeading = false,
   }) {
-    final t = Theme.of(context),
-        m = t.extension<AppControlMetrics>()!,
-        r = t.extension<AppResponsive>()!,
-        s = t.extension<AppSpacing>()!,
-        shape = t.extension<AppShape>()!,
-        b = t.extension<AppBorderMetrics>()!;
-    final desktop = MediaQuery.sizeOf(context).width > r.mobileToDesktopWidth,
+    final runtimeTheme = Theme.of(context),
+        runtimeControlMetrics = runtimeTheme.extension<AppControlMetrics>()!,
+        runtimeResponsive = runtimeTheme.extension<AppResponsive>()!,
+        runtimeSpacing = runtimeTheme.extension<AppSpacing>()!,
+        shape = runtimeTheme.extension<AppShape>()!,
+        runtimeBorderMetrics = runtimeTheme.extension<AppBorderMetrics>()!;
+    final desktop =
+            MediaQuery.sizeOf(context).width >
+            runtimeResponsive.mobileToDesktopWidth,
         disabled = states.contains(WidgetState.disabled),
         hovered = states.contains(WidgetState.hovered),
         pressed = states.contains(WidgetState.pressed);
@@ -76,36 +78,36 @@ class AppButtonTheme {
         (kind == AppButtonKind.removeIcon && hovered);
     final regular =
         kind == AppButtonKind.destructive || kind == AppButtonKind.removeSwipe;
-    final height = kind == AppButtonKind.removeSwipe
-        ? m.removeHeight
-        : kind == AppButtonKind.removeIcon
-        ? m.removeIconExtent
-        : circular && desktop
-        ? r.compactControlHeight
-        : r.touchControlHeight;
-    final foreground = disabled && !dialog
-        ? t.disabledColor
-        : danger
-        ? t.colorScheme.error
-        : accent
-        ? t.colorScheme.onPrimary
-        : kind == AppButtonKind.removeIcon ||
-              kind == AppButtonKind.dialogCancel ||
-              kind == AppButtonKind.textLink
-        ? t.colorScheme.onSurfaceVariant
-        : t.colorScheme.onSurface;
-    final text = t.extension<AppTypeRoles>()!.interfaceStyle(
+    final height = _resolveHeight(
+      kind,
+      circular,
+      desktop,
+      runtimeControlMetrics,
+      runtimeResponsive,
+    );
+    final foreground = _resolveForeground(
+      kind,
+      disabled && !dialog,
+      danger,
+      accent,
+      runtimeTheme,
+    );
+    final text = runtimeTheme.extension<AppTypeRoles>()!.interfaceStyle(
       (kind == AppButtonKind.removeSwipe
-              ? t.textTheme.bodySmall!
-              : t.textTheme.labelLarge!)
+              ? runtimeTheme.textTheme.bodySmall!
+              : runtimeTheme.textTheme.labelLarge!)
           .copyWith(
             color: foreground,
-            letterSpacing: t.extension<AppTypeRoles>()!.normalTracking,
-            fontWeight: regular ? m.regularWeight : null,
-            fontVariations: regular ? m.regularVariations : null,
+            letterSpacing: runtimeTheme
+                .extension<AppTypeRoles>()!
+                .normalTracking,
+            fontWeight: regular ? runtimeControlMetrics.regularWeight : null,
+            fontVariations: regular
+                ? runtimeControlMetrics.regularVariations
+                : null,
           ),
     );
-    var removeWidth = m.removeWidth;
+    var removeWidth = runtimeControlMetrics.removeWidth;
     if (kind == AppButtonKind.removeSwipe && label != null) {
       final painter = TextPainter(
         text: TextSpan(text: label, style: text),
@@ -114,58 +116,43 @@ class AppButtonTheme {
       )..layout();
       removeWidth = math.max(
         removeWidth,
-        painter.width.ceilToDouble() + s.space12 + s.space12,
+        painter.width.ceilToDouble() +
+            runtimeSpacing.space12 +
+            runtimeSpacing.space12,
       );
       painter.dispose();
     }
     return AppButtonTheme(
-      half: m.half,
+      half: runtimeControlMetrics.half,
       height: height,
-      width: circular
-          ? height
-          : kind == AppButtonKind.removeSwipe
-          ? removeWidth
-          : null,
+      width: _resolveWidth(kind, circular, height, removeWidth),
       padding: EdgeInsets.symmetric(
-        horizontal:
-            circular ||
-                kind == AppButtonKind.removeSwipe ||
-                kind == AppButtonKind.textLink
-            ? s.space0
-            : dialog
-            ? s.space16
-            : s.space24,
+        horizontal: _resolveHorizontalPadding(
+          kind,
+          circular,
+          dialog,
+          runtimeSpacing,
+        ),
       ),
-      gap: glyphLeading ? s.space8 : s.space16,
-      background: kind == AppButtonKind.textLink
-          ? m.transparent
-          : kind == AppButtonKind.dialogCancel
-          ? (hovered ? t.colorScheme.surfaceContainerHigh : m.transparent)
-          : disabled && !dialog
-          ? t.colorScheme.surfaceContainerHigh
-          : danger
-          ? t.colorScheme.errorContainer
-          : accent
-          ? (pressed
-                ? t.highlightColor
-                : hovered
-                ? t.hoverColor
-                : t.colorScheme.primary)
-          : hovered
-          ? t.colorScheme.outlineVariant
-          : t.colorScheme.surfaceContainerHigh,
+      gap: glyphLeading ? runtimeSpacing.space8 : runtimeSpacing.space16,
+      background: _resolveBackground(
+        kind,
+        hovered,
+        pressed,
+        disabled && !dialog,
+        danger,
+        accent,
+        runtimeTheme,
+        runtimeControlMetrics,
+      ),
       foreground: foreground,
       text: text,
-      radius: dialog
-          ? shape.nested
-          : kind == AppButtonKind.removeSwipe
-          ? BorderRadius.circular(s.space0)
-          : shape.pill,
+      radius: _resolveRadius(kind, dialog, shape, runtimeSpacing),
       circular: circular,
       justify: kind == AppButtonKind.primary || kind == AppButtonKind.textLink
-          ? m.spaceBetween
-          : m.center,
-      cross: m.centerCross,
+          ? runtimeControlMetrics.spaceBetween
+          : runtimeControlMetrics.center,
+      cross: runtimeControlMetrics.centerCross,
       shadows:
           kind != AppButtonKind.textLink &&
               kind != AppButtonKind.shareIcon &&
@@ -173,15 +160,112 @@ class AppButtonTheme {
               !desktop &&
               !disabled &&
               !danger
-          ? [t.extension<AppElevation>()!.floating]
+          ? [runtimeTheme.extension<AppElevation>()!.floating]
           : [],
-      focusColor: t.focusColor,
+      focusColor: runtimeTheme.focusColor,
       focusWidth: kind == AppButtonKind.removeIcon
-          ? b.emphasis
-          : b.highContrastFocus,
-      focusOffset: b.focusOffset,
+          ? runtimeBorderMetrics.emphasis
+          : runtimeBorderMetrics.highContrastFocus,
+      focusOffset: runtimeBorderMetrics.focusOffset,
     );
   }
+
+  static double _resolveHeight(
+    AppButtonKind kind,
+    bool circular,
+    bool desktop,
+    AppControlMetrics metrics,
+    AppResponsive responsive,
+  ) {
+    if (kind == AppButtonKind.removeSwipe) return metrics.removeHeight;
+    if (kind == AppButtonKind.removeIcon) return metrics.removeIconExtent;
+    if (circular && desktop) return responsive.compactControlHeight;
+    return responsive.touchControlHeight;
+  }
+
+  static Color _resolveForeground(
+    AppButtonKind kind,
+    bool disabled,
+    bool danger,
+    bool accent,
+    ThemeData theme,
+  ) {
+    if (disabled) return theme.disabledColor;
+    if (danger) return theme.colorScheme.error;
+    if (accent) return theme.colorScheme.onPrimary;
+    if (kind == AppButtonKind.removeIcon ||
+        kind == AppButtonKind.dialogCancel ||
+        kind == AppButtonKind.textLink) {
+      return theme.colorScheme.onSurfaceVariant;
+    }
+    return theme.colorScheme.onSurface;
+  }
+
+  static double? _resolveWidth(
+    AppButtonKind kind,
+    bool circular,
+    double height,
+    double removeWidth,
+  ) {
+    if (circular) return height;
+    if (kind == AppButtonKind.removeSwipe) return removeWidth;
+    return null;
+  }
+
+  static double _resolveHorizontalPadding(
+    AppButtonKind kind,
+    bool circular,
+    bool dialog,
+    AppSpacing spacing,
+  ) {
+    if (circular ||
+        kind == AppButtonKind.removeSwipe ||
+        kind == AppButtonKind.textLink) {
+      return spacing.space0;
+    }
+    if (dialog) return spacing.space16;
+    return spacing.space24;
+  }
+
+  static Color _resolveBackground(
+    AppButtonKind kind,
+    bool hovered,
+    bool pressed,
+    bool disabled,
+    bool danger,
+    bool accent,
+    ThemeData theme,
+    AppControlMetrics metrics,
+  ) {
+    if (kind == AppButtonKind.textLink) return metrics.transparent;
+    if (kind == AppButtonKind.dialogCancel) {
+      if (hovered) return theme.colorScheme.surfaceContainerHigh;
+      return metrics.transparent;
+    }
+    if (disabled) return theme.colorScheme.surfaceContainerHigh;
+    if (danger) return theme.colorScheme.errorContainer;
+    if (accent) {
+      if (pressed) return theme.highlightColor;
+      if (hovered) return theme.hoverColor;
+      return theme.colorScheme.primary;
+    }
+    if (hovered) return theme.colorScheme.outlineVariant;
+    return theme.colorScheme.surfaceContainerHigh;
+  }
+
+  static BorderRadius _resolveRadius(
+    AppButtonKind kind,
+    bool dialog,
+    AppShape shape,
+    AppSpacing spacing,
+  ) {
+    if (dialog) return shape.nested;
+    if (kind == AppButtonKind.removeSwipe) {
+      return BorderRadius.circular(spacing.space0);
+    }
+    return shape.pill;
+  }
+
   final double half, height, gap, focusWidth, focusOffset;
   final double? width;
   final EdgeInsets padding;

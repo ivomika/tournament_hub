@@ -55,21 +55,21 @@ class _ButtonFixtureState extends State<ButtonFixture> {
   void _pressed() {}
   @override
   Widget build(BuildContext context) {
-    final l = FoundationLocalizations.of(context);
+    final localizations = FoundationLocalizations.of(context);
     return AppButton(
       kind: widget.kind,
       fill: widget.fill,
       statesController: _states,
       onPressed: widget.state == WidgetState.disabled ? null : _pressed,
       label: widget.long
-          ? l.buttonLong
+          ? localizations.buttonLong
           : switch (widget.kind) {
-              AppButtonKind.primary => l.buttonContinue,
-              AppButtonKind.secondary => l.buttonCancel,
-              AppButtonKind.destructive => l.buttonRemove,
-              AppButtonKind.icon => l.buttonBack,
-              AppButtonKind.accentIcon => l.buttonSave,
-              _ => l.rosterDelete,
+              AppButtonKind.primary => localizations.buttonContinue,
+              AppButtonKind.secondary => localizations.buttonCancel,
+              AppButtonKind.destructive => localizations.buttonRemove,
+              AppButtonKind.icon => localizations.buttonBack,
+              AppButtonKind.accentIcon => localizations.buttonSave,
+              _ => localizations.rosterDelete,
             },
       glyph: switch (widget.kind) {
         AppButtonKind.primary => AppGlyph.arrow,

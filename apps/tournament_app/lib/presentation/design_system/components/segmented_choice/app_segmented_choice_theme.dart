@@ -8,34 +8,39 @@ import 'package:tournament_app/presentation/design_system/foundation/typography/
 
 class AppSegmentedChoiceTheme {
   AppSegmentedChoiceTheme.of(BuildContext context, {bool nested = false}) {
-    final t = Theme.of(context),
-        s = t.extension<AppSpacing>()!,
-        c = t.extension<AppControlMetrics>()!,
-        b = t.extension<AppBorderMetrics>()!;
-    background = nested ? t.scaffoldBackgroundColor : t.colorScheme.surface;
-    selectedBackground = t.colorScheme.surfaceContainerHigh;
-    transparent = c.transparent;
-    foreground = t.colorScheme.onSurface;
-    secondary = t.colorScheme.onSurfaceVariant;
-    disabled = t.disabledColor;
-    height = s.space64;
-    gap = s.space8;
-    padding = EdgeInsets.symmetric(horizontal: s.space8);
-    selectedInset = EdgeInsets.symmetric(vertical: s.space8);
-    radius = t.extension<AppShape>()!.pill;
-    selectedStyle = t.extension<AppTypeRoles>()!.interfaceStyle(
-      t.textTheme.labelLarge!,
+    final runtimeTheme = Theme.of(context),
+        runtimeSpacing = runtimeTheme.extension<AppSpacing>()!,
+        runtimeControlMetrics = runtimeTheme.extension<AppControlMetrics>()!,
+        runtimeBorderMetrics = runtimeTheme.extension<AppBorderMetrics>()!;
+    background = nested
+        ? runtimeTheme.scaffoldBackgroundColor
+        : runtimeTheme.colorScheme.surface;
+    selectedBackground = runtimeTheme.colorScheme.surfaceContainerHigh;
+    transparent = runtimeControlMetrics.transparent;
+    foreground = runtimeTheme.colorScheme.onSurface;
+    secondary = runtimeTheme.colorScheme.onSurfaceVariant;
+    disabled = runtimeTheme.disabledColor;
+    height = runtimeSpacing.space64;
+    gap = runtimeSpacing.space8;
+    padding = EdgeInsets.symmetric(horizontal: runtimeSpacing.space8);
+    selectedInset = EdgeInsets.symmetric(vertical: runtimeSpacing.space8);
+    radius = runtimeTheme.extension<AppShape>()!.pill;
+    selectedStyle = runtimeTheme.extension<AppTypeRoles>()!.interfaceStyle(
+      runtimeTheme.textTheme.labelLarge!,
     );
-    normalStyle = t.extension<AppTypeRoles>()!.interfaceStyle(
-      t.textTheme.labelLarge!.copyWith(fontWeight: c.regularWeight),
+    normalStyle = runtimeTheme.extension<AppTypeRoles>()!.interfaceStyle(
+      runtimeTheme.textTheme.labelLarge!.copyWith(
+        fontWeight: runtimeControlMetrics.regularWeight,
+      ),
     );
-    stretch = t.extension<AppFieldMetrics>()!.stretch;
-    focusWidth = b.highContrastFocus;
-    focusOffset = b.focusOffset;
-    focusColor = t.focusColor;
-    half = c.half;
-    contentHeightFactor = c.half + c.half;
-    zero = c.zero;
+    stretch = runtimeTheme.extension<AppFieldMetrics>()!.stretch;
+    focusWidth = runtimeBorderMetrics.highContrastFocus;
+    focusOffset = runtimeBorderMetrics.focusOffset;
+    focusColor = runtimeTheme.focusColor;
+    half = runtimeControlMetrics.half;
+    contentHeightFactor =
+        runtimeControlMetrics.half + runtimeControlMetrics.half;
+    zero = runtimeControlMetrics.zero;
   }
   late final Color background,
       selectedBackground,

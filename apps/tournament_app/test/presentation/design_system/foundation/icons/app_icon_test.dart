@@ -47,7 +47,8 @@ abstract final class _IconTests {
       colorScheme: base.colorScheme.copyWith(onSurface: Colors.cyan),
       extensions: [
         ...base.extensions.values.where(
-          (e) => e is! AppIconMetrics && e is! AppGlyphMetrics,
+          (extension) =>
+              extension is! AppIconMetrics && extension is! AppGlyphMetrics,
         ),
         base.extension<AppIconMetrics>()!.copyWith(standard: 32),
         base.extension<AppGlyphMetrics>()!.copyWith(stroke: 2.5),

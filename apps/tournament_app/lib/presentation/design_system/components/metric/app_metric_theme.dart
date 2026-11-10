@@ -15,86 +15,132 @@ enum AppMetricKind { plain, achievement }
 
 class AppMetricTheme {
   AppMetricTheme.of(BuildContext context, AppMetricKind kind) {
-    final t = Theme.of(context),
-        s = t.extension<AppSpacing>()!,
-        r = t.extension<AppResponsive>()!,
-        m = t.extension<AppMetricMetrics>()!,
-        c = t.extension<AppControlMetrics>()!,
-        styles = AppTextStyles(t),
-        roles = t.extension<AppTypeRoles>()!,
+    final runtimeTheme = Theme.of(context),
+        runtimeSpacing = runtimeTheme.extension<AppSpacing>()!,
+        runtimeResponsive = runtimeTheme.extension<AppResponsive>()!,
+        runtimeMetricMetrics = runtimeTheme.extension<AppMetricMetrics>()!,
+        runtimeControlMetrics = runtimeTheme.extension<AppControlMetrics>()!,
+        styles = AppTextStyles(runtimeTheme),
+        roles = runtimeTheme.extension<AppTypeRoles>()!,
         width = MediaQuery.sizeOf(context).width;
-    desktop = width > r.mobileToDesktopWidth;
+    desktop = width > runtimeResponsive.mobileToDesktopWidth;
     achievement = kind == AppMetricKind.achievement;
-    background = achievement
-        ? (desktop ? t.colorScheme.primary : t.colorScheme.surface)
-        : (desktop ? t.colorScheme.surface : c.transparent);
-    foreground = achievement
-        ? (desktop ? t.colorScheme.onPrimary : t.colorScheme.primary)
-        : t.colorScheme.onSurface;
+    background = _resolveBackground(runtimeTheme, runtimeControlMetrics);
+    foreground = _resolveForeground(runtimeTheme);
     labelColor = achievement && desktop
-        ? t.colorScheme.onPrimary
-        : t.colorScheme.onSurfaceVariant;
+        ? runtimeTheme.colorScheme.onPrimary
+        : runtimeTheme.colorScheme.onSurfaceVariant;
     padding = EdgeInsets.all(
-      desktop
-          ? (width <= r.compactDesktopWidth ? s.space20 : s.space24)
-          : achievement
-          ? s.space24
-          : s.space16,
+      _resolvePadding(width, runtimeResponsive, runtimeSpacing),
     );
     radius = !desktop && !achievement
-        ? BorderRadius.circular(s.space0)
-        : t.extension<AppShape>()!.surface;
-    fullWidth = t.extension<FoundationLayout>()!.fullWidth;
+        ? BorderRadius.circular(runtimeSpacing.space0)
+        : runtimeTheme.extension<AppShape>()!.surface;
+    fullWidth = runtimeTheme.extension<FoundationLayout>()!.fullWidth;
     valueStyle = roles.score.copyWith(
-      fontSize: achievement
-          ? (desktop ? m.desktopAchievementSize : roles.score.fontSize)
-          : (desktop ? s.space64 : t.textTheme.headlineLarge!.fontSize),
-      height: achievement && desktop ? m.achievementLine : roles.score.height,
+      fontSize: _resolveValueSize(
+        runtimeMetricMetrics,
+        roles,
+        runtimeSpacing,
+        runtimeTheme,
+      ),
+      height: achievement && desktop
+          ? runtimeMetricMetrics.achievementLine
+          : roles.score.height,
       color: foreground,
     );
     labelStyle =
         (achievement && !desktop
                 ? roles.interfaceStyle(
-                    t.textTheme.labelLarge!.copyWith(
-                      fontWeight: c.regularWeight,
+                    runtimeTheme.textTheme.labelLarge!.copyWith(
+                      fontWeight: runtimeControlMetrics.regularWeight,
                     ),
                   )
                 : styles.caption)
             .copyWith(
               color: labelColor,
               height: achievement
-                  ? c.regularLine
-                  : desktop
-                  ? styles.compactHeader.height
+                  ? runtimeControlMetrics.regularLine
                   : styles.compactHeader.height,
             );
-    unrestrictedWidth = t.extension<FoundationLayout>()!.fullWidth;
-    minHeight = desktop
-        ? (achievement ? m.achievementMinHeight : m.plainMinHeight)
-        : c.zero;
-    gap = achievement && desktop ? s.space16 : s.space24;
-    contentGap = s.space8;
+    unrestrictedWidth = runtimeTheme.extension<FoundationLayout>()!.fullWidth;
+    minHeight = _resolveMinHeight(runtimeMetricMetrics, runtimeControlMetrics);
+    gap = achievement && desktop
+        ? runtimeSpacing.space16
+        : runtimeSpacing.space24;
+    contentGap = runtimeSpacing.space8;
     iconExtent = AppIconTheme.of(
       context,
       AppIconSize.hero,
       AppIconTone.primary,
     ).extent;
-    iconOpacity = desktop ? m.iconOpacity : c.half + c.half;
-    stretch = t.extension<AppFieldMetrics>()!.stretch;
-    start = t.extension<AppFieldMetrics>()!.start;
-    centerCross = c.centerCross;
-    center = c.center;
-    between = c.spaceBetween;
+    iconOpacity = desktop
+        ? runtimeMetricMetrics.iconOpacity
+        : runtimeControlMetrics.half + runtimeControlMetrics.half;
+    stretch = runtimeTheme.extension<AppFieldMetrics>()!.stretch;
+    start = runtimeTheme.extension<AppFieldMetrics>()!.start;
+    centerCross = runtimeControlMetrics.centerCross;
+    center = runtimeControlMetrics.center;
+    between = runtimeControlMetrics.spaceBetween;
     textAlign = desktop || achievement
-        ? t.extension<AppIdentityMetrics>()!.textLeading
-        : m.centerText;
+        ? runtimeTheme.extension<AppIdentityMetrics>()!.textLeading
+        : runtimeMetricMetrics.centerText;
     final painter = TextPainter(
       text: TextSpan(text: '0', style: labelStyle),
       textDirection: TextDirection.ltr,
     )..layout();
-    maxLabelWidth = painter.width * m.labelCharacters;
+    maxLabelWidth = painter.width * runtimeMetricMetrics.labelCharacters;
     painter.dispose();
   }
+
+  Color _resolveBackground(ThemeData theme, AppControlMetrics controls) {
+    if (achievement && desktop) return theme.colorScheme.primary;
+    if (achievement || desktop) return theme.colorScheme.surface;
+    return controls.transparent;
+  }
+
+  Color _resolveForeground(ThemeData theme) {
+    if (!achievement) return theme.colorScheme.onSurface;
+    if (desktop) return theme.colorScheme.onPrimary;
+    return theme.colorScheme.primary;
+  }
+
+  double _resolvePadding(
+    double width,
+    AppResponsive responsive,
+    AppSpacing spacing,
+  ) {
+    if (desktop) {
+      if (width <= responsive.compactDesktopWidth) return spacing.space20;
+      return spacing.space24;
+    }
+    if (achievement) return spacing.space24;
+    return spacing.space16;
+  }
+
+  double? _resolveValueSize(
+    AppMetricMetrics metrics,
+    AppTypeRoles roles,
+    AppSpacing spacing,
+    ThemeData theme,
+  ) {
+    if (achievement) {
+      if (desktop) return metrics.desktopAchievementSize;
+      return roles.score.fontSize;
+    }
+    if (desktop) return spacing.space64;
+    return theme.textTheme.headlineLarge!.fontSize;
+  }
+
+  double _resolveMinHeight(
+    AppMetricMetrics metrics,
+    AppControlMetrics controls,
+  ) {
+    if (!desktop) return controls.zero;
+    if (achievement) return metrics.achievementMinHeight;
+    return metrics.plainMinHeight;
+  }
+
   late final bool desktop, achievement;
   late final Color background, foreground, labelColor;
   late final EdgeInsets padding;

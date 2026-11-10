@@ -11,9 +11,104 @@ class TournamentFixture extends StatelessWidget {
   const TournamentFixture({required this.sample, super.key});
   final TournamentSample sample;
   static void action() {}
+
+  List<TournamentDetail> _resolveDetails(
+    FoundationLocalizations localizations,
+    bool rr,
+    bool tie,
+  ) {
+    if (rr) {
+      return [
+        TournamentDetail(
+          title: localizations.screenStandings,
+          expanded: false,
+          onToggle: action,
+          content: TournamentTableContent(
+            caption: localizations.tableCaption,
+            columns: [
+              AppTableColumn(label: localizations.tableParticipant),
+              AppTableColumn(
+                label: localizations.tablePoints,
+                alignment: AppTableAlignment.trailing,
+              ),
+              AppTableColumn(
+                label: localizations.tableMatches,
+                alignment: AppTableAlignment.trailing,
+              ),
+            ],
+            rows: const [
+              AppTableRow([
+                AppTableIdentityCell(
+                  primary: 'Sub-Zero',
+                  secondary: 'Иван',
+                  initials: 'SZ',
+                ),
+                AppTableTextCell('2'),
+                AppTableTextCell('1'),
+              ]),
+              AppTableRow([
+                AppTableIdentityCell(
+                  primary: 'Scorpion',
+                  secondary: 'Алексей',
+                  initials: 'SC',
+                ),
+                AppTableTextCell('0'),
+                AppTableTextCell('1'),
+              ]),
+              AppTableRow([
+                AppTableIdentityCell(
+                  primary: 'Kitana',
+                  secondary: 'Мария',
+                  initials: 'KT',
+                ),
+                AppTableTextCell('0'),
+                AppTableTextCell('0'),
+              ]),
+            ],
+          ),
+        ),
+        TournamentDetail(
+          title: localizations.screenMatchResults,
+          expanded: false,
+          onToggle: action,
+          content: TournamentTextContent(
+            localizations.screenStandingsResultsNote,
+          ),
+        ),
+      ];
+    }
+    if (tie) {
+      return [
+        TournamentDetail(
+          title: localizations.screenHowPlaces,
+          expanded: false,
+          onToggle: action,
+          content: TournamentTextContent(localizations.screenTiebreakDetails),
+        ),
+      ];
+    }
+    return [
+      TournamentDetail(
+        title: localizations.screenManagement,
+        expanded: false,
+        onToggle: action,
+        content: TournamentActionsContent([
+          TournamentAction(
+            label: localizations.screenWithdrawAction,
+            onPressed: action,
+          ),
+          TournamentAction(
+            label: localizations.screenResultCorrect,
+            onPressed: action,
+          ),
+        ]),
+      ),
+    ];
+  }
+
   @override
   Widget build(BuildContext context) {
-    final l = FoundationLocalizations.of(context);
+    final localizations = FoundationLocalizations.of(context);
     final rr = sample == TournamentSample.rr,
         tie = sample == TournamentSample.tiebreak;
     return TournamentScreen(
@@ -58,89 +153,7 @@ class TournamentFixture extends StatelessWidget {
                   initials: 'RD',
                 ),
         ],
-        details: rr
-            ? [
-                TournamentDetail(
-                  title: l.screenStandings,
-                  expanded: false,
-                  onToggle: action,
-                  content: TournamentTableContent(
-                    caption: l.tableCaption,
-                    columns: [
-                      AppTableColumn(label: l.tableParticipant),
-                      AppTableColumn(
-                        label: l.tablePoints,
-                        alignment: AppTableAlignment.trailing,
-                      ),
-                      AppTableColumn(
-                        label: l.tableMatches,
-                        alignment: AppTableAlignment.trailing,
-                      ),
-                    ],
-                    rows: const [
-                      AppTableRow([
-                        AppTableIdentityCell(
-                          primary: 'Sub-Zero',
-                          secondary: 'Иван',
-                          initials: 'SZ',
-                        ),
-                        AppTableTextCell('2'),
-                        AppTableTextCell('1'),
-                      ]),
-                      AppTableRow([
-                        AppTableIdentityCell(
-                          primary: 'Scorpion',
-                          secondary: 'Алексей',
-                          initials: 'SC',
-                        ),
-                        AppTableTextCell('0'),
-                        AppTableTextCell('1'),
-                      ]),
-                      AppTableRow([
-                        AppTableIdentityCell(
-                          primary: 'Kitana',
-                          secondary: 'Мария',
-                          initials: 'KT',
-                        ),
-                        AppTableTextCell('0'),
-                        AppTableTextCell('0'),
-                      ]),
-                    ],
-                  ),
-                ),
-                TournamentDetail(
-                  title: l.screenMatchResults,
-                  expanded: false,
-                  onToggle: action,
-                  content: TournamentTextContent(l.screenStandingsResultsNote),
-                ),
-              ]
-            : tie
-            ? [
-                TournamentDetail(
-                  title: l.screenHowPlaces,
-                  expanded: false,
-                  onToggle: action,
-                  content: TournamentTextContent(l.screenTiebreakDetails),
-                ),
-              ]
-            : [
-                TournamentDetail(
-                  title: l.screenManagement,
-                  expanded: false,
-                  onToggle: action,
-                  content: TournamentActionsContent([
-                    TournamentAction(
-                      label: l.screenWithdrawAction,
-                      onPressed: action,
-                    ),
-                    TournamentAction(
-                      label: l.screenResultCorrect,
-                      onPressed: action,
-                    ),
-                  ]),
-                ),
-              ],
+        details: _resolveDetails(localizations, rr, tie),
       ),
       onBack: action,
       onShare: action,

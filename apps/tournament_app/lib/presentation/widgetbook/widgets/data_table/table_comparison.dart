@@ -31,7 +31,10 @@ abstract final class TableComparison {
                   type: Padding,
                   withinType: Table,
                   index: 3 + row * 3 + column,
-                  properties: const [ComparisonProperty.width,ComparisonProperty.center],
+                  properties: const [
+                    ComparisonProperty.width,
+                    ComparisonProperty.center,
+                  ],
                 ),
 
             const ComparisonControl.text(
@@ -45,10 +48,14 @@ abstract final class TableComparison {
                 ComparisonProperty.baseline,
               ],
             ),
-            for (final (i, label) in ['Участник', 'Очки', 'М'].indexed)
+            for (final (participantIndex, label) in [
+              'Участник',
+              'Очки',
+              'М',
+            ].indexed)
               ComparisonControl.text(
-                id: 'header-$i',
-                webSelector: 'thead th:nth-child(${i + 1})',
+                id: 'header-$participantIndex',
+                webSelector: 'thead th:nth-child(${participantIndex + 1})',
                 textRange: true,
                 value: label,
                 properties: const [
@@ -58,21 +65,23 @@ abstract final class TableComparison {
                   ComparisonProperty.baseline,
                 ],
               ),
-            for (final (i, primary) in [
+            for (final (participantIndex, primary) in [
               'Sub-Zero',
               'Scorpion',
               'Kitana',
             ].indexed) ...[
               ComparisonControl.type(
-                id: 'avatar-$i',
-                webSelector: 'tbody tr:nth-child(${i + 1}) .flow-avatar',
+                id: 'avatar-$participantIndex',
+                webSelector:
+                    'tbody tr:nth-child(${participantIndex + 1}) .flow-avatar',
                 type: AppAvatar,
-                index: i,
+                index: participantIndex,
                 properties: const [ComparisonProperty.rect],
               ),
               ComparisonControl.text(
-                id: 'primary-$i',
-                webSelector: 'tbody tr:nth-child(${i + 1}) strong',
+                id: 'primary-$participantIndex',
+                webSelector:
+                    'tbody tr:nth-child(${participantIndex + 1}) strong',
                 value: primary,
                 properties: const [
                   ComparisonProperty.rect,
@@ -83,11 +92,12 @@ abstract final class TableComparison {
                 ],
               ),
               ComparisonControl.text(
-                id: 'points-$i',
-                webSelector: 'tbody tr:nth-child(${i + 1}) td:first-of-type',
+                id: 'points-$participantIndex',
+                webSelector:
+                    'tbody tr:nth-child(${participantIndex + 1}) td:first-of-type',
                 textRange: true,
                 value: '3',
-                index: i,
+                index: participantIndex,
                 properties: const [
                   ComparisonProperty.fontSize,
                   ComparisonProperty.fontWeight,

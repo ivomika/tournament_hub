@@ -9,45 +9,85 @@ import 'package:tournament_app/presentation/design_system/foundation/icons/app_i
 
 class AppNavigationItemTheme {
   AppNavigationItemTheme.of(BuildContext context, Set<WidgetState> states) {
-    final t = Theme.of(context),
-        s = t.extension<AppSpacing>()!,
-        r = t.extension<AppResponsive>()!,
-        c = t.extension<AppControlMetrics>()!,
-        b = t.extension<AppBorderMetrics>()!,
+    final runtimeTheme = Theme.of(context),
+        runtimeSpacing = runtimeTheme.extension<AppSpacing>()!,
+        runtimeResponsive = runtimeTheme.extension<AppResponsive>()!,
+        runtimeControlMetrics = runtimeTheme.extension<AppControlMetrics>()!,
+        runtimeBorderMetrics = runtimeTheme.extension<AppBorderMetrics>()!,
         width = MediaQuery.sizeOf(context).width;
-    zero = c.zero;
-    desktop = width > r.mobileToDesktopWidth;
+    zero = runtimeControlMetrics.zero;
+    desktop = width > runtimeResponsive.mobileToDesktopWidth;
     final hovered = states.contains(WidgetState.hovered),
         disabled = states.contains(WidgetState.disabled);
-    background = hovered
-        ? t.colorScheme.surfaceContainerHigh
-        : desktop
-        ? t.colorScheme.surface
-        : c.transparent;
-    foreground = disabled ? t.disabledColor : t.colorScheme.onSurface;
-    iconColor = disabled ? t.disabledColor : t.colorScheme.onSurfaceVariant;
-    chevronColor = disabled ? t.disabledColor : t.disabledColor;
+    background = _resolveBackground(
+      hovered,
+      desktop,
+      runtimeTheme,
+      runtimeControlMetrics,
+    );
+    foreground = disabled
+        ? runtimeTheme.disabledColor
+        : runtimeTheme.colorScheme.onSurface;
+    iconColor = disabled
+        ? runtimeTheme.disabledColor
+        : runtimeTheme.colorScheme.onSurfaceVariant;
+    chevronColor = disabled
+        ? runtimeTheme.disabledColor
+        : runtimeTheme.disabledColor;
     labelStyle =
         (desktop
-                ? AppTextStyles(t).body
-                : AppTextStyles(t).label.copyWith(fontWeight: c.regularWeight))
+                ? AppTextStyles(runtimeTheme).body
+                : AppTextStyles(runtimeTheme).label.copyWith(
+                    fontWeight: runtimeControlMetrics.regularWeight,
+                  ))
             .copyWith(color: foreground);
-    minHeight = desktop ? s.space64 + s.space16 : r.touchControlHeight;
-    padding = desktop
-        ? EdgeInsets.all(width <= r.compactDesktopWidth ? s.space20 : s.space24)
-        : EdgeInsets.symmetric(horizontal: s.space24);
-    gap = s.space16;
+    minHeight = desktop
+        ? runtimeSpacing.space64 + runtimeSpacing.space16
+        : runtimeResponsive.touchControlHeight;
+    padding = _resolvePadding(
+      desktop,
+      width,
+      runtimeResponsive,
+      runtimeSpacing,
+    );
+    gap = runtimeSpacing.space16;
     radius = desktop
-        ? t.extension<AppShape>()!.surface
-        : BorderRadius.circular(s.space0);
-    focusRadius = desktop ? radius : t.extension<AppShape>()!.nested;
+        ? runtimeTheme.extension<AppShape>()!.surface
+        : BorderRadius.circular(runtimeSpacing.space0);
+    focusRadius = desktop ? radius : runtimeTheme.extension<AppShape>()!.nested;
     iconSize = desktop ? AppIconSize.large : AppIconSize.standard;
     chevronSize = AppIconSize.small;
-    focusWidth = b.highContrastFocus;
-    focusOffset = desktop ? b.focusOffset : -s.space4;
-    focusColor = t.focusColor;
-    half = c.half;
+    focusWidth = runtimeBorderMetrics.highContrastFocus;
+    focusOffset = desktop
+        ? runtimeBorderMetrics.focusOffset
+        : -runtimeSpacing.space4;
+    focusColor = runtimeTheme.focusColor;
+    half = runtimeControlMetrics.half;
   }
+  static Color _resolveBackground(
+    bool hovered,
+    bool desktop,
+    ThemeData theme,
+    AppControlMetrics metrics,
+  ) {
+    if (hovered) return theme.colorScheme.surfaceContainerHigh;
+    if (desktop) return theme.colorScheme.surface;
+    return metrics.transparent;
+  }
+
+  static EdgeInsets _resolvePadding(
+    bool desktop,
+    double width,
+    AppResponsive responsive,
+    AppSpacing spacing,
+  ) {
+    if (!desktop) return EdgeInsets.symmetric(horizontal: spacing.space24);
+    if (width <= responsive.compactDesktopWidth) {
+      return EdgeInsets.all(spacing.space20);
+    }
+    return EdgeInsets.all(spacing.space24);
+  }
+
   late final bool desktop;
   late final Color background, foreground, iconColor, chevronColor, focusColor;
   late final TextStyle labelStyle;

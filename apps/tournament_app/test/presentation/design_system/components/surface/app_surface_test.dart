@@ -50,7 +50,9 @@ abstract final class _SurfaceTests {
     final theme = base.copyWith(
       colorScheme: base.colorScheme.copyWith(surfaceContainerHigh: Colors.cyan),
       extensions: [
-        ...base.extensions.values.where((e) => e is! AppSpacing),
+        ...base.extensions.values.where(
+          (extension) => extension is! AppSpacing,
+        ),
         base.extension<AppSpacing>()!.copyWith(space24: 32),
       ],
     );

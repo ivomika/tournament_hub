@@ -16,12 +16,12 @@ class RankingRowFixture extends StatelessWidget {
   const RankingRowFixture({super.key});
   @override
   Widget build(BuildContext context) {
-    final t = AppScreenLayoutTheme.of(context);
+    final appearance = AppScreenLayoutTheme.of(context);
     return Padding(
-      padding: t.inset,
+      padding: appearance.inset,
       child: SingleChildScrollView(
         child: Column(
-          mainAxisSize: t.min,
+          mainAxisSize: appearance.min,
           children: [
             const AppRankingRow(
               value: '1',
@@ -31,7 +31,7 @@ class RankingRowFixture extends StatelessWidget {
               placement: AppRankValuePlacement.leading,
               featured: true,
             ),
-            SizedBox(height: t.gap),
+            SizedBox(height: appearance.gap),
             const AppRankingRow(
               value: '2',
               primary: 'Sub-Zero',
@@ -39,7 +39,7 @@ class RankingRowFixture extends StatelessWidget {
               initials: 'SZ',
               placement: AppRankValuePlacement.leading,
             ),
-            SizedBox(height: t.gap),
+            SizedBox(height: appearance.gap),
             const AppRankingRow(
               value: '12',
               primary: 'Scorpion',

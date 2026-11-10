@@ -35,33 +35,34 @@ class _BorderSample extends StatelessWidget {
   final BorderSample sample;
   @override
   Widget build(BuildContext context) {
-    final t = Theme.of(context),
-        b = t.extension<AppBorderMetrics>()!,
-        m = t.extension<FoundationSampleMetrics>()!;
+    final appearance = Theme.of(context),
+        runtimeBorderMetrics = appearance.extension<AppBorderMetrics>()!,
+        runtimeFoundationSampleMetrics = appearance
+            .extension<FoundationSampleMetrics>()!;
     final width = switch (sample) {
-      BorderSample.selected => b.emphasis,
-      BorderSample.focus => b.highContrastFocus,
-      _ => b.hairline,
+      BorderSample.selected => runtimeBorderMetrics.emphasis,
+      BorderSample.focus => runtimeBorderMetrics.highContrastFocus,
+      _ => runtimeBorderMetrics.hairline,
     };
     final color = switch (sample) {
-      BorderSample.selected => t.colorScheme.primary,
-      BorderSample.error => t.colorScheme.error,
-      BorderSample.focus => t.focusColor,
-      _ => t.colorScheme.outlineVariant,
+      BorderSample.selected => appearance.colorScheme.primary,
+      BorderSample.error => appearance.colorScheme.error,
+      BorderSample.focus => appearance.focusColor,
+      _ => appearance.colorScheme.outlineVariant,
     };
     return SizedBox.square(
-      dimension: m.shapeExtent,
+      dimension: runtimeFoundationSampleMetrics.shapeExtent,
       child: DecoratedBox(
         decoration: BoxDecoration(
-          color: t.colorScheme.surface,
-          borderRadius: t.extension<AppShape>()!.control,
+          color: appearance.colorScheme.surface,
+          borderRadius: appearance.extension<AppShape>()!.control,
           border: Border.all(color: color, width: width),
         ),
         child: Align(
-          alignment: m.center,
+          alignment: runtimeFoundationSampleMetrics.center,
           child: Text(
             FoundationLocalizations.of(context).foundationMetricValue(width),
-            style: AppTextStyles(t).caption,
+            style: AppTextStyles(appearance).caption,
           ),
         ),
       ),

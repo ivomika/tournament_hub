@@ -21,43 +21,46 @@ class AppBracketNode extends StatelessWidget {
   final FocusNode? focusNode;
   @override
   Widget build(BuildContext context) {
-    final t = AppBracketNodeTheme.of(context, state);
+    final appearance = AppBracketNodeTheme.of(context, state);
     return SizedBox(
-      width: t.width,
+      width: appearance.width,
       child: DecoratedBox(
         decoration: BoxDecoration(
-          color: t.background,
-          borderRadius: t.radius,
-          border: Border.all(color: t.borderColor, width: t.borderWidth),
+          color: appearance.background,
+          borderRadius: appearance.radius,
+          border: Border.all(
+            color: appearance.borderColor,
+            width: appearance.borderWidth,
+          ),
         ),
         child: TextButton(
           focusNode: focusNode,
           onPressed: onPressed,
           style: ButtonStyle(
-            padding: WidgetStatePropertyAll(t.buttonPadding),
-            minimumSize: WidgetStatePropertyAll(t.minimumSize),
-            shape: WidgetStatePropertyAll(t.shape),
-            overlayColor: WidgetStatePropertyAll(t.transparent),
+            padding: WidgetStatePropertyAll(appearance.buttonPadding),
+            minimumSize: WidgetStatePropertyAll(appearance.minimumSize),
+            shape: WidgetStatePropertyAll(appearance.shape),
+            overlayColor: WidgetStatePropertyAll(appearance.transparent),
           ),
           child: ConstrainedBox(
-            constraints: BoxConstraints(minHeight: t.minHeight),
+            constraints: BoxConstraints(minHeight: appearance.minHeight),
             child: Padding(
-              padding: t.padding,
+              padding: appearance.padding,
               child: Column(
                 mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: t.start,
+                crossAxisAlignment: appearance.start,
                 children: [
                   SizedBox(
                     height:
                         MediaQuery.textScalerOf(context)
-                            .scale(t.labelStyle.fontSize!) *
-                        t.labelStyle.height!,
-                    child: Text(label, style: t.labelStyle),
+                            .scale(appearance.labelStyle.fontSize!) *
+                        appearance.labelStyle.height!,
+                    child: Text(label, style: appearance.labelStyle),
                   ),
-                  SizedBox(height: t.gap),
-                  _BracketSlot(slot: first, theme: t),
-                  SizedBox(height: t.gap),
-                  _BracketSlot(slot: second, theme: t),
+                  SizedBox(height: appearance.gap),
+                  _BracketSlot(slot: first, theme: appearance),
+                  SizedBox(height: appearance.gap),
+                  _BracketSlot(slot: second, theme: appearance),
                 ],
               ),
             ),

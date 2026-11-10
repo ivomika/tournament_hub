@@ -6,6 +6,12 @@ import 'package:tournament_app/presentation/widgetbook/comparison/comparison_spe
 import 'package:tournament_app/presentation/widgetbook/visual_viewport.dart';
 
 abstract final class MetricComparison {
+  static String _resolveValue(AppMetricKind kind, bool zero) {
+    if (zero) return '0';
+    if (kind == AppMetricKind.achievement) return '3';
+    return '12';
+  }
+
   static final spec = ComparisonSpec(
     component: 'metric',
     title: 'AppMetric',
@@ -61,11 +67,7 @@ abstract final class MetricComparison {
       id: 'value',
       webSelector: 'dd',
       textRange: true,
-      value: zero
-          ? '0'
-          : kind == AppMetricKind.achievement
-          ? '3'
-          : '12',
+      value: _resolveValue(kind, zero),
       properties: const [
         ComparisonProperty.fontSize,
         ComparisonProperty.fontWeight,

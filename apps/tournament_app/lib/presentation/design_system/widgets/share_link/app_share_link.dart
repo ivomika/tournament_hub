@@ -19,21 +19,24 @@ class AppShareLink extends StatelessWidget {
   final FocusNode? copyFocusNode;
   @override
   Widget build(BuildContext context) {
-    final t = AppShareLinkTheme.of(context);
+    final appearance = AppShareLinkTheme.of(context);
     return DecoratedBox(
-      decoration: BoxDecoration(color: t.background, borderRadius: t.radius),
+      decoration: BoxDecoration(
+        color: appearance.background,
+        borderRadius: appearance.radius,
+      ),
       child: Padding(
-        padding: t.padding,
+        padding: appearance.padding,
         child: Row(
           children: [
             Expanded(
               child: Text(
                 '$role\n${address.replaceAll('/', '/\u2060')}',
                 semanticsLabel: '$role\n$address',
-                style: t.style,
+                style: appearance.style,
               ),
             ),
-            SizedBox(width: t.gap),
+            SizedBox(width: appearance.gap),
             AppButton(
               label: copyLabel,
               kind: AppButtonKind.shareIcon,

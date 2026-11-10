@@ -37,23 +37,32 @@ class AppMetricMetrics extends ThemeExtension<AppMetricMetrics> {
     centerText: centerText ?? this.centerText,
   );
   @override
-  AppMetricMetrics lerp(covariant AppMetricMetrics? other, double t) =>
-      other == null
-      ? this
-      : AppMetricMetrics(
-          desktopAchievementSize:
-              desktopAchievementSize +
-              (other.desktopAchievementSize - desktopAchievementSize) * t,
-          achievementLine:
-              achievementLine + (other.achievementLine - achievementLine) * t,
-          achievementMinHeight:
-              achievementMinHeight +
-              (other.achievementMinHeight - achievementMinHeight) * t,
-          plainMinHeight:
-              plainMinHeight + (other.plainMinHeight - plainMinHeight) * t,
-          labelCharacters:
-              labelCharacters + (other.labelCharacters - labelCharacters) * t,
-          iconOpacity: iconOpacity + (other.iconOpacity - iconOpacity) * t,
-          centerText: t < .5 ? centerText : other.centerText,
-        );
+  AppMetricMetrics lerp(
+    covariant AppMetricMetrics? other,
+    double interpolationAmount,
+  ) {
+    if (other == null) return this;
+    return AppMetricMetrics(
+      desktopAchievementSize:
+          desktopAchievementSize +
+          (other.desktopAchievementSize - desktopAchievementSize) *
+              interpolationAmount,
+      achievementLine:
+          achievementLine +
+          (other.achievementLine - achievementLine) * interpolationAmount,
+      achievementMinHeight:
+          achievementMinHeight +
+          (other.achievementMinHeight - achievementMinHeight) *
+              interpolationAmount,
+      plainMinHeight:
+          plainMinHeight +
+          (other.plainMinHeight - plainMinHeight) * interpolationAmount,
+      labelCharacters:
+          labelCharacters +
+          (other.labelCharacters - labelCharacters) * interpolationAmount,
+      iconOpacity:
+          iconOpacity + (other.iconOpacity - iconOpacity) * interpolationAmount,
+      centerText: interpolationAmount < .5 ? centerText : other.centerText,
+    );
+  }
 }

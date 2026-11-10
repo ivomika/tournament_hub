@@ -15,15 +15,19 @@ class AppTextMetrics extends ThemeExtension<AppTextMetrics> {
     comfortableHeaderLine: comfortableHeaderLine ?? this.comfortableHeaderLine,
   );
   @override
-  AppTextMetrics lerp(covariant AppTextMetrics? other, double t) =>
-      other == null
-      ? this
-      : AppTextMetrics(
-          compactHeaderLine:
-              compactHeaderLine +
-              (other.compactHeaderLine - compactHeaderLine) * t,
-          comfortableHeaderLine:
-              comfortableHeaderLine +
-              (other.comfortableHeaderLine - comfortableHeaderLine) * t,
-        );
+  AppTextMetrics lerp(
+    covariant AppTextMetrics? other,
+    double interpolationAmount,
+  ) {
+    if (other == null) return this;
+    return AppTextMetrics(
+      compactHeaderLine:
+          compactHeaderLine +
+          (other.compactHeaderLine - compactHeaderLine) * interpolationAmount,
+      comfortableHeaderLine:
+          comfortableHeaderLine +
+          (other.comfortableHeaderLine - comfortableHeaderLine) *
+              interpolationAmount,
+    );
+  }
 }

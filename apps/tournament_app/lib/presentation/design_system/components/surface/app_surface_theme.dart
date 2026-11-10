@@ -21,26 +21,27 @@ class AppSurfaceTheme {
     AppSurfaceShape shape,
     AppSurfaceInset inset,
   ) {
-    final t = Theme.of(context),
-        s = t.extension<AppShape>()!,
-        space = t.extension<AppSpacing>()!;
+    final runtimeTheme = Theme.of(context),
+        runtimeShape = runtimeTheme.extension<AppShape>()!,
+        space = runtimeTheme.extension<AppSpacing>()!;
     final desktop =
         MediaQuery.sizeOf(context).width >
-        t.extension<AppResponsive>()!.mobileToDesktopWidth;
+        runtimeTheme.extension<AppResponsive>()!.mobileToDesktopWidth;
     return AppSurfaceTheme(
       color:
           tone == AppSurfaceTone.raised ||
               (tone == AppSurfaceTone.adaptive && desktop)
-          ? t.colorScheme.surfaceContainerHigh
-          : t.colorScheme.surface,
+          ? runtimeTheme.colorScheme.surfaceContainerHigh
+          : runtimeTheme.colorScheme.surface,
       radius: switch (shape) {
-        AppSurfaceShape.panel => desktop ? s.desktopSurface : s.surface,
-        AppSurfaceShape.nested => s.nested,
-        AppSurfaceShape.card => s.surface,
-        AppSurfaceShape.sheet => s.sheet,
+        AppSurfaceShape.panel =>
+          desktop ? runtimeShape.desktopSurface : runtimeShape.surface,
+        AppSurfaceShape.nested => runtimeShape.nested,
+        AppSurfaceShape.card => runtimeShape.surface,
+        AppSurfaceShape.sheet => runtimeShape.sheet,
         AppSurfaceShape.largeSheet => BorderRadius.only(
-          topLeft: s.panel.topLeft,
-          topRight: s.panel.topRight,
+          topLeft: runtimeShape.panel.topLeft,
+          topRight: runtimeShape.panel.topRight,
         ),
         AppSurfaceShape.flat => BorderRadius.circular(space.space0),
       },

@@ -35,20 +35,16 @@ class AppIdentityTheme {
     double availableWidth, {
     AppAvatarSize? avatarSize,
   }) {
-    final t = Theme.of(context),
-        s = t.extension<AppSpacing>()!,
-        m = t.extension<AppIdentityMetrics>()!,
-        a = t.extension<AppAvatarMetrics>()!,
-        r = t.extension<AppResponsive>()!,
-        type = t.extension<AppTypeRoles>()!,
-        control = t.extension<AppControlMetrics>()!;
+    final runtimeTheme = Theme.of(context),
+        runtimeSpacing = runtimeTheme.extension<AppSpacing>()!,
+        runtimeIdentityMetrics = runtimeTheme.extension<AppIdentityMetrics>()!,
+        runtimeAvatarMetrics = runtimeTheme.extension<AppAvatarMetrics>()!,
+        runtimeResponsive = runtimeTheme.extension<AppResponsive>()!,
+        type = runtimeTheme.extension<AppTypeRoles>()!,
+        control = runtimeTheme.extension<AppControlMetrics>()!;
     final stack = layout == AppIdentityLayout.stacked,
         participant = kind == AppIdentityKind.participant;
-    final size =
-        avatarSize ??
-        (participant
-            ? (stack ? AppAvatarSize.large : AppAvatarSize.medium)
-            : (stack ? AppAvatarSize.portrait : AppAvatarSize.large));
+    final size = avatarSize ?? _resolveAvatarSize(participant, stack);
     final shape = participant && !stack
         ? AppAvatarShape.round
         : AppAvatarShape.tile;
@@ -56,82 +52,153 @@ class AppIdentityTheme {
     final compact =
         avatarSize == AppAvatarSize.extraSmall ||
         avatarSize == AppAvatarSize.small;
-    final primary = compact
-        ? type.interfaceStyle(t.textTheme.labelLarge!)
-        : avatarSize == AppAvatarSize.large && stack
-        ? t.textTheme.headlineLarge!.copyWith(
-            fontSize: m.cardNameSize,
-            height: m.stackedLine,
-            letterSpacing: type.normalTracking,
-          )
-        : participant
-        ? type.interfaceStyle(
-            t.textTheme.bodyMedium!.copyWith(
-              fontSize: stack
-                  ? m.cardNameSize
-                  : t.textTheme.bodyMedium!.fontSize,
-              fontWeight: t.textTheme.labelLarge!.fontWeight,
-              height: m.participantLine,
-              letterSpacing: type.normalTracking,
-            ),
-          )
-        : t.textTheme.headlineLarge!.copyWith(
-            fontSize: stack
-                ? (availableWidth * m.containerFactor).clamp(
-                    t.textTheme.labelLarge!.fontSize!,
-                    t.textTheme.titleLarge!.fontSize!,
-                  )
-                : t.textTheme.titleLarge!.fontSize,
-            height: stack ? m.stackedLine : t.textTheme.headlineLarge!.height,
-            letterSpacing: type.normalTracking,
-          );
-    final avatar = participant
-        ? AppAvatarTheme(
-            extent: stack ? r.avatarLarge : r.avatarMedium,
-            contentAlignment: a.contentAlignment,
-            tileRadius: BorderRadius.circular(
-              stack ? m.cardAvatarRadius : a.avatarRadius48,
-            ),
-            background: source.background,
-            foreground: t.colorScheme.onSurfaceVariant,
-            typography: type.interfaceStyle(
-              t.textTheme.bodyMedium!.copyWith(
-                fontSize: stack
-                    ? m.cardAvatarFont
-                    : t.textTheme.bodyMedium!.fontSize,
-                fontWeight: t.textTheme.labelLarge!.fontWeight,
-                height: a.avatarLineHeight,
-                letterSpacing: type.normalTracking,
-                leadingDistribution: a.leadingDistribution,
-              ),
-            ),
-          )
-        : source;
+    final primary = _resolvePrimary(
+      compact,
+      avatarSize,
+      stack,
+      participant,
+      availableWidth,
+      runtimeTheme,
+      type,
+      runtimeIdentityMetrics,
+    );
+    final avatar = _resolveAvatar(
+      participant,
+      stack,
+      source,
+      runtimeTheme,
+      type,
+      runtimeIdentityMetrics,
+      runtimeAvatarMetrics,
+      runtimeResponsive,
+    );
     return AppIdentityTheme(
       avatar: avatar,
       size: size,
       shape: shape,
-      primary: primary.copyWith(color: t.colorScheme.onSurface),
+      primary: primary.copyWith(color: runtimeTheme.colorScheme.onSurface),
       secondary: type.interfaceStyle(
-        (stack ? t.textTheme.labelLarge! : t.textTheme.bodySmall!).copyWith(
-          color: t.colorScheme.onSurfaceVariant,
-          fontWeight: control.regularWeight,
-          fontVariations: control.regularVariations,
-          letterSpacing: type.normalTracking,
-        ),
+        (stack
+                ? runtimeTheme.textTheme.labelLarge!
+                : runtimeTheme.textTheme.bodySmall!)
+            .copyWith(
+              color: runtimeTheme.colorScheme.onSurfaceVariant,
+              fontWeight: control.regularWeight,
+              fontVariations: control.regularVariations,
+              letterSpacing: type.normalTracking,
+            ),
       ),
-      gap: participant && stack
-          ? s.space16
-          : stack
-          ? s.space8
-          : s.space16,
-      textGap: s.space8,
-      leading: m.leading,
-      stretch: m.stretch,
+      gap: _resolveGap(participant, stack, runtimeSpacing),
+      textGap: runtimeSpacing.space8,
+      leading: runtimeIdentityMetrics.leading,
+      stretch: runtimeIdentityMetrics.stretch,
       center: control.centerCross,
-      textAlign: m.textLeading,
+      textAlign: runtimeIdentityMetrics.textLeading,
     );
   }
+
+  static AppAvatarSize _resolveAvatarSize(bool participant, bool stack) {
+    if (participant) {
+      if (stack) {
+        return AppAvatarSize.large;
+      } else {
+        return AppAvatarSize.medium;
+      }
+    }
+    if (stack) {
+      return AppAvatarSize.portrait;
+    } else {
+      return AppAvatarSize.large;
+    }
+  }
+
+  static double _resolveGap(bool participant, bool stack, AppSpacing spacing) {
+    if (participant && stack) return spacing.space16;
+    if (stack) return spacing.space8;
+    return spacing.space16;
+  }
+
+  static TextStyle _resolvePrimary(
+    bool compact,
+    AppAvatarSize? avatarSize,
+    bool stack,
+    bool participant,
+    double availableWidth,
+    ThemeData runtimeTheme,
+    AppTypeRoles type,
+    AppIdentityMetrics runtimeIdentityMetrics,
+  ) {
+    if (compact) return type.interfaceStyle(runtimeTheme.textTheme.labelLarge!);
+    if (avatarSize == AppAvatarSize.large && stack) {
+      return runtimeTheme.textTheme.headlineLarge!.copyWith(
+        fontSize: runtimeIdentityMetrics.cardNameSize,
+        height: runtimeIdentityMetrics.stackedLine,
+        letterSpacing: type.normalTracking,
+      );
+    }
+    if (participant) {
+      return type.interfaceStyle(
+        runtimeTheme.textTheme.bodyMedium!.copyWith(
+          fontSize: stack
+              ? runtimeIdentityMetrics.cardNameSize
+              : runtimeTheme.textTheme.bodyMedium!.fontSize,
+          fontWeight: runtimeTheme.textTheme.labelLarge!.fontWeight,
+          height: runtimeIdentityMetrics.participantLine,
+          letterSpacing: type.normalTracking,
+        ),
+      );
+    }
+    return runtimeTheme.textTheme.headlineLarge!.copyWith(
+      fontSize: stack
+          ? (availableWidth * runtimeIdentityMetrics.containerFactor).clamp(
+              runtimeTheme.textTheme.labelLarge!.fontSize!,
+              runtimeTheme.textTheme.titleLarge!.fontSize!,
+            )
+          : runtimeTheme.textTheme.titleLarge!.fontSize,
+      height: stack
+          ? runtimeIdentityMetrics.stackedLine
+          : runtimeTheme.textTheme.headlineLarge!.height,
+      letterSpacing: type.normalTracking,
+    );
+  }
+
+  static AppAvatarTheme _resolveAvatar(
+    bool participant,
+    bool stack,
+    AppAvatarTheme source,
+    ThemeData runtimeTheme,
+    AppTypeRoles type,
+    AppIdentityMetrics runtimeIdentityMetrics,
+    AppAvatarMetrics runtimeAvatarMetrics,
+    AppResponsive runtimeResponsive,
+  ) {
+    if (!participant) return source;
+    return AppAvatarTheme(
+      extent: stack
+          ? runtimeResponsive.avatarLarge
+          : runtimeResponsive.avatarMedium,
+      contentAlignment: runtimeAvatarMetrics.contentAlignment,
+      tileRadius: BorderRadius.circular(
+        stack
+            ? runtimeIdentityMetrics.cardAvatarRadius
+            : runtimeAvatarMetrics.avatarRadius48,
+      ),
+      background: source.background,
+      foreground: runtimeTheme.colorScheme.onSurfaceVariant,
+      typography: type.interfaceStyle(
+        runtimeTheme.textTheme.bodyMedium!.copyWith(
+          fontSize: stack
+              ? runtimeIdentityMetrics.cardAvatarFont
+              : runtimeTheme.textTheme.bodyMedium!.fontSize,
+          fontWeight: runtimeTheme.textTheme.labelLarge!.fontWeight,
+          height: runtimeAvatarMetrics.avatarLineHeight,
+          letterSpacing: type.normalTracking,
+          leadingDistribution: runtimeAvatarMetrics.leadingDistribution,
+        ),
+      ),
+    );
+  }
+
   AppIdentityTheme copyWith({
     AppAvatarTheme? avatar,
     AppAvatarSize? size,

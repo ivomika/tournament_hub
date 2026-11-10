@@ -46,27 +46,27 @@ class AppNumberStepper extends StatelessWidget {
     if (!showLabel) {
       return _StepperBody(spec: this);
     }
-    final t = AppNumberStepperTheme.of(context);
+    final appearance = AppNumberStepperTheme.of(context);
     return LayoutBuilder(
       builder: (context, constraints) =>
-          constraints.maxWidth <= t.labelStackWidth
+          constraints.maxWidth <= appearance.labelStackWidth
           ? SizedBox(
-              width: t.fullWidth,
+              width: appearance.fullWidth,
               child: Column(
                 mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: t.start,
+                crossAxisAlignment: appearance.start,
                 children: [
-                  Text(label, style: t.labelStyle),
-                  SizedBox(height: t.smallGap),
+                  Text(label, style: appearance.labelStyle),
+                  SizedBox(height: appearance.smallGap),
                   _StepperBody(spec: this),
                 ],
               ),
             )
           : Row(
-              mainAxisAlignment: t.spaceBetween,
+              mainAxisAlignment: appearance.spaceBetween,
               children: [
-                Flexible(child: Text(label, style: t.labelStyle)),
-                SizedBox(width: t.gap),
+                Flexible(child: Text(label, style: appearance.labelStyle)),
+                SizedBox(width: appearance.gap),
                 _StepperBody(spec: this),
               ],
             ),
@@ -79,18 +79,18 @@ class _StepperBody extends StatelessWidget {
   final AppNumberStepper spec;
   @override
   Widget build(BuildContext context) {
-    final t = AppNumberStepperTheme.of(context);
+    final appearance = AppNumberStepperTheme.of(context);
     return Align(
-      alignment: t.center,
-      widthFactor: t.contentHeightFactor,
-      heightFactor: t.contentHeightFactor,
+      alignment: appearance.center,
+      widthFactor: appearance.contentHeightFactor,
+      heightFactor: appearance.contentHeightFactor,
       child: Semantics(
         label: spec.label,
         container: true,
         child: DecoratedBox(
           decoration: BoxDecoration(
-            color: t.background,
-            borderRadius: t.radius,
+            color: appearance.background,
+            borderRadius: appearance.radius,
           ),
           child: Row(
             mainAxisSize: MainAxisSize.min,
@@ -103,16 +103,16 @@ class _StepperBody extends StatelessWidget {
               ),
               SizedBox(
                 width: spec.kind == AppStepperKind.output
-                    ? t.outputExtent(context, spec.valueLabel!)
-                    : t.inputWidth,
+                    ? appearance.outputExtent(context, spec.valueLabel!)
+                    : appearance.inputWidth,
                 child: spec.kind == AppStepperKind.output
                     ? Center(
-                        heightFactor: t.contentHeightFactor,
+                        heightFactor: appearance.contentHeightFactor,
                         child: Text(
                           spec.valueLabel!,
-                          style: t.valueStyle,
+                          style: appearance.valueStyle,
                           softWrap: false,
-                          maxLines: t.singleLine,
+                          maxLines: appearance.singleLine,
                         ),
                       )
                     : Semantics(
@@ -121,10 +121,10 @@ class _StepperBody extends StatelessWidget {
                           controller: spec.controller,
                           onChanged: spec.onChanged,
                           onSubmitted: spec.onSubmitted,
-                          style: t.valueStyle,
-                          textAlign: t.textAlign,
-                          maxLines: t.singleLine,
-                          cursorColor: t.foreground,
+                          style: appearance.valueStyle,
+                          textAlign: appearance.textAlign,
+                          maxLines: appearance.singleLine,
+                          cursorColor: appearance.foreground,
                           keyboardType: TextInputType.number,
                           decoration: const InputDecoration(
                             isCollapsed: true,
@@ -182,49 +182,51 @@ class _StepperActionState extends State<_StepperAction> {
   }
 
   Color _background(Set<WidgetState> states) {
-    final t = AppNumberStepperTheme.of(context);
+    final appearance = AppNumberStepperTheme.of(context);
     return states.contains(WidgetState.hovered) && widget.onPressed != null
-        ? t.hoverBackground
-        : t.transparent;
+        ? appearance.hoverBackground
+        : appearance.transparent;
   }
 
   @override
   Widget build(BuildContext context) {
-    final t = AppNumberStepperTheme.of(context),
+    final appearance = AppNumberStepperTheme.of(context),
         disabled = widget.onPressed == null && widget.fadeDisabled;
     return CustomPaint(
       foregroundPainter: _focus.hasFocus
           ? AppFocusRingPainter(
               AppFocusRingTheme(
-                color: t.focusColor,
-                width: t.focusWidth,
-                offset: t.focusOffset,
+                color: appearance.focusColor,
+                width: appearance.focusWidth,
+                offset: appearance.focusOffset,
                 radius: null,
                 capsule: true,
-                half: t.half,
+                half: appearance.half,
               ),
             )
           : null,
       child: Opacity(
-        opacity: disabled ? t.disabledOpacity : t.enabledOpacity,
+        opacity: disabled
+            ? appearance.disabledOpacity
+            : appearance.enabledOpacity,
         child: SizedBox.square(
-          dimension: t.height,
+          dimension: appearance.height,
           child: IconButton(
             focusNode: _focus,
             onPressed: widget.onPressed,
             tooltip: widget.label,
             style: ButtonStyle(
-              padding: WidgetStatePropertyAll(t.padding),
-              fixedSize: WidgetStatePropertyAll(t.buttonSize),
-              minimumSize: WidgetStatePropertyAll(t.buttonSize),
-              maximumSize: WidgetStatePropertyAll(t.buttonSize),
-              shape: WidgetStatePropertyAll(t.buttonShape),
+              padding: WidgetStatePropertyAll(appearance.padding),
+              fixedSize: WidgetStatePropertyAll(appearance.buttonSize),
+              minimumSize: WidgetStatePropertyAll(appearance.buttonSize),
+              maximumSize: WidgetStatePropertyAll(appearance.buttonSize),
+              shape: WidgetStatePropertyAll(appearance.buttonShape),
               backgroundColor: WidgetStateProperty.resolveWith(_background),
-              overlayColor: WidgetStatePropertyAll(t.transparent),
+              overlayColor: WidgetStatePropertyAll(appearance.transparent),
             ),
             icon: AppIcon(
               widget.glyph,
-              color: disabled ? t.disabled : t.foreground,
+              color: disabled ? appearance.disabled : appearance.foreground,
             ),
           ),
         ),

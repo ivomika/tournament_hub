@@ -12,15 +12,15 @@ final utilityDistributionUseCase = WidgetbookUseCase(
 abstract final class UtilityDistributionUseCase {
   static void action() {}
   static Widget build(BuildContext context) {
-    final l = FoundationLocalizations.of(context);
+    final localizations = FoundationLocalizations.of(context);
     return UtilityScreen(
       state: UtilityScreenState(
         phase: UtilityPhase.loading,
-        title: l.screenDistribution,
-        heading: l.screenWhoCharacter,
+        title: localizations.screenDistribution,
+        heading: localizations.screenWhoCharacter,
         accent: '',
-        note: l.screenNoRepeats,
-        progressLabel: l.screenDealing,
+        note: localizations.screenNoRepeats,
+        progressLabel: localizations.screenDealing,
       ),
       onBack: action,
       onRetry: null,

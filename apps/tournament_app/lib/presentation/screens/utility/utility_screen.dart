@@ -20,53 +20,60 @@ class UtilityScreen extends StatelessWidget {
   final VoidCallback? onBack, onRetry;
   @override
   Widget build(BuildContext context) {
-    final t = UtilityScreenTheme.of(context),
-        l = FoundationLocalizations.of(context);
+    final appearance = UtilityScreenTheme.of(context),
+        localizations = FoundationLocalizations.of(context);
     final failed = state.phase == UtilityPhase.error;
     return AppCenteredScreen(
       stretchContent: true,
       header: AppSectionHeader(
-        title: state.title ?? l.screenLoading,
-        backLabel: l.screenBack,
+        title: state.title ?? localizations.screenLoading,
+        backLabel: localizations.screenBack,
         onBack: onBack,
       ),
       footer: failed
           ? AppButton(
-              label: l.screenRetry,
+              label: localizations.screenRetry,
               onPressed: onRetry,
               glyph: AppGlyph.arrow,
             )
           : null,
       child: Column(
-        mainAxisSize: t.min,
-        crossAxisAlignment: t.start,
-        mainAxisAlignment: t.centerMain,
+        mainAxisSize: appearance.min,
+        crossAxisAlignment: appearance.start,
+        mainAxisAlignment: appearance.centerMain,
         children: [
           if (failed) ...[
-            AppIcon(AppGlyph.alert, color: t.error),
-            SizedBox(height: t.gap),
+            AppIcon(AppGlyph.alert, color: appearance.error),
+            SizedBox(height: appearance.gap),
           ],
           if (!failed) ...[
             AppProgressIndicator(
-              semanticLabel: state.progressLabel ?? l.screenLoading,
+              semanticLabel: state.progressLabel ?? localizations.screenLoading,
             ),
-            SizedBox(height: t.gap),
+            SizedBox(height: appearance.gap),
           ],
           Text(
             state.heading ??
-                (failed ? l.screenLoadErrorHero : l.screenLoadingHero),
-            style: t.heading,
+                (failed
+                    ? localizations.screenLoadErrorHero
+                    : localizations.screenLoadingHero),
+            style: appearance.heading,
           ),
           if (state.accent?.isNotEmpty ?? true)
             Text(
               state.accent ??
-                  (failed ? l.screenLoadErrorAccent : l.screenLoadingAccent),
-              style: t.heading,
+                  (failed
+                      ? localizations.screenLoadErrorAccent
+                      : localizations.screenLoadingAccent),
+              style: appearance.heading,
             ),
-          SizedBox(height: t.gap),
+          SizedBox(height: appearance.gap),
           Text(
-            state.note ?? (failed ? l.screenRetryNote : l.screenLoadingNote),
-            style: t.caption,
+            state.note ??
+                (failed
+                    ? localizations.screenRetryNote
+                    : localizations.screenLoadingNote),
+            style: appearance.caption,
           ),
         ],
       ),

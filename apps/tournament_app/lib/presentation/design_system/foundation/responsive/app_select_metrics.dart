@@ -52,23 +52,41 @@ class AppSelectMetrics extends ThemeExtension<AppSelectMetrics> {
     selectedWeight: selectedWeight ?? this.selectedWeight,
   );
   @override
-  AppSelectMetrics lerp(covariant AppSelectMetrics? other, double t) =>
-      other == null
-      ? this
-      : AppSelectMetrics(
-          chevronTurns: t < .5 ? chevronTurns : other.chevronTurns,
-          sheetMaxWidth:
-              sheetMaxWidth + (other.sheetMaxWidth - sheetMaxWidth) * t,
-          closeExtent: closeExtent + (other.closeExtent - closeExtent) * t,
-          handleWidth: handleWidth + (other.handleWidth - handleWidth) * t,
-          handleHeight: handleHeight + (other.handleHeight - handleHeight) * t,
-          sheetBottom: sheetBottom + (other.sheetBottom - sheetBottom) * t,
-          sheetTitleSize:
-              sheetTitleSize + (other.sheetTitleSize - sheetTitleSize) * t,
-          sheetTitleLine:
-              sheetTitleLine + (other.sheetTitleLine - sheetTitleLine) * t,
-          desktopLine: desktopLine + (other.desktopLine - desktopLine) * t,
-          optionWeight: t < .5 ? optionWeight : other.optionWeight,
-          selectedWeight: t < .5 ? selectedWeight : other.selectedWeight,
-        );
+  AppSelectMetrics lerp(
+    covariant AppSelectMetrics? other,
+    double interpolationAmount,
+  ) {
+    if (other == null) return this;
+    return AppSelectMetrics(
+      chevronTurns: interpolationAmount < .5
+          ? chevronTurns
+          : other.chevronTurns,
+      sheetMaxWidth:
+          sheetMaxWidth +
+          (other.sheetMaxWidth - sheetMaxWidth) * interpolationAmount,
+      closeExtent:
+          closeExtent + (other.closeExtent - closeExtent) * interpolationAmount,
+      handleWidth:
+          handleWidth + (other.handleWidth - handleWidth) * interpolationAmount,
+      handleHeight:
+          handleHeight +
+          (other.handleHeight - handleHeight) * interpolationAmount,
+      sheetBottom:
+          sheetBottom + (other.sheetBottom - sheetBottom) * interpolationAmount,
+      sheetTitleSize:
+          sheetTitleSize +
+          (other.sheetTitleSize - sheetTitleSize) * interpolationAmount,
+      sheetTitleLine:
+          sheetTitleLine +
+          (other.sheetTitleLine - sheetTitleLine) * interpolationAmount,
+      desktopLine:
+          desktopLine + (other.desktopLine - desktopLine) * interpolationAmount,
+      optionWeight: interpolationAmount < .5
+          ? optionWeight
+          : other.optionWeight,
+      selectedWeight: interpolationAmount < .5
+          ? selectedWeight
+          : other.selectedWeight,
+    );
+  }
 }

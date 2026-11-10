@@ -26,30 +26,30 @@ class DistributionScreen extends StatelessWidget {
   final VoidCallback? onBack, onShare, onStart;
   @override
   Widget build(BuildContext context) {
-    final t = DistributionScreenTheme.of(context),
-        l = FoundationLocalizations.of(context);
+    final appearance = DistributionScreenTheme.of(context),
+        localizations = FoundationLocalizations.of(context);
     final header = AppSectionHeader(
-      title: l.screenDistribution,
-      backLabel: l.screenBack,
+      title: localizations.screenDistribution,
+      backLabel: localizations.screenBack,
       onBack: onBack,
       action: AppHeaderAction(
         kind: AppHeaderActionKind.share,
-        label: l.screenSpectators,
+        label: localizations.screenSpectators,
         onPressed: onShare,
       ),
     );
     final intro = Column(
-      mainAxisSize: t.min,
-      crossAxisAlignment: t.start,
+      mainAxisSize: appearance.min,
+      crossAxisAlignment: appearance.start,
       children: [
-        Text(l.screenRosterReady, style: t.heading),
-        SizedBox(height: t.gap),
-        Text(l.screenEachCharacter, style: t.caption),
+        Text(localizations.screenRosterReady, style: appearance.heading),
+        SizedBox(height: appearance.gap),
+        Text(localizations.screenEachCharacter, style: appearance.caption),
       ],
     );
-    final list = t.desktop
+    final list = appearance.desktop
         ? AppAdaptiveGrid(
-            columns: t.gridColumns,
+            columns: appearance.gridColumns,
             children: [
               for (final player in state.players)
                 AppSurface(
@@ -66,10 +66,10 @@ class DistributionScreen extends StatelessWidget {
           )
         : AppSurface(
             child: Column(
-              crossAxisAlignment: t.stretch,
+              crossAxisAlignment: appearance.stretch,
               children: [
                 for (final (index, player) in state.players.indexed) ...[
-                  if (index > 0) SizedBox(height: t.small),
+                  if (index > 0) SizedBox(height: appearance.small),
                   AppIdentity(
                     primary: player.character,
                     initials: player.initials,
@@ -80,33 +80,33 @@ class DistributionScreen extends StatelessWidget {
             ),
           );
     final start = AppButton(
-      label: l.screenStartTournament,
+      label: localizations.screenStartTournament,
       glyph: AppGlyph.arrow,
       onPressed: onStart,
     );
     return AppScreenCanvas(
       scrollDesktop: true,
       child: Column(
-        crossAxisAlignment: t.stretch,
+        crossAxisAlignment: appearance.stretch,
         children: [
           header,
-          SizedBox(height: t.gap),
+          SizedBox(height: appearance.gap),
           Expanded(
-            child: t.desktop
+            child: appearance.desktop
                 ? Row(
-                    crossAxisAlignment: t.start,
+                    crossAxisAlignment: appearance.start,
                     children: [
                       Expanded(
-                        flex: t.homePrimaryFlex,
+                        flex: appearance.homePrimaryFlex,
                         child: SingleChildScrollView(child: list),
                       ),
-                      SizedBox(width: t.gap),
+                      SizedBox(width: appearance.gap),
                       Expanded(
                         child: Column(
-                          crossAxisAlignment: t.stretch,
+                          crossAxisAlignment: appearance.stretch,
                           children: [
                             AppScreenTile(child: intro),
-                            SizedBox(height: t.gap),
+                            SizedBox(height: appearance.gap),
                             start,
                           ],
                         ),
@@ -114,21 +114,21 @@ class DistributionScreen extends StatelessWidget {
                     ],
                   )
                 : Column(
-                    crossAxisAlignment: t.stretch,
+                    crossAxisAlignment: appearance.stretch,
                     children: [
                       Expanded(
                         child: SingleChildScrollView(
                           child: Column(
-                            crossAxisAlignment: t.stretch,
+                            crossAxisAlignment: appearance.stretch,
                             children: [
                               intro,
-                              SizedBox(height: t.gap),
+                              SizedBox(height: appearance.gap),
                               list,
                             ],
                           ),
                         ),
                       ),
-                      SizedBox(height: t.gap),
+                      SizedBox(height: appearance.gap),
                       start,
                     ],
                   ),

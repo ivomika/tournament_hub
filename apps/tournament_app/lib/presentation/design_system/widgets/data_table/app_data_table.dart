@@ -17,56 +17,57 @@ class AppDataTable extends StatelessWidget {
   @override
   Widget build(BuildContext context) => LayoutBuilder(builder: _layout);
   Widget _layout(BuildContext context, BoxConstraints constraints) {
-    final t = AppDataTableTheme.of(context), widths = <double>[];
+    final appearance = AppDataTableTheme.of(context), widths = <double>[];
     for (final (index, column) in columns.indexed) {
-      double maxWidth = _width(column.label, t.headerStyle);
+      double maxWidth = _width(column.label, appearance.headerStyle);
       if (column.alignment == AppTableAlignment.trailing &&
-          maxWidth < t.minNumericWidth - t.padding.horizontal) {
-        maxWidth = t.minNumericWidth - t.padding.horizontal;
+          maxWidth <
+              appearance.minNumericWidth - appearance.padding.horizontal) {
+        maxWidth = appearance.minNumericWidth - appearance.padding.horizontal;
       }
       for (final row in rows) {
         final cell = row.cells[index];
         final width = switch (cell) {
-          AppTableTextCell() => _width(cell.text, t.cellStyle),
+          AppTableTextCell() => _width(cell.text, appearance.cellStyle),
           AppTableIdentityCell() =>
-            t.identity.avatar.extent +
-                t.identityGap +
-                _width(cell.primary, t.identity.primary),
+            appearance.identity.avatar.extent +
+                appearance.identityGap +
+                _width(cell.primary, appearance.identity.primary),
         };
         if (width > maxWidth) maxWidth = width;
       }
-      widths.add(maxWidth + t.padding.horizontal);
+      widths.add(maxWidth + appearance.padding.horizontal);
     }
     return Semantics(
       container: true,
       child: Column(
         mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: t.stretch,
+        crossAxisAlignment: appearance.stretch,
         children: [
-          Text(caption, style: t.captionStyle),
-          SizedBox(height: t.captionGap),
+          Text(caption, style: appearance.captionStyle),
+          SizedBox(height: appearance.captionGap),
           Table(
             columnWidths: {
               for (final (index, width) in widths.indexed)
                 index: FlexColumnWidth(width),
             },
-            defaultVerticalAlignment: t.verticalAlignment,
+            defaultVerticalAlignment: appearance.verticalAlignment,
             children: [
               TableRow(
                 children: [
                   for (final column in columns)
                     Padding(
-                      padding: t.padding,
+                      padding: appearance.padding,
                       child: Semantics(
                         header: true,
                         label: column.semanticLabel,
                         child: Text(
                           column.label,
-                          style: t.headerStyle,
+                          style: appearance.headerStyle,
                           textAlign:
                               column.alignment == AppTableAlignment.trailing
-                              ? t.trailing
-                              : t.leading,
+                              ? appearance.trailing
+                              : appearance.leading,
                         ),
                       ),
                     ),
@@ -77,11 +78,11 @@ class AppDataTable extends StatelessWidget {
                   children: [
                     for (final (index, cell) in row.cells.indexed)
                       Padding(
-                        padding: t.padding,
+                        padding: appearance.padding,
                         child: _DataCell(
                           cell: cell,
                           column: columns[index],
-                          theme: t,
+                          theme: appearance,
                         ),
                       ),
                   ],
@@ -94,12 +95,12 @@ class AppDataTable extends StatelessWidget {
   }
 
   double _width(String text, TextStyle style) {
-    final p = TextPainter(
+    final textPainter = TextPainter(
       text: TextSpan(text: text, style: style),
       textDirection: TextDirection.ltr,
     )..layout();
-    final result = p.width;
-    p.dispose();
+    final result = textPainter.width;
+    textPainter.dispose();
     return result;
   }
 }

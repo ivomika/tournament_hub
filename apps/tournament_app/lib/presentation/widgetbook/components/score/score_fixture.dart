@@ -14,7 +14,7 @@ class ScoreFixture extends StatelessWidget {
   final ScoreSample sample;
   @override
   Widget build(BuildContext context) {
-    final l = FoundationLocalizations.of(context);
+    final localizations = FoundationLocalizations.of(context);
     final left = switch (sample) {
           ScoreSample.initial => '0',
           ScoreSample.result => '2',
@@ -29,9 +29,12 @@ class ScoreFixture extends StatelessWidget {
         ? AppScore.pair(
             left: left,
             right: right,
-            separator: l.scoreSeparator,
-            semanticLabel: l.scorePairLabel(left, right),
+            separator: localizations.scoreSeparator,
+            semanticLabel: localizations.scorePairLabel(left, right),
           )
-        : AppScore.fixed(left: left, semanticLabel: l.scoreFixedLabel(left));
+        : AppScore.fixed(
+            left: left,
+            semanticLabel: localizations.scoreFixedLabel(left),
+          );
   }
 }

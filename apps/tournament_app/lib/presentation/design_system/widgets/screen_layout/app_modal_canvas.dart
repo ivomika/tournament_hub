@@ -16,9 +16,9 @@ class AppModalCanvas extends StatelessWidget {
   final AppModalCanvasTheme? theme;
   @override
   Widget build(BuildContext context) {
-    final t = theme ?? AppModalCanvasTheme.of(context);
+    final appearance = theme ?? AppModalCanvasTheme.of(context);
     return Scaffold(
-      backgroundColor: t.background,
+      backgroundColor: appearance.background,
       body: SafeArea(
         child: Stack(
           children: [
@@ -33,19 +33,23 @@ class AppModalCanvas extends StatelessWidget {
                 ),
               ),
             ),
-            Positioned.fill(child: ColoredBox(color: t.scrim)),
+            Positioned.fill(child: ColoredBox(color: appearance.scrim)),
             FocusScope(
               autofocus: true,
               child: Align(
-                alignment: sheet && !t.desktop ? t.bottomAlign : t.centerAlign,
+                alignment: sheet && !appearance.desktop
+                    ? appearance.bottomAlign
+                    : appearance.centerAlign,
                 child: Padding(
-                  padding: sheet && !t.desktop
-                      ? EdgeInsets.all(t.zero)
-                      : t.inset,
+                  padding: sheet && !appearance.desktop
+                      ? EdgeInsets.all(appearance.zero)
+                      : appearance.inset,
                   child: ConstrainedBox(
                     constraints: BoxConstraints(
-                      maxWidth: sheet ? t.modalSheetWidth : t.fullWidth,
-                      maxHeight: t.maxHeight,
+                      maxWidth: sheet
+                          ? appearance.modalSheetWidth
+                          : appearance.fullWidth,
+                      maxHeight: appearance.maxHeight,
                     ),
                     child: SingleChildScrollView(child: child),
                   ),

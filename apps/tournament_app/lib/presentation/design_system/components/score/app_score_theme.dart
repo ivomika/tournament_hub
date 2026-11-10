@@ -9,30 +9,32 @@ enum AppScoreKind { pair, fixed }
 
 class AppScoreTheme {
   AppScoreTheme.of(BuildContext context, AppScoreKind kind) {
-    final t = Theme.of(context),
-        m = t.extension<AppScoreMetrics>()!,
-        r = t.extension<AppResponsive>()!,
-        roles = t.extension<AppTypeRoles>()!,
-        c = t.extension<AppControlMetrics>()!;
-    final desktop = MediaQuery.sizeOf(context).width > r.mobileToDesktopWidth;
+    final runtimeTheme = Theme.of(context),
+        runtimeScoreMetrics = runtimeTheme.extension<AppScoreMetrics>()!,
+        runtimeResponsive = runtimeTheme.extension<AppResponsive>()!,
+        roles = runtimeTheme.extension<AppTypeRoles>()!,
+        runtimeControlMetrics = runtimeTheme.extension<AppControlMetrics>()!;
+    final desktop =
+        MediaQuery.sizeOf(context).width >
+        runtimeResponsive.mobileToDesktopWidth;
     valueStyle = roles.score.copyWith(
       fontSize: kind == AppScoreKind.pair && desktop
-          ? m.desktopSize
+          ? runtimeScoreMetrics.desktopSize
           : roles.score.fontSize,
       color: kind == AppScoreKind.fixed
-          ? t.colorScheme.primary
-          : t.colorScheme.onSurface,
+          ? runtimeTheme.colorScheme.primary
+          : runtimeTheme.colorScheme.onSurface,
     );
     separatorStyle = roles.interfaceStyle(
-      t.textTheme.titleLarge!.copyWith(
-        fontWeight: c.regularWeight,
-        height: m.lineHeight,
+      runtimeTheme.textTheme.titleLarge!.copyWith(
+        fontWeight: runtimeControlMetrics.regularWeight,
+        height: runtimeScoreMetrics.lineHeight,
         letterSpacing: roles.normalTracking,
-        color: t.disabledColor,
+        color: runtimeTheme.disabledColor,
       ),
     );
-    gap = t.extension<AppSpacing>()!.space24;
-    center = c.center;
+    gap = runtimeTheme.extension<AppSpacing>()!.space24;
+    center = runtimeControlMetrics.center;
   }
   late final TextStyle valueStyle, separatorStyle;
   late final double gap;

@@ -371,260 +371,355 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
     formWidth: formWidth ?? this.formWidth,
   );
   @override
-  AppScreenMetrics lerp(covariant AppScreenMetrics? other, double t) =>
-      other == null
-      ? this
-      : AppScreenMetrics(
-          start: start,
-          stretch: stretch,
-          centerCross: centerCross,
-          centerMain: centerMain,
-          startMain: startMain,
-          spaceBetween: spaceBetween,
-          centerAlign: centerAlign,
-          bottomAlign: bottomAlign,
-          rightAlign: rightAlign,
-          topLeft: topLeft,
-          min: min,
-          max: max,
-          centerText: centerText,
-          leftText: leftText,
-          bootTop: lerpDouble(bootTop, other.bootTop, t)!,
-          bootBrandHeight: lerpDouble(
-            bootBrandHeight,
-            other.bootBrandHeight,
-            t,
-          )!,
-          bootCueHeight: lerpDouble(bootCueHeight, other.bootCueHeight, t)!,
-          bootFont: lerpDouble(bootFont, other.bootFont, t)!,
-          bootGap: lerpDouble(bootGap, other.bootGap, t)!,
-          homeTitleWidth: lerpDouble(homeTitleWidth, other.homeTitleWidth, t)!,
-          homeActionHeight: lerpDouble(
-            homeActionHeight,
-            other.homeActionHeight,
-            t,
-          )!,
-          homeMetaSize: lerpDouble(homeMetaSize, other.homeMetaSize, t)!,
-          homePrimaryFlex: t < 0.5 ? homePrimaryFlex : other.homePrimaryFlex,
-          homeSecondaryFlex: t < 0.5
-              ? homeSecondaryFlex
-              : other.homeSecondaryFlex,
-          profileLinkHeight: lerpDouble(
-            profileLinkHeight,
-            other.profileLinkHeight,
-            t,
-          )!,
-          profileNameSize: lerpDouble(
-            profileNameSize,
-            other.profileNameSize,
-            t,
-          )!,
-          simpleWidth: lerpDouble(simpleWidth, other.simpleWidth, t)!,
-          simplePadding: lerpDouble(simplePadding, other.simplePadding, t)!,
-          simpleIntroFlex: t < 0.5 ? simpleIntroFlex : other.simpleIntroFlex,
-          simpleFormFlex: t < 0.5 ? simpleFormFlex : other.simpleFormFlex,
-          settingsHeight: lerpDouble(settingsHeight, other.settingsHeight, t)!,
-          secondaryHeroSize: lerpDouble(
-            secondaryHeroSize,
-            other.secondaryHeroSize,
-            t,
-          )!,
-          aboutHeight: lerpDouble(aboutHeight, other.aboutHeight, t)!,
-          aboutVersionHeight: lerpDouble(
-            aboutVersionHeight,
-            other.aboutVersionHeight,
-            t,
-          )!,
-          aboutRulesHeight: lerpDouble(
-            aboutRulesHeight,
-            other.aboutRulesHeight,
-            t,
-          )!,
-          gridColumns: t < 0.5 ? gridColumns : other.gridColumns,
-          stackColumns: t < 0.5 ? stackColumns : other.stackColumns,
-          historyFeatureHeight: lerpDouble(
-            historyFeatureHeight,
-            other.historyFeatureHeight,
-            t,
-          )!,
-          historyCardHeight: lerpDouble(
-            historyCardHeight,
-            other.historyCardHeight,
-            t,
-          )!,
-          historyProminentHeight: lerpDouble(
-            historyProminentHeight,
-            other.historyProminentHeight,
-            t,
-          )!,
-          widePaneFlex: t < 0.5 ? widePaneFlex : other.widePaneFlex,
-          narrowPaneFlex: t < 0.5 ? narrowPaneFlex : other.narrowPaneFlex,
-          rosterContextHeight: lerpDouble(
-            rosterContextHeight,
-            other.rosterContextHeight,
-            t,
-          )!,
-          modalSheetWidth: lerpDouble(
-            modalSheetWidth,
-            other.modalSheetWidth,
-            t,
-          )!,
-          modalViewportInset: lerpDouble(
-            modalViewportInset,
-            other.modalViewportInset,
-            t,
-          )!,
-          modalMobileMinHeight: lerpDouble(
-            modalMobileMinHeight,
-            other.modalMobileMinHeight,
-            t,
-          )!,
-          matchDesktopNameSize: lerpDouble(
-            matchDesktopNameSize,
-            other.matchDesktopNameSize,
-            t,
-          )!,
-          matchMobileNameFactor: lerpDouble(
-            matchMobileNameFactor,
-            other.matchMobileNameFactor,
-            t,
-          )!,
-          matchDesktopAvatar: lerpDouble(
-            matchDesktopAvatar,
-            other.matchDesktopAvatar,
-            t,
-          )!,
-          matchMobileAvatar: lerpDouble(
-            matchMobileAvatar,
-            other.matchMobileAvatar,
-            t,
-          )!,
-          bracketGrid: lerpDouble(bracketGrid, other.bracketGrid, t)!,
-          bracketDot: lerpDouble(bracketDot, other.bracketDot, t)!,
-          bracketStroke: lerpDouble(bracketStroke, other.bracketStroke, t)!,
-          bracketScaleMin: lerpDouble(
-            bracketScaleMin,
-            other.bracketScaleMin,
-            t,
-          )!,
-          bracketScaleMax: lerpDouble(
-            bracketScaleMax,
-            other.bracketScaleMax,
-            t,
-          )!,
-          bracketScaleStep: lerpDouble(
-            bracketScaleStep,
-            other.bracketScaleStep,
-            t,
-          )!,
-          bracketNodeHalf: lerpDouble(
-            bracketNodeHalf,
-            other.bracketNodeHalf,
-            t,
-          )!,
-          bracketNodeHalfHeight: lerpDouble(
-            bracketNodeHalfHeight,
-            other.bracketNodeHalfHeight,
-            t,
-          )!,
-          resultDesktopAvatar: lerpDouble(
-            resultDesktopAvatar,
-            other.resultDesktopAvatar,
-            t,
-          )!,
-          resultContentWidth: lerpDouble(
-            resultContentWidth,
-            other.resultContentWidth,
-            t,
-          )!,
-          resultOutcomeFactor: lerpDouble(
-            resultOutcomeFactor,
-            other.resultOutcomeFactor,
-            t,
-          )!,
-          championDesktopAvatar: lerpDouble(
-            championDesktopAvatar,
-            other.championDesktopAvatar,
-            t,
-          )!,
-          championMobileAvatar: lerpDouble(
-            championMobileAvatar,
-            other.championMobileAvatar,
-            t,
-          )!,
-          championDesktopNameSize: lerpDouble(
-            championDesktopNameSize,
-            other.championDesktopNameSize,
-            t,
-          )!,
-          championMobileNameSize: lerpDouble(
-            championMobileNameSize,
-            other.championMobileNameSize,
-            t,
-          )!,
-          championHeight: lerpDouble(championHeight, other.championHeight, t)!,
-          championContextTitleSize: lerpDouble(
-            championContextTitleSize,
-            other.championContextTitleSize,
-            t,
-          )!,
-          rankFeaturedHeight: lerpDouble(
-            rankFeaturedHeight,
-            other.rankFeaturedHeight,
-            t,
-          )!,
-          rankRegularHeight: lerpDouble(
-            rankRegularHeight,
-            other.rankRegularHeight,
-            t,
-          )!,
-          rankFeaturedName: lerpDouble(
-            rankFeaturedName,
-            other.rankFeaturedName,
-            t,
-          )!,
-          rankFeaturedValue: lerpDouble(
-            rankFeaturedValue,
-            other.rankFeaturedValue,
-            t,
-          )!,
-          resultsContextTitleSize: lerpDouble(
-            resultsContextTitleSize,
-            other.resultsContextTitleSize,
-            t,
-          )!,
-          screenBrandSize: lerpDouble(
-            screenBrandSize,
-            other.screenBrandSize,
-            t,
-          )!,
-          screenBrandLine: lerpDouble(
-            screenBrandLine,
-            other.screenBrandLine,
-            t,
-          )!,
-          screenBrandTracking: lerpDouble(
-            screenBrandTracking,
-            other.screenBrandTracking,
-            t,
-          )!,
-          desktopContentMinHeight: lerpDouble(
-            desktopContentMinHeight,
-            other.desktopContentMinHeight,
-            t,
-          )!,
-          utilityWidth: lerpDouble(utilityWidth, other.utilityWidth, t)!,
-          utilityHeight: lerpDouble(utilityHeight, other.utilityHeight, t)!,
-          utilityTop: lerpDouble(utilityTop, other.utilityTop, t)!,
-          utilityReserve: lerpDouble(utilityReserve, other.utilityReserve, t)!,
-          utilityAction: lerpDouble(utilityAction, other.utilityAction, t)!,
-          desktopHero: lerpDouble(desktopHero, other.desktopHero, t)!,
-          mobileHero: lerpDouble(mobileHero, other.mobileHero, t)!,
-          heroLine: lerpDouble(heroLine, other.heroLine, t)!,
-          heroTracking: lerpDouble(heroTracking, other.heroTracking, t)!,
-          primaryFlex: primaryFlex,
-          secondaryFlex: secondaryFlex,
-          brandHeight: lerpDouble(brandHeight, other.brandHeight, t)!,
-          formWidth: lerpDouble(formWidth, other.formWidth, t)!,
-        );
+  AppScreenMetrics lerp(
+    covariant AppScreenMetrics? other,
+    double interpolationAmount,
+  ) {
+    if (other == null) return this;
+    return AppScreenMetrics(
+      start: start,
+      stretch: stretch,
+      centerCross: centerCross,
+      centerMain: centerMain,
+      startMain: startMain,
+      spaceBetween: spaceBetween,
+      centerAlign: centerAlign,
+      bottomAlign: bottomAlign,
+      rightAlign: rightAlign,
+      topLeft: topLeft,
+      min: min,
+      max: max,
+      centerText: centerText,
+      leftText: leftText,
+      bootTop: lerpDouble(bootTop, other.bootTop, interpolationAmount)!,
+      bootBrandHeight: lerpDouble(
+        bootBrandHeight,
+        other.bootBrandHeight,
+        interpolationAmount,
+      )!,
+      bootCueHeight: lerpDouble(
+        bootCueHeight,
+        other.bootCueHeight,
+        interpolationAmount,
+      )!,
+      bootFont: lerpDouble(bootFont, other.bootFont, interpolationAmount)!,
+      bootGap: lerpDouble(bootGap, other.bootGap, interpolationAmount)!,
+      homeTitleWidth: lerpDouble(
+        homeTitleWidth,
+        other.homeTitleWidth,
+        interpolationAmount,
+      )!,
+      homeActionHeight: lerpDouble(
+        homeActionHeight,
+        other.homeActionHeight,
+        interpolationAmount,
+      )!,
+      homeMetaSize: lerpDouble(
+        homeMetaSize,
+        other.homeMetaSize,
+        interpolationAmount,
+      )!,
+      homePrimaryFlex: interpolationAmount < 0.5
+          ? homePrimaryFlex
+          : other.homePrimaryFlex,
+      homeSecondaryFlex: interpolationAmount < 0.5
+          ? homeSecondaryFlex
+          : other.homeSecondaryFlex,
+      profileLinkHeight: lerpDouble(
+        profileLinkHeight,
+        other.profileLinkHeight,
+        interpolationAmount,
+      )!,
+      profileNameSize: lerpDouble(
+        profileNameSize,
+        other.profileNameSize,
+        interpolationAmount,
+      )!,
+      simpleWidth: lerpDouble(
+        simpleWidth,
+        other.simpleWidth,
+        interpolationAmount,
+      )!,
+      simplePadding: lerpDouble(
+        simplePadding,
+        other.simplePadding,
+        interpolationAmount,
+      )!,
+      simpleIntroFlex: interpolationAmount < 0.5
+          ? simpleIntroFlex
+          : other.simpleIntroFlex,
+      simpleFormFlex: interpolationAmount < 0.5
+          ? simpleFormFlex
+          : other.simpleFormFlex,
+      settingsHeight: lerpDouble(
+        settingsHeight,
+        other.settingsHeight,
+        interpolationAmount,
+      )!,
+      secondaryHeroSize: lerpDouble(
+        secondaryHeroSize,
+        other.secondaryHeroSize,
+        interpolationAmount,
+      )!,
+      aboutHeight: lerpDouble(
+        aboutHeight,
+        other.aboutHeight,
+        interpolationAmount,
+      )!,
+      aboutVersionHeight: lerpDouble(
+        aboutVersionHeight,
+        other.aboutVersionHeight,
+        interpolationAmount,
+      )!,
+      aboutRulesHeight: lerpDouble(
+        aboutRulesHeight,
+        other.aboutRulesHeight,
+        interpolationAmount,
+      )!,
+      gridColumns: interpolationAmount < 0.5 ? gridColumns : other.gridColumns,
+      stackColumns: interpolationAmount < 0.5
+          ? stackColumns
+          : other.stackColumns,
+      historyFeatureHeight: lerpDouble(
+        historyFeatureHeight,
+        other.historyFeatureHeight,
+        interpolationAmount,
+      )!,
+      historyCardHeight: lerpDouble(
+        historyCardHeight,
+        other.historyCardHeight,
+        interpolationAmount,
+      )!,
+      historyProminentHeight: lerpDouble(
+        historyProminentHeight,
+        other.historyProminentHeight,
+        interpolationAmount,
+      )!,
+      widePaneFlex: interpolationAmount < 0.5
+          ? widePaneFlex
+          : other.widePaneFlex,
+      narrowPaneFlex: interpolationAmount < 0.5
+          ? narrowPaneFlex
+          : other.narrowPaneFlex,
+      rosterContextHeight: lerpDouble(
+        rosterContextHeight,
+        other.rosterContextHeight,
+        interpolationAmount,
+      )!,
+      modalSheetWidth: lerpDouble(
+        modalSheetWidth,
+        other.modalSheetWidth,
+        interpolationAmount,
+      )!,
+      modalViewportInset: lerpDouble(
+        modalViewportInset,
+        other.modalViewportInset,
+        interpolationAmount,
+      )!,
+      modalMobileMinHeight: lerpDouble(
+        modalMobileMinHeight,
+        other.modalMobileMinHeight,
+        interpolationAmount,
+      )!,
+      matchDesktopNameSize: lerpDouble(
+        matchDesktopNameSize,
+        other.matchDesktopNameSize,
+        interpolationAmount,
+      )!,
+      matchMobileNameFactor: lerpDouble(
+        matchMobileNameFactor,
+        other.matchMobileNameFactor,
+        interpolationAmount,
+      )!,
+      matchDesktopAvatar: lerpDouble(
+        matchDesktopAvatar,
+        other.matchDesktopAvatar,
+        interpolationAmount,
+      )!,
+      matchMobileAvatar: lerpDouble(
+        matchMobileAvatar,
+        other.matchMobileAvatar,
+        interpolationAmount,
+      )!,
+      bracketGrid: lerpDouble(
+        bracketGrid,
+        other.bracketGrid,
+        interpolationAmount,
+      )!,
+      bracketDot: lerpDouble(
+        bracketDot,
+        other.bracketDot,
+        interpolationAmount,
+      )!,
+      bracketStroke: lerpDouble(
+        bracketStroke,
+        other.bracketStroke,
+        interpolationAmount,
+      )!,
+      bracketScaleMin: lerpDouble(
+        bracketScaleMin,
+        other.bracketScaleMin,
+        interpolationAmount,
+      )!,
+      bracketScaleMax: lerpDouble(
+        bracketScaleMax,
+        other.bracketScaleMax,
+        interpolationAmount,
+      )!,
+      bracketScaleStep: lerpDouble(
+        bracketScaleStep,
+        other.bracketScaleStep,
+        interpolationAmount,
+      )!,
+      bracketNodeHalf: lerpDouble(
+        bracketNodeHalf,
+        other.bracketNodeHalf,
+        interpolationAmount,
+      )!,
+      bracketNodeHalfHeight: lerpDouble(
+        bracketNodeHalfHeight,
+        other.bracketNodeHalfHeight,
+        interpolationAmount,
+      )!,
+      resultDesktopAvatar: lerpDouble(
+        resultDesktopAvatar,
+        other.resultDesktopAvatar,
+        interpolationAmount,
+      )!,
+      resultContentWidth: lerpDouble(
+        resultContentWidth,
+        other.resultContentWidth,
+        interpolationAmount,
+      )!,
+      resultOutcomeFactor: lerpDouble(
+        resultOutcomeFactor,
+        other.resultOutcomeFactor,
+        interpolationAmount,
+      )!,
+      championDesktopAvatar: lerpDouble(
+        championDesktopAvatar,
+        other.championDesktopAvatar,
+        interpolationAmount,
+      )!,
+      championMobileAvatar: lerpDouble(
+        championMobileAvatar,
+        other.championMobileAvatar,
+        interpolationAmount,
+      )!,
+      championDesktopNameSize: lerpDouble(
+        championDesktopNameSize,
+        other.championDesktopNameSize,
+        interpolationAmount,
+      )!,
+      championMobileNameSize: lerpDouble(
+        championMobileNameSize,
+        other.championMobileNameSize,
+        interpolationAmount,
+      )!,
+      championHeight: lerpDouble(
+        championHeight,
+        other.championHeight,
+        interpolationAmount,
+      )!,
+      championContextTitleSize: lerpDouble(
+        championContextTitleSize,
+        other.championContextTitleSize,
+        interpolationAmount,
+      )!,
+      rankFeaturedHeight: lerpDouble(
+        rankFeaturedHeight,
+        other.rankFeaturedHeight,
+        interpolationAmount,
+      )!,
+      rankRegularHeight: lerpDouble(
+        rankRegularHeight,
+        other.rankRegularHeight,
+        interpolationAmount,
+      )!,
+      rankFeaturedName: lerpDouble(
+        rankFeaturedName,
+        other.rankFeaturedName,
+        interpolationAmount,
+      )!,
+      rankFeaturedValue: lerpDouble(
+        rankFeaturedValue,
+        other.rankFeaturedValue,
+        interpolationAmount,
+      )!,
+      resultsContextTitleSize: lerpDouble(
+        resultsContextTitleSize,
+        other.resultsContextTitleSize,
+        interpolationAmount,
+      )!,
+      screenBrandSize: lerpDouble(
+        screenBrandSize,
+        other.screenBrandSize,
+        interpolationAmount,
+      )!,
+      screenBrandLine: lerpDouble(
+        screenBrandLine,
+        other.screenBrandLine,
+        interpolationAmount,
+      )!,
+      screenBrandTracking: lerpDouble(
+        screenBrandTracking,
+        other.screenBrandTracking,
+        interpolationAmount,
+      )!,
+      desktopContentMinHeight: lerpDouble(
+        desktopContentMinHeight,
+        other.desktopContentMinHeight,
+        interpolationAmount,
+      )!,
+      utilityWidth: lerpDouble(
+        utilityWidth,
+        other.utilityWidth,
+        interpolationAmount,
+      )!,
+      utilityHeight: lerpDouble(
+        utilityHeight,
+        other.utilityHeight,
+        interpolationAmount,
+      )!,
+      utilityTop: lerpDouble(
+        utilityTop,
+        other.utilityTop,
+        interpolationAmount,
+      )!,
+      utilityReserve: lerpDouble(
+        utilityReserve,
+        other.utilityReserve,
+        interpolationAmount,
+      )!,
+      utilityAction: lerpDouble(
+        utilityAction,
+        other.utilityAction,
+        interpolationAmount,
+      )!,
+      desktopHero: lerpDouble(
+        desktopHero,
+        other.desktopHero,
+        interpolationAmount,
+      )!,
+      mobileHero: lerpDouble(
+        mobileHero,
+        other.mobileHero,
+        interpolationAmount,
+      )!,
+      heroLine: lerpDouble(heroLine, other.heroLine, interpolationAmount)!,
+      heroTracking: lerpDouble(
+        heroTracking,
+        other.heroTracking,
+        interpolationAmount,
+      )!,
+      primaryFlex: primaryFlex,
+      secondaryFlex: secondaryFlex,
+      brandHeight: lerpDouble(
+        brandHeight,
+        other.brandHeight,
+        interpolationAmount,
+      )!,
+      formWidth: lerpDouble(formWidth, other.formWidth, interpolationAmount)!,
+    );
+  }
 }

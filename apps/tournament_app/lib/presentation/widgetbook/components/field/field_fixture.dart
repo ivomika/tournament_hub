@@ -23,12 +23,8 @@ class _FieldFixtureState extends State<FieldFixture> {
   void didChangeDependencies() {
     super.didChangeDependencies();
     if (!_initialized) {
-      final l = FoundationLocalizations.of(context);
-      _controller.text = widget.sample == FieldSample.empty
-          ? ''
-          : widget.kind == AppFieldKind.multiline
-          ? l.fieldMessageSample
-          : l.fieldNameSample;
+      final localizations = FoundationLocalizations.of(context);
+      _controller.text = _resolveSampleText(localizations);
       _initialized = true;
       WidgetsBinding.instance.addPostFrameCallback(_apply);
     }
@@ -38,15 +34,19 @@ class _FieldFixtureState extends State<FieldFixture> {
   void didUpdateWidget(covariant FieldFixture old) {
     super.didUpdateWidget(old);
     if (old.kind != widget.kind || old.sample != widget.sample) {
-      final l = FoundationLocalizations.of(context);
-      _controller.text = widget.sample == FieldSample.empty
-          ? ''
-          : widget.kind == AppFieldKind.multiline
-          ? l.fieldMessageSample
-          : l.fieldNameSample;
+      final localizations = FoundationLocalizations.of(context);
+      _controller.text = _resolveSampleText(localizations);
       _focus.unfocus();
       WidgetsBinding.instance.addPostFrameCallback(_apply);
     }
+  }
+
+  String _resolveSampleText(FoundationLocalizations localizations) {
+    if (widget.sample == FieldSample.empty) return '';
+    if (widget.kind == AppFieldKind.multiline) {
+      return localizations.fieldMessageSample;
+    }
+    return localizations.fieldNameSample;
   }
 
   void _apply(Duration elapsed) {
@@ -62,18 +62,18 @@ class _FieldFixtureState extends State<FieldFixture> {
 
   @override
   Widget build(BuildContext context) {
-    final l = FoundationLocalizations.of(context);
+    final localizations = FoundationLocalizations.of(context);
     return AppField(
       controller: _controller,
       focusNode: _focus,
       label: widget.kind == AppFieldKind.multiline
-          ? l.fieldMessageLabel
-          : l.fieldNameLabel,
+          ? localizations.fieldMessageLabel
+          : localizations.fieldNameLabel,
       kind: widget.kind,
       enabled: widget.sample != FieldSample.disabled,
       readOnly: widget.sample == FieldSample.readOnly,
       errorText: widget.sample == FieldSample.invalid
-          ? l.fieldErrorSample
+          ? localizations.fieldErrorSample
           : null,
     );
   }

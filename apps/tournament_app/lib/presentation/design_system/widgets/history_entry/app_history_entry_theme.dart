@@ -8,14 +8,12 @@ import 'package:tournament_app/presentation/design_system/foundation/spacing/app
 class AppHistoryEntryTheme extends AppScreenLayoutTheme {
   AppHistoryEntryTheme.of(BuildContext context, bool prominent)
     : super.of(context) {
-    final s = Theme.of(context).extension<AppSpacing>()!,
-        b = Theme.of(context).extension<AppBorderMetrics>()!;
-    minHeight = desktop
-        ? (prominent ? historyProminentHeight : historyCardHeight)
-        : zero;
+    final runtimeSpacing = Theme.of(context).extension<AppSpacing>()!,
+        runtimeBorderMetrics = Theme.of(context).extension<AppBorderMetrics>()!;
+    minHeight = _resolveHeight(prominent);
     padding = EdgeInsets.symmetric(
-      horizontal: desktop ? s.space32 : zero,
-      vertical: s.space24,
+      horizontal: desktop ? runtimeSpacing.space32 : zero,
+      vertical: runtimeSpacing.space24,
     );
     decoration = BoxDecoration(
       color: desktop ? surface : background,
@@ -25,7 +23,7 @@ class AppHistoryEntryTheme extends AppScreenLayoutTheme {
           : Border(
               bottom: BorderSide(
                 color: Theme.of(context).colorScheme.outlineVariant,
-                width: b.hairline,
+                width: runtimeBorderMetrics.hairline,
               ),
             ),
     );
@@ -40,6 +38,15 @@ class AppHistoryEntryTheme extends AppScreenLayoutTheme {
         ? base.copyWith(primary: base.primary.copyWith(fontSize: homeMetaSize))
         : base;
   }
+  double _resolveHeight(bool prominent) {
+    if (!desktop) return zero;
+    if (prominent) {
+      return historyProminentHeight;
+    } else {
+      return historyCardHeight;
+    }
+  }
+
   late final double minHeight;
   late final EdgeInsets padding;
   late final BoxDecoration decoration;

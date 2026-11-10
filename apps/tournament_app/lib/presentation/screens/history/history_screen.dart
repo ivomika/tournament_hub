@@ -22,35 +22,38 @@ class HistoryScreen extends StatelessWidget {
   final VoidCallback? onBack, onCreate;
   @override
   Widget build(BuildContext context) {
-    final t = HistoryScreenTheme.of(context),
-        l = FoundationLocalizations.of(context);
+    final appearance = HistoryScreenTheme.of(context),
+        localizations = FoundationLocalizations.of(context);
     final featured = state.featured;
     final header = AppSectionHeader(
-      title: l.screenHistory,
-      backLabel: l.screenBack,
+      title: localizations.screenHistory,
+      backLabel: localizations.screenBack,
       onBack: onBack,
     );
     if (featured == null && state.entries.isEmpty) {
       return AppCenteredScreen(
         header: header,
         footer: AppButton(
-          label: l.screenCreate,
+          label: localizations.screenCreate,
           glyph: AppGlyph.arrow,
           onPressed: onCreate,
         ),
         child: Column(
-          mainAxisSize: t.min,
-          crossAxisAlignment: t.start,
-          mainAxisAlignment: t.centerMain,
+          mainAxisSize: appearance.min,
+          crossAxisAlignment: appearance.start,
+          mainAxisAlignment: appearance.centerMain,
           children: [
-            Text(l.screenHistoryEmpty, style: t.heading),
-            SizedBox(height: t.gap),
-            Text(l.screenHistoryEmptyNote, style: t.muted),
+            Text(localizations.screenHistoryEmpty, style: appearance.heading),
+            SizedBox(height: appearance.gap),
+            Text(localizations.screenHistoryEmptyNote, style: appearance.muted),
           ],
         ),
       );
     }
-    final intro = Text(l.screenYourTournaments, style: t.heading);
+    final intro = Text(
+      localizations.screenYourTournaments,
+      style: appearance.heading,
+    );
     final first = featured == null
         ? null
         : AppHistoryEntry(
@@ -63,7 +66,9 @@ class HistoryScreen extends StatelessWidget {
             prominent: true,
           );
     final rest = AppAdaptiveGrid(
-      columns: t.desktop ? t.gridColumns : t.stackColumns,
+      columns: appearance.desktop
+          ? appearance.gridColumns
+          : appearance.stackColumns,
       children: [
         for (final entry in state.entries)
           AppHistoryEntry(
@@ -78,41 +83,44 @@ class HistoryScreen extends StatelessWidget {
     );
     return AppScreenCanvas(
       child: Column(
-        crossAxisAlignment: t.stretch,
+        crossAxisAlignment: appearance.stretch,
         children: [
           header,
-          SizedBox(height: t.gap),
+          SizedBox(height: appearance.gap),
           Expanded(
             child: SingleChildScrollView(
               child: Column(
-                crossAxisAlignment: t.stretch,
+                crossAxisAlignment: appearance.stretch,
                 children: [
-                  if (t.desktop)
+                  if (appearance.desktop)
                     Row(
-                      crossAxisAlignment: t.start,
+                      crossAxisAlignment: appearance.start,
                       children: [
                         Expanded(
                           child: ConstrainedBox(
                             constraints: BoxConstraints(
-                              minHeight: t.historyFeatureHeight,
+                              minHeight: appearance.historyFeatureHeight,
                             ),
                             child: AppScreenTile(
                               child: Column(
-                                mainAxisAlignment: t.centerMain,
-                                crossAxisAlignment: t.start,
+                                mainAxisAlignment: appearance.centerMain,
+                                crossAxisAlignment: appearance.start,
                                 children: [intro],
                               ),
                             ),
                           ),
                         ),
-                        SizedBox(width: t.gap),
+                        SizedBox(width: appearance.gap),
                         Expanded(
-                          flex: t.homePrimaryFlex,
+                          flex: appearance.homePrimaryFlex,
                           child: Column(
-                            crossAxisAlignment: t.stretch,
+                            crossAxisAlignment: appearance.stretch,
                             children: [
-                              Text(state.periodLabel, style: t.caption),
-                              SizedBox(height: t.gap),
+                              Text(
+                                state.periodLabel,
+                                style: appearance.caption,
+                              ),
+                              SizedBox(height: appearance.gap),
                               ?first,
                             ],
                           ),
@@ -121,11 +129,11 @@ class HistoryScreen extends StatelessWidget {
                     )
                   else ...[
                     intro,
-                    SizedBox(height: t.gap),
-                    Text(state.periodLabel, style: t.caption),
+                    SizedBox(height: appearance.gap),
+                    Text(state.periodLabel, style: appearance.caption),
                     ?first,
                   ],
-                  SizedBox(height: t.gap),
+                  SizedBox(height: appearance.gap),
                   rest,
                 ],
               ),

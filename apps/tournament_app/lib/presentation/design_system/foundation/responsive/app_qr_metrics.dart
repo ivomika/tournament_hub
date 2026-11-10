@@ -52,25 +52,34 @@ class AppQrMetrics extends ThemeExtension<AppQrMetrics> {
     blendMode: blendMode ?? this.blendMode,
   );
   @override
-  AppQrMetrics lerp(covariant AppQrMetrics? other, double t) => other == null
-      ? this
-      : AppQrMetrics(
-          moduleRadius: moduleRadius + (other.moduleRadius - moduleRadius) * t,
-          finderOuterRadius:
-              finderOuterRadius +
-              (other.finderOuterRadius - finderOuterRadius) * t,
-          finderGapRadius:
-              finderGapRadius + (other.finderGapRadius - finderGapRadius) * t,
-          finderCenterRadius:
-              finderCenterRadius +
-              (other.finderCenterRadius - finderCenterRadius) * t,
-          quietZone: quietZone + (other.quietZone - quietZone) * t,
-          mobileExtent: mobileExtent + (other.mobileExtent - mobileExtent) * t,
-          desktopExtent:
-              desktopExtent + (other.desktopExtent - desktopExtent) * t,
-          aspectRatio: aspectRatio + (other.aspectRatio - aspectRatio) * t,
-          codeLine: codeLine + (other.codeLine - codeLine) * t,
-          codeFit: t < .5 ? codeFit : other.codeFit,
-          blendMode: t < .5 ? blendMode : other.blendMode,
-        );
+  AppQrMetrics lerp(covariant AppQrMetrics? other, double interpolationAmount) {
+    if (other == null) return this;
+    return AppQrMetrics(
+      moduleRadius:
+          moduleRadius +
+          (other.moduleRadius - moduleRadius) * interpolationAmount,
+      finderOuterRadius:
+          finderOuterRadius +
+          (other.finderOuterRadius - finderOuterRadius) * interpolationAmount,
+      finderGapRadius:
+          finderGapRadius +
+          (other.finderGapRadius - finderGapRadius) * interpolationAmount,
+      finderCenterRadius:
+          finderCenterRadius +
+          (other.finderCenterRadius - finderCenterRadius) * interpolationAmount,
+      quietZone:
+          quietZone + (other.quietZone - quietZone) * interpolationAmount,
+      mobileExtent:
+          mobileExtent +
+          (other.mobileExtent - mobileExtent) * interpolationAmount,
+      desktopExtent:
+          desktopExtent +
+          (other.desktopExtent - desktopExtent) * interpolationAmount,
+      aspectRatio:
+          aspectRatio + (other.aspectRatio - aspectRatio) * interpolationAmount,
+      codeLine: codeLine + (other.codeLine - codeLine) * interpolationAmount,
+      codeFit: interpolationAmount < .5 ? codeFit : other.codeFit,
+      blendMode: interpolationAmount < .5 ? blendMode : other.blendMode,
+    );
+  }
 }

@@ -48,24 +48,33 @@ class AppIdentityMetrics extends ThemeExtension<AppIdentityMetrics> {
     containerFactor: containerFactor ?? this.containerFactor,
   );
   @override
-  AppIdentityMetrics lerp(covariant AppIdentityMetrics? other, double t) =>
-      other == null
-      ? this
-      : AppIdentityMetrics(
-          leading: t < 0.5 ? leading : other.leading,
-          stretch: t < 0.5 ? stretch : other.stretch,
-          start: t < 0.5 ? start : other.start,
-          textLeading: t < 0.5 ? textLeading : other.textLeading,
-          participantLine:
-              participantLine + (other.participantLine - participantLine) * t,
-          cardNameSize: cardNameSize + (other.cardNameSize - cardNameSize) * t,
-          cardAvatarFont:
-              cardAvatarFont + (other.cardAvatarFont - cardAvatarFont) * t,
-          cardAvatarRadius:
-              cardAvatarRadius +
-              (other.cardAvatarRadius - cardAvatarRadius) * t,
-          stackedLine: stackedLine + (other.stackedLine - stackedLine) * t,
-          containerFactor:
-              containerFactor + (other.containerFactor - containerFactor) * t,
-        );
+  AppIdentityMetrics lerp(
+    covariant AppIdentityMetrics? other,
+    double interpolationAmount,
+  ) {
+    if (other == null) return this;
+    return AppIdentityMetrics(
+      leading: interpolationAmount < 0.5 ? leading : other.leading,
+      stretch: interpolationAmount < 0.5 ? stretch : other.stretch,
+      start: interpolationAmount < 0.5 ? start : other.start,
+      textLeading: interpolationAmount < 0.5 ? textLeading : other.textLeading,
+      participantLine:
+          participantLine +
+          (other.participantLine - participantLine) * interpolationAmount,
+      cardNameSize:
+          cardNameSize +
+          (other.cardNameSize - cardNameSize) * interpolationAmount,
+      cardAvatarFont:
+          cardAvatarFont +
+          (other.cardAvatarFont - cardAvatarFont) * interpolationAmount,
+      cardAvatarRadius:
+          cardAvatarRadius +
+          (other.cardAvatarRadius - cardAvatarRadius) * interpolationAmount,
+      stackedLine:
+          stackedLine + (other.stackedLine - stackedLine) * interpolationAmount,
+      containerFactor:
+          containerFactor +
+          (other.containerFactor - containerFactor) * interpolationAmount,
+    );
+  }
 }

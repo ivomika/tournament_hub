@@ -14,7 +14,7 @@ abstract final class NavigationComparison {
     geometryTolerance: .5,
     baselineTolerance: 1,
     scenarios: [
-      for (final (i, state) in <WidgetState?>[
+      for (final (sampleIndex, state) in <WidgetState?>[
         null,
         WidgetState.hovered,
         WidgetState.focused,
@@ -24,7 +24,7 @@ abstract final class NavigationComparison {
           title: 'Mobile · ${state?.name ?? 'default'}',
           viewport: VisualViewport.mobile,
           webSelector:
-              '#c-navigation .kit-component-states .kit-specimen:nth-child(${i + 1}) .profile-menu',
+              '#c-navigation .kit-component-states .kit-specimen:nth-child(${sampleIndex + 1}) .profile-menu',
           builder: (context) => NavigationFixture(state: state),
           capturePadding: 12,
           controls: _controls(false),
@@ -67,12 +67,14 @@ abstract final class NavigationComparison {
         ComparisonProperty.baseline,
       ],
     ),
-    for (final i in [0, 1])
+    for (final sampleIndex in [0, 1])
       ComparisonControl.type(
-        id: 'icon-$i',
-        webSelector: i == 0 ? '.icon:first-child' : '.icon:last-child',
+        id: 'icon-$sampleIndex',
+        webSelector: sampleIndex == 0
+            ? '.icon:first-child'
+            : '.icon:last-child',
         type: AppIcon,
-        index: i,
+        index: sampleIndex,
         properties: const [ComparisonProperty.rect],
       ),
   ];

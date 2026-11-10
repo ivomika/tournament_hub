@@ -28,19 +28,25 @@ class AppDialogMetrics extends ThemeExtension<AppDialogMetrics> {
     desktopTitleSize: desktopTitleSize ?? this.desktopTitleSize,
   );
   @override
-  AppDialogMetrics lerp(covariant AppDialogMetrics? other, double t) =>
-      other == null
-      ? this
-      : AppDialogMetrics(
-          desktopInset: desktopInset + (other.desktopInset - desktopInset) * t,
-          maxWidth: maxWidth + (other.maxWidth - maxWidth) * t,
-          mobileTitleLine:
-              mobileTitleLine + (other.mobileTitleLine - mobileTitleLine) * t,
-          desktopTitleLine:
-              desktopTitleLine +
-              (other.desktopTitleLine - desktopTitleLine) * t,
-          desktopTitleSize:
-              desktopTitleSize +
-              (other.desktopTitleSize - desktopTitleSize) * t,
-        );
+  AppDialogMetrics lerp(
+    covariant AppDialogMetrics? other,
+    double interpolationAmount,
+  ) {
+    if (other == null) return this;
+    return AppDialogMetrics(
+      desktopInset:
+          desktopInset +
+          (other.desktopInset - desktopInset) * interpolationAmount,
+      maxWidth: maxWidth + (other.maxWidth - maxWidth) * interpolationAmount,
+      mobileTitleLine:
+          mobileTitleLine +
+          (other.mobileTitleLine - mobileTitleLine) * interpolationAmount,
+      desktopTitleLine:
+          desktopTitleLine +
+          (other.desktopTitleLine - desktopTitleLine) * interpolationAmount,
+      desktopTitleSize:
+          desktopTitleSize +
+          (other.desktopTitleSize - desktopTitleSize) * interpolationAmount,
+    );
+  }
 }

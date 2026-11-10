@@ -22,42 +22,45 @@ class AppDialog extends StatelessWidget {
   final FocusNode? confirmFocus, cancelFocus;
   @override
   Widget build(BuildContext context) {
-    final t = AppDialogTheme.of(context);
+    final appearance = AppDialogTheme.of(context);
     return Semantics(
       namesRoute: true,
       scopesRoute: true,
       explicitChildNodes: true,
       label: title,
       child: ConstrainedBox(
-        constraints: BoxConstraints(maxWidth: t.maxWidth),
+        constraints: BoxConstraints(maxWidth: appearance.maxWidth),
         child: DecoratedBox(
           decoration: BoxDecoration(
-            color: t.background,
-            borderRadius: t.radius,
-            border: t.border,
-            boxShadow: t.shadows,
+            color: appearance.background,
+            borderRadius: appearance.radius,
+            border: appearance.border,
+            boxShadow: appearance.shadows,
           ),
           child: Padding(
-            padding: t.padding,
+            padding: appearance.padding,
             child: Column(
               mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: t.stretch,
+              crossAxisAlignment: appearance.stretch,
               children: [
                 Semantics(
                   header: true,
-                  child: Text(title, style: t.titleStyle),
+                  child: Text(title, style: appearance.titleStyle),
                 ),
-                SizedBox(height: t.gap),
-                if (leading != null) ...[leading!, SizedBox(height: t.gap)],
-                Text(content, style: t.bodyStyle),
-                SizedBox(height: t.gap + t.actionGap),
+                SizedBox(height: appearance.gap),
+                if (leading != null) ...[
+                  leading!,
+                  SizedBox(height: appearance.gap),
+                ],
+                Text(content, style: appearance.bodyStyle),
+                SizedBox(height: appearance.gap + appearance.actionGap),
                 AppButton(
                   label: confirmLabel,
                   kind: AppButtonKind.dialogDestructive,
                   onPressed: onConfirm,
                   focusNode: confirmFocus,
                 ),
-                SizedBox(height: t.actionGap),
+                SizedBox(height: appearance.actionGap),
                 AppButton(
                   label: cancelLabel,
                   kind: AppButtonKind.dialogCancel,

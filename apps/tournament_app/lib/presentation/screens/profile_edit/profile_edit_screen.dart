@@ -22,31 +22,34 @@ class ProfileEditScreen extends StatelessWidget {
   final ValueChanged<String>? onNameChanged;
   @override
   Widget build(BuildContext context) {
-    final t = ProfileEditScreenTheme.of(context),
-        l = FoundationLocalizations.of(context);
+    final appearance = ProfileEditScreenTheme.of(context),
+        localizations = FoundationLocalizations.of(context);
     return AppSimpleFormLayout(
       header: AppSectionHeader(
-        title: l.screenEditing,
-        backLabel: l.screenBack,
+        title: localizations.screenEditing,
+        backLabel: localizations.screenBack,
         onBack: onBack,
         action: AppHeaderAction(
           kind: AppHeaderActionKind.save,
-          label: l.screenSaveName,
+          label: localizations.screenSaveName,
           onPressed: onSave,
         ),
       ),
       form: Column(
-        crossAxisAlignment: t.stretch,
-        mainAxisSize: t.min,
+        crossAxisAlignment: appearance.stretch,
+        mainAxisSize: appearance.min,
         children: [
           AppField(
-            label: l.screenName,
+            label: localizations.screenName,
             controller: nameController,
             onChanged: onNameChanged,
           ),
           if (state.phase == ProfileEditPhase.saveError) ...[
-            SizedBox(height: t.small),
-            AppNotice(text: l.screenSaveError, kind: AppNoticeKind.inlineError),
+            SizedBox(height: appearance.small),
+            AppNotice(
+              text: localizations.screenSaveError,
+              kind: AppNoticeKind.inlineError,
+            ),
           ],
         ],
       ),

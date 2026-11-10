@@ -10,19 +10,24 @@ class SurfaceFixture extends StatelessWidget {
   final bool raised, nested;
   @override
   Widget build(BuildContext context) {
-    final t = Theme.of(context), l = FoundationLocalizations.of(context);
+    final appearance = Theme.of(context),
+        localizations = FoundationLocalizations.of(context);
     return AppSurface(
       tone: raised ? AppSurfaceTone.raised : AppSurfaceTone.adaptive,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           SizedBox(
-            width: t.extension<FoundationLayout>()!.fullWidth,
+            width: appearance.extension<FoundationLayout>()!.fullWidth,
             child: Text(
-              raised ? l.raisedSurfaceSample : l.surfaceSample,
-              style: t.textTheme.bodySmall!.copyWith(
-                color: t.colorScheme.onSurfaceVariant,
-                letterSpacing: t.extension<AppTypeRoles>()!.normalTracking,
+              raised
+                  ? localizations.raisedSurfaceSample
+                  : localizations.surfaceSample,
+              style: appearance.textTheme.bodySmall!.copyWith(
+                color: appearance.colorScheme.onSurfaceVariant,
+                letterSpacing: appearance
+                    .extension<AppTypeRoles>()!
+                    .normalTracking,
               ),
             ),
           ),
@@ -30,7 +35,10 @@ class SurfaceFixture extends StatelessWidget {
             AppSurface(
               tone: AppSurfaceTone.raised,
               shape: AppSurfaceShape.nested,
-              child: Text(l.surfaceLongSample, style: t.textTheme.bodySmall),
+              child: Text(
+                localizations.surfaceLongSample,
+                style: appearance.textTheme.bodySmall,
+              ),
             ),
         ],
       ),

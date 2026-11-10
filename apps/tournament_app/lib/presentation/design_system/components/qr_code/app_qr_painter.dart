@@ -17,8 +17,8 @@ class AppQrPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    final n = matrix.modules.length;
-    final unit = size.width / (n + theme.quietZone * 2);
+    final moduleCount = matrix.modules.length;
+    final unit = size.width / (moduleCount + theme.quietZone * 2);
     final ink = Paint()..color = theme.foreground;
     final paper = Paint()..color = theme.background;
     canvas.drawRect(Offset.zero & size, paper);
@@ -28,11 +28,11 @@ class AppQrPainter extends CustomPainter {
     final round = Radius.circular(theme.moduleRadius);
     final square = theme.squareRadius;
     final modulesPath = Path();
-    for (var row = 0; row < n; row++) {
-      for (var col = 0; col < n; col++) {
+    for (var row = 0; row < moduleCount; row++) {
+      for (var col = 0; col < moduleCount; col++) {
         // Finder patterns have standardized 7/5/3 geometry, styled below.
-        if ((row < 7 && (col < 7 || col >= n - 7)) ||
-            (row >= n - 7 && col < 7)) {
+        if ((row < 7 && (col < 7 || col >= moduleCount - 7)) ||
+            (row >= moduleCount - 7 && col < 7)) {
           continue;
         }
         if (!_dark(row, col)) continue;
@@ -58,8 +58,8 @@ class AppQrPainter extends CustomPainter {
     canvas.drawPath(modulesPath, ink);
     for (final origin in [
       (0.0, 0.0),
-      ((n - 7).toDouble(), 0.0),
-      (0.0, (n - 7).toDouble()),
+      ((moduleCount - 7).toDouble(), 0.0),
+      (0.0, (moduleCount - 7).toDouble()),
     ]) {
       canvas.drawRRect(
         RRect.fromRectAndRadius(

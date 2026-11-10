@@ -5,6 +5,16 @@ import 'package:tournament_app/presentation/widgetbook/comparison/comparison_spe
 import 'package:tournament_app/presentation/widgetbook/visual_viewport.dart';
 
 abstract final class NoticeComparison {
+  static String _resolveText(AppNoticeKind kind, bool long) {
+    if (kind != AppNoticeKind.information) {
+      return 'Не удалось сохранить. Повтори.';
+    }
+    if (long) {
+      return 'Bracket Reset включён всегда. Второй финал проводится при победе участника из нижней сетки.';
+    }
+    return 'Bracket Reset включён всегда.';
+  }
+
   static final spec = ComparisonSpec(
     component: 'notice',
     title: 'AppNotice',
@@ -33,11 +43,7 @@ abstract final class NoticeComparison {
                 ComparisonControl.text(
                   id: 'text',
                   webSelector: 'span',
-                  value: kind == AppNoticeKind.information
-                      ? (long
-                            ? 'Bracket Reset включён всегда. Второй финал проводится при победе участника из нижней сетки.'
-                            : 'Bracket Reset включён всегда.')
-                      : 'Не удалось сохранить. Повтори.',
+                  value: _resolveText(kind, long),
                   properties: const [
                     ComparisonProperty.rect,
                     ComparisonProperty.fontSize,

@@ -9,12 +9,15 @@ class AppStatusMetrics extends ThemeExtension<AppStatusMetrics> {
         inlineHeightBehavior: inlineHeightBehavior ?? this.inlineHeightBehavior,
       );
   @override
-  AppStatusMetrics lerp(covariant AppStatusMetrics? other, double t) =>
-      other == null
-      ? this
-      : AppStatusMetrics(
-          inlineHeightBehavior: t < .5
-              ? inlineHeightBehavior
-              : other.inlineHeightBehavior,
-        );
+  AppStatusMetrics lerp(
+    covariant AppStatusMetrics? other,
+    double interpolationAmount,
+  ) {
+    if (other == null) return this;
+    return AppStatusMetrics(
+      inlineHeightBehavior: interpolationAmount < .5
+          ? inlineHeightBehavior
+          : other.inlineHeightBehavior,
+    );
+  }
 }

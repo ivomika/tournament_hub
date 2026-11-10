@@ -39,13 +39,15 @@ abstract final class _QrEncodingTests {
     test(
       'same payload deterministic; different payload changes actual modules',
       () {
-        final a = AppQrMatrixEncoder.encode('http://host.local/spectator');
+        final original = AppQrMatrixEncoder.encode(
+          'http://host.local/spectator',
+        );
         final same = AppQrMatrixEncoder.encode('http://host.local/spectator');
         final changed = AppQrMatrixEncoder.encode(
           'http://host.local/spectator?session=other',
         );
-        expect(same.modules, a.modules);
-        expect(changed.modules, isNot(a.modules));
+        expect(same.modules, original.modules);
+        expect(changed.modules, isNot(original.modules));
       },
     );
     test(

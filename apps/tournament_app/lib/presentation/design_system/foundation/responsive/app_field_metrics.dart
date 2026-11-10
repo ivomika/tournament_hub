@@ -30,19 +30,28 @@ class AppFieldMetrics extends ThemeExtension<AppFieldMetrics> {
     start: start ?? this.start,
   );
   @override
-  AppFieldMetrics lerp(covariant AppFieldMetrics? other, double t) =>
-      other == null
-      ? this
-      : AppFieldMetrics(
-          mobileMessageHeight:
-              mobileMessageHeight +
-              (other.mobileMessageHeight - mobileMessageHeight) * t,
-          desktopMessageHeight:
-              desktopMessageHeight +
-              (other.desktopMessageHeight - desktopMessageHeight) * t,
-          singleLine: t < .5 ? singleLine : other.singleLine,
-          centerLeft: Alignment.lerp(centerLeft, other.centerLeft, t)!,
-          stretch: t < .5 ? stretch : other.stretch,
-          start: t < .5 ? start : other.start,
-        );
+  AppFieldMetrics lerp(
+    covariant AppFieldMetrics? other,
+    double interpolationAmount,
+  ) {
+    if (other == null) return this;
+    return AppFieldMetrics(
+      mobileMessageHeight:
+          mobileMessageHeight +
+          (other.mobileMessageHeight - mobileMessageHeight) *
+              interpolationAmount,
+      desktopMessageHeight:
+          desktopMessageHeight +
+          (other.desktopMessageHeight - desktopMessageHeight) *
+              interpolationAmount,
+      singleLine: interpolationAmount < .5 ? singleLine : other.singleLine,
+      centerLeft: Alignment.lerp(
+        centerLeft,
+        other.centerLeft,
+        interpolationAmount,
+      )!,
+      stretch: interpolationAmount < .5 ? stretch : other.stretch,
+      start: interpolationAmount < .5 ? start : other.start,
+    );
+  }
 }

@@ -8,19 +8,19 @@ class TableFixture extends StatelessWidget {
   final bool long;
   @override
   Widget build(BuildContext context) {
-    final l = FoundationLocalizations.of(context),
+    final localizations = FoundationLocalizations.of(context),
         colors = Theme.of(context).extension<AppStatusColors>()!;
     return AppDataTable(
-      caption: l.tableCaption,
+      caption: localizations.tableCaption,
       columns: [
-        AppTableColumn(label: l.tableParticipant),
+        AppTableColumn(label: localizations.tableParticipant),
         AppTableColumn(
-          label: l.tablePoints,
+          label: localizations.tablePoints,
           alignment: AppTableAlignment.trailing,
         ),
         AppTableColumn(
-          label: l.tableMatches,
-          semanticLabel: l.tableMatchesFull,
+          label: localizations.tableMatches,
+          semanticLabel: localizations.tableMatchesFull,
           alignment: AppTableAlignment.trailing,
         ),
       ],

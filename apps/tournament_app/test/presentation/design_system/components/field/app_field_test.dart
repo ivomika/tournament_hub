@@ -58,33 +58,37 @@ abstract final class _FieldTests {
   }
 
   static Future<void> _editing(WidgetTester tester) async {
-    final c = TextEditingController(text: 'Иван');
-    addTearDown(c.dispose);
+    final textController = TextEditingController(text: 'Иван');
+    addTearDown(textController.dispose);
     changed = null;
     await _pump(
       tester,
-      AppField(label: 'Имя', controller: c, onChanged: _changed),
+      AppField(label: 'Имя', controller: textController, onChanged: _changed),
     );
     await tester.enterText(find.byType(TextField), 'Александр');
-    expect(c.text, 'Александр');
+    expect(textController.text, 'Александр');
     expect(changed, 'Александр');
     await _pump(
       tester,
-      AppField(label: 'Название', controller: c, onChanged: _changed),
+      AppField(
+        label: 'Название',
+        controller: textController,
+        onChanged: _changed,
+      ),
     );
-    expect(c.text, 'Александр');
+    expect(textController.text, 'Александр');
   }
 
   static Future<void> _availability(WidgetTester tester) async {
-    final c = TextEditingController(text: 'Иван');
-    addTearDown(c.dispose);
+    final textController = TextEditingController(text: 'Иван');
+    addTearDown(textController.dispose);
     final semantics = tester.ensureSemantics();
 
     await _pump(
       tester,
       AppField(
         label: 'Имя',
-        controller: c,
+        controller: textController,
         readOnly: true,
         errorText: 'Проверь значение',
       ),
@@ -95,24 +99,27 @@ abstract final class _FieldTests {
     );
     expect(find.bySemanticsLabel('Имя'), findsWidgets);
     expect(find.text('Проверь значение'), findsOneWidget);
-    await _pump(tester, AppField(label: 'Имя', controller: c, enabled: false));
+    await _pump(
+      tester,
+      AppField(label: 'Имя', controller: textController, enabled: false),
+    );
     await tester.tap(find.byType(TextField));
     await tester.pump();
     expect(
       tester.widget<EditableText>(find.byType(EditableText)).focusNode.hasFocus,
       isFalse,
     );
-    expect(c.text, 'Иван');
+    expect(textController.text, 'Иван');
     semantics.dispose();
   }
 
   static Future<void> _theme(WidgetTester tester) async {
-    final c = TextEditingController(text: 'Иван');
-    addTearDown(c.dispose);
+    final textController = TextEditingController(text: 'Иван');
+    addTearDown(textController.dispose);
     final base = AppTheme.dark();
     await _pump(
       tester,
-      AppField(label: 'Имя', controller: c),
+      AppField(label: 'Имя', controller: textController),
       theme: base.copyWith(
         colorScheme: base.colorScheme.copyWith(
           onSurface: Colors.cyan,
@@ -123,16 +130,16 @@ abstract final class _FieldTests {
         ),
       ),
     );
-    final e = tester.widget<EditableText>(find.byType(EditableText));
-    expect(e.style.color, Colors.cyan);
-    expect(e.style.fontSize, 22);
+    final editableText = tester.widget<EditableText>(find.byType(EditableText));
+    expect(editableText.style.color, Colors.cyan);
+    expect(editableText.style.fontSize, 22);
     expect(
       tester
           .widgetList<DecoratedBox>(find.byType(DecoratedBox))
           .any(
-            (w) =>
-                w.decoration is BoxDecoration &&
-                (w.decoration as BoxDecoration).color == Colors.blue,
+            (textWidget) =>
+                textWidget.decoration is BoxDecoration &&
+                (textWidget.decoration as BoxDecoration).color == Colors.blue,
           ),
       isTrue,
     );

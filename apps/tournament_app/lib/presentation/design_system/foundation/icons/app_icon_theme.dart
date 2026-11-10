@@ -20,16 +20,20 @@ class AppIconTheme {
     AppIconTone tone,
   ) {
     final theme = Theme.of(context),
-        m = ThemeExtensions.require<AppIconMetrics>(Theme.of(context)),
-        g = ThemeExtensions.require<AppGlyphMetrics>(Theme.of(context));
+        iconMetrics = ThemeExtensions.require<AppIconMetrics>(
+          Theme.of(context),
+        ),
+        glyphMetrics = ThemeExtensions.require<AppGlyphMetrics>(
+          Theme.of(context),
+        );
     return AppIconTheme(
       extent: switch (size) {
-        AppIconSize.small => m.small,
-        AppIconSize.medium => m.medium,
-        AppIconSize.standard => m.standard,
-        AppIconSize.large => m.large,
-        AppIconSize.display => m.display,
-        AppIconSize.hero => m.hero,
+        AppIconSize.small => iconMetrics.small,
+        AppIconSize.medium => iconMetrics.medium,
+        AppIconSize.standard => iconMetrics.standard,
+        AppIconSize.large => iconMetrics.large,
+        AppIconSize.display => iconMetrics.display,
+        AppIconSize.hero => iconMetrics.hero,
       },
       color: switch (tone) {
         AppIconTone.primary => theme.colorScheme.onSurface,
@@ -37,8 +41,8 @@ class AppIconTheme {
         AppIconTone.onAccent => theme.colorScheme.onPrimary,
         AppIconTone.error => theme.colorScheme.error,
       },
-      stroke: g.stroke,
-      grid: g.grid,
+      stroke: glyphMetrics.stroke,
+      grid: glyphMetrics.grid,
     );
   }
   final double extent, stroke, grid;

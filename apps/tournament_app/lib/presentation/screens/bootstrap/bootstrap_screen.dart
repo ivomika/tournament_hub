@@ -19,82 +19,90 @@ class BootstrapScreen extends StatelessWidget {
   final VoidCallback? onRetry;
   @override
   Widget build(BuildContext context) {
-    final t = BootstrapScreenTheme.of(context),
-        l = FoundationLocalizations.of(context);
+    final appearance = BootstrapScreenTheme.of(context),
+        localizations = FoundationLocalizations.of(context);
     final brand = Column(
-      mainAxisSize: t.min,
-      crossAxisAlignment: t.start,
+      mainAxisSize: appearance.min,
+      crossAxisAlignment: appearance.start,
       children: [
         SizedBox(
-          width: t.markWidth,
-          height: t.markHeight,
-          child: ColoredBox(color: t.accentLogo.color!),
+          width: appearance.markWidth,
+          height: appearance.markHeight,
+          child: ColoredBox(color: appearance.accentLogo.color!),
         ),
-        SizedBox(height: t.small),
-        Text(l.screenBrand, style: t.logo),
-        Text(l.screenBrandAccent, style: t.accentLogo),
+        SizedBox(height: appearance.small),
+        Text(localizations.screenBrand, style: appearance.logo),
+        Text(localizations.screenBrandAccent, style: appearance.accentLogo),
       ],
     );
     final cue = Column(
-      mainAxisSize: t.min,
-      crossAxisAlignment: t.start,
+      mainAxisSize: appearance.min,
+      crossAxisAlignment: appearance.start,
       children: [
         if (state.phase == BootstrapPhase.error)
           SizedBox(
-            width: t.errorSize,
-            height: t.errorSize,
-            child: FittedBox(child: AppIcon(AppGlyph.alert, color: t.error)),
+            width: appearance.errorSize,
+            height: appearance.errorSize,
+            child: FittedBox(
+              child: AppIcon(AppGlyph.alert, color: appearance.error),
+            ),
           )
         else
-          AppProgressIndicator(semanticLabel: l.screenBootPreparing),
-        SizedBox(height: t.small),
+          AppProgressIndicator(
+            semanticLabel: localizations.screenBootPreparing,
+          ),
+        SizedBox(height: appearance.small),
         Text(
           state.phase == BootstrapPhase.error
-              ? l.screenBootError
-              : l.screenBootPreparing,
-          style: t.muted,
-          textAlign: t.leftText,
+              ? localizations.screenBootError
+              : localizations.screenBootPreparing,
+          style: appearance.muted,
+          textAlign: appearance.leftText,
         ),
       ],
     );
-    final action = state.phase == BootstrapPhase.loading
-        ? null
-        : AppButton(
-            label: state.phase == BootstrapPhase.error
-                ? l.screenRetry
-                : l.screenBootRetrying,
-            onPressed: state.phase == BootstrapPhase.error ? onRetry : null,
-          );
+    Widget? action;
+    if (state.phase != BootstrapPhase.loading) {
+      action = AppButton(
+        label: state.phase == BootstrapPhase.error
+            ? localizations.screenRetry
+            : localizations.screenBootRetrying,
+        onPressed: state.phase == BootstrapPhase.error ? onRetry : null,
+      );
+    }
     return AppScreenCanvas(
-      child: t.desktop
+      child: appearance.desktop
           ? Row(
               children: [
                 Expanded(
-                  flex: t.primaryFlex,
+                  flex: appearance.primaryFlex,
                   child: Align(
-                    alignment: t.centerLeft,
+                    alignment: appearance.centerLeft,
                     child: SingleChildScrollView(child: brand),
                   ),
                 ),
-                SizedBox(width: t.gap),
+                SizedBox(width: appearance.gap),
                 Expanded(
-                  flex: t.secondaryFlex,
+                  flex: appearance.secondaryFlex,
                   child: SizedBox(
-                    height: t.utilityHeight,
+                    height: appearance.utilityHeight,
                     child: AppScreenTile(
                       child: Column(
-                        crossAxisAlignment: t.stretch,
+                        crossAxisAlignment: appearance.stretch,
                         children: [
                           Expanded(
                             child: Align(
-                              alignment: t.centerLeft,
+                              alignment: appearance.centerLeft,
                               child: SingleChildScrollView(
-                                child: SizedBox(width: t.fullWidth, child: cue),
+                                child: SizedBox(
+                                  width: appearance.fullWidth,
+                                  child: cue,
+                                ),
                               ),
                             ),
                           ),
                           if (action != null) ...[
-                            SizedBox(height: t.gap),
+                            SizedBox(height: appearance.gap),
                             action,
                           ],
                         ],
@@ -105,25 +113,30 @@ class BootstrapScreen extends StatelessWidget {
               ],
             )
           : Column(
-              crossAxisAlignment: t.stretch,
+              crossAxisAlignment: appearance.stretch,
               children: [
                 Expanded(
                   child: SingleChildScrollView(
                     child: Column(
-                      crossAxisAlignment: t.stretch,
+                      crossAxisAlignment: appearance.stretch,
                       children: [
-                        SizedBox(height: t.top),
+                        SizedBox(height: appearance.top),
                         ConstrainedBox(
-                          constraints: BoxConstraints(minHeight: t.blockHeight),
+                          constraints: BoxConstraints(
+                            minHeight: appearance.blockHeight,
+                          ),
                           child: brand,
                         ),
-                        SizedBox(height: t.blockGap),
+                        SizedBox(height: appearance.blockGap),
                         cue,
                       ],
                     ),
                   ),
                 ),
-                if (action != null) ...[SizedBox(height: t.gap), action],
+                if (action != null) ...[
+                  SizedBox(height: appearance.gap),
+                  action,
+                ],
               ],
             ),
     );

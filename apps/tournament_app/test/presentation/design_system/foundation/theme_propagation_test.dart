@@ -118,7 +118,8 @@ abstract final class _ThemePropagationTests {
     final replacement = base.copyWith(
       extensions: [
         ...base.extensions.values.where(
-          (e) => e is! FoundationLayout && e is! AppStatusColors,
+          (extension) =>
+              extension is! FoundationLayout && extension is! AppStatusColors,
         ),
         base.extension<FoundationLayout>()!.copyWith(
           pagePadding: const EdgeInsets.all(37),

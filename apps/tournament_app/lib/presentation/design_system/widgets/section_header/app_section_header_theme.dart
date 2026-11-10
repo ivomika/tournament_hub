@@ -7,20 +7,24 @@ import 'package:tournament_app/presentation/design_system/foundation/responsive/
 
 class AppSectionHeaderTheme {
   AppSectionHeaderTheme.of(BuildContext context) {
-    final t = Theme.of(context),
-        s = t.extension<AppSpacing>()!,
-        r = t.extension<AppResponsive>()!,
-        desktop = MediaQuery.sizeOf(context).width > r.mobileToDesktopWidth;
-    slot = desktop ? r.compactControlHeight : r.touchControlHeight;
-    gap = s.space8;
+    final runtimeTheme = Theme.of(context),
+        runtimeSpacing = runtimeTheme.extension<AppSpacing>()!,
+        runtimeResponsive = runtimeTheme.extension<AppResponsive>()!,
+        desktop =
+            MediaQuery.sizeOf(context).width >
+            runtimeResponsive.mobileToDesktopWidth;
+    slot = desktop
+        ? runtimeResponsive.compactControlHeight
+        : runtimeResponsive.touchControlHeight;
+    gap = runtimeSpacing.space8;
     style =
         (desktop
-                ? AppTextStyles(t).comfortableHeader
-                : AppTextStyles(t).compactHeader)
-            .copyWith(color: t.colorScheme.onSurface);
+                ? AppTextStyles(runtimeTheme).comfortableHeader
+                : AppTextStyles(runtimeTheme).compactHeader)
+            .copyWith(color: runtimeTheme.colorScheme.onSurface);
     textAlign = desktop
-        ? t.extension<AppIdentityMetrics>()!.textLeading
-        : t.extension<AppMetricMetrics>()!.centerText;
+        ? runtimeTheme.extension<AppIdentityMetrics>()!.textLeading
+        : runtimeTheme.extension<AppMetricMetrics>()!.centerText;
   }
   late final double slot, gap;
   late final TextStyle style;

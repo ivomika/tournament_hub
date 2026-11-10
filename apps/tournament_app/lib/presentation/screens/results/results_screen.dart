@@ -25,12 +25,12 @@ class ResultsScreen extends StatelessWidget {
   final VoidCallback? onBack, onShare, onBracket, onHome;
   @override
   Widget build(BuildContext context) {
-    final t = ResultsScreenTheme.of(context),
-        l = FoundationLocalizations.of(context);
+    final appearance = ResultsScreenTheme.of(context),
+        localizations = FoundationLocalizations.of(context);
     final featured = state.featured, explanation = state.explanation;
     final ranking = Column(
-      mainAxisSize: t.min,
-      crossAxisAlignment: t.stretch,
+      mainAxisSize: appearance.min,
+      crossAxisAlignment: appearance.stretch,
       children: [
         AppRankingRow(
           featured: true,
@@ -41,11 +41,12 @@ class ResultsScreen extends StatelessWidget {
           placement: state.valuePlacement,
         ),
         for (final group in state.groups) ...[
-          SizedBox(height: t.gap),
+          SizedBox(height: appearance.gap),
           AppAdaptiveGrid(
-            columns: t.desktop && group.layout == RankingGroupLayout.paired
-                ? t.gridColumns
-                : t.stackColumns,
+            columns:
+                appearance.desktop && group.layout == RankingGroupLayout.paired
+                ? appearance.gridColumns
+                : appearance.stackColumns,
             children: [
               for (final entry in group.entries)
                 AppRankingRow(
@@ -61,23 +62,23 @@ class ResultsScreen extends StatelessWidget {
       ],
     );
     final contextCard = Column(
-      mainAxisSize: t.min,
-      crossAxisAlignment: t.stretch,
+      mainAxisSize: appearance.min,
+      crossAxisAlignment: appearance.stretch,
       children: [
-        Text(state.title, style: t.contextTitle),
-        SizedBox(height: t.small),
-        Text(state.meta, style: t.caption),
+        Text(state.title, style: appearance.contextTitle),
+        SizedBox(height: appearance.small),
+        Text(state.meta, style: appearance.caption),
       ],
     );
     final links = Column(
-      mainAxisSize: t.min,
-      crossAxisAlignment: t.stretch,
+      mainAxisSize: appearance.min,
+      crossAxisAlignment: appearance.stretch,
       children: [
         if (state.hasBracket)
           AppScreenTile(
-            padding: t.linkPadding,
+            padding: appearance.linkPadding,
             child: AppButton(
-              label: l.screenViewBracket,
+              label: localizations.screenViewBracket,
               kind: AppButtonKind.textLink,
               glyph: AppGlyph.chevron,
               onPressed: onBracket,
@@ -89,53 +90,53 @@ class ResultsScreen extends StatelessWidget {
               title: explanation.title,
               expanded: explanation.expanded,
               onToggle: explanation.onToggle,
-              child: Text(explanation.text, style: t.caption),
+              child: Text(explanation.text, style: appearance.caption),
             ),
           ),
       ],
     );
     final home = AppButton(
-      label: l.screenHome,
+      label: localizations.screenHome,
       glyph: AppGlyph.arrow,
       onPressed: onHome,
     );
     return AppScreenCanvas(
       scrollDesktop: true,
       child: Column(
-        crossAxisAlignment: t.stretch,
+        crossAxisAlignment: appearance.stretch,
         children: [
           AppSectionHeader(
-            title: l.screenResults,
-            backLabel: l.screenBack,
+            title: localizations.screenResults,
+            backLabel: localizations.screenBack,
             onBack: onBack,
             action: AppHeaderAction(
               kind: AppHeaderActionKind.share,
-              label: l.screenSpectators,
+              label: localizations.screenSpectators,
               onPressed: onShare,
             ),
           ),
-          SizedBox(height: t.gap),
+          SizedBox(height: appearance.gap),
           Expanded(
-            child: t.desktop
+            child: appearance.desktop
                 ? Row(
-                    crossAxisAlignment: t.stretch,
+                    crossAxisAlignment: appearance.stretch,
                     children: [
                       Expanded(
-                        flex: t.homePrimaryFlex,
+                        flex: appearance.homePrimaryFlex,
                         child: SingleChildScrollView(child: ranking),
                       ),
-                      SizedBox(width: t.gap),
+                      SizedBox(width: appearance.gap),
                       Expanded(
                         child: Column(
-                          crossAxisAlignment: t.stretch,
+                          crossAxisAlignment: appearance.stretch,
                           children: [
                             ConstrainedBox(
                               constraints: BoxConstraints(
-                                minHeight: t.rankFeaturedHeight,
+                                minHeight: appearance.rankFeaturedHeight,
                               ),
                               child: AppScreenTile(child: contextCard),
                             ),
-                            SizedBox(height: t.gap),
+                            SizedBox(height: appearance.gap),
                             links,
                             const Spacer(),
                             home,
@@ -145,23 +146,23 @@ class ResultsScreen extends StatelessWidget {
                     ],
                   )
                 : Column(
-                    crossAxisAlignment: t.stretch,
+                    crossAxisAlignment: appearance.stretch,
                     children: [
                       Expanded(
                         child: SingleChildScrollView(
                           child: Column(
-                            crossAxisAlignment: t.stretch,
+                            crossAxisAlignment: appearance.stretch,
                             children: [
                               contextCard,
-                              SizedBox(height: t.gap),
+                              SizedBox(height: appearance.gap),
                               ranking,
-                              SizedBox(height: t.gap),
+                              SizedBox(height: appearance.gap),
                               links,
                             ],
                           ),
                         ),
                       ),
-                      SizedBox(height: t.gap),
+                      SizedBox(height: appearance.gap),
                       home,
                     ],
                   ),

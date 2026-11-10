@@ -19,16 +19,16 @@ class WithdrawScreen extends StatelessWidget {
   final VoidCallback? onConfirm, onCancel;
   @override
   Widget build(BuildContext context) {
-    final t = WithdrawScreenTheme.of(context),
-        l = FoundationLocalizations.of(context);
+    final appearance = WithdrawScreenTheme.of(context),
+        localizations = FoundationLocalizations.of(context);
     return AppModalCanvas(
-      theme: t,
+      theme: appearance,
       underlay: Column(
-        crossAxisAlignment: t.stretch,
+        crossAxisAlignment: appearance.stretch,
         children: [
           AppSectionHeader(
-            title: l.screenTournament,
-            backLabel: l.screenBack,
+            title: localizations.screenTournament,
+            backLabel: localizations.screenBack,
             onBack: onCancel,
           ),
         ],
@@ -36,8 +36,8 @@ class WithdrawScreen extends StatelessWidget {
       child: AppDialog(
         title: state.title,
         content: state.description,
-        confirmLabel: l.screenWithdrawAction,
-        cancelLabel: l.screenCancel,
+        confirmLabel: localizations.screenWithdrawAction,
+        cancelLabel: localizations.screenCancel,
         onConfirm: onConfirm,
         onCancel: onCancel,
         leading: AppIdentity(

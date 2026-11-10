@@ -5,14 +5,16 @@ import 'package:tournament_app/presentation/design_system/foundation/spacing/app
 
 class HomeScreenTheme extends AppScreenLayoutTheme {
   HomeScreenTheme.of(BuildContext context) : super.of(context) {
-    final s = Theme.of(context).extension<AppSpacing>()!;
-    emptyPadding = EdgeInsets.all(desktop ? simplePadding : s.space0);
-    emptyActionPadding = EdgeInsets.only(
-      left: desktop ? s.space32 : s.space0,
-      right: desktop ? s.space32 : s.space0,
-      bottom: desktop ? s.space32 : s.space0,
+    final runtimeSpacing = Theme.of(context).extension<AppSpacing>()!;
+    emptyPadding = EdgeInsets.all(
+      desktop ? simplePadding : runtimeSpacing.space0,
     );
-    ornamentLine = s.space48;
+    emptyActionPadding = EdgeInsets.only(
+      left: desktop ? runtimeSpacing.space32 : runtimeSpacing.space0,
+      right: desktop ? runtimeSpacing.space32 : runtimeSpacing.space0,
+      bottom: desktop ? runtimeSpacing.space32 : runtimeSpacing.space0,
+    );
+    ornamentLine = runtimeSpacing.space48;
     ornamentColor = Theme.of(context).colorScheme.outline;
     trophySize = AppIconSize.large;
     homeGap = desktop

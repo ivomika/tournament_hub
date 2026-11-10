@@ -12,26 +12,31 @@ class BracketFixture extends StatelessWidget {
   final AppBracketState state;
   final bool disabled, long;
   void _open() {}
+  AppBracketSlot _resolveFirst(FoundationLocalizations localizations) {
+    if (state == AppBracketState.pending) {
+      return AppBracketPlaceholder(localizations.bracketUnknownFirst);
+    }
+    return AppBracketParticipant(
+      primary: 'Sub-Zero',
+      secondary: long ? 'Александр Константинопольский' : 'Иван',
+      initials: 'SZ',
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    final l = FoundationLocalizations.of(context);
+    final localizations = FoundationLocalizations.of(context);
     return AppBracketNode(
       label: switch (state) {
-        AppBracketState.ready => l.bracketReady,
-        AppBracketState.current => l.bracketCurrent,
-        AppBracketState.pending => l.bracketPending,
+        AppBracketState.ready => localizations.bracketReady,
+        AppBracketState.current => localizations.bracketCurrent,
+        AppBracketState.pending => localizations.bracketPending,
       },
       state: state,
       onPressed: disabled ? null : _open,
-      first: state == AppBracketState.pending
-          ? AppBracketPlaceholder(l.bracketUnknownFirst)
-          : AppBracketParticipant(
-              primary: 'Sub-Zero',
-              secondary: long ? 'Александр Константинопольский' : 'Иван',
-              initials: 'SZ',
-            ),
+      first: _resolveFirst(localizations),
       second: state == AppBracketState.pending
-          ? AppBracketPlaceholder(l.bracketUnknownSecond)
+          ? AppBracketPlaceholder(localizations.bracketUnknownSecond)
           : const AppBracketParticipant(
               primary: 'Scorpion',
               secondary: 'Алексей',

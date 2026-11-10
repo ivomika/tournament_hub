@@ -40,21 +40,25 @@ class AppShape extends ThemeExtension<AppShape> {
     sheet: sheet ?? this.sheet,
   );
   @override
-  AppShape lerp(covariant AppShape? other, double t) {
+  AppShape lerp(covariant AppShape? other, double interpolationAmount) {
     if (other == null) return this;
     return AppShape(
-      control: BorderRadius.lerp(control, other.control, t)!,
-      nested: BorderRadius.lerp(nested, other.nested, t)!,
+      control: BorderRadius.lerp(control, other.control, interpolationAmount)!,
+      nested: BorderRadius.lerp(nested, other.nested, interpolationAmount)!,
       desktopSurface: BorderRadius.lerp(
         desktopSurface,
         other.desktopSurface,
-        t,
+        interpolationAmount,
       )!,
-      avatarTile: BorderRadius.lerp(avatarTile, other.avatarTile, t)!,
-      surface: BorderRadius.lerp(surface, other.surface, t)!,
-      panel: BorderRadius.lerp(panel, other.panel, t)!,
-      pill: BorderRadius.lerp(pill, other.pill, t)!,
-      sheet: BorderRadius.lerp(sheet, other.sheet, t)!,
+      avatarTile: BorderRadius.lerp(
+        avatarTile,
+        other.avatarTile,
+        interpolationAmount,
+      )!,
+      surface: BorderRadius.lerp(surface, other.surface, interpolationAmount)!,
+      panel: BorderRadius.lerp(panel, other.panel, interpolationAmount)!,
+      pill: BorderRadius.lerp(pill, other.pill, interpolationAmount)!,
+      sheet: BorderRadius.lerp(sheet, other.sheet, interpolationAmount)!,
     );
   }
 }

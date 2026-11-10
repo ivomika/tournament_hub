@@ -240,7 +240,9 @@ abstract final class _RosterTests {
     final theme = base.copyWith(
       colorScheme: base.colorScheme.copyWith(onSurface: Colors.cyan),
       extensions: [
-        ...base.extensions.values.where((e) => e is! AppRosterMetrics),
+        ...base.extensions.values.where(
+          (extension) => extension is! AppRosterMetrics,
+        ),
         base.extension<AppRosterMetrics>()!.copyWith(cardHeight: 240),
       ],
     );

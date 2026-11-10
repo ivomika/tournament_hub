@@ -16,25 +16,25 @@ class HeaderFixture extends StatelessWidget {
   void _action() {}
   @override
   Widget build(BuildContext context) {
-    final l = FoundationLocalizations.of(context);
+    final localizations = FoundationLocalizations.of(context);
     return AppSectionHeader(
       title: switch (sample) {
-        HeaderSample.back => l.headerNew,
-        HeaderSample.long => l.headerLong,
-        HeaderSample.save => l.headerEditing,
-        HeaderSample.edit => l.headerProfile,
+        HeaderSample.back => localizations.headerNew,
+        HeaderSample.long => localizations.headerLong,
+        HeaderSample.save => localizations.headerEditing,
+        HeaderSample.edit => localizations.headerProfile,
       },
-      backLabel: l.headerBack,
+      backLabel: localizations.headerBack,
       onBack: disabled ? null : _back,
       action: switch (sample) {
         HeaderSample.save => AppHeaderAction(
           kind: AppHeaderActionKind.save,
-          label: l.headerSave,
+          label: localizations.headerSave,
           onPressed: disabled ? null : _action,
         ),
         HeaderSample.edit => AppHeaderAction(
           kind: AppHeaderActionKind.edit,
-          label: l.headerEdit,
+          label: localizations.headerEdit,
           onPressed: disabled ? null : _action,
         ),
         _ => null,

@@ -81,9 +81,11 @@ abstract final class _QrTests {
         format: ui.ImageByteFormat.rawRgba,
       ))!.buffer.asUint8List();
       final pixels = Int32List(image.width * image.height);
-      for (var i = 0; i < pixels.length; i++) {
-        pixels[i] =
-            (bytes[i * 4] << 16) | (bytes[i * 4 + 1] << 8) | bytes[i * 4 + 2];
+      for (var pixelIndex = 0; pixelIndex < pixels.length; pixelIndex++) {
+        pixels[pixelIndex] =
+            (bytes[pixelIndex * 4] << 16) |
+            (bytes[pixelIndex * 4 + 1] << 8) |
+            bytes[pixelIndex * 4 + 2];
       }
       final decoded = QRCodeReader().decode(
         BinaryBitmap(

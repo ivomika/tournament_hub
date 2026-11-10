@@ -12,52 +12,59 @@ class AppSimpleFormLayout extends StatelessWidget {
   });
   final Widget header, form;
   final Widget? intro, footer;
+  double _resolveMaxWidth(AppScreenLayoutTheme theme) {
+    if (!theme.desktop) return theme.formWidth;
+    if (intro == null) return theme.utilityWidth;
+    return theme.simpleWidth;
+  }
+
   @override
   Widget build(BuildContext context) {
-    final t = AppScreenLayoutTheme.of(context);
+    final appearance = AppScreenLayoutTheme.of(context);
     return AppScreenCanvas(
       child: Column(
-        crossAxisAlignment: t.stretch,
+        crossAxisAlignment: appearance.stretch,
         children: [
           header,
-          SizedBox(height: t.gap),
+          SizedBox(height: appearance.gap),
           Expanded(
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  if (t.desktop) SizedBox(height: t.utilityTop),
+                  if (appearance.desktop)
+                    SizedBox(height: appearance.utilityTop),
                   ConstrainedBox(
                     constraints: BoxConstraints(
-                      maxWidth: t.desktop
-                          ? (intro == null ? t.utilityWidth : t.simpleWidth)
-                          : t.formWidth,
+                      maxWidth: _resolveMaxWidth(appearance),
                     ),
                     child: DecoratedBox(
                       decoration: BoxDecoration(
-                        color: t.desktop ? t.surface : t.background,
-                        borderRadius: t.radius,
+                        color: appearance.desktop
+                            ? appearance.surface
+                            : appearance.background,
+                        borderRadius: appearance.radius,
                       ),
                       child: Padding(
-                        padding: t.desktop
-                            ? EdgeInsets.all(t.simplePadding)
-                            : EdgeInsets.all(t.zero),
-                        child: t.desktop && intro != null
+                        padding: appearance.desktop
+                            ? EdgeInsets.all(appearance.simplePadding)
+                            : EdgeInsets.all(appearance.zero),
+                        child: appearance.desktop && intro != null
                             ? Row(
-                                crossAxisAlignment: t.start,
+                                crossAxisAlignment: appearance.start,
                                 children: [
                                   Expanded(
-                                    flex: t.simpleIntroFlex,
+                                    flex: appearance.simpleIntroFlex,
                                     child: intro!,
                                   ),
-                                  SizedBox(width: t.gap),
+                                  SizedBox(width: appearance.gap),
                                   Expanded(
-                                    flex: t.simpleFormFlex,
+                                    flex: appearance.simpleFormFlex,
                                     child: Column(
-                                      crossAxisAlignment: t.stretch,
+                                      crossAxisAlignment: appearance.stretch,
                                       children: [
                                         form,
                                         if (footer != null) ...[
-                                          SizedBox(height: t.gap),
+                                          SizedBox(height: appearance.gap),
                                           footer!,
                                         ],
                                       ],
@@ -66,15 +73,15 @@ class AppSimpleFormLayout extends StatelessWidget {
                                 ],
                               )
                             : Column(
-                                crossAxisAlignment: t.stretch,
+                                crossAxisAlignment: appearance.stretch,
                                 children: [
                                   if (intro != null) ...[
                                     intro!,
-                                    SizedBox(height: t.gap),
+                                    SizedBox(height: appearance.gap),
                                   ],
                                   form,
-                                  if (t.desktop && footer != null) ...[
-                                    SizedBox(height: t.gap),
+                                  if (appearance.desktop && footer != null) ...[
+                                    SizedBox(height: appearance.gap),
                                     footer!,
                                   ],
                                 ],
@@ -86,8 +93,8 @@ class AppSimpleFormLayout extends StatelessWidget {
               ),
             ),
           ),
-          if (!t.desktop && footer != null) ...[
-            SizedBox(height: t.gap),
+          if (!appearance.desktop && footer != null) ...[
+            SizedBox(height: appearance.gap),
             footer!,
           ],
         ],

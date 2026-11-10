@@ -4,15 +4,16 @@ import 'package:tournament_app/presentation/design_system/foundation/spacing/app
 
 class ResultsScreenTheme extends AppScreenLayoutTheme {
   ResultsScreenTheme.of(BuildContext context) : super.of(context) {
-    final t = Theme.of(context), s = t.extension<AppSpacing>()!;
-    contextTitle = t.textTheme.headlineLarge!.copyWith(
+    final appearance = Theme.of(context),
+        runtimeSpacing = appearance.extension<AppSpacing>()!;
+    contextTitle = appearance.textTheme.headlineLarge!.copyWith(
       fontSize: desktop
           ? resultsContextTitleSize
-          : t.textTheme.titleLarge!.fontSize,
+          : appearance.textTheme.titleLarge!.fontSize,
     );
     linkPadding = EdgeInsets.symmetric(
-      horizontal: s.space24,
-      vertical: s.space4,
+      horizontal: runtimeSpacing.space24,
+      vertical: runtimeSpacing.space4,
     );
   }
   late final TextStyle contextTitle;

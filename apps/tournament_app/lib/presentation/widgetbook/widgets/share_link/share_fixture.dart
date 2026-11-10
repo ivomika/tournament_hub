@@ -8,13 +8,13 @@ class ShareFixture extends StatelessWidget {
   void _copy() {}
   @override
   Widget build(BuildContext context) {
-    final l = FoundationLocalizations.of(context);
+    final localizations = FoundationLocalizations.of(context);
     return AppShareLink(
-      role: l.shareRole,
+      role: localizations.shareRole,
       address: long
           ? 'http://host.local/spectator/tournament-with-a-long-session-address'
           : 'http://host.local/spectator',
-      copyLabel: l.shareCopy,
+      copyLabel: localizations.shareCopy,
       onCopy: disabled ? null : _copy,
     );
   }

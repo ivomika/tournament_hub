@@ -100,7 +100,7 @@ abstract final class _MotionTests {
     final base = AppTheme.dark();
     final theme = base.copyWith(
       extensions: [
-        ...base.extensions.values.where((e) => e is! AppMotion),
+        ...base.extensions.values.where((extension) => extension is! AppMotion),
         base.extension<AppMotion>()!.copyWith(
           reveal: const Duration(milliseconds: 320),
           curve: Curves.linear,

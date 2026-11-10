@@ -8,37 +8,39 @@ import 'package:tournament_app/presentation/design_system/foundation/responsive/
 
 class AppQrCodeTheme {
   AppQrCodeTheme.of(BuildContext context) {
-    final t = Theme.of(context),
-        s = t.extension<AppSpacing>()!,
-        m = t.extension<AppQrMetrics>()!,
-        r = t.extension<AppResponsive>()!,
-        roles = t.extension<AppTypeRoles>()!;
-    moduleRadius = m.moduleRadius;
-    finderOuterRadius = m.finderOuterRadius;
-    finderGapRadius = m.finderGapRadius;
-    finderCenterRadius = m.finderCenterRadius;
-    quietZone = m.quietZone;
-    extent = MediaQuery.sizeOf(context).width > r.mobileToDesktopWidth
-        ? m.desktopExtent
-        : m.mobileExtent;
-    squareRadius = Radius.circular(s.space0);
-    aspectRatio = m.aspectRatio;
-    codeFit = m.codeFit;
-    blendMode = m.blendMode;
-    background = t.colorScheme.onSurface;
-    foreground = t.scaffoldBackgroundColor;
-    radius = t.extension<AppShape>()!.panel;
+    final runtimeTheme = Theme.of(context),
+        runtimeSpacing = runtimeTheme.extension<AppSpacing>()!,
+        runtimeQrMetrics = runtimeTheme.extension<AppQrMetrics>()!,
+        runtimeResponsive = runtimeTheme.extension<AppResponsive>()!,
+        roles = runtimeTheme.extension<AppTypeRoles>()!;
+    moduleRadius = runtimeQrMetrics.moduleRadius;
+    finderOuterRadius = runtimeQrMetrics.finderOuterRadius;
+    finderGapRadius = runtimeQrMetrics.finderGapRadius;
+    finderCenterRadius = runtimeQrMetrics.finderCenterRadius;
+    quietZone = runtimeQrMetrics.quietZone;
+    extent =
+        MediaQuery.sizeOf(context).width >
+            runtimeResponsive.mobileToDesktopWidth
+        ? runtimeQrMetrics.desktopExtent
+        : runtimeQrMetrics.mobileExtent;
+    squareRadius = Radius.circular(runtimeSpacing.space0);
+    aspectRatio = runtimeQrMetrics.aspectRatio;
+    codeFit = runtimeQrMetrics.codeFit;
+    blendMode = runtimeQrMetrics.blendMode;
+    background = runtimeTheme.colorScheme.onSurface;
+    foreground = runtimeTheme.scaffoldBackgroundColor;
+    radius = runtimeTheme.extension<AppShape>()!.panel;
     codeStyle = roles.score.copyWith(
-      fontSize: t.textTheme.titleLarge!.fontSize,
-      height: m.codeLine,
+      fontSize: runtimeTheme.textTheme.titleLarge!.fontSize,
+      height: runtimeQrMetrics.codeLine,
       color: foreground,
     );
     codePadding = EdgeInsets.only(
-      left: s.space16,
-      right: s.space16,
-      bottom: s.space24,
+      left: runtimeSpacing.space16,
+      right: runtimeSpacing.space16,
+      bottom: runtimeSpacing.space24,
     );
-    stretch = t.extension<AppFieldMetrics>()!.stretch;
+    stretch = runtimeTheme.extension<AppFieldMetrics>()!.stretch;
   }
   late final double moduleRadius,
       finderOuterRadius,

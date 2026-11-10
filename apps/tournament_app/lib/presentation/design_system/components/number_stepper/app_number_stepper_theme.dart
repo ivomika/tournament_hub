@@ -13,43 +13,46 @@ import 'package:tournament_app/presentation/design_system/foundation/typography/
 
 class AppNumberStepperTheme {
   AppNumberStepperTheme.of(BuildContext context) {
-    final t = Theme.of(context),
-        s = t.extension<AppSpacing>()!,
-        m = t.extension<AppStepperMetrics>()!,
-        c = t.extension<AppControlMetrics>()!;
-    final b = t.extension<AppBorderMetrics>()!;
-    focusWidth = b.highContrastFocus;
-    focusOffset = b.focusOffset;
-    focusColor = t.focusColor;
-    half = c.half;
-    contentHeightFactor = c.half + c.half;
-    height = t.extension<AppResponsive>()!.touchControlHeight;
+    final runtimeTheme = Theme.of(context),
+        runtimeSpacing = runtimeTheme.extension<AppSpacing>()!,
+        runtimeStepperMetrics = runtimeTheme.extension<AppStepperMetrics>()!,
+        runtimeControlMetrics = runtimeTheme.extension<AppControlMetrics>()!;
+    final runtimeBorderMetrics = runtimeTheme.extension<AppBorderMetrics>()!;
+    focusWidth = runtimeBorderMetrics.highContrastFocus;
+    focusOffset = runtimeBorderMetrics.focusOffset;
+    focusColor = runtimeTheme.focusColor;
+    half = runtimeControlMetrics.half;
+    contentHeightFactor =
+        runtimeControlMetrics.half + runtimeControlMetrics.half;
+    height = runtimeTheme.extension<AppResponsive>()!.touchControlHeight;
     buttonSize = Size.square(height);
-    outputWidth = s.space48;
-    inputWidth = s.space32;
-    labelStackWidth = m.labelStackWidth;
-    disabledOpacity = m.disabledOpacity;
-    enabledOpacity = c.half + c.half;
-    background = t.colorScheme.surfaceContainerHigh;
-    foreground = t.colorScheme.onSurface;
-    disabled = t.disabledColor;
-    hoverBackground = t.colorScheme.outlineVariant;
-    transparent = c.transparent;
-    radius = t.extension<AppShape>()!.pill;
+    outputWidth = runtimeSpacing.space48;
+    inputWidth = runtimeSpacing.space32;
+    labelStackWidth = runtimeStepperMetrics.labelStackWidth;
+    disabledOpacity = runtimeStepperMetrics.disabledOpacity;
+    enabledOpacity = runtimeControlMetrics.half + runtimeControlMetrics.half;
+    background = runtimeTheme.colorScheme.surfaceContainerHigh;
+    foreground = runtimeTheme.colorScheme.onSurface;
+    disabled = runtimeTheme.disabledColor;
+    hoverBackground = runtimeTheme.colorScheme.outlineVariant;
+    transparent = runtimeControlMetrics.transparent;
+    radius = runtimeTheme.extension<AppShape>()!.pill;
     buttonShape = RoundedRectangleBorder(borderRadius: radius);
-    padding = EdgeInsets.all(s.space0);
-    smallGap = s.space8;
-    gap = s.space16;
-    fullWidth = t.extension<FoundationLayout>()!.fullWidth;
-    labelStyle = AppTextStyles(t).caption
-        .copyWith(color: t.colorScheme.onSurfaceVariant);
-    valueStyle = AppTextStyles(t).label
-        .copyWith(color: foreground, fontFeatures: m.numericFeatures);
-    textAlign = m.valueAlignment;
-    center = m.center;
-    start = t.extension<AppFieldMetrics>()!.start;
-    spaceBetween = c.spaceBetween;
-    singleLine = t.extension<AppFieldMetrics>()!.singleLine;
+    padding = EdgeInsets.all(runtimeSpacing.space0);
+    smallGap = runtimeSpacing.space8;
+    gap = runtimeSpacing.space16;
+    fullWidth = runtimeTheme.extension<FoundationLayout>()!.fullWidth;
+    labelStyle = AppTextStyles(runtimeTheme).caption
+        .copyWith(color: runtimeTheme.colorScheme.onSurfaceVariant);
+    valueStyle = AppTextStyles(runtimeTheme).label.copyWith(
+      color: foreground,
+      fontFeatures: runtimeStepperMetrics.numericFeatures,
+    );
+    textAlign = runtimeStepperMetrics.valueAlignment;
+    center = runtimeStepperMetrics.center;
+    start = runtimeTheme.extension<AppFieldMetrics>()!.start;
+    spaceBetween = runtimeControlMetrics.spaceBetween;
+    singleLine = runtimeTheme.extension<AppFieldMetrics>()!.singleLine;
   }
   double outputExtent(BuildContext context, String value) {
     final painter = TextPainter(

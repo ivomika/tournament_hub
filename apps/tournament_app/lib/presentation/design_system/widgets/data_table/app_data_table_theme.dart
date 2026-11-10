@@ -15,44 +15,50 @@ import 'package:tournament_app/presentation/design_system/foundation/layout/foun
 
 class AppDataTableTheme {
   AppDataTableTheme.of(BuildContext context) {
-    final t = Theme.of(context),
-        s = t.extension<AppSpacing>()!,
-        c = t.extension<AppControlMetrics>()!,
-        r = t.extension<AppResponsive>()!,
-        m = t.extension<AppIdentityMetrics>()!,
-        f = t.extension<AppFieldMetrics>()!,
-        roles = t.extension<AppTypeRoles>()!,
-        styles = AppTextStyles(t);
-    desktop = MediaQuery.sizeOf(context).width > r.mobileToDesktopWidth;
+    final runtimeTheme = Theme.of(context),
+        runtimeSpacing = runtimeTheme.extension<AppSpacing>()!,
+        runtimeControlMetrics = runtimeTheme.extension<AppControlMetrics>()!,
+        runtimeResponsive = runtimeTheme.extension<AppResponsive>()!,
+        runtimeIdentityMetrics = runtimeTheme.extension<AppIdentityMetrics>()!,
+        runtimeFieldMetrics = runtimeTheme.extension<AppFieldMetrics>()!,
+        roles = runtimeTheme.extension<AppTypeRoles>()!,
+        styles = AppTextStyles(runtimeTheme);
+    desktop =
+        MediaQuery.sizeOf(context).width >
+        runtimeResponsive.mobileToDesktopWidth;
     captionStyle = styles.caption.copyWith(
-      color: t.colorScheme.onSurfaceVariant,
+      color: runtimeTheme.colorScheme.onSurfaceVariant,
     );
     headerStyle = captionStyle;
-    cellStyle = styles.label.copyWith(color: t.colorScheme.onSurface);
-    padding = EdgeInsets.symmetric(
-      vertical: desktop ? s.space16 : s.space8,
-      horizontal: desktop ? s.space8 : s.space0,
+    cellStyle = styles.label.copyWith(
+      color: runtimeTheme.colorScheme.onSurface,
     );
-    captionGap = s.space16;
-    minNumericWidth = s.space32;
-    identityGap = s.space8;
-    zero = c.zero;
-    fullWidth = t.extension<FoundationLayout>()!.fullWidth;
-    start = f.start;
-    stretch = f.stretch;
-    leading = m.textLeading;
-    trailing = t.extension<AppTableMetrics>()!.trailing;
-    verticalAlignment = t.extension<AppTableMetrics>()!.verticalAlignment;
+    padding = EdgeInsets.symmetric(
+      vertical: desktop ? runtimeSpacing.space16 : runtimeSpacing.space8,
+      horizontal: desktop ? runtimeSpacing.space8 : runtimeSpacing.space0,
+    );
+    captionGap = runtimeSpacing.space16;
+    minNumericWidth = runtimeSpacing.space32;
+    identityGap = runtimeSpacing.space8;
+    zero = runtimeControlMetrics.zero;
+    fullWidth = runtimeTheme.extension<FoundationLayout>()!.fullWidth;
+    start = runtimeFieldMetrics.start;
+    stretch = runtimeFieldMetrics.stretch;
+    leading = runtimeIdentityMetrics.textLeading;
+    trailing = runtimeTheme.extension<AppTableMetrics>()!.trailing;
+    verticalAlignment = runtimeTheme
+        .extension<AppTableMetrics>()!
+        .verticalAlignment;
     final primary = roles.interfaceStyle(
-      t.textTheme.labelLarge!.copyWith(
-        height: t.extension<AppSelectMetrics>()!.sheetTitleLine,
-        color: t.colorScheme.onSurface,
+      runtimeTheme.textTheme.labelLarge!.copyWith(
+        height: runtimeTheme.extension<AppSelectMetrics>()!.sheetTitleLine,
+        color: runtimeTheme.colorScheme.onSurface,
       ),
     );
     final secondary = roles.interfaceStyle(
-      t.textTheme.bodySmall!.copyWith(
-        fontWeight: t.extension<AppSelectMetrics>()!.selectedWeight,
-        color: t.colorScheme.onSurfaceVariant,
+      runtimeTheme.textTheme.bodySmall!.copyWith(
+        fontWeight: runtimeTheme.extension<AppSelectMetrics>()!.selectedWeight,
+        color: runtimeTheme.colorScheme.onSurfaceVariant,
       ),
     );
     final avatar = AppAvatarTheme.of(
@@ -66,12 +72,12 @@ class AppDataTableTheme {
       shape: AppAvatarShape.tile,
       primary: primary,
       secondary: secondary,
-      gap: s.space8,
-      textGap: s.space4,
-      leading: m.leading,
-      stretch: m.stretch,
-      center: c.centerCross,
-      textAlign: m.textLeading,
+      gap: runtimeSpacing.space8,
+      textGap: runtimeSpacing.space4,
+      leading: runtimeIdentityMetrics.leading,
+      stretch: runtimeIdentityMetrics.stretch,
+      center: runtimeControlMetrics.centerCross,
+      textAlign: runtimeIdentityMetrics.textLeading,
     );
   }
   late final bool desktop;

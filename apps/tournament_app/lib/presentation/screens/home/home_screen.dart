@@ -25,19 +25,185 @@ class HomeScreen extends StatelessWidget {
   final VoidCallback? onHistory, onProfile, onCreate, onContinue;
   @override
   Widget build(BuildContext context) {
-    final t = HomeScreenTheme.of(context),
-        l = FoundationLocalizations.of(context);
+    final appearance = HomeScreenTheme.of(context),
+        localizations = FoundationLocalizations.of(context);
     final active = state.active;
+    final Widget? responsiveContent;
+    if (active == null) {
+      responsiveContent = Stack(
+        children: [
+          Positioned.fill(
+            child: AppScreenTile(
+              padding: appearance.emptyPadding,
+              child: Column(
+                mainAxisAlignment: appearance.centerMain,
+                crossAxisAlignment: appearance.start,
+                children: [
+                  Text(localizations.screenYourNext, style: appearance.hero),
+                  Text(
+                    localizations.screenTournamentAccent,
+                    style: appearance.accentHero,
+                  ),
+                  SizedBox(height: appearance.homeGap),
+                  Row(
+                    mainAxisSize: appearance.min,
+                    children: [
+                      SizedBox(
+                        width: appearance.ornamentLine,
+                        child: Divider(color: appearance.ornamentColor),
+                      ),
+                      SizedBox(width: appearance.small),
+                      AppIcon(
+                        AppGlyph.trophy,
+                        size: appearance.trophySize,
+                        color: appearance.accentHero.color,
+                      ),
+                      SizedBox(width: appearance.small),
+                      SizedBox(
+                        width: appearance.ornamentLine,
+                        child: Divider(color: appearance.ornamentColor),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: appearance.homeGap),
+                  Text(localizations.screenNoActive, style: appearance.muted),
+                ],
+              ),
+            ),
+          ),
+          Align(
+            alignment: appearance.bottomAlign,
+            child: ConstrainedBox(
+              constraints: BoxConstraints(
+                maxWidth: appearance.desktop
+                    ? appearance.formWidth
+                    : appearance.fullWidth,
+              ),
+              child: Padding(
+                padding: appearance.emptyActionPadding,
+                child: AppButton(
+                  label: localizations.screenCreate,
+                  glyph: AppGlyph.plus,
+                  onPressed: onCreate,
+                ),
+              ),
+            ),
+          ),
+        ],
+      );
+    } else {
+      if (appearance.desktop) {
+        responsiveContent = Row(
+          crossAxisAlignment: appearance.stretch,
+          children: [
+            Expanded(
+              flex: appearance.homePrimaryFlex,
+              child: AppScreenTile(
+                padding: appearance.heroPadding,
+                child: Column(
+                  crossAxisAlignment: appearance.start,
+                  children: [
+                    AppStatusLabel(text: localizations.screenLive),
+                    const Spacer(),
+                    ConstrainedBox(
+                      constraints: BoxConstraints(
+                        maxWidth: appearance.homeTitleWidth,
+                      ),
+                      child: Text(active.name, style: appearance.hero),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(width: appearance.homeGap),
+            Expanded(
+              flex: appearance.homeSecondaryFlex,
+              child: Column(
+                crossAxisAlignment: appearance.stretch,
+                children: [
+                  Expanded(
+                    child: AppScreenTile(
+                      raised: true,
+                      child: Align(
+                        alignment: appearance.centerAlign,
+                        child: Column(
+                          mainAxisSize: appearance.min,
+                          crossAxisAlignment: appearance.start,
+                          children: [
+                            Text(active.formatLabel, style: appearance.meta),
+                            SizedBox(height: appearance.small),
+                            Text(
+                              active.participantCountLabel,
+                              style: appearance.meta,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: appearance.homeGap),
+                  Expanded(
+                    child: AppScreenTile(
+                      child: Column(
+                        crossAxisAlignment: appearance.stretch,
+                        children: [
+                          AppStageProgress(highlights: active.stageHighlights),
+                          const Spacer(),
+                          Text(active.stage, style: appearance.stageStyle),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: appearance.homeGap),
+                  SizedBox(
+                    height: appearance.homeActionHeight,
+                    child: AppButton(
+                      label: localizations.screenContinue,
+                      glyph: AppGlyph.arrow,
+                      onPressed: onContinue,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        );
+      } else {
+        responsiveContent = SingleChildScrollView(
+          child: AppSurface(
+            child: Column(
+              crossAxisAlignment: appearance.stretch,
+              children: [
+                AppStatusLabel(text: localizations.screenLive),
+                SizedBox(height: appearance.small),
+                Text(active.name, style: appearance.heading),
+                SizedBox(height: appearance.small),
+                Text(active.formatLabel, style: appearance.muted),
+                Text(active.participantCountLabel, style: appearance.muted),
+                SizedBox(height: appearance.homeGap),
+                Text(active.stage, style: appearance.stageStyle),
+                SizedBox(height: appearance.homeGap),
+                AppButton(
+                  label: localizations.screenContinue,
+                  glyph: AppGlyph.arrow,
+                  onPressed: onContinue,
+                ),
+              ],
+            ),
+          ),
+        );
+      }
+    }
     return AppScreenCanvas(
       scrollDesktop: true,
       child: Column(
-        crossAxisAlignment: t.stretch,
+        crossAxisAlignment: appearance.stretch,
         children: [
           Row(
-            mainAxisAlignment: t.spaceBetween,
+            mainAxisAlignment: appearance.spaceBetween,
             children: [
               AppButton(
-                label: l.screenHistory,
+                label: localizations.screenHistory,
                 fill: false,
                 kind: AppButtonKind.secondary,
                 glyph: AppGlyph.history,
@@ -45,21 +211,21 @@ class HomeScreen extends StatelessWidget {
                 onPressed: onHistory,
               ),
               AppButton(
-                label: l.screenProfile,
+                label: localizations.screenProfile,
                 kind: AppButtonKind.icon,
                 glyph: AppGlyph.person,
                 onPressed: onProfile,
               ),
             ],
           ),
-          SizedBox(height: t.homeGap),
+          SizedBox(height: appearance.homeGap),
           if (active != null) ...[
             Row(
-              mainAxisAlignment: t.spaceBetween,
+              mainAxisAlignment: appearance.spaceBetween,
               children: [
-                Text(l.screenTournaments, style: t.body),
+                Text(localizations.screenTournaments, style: appearance.body),
                 AppButton(
-                  label: l.screenNew,
+                  label: localizations.screenNew,
                   glyphLeading: true,
                   fill: false,
                   kind: AppButtonKind.dialogCancel,
@@ -68,171 +234,9 @@ class HomeScreen extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: t.homeGap),
+            SizedBox(height: appearance.homeGap),
           ],
-          Expanded(
-            child: active == null
-                ? Stack(
-                    children: [
-                      Positioned.fill(
-                        child: AppScreenTile(
-                          padding: t.emptyPadding,
-                          child: Column(
-                            mainAxisAlignment: t.centerMain,
-                            crossAxisAlignment: t.start,
-                            children: [
-                              Text(l.screenYourNext, style: t.hero),
-                              Text(
-                                l.screenTournamentAccent,
-                                style: t.accentHero,
-                              ),
-                              SizedBox(height: t.homeGap),
-                              Row(
-                                mainAxisSize: t.min,
-                                children: [
-                                  SizedBox(
-                                    width: t.ornamentLine,
-                                    child: Divider(color: t.ornamentColor),
-                                  ),
-                                  SizedBox(width: t.small),
-                                  AppIcon(
-                                    AppGlyph.trophy,
-                                    size: t.trophySize,
-                                    color: t.accentHero.color,
-                                  ),
-                                  SizedBox(width: t.small),
-                                  SizedBox(
-                                    width: t.ornamentLine,
-                                    child: Divider(color: t.ornamentColor),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(height: t.homeGap),
-                              Text(l.screenNoActive, style: t.muted),
-                            ],
-                          ),
-                        ),
-                      ),
-                      Align(
-                        alignment: t.bottomAlign,
-                        child: ConstrainedBox(
-                          constraints: BoxConstraints(
-                            maxWidth: t.desktop ? t.formWidth : t.fullWidth,
-                          ),
-                          child: Padding(
-                            padding: t.emptyActionPadding,
-                            child: AppButton(
-                              label: l.screenCreate,
-                              glyph: AppGlyph.plus,
-                              onPressed: onCreate,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  )
-                : t.desktop
-                ? Row(
-                    crossAxisAlignment: t.stretch,
-                    children: [
-                      Expanded(
-                        flex: t.homePrimaryFlex,
-                        child: AppScreenTile(
-                          padding: t.heroPadding,
-                          child: Column(
-                            crossAxisAlignment: t.start,
-                            children: [
-                              AppStatusLabel(text: l.screenLive),
-                              const Spacer(),
-                              ConstrainedBox(
-                                constraints: BoxConstraints(
-                                  maxWidth: t.homeTitleWidth,
-                                ),
-                                child: Text(active.name, style: t.hero),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      SizedBox(width: t.homeGap),
-                      Expanded(
-                        flex: t.homeSecondaryFlex,
-                        child: Column(
-                          crossAxisAlignment: t.stretch,
-                          children: [
-                            Expanded(
-                              child: AppScreenTile(
-                                raised: true,
-                                child: Align(
-                                  alignment: t.centerAlign,
-                                  child: Column(
-                                    mainAxisSize: t.min,
-                                    crossAxisAlignment: t.start,
-                                    children: [
-                                      Text(active.formatLabel, style: t.meta),
-                                      SizedBox(height: t.small),
-                                      Text(
-                                        active.participantCountLabel,
-                                        style: t.meta,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ),
-                            SizedBox(height: t.homeGap),
-                            Expanded(
-                              child: AppScreenTile(
-                                child: Column(
-                                  crossAxisAlignment: t.stretch,
-                                  children: [
-                                    AppStageProgress(
-                                      highlights: active.stageHighlights,
-                                    ),
-                                    const Spacer(),
-                                    Text(active.stage, style: t.stageStyle),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            SizedBox(height: t.homeGap),
-                            SizedBox(
-                              height: t.homeActionHeight,
-                              child: AppButton(
-                                label: l.screenContinue,
-                                glyph: AppGlyph.arrow,
-                                onPressed: onContinue,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  )
-                : SingleChildScrollView(
-                    child: AppSurface(
-                      child: Column(
-                        crossAxisAlignment: t.stretch,
-                        children: [
-                          AppStatusLabel(text: l.screenLive),
-                          SizedBox(height: t.small),
-                          Text(active.name, style: t.heading),
-                          SizedBox(height: t.small),
-                          Text(active.formatLabel, style: t.muted),
-                          Text(active.participantCountLabel, style: t.muted),
-                          SizedBox(height: t.homeGap),
-                          Text(active.stage, style: t.stageStyle),
-                          SizedBox(height: t.homeGap),
-                          AppButton(
-                            label: l.screenContinue,
-                            glyph: AppGlyph.arrow,
-                            onPressed: onContinue,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-          ),
+          Expanded(child: responsiveContent),
         ],
       ),
     );

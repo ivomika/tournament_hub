@@ -36,46 +36,89 @@ class _FixtureState extends State<MatchResultFixture> {
     super.dispose();
   }
 
+  String _resolveFixedScore(MatchResultSample sample) {
+    if (sample == MatchResultSample.ft10) return '10';
+    if (sample == MatchResultSample.ft3) return '3';
+    return '2';
+  }
+
+  ResultEntry _resolveEntry(
+    FoundationLocalizations localizations,
+    MatchResultSample sample,
+    bool technical,
+  ) {
+    if (technical) {
+      return TechnicalResultEntry(
+        leftOutcome: localizations.screenTechnicalWin,
+        rightOutcome: localizations.screenTechnicalLoss,
+        leftTone: AppStatusTone.accent,
+        rightTone: AppStatusTone.error,
+        note: sample == MatchResultSample.technicalRr
+            ? localizations.screenTechnicalRrNote
+            : localizations.screenTechnicalDeNote,
+      );
+    }
+    if (sample == MatchResultSample.choice) {
+      return const ChoiceResultEntry(MatchSide.left);
+    }
+    return SteppedResultEntry(
+      fixedScore: _resolveFixedScore(sample),
+      fixedSide: MatchSide.left,
+    );
+  }
+
+  String _resolveSaveLabel(
+    FoundationLocalizations localizations,
+    bool correction,
+    bool error,
+  ) {
+    if (correction) return localizations.screenResultCorrect;
+    if (error) return localizations.screenRetrySave;
+    return localizations.screenSaveResult;
+  }
+
+  ResultDetails? _resolveDetails(
+    FoundationLocalizations localizations,
+    bool technical,
+    bool correction,
+  ) {
+    if (technical) return null;
+    if (correction) {
+      return ResultExplanationDetails(
+        title: localizations.screenAboutCorrection,
+        expanded: false,
+        onToggle: action,
+        text: localizations.screenCorrectionNote,
+      );
+    }
+    return ResultActionsDetails(
+      title: localizations.screenOtherActions,
+      expanded: false,
+      onToggle: action,
+      onTechnical: action,
+      onWithdraw: action,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    final l = FoundationLocalizations.of(context);
+    final localizations = FoundationLocalizations.of(context);
     final sample = widget.sample,
         correction = sample == MatchResultSample.correction,
         error = sample == MatchResultSample.error,
         technical =
             sample == MatchResultSample.technicalRr ||
             sample == MatchResultSample.technicalDe;
-    final ResultEntry entry = technical
-        ? TechnicalResultEntry(
-            leftOutcome: l.screenTechnicalWin,
-            rightOutcome: l.screenTechnicalLoss,
-            leftTone: AppStatusTone.accent,
-            rightTone: AppStatusTone.error,
-            note: sample == MatchResultSample.technicalRr
-                ? l.screenTechnicalRrNote
-                : l.screenTechnicalDeNote,
-          )
-        : sample == MatchResultSample.choice
-        ? const ChoiceResultEntry(MatchSide.left)
-        : SteppedResultEntry(
-            fixedScore: sample == MatchResultSample.ft10
-                ? '10'
-                : sample == MatchResultSample.ft3
-                ? '3'
-                : '2',
-            fixedSide: MatchSide.left,
-          );
+    final entry = _resolveEntry(localizations, sample, technical);
     return MatchResultScreen(
       state: MatchResultScreenState(
-        title: correction ? l.screenCorrection : l.screenResult,
-        saveLabel: correction
-            ? l.screenResultCorrect
-            : error
-            ? l.screenRetrySave
-            : l.screenSaveResult,
+        title: correction
+            ? localizations.screenCorrection
+            : localizations.screenResult,
+        saveLabel: _resolveSaveLabel(localizations, correction, error),
         cancelLabel: correction
-            ? l.screenCancelCorrection
-            : l.screenCancelResult,
+            ? localizations.screenCancelCorrection
+            : localizations.screenCancelResult,
         tournamentTitle: 'Пятничный турнир',
         left: const PlayerDisplay(
           character: 'Sub-Zero',
@@ -88,24 +131,9 @@ class _FixtureState extends State<MatchResultFixture> {
           initials: 'SC',
         ),
         entry: entry,
-        inputLabel: l.stepperScoreLabel,
-        errorText: error ? l.screenResultSaveError : null,
-        details: technical
-            ? null
-            : correction
-            ? ResultExplanationDetails(
-                title: l.screenAboutCorrection,
-                expanded: false,
-                onToggle: action,
-                text: l.screenCorrectionNote,
-              )
-            : ResultActionsDetails(
-                title: l.screenOtherActions,
-                expanded: false,
-                onToggle: action,
-                onTechnical: action,
-                onWithdraw: action,
-              ),
+        inputLabel: localizations.stepperScoreLabel,
+        errorText: error ? localizations.screenResultSaveError : null,
+        details: _resolveDetails(localizations, technical, correction),
       ),
       loserController: technical || sample == MatchResultSample.choice
           ? null

@@ -4,12 +4,13 @@ import 'package:tournament_app/presentation/design_system/foundation/shape/app_s
 
 class AppStageProgressTheme {
   AppStageProgressTheme.of(BuildContext context) {
-    final t = Theme.of(context), s = t.extension<AppSpacing>()!;
-    height = s.space8;
-    gap = s.space8;
-    radius = t.extension<AppShape>()!.pill;
-    current = t.colorScheme.primary;
-    upcoming = t.colorScheme.surfaceContainerHigh;
+    final runtimeTheme = Theme.of(context),
+        runtimeSpacing = runtimeTheme.extension<AppSpacing>()!;
+    height = runtimeSpacing.space8;
+    gap = runtimeSpacing.space8;
+    radius = runtimeTheme.extension<AppShape>()!.pill;
+    current = runtimeTheme.colorScheme.primary;
+    upcoming = runtimeTheme.colorScheme.surfaceContainerHigh;
   }
   late final double height, gap;
   late final BorderRadius radius;

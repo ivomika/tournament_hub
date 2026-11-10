@@ -7,9 +7,9 @@ import 'package:tournament_app/presentation/design_system/foundation/spacing/app
 
 class MatchResultScreenTheme extends AppModalCanvasTheme {
   MatchResultScreenTheme.of(BuildContext context) : super.of(context) {
-    final t = Theme.of(context),
-        s = t.extension<AppSpacing>()!,
-        shape = t.extension<AppShape>()!;
+    final appearance = Theme.of(context),
+        runtimeSpacing = appearance.extension<AppSpacing>()!,
+        shape = appearance.extension<AppShape>()!;
     final base = AppIdentityTheme.of(
       context,
       AppIdentityKind.character,
@@ -24,24 +24,27 @@ class MatchResultScreenTheme extends AppModalCanvasTheme {
       textAlign: centerText,
       primary: base.primary.copyWith(
         fontSize: desktop
-            ? t.textTheme.titleLarge!.fontSize
+            ? appearance.textTheme.titleLarge!.fontSize
             : (MediaQuery.sizeOf(context).width * matchMobileNameFactor).clamp(
-                t.textTheme.bodyMedium!.fontSize!,
-                t.textTheme.titleLarge!.fontSize!,
+                appearance.textTheme.bodyMedium!.fontSize!,
+                appearance.textTheme.titleLarge!.fontSize!,
               ),
       ),
     );
     sheetSurface = AppSurfaceTheme(
-      color: t.colorScheme.surface,
+      color: appearance.colorScheme.surface,
       radius: desktop
           ? shape.surface
           : BorderRadius.only(
               topLeft: shape.panel.topLeft,
               topRight: shape.panel.topRight,
             ),
-      padding: EdgeInsets.all(desktop ? s.space32 : s.space24),
+      padding: EdgeInsets.all(
+        desktop ? runtimeSpacing.space32 : runtimeSpacing.space24,
+      ),
     );
-    outcomeHeight = t.textTheme.bodySmall!.fontSize! * resultOutcomeFactor;
+    outcomeHeight =
+        appearance.textTheme.bodySmall!.fontSize! * resultOutcomeFactor;
   }
   late final AppIdentityTheme playerIdentity;
   late final AppSurfaceTheme sheetSurface;
