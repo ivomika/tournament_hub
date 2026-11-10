@@ -5,13 +5,11 @@ import 'package:tournament_app/presentation/screens/distribution/distribution_sc
 export 'package:tournament_app/presentation/screens/distribution/distribution_screen_state.dart';
 
 class DistributionFixture extends StatelessWidget {
-  const DistributionFixture({required this.phase, super.key});
-  final DistributionPhase phase;
+  const DistributionFixture({super.key});
   static void action() {}
   @override
   Widget build(BuildContext context) => DistributionScreen(
     state: DistributionScreenState(
-      phase: phase,
       players: const [
         PlayerDisplay(character: 'Sub-Zero', name: 'Иван', initials: 'SZ'),
         PlayerDisplay(character: 'Scorpion', name: 'Алексей', initials: 'SC'),

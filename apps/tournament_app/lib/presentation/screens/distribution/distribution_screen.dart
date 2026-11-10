@@ -6,13 +6,11 @@ import 'package:tournament_app/presentation/design_system/foundation/icons/app_g
 import 'package:tournament_app/presentation/screens/distribution/distribution_screen_state.dart';
 import 'package:tournament_app/presentation/screens/distribution/distribution_screen_theme.dart';
 import 'package:tournament_app/presentation/design_system/widgets/screen_layout/app_screen_canvas.dart';
-import 'package:tournament_app/presentation/design_system/widgets/screen_layout/app_centered_screen.dart';
 import 'package:tournament_app/presentation/design_system/widgets/section_header/app_section_header.dart';
 import 'package:tournament_app/presentation/design_system/widgets/identity/app_identity.dart';
 import 'package:tournament_app/presentation/design_system/widgets/identity/app_identity_theme.dart';
 import 'package:tournament_app/presentation/design_system/widgets/adaptive_grid/app_adaptive_grid.dart';
 import 'package:tournament_app/presentation/design_system/components/avatar/app_avatar_size.dart';
-import 'package:tournament_app/presentation/design_system/components/progress_indicator/app_progress_indicator.dart';
 import 'package:tournament_app/presentation/design_system/components/surface/app_surface.dart';
 import 'package:tournament_app/presentation/design_system/components/surface/app_surface_theme.dart';
 
@@ -34,31 +32,12 @@ class DistributionScreen extends StatelessWidget {
       title: l.screenDistribution,
       backLabel: l.screenBack,
       onBack: onBack,
-      action: state.phase == DistributionPhase.ready
-          ? AppHeaderAction(
-              kind: AppHeaderActionKind.share,
-              label: l.screenSpectators,
-              onPressed: onShare,
-            )
-          : null,
+      action: AppHeaderAction(
+        kind: AppHeaderActionKind.share,
+        label: l.screenSpectators,
+        onPressed: onShare,
+      ),
     );
-    if (state.phase == DistributionPhase.working) {
-      return AppCenteredScreen(
-        header: header,
-        child: Column(
-          mainAxisSize: t.min,
-          crossAxisAlignment: t.start,
-          mainAxisAlignment: t.centerMain,
-          children: [
-            AppProgressIndicator(semanticLabel: l.screenDealing),
-            SizedBox(height: t.gap),
-            Text(l.screenWhoCharacter, style: t.heading),
-            SizedBox(height: t.gap),
-            Text(l.screenNoRepeats, style: t.muted),
-          ],
-        ),
-      );
-    }
     final intro = Column(
       mainAxisSize: t.min,
       crossAxisAlignment: t.start,
@@ -106,6 +85,7 @@ class DistributionScreen extends StatelessWidget {
       onPressed: onStart,
     );
     return AppScreenCanvas(
+      scrollDesktop: true,
       child: Column(
         crossAxisAlignment: t.stretch,
         children: [

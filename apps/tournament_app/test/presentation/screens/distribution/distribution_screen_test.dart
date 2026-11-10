@@ -4,22 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tournament_app/presentation/design_system/foundation/theme/app_theme.dart';
 import 'package:tournament_app/presentation/l10n/generated/foundation_localizations.dart';
-import 'package:tournament_app/presentation/widgetbook/screens/distribution/working/working_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/screens/distribution/ready/ready_use_case.dart';
 
 void main() => _DistributionTests.run();
 
 abstract final class _DistributionTests {
   static void run() {
-    testWidgets(
-      'working mobile desktop',
-      (tester) async => ScreenGoldenHarness.verify(
-        tester,
-        Builder(builder: DistributionWorkingUseCase.build),
-        'distribution',
-        'working',
-      ),
-    );
     testWidgets(
       'ready mobile desktop',
       (tester) async => ScreenGoldenHarness.verify(
