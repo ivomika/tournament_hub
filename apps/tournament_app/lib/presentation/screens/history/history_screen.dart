@@ -92,8 +92,10 @@ class HistoryScreen extends StatelessWidget {
                       crossAxisAlignment: t.start,
                       children: [
                         Expanded(
-                          child: SizedBox(
-                            height: t.historyFeatureHeight,
+                          child: ConstrainedBox(
+                            constraints: BoxConstraints(
+                              minHeight: t.historyFeatureHeight,
+                            ),
                             child: AppScreenTile(
                               child: Column(
                                 mainAxisAlignment: t.centerMain,
