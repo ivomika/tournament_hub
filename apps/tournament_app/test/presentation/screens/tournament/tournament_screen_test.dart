@@ -13,6 +13,7 @@ void main() => _TournamentTests.run();
 
 abstract final class _TournamentTests {
   static void run() {
+    testWidgets("short desktop keeps match content reachable", _shortDesktop);
     testWidgets(
       'de mobile desktop',
       (tester) async => ScreenGoldenHarness.verify(
@@ -49,6 +50,42 @@ abstract final class _TournamentTests {
         'tiebreak',
       ),
     );
+  }
+
+  static Future<void> _shortDesktop(WidgetTester tester) async {
+    final semantics = tester.ensureSemantics();
+
+    const viewport = Size(800, 500);
+    await tester.binding.setSurfaceSize(viewport);
+    addTearDown(() => tester.binding.setSurfaceSize(null));
+    for (final builder in <WidgetBuilder>[
+      TournamentDeUseCase.build,
+      TournamentSeUseCase.build,
+      TournamentRrUseCase.build,
+      TournamentTiebreakUseCase.build,
+    ]) {
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: AppTheme.dark(),
+          localizationsDelegates:
+              FoundationLocalizations.localizationsDelegates,
+          supportedLocales: FoundationLocalizations.supportedLocales,
+          home: Builder(builder: builder),
+        ),
+      );
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 300));
+      expect(
+        tester.takeException(),
+        isNull,
+        reason: 'Short desktop match must scroll without overflow',
+      );
+      await tester.ensureVisible(find.bySemanticsLabel('Текущий счёт'));
+      await tester.pumpAndSettle();
+      expect(tester.takeException(), isNull);
+      await tester.pumpWidget(const SizedBox.shrink());
+    }
+    semantics.dispose();
   }
 }
 

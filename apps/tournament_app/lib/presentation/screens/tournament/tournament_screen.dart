@@ -192,26 +192,24 @@ class TournamentScreen extends StatelessWidget {
                       Expanded(
                         flex: t.homePrimaryFlex,
                         child: AppScreenTile(
-                          child: Column(
-                            crossAxisAlignment: t.stretch,
-                            children: [
-                              Expanded(
-                                child: Column(
-                                  mainAxisAlignment: t.centerMain,
-                                  children: [
-                                    Text(
-                                      state.roundLabel,
-                                      style: t.caption,
-                                      textAlign: t.centerText,
-                                    ),
-                                    SizedBox(height: t.gap),
-                                    pair,
-                                    SizedBox(height: t.gap),
-                                    score,
-                                  ],
-                                ),
+                          child: Center(
+                            child: SingleChildScrollView(
+                              child: Column(
+                                mainAxisSize: t.min,
+                                mainAxisAlignment: t.centerMain,
+                                children: [
+                                  Text(
+                                    state.roundLabel,
+                                    style: t.caption,
+                                    textAlign: t.centerText,
+                                  ),
+                                  SizedBox(height: t.gap),
+                                  pair,
+                                  SizedBox(height: t.gap),
+                                  score,
+                                ],
                               ),
-                            ],
+                            ),
                           ),
                         ),
                       ),
