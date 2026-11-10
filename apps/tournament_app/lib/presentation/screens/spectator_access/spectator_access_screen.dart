@@ -49,6 +49,7 @@ class SpectatorAccessScreen extends StatelessWidget {
             onCopy: onCopy,
           );
     return AppScreenCanvas(
+      scrollDesktop: true,
       child: Column(
         crossAxisAlignment: t.stretch,
         children: [
