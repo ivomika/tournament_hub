@@ -67,6 +67,7 @@ class RosterScreen extends StatelessWidget {
       ],
     );
     return AppScreenCanvas(
+      scrollDesktop: true,
       child: Column(
         crossAxisAlignment: t.stretch,
         children: [
@@ -95,8 +96,10 @@ class RosterScreen extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: t.stretch,
                           children: [
-                            SizedBox(
-                              height: t.rosterContextHeight,
+                            ConstrainedBox(
+                              constraints: BoxConstraints(
+                                minHeight: t.rosterContextHeight,
+                              ),
                               child: AppScreenTile(child: contextCard),
                             ),
                             SizedBox(height: t.gap),
