@@ -99,7 +99,7 @@
 - ✅ 91. Screen Распределение персонажей — независимая композиция прототипов. [Детали](task-details/91-screen-distribution.md)
 - ✅ 92. Screen Доступ зрителей — независимая композиция прототипов. [Детали](task-details/92-screen-spectator-access.md)
 - ✅ 93. Screen Проведение турнира — независимая композиция прототипов. [Детали](task-details/93-screen-tournament.md)
-- 🚧 94. Screen Переигровка — независимая композиция прототипов. [Детали](task-details/94-screen-tie.md)
+- ✅ 94. Screen Переигровка — независимая композиция прототипов. [Детали](task-details/94-screen-tie.md)
 - ✅ 95. Screen Снятие участника — независимая композиция прототипов. [Детали](task-details/95-screen-withdraw.md)
 - ✅ 96. Screen Недоступное исправление — независимая композиция прототипов. [Детали](task-details/96-screen-result-locked.md)
 - ✅ 97. Screen Турнирная сетка — независимая композиция прототипов. [Детали](task-details/97-screen-bracket.md)

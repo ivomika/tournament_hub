@@ -55,6 +55,7 @@ class TieScreen extends StatelessWidget {
       onPressed: onStart,
     );
     return AppScreenCanvas(
+      scrollDesktop: true,
       child: Column(
         crossAxisAlignment: t.stretch,
         children: [
