@@ -30,6 +30,7 @@ class BracketScreen extends StatelessWidget {
     final t = BracketScreenTheme.of(context),
         l = FoundationLocalizations.of(context);
     return AppScreenCanvas(
+      padded: false,
       child: Stack(
         children: [
           Positioned.fill(
@@ -38,65 +39,71 @@ class BracketScreen extends StatelessWidget {
               controller: controller,
             ),
           ),
-          AppSectionHeader(
-            title: l.screenBracket,
-            backLabel: l.screenBack,
-            onBack: onBack,
+          Padding(
+            padding: t.inset,
+            child: AppSectionHeader(
+              title: l.screenBracket,
+              backLabel: l.screenBack,
+              onBack: onBack,
+            ),
           ),
-          Align(
-            alignment: t.bottomRight,
-            child: Column(
-              mainAxisSize: t.min,
-              crossAxisAlignment: t.start,
-              children: [
-                if (state.controlsExpanded)
-                  AppScreenTile(
-                    child: Column(
-                      mainAxisSize: t.min,
-                      children: [
-                        Row(
-                          mainAxisSize: t.min,
-                          children: [
-                            AppButton(
-                              kind: AppButtonKind.icon,
-                              fill: false,
-                              glyph: AppGlyph.minus,
-                              label: l.screenZoomOut,
-                              onPressed: onZoomOut,
-                            ),
-                            Text(state.zoomLabel, style: t.body),
-                            AppButton(
-                              kind: AppButtonKind.icon,
-                              fill: false,
-                              glyph: AppGlyph.plus,
-                              label: l.screenZoomIn,
-                              onPressed: onZoomIn,
-                            ),
-                          ],
-                        ),
-                        AppButton(
-                          label: l.screenMapFit,
-                          kind: AppButtonKind.textLink,
-                          onPressed: onFit,
-                        ),
-                        AppButton(
-                          label: l.screenMapCurrent,
-                          kind: AppButtonKind.textLink,
-                          onPressed: onCurrent,
-                        ),
-                      ],
+          Padding(
+            padding: t.inset,
+            child: Align(
+              alignment: t.bottomRight,
+              child: Column(
+                mainAxisSize: t.min,
+                crossAxisAlignment: t.start,
+                children: [
+                  if (state.controlsExpanded)
+                    AppScreenTile(
+                      child: Column(
+                        mainAxisSize: t.min,
+                        children: [
+                          Row(
+                            mainAxisSize: t.min,
+                            children: [
+                              AppButton(
+                                kind: AppButtonKind.icon,
+                                fill: false,
+                                glyph: AppGlyph.minus,
+                                label: l.screenZoomOut,
+                                onPressed: onZoomOut,
+                              ),
+                              Text(state.zoomLabel, style: t.body),
+                              AppButton(
+                                kind: AppButtonKind.icon,
+                                fill: false,
+                                glyph: AppGlyph.plus,
+                                label: l.screenZoomIn,
+                                onPressed: onZoomIn,
+                              ),
+                            ],
+                          ),
+                          AppButton(
+                            label: l.screenMapFit,
+                            kind: AppButtonKind.textLink,
+                            onPressed: onFit,
+                          ),
+                          AppButton(
+                            label: l.screenMapCurrent,
+                            kind: AppButtonKind.textLink,
+                            onPressed: onCurrent,
+                          ),
+                        ],
+                      ),
                     ),
+                  AppButton(
+                    kind: AppButtonKind.icon,
+                    fill: false,
+                    glyph: AppGlyph.settings,
+                    label: l.screenMapControls,
+                    onPressed: onControls,
                   ),
-                AppButton(
-                  kind: AppButtonKind.icon,
-                  fill: false,
-                  glyph: AppGlyph.settings,
-                  label: l.screenMapControls,
-                  onPressed: onControls,
-                ),
-                if (state.detail.isNotEmpty)
-                  Text(state.detail, style: t.caption),
-              ],
+                  if (state.detail.isNotEmpty)
+                    Text(state.detail, style: t.caption),
+                ],
+              ),
             ),
           ),
         ],
