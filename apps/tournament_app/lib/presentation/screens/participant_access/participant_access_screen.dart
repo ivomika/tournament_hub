@@ -36,6 +36,7 @@ class ParticipantAccessScreen extends StatelessWidget {
     );
 
     return AppScreenCanvas(
+      scrollDesktop: true,
       child: Column(
         crossAxisAlignment: t.stretch,
         children: [
