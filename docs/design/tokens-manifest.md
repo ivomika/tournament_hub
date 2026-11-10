@@ -261,3 +261,7 @@ AppShareLink показывает переданные role/address и комп�
 
 ## Screen layout
 `ScreenPrimitives → AppScreenMetrics → <Screen>ScreenTheme / AppScreenLayoutTheme → Screen`. Runtime extension содержит adaptive hero, bento flex, product brand bar, centered utility width/height, bootstrap spacing и Home title/action geometry. ColorScheme/TextTheme/Spacing/Shape остаются источниками цветов, текста и поверхностей. Device chrome не входит в screens.
+
+### Ограниченная высота desktop screen canvas
+
+`ScreenPrimitives.desktopContentMinHeight` собирается в `AppScreenMetrics` основной темы. `AppScreenLayoutTheme` получает минимальную высоту и текущий text scaler, а `AppScreenCanvas.scrollDesktop` использует их для прокручиваемого содержимого при недостаточной высоте. Виджеты не обращаются к primitive напрямую. Параметр `padded` позволяет холсту сетки заполнять viewport; inset управляющих элементов остаётся в runtime теме.

@@ -6,11 +6,11 @@
 
 ## Покрытие
 
-Задачи 77–101 завершены: 25 независимых экранов, 50 scoped сценариев, 100 нативных PNG для Mobile 390×844 и Desktop 1440×900. Исходные 49 фигур дополнены раскрытыми правилами About. Каждый экран хранится отдельно: `lib/presentation/screens/<screen>/`; данные preview — `lib/presentation/widgetbook/screens/<screen>/`. Все сценарии доступны в папке **Screens** Widgetbook. Настоящие контролы переиспользуются из DS, а не рисуются заменителями.
+Задачи 77–101 завершены: 25 независимых экранов, 50 scoped сценариев, 102 нативных PNG (включая два hover-снимка профиля) для Mobile 390×844 и Desktop 1440×900. Исходные 49 фигур дополнены раскрытыми правилами About. Каждый экран хранится отдельно: `lib/presentation/screens/<screen>/`; данные preview — `lib/presentation/widgetbook/screens/<screen>/`. Все сценарии доступны в папке **Screens** Widgetbook. Настоящие контролы переиспользуются из DS, а не рисуются заменителями.
 
 | Задача | Экран | Сценарии |
 |---|---|---|
-| 77 | `utility` | error, loading |
+| 77 | `utility` | distribution, error, loading |
 | 78 | `bootstrap` | error, loading, retrying |
 | 79 | `home` | active, empty |
 | 80 | `profile` | newcomer, view |
@@ -24,7 +24,7 @@
 | 88 | `participant_access` | code |
 | 89 | `guest_remove` | confirmation |
 | 90 | `guest_add` | name |
-| 91 | `distribution` | ready, working |
+| 91 | `distribution` | ready |
 | 92 | `spectator_access` | distribution, tournament |
 | 93 | `tournament` | de, rr, se, tiebreak |
 | 94 | `tie` | equal_points |
@@ -80,3 +80,35 @@ Goldens получены на macOS. Windows/Linux в этой среде не �
 Регрессионный тест800×500 проверяет все четыре формата и достижимость счёта прокруткой. До исправления воспроизводился overflow117px, после — **5 screen tests passed**, существующие8 native PNG не изменились. Повторный actual Widgetbook audit Mobile/Desktop с textScale1.6: **2 passed**. Analyzer clean, architecture533 files passed.
 
 После свежего native build/hot restart визуально подтверждены: отсутствие overflow в коротком Desktop-окне, доступность счёта прокруткой, корректный Mobile390×844. Для выбора нужного окна использована временная копия сборки `TournamentHub Widgetbook Review` с отдельным bundle id; файлы конфигурации приложения не изменялись.
+
+## Исправления по замечаниям 1–10, 2026-11-10
+
+| Пункты | Результат | Коммит |
+|---|---|---|
+| 1, 6 | Stepper рисуется по естественной ширине/высоте; технические исходы центрированы на двух строках | `7481304` |
+| 2 | Фазы working в Distribution больше нет; общий экран доступен как **Screens → Utility → distribution** | `33e38ff`, `2815197` |
+| 3 | У выбора формата есть контрастный контейнер на desktop-карточке | `08cf9cf` |
+| 4 | Home empty: CTA с внутренними отступами, увеличенный trophy-декор, подпись под hero как в прототипе | `f3b60d1` |
+| 5, 9 | Кнопка Bootstrap закреплена у нижнего края desktop-контейнера / mobile content dock | `b17eab3` |
+| 7 | Холст карты заполняет viewport; отступы сохранены только у управляющих элементов | `05cad4e` |
+| 8 | Hover рисуется внутри Material карточки; mobile плоский, desktop со скруглением; «место» под цифрой. Есть hover goldens | `ae08061` |
+| 10 | Загрузка Bootstrap и Utility выровнена слева | `b17eab3`, `2815197` |
+
+Дополнительно оконная проверка выявила короткий Desktop, которого не было в исходной матрице. Добавлен тестовый viewport800×500 для всех экранов. Общий desktop canvas при необходимости прокручивается, минимальная высота содержимого берётся из основной темы и учитывает text scaler. Панели Setup/Settings учитывают крупный текст, панели Roster/History могут расти по содержимому. Обычные эталоны незатронутых экранов остались прежними; каждое исправление экрана сохранено отдельным локальным коммитом.
+
+Финальные проверки:
+
+- Все screens и затронутые DS-компоненты: **63 tests passed**.
+- Реальный Widgetbook bootstrap/открытие каждого зарегистрированного use case: **6 passed**.
+- Все50 scoped screen-сценариев в Mobile390×844 / Desktop1440×900 / Short Desktop800×500 при textScale1.0 и1.6: **6 matrix tests passed**, 300 сочетаний scenario/viewport/scale.
+- Analyzer: без замечаний; architecture-check:533 файла без нарушений; реестр правил согласован; diff-check чистый.
+- Нативные изменённые снимки визуально сверены. В живом окне подтверждено mobile-выравнивание Utility; затем Mac снова заблокировался. Финальная сборка запущена как `TournamentHub Widgetbook Final`, выполнен hot restart через `lib/main_widgetbook.dart`; runtime errors не обнаружены. Проверочные копии в /tmp не изменяют production bundle id.
+
+Команда финальной матрицы из `apps/tournament_app`:
+
+```sh
+flutter test --no-pub test/widgetbook_viewport_audit_test.dart --dart-define=WIDGETBOOK_AUDIT_FILTER=screens
+flutter test --no-pub test/widgetbook_viewport_audit_test.dart --dart-define=WIDGETBOOK_AUDIT_FILTER=screens --dart-define=WIDGETBOOK_AUDIT_TEXT_SCALE=1.6
+```
+
+Все изменения закоммичены локально. Push не выполнялся.

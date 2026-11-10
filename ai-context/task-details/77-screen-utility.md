@@ -40,3 +40,5 @@ Prompt пользователя (дословно):
 Plan: исправить относящиеся к экрану пункты, сохранить theme/state contracts; native Mobile/Desktop goldens, actual Widgetbook normal/1.6, визуальная сверка. TestGate NOT_REQUIRED: layout, visual states/composition only.
 
 Итог уточнения: общее выравнивание загрузки слева, передаваемые тексты Utility и прокручиваемый bounded desktop canvas. Проверки: 63 screen/DS tests passed, 6 actual Widgetbook bootstrap tests passed, Mobile/Desktop/Short Desktop matrix normal/1.6 passed; analyzer clean; architecture-check passed. Нативные снимки изменённого оформления сверены. No push.
+
+Итоговая сводка замечаний 1–10: docs/design/prototype-screens.md. Полная screen matrix: Mobile/Desktop/Short Desktop, normal/1.6 — 6 passed; 63 screen/DS tests и 6 actual Widgetbook tests passed; analyzer/architecture/rules clean. Native build/hot restart выполнены, runtime errors отсутствуют. Все экранные изменения сохранены отдельными local commits, no push.
