@@ -1,3 +1,5 @@
+import 'package:tournament_app/presentation/design_system/foundation/borders/app_focus_ring_painter.dart';
+import 'package:tournament_app/presentation/design_system/foundation/borders/app_focus_ring_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:tournament_app/presentation/design_system/components/field/app_field_theme.dart';
 import 'package:tournament_app/presentation/design_system/foundation/icons/app_icon.dart';
@@ -78,7 +80,16 @@ class _AppFieldState extends State<AppField> {
         SizedBox(height: t.gap),
         CustomPaint(
           foregroundPainter: _focus.hasFocus && widget.enabled
-              ? _FieldFocusPainter(t)
+              ? AppFocusRingPainter(
+                  AppFocusRingTheme(
+                    color: t.focusColor,
+                    width: t.focusWidth,
+                    offset: t.focusOffset,
+                    radius: t.radius,
+                    capsule: false,
+                    half: t.half,
+                  ),
+                )
               : null,
           child: DecoratedBox(
             decoration: BoxDecoration(
@@ -146,27 +157,4 @@ class _AppFieldState extends State<AppField> {
       ],
     );
   }
-}
-
-class _FieldFocusPainter extends CustomPainter {
-  const _FieldFocusPainter(this.theme);
-  final AppFieldTheme theme;
-  @override
-  void paint(Canvas canvas, Size size) {
-    canvas.drawRRect(
-      RRect.fromRectAndRadius(
-        (Offset.zero & size).inflate(
-          theme.focusOffset + theme.focusWidth * theme.half,
-        ),
-        Radius.circular(theme.radius.topLeft.x + theme.focusOffset),
-      ),
-      Paint()
-        ..color = theme.focusColor
-        ..style = PaintingStyle.stroke
-        ..strokeWidth = theme.focusWidth,
-    );
-  }
-
-  @override
-  bool shouldRepaint(covariant _FieldFocusPainter old) => old.theme != theme;
 }

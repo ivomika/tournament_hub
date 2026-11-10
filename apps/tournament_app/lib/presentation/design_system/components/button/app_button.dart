@@ -1,3 +1,5 @@
+import 'package:tournament_app/presentation/design_system/foundation/borders/app_focus_ring_painter.dart';
+import 'package:tournament_app/presentation/design_system/foundation/borders/app_focus_ring_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:tournament_app/presentation/design_system/components/button/app_button_theme.dart';
@@ -110,7 +112,16 @@ class _AppButtonState extends State<AppButton> {
           onTapCancel: _cancel,
           child: CustomPaint(
             foregroundPainter: states.contains(WidgetState.focused)
-                ? _FocusPainter(theme)
+                ? AppFocusRingPainter(
+                    AppFocusRingTheme(
+                      color: theme.focusColor,
+                      width: theme.focusWidth,
+                      offset: theme.focusOffset,
+                      radius: theme.radius,
+                      capsule: theme.circular,
+                      half: theme.half,
+                    ),
+                  )
                 : null,
             child: SizedBox(
               width:
@@ -164,31 +175,4 @@ class _AppButtonState extends State<AppButton> {
       ),
     );
   }
-}
-
-class _FocusPainter extends CustomPainter {
-  const _FocusPainter(this.theme);
-  final AppButtonTheme theme;
-  @override
-  void paint(Canvas canvas, Size size) {
-    final rect = (Offset.zero & size).inflate(
-      theme.focusOffset + theme.focusWidth * theme.half,
-    );
-    final paintCorner = theme.circular
-        ? size.shortestSide * theme.half
-        : theme.radius.topLeft.x;
-    canvas.drawRRect(
-      RRect.fromRectAndRadius(
-        rect,
-        Radius.circular(paintCorner + theme.focusOffset),
-      ),
-      Paint()
-        ..color = theme.focusColor
-        ..style = PaintingStyle.stroke
-        ..strokeWidth = theme.focusWidth,
-    );
-  }
-
-  @override
-  bool shouldRepaint(covariant _FocusPainter old) => old.theme != theme;
 }

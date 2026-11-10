@@ -1,3 +1,5 @@
+import 'package:tournament_app/presentation/design_system/foundation/borders/app_focus_ring_painter.dart';
+import 'package:tournament_app/presentation/design_system/foundation/borders/app_focus_ring_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:tournament_app/presentation/design_system/components/segmented_choice/app_segmented_choice_theme.dart';
@@ -154,7 +156,18 @@ class _Segment<T extends Object> extends StatelessWidget {
       child: GestureDetector(
         onTap: onSelected == null ? null : _choose,
         child: CustomPaint(
-          foregroundPainter: focused ? _SegmentFocusPainter(t) : null,
+          foregroundPainter: focused
+              ? AppFocusRingPainter(
+                  AppFocusRingTheme(
+                    color: t.focusColor,
+                    width: t.focusWidth,
+                    offset: t.focusOffset,
+                    radius: null,
+                    capsule: true,
+                    half: t.half,
+                  ),
+                )
+              : null,
           child: ConstrainedBox(
             constraints: BoxConstraints(minHeight: t.height),
             child: Padding(
@@ -185,24 +198,4 @@ class _Segment<T extends Object> extends StatelessWidget {
       ),
     );
   }
-}
-
-class _SegmentFocusPainter extends CustomPainter {
-  const _SegmentFocusPainter(this.theme);
-  final AppSegmentedChoiceTheme theme;
-  @override
-  void paint(Canvas canvas, Size size) => canvas.drawRRect(
-    RRect.fromRectAndRadius(
-      (Offset.zero & size).inflate(
-        theme.focusOffset + theme.focusWidth * theme.half,
-      ),
-      Radius.circular(size.shortestSide * theme.half + theme.focusOffset),
-    ),
-    Paint()
-      ..color = theme.focusColor
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = theme.focusWidth,
-  );
-  @override
-  bool shouldRepaint(covariant _SegmentFocusPainter old) => old.theme != theme;
 }

@@ -109,3 +109,4 @@
 - ✅ 101. Screen Итоги — независимая композиция прототипов. [Детали](task-details/101-screen-results.md)
 
 - ✅ 102. Стабильный запуск macOS на Intel — диагностика renderer и настройка совместимого backend. [Детали](task-details/102-macos-intel-rendering.md)
+- ✅ 103. Объединить focus painters с поддержкой полного BorderRadius. [Детали](task-details/103-focus-ring.md)

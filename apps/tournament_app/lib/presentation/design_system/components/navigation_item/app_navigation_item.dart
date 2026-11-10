@@ -1,3 +1,5 @@
+import 'package:tournament_app/presentation/design_system/foundation/borders/app_focus_ring_painter.dart';
+import 'package:tournament_app/presentation/design_system/foundation/borders/app_focus_ring_theme.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:tournament_app/presentation/design_system/components/navigation_item/app_navigation_item_theme.dart';
@@ -85,7 +87,16 @@ class _NavigationState extends State<AppNavigationItem> {
           onTap: widget.onPressed,
           child: CustomPaint(
             foregroundPainter: states.contains(WidgetState.focused)
-                ? _NavigationFocusPainter(t)
+                ? AppFocusRingPainter(
+                    AppFocusRingTheme(
+                      color: t.focusColor,
+                      width: t.focusWidth,
+                      offset: t.focusOffset,
+                      radius: t.focusRadius,
+                      capsule: false,
+                      half: t.half,
+                    ),
+                  )
                 : null,
             child: DecoratedBox(
               decoration: BoxDecoration(
@@ -121,25 +132,4 @@ class _NavigationState extends State<AppNavigationItem> {
       ),
     );
   }
-}
-
-class _NavigationFocusPainter extends CustomPainter {
-  const _NavigationFocusPainter(this.theme);
-  final AppNavigationItemTheme theme;
-  @override
-  void paint(Canvas canvas, Size size) => canvas.drawRRect(
-    RRect.fromRectAndRadius(
-      (Offset.zero & size).inflate(
-        theme.focusOffset + theme.focusWidth * theme.half,
-      ),
-      Radius.circular(theme.focusRadius.topLeft.x + theme.focusOffset),
-    ),
-    Paint()
-      ..color = theme.focusColor
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = theme.focusWidth,
-  );
-  @override
-  bool shouldRepaint(covariant _NavigationFocusPainter old) =>
-      old.theme != theme;
 }

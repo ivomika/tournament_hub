@@ -1,3 +1,5 @@
+import 'package:tournament_app/presentation/design_system/foundation/borders/app_focus_ring_painter.dart';
+import 'package:tournament_app/presentation/design_system/foundation/borders/app_focus_ring_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:tournament_app/presentation/design_system/components/score_choice/app_score_choice_theme.dart';
 
@@ -88,7 +90,18 @@ class _ScoreOptionState<T extends Object> extends State<_ScoreOption<T>> {
       selected: widget.selected,
       inMutuallyExclusiveGroup: true,
       child: CustomPaint(
-        foregroundPainter: _focus.hasFocus ? _ChoiceFocusPainter(t) : null,
+        foregroundPainter: _focus.hasFocus
+            ? AppFocusRingPainter(
+                AppFocusRingTheme(
+                  color: t.focusColor,
+                  width: t.focusWidth,
+                  offset: t.focusOffset,
+                  radius: t.radius,
+                  capsule: false,
+                  half: t.half,
+                ),
+              )
+            : null,
         child: DecoratedBox(
           decoration: BoxDecoration(
             color: t.background,
@@ -116,24 +129,4 @@ class _ScoreOptionState<T extends Object> extends State<_ScoreOption<T>> {
       ),
     );
   }
-}
-
-class _ChoiceFocusPainter extends CustomPainter {
-  const _ChoiceFocusPainter(this.theme);
-  final AppScoreChoiceTheme theme;
-  @override
-  void paint(Canvas canvas, Size size) => canvas.drawRRect(
-    RRect.fromRectAndRadius(
-      (Offset.zero & size).inflate(
-        theme.focusOffset + theme.focusWidth * theme.half,
-      ),
-      Radius.circular(theme.radius.topLeft.x + theme.focusOffset),
-    ),
-    Paint()
-      ..color = theme.focusColor
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = theme.focusWidth,
-  );
-  @override
-  bool shouldRepaint(covariant _ChoiceFocusPainter old) => old.theme != theme;
 }

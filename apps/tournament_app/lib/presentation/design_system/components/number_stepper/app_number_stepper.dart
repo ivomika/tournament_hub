@@ -1,3 +1,5 @@
+import 'package:tournament_app/presentation/design_system/foundation/borders/app_focus_ring_painter.dart';
+import 'package:tournament_app/presentation/design_system/foundation/borders/app_focus_ring_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:tournament_app/presentation/design_system/components/number_stepper/app_number_stepper_theme.dart';
 import 'package:tournament_app/presentation/design_system/foundation/icons/app_icon.dart';
@@ -81,7 +83,7 @@ class _StepperBody extends StatelessWidget {
     return Align(
       alignment: t.center,
       widthFactor: t.contentHeightFactor,
-      heightFactor:t.contentHeightFactor,
+      heightFactor: t.contentHeightFactor,
       child: Semantics(
         label: spec.label,
         container: true,
@@ -191,7 +193,18 @@ class _StepperActionState extends State<_StepperAction> {
     final t = AppNumberStepperTheme.of(context),
         disabled = widget.onPressed == null && widget.fadeDisabled;
     return CustomPaint(
-      foregroundPainter: _focus.hasFocus ? _StepperFocusPainter(t) : null,
+      foregroundPainter: _focus.hasFocus
+          ? AppFocusRingPainter(
+              AppFocusRingTheme(
+                color: t.focusColor,
+                width: t.focusWidth,
+                offset: t.focusOffset,
+                radius: null,
+                capsule: true,
+                half: t.half,
+              ),
+            )
+          : null,
       child: Opacity(
         opacity: disabled ? t.disabledOpacity : t.enabledOpacity,
         child: SizedBox.square(
@@ -218,24 +231,4 @@ class _StepperActionState extends State<_StepperAction> {
       ),
     );
   }
-}
-
-class _StepperFocusPainter extends CustomPainter {
-  const _StepperFocusPainter(this.theme);
-  final AppNumberStepperTheme theme;
-  @override
-  void paint(Canvas canvas, Size size) => canvas.drawRRect(
-    RRect.fromRectAndRadius(
-      (Offset.zero & size).inflate(
-        theme.focusOffset + theme.focusWidth * theme.half,
-      ),
-      Radius.circular(size.shortestSide * theme.half + theme.focusOffset),
-    ),
-    Paint()
-      ..color = theme.focusColor
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = theme.focusWidth,
-  );
-  @override
-  bool shouldRepaint(covariant _StepperFocusPainter old) => old.theme != theme;
 }
