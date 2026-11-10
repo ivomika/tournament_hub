@@ -1,3 +1,4 @@
+import 'dart:ui' show PointerDeviceKind;
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -11,6 +12,16 @@ void main() => _ProfileTests.run();
 
 abstract final class _ProfileTests {
   static void run() {
+    testWidgets(
+      "hover mobile desktop",
+      (tester) => ScreenGoldenHarness.verify(
+        tester,
+        Builder(builder: ProfileViewUseCase.build),
+        "profile",
+        "hover",
+        hover: true,
+      ),
+    );
     testWidgets(
       'view mobile desktop',
       (tester) async => ScreenGoldenHarness.verify(
@@ -37,8 +48,9 @@ abstract final class ScreenGoldenHarness {
     WidgetTester tester,
     Widget screen,
     String scope,
-    String scenario,
-  ) async {
+    String scenario, {
+    bool hover = false,
+  }) async {
     for (final viewport in [const Size(390, 844), const Size(1440, 900)]) {
       await tester.binding.setSurfaceSize(viewport);
       await tester.pumpWidget(
@@ -63,6 +75,16 @@ abstract final class ScreenGoldenHarness {
         isNull,
         reason: '$scope/$scenario $viewport',
       );
+      final pointer = hover
+          ? await tester.createGesture(kind: PointerDeviceKind.mouse)
+          : null;
+      if (pointer != null) {
+        await pointer.addPointer();
+        await pointer.moveTo(tester.getCenter(find.text("Пятничный турнир")));
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 250));
+        await tester.pumpAndSettle();
+      }
       await expectLater(
         find.byKey(const ValueKey('screen')),
         matchesGoldenFile(
@@ -71,6 +93,7 @@ abstract final class ScreenGoldenHarness {
           ),
         ),
       );
+      await pointer?.removePointer();
       await tester.pumpWidget(const SizedBox.shrink());
     }
     await tester.binding.setSurfaceSize(null);

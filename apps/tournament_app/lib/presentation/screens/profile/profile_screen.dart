@@ -77,45 +77,54 @@ class ProfileScreen extends StatelessWidget {
           );
     final latest = recent == null
         ? null
-        : InkWell(
-            onTap: onRecent,
-            child: AppScreenTile(
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Center(
-                      child: SingleChildScrollView(
-                        child: Column(
-                          mainAxisSize: t.min,
-                          crossAxisAlignment: t.start,
-                          children: [
-                            Text(l.screenLastTournament, style: t.caption),
-                            SizedBox(height: t.small),
-                            Text(recent.name, style: t.title),
-                            SizedBox(height: t.small),
-                            AppIdentity(
-                              primary: recent.character,
-                              initials: recent.initials,
-                              secondary: state.name,
-                              size: AppAvatarSize.small,
+        : ClipRRect(
+            borderRadius: t.recentRadius,
+            child: Material(
+              color: t.desktop ? t.surface : t.background,
+              child: InkWell(
+                hoverColor: t.recentHover,
+                highlightColor: t.recentHover,
+                borderRadius: t.recentRadius,
+                onTap: onRecent,
+                child: Padding(
+                  padding: t.tileInset,
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Center(
+                          child: SingleChildScrollView(
+                            child: Column(
+                              mainAxisSize: t.min,
+                              crossAxisAlignment: t.start,
+                              children: [
+                                Text(l.screenLastTournament, style: t.caption),
+                                SizedBox(height: t.small),
+                                Text(recent.name, style: t.title),
+                                SizedBox(height: t.small),
+                                AppIdentity(
+                                  primary: recent.character,
+                                  initials: recent.initials,
+                                  secondary: state.name,
+                                  size: AppAvatarSize.small,
+                                ),
+                                SizedBox(height: t.small),
+                                Text(recent.date, style: t.caption),
+                              ],
                             ),
-                            SizedBox(height: t.small),
-                            Text(recent.date, style: t.caption),
-                          ],
+                          ),
                         ),
                       ),
-                    ),
+                      SizedBox(width: t.small),
+                      Column(
+                        mainAxisSize: t.min,
+                        children: [
+                          Text(recent.place, style: t.accentHero),
+                          Text(l.screenPlace, style: t.caption),
+                        ],
+                      ),
+                    ],
                   ),
-                  SizedBox(width: t.small),
-                  RichText(
-                    text: TextSpan(
-                      children: [
-                        TextSpan(text: recent.place, style: t.accentHero),
-                        TextSpan(text: l.screenPlace, style: t.caption),
-                      ],
-                    ),
-                  ),
-                ],
+                ),
               ),
             ),
           );
@@ -151,6 +160,7 @@ class ProfileScreen extends StatelessWidget {
       onPressed: onContact,
     );
     return AppScreenCanvas(
+      scrollDesktop: true,
       child: Column(
         crossAxisAlignment: t.stretch,
         children: [
