@@ -83,7 +83,7 @@
 - ✅ 76. Проверить размеры всех Widgetbook previews в Mobile/Desktop и устранить layout-дефекты. [Детали](task-details/76-widgetbook-viewport-audit.md)
 
 - ✅ 77. Screen Загрузка данных — независимая композиция прототипов. [Детали](task-details/77-screen-utility.md)
-- 🚧 78. Screen Инициализация — независимая композиция прототипов. [Детали](task-details/78-screen-bootstrap.md)
+- ✅ 78. Screen Инициализация — независимая композиция прототипов. [Детали](task-details/78-screen-bootstrap.md)
 - ✅ 79. Screen Главная — независимая композиция прототипов. [Детали](task-details/79-screen-home.md)
 - 🚧 80. Screen Профиль — независимая композиция прототипов. [Детали](task-details/80-screen-profile.md)
 - ✅ 81. Screen Редактирование профиля — независимая композиция прототипов. [Детали](task-details/81-screen-profile-edit.md)
