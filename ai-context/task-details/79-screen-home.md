@@ -21,3 +21,18 @@ Prompt пользователя (дословно):
 Scope refinement: актуальный Home использует собственную home-bento-grid, не старый desktop-grid. Переносится непосредственно его иерархия. Недостающие shared DS presentation slots: StageProgress (только переданные boolean highlights) и leading glyph Button; ни расчётов стадии, ни доменных действий. Родные шрифты в штатном сервере подтверждены HTTP200; предыдущие screenshots с fallback заменены.
 
 Итог: независимый Home empty/active, собственный desktop bento hierarchy и mobile card. Внешние immutable name/format/count/stage/highlights; navigation intents callbacks, без controllers/domain. Native4 PNG; Home2+Button4+Stage1 tests PASS без update; analyzer no issues. Source и native просмотрены после исправления font server. Leading Button variant сохраняет старые goldens; StageProgress имеет собственные golden/Widgetbook. No push.
+
+2026-11-10. Уточнение пользователя (дословно):
+1) match result - растягивается stepper при этом контент степера прижат к левому краю, ограничь его чтобы он не растягивался
+2) distribution working должно быть не состоянием экрана, это отдельный utility экран который уже есть.
+3) у выбора формата не видно контейнера
+4) home - empty не соответсвует прототипу на desktop кнопка слишком прижата, иконка слишком маленькая
+5) на bootstrap кнопка должна быть прижата к нижнему краю контейнера
+6) Техническое поажение не влазиет
+7) на просмотре сетки есть отступы по краям всего экрана, а для фона и сетки его не должно быть, этот отступ должен быть только для кнопок
+8) Странный hover эффект при наведении на последний турнир в профиле, а так же надпись "Место" рядом с цифрой смотриться странно, не уверен что она должна быть такой точно так же на desktop
+9) на мобильом варианте кнопка на bootstrap тоже должна быть снизу
+10) на экране loading должно быть все прижато к левому краю
+Plan: исправить относящиеся к экрану пункты, сохранить theme/state contracts; native Mobile/Desktop goldens, actual Widgetbook normal/1.6, визуальная сверка. TestGate NOT_REQUIRED: layout, visual states/composition only.
+
+Итог уточнения: внутренние отступы CTA, декоративная иконка и подпись пустого состояния приведены к прототипу. Проверки: 63 screen/DS tests passed, 6 actual Widgetbook bootstrap tests passed, Mobile/Desktop/Short Desktop matrix normal/1.6 passed; analyzer clean; architecture-check passed. Нативные снимки изменённого оформления сверены. No push.

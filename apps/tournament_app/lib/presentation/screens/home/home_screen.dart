@@ -29,6 +29,7 @@ class HomeScreen extends StatelessWidget {
         l = FoundationLocalizations.of(context);
     final active = state.active;
     return AppScreenCanvas(
+      scrollDesktop: true,
       child: Column(
         crossAxisAlignment: t.stretch,
         children: [
@@ -75,6 +76,7 @@ class HomeScreen extends StatelessWidget {
                     children: [
                       Positioned.fill(
                         child: AppScreenTile(
+                          padding: t.emptyPadding,
                           child: Column(
                             mainAxisAlignment: t.centerMain,
                             crossAxisAlignment: t.start,
@@ -85,10 +87,28 @@ class HomeScreen extends StatelessWidget {
                                 style: t.accentHero,
                               ),
                               SizedBox(height: t.homeGap),
-                              AppIcon(
-                                AppGlyph.trophy,
-                                color: t.accentHero.color,
+                              Row(
+                                mainAxisSize: t.min,
+                                children: [
+                                  SizedBox(
+                                    width: t.ornamentLine,
+                                    child: Divider(color: t.ornamentColor),
+                                  ),
+                                  SizedBox(width: t.small),
+                                  AppIcon(
+                                    AppGlyph.trophy,
+                                    size: t.trophySize,
+                                    color: t.accentHero.color,
+                                  ),
+                                  SizedBox(width: t.small),
+                                  SizedBox(
+                                    width: t.ornamentLine,
+                                    child: Divider(color: t.ornamentColor),
+                                  ),
+                                ],
                               ),
+                              SizedBox(height: t.homeGap),
+                              Text(l.screenNoActive, style: t.muted),
                             ],
                           ),
                         ),
@@ -99,18 +119,13 @@ class HomeScreen extends StatelessWidget {
                           constraints: BoxConstraints(
                             maxWidth: t.desktop ? t.formWidth : t.fullWidth,
                           ),
-                          child: Column(
-                            mainAxisSize: t.min,
-                            crossAxisAlignment: t.stretch,
-                            children: [
-                              Text(l.screenNoActive, style: t.muted),
-                              SizedBox(height: t.homeGap),
-                              AppButton(
-                                label: l.screenCreate,
-                                glyph: AppGlyph.arrow,
-                                onPressed: onCreate,
-                              ),
-                            ],
+                          child: Padding(
+                            padding: t.emptyActionPadding,
+                            child: AppButton(
+                              label: l.screenCreate,
+                              glyph: AppGlyph.plus,
+                              onPressed: onCreate,
+                            ),
                           ),
                         ),
                       ),
