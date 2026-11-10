@@ -110,3 +110,4 @@
 
 - ✅ 102. Стабильный запуск macOS на Intel — диагностика renderer и настройка совместимого backend. [Детали](task-details/102-macos-intel-rendering.md)
 - ✅ 103. Объединить focus painters с поддержкой полного BorderRadius. [Детали](task-details/103-focus-ring.md)
+- ✅ 104. Закрепить читаемые имена и запрет вложенных тернарных выражений архитектурной проверкой. [Детали](task-details/104-code-readability.md)

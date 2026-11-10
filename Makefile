@@ -108,6 +108,7 @@ architecture-check:
 	cd tools/domain-check && $(DART) run bin/check_flutter_architecture.dart
 
 architecture-test:
+	cd tools/domain-check && $(DART) run test/code_readability_test.dart
 	cd tools/domain-check && $(DART) run test/top_level_functions_test.dart
 	cd tools/domain-check && $(DART) run bin/check_flutter_architecture.dart --self-test
 	cd tools/domain-check && $(DART) run test/theme_boundaries_test.dart

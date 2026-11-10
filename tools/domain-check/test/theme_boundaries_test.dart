@@ -160,7 +160,7 @@ class Home extends StatelessWidget {
       name: 'standard Flutter runtime theme accepted',
       overrides: {
         widget:
-            "import 'package:flutter/material.dart'; abstract final class Styles { static TextStyle? read(BuildContext c) => Theme.of(c).textTheme.bodySmall; }",
+            "import 'package:flutter/material.dart'; abstract final class Styles { static TextStyle? read(BuildContext context) => Theme.of(context).textTheme.bodySmall; }",
       },
       rejectedFile: null,
     ),
@@ -257,7 +257,7 @@ class Home extends StatelessWidget {
       name: "runtime extension reference allowed",
       overrides: {
         "lib/presentation/screens/home/home_screen.dart":
-            "import 'package:flutter/material.dart'; import 'package:fixture/presentation/design_system/foundation/spacing/app_spacing.dart'; abstract final class Preview { static Widget child(BuildContext c) => SizedBox(width: Theme.of(c).extension<AppSpacing>()!.space8); }",
+            "import 'package:flutter/material.dart'; import 'package:fixture/presentation/design_system/foundation/spacing/app_spacing.dart'; abstract final class Preview { static Widget child(BuildContext context) => SizedBox(width: Theme.of(context).extension<AppSpacing>()!.space8); }",
       },
       rejectedFile: null,
     ),
@@ -332,7 +332,7 @@ class Home extends StatelessWidget {
       name: 'runtime color interpolation allowed',
       overrides: {
         widget:
-            "import 'package:flutter/material.dart'; abstract final class ColorsAdapter { static Color? blend(Color a, Color b, double t) => Color.lerp(a, b, t); }",
+            "import 'package:flutter/material.dart'; abstract final class ColorsAdapter { static Color? blend(Color startColor, Color endColor, double progress) => Color.lerp(startColor, endColor, progress); }",
       },
       rejectedFile: null,
     ),

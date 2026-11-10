@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:tournament_domain_check/theme_boundaries.dart';
 import 'package:tournament_domain_check/class_owned_functions.dart';
+import 'package:tournament_domain_check/code_readability.dart';
 
 import 'package:analyzer/dart/analysis/utilities.dart';
 import 'package:analyzer/dart/ast/ast.dart';
@@ -74,6 +75,9 @@ List<String> inspect(Map<String, String> sources, String packageName) {
     }
     problems.addAll(
       ClassOwnedFunctions.inspect(entry.key, entry.value, parsed.unit),
+    );
+    problems.addAll(
+      CodeReadability.inspect(entry.key, entry.value, parsed.unit),
     );
     void checkUri(String? raw, int offset, {bool isImport = false}) {
       // gen-l10n emits sibling imports and exposes no package-import option.

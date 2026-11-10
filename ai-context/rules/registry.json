@@ -1,6 +1,7 @@
 {
   "version": 1,
   "groups": [
+    { "id": "R-008", "name": "Читаемость кода", "folder": "core" },
     {
       "id": "R-003",
       "name": "Архитектура Flutter",
@@ -13,6 +14,8 @@
     }
   ],
   "rules": [
+    { "id": "R-008.a", "path": "core/008-a-readable-names.md" },
+    { "id": "R-008.b", "path": "core/008-b-explicit-conditions.md" },
     {
       "id": "R-001",
       "path": "core/001-solid.md"
