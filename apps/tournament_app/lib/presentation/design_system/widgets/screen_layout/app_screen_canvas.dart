@@ -3,8 +3,14 @@ import 'package:tournament_app/presentation/design_system/widgets/screen_layout/
 import 'package:tournament_app/presentation/l10n/generated/foundation_localizations.dart';
 
 class AppScreenCanvas extends StatelessWidget {
-  const AppScreenCanvas({required this.child, super.key});
+  const AppScreenCanvas({
+    required this.child,
+    this.padded = true,
+    this.scrollDesktop = false,
+    super.key,
+  });
   final Widget child;
+  final bool padded, scrollDesktop;
   @override
   Widget build(BuildContext context) {
     final t = AppScreenLayoutTheme.of(context),
@@ -43,7 +49,24 @@ class AppScreenCanvas extends StatelessWidget {
                 ),
               ),
             Expanded(
-              child: Padding(padding: t.inset, child: child),
+              child: Padding(
+                padding: padded ? t.inset : EdgeInsets.all(t.zero),
+                child: scrollDesktop && t.desktop
+                    ? LayoutBuilder(
+                        builder: (context, constraints) =>
+                            SingleChildScrollView(
+                              child: SizedBox(
+                                height:
+                                    constraints.maxHeight <
+                                        t.scaledDesktopContentMinHeight
+                                    ? t.scaledDesktopContentMinHeight
+                                    : constraints.maxHeight,
+                                child: child,
+                              ),
+                            ),
+                      )
+                    : child,
+              ),
             ),
           ],
         ),

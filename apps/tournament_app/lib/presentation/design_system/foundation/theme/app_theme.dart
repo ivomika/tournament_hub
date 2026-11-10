@@ -122,6 +122,7 @@ abstract final class AppTheme {
       ),
       extensions: [
         const AppScreenMetrics(
+          desktopContentMinHeight: ScreenPrimitives.desktopContentMinHeight,
           screenBrandSize: ScreenPrimitives.screenBrandSize,
           screenBrandLine: ScreenPrimitives.screenBrandLine,
           screenBrandTracking: ScreenPrimitives.screenBrandTracking,

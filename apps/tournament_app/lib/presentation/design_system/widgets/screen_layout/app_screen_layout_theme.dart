@@ -83,6 +83,7 @@ class AppScreenLayoutTheme {
     screenBrandSize = m.screenBrandSize;
     screenBrandLine = m.screenBrandLine;
     screenBrandTracking = m.screenBrandTracking;
+    desktopContentMinHeight = m.desktopContentMinHeight;
     desktop = MediaQuery.sizeOf(context).width > r.mobileToDesktopWidth;
     inset = EdgeInsets.all(desktop ? s.space32 : s.space24);
     brandInset = EdgeInsets.symmetric(horizontal: s.space32);
@@ -107,6 +108,11 @@ class AppScreenLayoutTheme {
     caption = theme.textTheme.bodySmall!.copyWith(
       color: theme.colorScheme.onSurfaceVariant,
     );
+    textScaleFactor =
+        MediaQuery.textScalerOf(context)
+            .scale(theme.textTheme.bodyMedium!.fontSize!) /
+        theme.textTheme.bodyMedium!.fontSize!;
+    scaledDesktopContentMinHeight = m.desktopContentMinHeight * textScaleFactor;
     brand = theme.textTheme.headlineLarge!.copyWith(
       fontSize: m.screenBrandSize,
       height: m.screenBrandLine,
@@ -129,6 +135,7 @@ class AppScreenLayoutTheme {
     brandHeight = m.brandHeight;
     formWidth = m.formWidth;
   }
+  late final double scaledDesktopContentMinHeight, textScaleFactor;
   late final Border brandBorder;
   late final CrossAxisAlignment start;
   late final CrossAxisAlignment stretch;
@@ -201,6 +208,7 @@ class AppScreenLayoutTheme {
   late final double screenBrandSize;
   late final double screenBrandLine;
   late final double screenBrandTracking;
+  late final double desktopContentMinHeight;
   late final bool desktop;
   late final EdgeInsets inset, tileInset, brandInset;
   late final double utilityWidth,

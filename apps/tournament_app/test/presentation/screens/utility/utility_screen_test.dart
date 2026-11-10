@@ -1,3 +1,4 @@
+import 'package:tournament_app/presentation/widgetbook/screens/utility/distribution/distribution_use_case.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tournament_app/presentation/widgetbook/screens/utility/loading/loading_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/screens/utility/error/error_use_case.dart';
@@ -16,6 +17,15 @@ abstract final class _UtilityTests {
   static int retried = 0;
   static void retry() => retried++;
   static void run() {
+    testWidgets(
+      "distribution mobile desktop",
+      (tester) => ScreenGoldenHarness.verify(
+        tester,
+        Builder(builder: UtilityDistributionUseCase.build),
+        "utility",
+        "distribution",
+      ),
+    );
     testWidgets(
       'loading mobile desktop',
       (tester) async => ScreenGoldenHarness.verify(
@@ -88,6 +98,7 @@ abstract final class ScreenGoldenHarness {
         isNull,
         reason: '$scope/$scenario $viewport',
       );
+      await tester.pumpAndSettle();
       await expectLater(
         find.byKey(const ValueKey('screen')),
         matchesGoldenFile(

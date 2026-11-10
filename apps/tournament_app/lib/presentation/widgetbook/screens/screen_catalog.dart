@@ -22,7 +22,7 @@ import 'package:tournament_app/presentation/widgetbook/screens/tournament/rr/rr_
 import 'package:tournament_app/presentation/widgetbook/screens/tournament/tiebreak/tiebreak_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/screens/spectator_access/distribution/distribution_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/screens/spectator_access/tournament/tournament_use_case.dart';
-import 'package:tournament_app/presentation/widgetbook/screens/distribution/working/working_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/screens/utility/distribution/distribution_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/screens/distribution/ready/ready_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/screens/guest_add/name/name_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/screens/guest_remove/confirmation/confirmation_use_case.dart';
@@ -101,7 +101,7 @@ final screenCatalog = <WidgetbookNode>[
   ),
   WidgetbookComponent(
     name: 'Distribution',
-    useCases: [distributionWorkingUseCase, distributionReadyUseCase],
+    useCases: [distributionReadyUseCase],
   ),
   WidgetbookComponent(name: 'GuestAdd', useCases: [guestAddNameUseCase]),
   WidgetbookComponent(
@@ -149,6 +149,10 @@ final screenCatalog = <WidgetbookNode>[
   ),
   WidgetbookComponent(
     name: 'Utility',
-    useCases: [utilityLoadingUseCase, utilityErrorUseCase],
+    useCases: [
+      utilityLoadingUseCase,
+      utilityErrorUseCase,
+      utilityDistributionUseCase,
+    ],
   ),
 ];

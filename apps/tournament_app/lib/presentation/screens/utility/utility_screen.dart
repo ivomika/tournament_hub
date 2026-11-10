@@ -24,8 +24,9 @@ class UtilityScreen extends StatelessWidget {
         l = FoundationLocalizations.of(context);
     final failed = state.phase == UtilityPhase.error;
     return AppCenteredScreen(
+      stretchContent: true,
       header: AppSectionHeader(
-        title: l.screenLoading,
+        title: state.title ?? l.screenLoading,
         backLabel: l.screenBack,
         onBack: onBack,
       ),
@@ -41,22 +42,30 @@ class UtilityScreen extends StatelessWidget {
         crossAxisAlignment: t.start,
         mainAxisAlignment: t.centerMain,
         children: [
-          if(failed)...[AppIcon(AppGlyph.alert,color:t.error),SizedBox(height:t.gap)],
+          if (failed) ...[
+            AppIcon(AppGlyph.alert, color: t.error),
+            SizedBox(height: t.gap),
+          ],
           if (!failed) ...[
-            AppProgressIndicator(semanticLabel: l.screenLoading),
+            AppProgressIndicator(
+              semanticLabel: state.progressLabel ?? l.screenLoading,
+            ),
             SizedBox(height: t.gap),
           ],
           Text(
-            failed ? l.screenLoadErrorHero : l.screenLoadingHero,
+            state.heading ??
+                (failed ? l.screenLoadErrorHero : l.screenLoadingHero),
             style: t.heading,
           ),
-          Text(
-            failed ? l.screenLoadErrorAccent : l.screenLoadingAccent,
-            style: t.heading,
-          ),
+          if (state.accent?.isNotEmpty ?? true)
+            Text(
+              state.accent ??
+                  (failed ? l.screenLoadErrorAccent : l.screenLoadingAccent),
+              style: t.heading,
+            ),
           SizedBox(height: t.gap),
           Text(
-            failed ? l.screenRetryNote : l.screenLoadingNote,
+            state.note ?? (failed ? l.screenRetryNote : l.screenLoadingNote),
             style: t.caption,
           ),
         ],

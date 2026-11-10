@@ -1,4 +1,5 @@
 abstract final class ScreenPrimitives {
+  static const desktopContentMinHeight = 720.0;
   static const screenBrandSize = 24.0;
   static const screenBrandLine = 1.0;
   static const screenBrandTracking = -0.02;

@@ -46,8 +46,18 @@ abstract final class _ViewportAudit {
       defaultValue: '1',
     ),
   );
+  static final shortDesktop = ViewportData(
+    name: "Short Desktop 800 × 500",
+    width: 800,
+    height: 500,
+    pixelRatio: 1,
+    platform: TargetPlatform.macOS,
+  );
   static void run() {
-    for (final preset in WidgetbookViewports.values.skip(1)) {
+    for (final preset in [
+      ...WidgetbookViewports.values.skip(1),
+      shortDesktop,
+    ]) {
       testWidgets(
         'all previews in ${preset.name}',
         (tester) => _audit(tester, preset),
@@ -82,6 +92,9 @@ abstract final class _ViewportAudit {
         currentErrors.add(details.exceptionAsString());
     try {
       for (final (index, source) in sources.indexed) {
+        if (preset == shortDesktop && !source.path.startsWith("screens/")) {
+          continue;
+        }
         if (filter.isNotEmpty && !source.path.contains(filter)) continue;
         currentErrors.clear();
         await tester.pumpWidget(const SizedBox.shrink());
@@ -90,7 +103,15 @@ abstract final class _ViewportAudit {
         await tester.pumpWidget(
           Widgetbook.material(
             appBuilder: config.appBuilder,
-            addons: config.addons,
+            addons: preset == shortDesktop
+                ? [
+                    ...config.addons!.where((addon) => addon is! ViewportAddon),
+                    ViewportAddon([
+                      ...WidgetbookViewports.values,
+                      shortDesktop,
+                    ]),
+                  ]
+                : config.addons,
             themeMode: config.themeMode,
             darkTheme: config.darkTheme,
             directories: [

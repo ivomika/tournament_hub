@@ -79,6 +79,7 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
     required this.screenBrandSize,
     required this.screenBrandLine,
     required this.screenBrandTracking,
+    required this.desktopContentMinHeight,
     required this.utilityWidth,
     required this.utilityHeight,
     required this.utilityTop,
@@ -111,6 +112,7 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
   final int stackColumns;
   final int widePaneFlex;
   final int narrowPaneFlex;
+  final double desktopContentMinHeight;
   final double bracketGrid;
   final double bracketDot;
   final double bracketStroke;
@@ -257,6 +259,7 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
     double? screenBrandSize,
     double? screenBrandLine,
     double? screenBrandTracking,
+    double? desktopContentMinHeight,
     double? utilityWidth,
     double? utilityHeight,
     double? utilityTop,
@@ -351,6 +354,8 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
     screenBrandSize: screenBrandSize ?? this.screenBrandSize,
     screenBrandLine: screenBrandLine ?? this.screenBrandLine,
     screenBrandTracking: screenBrandTracking ?? this.screenBrandTracking,
+    desktopContentMinHeight:
+        desktopContentMinHeight ?? this.desktopContentMinHeight,
     utilityWidth: utilityWidth ?? this.utilityWidth,
     utilityHeight: utilityHeight ?? this.utilityHeight,
     utilityTop: utilityTop ?? this.utilityTop,
@@ -601,6 +606,11 @@ class AppScreenMetrics extends ThemeExtension<AppScreenMetrics> {
           screenBrandTracking: lerpDouble(
             screenBrandTracking,
             other.screenBrandTracking,
+            t,
+          )!,
+          desktopContentMinHeight: lerpDouble(
+            desktopContentMinHeight,
+            other.desktopContentMinHeight,
             t,
           )!,
           utilityWidth: lerpDouble(utilityWidth, other.utilityWidth, t)!,
