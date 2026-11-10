@@ -6,11 +6,13 @@ export 'package:tournament_app/presentation/design_system/components/status_labe
 class AppStatusLabel extends StatelessWidget {
   const AppStatusLabel({
     required this.text,
+    this.textAlign,
     this.kind = AppStatusKind.live,
     this.tone = AppStatusTone.accent,
     super.key,
   });
   final String text;
+  final TextAlign? textAlign;
   final AppStatusKind kind;
   final AppStatusTone tone;
   @override
@@ -35,6 +37,11 @@ class AppStatusLabel extends StatelessWidget {
               ],
             ),
           )
-        : Text(text, style: t.style, textHeightBehavior: t.heightBehavior);
+        : Text(
+            text,
+            style: t.style,
+            textAlign: textAlign,
+            textHeightBehavior: t.heightBehavior,
+          );
   }
 }

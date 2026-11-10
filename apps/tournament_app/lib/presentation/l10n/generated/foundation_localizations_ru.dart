@@ -982,10 +982,10 @@ class FoundationLocalizationsRu extends FoundationLocalizations {
   String get screenTechnicalResult => 'Технический результат';
 
   @override
-  String get screenTechnicalWin => 'Техническая победа';
+  String get screenTechnicalWin => 'Техническая\nпобеда';
 
   @override
-  String get screenTechnicalLoss => 'Техническое поражение';
+  String get screenTechnicalLoss => 'Техническое\nпоражение';
 
   @override
   String get screenTechnicalAction => 'Техническое поражение';

@@ -78,59 +78,67 @@ class _StepperBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = AppNumberStepperTheme.of(context);
-    return Semantics(
-      label: spec.label,
-      container: true,
-      child: DecoratedBox(
-        decoration: BoxDecoration(color: t.background, borderRadius: t.radius),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            _StepperAction(
-              glyph: AppGlyph.minus,
-              label: spec.decreaseLabel,
-              onPressed: spec.onDecrease,
-              fadeDisabled: spec.kind == AppStepperKind.output,
-            ),
-            SizedBox(
-              width: spec.kind == AppStepperKind.output
-                  ? t.outputExtent(context, spec.valueLabel!)
-                  : t.inputWidth,
-              child: spec.kind == AppStepperKind.output
-                  ? Center(
-                      heightFactor: t.contentHeightFactor,
-                      child: Text(
-                        spec.valueLabel!,
-                        style: t.valueStyle,
-                        softWrap: false,
-                        maxLines: t.singleLine,
-                      ),
-                    )
-                  : Semantics(
-                      label: spec.label,
-                      child: TextField(
-                        controller: spec.controller,
-                        onChanged: spec.onChanged,
-                        onSubmitted: spec.onSubmitted,
-                        style: t.valueStyle,
-                        textAlign: t.textAlign,
-                        maxLines: t.singleLine,
-                        cursorColor: t.foreground,
-                        keyboardType: TextInputType.number,
-                        decoration: const InputDecoration(
-                          isCollapsed: true,
-                          border: InputBorder.none,
+    return Align(
+      alignment: t.center,
+      widthFactor: t.contentHeightFactor,
+      heightFactor:t.contentHeightFactor,
+      child: Semantics(
+        label: spec.label,
+        container: true,
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            color: t.background,
+            borderRadius: t.radius,
+          ),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              _StepperAction(
+                glyph: AppGlyph.minus,
+                label: spec.decreaseLabel,
+                onPressed: spec.onDecrease,
+                fadeDisabled: spec.kind == AppStepperKind.output,
+              ),
+              SizedBox(
+                width: spec.kind == AppStepperKind.output
+                    ? t.outputExtent(context, spec.valueLabel!)
+                    : t.inputWidth,
+                child: spec.kind == AppStepperKind.output
+                    ? Center(
+                        heightFactor: t.contentHeightFactor,
+                        child: Text(
+                          spec.valueLabel!,
+                          style: t.valueStyle,
+                          softWrap: false,
+                          maxLines: t.singleLine,
+                        ),
+                      )
+                    : Semantics(
+                        label: spec.label,
+                        child: TextField(
+                          controller: spec.controller,
+                          onChanged: spec.onChanged,
+                          onSubmitted: spec.onSubmitted,
+                          style: t.valueStyle,
+                          textAlign: t.textAlign,
+                          maxLines: t.singleLine,
+                          cursorColor: t.foreground,
+                          keyboardType: TextInputType.number,
+                          decoration: const InputDecoration(
+                            isCollapsed: true,
+                            border: InputBorder.none,
+                          ),
                         ),
                       ),
-                    ),
-            ),
-            _StepperAction(
-              glyph: AppGlyph.plus,
-              label: spec.increaseLabel,
-              onPressed: spec.onIncrease,
-              fadeDisabled: spec.kind == AppStepperKind.output,
-            ),
-          ],
+              ),
+              _StepperAction(
+                glyph: AppGlyph.plus,
+                label: spec.increaseLabel,
+                onPressed: spec.onIncrease,
+                fadeDisabled: spec.kind == AppStepperKind.output,
+              ),
+            ],
+          ),
         ),
       ),
     );

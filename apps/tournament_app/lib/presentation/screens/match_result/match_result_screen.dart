@@ -63,6 +63,7 @@ class MatchResultScreen extends StatelessWidget {
                   constraints: BoxConstraints(minHeight: t.outcomeHeight),
                   child: AppStatusLabel(
                     text: leftOutcome,
+                    textAlign: t.centerText,
                     kind: AppStatusKind.outcome,
                     tone: leftTone,
                   ),
@@ -92,6 +93,7 @@ class MatchResultScreen extends StatelessWidget {
                   constraints: BoxConstraints(minHeight: t.outcomeHeight),
                   child: AppStatusLabel(
                     text: rightOutcome,
+                    textAlign: t.centerText,
                     kind: AppStatusKind.outcome,
                     tone: rightTone,
                   ),

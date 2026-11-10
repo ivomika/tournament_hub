@@ -1942,13 +1942,13 @@ abstract class FoundationLocalizations {
   /// No description provided for @screenTechnicalWin.
   ///
   /// In ru, this message translates to:
-  /// **'Техническая победа'**
+  /// **'Техническая\nпобеда'**
   String get screenTechnicalWin;
 
   /// No description provided for @screenTechnicalLoss.
   ///
   /// In ru, this message translates to:
-  /// **'Техническое поражение'**
+  /// **'Техническое\nпоражение'**
   String get screenTechnicalLoss;
 
   /// No description provided for @screenTechnicalAction.
