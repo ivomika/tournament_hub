@@ -100,6 +100,7 @@ class ResultsScreen extends StatelessWidget {
       onPressed: onHome,
     );
     return AppScreenCanvas(
+      scrollDesktop: true,
       child: Column(
         crossAxisAlignment: t.stretch,
         children: [
