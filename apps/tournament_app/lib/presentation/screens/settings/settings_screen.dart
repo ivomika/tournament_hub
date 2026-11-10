@@ -72,7 +72,7 @@ class SettingsScreen extends StatelessWidget {
                 children: [
                   if (t.desktop)
                     SizedBox(
-                      height: t.settingsHeight,
+                      height: t.settingsHeight * t.textScaleFactor,
                       child: Row(
                         crossAxisAlignment: t.stretch,
                         children: [
