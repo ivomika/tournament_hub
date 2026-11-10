@@ -38,6 +38,7 @@ class SetupScreen extends StatelessWidget {
         Text(l.screenFormat, style: t.caption),
         SizedBox(height: t.small),
         AppSegmentedChoice<TournamentFormatDisplay>(
+          nested: t.desktop,
           label: l.screenFormat,
           options: [
             AppSegment(
@@ -125,7 +126,7 @@ class SetupScreen extends StatelessWidget {
                         AppScreenTile(padding: t.panePadding, child: field),
                         SizedBox(height: t.layoutGap),
                         SizedBox(
-                          height: t.utilityHeight,
+                          height: t.formatHeight,
                           child: Row(
                             crossAxisAlignment: t.stretch,
                             children: [

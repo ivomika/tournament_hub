@@ -7,12 +7,12 @@ import 'package:tournament_app/presentation/design_system/foundation/borders/app
 import 'package:tournament_app/presentation/design_system/foundation/typography/app_type_roles.dart';
 
 class AppSegmentedChoiceTheme {
-  AppSegmentedChoiceTheme.of(BuildContext context) {
+  AppSegmentedChoiceTheme.of(BuildContext context, {bool nested = false}) {
     final t = Theme.of(context),
         s = t.extension<AppSpacing>()!,
         c = t.extension<AppControlMetrics>()!,
         b = t.extension<AppBorderMetrics>()!;
-    background = t.colorScheme.surface;
+    background = nested ? t.scaffoldBackgroundColor : t.colorScheme.surface;
     selectedBackground = t.colorScheme.surfaceContainerHigh;
     transparent = c.transparent;
     foreground = t.colorScheme.onSurface;

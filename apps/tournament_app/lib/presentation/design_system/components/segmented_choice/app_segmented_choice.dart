@@ -16,9 +16,11 @@ class AppSegmentedChoice<T extends Object> extends StatefulWidget {
     required this.value,
     required this.onChanged,
     this.focusNode,
+    this.nested = false,
     super.key,
   });
   final String label;
+  final bool nested;
   final List<AppSegment<T>> options;
   final T value;
   final ValueChanged<T>? onChanged;
@@ -80,7 +82,7 @@ class _SegmentedState<T extends Object> extends State<AppSegmentedChoice<T>> {
 
   @override
   Widget build(BuildContext context) {
-    final t = AppSegmentedChoiceTheme.of(context),
+    final t = AppSegmentedChoiceTheme.of(context, nested: widget.nested),
         enabled = widget.onChanged != null;
     return Semantics(
       label: widget.label,
