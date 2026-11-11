@@ -11,6 +11,7 @@ final class OpenProfileIntent extends NavigationIntent {
 
 final class OpenTournamentIntent extends NavigationIntent {
   const OpenTournamentIntent(this.tournamentId);
+
   final TournamentId tournamentId;
 }
 

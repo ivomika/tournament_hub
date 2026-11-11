@@ -9,9 +9,11 @@ import 'package:tournament_app/app/navigation/navigation_execution_result.dart';
 
 class GoRouterEffectExecutor implements NavigationEffectExecutor {
   GoRouterEffectExecutor(this.router, this.readContext);
+
   final GoRouter router;
   final NavigationContext Function() readContext;
   NavigationEffect? activeEffect;
+
   @override
   Future<NavigationExecutionResult> execute(NavigationEffect effect) async {
     activeEffect = effect;

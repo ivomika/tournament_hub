@@ -6,8 +6,10 @@ import 'package:tournament_app/presentation/navigation/navigation_intent.dart';
 
 class NavigationGuard {
   const NavigationGuard();
+
   bool canEnter(AppRoute route, NavigationContext context) =>
       context.initialized || route is BootstrapRoute;
+
   NavigationDecision evaluate(
     NavigationIntent intent,
     NavigationContext context,

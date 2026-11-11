@@ -33,6 +33,7 @@ class AppNavigationSession {
     );
     router.routerDelegate.addListener(_routerChanged);
   }
+
   final bool initialized;
   final ScreenRouteBuilders screens;
   late final GoRouter router;
@@ -45,12 +46,15 @@ class AppNavigationSession {
   final _entries = <ValueKey<String>, NavigationEntryId>{};
   final _routes = <ValueKey<String>, AppRoute>{};
   final _controllers = <ValueKey<String>, ScreenNavigationController>{};
+
   AppRoute get currentRoute => _currentRoute;
+
   Widget _navigationError(BuildContext context, GoRouterState state) =>
       const BootstrapScreen(
         state: BootstrapScreenState(phase: BootstrapPhase.error),
         onRetry: null,
       );
+
   OnEnterResult _onEnter(
     BuildContext context,
     GoRouterState current,
@@ -76,6 +80,7 @@ class AppNavigationSession {
       return const Block.stop();
     }
   }
+
   bool allowExit() {
     final effect = _executor.activeEffect;
     if (effect is PopRouteEffect) return effect.entryId == _currentEntry;
@@ -86,6 +91,7 @@ class AppNavigationSession {
       readContext(),
     ) is NavigationAllowed;
   }
+
   ScreenNavigationController bind(AppRoute route, ValueKey<String> key) {
     _routes[key] = route;
     _entries.putIfAbsent(key, _allocateEntry);
@@ -95,7 +101,9 @@ class AppNavigationSession {
       () => ScreenNavigationController(coordinator.bindToEntry(_entries[key]!)),
     );
   }
+
   NavigationEntryId _allocateEntry() => NavigationEntryId(++_nextEntry);
+
   void _routerChanged() {
     final matches = router.routerDelegate.currentConfiguration.matches;
     if (matches.isEmpty) return;
@@ -111,6 +119,7 @@ class AppNavigationSession {
     _currentEntry = entry;
     _revision++;
   }
+
   NavigationContext readContext() => NavigationContext(
     currentRoute: _currentRoute,
     entryId: _currentEntry,
@@ -118,6 +127,7 @@ class AppNavigationSession {
     initialized: initialized,
     canPop: router.canPop(),
   );
+
   void dispose() {
     coordinator.dispose();
     router.routerDelegate.removeListener(_routerChanged);
@@ -131,9 +141,12 @@ class AppNavigationScope extends InheritedWidget {
     required super.child,
     super.key,
   });
+
   final AppNavigationSession session;
+
   static AppNavigationSession of(BuildContext context) =>
       context.dependOnInheritedWidgetOfExactType<AppNavigationScope>()!.session;
+
   @override
   bool updateShouldNotify(AppNavigationScope oldWidget) =>
       oldWidget.session != session;

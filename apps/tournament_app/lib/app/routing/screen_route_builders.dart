@@ -56,6 +56,7 @@ class ScreenRouteBuilders {
     this.champion,
     this.results,
   });
+
   final HomeScreen Function(
     BuildContext context,
     HomeRoute route,

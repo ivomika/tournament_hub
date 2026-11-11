@@ -16,20 +16,26 @@ class NavigationCoordinator implements NavigationIntentSink {
     required this.readContext,
     required this.executor,
   });
+
   final NavigationGuard guard;
   final NavigationContext Function() readContext;
   final NavigationEffectExecutor executor;
   final _pending = <_RequestKey, Future<NavigationFeedback>>{};
   Future<void> _tail = Future<void>.value();
   bool _disposed = false;
+
   bool get hasPendingRequests => _pending.isNotEmpty;
+
   NavigationIntentSink bindToCurrentEntry() =>
       _BoundSink(this, readContext().entryId);
+
   NavigationIntentSink bindToEntry(NavigationEntryId origin) =>
       _BoundSink(this, origin);
+
   @override
   Future<NavigationFeedback> submit(NavigationIntent intent) =>
       _submit(intent, readContext().entryId);
+
   Future<NavigationFeedback> _submit(
     NavigationIntent intent,
     NavigationEntryId origin,
@@ -64,6 +70,7 @@ class NavigationCoordinator implements NavigationIntentSink {
     });
     return completion.future;
   }
+
   Future<NavigationFeedback> _execute(
     NavigationIntent intent,
     NavigationEntryId origin,
@@ -85,6 +92,7 @@ class NavigationCoordinator implements NavigationIntentSink {
     }
     return const NavigationAccepted();
   }
+
   void dispose() {
     _disposed = true;
   }
@@ -92,8 +100,10 @@ class NavigationCoordinator implements NavigationIntentSink {
 
 class _BoundSink implements NavigationIntentSink {
   const _BoundSink(this.coordinator, this.origin);
+
   final NavigationCoordinator coordinator;
   final NavigationEntryId origin;
+
   @override
   Future<NavigationFeedback> submit(NavigationIntent intent) =>
       coordinator._submit(intent, origin);

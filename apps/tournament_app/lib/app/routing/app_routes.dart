@@ -13,8 +13,10 @@ part 'app_routes.g.dart';
 
 abstract class AppRoute extends GoRouteData {
   const AppRoute();
+
   @override
   String get location;
+
   static AppRoute decode(GoRouterState state) {
     final candidates = <AppRoute>[
       const HomeRoute(),
@@ -56,6 +58,7 @@ abstract class AppRoute extends GoRouteData {
     }
     throw const FormatException('Unknown navigation destination');
   }
+
   bool _allowExit(BuildContext context) =>
       AppNavigationScope.of(context).allowExit();
 }
@@ -102,9 +105,11 @@ abstract class AppRoute extends GoRouteData {
 )
 class HomeRoute extends AppRoute with $HomeRoute {
   const HomeRoute();
+
   @override
   Future<bool> onExit(BuildContext context, GoRouterState state) =>
       Future.value(_allowExit(context));
+
   @override
   Widget build(BuildContext context, GoRouterState state) {
     final session = AppNavigationScope.of(context);
@@ -123,9 +128,11 @@ class HomeRoute extends AppRoute with $HomeRoute {
 
 class ProfileRoute extends AppRoute with $ProfileRoute {
   const ProfileRoute();
+
   @override
   Future<bool> onExit(BuildContext context, GoRouterState state) =>
       Future.value(_allowExit(context));
+
   @override
   Widget build(BuildContext context, GoRouterState state) {
     final session = AppNavigationScope.of(context);
@@ -148,9 +155,11 @@ class ProfileRoute extends AppRoute with $ProfileRoute {
 @TypedGoRoute<BootstrapRoute>(path: '/bootstrap')
 class BootstrapRoute extends AppRoute with $BootstrapRoute {
   const BootstrapRoute();
+
   @override
   Future<bool> onExit(BuildContext context, GoRouterState state) =>
       Future.value(_allowExit(context));
+
   @override
   Widget build(BuildContext context, GoRouterState state) {
     final session = AppNavigationScope.of(context);
@@ -172,12 +181,17 @@ class TournamentRoute extends AppRoute with $TournamentRoute {
     )
     this.tournamentId,
   );
+
   final TournamentId tournamentId;
+
   static String encodeId(TournamentId id) => id.value;
+
   static TournamentId decodeId(String value) => TournamentId(value);
+
   @override
   Future<bool> onExit(BuildContext context, GoRouterState state) =>
       Future.value(_allowExit(context));
+
   @override
   Widget build(BuildContext context, GoRouterState state) {
     final session = AppNavigationScope.of(context);
@@ -190,9 +204,11 @@ class TournamentRoute extends AppRoute with $TournamentRoute {
 
 class UtilityRoute extends AppRoute with $UtilityRoute {
   const UtilityRoute();
+
   @override
   Future<bool> onExit(BuildContext context, GoRouterState state) =>
       Future.value(_allowExit(context));
+
   @override
   Widget build(BuildContext context, GoRouterState state) {
     final session = AppNavigationScope.of(context);
@@ -205,9 +221,11 @@ class UtilityRoute extends AppRoute with $UtilityRoute {
 
 class ProfileEditRoute extends AppRoute with $ProfileEditRoute {
   const ProfileEditRoute();
+
   @override
   Future<bool> onExit(BuildContext context, GoRouterState state) =>
       Future.value(_allowExit(context));
+
   @override
   Widget build(BuildContext context, GoRouterState state) {
     final session = AppNavigationScope.of(context);
@@ -220,9 +238,11 @@ class ProfileEditRoute extends AppRoute with $ProfileEditRoute {
 
 class SettingsRoute extends AppRoute with $SettingsRoute {
   const SettingsRoute();
+
   @override
   Future<bool> onExit(BuildContext context, GoRouterState state) =>
       Future.value(_allowExit(context));
+
   @override
   Widget build(BuildContext context, GoRouterState state) {
     final session = AppNavigationScope.of(context);
@@ -235,9 +255,11 @@ class SettingsRoute extends AppRoute with $SettingsRoute {
 
 class AboutRoute extends AppRoute with $AboutRoute {
   const AboutRoute();
+
   @override
   Future<bool> onExit(BuildContext context, GoRouterState state) =>
       Future.value(_allowExit(context));
+
   @override
   Widget build(BuildContext context, GoRouterState state) {
     final session = AppNavigationScope.of(context);
@@ -250,9 +272,11 @@ class AboutRoute extends AppRoute with $AboutRoute {
 
 class ContactRoute extends AppRoute with $ContactRoute {
   const ContactRoute();
+
   @override
   Future<bool> onExit(BuildContext context, GoRouterState state) =>
       Future.value(_allowExit(context));
+
   @override
   Widget build(BuildContext context, GoRouterState state) {
     final session = AppNavigationScope.of(context);
@@ -265,9 +289,11 @@ class ContactRoute extends AppRoute with $ContactRoute {
 
 class HistoryRoute extends AppRoute with $HistoryRoute {
   const HistoryRoute();
+
   @override
   Future<bool> onExit(BuildContext context, GoRouterState state) =>
       Future.value(_allowExit(context));
+
   @override
   Widget build(BuildContext context, GoRouterState state) {
     final session = AppNavigationScope.of(context);
@@ -280,9 +306,11 @@ class HistoryRoute extends AppRoute with $HistoryRoute {
 
 class SetupRoute extends AppRoute with $SetupRoute {
   const SetupRoute();
+
   @override
   Future<bool> onExit(BuildContext context, GoRouterState state) =>
       Future.value(_allowExit(context));
+
   @override
   Widget build(BuildContext context, GoRouterState state) {
     final session = AppNavigationScope.of(context);
@@ -301,10 +329,13 @@ class RosterRoute extends AppRoute with $RosterRoute {
     )
     this.tournamentId,
   );
+
   final TournamentId tournamentId;
+
   @override
   Future<bool> onExit(BuildContext context, GoRouterState state) =>
       Future.value(_allowExit(context));
+
   @override
   Widget build(BuildContext context, GoRouterState state) {
     final session = AppNavigationScope.of(context);
@@ -323,10 +354,13 @@ class ParticipantAccessRoute extends AppRoute with $ParticipantAccessRoute {
     )
     this.tournamentId,
   );
+
   final TournamentId tournamentId;
+
   @override
   Future<bool> onExit(BuildContext context, GoRouterState state) =>
       Future.value(_allowExit(context));
+
   @override
   Widget build(BuildContext context, GoRouterState state) {
     final session = AppNavigationScope.of(context);
@@ -345,10 +379,13 @@ class GuestAddRoute extends AppRoute with $GuestAddRoute {
     )
     this.tournamentId,
   );
+
   final TournamentId tournamentId;
+
   @override
   Future<bool> onExit(BuildContext context, GoRouterState state) =>
       Future.value(_allowExit(context));
+
   @override
   Widget build(BuildContext context, GoRouterState state) {
     final session = AppNavigationScope.of(context);
@@ -367,10 +404,13 @@ class GuestRemoveRoute extends AppRoute with $GuestRemoveRoute {
     )
     this.tournamentId,
   );
+
   final TournamentId tournamentId;
+
   @override
   Future<bool> onExit(BuildContext context, GoRouterState state) =>
       Future.value(_allowExit(context));
+
   @override
   Widget build(BuildContext context, GoRouterState state) {
     final session = AppNavigationScope.of(context);
@@ -389,10 +429,13 @@ class DistributionRoute extends AppRoute with $DistributionRoute {
     )
     this.tournamentId,
   );
+
   final TournamentId tournamentId;
+
   @override
   Future<bool> onExit(BuildContext context, GoRouterState state) =>
       Future.value(_allowExit(context));
+
   @override
   Widget build(BuildContext context, GoRouterState state) {
     final session = AppNavigationScope.of(context);
@@ -411,10 +454,13 @@ class SpectatorAccessRoute extends AppRoute with $SpectatorAccessRoute {
     )
     this.tournamentId,
   );
+
   final TournamentId tournamentId;
+
   @override
   Future<bool> onExit(BuildContext context, GoRouterState state) =>
       Future.value(_allowExit(context));
+
   @override
   Widget build(BuildContext context, GoRouterState state) {
     final session = AppNavigationScope.of(context);
@@ -433,10 +479,13 @@ class TieRoute extends AppRoute with $TieRoute {
     )
     this.tournamentId,
   );
+
   final TournamentId tournamentId;
+
   @override
   Future<bool> onExit(BuildContext context, GoRouterState state) =>
       Future.value(_allowExit(context));
+
   @override
   Widget build(BuildContext context, GoRouterState state) {
     final session = AppNavigationScope.of(context);
@@ -455,10 +504,13 @@ class WithdrawRoute extends AppRoute with $WithdrawRoute {
     )
     this.tournamentId,
   );
+
   final TournamentId tournamentId;
+
   @override
   Future<bool> onExit(BuildContext context, GoRouterState state) =>
       Future.value(_allowExit(context));
+
   @override
   Widget build(BuildContext context, GoRouterState state) {
     final session = AppNavigationScope.of(context);
@@ -477,10 +529,13 @@ class ResultLockedRoute extends AppRoute with $ResultLockedRoute {
     )
     this.tournamentId,
   );
+
   final TournamentId tournamentId;
+
   @override
   Future<bool> onExit(BuildContext context, GoRouterState state) =>
       Future.value(_allowExit(context));
+
   @override
   Widget build(BuildContext context, GoRouterState state) {
     final session = AppNavigationScope.of(context);
@@ -499,10 +554,13 @@ class BracketRoute extends AppRoute with $BracketRoute {
     )
     this.tournamentId,
   );
+
   final TournamentId tournamentId;
+
   @override
   Future<bool> onExit(BuildContext context, GoRouterState state) =>
       Future.value(_allowExit(context));
+
   @override
   Widget build(BuildContext context, GoRouterState state) {
     final session = AppNavigationScope.of(context);
@@ -521,10 +579,13 @@ class MatchResultRoute extends AppRoute with $MatchResultRoute {
     )
     this.tournamentId,
   );
+
   final TournamentId tournamentId;
+
   @override
   Future<bool> onExit(BuildContext context, GoRouterState state) =>
       Future.value(_allowExit(context));
+
   @override
   Widget build(BuildContext context, GoRouterState state) {
     final session = AppNavigationScope.of(context);
@@ -543,10 +604,13 @@ class ForfeitRoute extends AppRoute with $ForfeitRoute {
     )
     this.tournamentId,
   );
+
   final TournamentId tournamentId;
+
   @override
   Future<bool> onExit(BuildContext context, GoRouterState state) =>
       Future.value(_allowExit(context));
+
   @override
   Widget build(BuildContext context, GoRouterState state) {
     final session = AppNavigationScope.of(context);
@@ -565,10 +629,13 @@ class ChampionRoute extends AppRoute with $ChampionRoute {
     )
     this.tournamentId,
   );
+
   final TournamentId tournamentId;
+
   @override
   Future<bool> onExit(BuildContext context, GoRouterState state) =>
       Future.value(_allowExit(context));
+
   @override
   Widget build(BuildContext context, GoRouterState state) {
     final session = AppNavigationScope.of(context);
@@ -587,10 +654,13 @@ class ResultsRoute extends AppRoute with $ResultsRoute {
     )
     this.tournamentId,
   );
+
   final TournamentId tournamentId;
+
   @override
   Future<bool> onExit(BuildContext context, GoRouterState state) =>
       Future.value(_allowExit(context));
+
   @override
   Widget build(BuildContext context, GoRouterState state) {
     final session = AppNavigationScope.of(context);
@@ -603,6 +673,7 @@ class ResultsRoute extends AppRoute with $ResultsRoute {
 
 class _UnboundRouteScreen extends StatelessWidget {
   const _UnboundRouteScreen();
+
   @override
   Widget build(BuildContext context) => const BootstrapScreen(
     state: BootstrapScreenState(phase: BootstrapPhase.error),

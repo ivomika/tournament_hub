@@ -22,6 +22,7 @@ enum NavigationConflictReason { competingTransition }
 
 final class NavigationConflict extends NavigationFeedback {
   const NavigationConflict(this.reason);
+
   final NavigationConflictReason reason;
 }
 
@@ -29,5 +30,6 @@ enum NavigationFailureReason { routerUnavailable }
 
 final class NavigationFailed extends NavigationFeedback {
   const NavigationFailed(this.reason);
+
   final NavigationFailureReason reason;
 }

@@ -113,3 +113,4 @@
 - ✅ 104. Закрепить читаемые имена и запрет вложенных тернарных выражений архитектурной проверкой. [Детали](task-details/104-code-readability.md)
 - ✅ 105. Исправить нарушения полного architecture scan без изменения поведения. [Детали](task-details/105-fix-readability-findings.md)
 - ✅ 106. Спроектировать и внедрить типизированную навигацию go_router через intention → guard → effect. [Детали](task-details/106-typed-navigation.md)
+- ✅ 107. Улучшить читаемость production Dart-кода: отделить конструкторы, поля и методы пустыми строками. [Детали](task-details/107-production-code-spacing.md)
