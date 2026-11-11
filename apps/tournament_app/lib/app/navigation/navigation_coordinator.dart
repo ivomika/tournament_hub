@@ -7,6 +7,9 @@ import 'package:tournament_app/app/navigation/navigation_effect_executor.dart';
 import 'package:tournament_app/app/navigation/navigation_execution_result.dart';
 import 'package:tournament_app/presentation/navigation/navigation_intent.dart';
 import 'package:tournament_app/presentation/navigation/navigation_feedback.dart';
+import 'package:tournament_app/presentation/operations/operation_outcome.dart';
+import 'package:tournament_app/presentation/operations/operation_request.dart';
+import 'package:tournament_app/presentation/operations/operation_scope.dart';
 
 typedef _RequestKey = ({NavigationEntryId origin, Type kind, Object? payload});
 
@@ -21,8 +24,8 @@ class NavigationCoordinator implements NavigationIntentSink {
   final NavigationContext Function() readContext;
   final NavigationEffectExecutor executor;
   final _pending = <_RequestKey, Future<NavigationFeedback>>{};
+  final _operations = OperationScope();
   Future<void> _tail = Future<void>.value();
-  bool _disposed = false;
 
   bool get hasPendingRequests => _pending.isNotEmpty;
 
@@ -33,14 +36,23 @@ class NavigationCoordinator implements NavigationIntentSink {
       _BoundSink(this, origin);
 
   @override
-  Future<NavigationFeedback> submit(NavigationIntent intent) =>
-      _submit(intent, readContext().entryId);
+  Future<NavigationFeedback> submit(NavigationIntent intent) => _submit(intent);
 
   Future<NavigationFeedback> _submit(
+    NavigationIntent intent, [
+    NavigationEntryId? origin,
+  ]) => _ScopedNavigationRequest().track(
+    _operations,
+    () => OperationRequest(
+      result: _enqueue(intent, origin ?? readContext().entryId),
+      onCancel: _releaseWait,
+    ),
+  );
+
+  Future<NavigationFeedback> _enqueue(
     NavigationIntent intent,
     NavigationEntryId origin,
   ) {
-    if (_disposed) return Future.value(const NavigationCancelled());
     final Object? payload = intent is OpenTournamentIntent
         ? intent.tournamentId
         : null;
@@ -57,25 +69,29 @@ class NavigationCoordinator implements NavigationIntentSink {
         const NavigationConflict(NavigationConflictReason.competingTransition),
       );
     }
-    final completion = Completer<NavigationFeedback>();
-    _pending[key] = completion.future;
-    _tail = _tail.then((_) async {
+    final result = _tail.then((_) async {
       try {
-        completion.complete(await _execute(intent, origin));
-      } catch (error, stackTrace) {
-        completion.completeError(error, stackTrace);
+        return await _ScopedNavigationRequest().track(
+          _operations,
+          () => OperationRequest(
+            result: _execute(intent, origin),
+            onCancel: _releaseWait,
+          ),
+        );
       } finally {
         _pending.remove(key);
       }
     });
-    return completion.future;
+    _pending[key] = result;
+    // Ошибка доставляется submit-владельцу и не блокирует следующий запрос.
+    _tail = result.then(_advanceQueue, onError: _observeQueueError);
+    return result;
   }
 
   Future<NavigationFeedback> _execute(
     NavigationIntent intent,
     NavigationEntryId origin,
   ) async {
-    if (_disposed) return const NavigationCancelled();
     final context = readContext();
     if (origin != context.entryId) return const NavigationStale();
     final decision = guard.evaluate(intent, context);
@@ -94,7 +110,44 @@ class NavigationCoordinator implements NavigationIntentSink {
   }
 
   void dispose() {
-    _disposed = true;
+    // Scope закрывает доставку синхронно, cleanup не обращается к router.
+    unawaited(_operations.close().catchError(_observeCleanupError));
+    _pending.clear();
+  }
+
+  // У execute нет API физической отмены. Scope освобождает проектное ожидание;
+  // исходный Future наблюдается до завершения без повторной доставки/rollback.
+  static Future<void> _releaseWait() => Future<void>.value();
+
+  static void _advanceQueue(NavigationFeedback feedback) {}
+
+  static void _observeQueueError(Object error, StackTrace stackTrace) {}
+
+  static void _observeCleanupError(Object error, StackTrace stackTrace) =>
+      Zone.current.handleUncaughtError(error, stackTrace);
+}
+
+/// Связывает типизированный исход scope с прежним контрактом submit.
+final class _ScopedNavigationRequest {
+  final _completion = Completer<NavigationFeedback>();
+
+  Future<NavigationFeedback> track(
+    OperationScope scope,
+    OperationRequest<NavigationFeedback> Function() request,
+  ) {
+    final operation = scope.run<NavigationFeedback>(
+      request: request,
+      onResult: _completion.complete,
+      onError: _completion.completeError,
+    );
+    unawaited(operation.result.then(_settleCancellation));
+    return _completion.future;
+  }
+
+  void _settleCancellation(OperationOutcome<NavigationFeedback> outcome) {
+    if (outcome is OperationCancelled<NavigationFeedback>) {
+      _completion.complete(const NavigationCancelled());
+    }
   }
 }
 

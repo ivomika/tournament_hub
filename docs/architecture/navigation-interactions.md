@@ -50,7 +50,7 @@ Complete закрывает принадлежащий operation route/controlle
 
 Adapters готовы к последующему вызову из app effects. В обычный запуск приложения они пока не подключены. Guard/сериализация и связывание конкретного request с Result остаются ответственностью будущего app binding; сами generic adapters этого не доказывают. Child state не должен получать InteractionPresentation publisher. Нужен отдельный completion port конкретного результата при реализации экрана.
 
-Проверены27 widget scenarios настоящих GoRouter/Navigator/Scaffold и3 unit scenarios date options, включая nested root/local Navigator, covered push cancellation, Back/barrier/drag, замену controller sheet, выбор даты, unavailable host и cleanup после unmount. Общая замена coordinator _disposed по-прежнему отложена. Произвольные topology/redirect/onExit бизнес-политики не выдаются за проверенные screen bindings.
+Проверены27 widget scenarios настоящих GoRouter/Navigator/Scaffold и3 unit scenarios date options, включая nested root/local Navigator, covered push cancellation, Back/barrier/drag, замену controller sheet, выбор даты, unavailable host и cleanup после unmount. Владение coordinator отдельно переведено на OperationScope в задаче109. Произвольные topology/redirect/onExit бизнес-политики не выдаются за проверенные screen bindings.
 
 ## Открытие и завершение — разные события
 
@@ -108,11 +108,11 @@ Screen по-прежнему только компонует DS. Он не вы�
 
 Checker сохраняет точечные локальные Select/Widgetbook open/pop и разрешает общие app adapters по path/class/method/API. Новые разрешения для local modal adapter требуют таких же positive/negative tests; любой файл с названием modal не получает blanket exemption.
 
-## Отмена и отложенный lifecycle
+## Отмена и lifecycle
 
 Применяется [R-009](../../ai-context/rules/core/009-cancellable-async.md). Операция предоставляет отмену, но обычный Future не принудительно останавливается. Для уже открытого UI адаптер закрывает именно принадлежащий ему route/controller; ранее выполненный push не объявляется никогда не происходившим. Cleanup закрытия завершается независимо от отменённого ожидателя.
 
-Выбор общей cancellation/lifetime реализации, замена _disposed и shutdown уже активного executor — отдельное отложенное обсуждение третьего вопроса пользователя. Текущая архитектура не объявляет прежний runtime уже соответствующим этому решению.
+Общий OperationScope и миграция coordinator реализованы в задаче109: dispose завершает проектные ожидания активных/queued запросов и исключает позднюю доставку. Физического cancel у прежнего execute Future нет; уже совершённый переход не откатывается. Точный контракт и ограничения описаны в [отменяемых операциях](cancellable-async.md).
 
 ## Состояние этапов
 
@@ -120,7 +120,7 @@ Checker сохраняет точечные локальные Select/Widgetbook
 
 По уточнению пользователя2026-11-10 задача106 завершается на общем механизме. При реализации экранов будут добавлены конкретные request/result пары, completion ports и wiring в queue/guard/effect. Эти bindings должны иметь compile-negative fixtures несовместимых результатов и сквозные tests бизнес-намерения → разрешённый переход → typed close → caller state. Наличие generic push<Result> или один GREEN result channel этого не доказывают.
 
-Общая библиотека lifecycle и существующий coordinator _disposed остаются отдельной темой, отложенной пользователем. Ресурсный close новых adapters не является массовой миграцией lifecycle приложения.
+OperationScope используется coordinator; конкретные screen-result bindings и универсальный Flutter lifecycle binding ещё не добавлены. Ресурсный close общих adapters не является массовой миграцией lifecycle приложения.
 
 ## Источники
 

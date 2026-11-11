@@ -128,6 +128,8 @@ Presentation controller получает NavigationIntentSink через constru
 
 Повторные нажатия на один и тот же переход обрабатываются как один in-flight запрос. Очередь ограничена жизнью controller: намерение уничтоженного экрана не должно навигировать позже. Не сериализовать очередь на весь Future push, иначе открытый экран заблокирует дальнейшую навигацию до своего закрытия.
 
+Coordinator владеет общим OperationScope: dispose прекращает доставку и завершает pending ожидания NavigationCancelled, включая активный execute и очередь. Submit после dispose не читает router context; dequeued запрос проходит scope до guard/execute. Отдельного bool dispose нет. Уже выполненное SDK-действие не откатывается; физически неотменяемый execute Future может завершиться позже, его результат наблюдается без повторной доставки. Подробности и проверки — [отменяемые операции](cancellable-async.md).
+
 Одновременно допускается не более одного effect execute. Вход привязывается к конкретному route entry через app-created scoped sink (bindToCurrentEntry); presentation не получает route/GoRouterState и не может указать произвольный from-route. Связь сохраняется на всё время жизни screen/controller, а не вычисляется заново при каждом позднем callback.
 
 Два in-flight запроса с одинаковым origin, видом intent и равными типизированными payload объединяются в один transition с общим исходом. Равенство — по значениям, не по идентичности объектов и не только runtimeType. Два однотипных запроса с разными payload из одной исходной записи конфликтуют: первый выполняется, второй получает NavigationConflict(competingTransition); два экрана не открываются.

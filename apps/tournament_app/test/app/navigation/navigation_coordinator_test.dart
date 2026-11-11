@@ -43,6 +43,22 @@ abstract final class _CoordinatorTests {
       _duplicateBack,
     );
     test('an old Back callback cannot close a later route instance', _oldBack);
+    test(
+      'dispose settles active and queued requests before executor finishes',
+      _disposePending,
+    );
+    test(
+      'disposed coordinator never reads released router context',
+      _disposeContext,
+    );
+    test(
+      'late executor error after dispose preserves cancellation',
+      _disposeLateError,
+    );
+    test(
+      'repeated dispose keeps active duplicates cancelled',
+      _disposeDuplicates,
+    );
   }
 
   static Future<void> _allowed() async {
@@ -327,6 +343,133 @@ abstract final class _CoordinatorTests {
     );
     expect(executor.effects, hasLength(3));
   }
+
+  static Future<void> _disposePending() async {
+    final fixture = _ShutdownFixture();
+    final active = _FeedbackProbe();
+    final queued = _FeedbackProbe();
+    final origin = fixture.coordinator.bindToCurrentEntry();
+    final activeRequest = origin.submit(const OpenProfileIntent());
+    final observedActive = activeRequest.then(
+      active.accept,
+      onError: active.fail,
+    );
+    await fixture.executor.started.future;
+    final queuedRequest = origin.submit(const BackRequestedIntent());
+    final observedQueued = queuedRequest.then(
+      queued.accept,
+      onError: queued.fail,
+    );
+    fixture.coordinator.dispose();
+    final readsAtDisposal = fixture.source.reads;
+    try {
+      await Future<void>.delayed(Duration.zero);
+      expect(active.feedback, [isA<NavigationCancelled>()]);
+      expect(queued.feedback, [isA<NavigationCancelled>()]);
+      expect(fixture.coordinator.hasPendingRequests, isFalse);
+      expect(fixture.executor.effects, hasLength(1));
+    } finally {
+      fixture.release.complete();
+      await Future.wait([observedActive, observedQueued]);
+    }
+    expect(fixture.source.reads, readsAtDisposal);
+    expect(active.feedback, [isA<NavigationCancelled>()]);
+    expect(queued.feedback, [isA<NavigationCancelled>()]);
+    expect(fixture.executor.effects, hasLength(1));
+    expect(active.errors, isEmpty);
+    expect(queued.errors, isEmpty);
+  }
+
+  static Future<void> _disposeContext() async {
+    final source = _ContextSource();
+    final executor = _RecordingExecutor();
+    final coordinator = NavigationCoordinator(
+      guard: const NavigationGuard(),
+      readContext: source.read,
+      executor: executor,
+    );
+    coordinator.dispose();
+    final readsAtDisposal = source.reads;
+    expect(
+      await coordinator.submit(const OpenProfileIntent()),
+      isA<NavigationCancelled>(),
+    );
+    expect(source.reads, readsAtDisposal);
+    expect(executor.effects, isEmpty);
+  }
+
+  static Future<void> _disposeLateError() async {
+    final fixture = _ShutdownFixture(
+      executionError: StateError('late executor error'),
+    );
+    final probe = _FeedbackProbe();
+    final request = fixture.coordinator.submit(const OpenProfileIntent());
+    final observed = request.then(probe.accept, onError: probe.fail);
+    await fixture.executor.started.future;
+    fixture.coordinator.dispose();
+    fixture.release.complete();
+    await observed;
+    await Future<void>.delayed(Duration.zero);
+    expect(probe.feedback, [isA<NavigationCancelled>()]);
+    expect(probe.errors, isEmpty);
+    expect(fixture.coordinator.hasPendingRequests, isFalse);
+  }
+
+  static Future<void> _disposeDuplicates() async {
+    final fixture = _ShutdownFixture();
+    final first = _FeedbackProbe();
+    final second = _FeedbackProbe();
+    final origin = fixture.coordinator.bindToCurrentEntry();
+    final firstRequest = origin.submit(const OpenProfileIntent());
+    final observedFirst = firstRequest.then(first.accept, onError: first.fail);
+    await fixture.executor.started.future;
+    final secondRequest = origin.submit(const OpenProfileIntent());
+    final observedSecond = secondRequest.then(
+      second.accept,
+      onError: second.fail,
+    );
+    fixture.coordinator.dispose();
+    fixture.coordinator.dispose();
+    try {
+      await Future<void>.delayed(Duration.zero);
+      expect(first.feedback, [isA<NavigationCancelled>()]);
+      expect(second.feedback, [isA<NavigationCancelled>()]);
+    } finally {
+      fixture.release.complete();
+      await Future.wait([observedFirst, observedSecond]);
+    }
+    expect(fixture.executor.effects, hasLength(1));
+    expect(first.feedback, [isA<NavigationCancelled>()]);
+    expect(second.feedback, [isA<NavigationCancelled>()]);
+  }
+}
+
+final class _FeedbackProbe {
+  final List<NavigationFeedback> feedback = [];
+  final List<Object> errors = [];
+
+  void accept(NavigationFeedback value) => feedback.add(value);
+
+  void fail(Object error, StackTrace stackTrace) => errors.add(error);
+}
+
+final class _ShutdownFixture {
+  _ShutdownFixture({Object? executionError}) {
+    executor = _RecordingExecutor(
+      pause: release,
+      executionError: executionError,
+    );
+    coordinator = NavigationCoordinator(
+      guard: const NavigationGuard(),
+      readContext: source.read,
+      executor: executor,
+    );
+  }
+
+  final source = _ContextSource();
+  final release = Completer<void>();
+  late final _RecordingExecutor executor;
+  late final NavigationCoordinator coordinator;
 }
 
 class _ContextSource {
@@ -367,10 +510,12 @@ class _RecordingExecutor implements NavigationEffectExecutor {
     this.pause,
     this.outcome = const NavigationExecutionSucceeded(),
     this.onCommitted,
+    this.executionError,
   });
   final Completer<void>? pause;
   final NavigationExecutionResult outcome;
   final void Function(NavigationEffect)? onCommitted;
+  final Object? executionError;
   final started = Completer<void>();
   int activeExecutions = 0;
   int maximumActiveExecutions = 0;
@@ -386,6 +531,8 @@ class _RecordingExecutor implements NavigationEffectExecutor {
     if (!started.isCompleted) started.complete();
     try {
       if (pause != null) await pause!.future;
+      final error = executionError;
+      if (error != null) throw error;
       if (outcome is NavigationExecutionSucceeded) onCommitted?.call(effect);
       return outcome;
     } finally {
