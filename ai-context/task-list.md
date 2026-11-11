@@ -114,3 +114,4 @@
 - ✅ 105. Исправить нарушения полного architecture scan без изменения поведения. [Детали](task-details/105-fix-readability-findings.md)
 - ✅ 106. Спроектировать и внедрить типизированную навигацию go_router через intention → guard → effect. [Детали](task-details/106-typed-navigation.md)
 - ✅ 107. Улучшить читаемость production Dart-кода: отделить конструкторы, поля и методы пустыми строками. [Детали](task-details/107-production-code-spacing.md)
+- ✅ 108. Закрепить отменяемость асинхронных операций обязательным core-правилом. [Детали](task-details/108-cancellable-async-rule.md)
