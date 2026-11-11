@@ -14,6 +14,7 @@
     }
   ],
   "rules": [
+    { "id": "R-003.h", "path": "flutter/003-h-intent-navigation.md" },
     { "id": "R-008.a", "path": "core/008-a-readable-names.md" },
     { "id": "R-008.b", "path": "core/008-b-explicit-conditions.md" },
     {

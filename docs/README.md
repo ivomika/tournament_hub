@@ -22,6 +22,8 @@
 
 - [Расположение приложений](architecture/app-layout.md) — структура репозитория и Flutter-клиент.
 - [Границы слоёв](architecture/layer-boundaries.md) — ответственности app/domain/infrastructure/presentation, DI, вызовы use cases и изоляция библиотек.
+- [Типизированная навигация](architecture/typed-navigation.md) — intentions, guard/effect и реестр экранов.
+- [Результаты экранов и modal](architecture/navigation-interactions.md) — независимые события открытия/закрытия, typed outcome и владение overlay.
 - [Типизация, локализация и темы](architecture/typed-localized-themed-ui.md) — типизированные значения, intl и обязательная токенизация компонентов.
 - [Композиция widgets и callbacks](architecture/widget-composition.md) — приватные widgets, const и именованные обработчики.
 - [Архитектура presentation](architecture/presentation-ui.md) — foundation/components/widgets, обособленные screens и presentation-контракты.

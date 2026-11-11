@@ -20,6 +20,7 @@
 - [R-003.e · Абсолютные Dart-импорты](flutter/003-e-package-imports.md) — package/dart URI и архитектурный тест зависимостей.
 - [R-003.f · Детерминированные screens](flutter/003-f-deterministic-screens.md) — presentation-контракты, независимый preview и композиция DS.
 - [R-003.g · Функции классов](flutter/003-g-class-owned-functions.md) — запрет верхнеуровневых функций и точечные framework hooks.
+- [R-003.h · Навигация через intentions](flutter/003-h-intent-navigation.md) — typed routes, guard/effect и origin.
 
 ## Обязательные правила flutter: локализация
 

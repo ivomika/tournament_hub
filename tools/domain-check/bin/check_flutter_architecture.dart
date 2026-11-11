@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:tournament_domain_check/theme_boundaries.dart';
 import 'package:tournament_domain_check/class_owned_functions.dart';
 import 'package:tournament_domain_check/code_readability.dart';
+import 'package:tournament_domain_check/navigation_boundaries.dart';
 
 import 'package:analyzer/dart/analysis/utilities.dart';
 import 'package:analyzer/dart/ast/ast.dart';
@@ -79,7 +80,15 @@ List<String> inspect(Map<String, String> sources, String packageName) {
     problems.addAll(
       CodeReadability.inspect(entry.key, entry.value, parsed.unit),
     );
+    problems.addAll(NavigationBoundaries.inspect(entry.key, entry.value, parsed.unit));
     void checkUri(String? raw, int offset, {bool isImport = false}) {
+      final matchingDirective = parsed.unit.directives.where((directive) => directive.offset == offset);
+      final generatedPart = entry.key == 'lib/app/routing/app_routes.dart' && raw == 'app_routes.g.dart' && matchingDirective.any((directive) => directive is PartDirective);
+      final generatedOwner = entry.key == 'lib/app/routing/app_routes.g.dart' && raw == 'app_routes.dart' && matchingDirective.any((directive) => directive is PartOfDirective);
+      if (generatedPart || generatedOwner) {
+        checkUri('package:$packageName/app/routing/$raw', offset);
+        return;
+      }
       // gen-l10n emits sibling imports and exposes no package-import option.
       const generatedFolder = 'lib/presentation/l10n/generated/';
       const generatedNames = {

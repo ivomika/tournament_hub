@@ -112,3 +112,4 @@
 - ✅ 103. Объединить focus painters с поддержкой полного BorderRadius. [Детали](task-details/103-focus-ring.md)
 - ✅ 104. Закрепить читаемые имена и запрет вложенных тернарных выражений архитектурной проверкой. [Детали](task-details/104-code-readability.md)
 - ✅ 105. Исправить нарушения полного architecture scan без изменения поведения. [Детали](task-details/105-fix-readability-findings.md)
+- ✅ 106. Спроектировать и внедрить типизированную навигацию go_router через intention → guard → effect. [Детали](task-details/106-typed-navigation.md)

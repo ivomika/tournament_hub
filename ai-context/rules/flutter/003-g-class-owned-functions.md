@@ -22,4 +22,6 @@
 
 ## Проверка
 
+Для go_router_builder4.5.3 разрешены только generated top-level getters $appRoutes, $homeRoute и $bootstrapRoute в lib/app/routing/app_routes.g.dart при part of 'app_routes.dart'. Это фиксированная пара владельца/генерации задачи106; произвольные функции/другие файлы не освобождаются. Новый route root требует обновления точного списка и tests; generated код не редактируется вручную.
+
 Обязательны `make architecture-check` и `make architecture-test`. AST checker сообщает файл, строку и R-003.g, завершается ненулевым кодом на нарушении и проверяет lib/test/part-файлы без выполнения приложения. Контракт, миграция и статус реализации — [функции классов](../../../docs/architecture/class-owned-functions.md), [задача73](../../task-details/73-class-owned-functions.md).

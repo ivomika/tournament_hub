@@ -18,6 +18,8 @@
 
 ## Проверка
 
+Для go_router_builder допускается только парная директива part 'app_routes.g.dart' в lib/app/routing/app_routes.dart и part of 'app_routes.dart' в сгенерированном sibling. Combining builder не выпускает результат с package URI. Checker нормализует только PartDirective/PartOfDirective указанной пары; import/export, другие владельцы и пути исключения не получают. Решение и regression fixtures: задача106 и navigation_boundaries_test.dart.
+
 Обязательны `make architecture-check` и `make architecture-test` при изменении Dart-директив, структуры слоёв или checker.
 
 Контракт и ограничения проверки: [Архитектурный тест](../../../docs/development/flutter-architecture-check.md).

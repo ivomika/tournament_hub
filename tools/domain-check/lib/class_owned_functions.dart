@@ -19,6 +19,12 @@ abstract final class ClassOwnedFunctions {
 
     for (final declaration in unit.declarations) {
       if (declaration is FunctionDeclaration) {
+        if (path == 'lib/app/routing/app_routes.g.dart' &&
+            declaration.isGetter &&
+            const {r'$appRoutes', r'$homeRoute', r'$bootstrapRoute'}.contains(declaration.name.lexeme) &&
+            unit.directives.whereType<PartOfDirective>().any((directive) => directive.uri?.stringValue == 'app_routes.dart')) {
+          continue;
+        }
         if (unit.directives.any((d) => d is PartOfDirective) ||
             !_frameworkEntry(path, declaration)) {
           report(declaration.name.offset, declaration.name.lexeme);

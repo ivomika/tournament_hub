@@ -1,16 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:tournament_app/presentation/l10n/generated/foundation_localizations.dart';
-import 'package:tournament_app/presentation/screens/placeholder/placeholder_screen.dart';
+import 'package:tournament_app/app/navigation/app_navigation_session.dart';
 
-class TournamentApp extends StatelessWidget {
-  const TournamentApp({required this.theme, super.key});
+class TournamentApp extends StatefulWidget {
+  const TournamentApp({required this.theme, this.navigation, super.key});
   final ThemeData theme;
-
+  final AppNavigationSession? navigation;
   @override
-  Widget build(BuildContext context) => MaterialApp(
-    theme: theme,
-    localizationsDelegates: FoundationLocalizations.localizationsDelegates,
-    supportedLocales: FoundationLocalizations.supportedLocales,
-    home: const PlaceholderScreen(),
+  State<TournamentApp> createState() => _TournamentAppState();
+}
+
+class _TournamentAppState extends State<TournamentApp> {
+  late final _navigation = widget.navigation ?? AppNavigationSession();
+  @override
+  void dispose() {
+    if (widget.navigation == null) _navigation.dispose();
+    super.dispose();
+  }
+  @override
+  Widget build(BuildContext context) => AppNavigationScope(
+    session: _navigation,
+    child: MaterialApp.router(
+      theme: widget.theme,
+      localizationsDelegates: FoundationLocalizations.localizationsDelegates,
+      supportedLocales: FoundationLocalizations.supportedLocales,
+      routerConfig: _navigation.router,
+    ),
   );
 }
