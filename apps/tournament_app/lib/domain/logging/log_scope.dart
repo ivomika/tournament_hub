@@ -1,0 +1,1 @@
+enum LogScope { navigation, network }

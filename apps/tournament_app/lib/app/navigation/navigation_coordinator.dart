@@ -5,6 +5,8 @@ import 'package:tournament_app/app/navigation/navigation_decision.dart';
 import 'package:tournament_app/app/navigation/navigation_guard.dart';
 import 'package:tournament_app/app/navigation/navigation_effect_executor.dart';
 import 'package:tournament_app/app/navigation/navigation_execution_result.dart';
+import 'package:tournament_app/app/navigation/navigation_log_trace.dart';
+import 'package:tournament_app/domain/logging/navigation_logger.dart';
 import 'package:tournament_app/presentation/navigation/navigation_intent.dart';
 import 'package:tournament_app/presentation/navigation/navigation_feedback.dart';
 import 'package:tournament_app/presentation/operations/operation_outcome.dart';
@@ -18,11 +20,13 @@ class NavigationCoordinator implements NavigationIntentSink {
     required this.guard,
     required this.readContext,
     required this.executor,
+    this.logger,
   });
 
   final NavigationGuard guard;
   final NavigationContext Function() readContext;
   final NavigationEffectExecutor executor;
+  final NavigationLogger? logger;
   final _pending = <_RequestKey, Future<NavigationFeedback>>{};
   final _operations = OperationScope();
   Future<void> _tail = Future<void>.value();
@@ -41,24 +45,37 @@ class NavigationCoordinator implements NavigationIntentSink {
   Future<NavigationFeedback> _submit(
     NavigationIntent intent, [
     NavigationEntryId? origin,
-  ]) => _ScopedNavigationRequest().track(
-    _operations,
-    () => OperationRequest(
-      result: _enqueue(intent, origin ?? readContext().entryId),
-      onCancel: _releaseWait,
-    ),
-  );
+  ]) {
+    final trace = NavigationLogTrace(
+      logger: logger,
+      intent: intent,
+      origin: origin,
+    );
+    return _ScopedNavigationRequest(trace: trace).track(_operations, () {
+      final entry = origin ?? readContext().entryId;
+      trace.origin = entry;
+      trace.requested();
+      return OperationRequest(
+        result: _enqueue(intent, entry, trace),
+        onCancel: _releaseWait,
+      );
+    });
+  }
 
   Future<NavigationFeedback> _enqueue(
     NavigationIntent intent,
     NavigationEntryId origin,
+    NavigationLogTrace trace,
   ) {
     final Object? payload = intent is OpenTournamentIntent
         ? intent.tournamentId
         : null;
     final key = (origin: origin, kind: intent.runtimeType, payload: payload);
     final duplicate = _pending[key];
-    if (duplicate != null) return duplicate;
+    if (duplicate != null) {
+      trace.coalesced();
+      return duplicate;
+    }
     if (_pending.keys.any(
       (request) =>
           request.origin == origin &&
@@ -74,7 +91,7 @@ class NavigationCoordinator implements NavigationIntentSink {
         return await _ScopedNavigationRequest().track(
           _operations,
           () => OperationRequest(
-            result: _execute(intent, origin),
+            result: _execute(intent, origin, trace),
             onCancel: _releaseWait,
           ),
         );
@@ -91,6 +108,7 @@ class NavigationCoordinator implements NavigationIntentSink {
   Future<NavigationFeedback> _execute(
     NavigationIntent intent,
     NavigationEntryId origin,
+    NavigationLogTrace trace,
   ) async {
     final context = readContext();
     if (origin != context.entryId) return const NavigationStale();
@@ -102,6 +120,7 @@ class NavigationCoordinator implements NavigationIntentSink {
         current.revision != allowed.revision) {
       return const NavigationStale();
     }
+    trace.started(allowed.effect, current);
     final result = await executor.execute(allowed.effect);
     if (result is NavigationExecutionFailed) {
       return const NavigationFailed(NavigationFailureReason.routerUnavailable);
@@ -129,6 +148,9 @@ class NavigationCoordinator implements NavigationIntentSink {
 
 /// Связывает типизированный исход scope с прежним контрактом submit.
 final class _ScopedNavigationRequest {
+  _ScopedNavigationRequest({this.trace});
+
+  final NavigationLogTrace? trace;
   final _completion = Completer<NavigationFeedback>();
 
   Future<NavigationFeedback> track(
@@ -137,8 +159,8 @@ final class _ScopedNavigationRequest {
   ) {
     final operation = scope.run<NavigationFeedback>(
       request: request,
-      onResult: _completion.complete,
-      onError: _completion.completeError,
+      onResult: _accept,
+      onError: _fail,
     );
     unawaited(operation.result.then(_settleCancellation));
     return _completion.future;
@@ -146,8 +168,18 @@ final class _ScopedNavigationRequest {
 
   void _settleCancellation(OperationOutcome<NavigationFeedback> outcome) {
     if (outcome is OperationCancelled<NavigationFeedback>) {
-      _completion.complete(const NavigationCancelled());
+      _accept(const NavigationCancelled());
     }
+  }
+
+  void _accept(NavigationFeedback feedback) {
+    trace?.feedback(feedback);
+    _completion.complete(feedback);
+  }
+
+  void _fail(Object error, StackTrace stackTrace) {
+    trace?.failed(error, stackTrace);
+    _completion.completeError(error, stackTrace);
   }
 }
 

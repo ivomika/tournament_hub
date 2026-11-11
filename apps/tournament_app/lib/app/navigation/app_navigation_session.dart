@@ -1,5 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
+import 'package:tournament_app/app/logging/app_loggers.dart';
+import 'package:tournament_app/domain/logging/navigation_logger.dart';
 import 'package:tournament_app/app/routing/app_routes.dart';
 import 'package:tournament_app/app/routing/screen_route_builders.dart';
 import 'package:tournament_app/app/navigation/navigation_context.dart';
@@ -18,6 +20,7 @@ class AppNavigationSession {
     AppRoute initialRoute = const HomeRoute(),
     this.initialized = true,
     this.screens = const ScreenRouteBuilders(),
+    NavigationLogger? logger,
   }) : _currentRoute = initialRoute {
     router = GoRouter(
       routes: $appRoutes,
@@ -30,6 +33,7 @@ class AppNavigationSession {
       guard: const NavigationGuard(),
       readContext: readContext,
       executor: _executor,
+      logger: logger ?? AppLoggers.console().navigation,
     );
     router.routerDelegate.addListener(_routerChanged);
   }

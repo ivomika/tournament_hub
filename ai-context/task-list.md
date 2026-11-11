@@ -116,3 +116,4 @@
 - ✅ 107. Улучшить читаемость production Dart-кода: отделить конструкторы, поля и методы пустыми строками. [Детали](task-details/107-production-code-spacing.md)
 - ✅ 108. Закрепить отменяемость асинхронных операций обязательным core-правилом. [Детали](task-details/108-cancellable-async-rule.md)
 - ✅ 109. Общий scope операций владельца без lifecycle-проверок в рабочих методах. [Детали](task-details/109-owned-operation-scope.md)
+- ✅ 110. Типизированные scoped-логгеры с независимыми адаптерами вывода. [Детали](task-details/110-scoped-logging.md)
