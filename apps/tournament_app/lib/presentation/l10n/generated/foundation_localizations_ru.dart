@@ -511,7 +511,31 @@ class FoundationLocalizationsRu extends FoundationLocalizations {
   String get screenBootPreparing => 'Подготавливаем\nприложение…';
 
   @override
+  String get screenBootPreparingNavigation => 'Подготавливаем экраны…';
+
+  @override
+  String get screenBootPreparingComponent => 'Подготавливаем компонент…';
+
+  @override
   String get screenBootError => 'Не удалось запустить';
+
+  @override
+  String get screenBootDependencyUnavailable =>
+      'Сервис недоступен. Попробуйте ещё раз.';
+
+  @override
+  String get screenBootTimedOut => 'Сервис не ответил. Повторите попытку.';
+
+  @override
+  String get screenBootIncompatibleVersion =>
+      'Обновите приложение для подключения к сервису.';
+
+  @override
+  String get screenBootRestartRequired =>
+      'Для продолжения перезапустите приложение.';
+
+  @override
+  String get screenBootCancelled => 'Запуск отменён.';
 
   @override
   String get screenBootRetrying => 'Пробуем снова…';

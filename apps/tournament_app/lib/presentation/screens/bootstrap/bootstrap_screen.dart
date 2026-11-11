@@ -21,6 +21,10 @@ class BootstrapScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final appearance = BootstrapScreenTheme.of(context),
         localizations = FoundationLocalizations.of(context);
+    final progressLabel = _BootstrapMessages.progress(
+      localizations,
+      state.currentStep,
+    );
     final brand = Column(
       mainAxisSize: appearance.min,
       crossAxisAlignment: appearance.start,
@@ -48,21 +52,20 @@ class BootstrapScreen extends StatelessWidget {
             ),
           )
         else
-          AppProgressIndicator(
-            semanticLabel: localizations.screenBootPreparing,
-          ),
+          AppProgressIndicator(semanticLabel: progressLabel),
         SizedBox(height: appearance.small),
         Text(
           state.phase == BootstrapPhase.error
-              ? localizations.screenBootError
-              : localizations.screenBootPreparing,
+              ? _BootstrapMessages.error(localizations, state.problem)
+              : progressLabel,
           style: appearance.muted,
           textAlign: appearance.leftText,
         ),
       ],
     );
     Widget? action;
-    if (state.phase != BootstrapPhase.loading) {
+    if (state.phase == BootstrapPhase.retrying ||
+        (state.phase == BootstrapPhase.error && onRetry != null)) {
       action = AppButton(
         label: state.phase == BootstrapPhase.error
             ? localizations.screenRetry
@@ -141,4 +144,31 @@ class BootstrapScreen extends StatelessWidget {
             ),
     );
   }
+}
+
+abstract final class _BootstrapMessages {
+  static String progress(
+    FoundationLocalizations localizations,
+    BootstrapCurrentStep? step,
+  ) => switch (step) {
+    BootstrapCurrentStep.navigation =>
+      localizations.screenBootPreparingNavigation,
+    BootstrapCurrentStep.component =>
+      localizations.screenBootPreparingComponent,
+    null => localizations.screenBootPreparing,
+  };
+
+  static String error(
+    FoundationLocalizations localizations,
+    BootstrapProblem problem,
+  ) => switch (problem) {
+    BootstrapProblem.general => localizations.screenBootError,
+    BootstrapProblem.dependencyUnavailable =>
+      localizations.screenBootDependencyUnavailable,
+    BootstrapProblem.timedOut => localizations.screenBootTimedOut,
+    BootstrapProblem.incompatibleVersion =>
+      localizations.screenBootIncompatibleVersion,
+    BootstrapProblem.restartRequired => localizations.screenBootRestartRequired,
+    BootstrapProblem.cancelled => localizations.screenBootCancelled,
+  };
 }

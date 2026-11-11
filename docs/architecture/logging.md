@@ -41,6 +41,8 @@ Scope берётся из события, а не передаётся стро�
 
 При добавлении scope: определить новый typed event и его LogScope, alias Logger<NewEvent> и app wiring выбранного sink. Общий SinkLogger и PrintLogSink копировать не нужно.
 
+Задача111 добавила BootstrapLogger = Logger<BootstrapLogEvent> и LogScope.bootstrap. AppLoggers принимает отдельный bootstrapSink (по умолчанию PrintLogSink); ранний logger позволяет диагностировать pre-app шаги до готовности приложения. Bootstrap-события не меняют направления navigation/network. Фактические lifecycle/step events описаны в [bootstrap](bootstrap.md).
+
 ## Независимые адаптеры
 
 Текущий запуск использует AppLoggers.console(): оба scope направлены в PrintLogSink. При другой сборке sinks задаются отдельно:

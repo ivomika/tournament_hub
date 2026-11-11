@@ -22,6 +22,7 @@
 
 - [Расположение приложений](architecture/app-layout.md) — структура репозитория и Flutter-клиент.
 - [Границы слоёв](architecture/layer-boundaries.md) — ответственности app/domain/infrastructure/presentation, DI, вызовы use cases и изоляция библиотек.
+- [Типизированный bootstrap](architecture/bootstrap.md) — фазы запуска, отдельные шаги, retry/resume и владение ресурсами.
 - [Типизированная навигация](architecture/typed-navigation.md) — intentions, guard/effect и реестр экранов.
 - [Результаты экранов и modal](architecture/navigation-interactions.md) — независимые события открытия/закрытия, typed outcome и владение overlay.
 - [Отменяемые асинхронные операции](architecture/cancellable-async.md) — ownership, cancellation и ограничения внешних API.

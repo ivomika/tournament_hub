@@ -7,11 +7,27 @@ import 'package:tournament_app/presentation/l10n/generated/foundation_localizati
 import 'package:tournament_app/presentation/widgetbook/screens/bootstrap/loading/loading_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/screens/bootstrap/error/error_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/screens/bootstrap/retrying/retrying_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/screens/bootstrap/preparing_navigation/preparing_navigation_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/screens/bootstrap/retrying_navigation/retrying_navigation_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/screens/bootstrap/preparing_component/preparing_component_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/screens/bootstrap/dependency_unavailable/dependency_unavailable_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/screens/bootstrap/timed_out/timed_out_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/screens/bootstrap/incompatible_version/incompatible_version_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/screens/bootstrap/restart_required/restart_required_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/screens/bootstrap/cancelled/cancelled_use_case.dart';
 
 void main() => _BootstrapTests.run();
 
 abstract final class _BootstrapTests {
   static void run() {
+    testWidgets('preparing navigation mobile desktop', _navigation);
+    testWidgets('retrying navigation mobile desktop', _retryingNavigation);
+    testWidgets('preparing component mobile desktop', _component);
+    testWidgets('dependency unavailable mobile desktop', _unavailable);
+    testWidgets('timed out mobile desktop', _timeout);
+    testWidgets('incompatible version mobile desktop', _incompatible);
+    testWidgets('restart required mobile desktop', _restart);
+    testWidgets('cancelled mobile desktop', _cancelled);
     testWidgets(
       'loading mobile desktop',
       (tester) async => ScreenGoldenHarness.verify(
@@ -40,6 +56,70 @@ abstract final class _BootstrapTests {
       ),
     );
   }
+
+  static Future<void> _unavailable(WidgetTester tester) =>
+      ScreenGoldenHarness.verify(
+        tester,
+        Builder(builder: BootstrapDependencyUnavailableUseCase.build),
+        'bootstrap',
+        'dependency-unavailable',
+      );
+
+  static Future<void> _navigation(WidgetTester tester) =>
+      ScreenGoldenHarness.verify(
+        tester,
+        Builder(builder: BootstrapPreparingNavigationUseCase.build),
+        'bootstrap',
+        'preparing-navigation',
+      );
+
+  static Future<void> _retryingNavigation(WidgetTester tester) =>
+      ScreenGoldenHarness.verify(
+        tester,
+        Builder(builder: BootstrapRetryingNavigationUseCase.build),
+        'bootstrap',
+        'retrying-navigation',
+      );
+
+  static Future<void> _component(WidgetTester tester) =>
+      ScreenGoldenHarness.verify(
+        tester,
+        Builder(builder: BootstrapPreparingComponentUseCase.build),
+        'bootstrap',
+        'preparing-component',
+      );
+
+  static Future<void> _timeout(WidgetTester tester) =>
+      ScreenGoldenHarness.verify(
+        tester,
+        Builder(builder: BootstrapTimedOutUseCase.build),
+        'bootstrap',
+        'timed-out',
+      );
+
+  static Future<void> _incompatible(WidgetTester tester) =>
+      ScreenGoldenHarness.verify(
+        tester,
+        Builder(builder: BootstrapIncompatibleVersionUseCase.build),
+        'bootstrap',
+        'incompatible-version',
+      );
+
+  static Future<void> _restart(WidgetTester tester) =>
+      ScreenGoldenHarness.verify(
+        tester,
+        Builder(builder: BootstrapRestartRequiredUseCase.build),
+        'bootstrap',
+        'restart-required',
+      );
+
+  static Future<void> _cancelled(WidgetTester tester) =>
+      ScreenGoldenHarness.verify(
+        tester,
+        Builder(builder: BootstrapCancelledUseCase.build),
+        'bootstrap',
+        'cancelled',
+      );
 }
 
 abstract final class ScreenGoldenHarness {

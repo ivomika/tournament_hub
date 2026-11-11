@@ -1,1 +1,1 @@
-enum LogScope { navigation, network }
+enum LogScope { navigation, network, bootstrap }

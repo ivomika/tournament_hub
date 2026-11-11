@@ -1033,11 +1033,53 @@ abstract class FoundationLocalizations {
   /// **'Подготавливаем\nприложение…'**
   String get screenBootPreparing;
 
+  /// No description provided for @screenBootPreparingNavigation.
+  ///
+  /// In ru, this message translates to:
+  /// **'Подготавливаем экраны…'**
+  String get screenBootPreparingNavigation;
+
+  /// No description provided for @screenBootPreparingComponent.
+  ///
+  /// In ru, this message translates to:
+  /// **'Подготавливаем компонент…'**
+  String get screenBootPreparingComponent;
+
   /// No description provided for @screenBootError.
   ///
   /// In ru, this message translates to:
   /// **'Не удалось запустить'**
   String get screenBootError;
+
+  /// No description provided for @screenBootDependencyUnavailable.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сервис недоступен. Попробуйте ещё раз.'**
+  String get screenBootDependencyUnavailable;
+
+  /// No description provided for @screenBootTimedOut.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сервис не ответил. Повторите попытку.'**
+  String get screenBootTimedOut;
+
+  /// No description provided for @screenBootIncompatibleVersion.
+  ///
+  /// In ru, this message translates to:
+  /// **'Обновите приложение для подключения к сервису.'**
+  String get screenBootIncompatibleVersion;
+
+  /// No description provided for @screenBootRestartRequired.
+  ///
+  /// In ru, this message translates to:
+  /// **'Для продолжения перезапустите приложение.'**
+  String get screenBootRestartRequired;
+
+  /// No description provided for @screenBootCancelled.
+  ///
+  /// In ru, this message translates to:
+  /// **'Запуск отменён.'**
+  String get screenBootCancelled;
 
   /// No description provided for @screenBootRetrying.
   ///

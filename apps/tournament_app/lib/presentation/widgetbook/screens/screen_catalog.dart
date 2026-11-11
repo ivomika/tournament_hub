@@ -45,6 +45,14 @@ import 'package:tournament_app/presentation/widgetbook/screens/home/empty/empty_
 import 'package:tournament_app/presentation/widgetbook/screens/home/active/active_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/screens/bootstrap/loading/loading_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/screens/bootstrap/error/error_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/screens/bootstrap/preparing_navigation/preparing_navigation_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/screens/bootstrap/retrying_navigation/retrying_navigation_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/screens/bootstrap/preparing_component/preparing_component_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/screens/bootstrap/dependency_unavailable/dependency_unavailable_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/screens/bootstrap/timed_out/timed_out_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/screens/bootstrap/incompatible_version/incompatible_version_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/screens/bootstrap/restart_required/restart_required_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/screens/bootstrap/cancelled/cancelled_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/screens/bootstrap/retrying/retrying_use_case.dart';
 import 'package:widgetbook/widgetbook.dart';
 import 'package:tournament_app/presentation/widgetbook/screens/utility/loading/loading_use_case.dart';
@@ -145,6 +153,14 @@ final screenCatalog = <WidgetbookNode>[
       bootstrapLoadingUseCase,
       bootstrapErrorUseCase,
       bootstrapRetryingUseCase,
+      bootstrapPreparingNavigationUseCase,
+      bootstrapRetryingNavigationUseCase,
+      bootstrapPreparingComponentUseCase,
+      bootstrapDependencyUnavailableUseCase,
+      bootstrapTimedOutUseCase,
+      bootstrapIncompatibleVersionUseCase,
+      bootstrapRestartRequiredUseCase,
+      bootstrapCancelledUseCase,
     ],
   ),
   WidgetbookComponent(
