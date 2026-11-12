@@ -2,11 +2,12 @@ import 'package:flutter/foundation.dart';
 
 enum BootstrapPhase { loading, error, retrying }
 
-enum BootstrapCurrentStep { navigation, component }
+enum BootstrapCurrentStep { navigation, component, profile }
 
 enum BootstrapProblem {
   general,
   dependencyUnavailable,
+  profileUnavailable,
   timedOut,
   incompatibleVersion,
   restartRequired,

@@ -118,3 +118,4 @@
 - ✅ 109. Общий scope операций владельца без lifecycle-проверок в рабочих методах. [Детали](task-details/109-owned-operation-scope.md)
 - ✅ 110. Типизированные scoped-логгеры с независимыми адаптерами вывода. [Детали](task-details/110-scoped-logging.md)
 - ✅ 111. Типизированный bootstrap до/после runApp с безопасным повтором обязательных шагов. [Детали](task-details/111-typed-bootstrap.md)
+- ✅ 112. Первичная регистрация локального профиля с сохранением имени и общим UUID-генератором. [Детали](task-details/112-local-profile-registration.md)

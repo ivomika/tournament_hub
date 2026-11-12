@@ -9,6 +9,7 @@ import 'package:tournament_app/app/navigation/navigation_coordinator.dart';
 import 'package:tournament_app/app/navigation/navigation_guard.dart';
 import 'package:tournament_app/app/navigation/navigation_decision.dart';
 import 'package:tournament_app/app/navigation/navigation_effect.dart';
+import 'package:tournament_app/app/profile/app_profile_session.dart';
 import 'package:tournament_app/presentation/navigation/navigation_intent.dart';
 import 'package:tournament_app/app/navigation/go_router_effect_executor.dart';
 import 'package:tournament_app/presentation/navigation/screen_navigation_controller.dart';
@@ -21,6 +22,7 @@ class AppNavigationSession {
     this.initialized = true,
     this.screens = const ScreenRouteBuilders(),
     NavigationLogger? logger,
+    this.profile,
   }) : _currentRoute = initialRoute {
     router = GoRouter(
       routes: $appRoutes,
@@ -40,6 +42,7 @@ class AppNavigationSession {
 
   final bool initialized;
   final ScreenRouteBuilders screens;
+  final AppProfileSession? profile;
   late final GoRouter router;
   late final NavigationCoordinator coordinator;
   late final GoRouterEffectExecutor _executor;
@@ -73,6 +76,7 @@ class AppNavigationSession {
         revision: _revision,
         initialized: initialized,
         canPop: false,
+        profileStatus: _profileStatus,
       );
       if (!const NavigationGuard().canEnter(route, snapshot)) {
         return const Block.stop();
@@ -130,7 +134,16 @@ class AppNavigationSession {
     revision: _revision,
     initialized: initialized,
     canPop: router.canPop(),
+    profileStatus: _profileStatus,
   );
+
+  NavigationProfileStatus get _profileStatus {
+    final session = profile;
+    if (session != null && session.profile?.isComplete != true) {
+      return NavigationProfileStatus.registrationRequired;
+    }
+    return NavigationProfileStatus.ready;
+  }
 
   void dispose() {
     coordinator.dispose();

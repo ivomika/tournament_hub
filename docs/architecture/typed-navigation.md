@@ -1,6 +1,6 @@
 # Типизированная навигация intention → guard → effect
 
-Статус: решение принято2026-11-10; реализованы механизм навигации и реестр25 экранов задачи106. Дальнейшие intentions и бизнес-флоу отложены по запросу пользователя. Документ уточняет применение [границ слоёв](layer-boundaries.md); исполнение закреплено R-003.h.
+Статус: решение принято2026-11-10; реализованы механизм навигации и исходные25 экранов задачи106. Задача112 добавляет RegistrationRoute: всего26 маршрутов и первый подключённый flow регистрации. Остальные intentions и бизнес-флоу подключаются отдельно. Документ уточняет применение [границ слоёв](layer-boundaries.md); исполнение закреплено R-003.h.
 
 Продолжение2026-11-10: реализованы [typed results и общие push/modal adapters](navigation-interactions.md). По уточнённому scope106 завершена на общем механизме; bindings и их wiring подключаются при реализации экранов. Турнирный бизнес-флоу и общий lifecycle по-прежнему не входят в этот этап.
 
@@ -12,6 +12,7 @@
 | --- | --- |
 | HomeRoute | / |
 | BootstrapRoute | /bootstrap |
+| RegistrationRoute | /registration |
 | UtilityRoute | /utility |
 | ProfileRoute | /profile |
 | ProfileEditRoute | /profile/edit |
@@ -46,7 +47,7 @@ Builders вызываются при rebuild: операции загрузки 
 
 Адреса GuestRemove/Withdraw/MatchResult/Forfeit пока выбирают вид экрана в контексте турнира. Они ещё не идентифицируют отдельного гостя/матч: соответствующие предметные IDs, выбранный объект и правила перехода добавляются вместе с реальным flow. Наличие адреса modal screen не означает реализацию bottom sheet, результата закрытия или confirmation policy. Никакие новые intentions этим этапом не подключены.
 
-Проверки: route_catalog_test.dart проверяет все25 адресов через настоящий GoRouter configuration, concrete type round-trip и encoded identifiers. screen_route_builders_test.dart проверяет реальный About/Roster screen через injection, отсутствующий binding и блокировку до initialization. Прежние guard/coordinator/flow tests проверяют существующий путь Home→Profile→Back и защиту origin.
+Проверки: route_catalog_test.dart проверяет все26 адресов через настоящий GoRouter configuration, concrete type round-trip и encoded identifiers. screen_route_builders_test.dart проверяет реальный About/Roster screen через injection, отсутствующий binding и блокировку до initialization. Прежние guard/coordinator/flow tests проверяют существующий путь Home→Profile→Back и защиту origin. Регистрация проверена реальным bootstrap/router и controller: [локальный профиль](local-profile-registration.md).
 
 ## Реализованный первый этап
 

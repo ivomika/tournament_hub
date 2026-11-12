@@ -1,4 +1,12 @@
 {
+  "screenRegistrationTitle": "Регистрация",
+  "screenRegistrationIntro": "Как к вам обращаться?",
+  "screenRegistrationContinue": "Продолжить",
+  "screenRegistrationSaving": "Сохраняем…",
+  "screenRegistrationNameRequired": "Введите имя",
+  "screenRegistrationSaveError": "Не удалось сохранить профиль. Попробуйте ещё раз.",
+  "screenBootPreparingProfile": "Загружаем профиль…",
+  "screenBootProfileUnavailable": "Не удалось загрузить профиль. Попробуйте ещё раз.",
   "@@locale": "ru",
   "placeholderGreeting": "Hello World!",
   "colorsTitle": "Цветовая схема",

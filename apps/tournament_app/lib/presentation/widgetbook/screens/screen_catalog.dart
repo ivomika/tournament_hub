@@ -55,6 +55,13 @@ import 'package:tournament_app/presentation/widgetbook/screens/bootstrap/restart
 import 'package:tournament_app/presentation/widgetbook/screens/bootstrap/cancelled/cancelled_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/screens/bootstrap/retrying/retrying_use_case.dart';
 import 'package:widgetbook/widgetbook.dart';
+import 'package:tournament_app/presentation/widgetbook/screens/bootstrap/profile_unavailable/profile_unavailable_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/screens/registration/empty/empty_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/screens/registration/editing/editing_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/screens/registration/invalid/invalid_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/screens/registration/saving/saving_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/screens/registration/error/error_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/screens/bootstrap/preparing_profile/preparing_profile_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/screens/utility/loading/loading_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/screens/utility/error/error_use_case.dart';
 
@@ -140,6 +147,16 @@ final screenCatalog = <WidgetbookNode>[
     useCases: [profileEditEditingUseCase, profileEditErrorUseCase],
   ),
   WidgetbookComponent(
+    name: 'Registration',
+    useCases: [
+      registrationEmptyUseCase,
+      registrationEditingUseCase,
+      registrationInvalidUseCase,
+      registrationSavingUseCase,
+      registrationErrorUseCase,
+    ],
+  ),
+  WidgetbookComponent(
     name: 'Profile',
     useCases: [profileViewUseCase, profileNewcomerUseCase],
   ),
@@ -154,6 +171,8 @@ final screenCatalog = <WidgetbookNode>[
       bootstrapErrorUseCase,
       bootstrapRetryingUseCase,
       bootstrapPreparingNavigationUseCase,
+      bootstrapPreparingProfileUseCase,
+      bootstrapProfileUnavailableUseCase,
       bootstrapRetryingNavigationUseCase,
       bootstrapPreparingComponentUseCase,
       bootstrapDependencyUnavailableUseCase,

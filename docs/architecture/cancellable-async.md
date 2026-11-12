@@ -28,7 +28,7 @@ Scope регистрирует каждую операцию до вызова �
 
 Доставка в state синхронная. После начала callback scope не может прервать его выполнение; закрытие из самого callback сохраняет уже начатую доставку. Исключение callback становится ошибкой операции без рекурсивного вызова того же обработчика. Новая асинхронная работа внутри обработчика должна отдельно наследовать владельца.
 
-Реализация находится в [presentation/operations](../../apps/tournament_app/lib/presentation/operations/operation_scope.dart), использует только dart:async, без пакетов и Flutter API. App вправе использовать presentation-контракт; domain/infrastructure не получают обратного импорта. Общая утилита lifetime не становится бизнес-сущностью. Перенос контракта на другие слои требует отдельного определения нужного им ownership, без обхода матрицы импортов.
+С задачи112 реализация находится в [domain/operations](../../apps/tournament_app/lib/domain/operations/operation_scope.dart), использует только dart:async, без пакетов и Flutter API. OperationRequest/Scope/Outcome/ManagedOperation перенесены без изменения semantics; прежние presentation/operations содержат только compatibility exports тех же типов. Это позволяет use cases и infrastructure владеть отменяемыми источниками без обратного импорта presentation. OperationSequence объединяет последовательные шаги одного сценария: закрытый scope не запускает следующий request factory, typed OperationAborted различает отмену от технической ошибки. Общая утилита lifetime не становится сущностью профиля. Применение и пределы физической отмены storage: [регистрация](local-profile-registration.md).
 
 ### Использование
 

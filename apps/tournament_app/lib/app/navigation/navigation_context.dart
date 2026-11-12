@@ -13,6 +13,8 @@ final class NavigationEntryId {
   int get hashCode => value.hashCode;
 }
 
+enum NavigationProfileStatus { ready, registrationRequired }
+
 final class NavigationContext {
   const NavigationContext({
     required this.currentRoute,
@@ -20,10 +22,12 @@ final class NavigationContext {
     required this.revision,
     required this.initialized,
     required this.canPop,
+    this.profileStatus = NavigationProfileStatus.ready,
   });
 
   final AppRoute currentRoute;
   final NavigationEntryId entryId;
   final int revision;
   final bool initialized, canPop;
+  final NavigationProfileStatus profileStatus;
 }

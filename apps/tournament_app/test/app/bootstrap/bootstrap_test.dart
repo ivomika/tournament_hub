@@ -1,5 +1,11 @@
 import 'dart:async';
 
+import 'package:tournament_app/domain/identifiers/unique_identifier.dart';
+import 'package:tournament_app/domain/profile/local_profile.dart';
+import 'package:tournament_app/domain/profile/profile_id.dart';
+import 'package:tournament_app/domain/profile/profile_name.dart';
+import 'package:tournament_app/domain/profile/profile_repository.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tournament_app/app/bootstrap/application_bootstrap_plan.dart';
@@ -439,7 +445,9 @@ abstract final class _RunnerTests {
 
   static Future<void> _applicationPlan() async {
     final runner = BootstrapRunner<AppNavigationSession>(
-      plan: ApplicationBootstrapPlan.create(),
+      plan: ApplicationBootstrapPlan.create(
+        profileRepository: const _ExistingProfileRepository(),
+      ),
     );
     expect(
       await runner.runBeforeApp(),
@@ -668,7 +676,9 @@ abstract final class _GateTests {
 
   static Future<void> _applicationHost(WidgetTester tester) async {
     final runner = BootstrapRunner<AppNavigationSession>(
-      plan: ApplicationBootstrapPlan.create(),
+      plan: ApplicationBootstrapPlan.create(
+        profileRepository: const _ExistingProfileRepository(),
+      ),
     );
     await runner.runBeforeApp();
     await tester.pumpWidget(
@@ -993,6 +1003,27 @@ final class _CleanupProbe {
   int calls = 0;
 
   void finished(void result) => calls++;
+}
+
+final class _ExistingProfileRepository implements ProfileRepository {
+  const _ExistingProfileRepository();
+
+  @override
+  OperationRequest<LocalProfile?> read() => OperationRequest(
+    result: Future.value(
+      LocalProfile(
+        id: ProfileId(UniqueIdentifier('6fa459ea-ee8a-4ca4-894e-db77e160355e')),
+        name: ProfileName('Иван'),
+      ),
+    ),
+    onCancel: _cancel,
+  );
+
+  @override
+  OperationRequest<void> save(LocalProfile profile) =>
+      throw StateError('Bootstrap must not rewrite an existing profile');
+
+  static Future<void> _cancel() => Future<void>.value();
 }
 
 class _GateHost extends StatelessWidget {

@@ -1,11 +1,12 @@
 import 'package:tournament_app/app/bootstrap/bootstrap_resource.dart';
 import 'package:tournament_app/app/bootstrap/bootstrap_step.dart';
-import 'package:tournament_app/app/logging/app_loggers.dart';
+import 'package:tournament_app/app/bootstrap/profile_bootstrap_context.dart';
+import 'package:tournament_app/app/routing/app_routes.dart';
 import 'package:tournament_app/app/navigation/app_navigation_session.dart';
 import 'package:tournament_app/presentation/operations/operation_request.dart';
 
 final class InitializeNavigationStep
-    implements BootstrapStep<AppLoggers, AppNavigationSession> {
+    implements BootstrapStep<ProfileBootstrapContext, AppNavigationSession> {
   const InitializeNavigationStep();
 
   @override
@@ -13,9 +14,15 @@ final class InitializeNavigationStep
 
   @override
   OperationRequest<BootstrapResource<AppNavigationSession>> start(
-    AppLoggers input,
+    ProfileBootstrapContext input,
   ) {
-    final navigation = AppNavigationSession(logger: input.navigation);
+    final navigation = AppNavigationSession(
+      logger: input.loggers.navigation,
+      profile: input.profile,
+      initialRoute: input.profile.profile?.isComplete == true
+          ? const HomeRoute()
+          : const RegistrationRoute(),
+    );
     final owner = _NavigationOwner(navigation);
     final resource = BootstrapResource(value: navigation, onClose: owner.close);
     return OperationRequest(

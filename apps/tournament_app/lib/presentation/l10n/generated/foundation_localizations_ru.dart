@@ -10,6 +10,32 @@ class FoundationLocalizationsRu extends FoundationLocalizations {
   FoundationLocalizationsRu([String locale = 'ru']) : super(locale);
 
   @override
+  String get screenRegistrationTitle => 'Регистрация';
+
+  @override
+  String get screenRegistrationIntro => 'Как к вам обращаться?';
+
+  @override
+  String get screenRegistrationContinue => 'Продолжить';
+
+  @override
+  String get screenRegistrationSaving => 'Сохраняем…';
+
+  @override
+  String get screenRegistrationNameRequired => 'Введите имя';
+
+  @override
+  String get screenRegistrationSaveError =>
+      'Не удалось сохранить профиль. Попробуйте ещё раз.';
+
+  @override
+  String get screenBootPreparingProfile => 'Загружаем профиль…';
+
+  @override
+  String get screenBootProfileUnavailable =>
+      'Не удалось загрузить профиль. Попробуйте ещё раз.';
+
+  @override
   String get placeholderGreeting => 'Hello World!';
 
   @override

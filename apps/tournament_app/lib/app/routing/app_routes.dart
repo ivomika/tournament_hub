@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:tournament_app/domain/tournament/tournament_id.dart';
 import 'package:tournament_app/app/navigation/app_navigation_session.dart';
+import 'package:tournament_app/app/routing/registration_binding.dart';
 import 'package:tournament_app/presentation/screens/home/home_screen.dart';
 import 'package:tournament_app/presentation/screens/home/home_screen_state.dart';
 import 'package:tournament_app/presentation/screens/profile/profile_screen.dart';
@@ -22,6 +23,7 @@ abstract class AppRoute extends GoRouteData {
       const HomeRoute(),
       const ProfileRoute(),
       const BootstrapRoute(),
+      const RegistrationRoute(),
       const UtilityRoute(),
       const ProfileEditRoute(),
       const SettingsRoute(),
@@ -67,6 +69,7 @@ abstract class AppRoute extends GoRouteData {
   path: '/',
   routes: [
     TypedGoRoute<ProfileRoute>(path: 'profile'),
+    TypedGoRoute<RegistrationRoute>(path: 'registration'),
     TypedGoRoute<UtilityRoute>(path: 'utility'),
     TypedGoRoute<ProfileEditRoute>(path: 'profile/edit'),
     TypedGoRoute<SettingsRoute>(path: 'settings'),
@@ -126,6 +129,32 @@ class HomeRoute extends AppRoute with $HomeRoute {
   }
 }
 
+class RegistrationRoute extends AppRoute with $RegistrationRoute {
+  const RegistrationRoute();
+
+  @override
+  Future<bool> onExit(BuildContext context, GoRouterState state) =>
+      Future.value(_allowExit(context));
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    final session = AppNavigationScope.of(context);
+    session.bind(this, state.pageKey);
+    final profile = session.profile;
+    if (profile == null) {
+      return const BootstrapScreen(
+        state: BootstrapScreenState(phase: BootstrapPhase.error),
+        onRetry: null,
+      );
+    }
+    return RegistrationBinding(
+      key: state.pageKey,
+      profile: profile,
+      navigation: session.coordinator.bindToCurrentEntry(),
+    );
+  }
+}
+
 class ProfileRoute extends AppRoute with $ProfileRoute {
   const ProfileRoute();
 
@@ -140,7 +169,11 @@ class ProfileRoute extends AppRoute with $ProfileRoute {
     final builder = session.screens.profile;
     if (builder != null) return builder(context, this, controller);
     return ProfileScreen(
-      state: const ProfileScreenState(name: '', initials: ''),
+      state: ProfileScreenState(
+        name: session.profile?.profile?.name?.value ?? '',
+        initials:
+            session.profile?.profile?.name?.value.characters.firstOrNull ?? '',
+      ),
       onBack: controller.back,
       onEdit: null,
       onCreate: null,

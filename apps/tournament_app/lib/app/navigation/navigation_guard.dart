@@ -7,8 +7,14 @@ import 'package:tournament_app/presentation/navigation/navigation_intent.dart';
 class NavigationGuard {
   const NavigationGuard();
 
-  bool canEnter(AppRoute route, NavigationContext context) =>
-      context.initialized || route is BootstrapRoute;
+  bool canEnter(AppRoute route, NavigationContext context) {
+    if (route is BootstrapRoute) return true;
+    if (!context.initialized) return false;
+    if (context.profileStatus == NavigationProfileStatus.registrationRequired) {
+      return route is RegistrationRoute;
+    }
+    return route is! RegistrationRoute;
+  }
 
   NavigationDecision evaluate(
     NavigationIntent intent,
@@ -16,6 +22,17 @@ class NavigationGuard {
   ) {
     if (!context.initialized) {
       return const NavigationDenied(NavigationRejection.notInitialized);
+    }
+    if (context.profileStatus == NavigationProfileStatus.registrationRequired) {
+      return const NavigationDenied(NavigationRejection.unavailable);
+    }
+    if (intent is ProfileRegisteredIntent &&
+        context.currentRoute is RegistrationRoute) {
+      return NavigationAllowed(
+        const GoToRouteEffect(HomeRoute()),
+        context.entryId,
+        context.revision,
+      );
     }
     if (intent is OpenProfileIntent) {
       if (context.currentRoute is ProfileRoute) {

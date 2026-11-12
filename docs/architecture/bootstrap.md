@@ -4,7 +4,7 @@
 
 Задача111, решение2026-11-11: запуск состоит из отдельных BootstrapStep<Input, Output>, объединённых в типизированный последовательный план. UI-оболочка может уже работать, пока обязательные шаги ещё не завершились. Готовое приложение показывается только после BootstrapReady.
 
-Действующий production plan состоит из InitializeLoggingStep до runApp и InitializeNavigationStep после создания оболочки. Реального backend handshake пока нет: endpoint/auth/protocol не определены. Обязательный backend и его отказ/повтор проверены управляемыми внешними источниками в тестах настоящего runner и gate. Это подтверждает механизм, а не доступность сервера.
+Действующий production plan состоит из InitializeLoggingStep до runApp и двух шагов после создания оболочки: InitializeProfileStep читает локальный профиль и передаёт ProfileBootstrapContext; InitializeNavigationStep создаёт навигацию с HomeRoute или RegistrationRoute по заполненности. Чтение профиля имеет собственную подпись/ошибку/retry. Контракт задачи112: [локальный профиль](local-profile-registration.md). Реального backend handshake пока нет: endpoint/auth/protocol не определены. Обязательный backend и его отказ/повтор проверены управляемыми внешними источниками в тестах настоящего runner и gate. Это подтверждает механизм, а не доступность сервера.
 
 ```text
 main → AppBootstrap.run
@@ -77,7 +77,7 @@ BootstrapStepException позволяет шагу явно задать при�
 
 Presentation получает BootstrapScreenState с BootstrapPhase и BootstrapProblem. Текст причины выбирается через intl, raw exception в UI не показывается. Ошибка сервиса предлагает Retry; incompatible/restart состояния имеют конкретное объяснение без бесполезной активной кнопки повтора. При retry кнопка недоступна и показан индикатор. Screen не импортирует app, не получает DI или runner.
 
-Под индикатором отображается только текущий post-app шаг. Optional BootstrapCurrentStep в presentation DTO задаётся app-маппером для BootstrapRunning.afterApplication: InitializeNavigationStep отображается как «Подготавливаем экраны…». Для неизвестного нового типа есть безопасная общая подпись «Подготавливаем компонент…», а не имя Dart-класса. При добавлении production-шага нужно явно добавить его UI enum/intl mapping; техническое Type.toString остаётся только в диагностике. Loading-текст и semantics индикатора используют одну локализованную подпись. Полный список шагов не выводится.
+Под индикатором отображается только текущий post-app шаг. Optional BootstrapCurrentStep в presentation DTO задаётся app-маппером для BootstrapRunning.afterApplication: InitializeProfileStep отображается как «Загружаем профиль…», InitializeNavigationStep — «Подготавливаем экраны…». Для неизвестного нового типа есть безопасная общая подпись «Подготавливаем компонент…», а не имя Dart-класса. При добавлении production-шага нужно явно добавить его UI enum/intl mapping; техническое Type.toString остаётся только в диагностике. Loading-текст и semantics индикатора используют одну локализованную подпись. Полный список шагов не выводится.
 
 BeforeApplication не получает UI-подпись: в production root runApp ещё не вызывался. В начальном ожидании без текущего шага остаётся общий loading-текст. Failed/RestartRequired/Cancelled не удерживают прежнюю running-подпись, а Ready заменяет весь bootstrap экран приложением. Runner, контракты шагов и механизм retry ради этого отображения не менялись.
 
@@ -121,4 +121,4 @@ Widgetbook и goldens используют BootstrapFixture и общие use ca
 - Static negative probe подтвердил ARGUMENT_TYPE_NOT_ASSIGNABLE для несовместимых шагов; временный файл удалён.
 - Полный архитектурный scan617 файлов и regression fixtures без нарушений. Реальные build/run не выполнялись; запущенного debug-процесса для hot reload нет.
 
-Настоящие backend storage/profile/auth шаги добавляются при появлении их контрактов. Текущая готовность означает успех logging/navigation production plan, а не выполненную неизвестную backend-проверку.
+Настоящие backend/auth шаги добавляются при появлении их контрактов. Локальный storage/profile уже подключён задачей112. Текущая готовность означает успех logging/profile-read/navigation production plan, а не выполненную неизвестную backend-проверку; заполнение отсутствующего имени затем выполняется на защищённом экране регистрации.

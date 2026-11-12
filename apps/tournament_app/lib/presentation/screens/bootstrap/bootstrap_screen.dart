@@ -153,6 +153,7 @@ abstract final class _BootstrapMessages {
   ) => switch (step) {
     BootstrapCurrentStep.navigation =>
       localizations.screenBootPreparingNavigation,
+    BootstrapCurrentStep.profile => localizations.screenBootPreparingProfile,
     BootstrapCurrentStep.component =>
       localizations.screenBootPreparingComponent,
     null => localizations.screenBootPreparing,
@@ -163,6 +164,8 @@ abstract final class _BootstrapMessages {
     BootstrapProblem problem,
   ) => switch (problem) {
     BootstrapProblem.general => localizations.screenBootError,
+    BootstrapProblem.profileUnavailable =>
+      localizations.screenBootProfileUnavailable,
     BootstrapProblem.dependencyUnavailable =>
       localizations.screenBootDependencyUnavailable,
     BootstrapProblem.timedOut => localizations.screenBootTimedOut,

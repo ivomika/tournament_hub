@@ -16,6 +16,7 @@ abstract final class _RouteCatalogTests {
   static List<AppRoute> _applicationRoutes() => const [
     HomeRoute(),
     BootstrapRoute(),
+    RegistrationRoute(),
     UtilityRoute(),
     ProfileRoute(),
     ProfileEditRoute(),
@@ -51,7 +52,7 @@ abstract final class _RouteCatalogTests {
     ];
     final router = GoRouter(routes: $appRoutes);
     addTearDown(router.dispose);
-    expect(routes.map((route) => route.location).toSet(), hasLength(25));
+    expect(routes.map((route) => route.location).toSet(), hasLength(26));
     for (final route in routes) {
       _expectRoundTrip(router, route);
     }

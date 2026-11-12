@@ -97,6 +97,54 @@ abstract class FoundationLocalizations {
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[Locale('ru')];
 
+  /// No description provided for @screenRegistrationTitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'Регистрация'**
+  String get screenRegistrationTitle;
+
+  /// No description provided for @screenRegistrationIntro.
+  ///
+  /// In ru, this message translates to:
+  /// **'Как к вам обращаться?'**
+  String get screenRegistrationIntro;
+
+  /// No description provided for @screenRegistrationContinue.
+  ///
+  /// In ru, this message translates to:
+  /// **'Продолжить'**
+  String get screenRegistrationContinue;
+
+  /// No description provided for @screenRegistrationSaving.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сохраняем…'**
+  String get screenRegistrationSaving;
+
+  /// No description provided for @screenRegistrationNameRequired.
+  ///
+  /// In ru, this message translates to:
+  /// **'Введите имя'**
+  String get screenRegistrationNameRequired;
+
+  /// No description provided for @screenRegistrationSaveError.
+  ///
+  /// In ru, this message translates to:
+  /// **'Не удалось сохранить профиль. Попробуйте ещё раз.'**
+  String get screenRegistrationSaveError;
+
+  /// No description provided for @screenBootPreparingProfile.
+  ///
+  /// In ru, this message translates to:
+  /// **'Загружаем профиль…'**
+  String get screenBootPreparingProfile;
+
+  /// No description provided for @screenBootProfileUnavailable.
+  ///
+  /// In ru, this message translates to:
+  /// **'Не удалось загрузить профиль. Попробуйте ещё раз.'**
+  String get screenBootProfileUnavailable;
+
   /// No description provided for @placeholderGreeting.
   ///
   /// In ru, this message translates to:

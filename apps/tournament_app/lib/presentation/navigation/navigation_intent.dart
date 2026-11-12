@@ -23,6 +23,10 @@ final class BootstrapCompletedIntent extends NavigationIntent {
   const BootstrapCompletedIntent();
 }
 
+final class ProfileRegisteredIntent extends NavigationIntent {
+  const ProfileRegisteredIntent();
+}
+
 abstract interface class NavigationIntentSink {
   Future<NavigationFeedback> submit(NavigationIntent intent);
 }

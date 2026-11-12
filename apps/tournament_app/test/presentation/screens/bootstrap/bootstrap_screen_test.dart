@@ -1,5 +1,9 @@
 import 'dart:io';
 
+import 'package:tournament_app/presentation/widgetbook/screens/bootstrap/profile_unavailable/profile_unavailable_use_case.dart';
+
+import 'package:tournament_app/presentation/widgetbook/screens/bootstrap/preparing_profile/preparing_profile_use_case.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tournament_app/presentation/design_system/foundation/theme/app_theme.dart';
@@ -20,6 +24,8 @@ void main() => _BootstrapTests.run();
 
 abstract final class _BootstrapTests {
   static void run() {
+    testWidgets('profile unavailable mobile desktop', _profileError);
+    testWidgets('preparing profile mobile desktop', _profile);
     testWidgets('preparing navigation mobile desktop', _navigation);
     testWidgets('retrying navigation mobile desktop', _retryingNavigation);
     testWidgets('preparing component mobile desktop', _component);
@@ -71,6 +77,22 @@ abstract final class _BootstrapTests {
         Builder(builder: BootstrapPreparingNavigationUseCase.build),
         'bootstrap',
         'preparing-navigation',
+      );
+
+  static Future<void> _profile(WidgetTester tester) =>
+      ScreenGoldenHarness.verify(
+        tester,
+        Builder(builder: BootstrapPreparingProfileUseCase.build),
+        'bootstrap',
+        'preparing-profile',
+      );
+
+  static Future<void> _profileError(WidgetTester tester) =>
+      ScreenGoldenHarness.verify(
+        tester,
+        Builder(builder: BootstrapProfileUnavailableUseCase.build),
+        'bootstrap',
+        'profile-unavailable',
       );
 
   static Future<void> _retryingNavigation(WidgetTester tester) =>

@@ -6,10 +6,15 @@ enum BootstrapFailureReason {
 }
 
 final class BootstrapStepException implements Exception {
-  const BootstrapStepException(this.reason, {required this.retryAllowed});
+  const BootstrapStepException(
+    this.reason, {
+    required this.retryAllowed,
+    this.cause,
+  });
 
   final BootstrapFailureReason reason;
   final bool retryAllowed;
+  final Object? cause;
 }
 
 final class BootstrapFailure {
