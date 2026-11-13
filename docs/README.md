@@ -24,6 +24,7 @@
 - [Границы слоёв](architecture/layer-boundaries.md) — ответственности app/domain/infrastructure/presentation, DI, вызовы use cases и изоляция библиотек.
 - [Типизированный bootstrap](architecture/bootstrap.md) — фазы запуска, отдельные шаги, retry/resume и владение ресурсами.
 - [Локальный профиль](architecture/local-profile-registration.md) — регистрация и редактирование имени, UUID, инициалы, хранение и защита рабочих экранов.
+- [Создание и настройки турнира — план](architecture/tournament-configuration.md) — согласованные границы первого этапа, один настраиваемый турнир, FT и явное сохранение; реализация ещё не выполнена.
 - [Типизированная навигация](architecture/typed-navigation.md) — intentions, guard/effect и реестр экранов.
 - [Результаты экранов и modal](architecture/navigation-interactions.md) — независимые события открытия/закрытия, typed outcome и владение overlay.
 - [Отменяемые асинхронные операции](architecture/cancellable-async.md) — ownership, cancellation и ограничения внешних API.
