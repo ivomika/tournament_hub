@@ -35,15 +35,15 @@ final class InitializeProfileStep
   ) async {
     try {
       final profile = await sequence.run(LoadProfileUseCase(repository).start);
+      final session = AppProfileSession(
+        profile: profile,
+        repository: repository,
+        identifiers: identifiers,
+        logger: loggers.profile,
+      );
       return BootstrapResource(
-        value: ProfileBootstrapContext(
-          loggers: loggers,
-          profile: AppProfileSession(
-            profile: profile,
-            repository: repository,
-            identifiers: identifiers,
-          ),
-        ),
+        value: ProfileBootstrapContext(loggers: loggers, profile: session),
+        onClose: session.close,
       );
     } on ProfileException catch (error) {
       throw BootstrapStepException(

@@ -4,6 +4,8 @@ import 'package:tournament_app/domain/logging/bootstrap_logger.dart';
 import 'package:tournament_app/domain/logging/navigation_logger.dart';
 import 'package:tournament_app/domain/logging/network_log_event.dart';
 import 'package:tournament_app/domain/logging/network_logger.dart';
+import 'package:tournament_app/domain/logging/profile_logger.dart';
+import 'package:tournament_app/domain/logging/profile_log_event.dart';
 import 'package:tournament_app/infrastructure/logging/log_sink.dart';
 import 'package:tournament_app/infrastructure/logging/print_log_sink.dart';
 import 'package:tournament_app/infrastructure/logging/sink_logger.dart';
@@ -14,6 +16,7 @@ final class AppLoggers {
     required LogSink navigationSink,
     required LogSink networkSink,
     LogSink bootstrapSink = const PrintLogSink(),
+    LogSink profileSink = const PrintLogSink(),
     DateTime Function()? clock,
   }) : navigation = SinkLogger<NavigationLogEvent>(
          sink: navigationSink,
@@ -23,7 +26,8 @@ final class AppLoggers {
        bootstrap = SinkLogger<BootstrapLogEvent>(
          sink: bootstrapSink,
          clock: clock,
-       );
+       ),
+       profile = SinkLogger<ProfileLogEvent>(sink: profileSink, clock: clock);
 
   factory AppLoggers.console({DateTime Function()? clock}) => AppLoggers(
     navigationSink: const PrintLogSink(),
@@ -34,4 +38,5 @@ final class AppLoggers {
   final NavigationLogger navigation;
   final NetworkLogger network;
   final BootstrapLogger bootstrap;
+  final ProfileLogger profile;
 }

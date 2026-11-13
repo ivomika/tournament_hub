@@ -4,14 +4,19 @@ import 'package:tournament_app/presentation/screens/profile_edit/profile_edit_sc
 export 'package:tournament_app/presentation/screens/profile_edit/profile_edit_screen_state.dart';
 
 class ProfileEditFixture extends StatefulWidget {
-  const ProfileEditFixture({required this.phase, super.key});
+  const ProfileEditFixture({
+    required this.phase,
+    this.name = 'Иван Михайлов',
+    super.key,
+  });
   final ProfileEditPhase phase;
+  final String name;
   @override
   State<ProfileEditFixture> createState() => _FixtureState();
 }
 
 class _FixtureState extends State<ProfileEditFixture> {
-  final controller = TextEditingController(text: 'Иван М.');
+  late final controller = TextEditingController(text: widget.name);
   void action() {}
   void changed(String value) {}
   @override
@@ -22,7 +27,7 @@ class _FixtureState extends State<ProfileEditFixture> {
 
   @override
   Widget build(BuildContext context) => ProfileEditScreen(
-    state: ProfileEditScreenState(phase: widget.phase),
+    state: ProfileEditScreenState(phase: widget.phase, name: widget.name),
     nameController: controller,
     onBack: action,
     onSave: action,

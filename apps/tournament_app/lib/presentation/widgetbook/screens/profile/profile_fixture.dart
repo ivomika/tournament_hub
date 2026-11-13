@@ -9,8 +9,8 @@ class ProfileFixture extends StatelessWidget {
   @override
   Widget build(BuildContext context) => ProfileScreen(
     state: ProfileScreenState(
-      name: 'Иван',
-      initials: 'И',
+      name: 'Иван Михайлов',
+      initials: 'ИМ',
       statistics: newcomer
           ? null
           : const ProfileStatistics(

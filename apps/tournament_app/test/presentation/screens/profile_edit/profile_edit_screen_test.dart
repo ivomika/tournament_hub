@@ -1,5 +1,9 @@
 import 'dart:io';
 
+import 'package:tournament_app/presentation/widgetbook/screens/profile_edit/invalid/invalid_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/screens/profile_edit/saving/saving_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/screens/profile_edit/navigation_error/navigation_error_use_case.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tournament_app/presentation/design_system/foundation/theme/app_theme.dart';
@@ -11,6 +15,24 @@ void main() => _ProfileEditTests.run();
 
 abstract final class _ProfileEditTests {
   static void run() {
+    for (final scenario in [
+      (name: 'invalid', builder: ProfileEditInvalidUseCase.build),
+      (name: 'saving', builder: ProfileEditSavingUseCase.build),
+      (
+        name: 'navigation-error',
+        builder: ProfileEditNavigationErrorUseCase.build,
+      ),
+    ]) {
+      testWidgets(
+        '${scenario.name} mobile desktop',
+        (tester) => ScreenGoldenHarness.verify(
+          tester,
+          Builder(builder: scenario.builder),
+          'profile_edit',
+          scenario.name,
+        ),
+      );
+    }
     testWidgets(
       'editing mobile desktop',
       (tester) async => ScreenGoldenHarness.verify(

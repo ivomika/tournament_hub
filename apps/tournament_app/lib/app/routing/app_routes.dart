@@ -3,6 +3,8 @@ import 'package:go_router/go_router.dart';
 import 'package:tournament_app/domain/tournament/tournament_id.dart';
 import 'package:tournament_app/app/navigation/app_navigation_session.dart';
 import 'package:tournament_app/app/routing/registration_binding.dart';
+import 'package:tournament_app/app/routing/profile_binding.dart';
+import 'package:tournament_app/app/routing/profile_edit_binding.dart';
 import 'package:tournament_app/presentation/screens/home/home_screen.dart';
 import 'package:tournament_app/presentation/screens/home/home_screen_state.dart';
 import 'package:tournament_app/presentation/screens/profile/profile_screen.dart';
@@ -168,6 +170,14 @@ class ProfileRoute extends AppRoute with $ProfileRoute {
     final controller = session.bind(this, state.pageKey);
     final builder = session.screens.profile;
     if (builder != null) return builder(context, this, controller);
+    final profile = session.profile;
+    if (profile != null) {
+      return ProfileBinding(
+        key: state.pageKey,
+        profile: profile,
+        navigation: controller,
+      );
+    }
     return ProfileScreen(
       state: ProfileScreenState(
         name: session.profile?.profile?.name?.value ?? '',
@@ -265,6 +275,14 @@ class ProfileEditRoute extends AppRoute with $ProfileEditRoute {
     final controller = session.bind(this, state.pageKey);
     final builder = session.screens.profileEdit;
     if (builder != null) return builder(context, this, controller);
+    final profile = session.profile;
+    if (profile != null) {
+      return ProfileEditBinding(
+        key: state.pageKey,
+        profile: profile,
+        navigation: session,
+      );
+    }
     return const _UnboundRouteScreen();
   }
 }

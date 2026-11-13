@@ -14,4 +14,8 @@ class ScreenNavigationController {
   void back() {
     unawaited(navigation.submit(const BackRequestedIntent()));
   }
+
+  void editProfile() {
+    unawaited(navigation.submit(const OpenProfileEditIntent()));
+  }
 }

@@ -97,6 +97,24 @@ abstract class FoundationLocalizations {
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[Locale('ru')];
 
+  /// No description provided for @screenProfileSaving.
+  ///
+  /// In ru, this message translates to:
+  /// **'Сохраняем имя…'**
+  String get screenProfileSaving;
+
+  /// No description provided for @screenProfileNameRequired.
+  ///
+  /// In ru, this message translates to:
+  /// **'Введите имя'**
+  String get screenProfileNameRequired;
+
+  /// No description provided for @screenProfileReturnError.
+  ///
+  /// In ru, this message translates to:
+  /// **'Имя сохранено. Не удалось вернуться в профиль. Повторите попытку.'**
+  String get screenProfileReturnError;
+
   /// No description provided for @screenRegistrationTitle.
   ///
   /// In ru, this message translates to:

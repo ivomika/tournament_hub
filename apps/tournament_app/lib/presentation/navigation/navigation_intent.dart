@@ -9,6 +9,14 @@ final class OpenProfileIntent extends NavigationIntent {
   const OpenProfileIntent();
 }
 
+final class OpenProfileEditIntent extends NavigationIntent {
+  const OpenProfileEditIntent();
+}
+
+final class ProfileNameSavedIntent extends NavigationIntent {
+  const ProfileNameSavedIntent();
+}
+
 final class OpenTournamentIntent extends NavigationIntent {
   const OpenTournamentIntent(this.tournamentId);
 

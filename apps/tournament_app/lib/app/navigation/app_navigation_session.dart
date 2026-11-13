@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 import 'package:tournament_app/app/logging/app_loggers.dart';
@@ -10,6 +12,8 @@ import 'package:tournament_app/app/navigation/navigation_guard.dart';
 import 'package:tournament_app/app/navigation/navigation_decision.dart';
 import 'package:tournament_app/app/navigation/navigation_effect.dart';
 import 'package:tournament_app/app/profile/app_profile_session.dart';
+import 'package:tournament_app/presentation/screens/profile_edit/profile_edit_controller.dart';
+import 'package:tournament_app/presentation/screens/profile_edit/profile_edit_screen_state.dart';
 import 'package:tournament_app/presentation/navigation/navigation_intent.dart';
 import 'package:tournament_app/app/navigation/go_router_effect_executor.dart';
 import 'package:tournament_app/presentation/navigation/screen_navigation_controller.dart';
@@ -53,6 +57,7 @@ class AppNavigationSession {
   final _entries = <ValueKey<String>, NavigationEntryId>{};
   final _routes = <ValueKey<String>, AppRoute>{};
   final _controllers = <ValueKey<String>, ScreenNavigationController>{};
+  ProfileEditController? _editor;
 
   AppRoute get currentRoute => _currentRoute;
 
@@ -77,6 +82,7 @@ class AppNavigationSession {
         initialized: initialized,
         canPop: false,
         profileStatus: _profileStatus,
+        profileEditStatus: _editStatus,
       );
       if (!const NavigationGuard().canEnter(route, snapshot)) {
         return const Block.stop();
@@ -94,10 +100,19 @@ class AppNavigationSession {
     if (effect is PopRouteEffect) return effect.entryId == _currentEntry;
     if (effect is GoToRouteEffect) return true;
     if (coordinator.hasPendingRequests) return false;
-    return const NavigationGuard().evaluate(
+    final decision = const NavigationGuard().evaluate(
       const BackRequestedIntent(),
       readContext(),
-    ) is NavigationAllowed;
+    );
+    if (decision is NavigationAllowed &&
+        decision.effect is GoToRouteEffect &&
+        _currentRoute is ProfileEditRoute) {
+      unawaited(
+        coordinator.bindToCurrentEntry().submit(const BackRequestedIntent()),
+      );
+      return false;
+    }
+    return decision is NavigationAllowed;
   }
 
   ScreenNavigationController bind(AppRoute route, ValueKey<String> key) {
@@ -135,7 +150,27 @@ class AppNavigationSession {
     initialized: initialized,
     canPop: router.canPop(),
     profileStatus: _profileStatus,
+    profileEditStatus: _editStatus,
+    previousRoute: _previousRoute,
   );
+
+  AppRoute? get _previousRoute {
+    final matches = router.routerDelegate.currentConfiguration.matches;
+    if (matches.length < 2) return null;
+    return _routes[matches[matches.length - 2].pageKey];
+  }
+
+  NavigationProfileEditStatus get _editStatus => switch (_editor?.state.phase) {
+    ProfileEditPhase.saving => NavigationProfileEditStatus.saving,
+    ProfileEditPhase.completed => NavigationProfileEditStatus.saved,
+    _ => NavigationProfileEditStatus.idle,
+  };
+
+  void attachEditor(ProfileEditController controller) => _editor = controller;
+
+  void detachEditor(ProfileEditController controller) {
+    if (identical(_editor, controller)) _editor = null;
+  }
 
   NavigationProfileStatus get _profileStatus {
     final session = profile;

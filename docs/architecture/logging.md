@@ -7,6 +7,8 @@
 ```text
 NavigationLogger ─→ SinkLogger<NavigationLogEvent> ─→ navigationSink
 NetworkLogger    ─→ SinkLogger<NetworkLogEvent>    ─→ networkSink
+BootstrapLogger  ─→ SinkLogger<BootstrapLogEvent>  ─→ bootstrapSink
+ProfileLogger    ─→ SinkLogger<ProfileLogEvent>    ─→ profileSink
 
 AppLoggers выбирает sinks независимо.
 PrintLogSink → LogLineFormatter → print
@@ -31,7 +33,7 @@ PrintLogSink → LogLineFormatter → print
 | AppLoggers | app/logging/app_loggers.dart | Выбрать отдельные sinks и собрать typed logger каждого scope |
 | NavigationLogTrace | app/navigation/navigation_log_trace.dart | Перевести факты app-навигации в diagnostic message и typed event |
 
-Контракты domain используют только Dart SDK; зависимостей от Flutter, инфраструктуры или logging-библиотек нет. LogSink не нужен потребителю Logger: это интерфейс технического output внутри infrastructure. Все существующие consumers нового механизма — app-навигация и её сборка; прямой вызов domain ports из presentation-state по-прежнему не разрешается этим документом. Widgets не получают логгер.
+Контракты domain используют только Dart SDK; зависимостей от Flutter, инфраструктуры или logging-библиотек нет. LogSink не нужен потребителю Logger: это интерфейс технического output внутри infrastructure. Потребители — app-навигация/bootstrap и domain-сценарий изменения имени; прямой вызов domain ports из presentation-state по-прежнему не разрешается этим документом. Widgets не получают логгер.
 
 ## Типизация
 
@@ -43,9 +45,21 @@ Scope берётся из события, а не передаётся стро�
 
 Задача111 добавила BootstrapLogger = Logger<BootstrapLogEvent> и LogScope.bootstrap. AppLoggers принимает отдельный bootstrapSink (по умолчанию PrintLogSink); ранний logger позволяет диагностировать pre-app шаги до готовности приложения. Bootstrap-события не меняют направления navigation/network. Фактические lifecycle/step events описаны в [bootstrap](bootstrap.md).
 
+### Логирование изменения имени · задача114
+
+Добавлены ProfileLogger = Logger<ProfileLogEvent>, LogScope.profile и независимый profileSink в AppLoggers (по умолчанию PrintLogSink). Новые события: updateStarted, readStarted/readCompleted, writeStarted и итоговые updateSucceeded/updateRejected/updateFailed/updateCancelled. Их пишет ProfileUpdateTrace из реального domain UpdateProfileNameUseCase; widgets/controllers не получают диагностический port напрямую. Другие destinations не меняются.
+
+Каждый start получает UniqueIdentifier от общего генератора для diagnostic execution, не для замены ProfileId. Контекст содержит действие/фазу validation/reading/writing, номер попытки формы, измеренную длительность и конкретный исход. ProfileEditController увеличивает номер только для фактического save, не для duplicate submit. Retry получает новый execution ID; неизменившееся нормализованное имя заканчивается success без повторного write. Started означает запуск сценария проверки запроса, writeStarted — фактический старт repository.save.
+
+Typed validation/notFound rejection не получает фиктивный stack. Технический failure сохраняет доступную ProfileException/cause и исходный stackTrace; причина/источник/фаза и последствия вынесены в подробности. Для reading отказ означает «запись не начиналась», для writing — «подтверждения нет, фактический итог может требовать чтения», а не гарантированный rollback. Cancelled не превращается в success после позднего ответа. Сбой sink остаётся LogRejected и не отменяет реальную запись.
+
+Имя, новый ввод, ProfileId и JSON payload не записываются в message. ProfileException.toString отображает reason и тип cause; исходная cause остаётся в объекте для диагностики. Неизвестная техническая ошибка оборачивается диагностическим объектом с исходной cause и безопасным текстом типа источника, без raw exception payload. Stack trace сохраняется; внешние/удалённые adapters по R-010 по-прежнему ответственны за безопасную сериализацию чувствительных данных, а не за автоматический dump вложенных объектов.
+
+Проверки используют реальный use case и независимый profile sink: ошибка записи не даёт ложного success, cause/stack/execution сохранены, имён в сообщениях нет, LogRejected не ломает save. Эта инструментализация относится к изменению имени; полный аудит старых bootstrap/navigation/network логов по R-010 не заявляется. Persistent registration/старые пути не были массово переинструментированы.
+
 ## Независимые адаптеры
 
-Текущий запуск использует AppLoggers.console(): navigation/network/bootstrap направлены в PrintLogSink. При другой сборке sinks задаются отдельно:
+Текущий запуск использует AppLoggers.console(): navigation/network/bootstrap/profile направлены в PrintLogSink. При другой сборке sinks задаются отдельно:
 
 ```dart
 final loggers = AppLoggers(

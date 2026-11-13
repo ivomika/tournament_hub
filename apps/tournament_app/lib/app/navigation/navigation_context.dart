@@ -15,6 +15,8 @@ final class NavigationEntryId {
 
 enum NavigationProfileStatus { ready, registrationRequired }
 
+enum NavigationProfileEditStatus { idle, saving, saved }
+
 final class NavigationContext {
   const NavigationContext({
     required this.currentRoute,
@@ -23,6 +25,8 @@ final class NavigationContext {
     required this.initialized,
     required this.canPop,
     this.profileStatus = NavigationProfileStatus.ready,
+    this.profileEditStatus = NavigationProfileEditStatus.idle,
+    this.previousRoute,
   });
 
   final AppRoute currentRoute;
@@ -30,4 +34,6 @@ final class NavigationContext {
   final int revision;
   final bool initialized, canPop;
   final NavigationProfileStatus profileStatus;
+  final NavigationProfileEditStatus profileEditStatus;
+  final AppRoute? previousRoute;
 }

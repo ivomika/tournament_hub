@@ -4,6 +4,8 @@
 
 Продолжение2026-11-10: реализованы [typed results и общие push/modal adapters](navigation-interactions.md). По уточнённому scope106 завершена на общем механизме; bindings и их wiring подключаются при реализации экранов. Турнирный бизнес-флоу и общий lifecycle по-прежнему не входят в этот этап.
 
+Продолжение задачи114: подключён Profile→ProfileEdit→Profile через OpenProfileEditIntent/ProfileNameSavedIntent и реальные controllers/bindings. NavigationContext дополнен typed previousRoute и NavigationProfileEditStatus; guard блокирует уход во время save и различает возврат pop в исходный профиль и go(ProfileRoute) для прямого edit entry. Подробности и ограничения: [редактирование профиля](local-profile-registration.md#редактирование-и-инициалы--задача114). Новых маршрутов нет; реестр остаётся26.
+
 ## Реестр экранов и подключение состояния
 
 Каждый адрес имеет отдельный GoRouteData-класс. В коде app используются его constructor и generated location; presentation не получает эти классы. Строки ниже описывают только URI-границу.

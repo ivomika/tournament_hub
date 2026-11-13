@@ -55,6 +55,9 @@ import 'package:tournament_app/presentation/widgetbook/screens/bootstrap/restart
 import 'package:tournament_app/presentation/widgetbook/screens/bootstrap/cancelled/cancelled_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/screens/bootstrap/retrying/retrying_use_case.dart';
 import 'package:widgetbook/widgetbook.dart';
+import 'package:tournament_app/presentation/widgetbook/screens/profile_edit/invalid/invalid_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/screens/profile_edit/saving/saving_use_case.dart';
+import 'package:tournament_app/presentation/widgetbook/screens/profile_edit/navigation_error/navigation_error_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/screens/bootstrap/profile_unavailable/profile_unavailable_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/screens/registration/empty/empty_use_case.dart';
 import 'package:tournament_app/presentation/widgetbook/screens/registration/editing/editing_use_case.dart';
@@ -144,7 +147,13 @@ final screenCatalog = <WidgetbookNode>[
   WidgetbookComponent(name: 'Settings', useCases: [settingsDarkRussianUseCase]),
   WidgetbookComponent(
     name: 'ProfileEdit',
-    useCases: [profileEditEditingUseCase, profileEditErrorUseCase],
+    useCases: [
+      profileEditEditingUseCase,
+      profileEditInvalidUseCase,
+      profileEditSavingUseCase,
+      profileEditErrorUseCase,
+      profileEditNavigationErrorUseCase,
+    ],
   ),
   WidgetbookComponent(
     name: 'Registration',

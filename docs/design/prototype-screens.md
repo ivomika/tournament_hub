@@ -6,6 +6,8 @@
 
 ## Покрытие
 
+Дополнение114: реальные profile/edit bindings, редактирование имени и вычисляемые инициалы; statistics/empty CTA профиля временно скрыты. ProfileEdit имеет editing/error/invalid/saving/navigation-error. Mobile/desktop Windows snapshots профиля/editor обновлены; будущие statistics DTO и общий DS metric остаются. [Контракт профиля](../architecture/local-profile-registration.md#редактирование-и-инициалы--задача114).
+
 Дополнение задачи112: новый production screen `registration`, не входивший в исходные25 прототипов. Состояния empty/editing/invalid/saving/error доступны в Widgetbook, есть native mobile/desktop goldens. Bootstrap дополнен preparing-profile/profile-unavailable. Flow и хранение описаны отдельно: [локальный профиль](../architecture/local-profile-registration.md).
 
 Задачи 77–101 завершены: 25 независимых экранов, 50 scoped сценариев, 102 нативных PNG (включая два hover-снимка профиля) для Mobile 390×844 и Desktop 1440×900. Исходные 49 фигур дополнены раскрытыми правилами About. Каждый экран хранится отдельно: `lib/presentation/screens/<screen>/`; данные preview — `lib/presentation/widgetbook/screens/<screen>/`. Все сценарии доступны в папке **Screens** Widgetbook. Настоящие контролы переиспользуются из DS, а не рисуются заменителями.

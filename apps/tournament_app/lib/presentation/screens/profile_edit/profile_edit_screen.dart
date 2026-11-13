@@ -28,11 +28,13 @@ class ProfileEditScreen extends StatelessWidget {
       header: AppSectionHeader(
         title: localizations.screenEditing,
         backLabel: localizations.screenBack,
-        onBack: onBack,
+        onBack: state.busy ? null : onBack,
         action: AppHeaderAction(
           kind: AppHeaderActionKind.save,
-          label: localizations.screenSaveName,
-          onPressed: onSave,
+          label: state.busy
+              ? localizations.screenProfileSaving
+              : localizations.screenSaveName,
+          onPressed: state.busy ? null : onSave,
         ),
       ),
       form: Column(
@@ -42,12 +44,23 @@ class ProfileEditScreen extends StatelessWidget {
           AppField(
             label: localizations.screenName,
             controller: nameController,
-            onChanged: onNameChanged,
+            readOnly: state.busy,
+            onChanged: state.busy ? null : onNameChanged,
+            errorText: state.phase == ProfileEditPhase.invalidName
+                ? localizations.screenProfileNameRequired
+                : null,
           ),
           if (state.phase == ProfileEditPhase.saveError) ...[
             SizedBox(height: appearance.small),
             AppNotice(
               text: localizations.screenSaveError,
+              kind: AppNoticeKind.inlineError,
+            ),
+          ],
+          if (state.phase == ProfileEditPhase.navigationError) ...[
+            SizedBox(height: appearance.small),
+            AppNotice(
+              text: localizations.screenProfileReturnError,
               kind: AppNoticeKind.inlineError,
             ),
           ],

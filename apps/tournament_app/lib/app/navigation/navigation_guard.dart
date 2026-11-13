@@ -8,6 +8,9 @@ class NavigationGuard {
   const NavigationGuard();
 
   bool canEnter(AppRoute route, NavigationContext context) {
+    if (context.profileEditStatus == NavigationProfileEditStatus.saving) {
+      return false;
+    }
     if (route is BootstrapRoute) return true;
     if (!context.initialized) return false;
     if (context.profileStatus == NavigationProfileStatus.registrationRequired) {
@@ -25,6 +28,22 @@ class NavigationGuard {
     }
     if (context.profileStatus == NavigationProfileStatus.registrationRequired) {
       return const NavigationDenied(NavigationRejection.unavailable);
+    }
+    if (context.profileEditStatus == NavigationProfileEditStatus.saving) {
+      return const NavigationDenied(NavigationRejection.unavailable);
+    }
+    if (intent is OpenProfileEditIntent &&
+        context.currentRoute is ProfileRoute) {
+      return NavigationAllowed(
+        const PushRouteEffect(ProfileEditRoute()),
+        context.entryId,
+        context.revision,
+      );
+    }
+    if (intent is ProfileNameSavedIntent &&
+        context.currentRoute is ProfileEditRoute &&
+        context.profileEditStatus == NavigationProfileEditStatus.saved) {
+      return _returnToProfile(context);
     }
     if (intent is ProfileRegisteredIntent &&
         context.currentRoute is RegistrationRoute) {
@@ -63,6 +82,9 @@ class NavigationGuard {
       );
     }
     if (intent is BackRequestedIntent) {
+      if (context.currentRoute is ProfileEditRoute) {
+        return _returnToProfile(context);
+      }
       if (context.canPop) {
         return NavigationAllowed(
           PopRouteEffect(context.entryId),
@@ -80,5 +102,20 @@ class NavigationGuard {
       }
     }
     return const NavigationDenied(NavigationRejection.unavailable);
+  }
+
+  NavigationAllowed _returnToProfile(NavigationContext context) {
+    if (context.canPop && context.previousRoute is ProfileRoute) {
+      return NavigationAllowed(
+        PopRouteEffect(context.entryId),
+        context.entryId,
+        context.revision,
+      );
+    }
+    return NavigationAllowed(
+      const GoToRouteEffect(ProfileRoute()),
+      context.entryId,
+      context.revision,
+    );
   }
 }

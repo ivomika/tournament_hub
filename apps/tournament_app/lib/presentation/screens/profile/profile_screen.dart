@@ -8,9 +8,7 @@ import 'package:tournament_app/presentation/design_system/widgets/section_header
 import 'package:tournament_app/presentation/design_system/widgets/identity/app_identity.dart';
 import 'package:tournament_app/presentation/design_system/components/avatar/app_avatar.dart';
 import 'package:tournament_app/presentation/design_system/components/avatar/app_avatar_size.dart';
-import 'package:tournament_app/presentation/design_system/components/metric/app_metric.dart';
 import 'package:tournament_app/presentation/design_system/components/navigation_item/app_navigation_item.dart';
-import 'package:tournament_app/presentation/design_system/components/button/app_button.dart';
 import 'package:tournament_app/presentation/design_system/foundation/icons/app_glyph.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -37,15 +35,11 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final appearance = ProfileScreenTheme.of(context),
         localizations = FoundationLocalizations.of(context);
-    final statistics = state.statistics, recent = state.recent;
+    final recent = state.recent;
     final identity = Column(
       mainAxisSize: appearance.desktop ? appearance.max : appearance.min,
-      mainAxisAlignment: appearance.desktop
-          ? appearance.spaceBetween
-          : appearance.centerMain,
-      crossAxisAlignment: appearance.desktop
-          ? appearance.start
-          : appearance.centerCross,
+      mainAxisAlignment: appearance.centerMain,
+      crossAxisAlignment: appearance.centerCross,
       children: [
         AppAvatar(
           initials: state.initials,
@@ -59,28 +53,6 @@ class ProfileScreen extends StatelessWidget {
         Text(state.name, style: appearance.name),
       ],
     );
-    final achievement = statistics == null
-        ? null
-        : AppMetric(
-            value: statistics.wins,
-            label: localizations.screenWins,
-            semanticLabel: localizations.screenWins,
-            kind: AppMetricKind.achievement,
-          );
-    final tournaments = statistics == null
-        ? null
-        : AppMetric(
-            value: statistics.tournaments,
-            label: localizations.screenTournamentCount,
-            semanticLabel: localizations.screenTournamentCount,
-          );
-    final matches = statistics == null
-        ? null
-        : AppMetric(
-            value: statistics.matches,
-            label: localizations.screenMatches,
-            semanticLabel: localizations.screenMatches,
-          );
     Widget? latest;
     if (recent != null) {
       latest = ClipRRect(
@@ -143,22 +115,6 @@ class ProfileScreen extends StatelessWidget {
         ),
       );
     }
-    final empty = Column(
-      mainAxisSize: appearance.min,
-      crossAxisAlignment: appearance.start,
-      mainAxisAlignment: appearance.centerMain,
-      children: [
-        Text(localizations.screenAhead, style: appearance.heading),
-        SizedBox(height: appearance.small),
-        Text(localizations.screenAheadNote, style: appearance.muted),
-        SizedBox(height: appearance.gap),
-        AppButton(
-          label: localizations.screenCreate,
-          glyph: AppGlyph.arrow,
-          onPressed: onCreate,
-        ),
-      ],
-    );
     final settings = AppNavigationItem(
       label: localizations.screenSettings,
       glyph: AppGlyph.settings,
@@ -184,36 +140,10 @@ class ProfileScreen extends StatelessWidget {
               crossAxisAlignment: appearance.stretch,
               children: [
                 Expanded(child: AppScreenTile(child: identity)),
-                SizedBox(width: appearance.gap),
-                Expanded(
-                  flex: appearance.homePrimaryFlex,
-                  child: statistics == null
-                      ? AppScreenTile(child: empty)
-                      : Column(
-                          crossAxisAlignment: appearance.stretch,
-                          children: [
-                            Expanded(
-                              child: Row(
-                                crossAxisAlignment: appearance.stretch,
-                                children: [
-                                  Expanded(
-                                    flex: appearance.homePrimaryFlex,
-                                    child: achievement!,
-                                  ),
-                                  SizedBox(width: appearance.gap),
-                                  Expanded(child: tournaments!),
-                                  SizedBox(width: appearance.gap),
-                                  Expanded(child: matches!),
-                                ],
-                              ),
-                            ),
-                            if (latest != null) ...[
-                              SizedBox(height: appearance.gap),
-                              Expanded(child: latest),
-                            ],
-                          ],
-                        ),
-                ),
+                if (latest != null) ...[
+                  SizedBox(width: appearance.gap),
+                  Expanded(child: latest),
+                ],
               ],
             ),
           ),
@@ -240,18 +170,6 @@ class ProfileScreen extends StatelessWidget {
           children: [
             identity,
             SizedBox(height: appearance.gap),
-            if (statistics != null) ...[
-              achievement!,
-              SizedBox(height: appearance.gap),
-              Row(
-                children: [
-                  Expanded(child: tournaments!),
-                  SizedBox(width: appearance.gap),
-                  Expanded(child: matches!),
-                ],
-              ),
-            ] else
-              empty,
             if (latest != null) ...[SizedBox(height: appearance.gap), latest],
             SizedBox(height: appearance.gap),
             settings,

@@ -1,4 +1,7 @@
 {
+  "screenProfileSaving": "Сохраняем имя…",
+  "screenProfileNameRequired": "Введите имя",
+  "screenProfileReturnError": "Имя сохранено. Не удалось вернуться в профиль. Повторите попытку.",
   "screenRegistrationTitle": "Регистрация",
   "screenRegistrationIntro": "Как к вам обращаться?",
   "screenRegistrationContinue": "Продолжить",
